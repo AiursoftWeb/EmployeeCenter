@@ -18,7 +18,7 @@ public class PhysicalAssetUsage
     [NotNull]
     public PhysicalAsset? Asset { get; set; }
 
-    public required Guid UserId { get; set; }
+    public required string UserId { get; set; }
 
     [JsonIgnore]
     [ForeignKey(nameof(UserId))]

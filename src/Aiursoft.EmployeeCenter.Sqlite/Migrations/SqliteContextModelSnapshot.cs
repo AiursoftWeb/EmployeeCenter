@@ -186,6 +186,75 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.ToTable("Payrolls");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.PhysicalAsset", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("FrozenStock")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("BLOB");
+
+                    b.Property<int>("TotalStock")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UsedStock")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PhysicalAssets");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.PhysicalAssetUsage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ApplyTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("AssetId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AssignedSerialNumber")
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("ReturnTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AssetId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PhysicalAssetUsages");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.SshKey", b =>
                 {
                     b.Property<int>("Id")
@@ -305,6 +374,38 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.VirtualAsset", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AccountName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EncryptedPassword")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EncryptedTotpSecret")
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsHighRisk")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LoginUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VirtualAssets");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -474,6 +575,25 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Navigation("Owner");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.PhysicalAssetUsage", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.PhysicalAsset", "Asset")
+                        .WithMany("Usages")
+                        .HasForeignKey("AssetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Asset");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.SshKey", b =>
                 {
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "Owner")
@@ -539,6 +659,11 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Password", b =>
                 {
                     b.Navigation("PasswordShares");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.PhysicalAsset", b =>
+                {
+                    b.Navigation("Usages");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.User", b =>
