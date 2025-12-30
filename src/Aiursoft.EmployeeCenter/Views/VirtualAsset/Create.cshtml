@@ -1,0 +1,52 @@
+@model Aiursoft.EmployeeCenter.Models.VirtualAssetViewModels.CreateViewModel
+
+<div class="row mb-3">
+    <div class="col-12">
+        <h3>@Localizer["Create Virtual Asset"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="AccountName" class="form-label">@Localizer["Account Name"]</label>
+                        <input asp-for="AccountName" class="form-control" placeholder="e.g. AWS Root Account" required />
+                        <span asp-validation-for="AccountName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="LoginUrl" class="form-label">@Localizer["Login URL"]</label>
+                        <input asp-for="LoginUrl" class="form-control" placeholder="https://..." />
+                        <span asp-validation-for="LoginUrl" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">@Localizer["Password"]</label>
+                        <input asp-for="Password" class="form-control" type="text" required />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="TotpSecret" class="form-label">@Localizer["TOTP Secret (Optional)"]</label>
+                        <input asp-for="TotpSecret" class="form-control" type="text" />
+                        <div class="form-text">@Localizer["Enter the base32 secret key if MFA is required."]</div>
+                        <span asp-validation-for="TotpSecret" class="text-danger"></span>
+                    </div>
+                     <div class="mb-3">
+                        <div class="form-check">
+                            <input asp-for="IsHighRisk" class="form-check-input" type="checkbox" />
+                            <label asp-for="IsHighRisk" class="form-check-label">@Localizer["Is High Risk Asset"]</label>
+                        </div>
+                        <div class="form-text">@Localizer["Accessing high-risk assets will trigger immediate alerts."]</div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+@model Aiursoft.EmployeeCenter.Entities.PhysicalAsset
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Label - @Model.Name</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .asset-tag {
+            border: 2px solid #000;
+            padding: 20px;
+            display: inline-block;
+            width: 300px;
+        }
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background-color: #eee;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #999;
+        }
+        .asset-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .asset-id {
+            font-family: monospace;
+            color: #555;
+            margin-top: 5px;
+        }
+        @@media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="asset-tag">
+        <div class="qr-placeholder">
+            <!-- You can integrate qrcode.js here -->
+            QR Code
+        </div>
+        <div class="asset-name">@Model.Name</div>
+        <div class="asset-id">ID: @Model.Id</div>
+        <div>Stock: @Model.TotalStock</div>
+    </div>
+    
+    <div class="no-print" style="margin-top: 20px;">
+        <button onclick="window.print()">Print Label</button>
+    </div>
+    
+    <script>
+        // Optional: Auto print
+        // window.print();
+    </script>
+</body>
+</html>

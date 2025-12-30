@@ -23,5 +23,7 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
     // ================= 资产管理 =================
     public DbSet<PhysicalAsset> PhysicalAssets { get; set; }
     public DbSet<PhysicalAssetUsage> PhysicalAssetUsages { get; set; }
+    public DbSet<AssetEventLog> AssetEventLogs { get; set; }
     public DbSet<VirtualAsset> VirtualAssets { get; set; }
+    public DbSet<VirtualAssetAccessLog> VirtualAssetAccessLogs { get; set; }
 }

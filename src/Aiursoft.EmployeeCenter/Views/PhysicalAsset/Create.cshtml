@@ -1,0 +1,35 @@
+@model Aiursoft.EmployeeCenter.Models.PhysicalAssetViewModels.CreateViewModel
+
+<div class="row mb-3">
+    <div class="col-12">
+        <h3>@Localizer["Create Physical Asset"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">@Localizer["Asset Name"]</label>
+                        <input asp-for="Name" class="form-control" placeholder="e.g. MacBook Pro 2023" required />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="TotalStock" class="form-label">@Localizer["Total Stock"]</label>
+                        <input asp-for="TotalStock" class="form-control" type="number" min="0" required />
+                        <div class="form-text">@Localizer["Initial stock count. You can add more later."]</div>
+                        <span asp-validation-for="TotalStock" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

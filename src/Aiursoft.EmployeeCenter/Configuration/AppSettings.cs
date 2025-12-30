@@ -17,5 +17,10 @@ public class AppSettings
     /// <summary>
     /// Automatically assign the user to this role when they log in.
     /// </summary>
+    /// <summary>
+    /// Automatically assign the user to this role when they log in.
+    /// </summary>
     public string? DefaultRole { get; init; } = string.Empty;
+
+    public string EncryptionKey { get; init; } = "Default-Insecure-Key-Change-Me-In-Prod";
 }

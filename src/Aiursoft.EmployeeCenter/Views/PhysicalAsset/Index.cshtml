@@ -1,0 +1,172 @@
+@using Aiursoft.EmployeeCenter.Authorization
+@using Microsoft.AspNetCore.Authorization
+@using Aiursoft.EmployeeCenter.Entities
+@model Aiursoft.EmployeeCenter.Models.PhysicalAssetViewModels.IndexViewModel
+@inject IAuthorizationService AuthorizationService
+
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <h3>@Localizer["Physical Assets"]</h3>
+                <p class="text-muted">@Localizer["Manage physical inventory and your requests."]</p>
+            </div>
+            @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanViewSystemContext)).Succeeded) 
+            {
+                <div>
+                    <a asp-action="Create" class="btn btn-primary">
+                        <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New"]
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @* Section 1: My Assets / Requests *@
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["My Assets & Requests"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Asset Name"]</th>
+                            <th>@Localizer["Status"]</th>
+                            <th>@Localizer["Apply Time"]</th>
+                            <th>@Localizer["Serial Number"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.MyUsages.Any())
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">@Localizer["No active assets or requests."]</td>
+                            </tr>
+                        }
+                        @foreach (var usage in Model.MyUsages)
+                        {
+                            <tr>
+                                <td><strong>@usage.Asset?.Name</strong></td>
+                                <td>
+                                    @if (usage.Status == AssetStatus.Frozen)
+                                    {
+                                        <span class="badge bg-warning">@Localizer["Pending Approval"]</span>
+                                    }
+                                    else if (usage.Status == AssetStatus.InUse)
+                                    {
+                                        <span class="badge bg-success">@Localizer["In Use"]</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">@usage.Status</span>
+                                    }
+                                </td>
+                                <td>@usage.ApplyTime.ToLocalTime()</td>
+                                <td>@usage.AssignedSerialNumber</td>
+                                <td class="text-end">
+                                    @if (usage.Status == AssetStatus.InUse)
+                                    {
+                                        <form asp-action="Return" method="post" class="d-inline">
+                                            <input type="hidden" name="usageId" value="@usage.Id" />
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" title="@Localizer["Return"]">
+                                                <i class="align-middle" data-lucide="corner-down-left"></i> @Localizer["Return"]
+                                            </button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @* Section 2: Available Inventory *@
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Inventory"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Name"]</th>
+                            <th>@Localizer["Total"]</th>
+                            <th>@Localizer["Available"]</th> <!-- Calculated: Total - Frozen - Used -->
+                            <th class="text-end">@Localizer["Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var asset in Model.Assets)
+                        {
+                            var available = asset.TotalStock - asset.FrozenStock - asset.UsedStock;
+                            <tr>
+                                <td><strong>@asset.Name</strong></td>
+                                <td>@asset.TotalStock</td>
+                                <td>
+                                    @if (available > 0)
+                                    {
+                                        <span class="text-success">@available</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-danger">0</span>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    <div class="btn-group">
+                                        <a asp-action="Print" asp-route-id="@asset.Id" target="_blank" class="btn btn-sm btn-outline-secondary" title="@Localizer["Print Label"]">
+                                            <i class="align-middle" data-lucide="printer"></i>
+                                        </a>
+                                        @if (available > 0)
+                                        {
+                                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#applyModal-@asset.Id">
+                                                @Localizer["Apply"]
+                                            </button>
+                                            
+                                            <!-- Apply Modal -->
+                                            <div class="modal fade" id="applyModal-@asset.Id" tabindex="-1">
+                                                <div class="modal-dialog">
+                                                    <form asp-action="Apply" method="post">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">@Localizer["Apply for"] @asset.Name</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                            </div>
+                                                            <div class="modal-body text-start">
+                                                                <input type="hidden" name="assetId" value="@asset.Id" />
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">@Localizer["Remark / Reason"]</label>
+                                                                    <textarea name="remark" class="form-control" rows="3" required></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                                <button type="submit" class="btn btn-primary">@Localizer["Submit Application"]</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-sm btn-secondary" disabled>@Localizer["Out of Stock"]</button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

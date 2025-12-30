@@ -1,0 +1,140 @@
+@using Aiursoft.EmployeeCenter.Authorization
+@using Microsoft.AspNetCore.Authorization
+@model Aiursoft.EmployeeCenter.Models.VirtualAssetViewModels.IndexViewModel
+@inject IAuthorizationService AuthorizationService
+
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <h3>@Localizer["Virtual Assets"]</h3>
+                <p class="text-muted">@Localizer["Access secure shared accounts using MFA."]</p>
+            </div>
+            @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanAddGlobalPassword)).Succeeded)
+            {
+                <div>
+                    <a asp-action="Create" class="btn btn-primary">
+                        <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New"]
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Account Name"]</th>
+                            <th>@Localizer["Security Level"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var asset in Model.Assets)
+                        {
+                            <tr>
+                                <td><strong>@asset.AccountName</strong></td>
+                                <td>
+                                    @if (asset.IsHighRisk)
+                                    {
+                                        <span class="badge bg-danger">@Localizer["High Risk"]</span>
+                                        <small class="text-muted ms-1">@Localizer["Event will be alerted"]</small>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-info">@Localizer["Standard"]</span>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-primary"
+                                        onclick="requestPassword('@asset.Id', '@asset.AccountName')">
+                                        <i class="align-middle" data-lucide="key"></i> @Localizer["View Password"]
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MFA Modal -->
+<div class="modal fade" id="mfaModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@Localizer["Security Verification"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>@Localizer["Enter your TOTP code to access"] <strong id="mfaAssetName"></strong>.</p>
+                <div class="form-group">
+                    <label>TOTP Code</label>
+                    <input type="text" id="totpInput" class="form-control" placeholder="000000" maxlength="6" />
+                    <input type="hidden" id="mfaAssetId" />
+                </div>
+                <div id="mfaError" class="text-danger mt-2" style="display:none;"></div>
+                <div id="passwordResult" class="alert alert-success mt-3" style="display:none; word-break: break-all;">
+                    <strong>Password:</strong> <span id="passwordValue"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Close"]</button>
+                <button type="button" class="btn btn-primary" onclick="submitMfa()">@Localizer["Verify"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function requestPassword(id, name) {
+        document.getElementById('mfaAssetId').value = id;
+        document.getElementById('mfaAssetName').innerText = name;
+        document.getElementById('totpInput').value = '';
+        document.getElementById('mfaError').style.display = 'none';
+        document.getElementById('passwordResult').style.display = 'none';
+
+        var modal = new bootstrap.Modal(document.getElementById('mfaModal'));
+        modal.show();
+    }
+
+    async function submitMfa() {
+        const id = document.getElementById('mfaAssetId').value;
+        const code = document.getElementById('totpInput').value;
+
+        const formData = new FormData();
+        formData.append('assetId', id);
+        formData.append('totpCode', code);
+        const antiforgery = document.querySelector('input[name="__RequestVerificationToken"]');
+        if (antiforgery) {
+            formData.append('__RequestVerificationToken', antiforgery.value);
+        }
+
+        try {
+            const response = await fetch('@Url.Action("ViewPassword", "VirtualAsset")', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                document.getElementById('passwordResult').style.display = 'block';
+                document.getElementById('passwordValue').innerText = result.password;
+                document.getElementById('mfaError').style.display = 'none';
+            } else {
+                document.getElementById('mfaError').innerText = result.message || 'Verification failed';
+                document.getElementById('mfaError').style.display = 'block';
+            }
+        } catch (e) {
+            document.getElementById('mfaError').innerText = 'Network error';
+            document.getElementById('mfaError').style.display = 'block';
+        }
+    }
+</script>
