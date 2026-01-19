@@ -1,249 +1,288 @@
-@using Aiursoft.EmployeeCenter.Services
-@model Aiursoft.EmployeeCenter.Models.DashboardViewModels.IndexViewModel
-@{
-    ViewData["Title"] = Localizer["Onboarding Wizard"];
-    
-    var tasks = Model.Tasks.OrderBy(t => t.Order).ToList();
-    var logs = Model.Logs;
-    
-    int firstIncompleteIndex = 0;
-    bool foundIncomplete = false;
-    bool anyInProgress = false;
+<div class="text-center mt-5">
+    <h1 class="display-4">@Localizer["Hello World!"]</h1>
+    <p>@Localizer["This is a template project, where we start the voyager..."]</p>
+</div>
 
-    // Find the first incomplete task index
-    for (int i = 0; i < tasks.Count; i++)
-    {
-        var t = tasks[i];
-        var isCompleted = logs.Any(l => l.TaskId == t.Id && l.CompletionTime != null);
-        var isInProgress = logs.Any(l => l.TaskId == t.Id && l.CompletionTime == null);
-
-        if (isInProgress) anyInProgress = true;
-
-        if (!isCompleted && !foundIncomplete)
-        {
-            firstIncompleteIndex = i;
-            foundIncomplete = true;
-        }
-    }
-    
-    var allCompleted = tasks.Any() && !foundIncomplete;
-}
-
-<div class="container-fluid p-0">
-    <h1 class="h3 mb-3">@Localizer["Employee Onboarding"]</h1>
-    
-    @if (allCompleted)
-    {
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div class="alert-message">
-                <h4 class="alert-heading">@Localizer["Congratulations!"]</h4>
-                <p class="mb-0">
-                    @Localizer["You have completed all onboarding tasks. You are now a fully qualified official employee!"]
-                </p>
-            </div>
+<div class="container-fluid p-5">
+    <div class="row mb-2 mb-xl-3">
+        <div class="col-auto d-none d-sm-block">
+            <h3>@Localizer["Welcome"]</h3>
         </div>
-    }
+
+        <div class="col-auto ms-auto text-end mt-n1">
+            <a href="https://template-docs.aiursoft.com/Tutorial/before.html" class="btn btn-primary me-2 shadow-sm" target="_blank">
+                <i class="align-middle" data-lucide="rocket"></i> @Localizer["Start a new project"]
+            </a>
+            <a href="https://template-docs.aiursoft.com/" class="btn btn-outline-primary shadow-sm" target="_blank">
+                <i class="align-middle" data-lucide="book"></i> @Localizer["Read the document"]
+            </a>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-12">
-            <div id="smartwizard-onboarding" class="wizard wizard-primary mb-4">
-                <ul class="nav">
-                    @for (int i = 0; i < tasks.Count; i++)
-                    {
-                        var task = tasks[i];
-                        <li class="nav-item">
-                            <a class="nav-link" href="#step-@task.Id">
-                                @task.Title
-                                <br />
-                                <small>@Localizer["Step"] @(i + 1)</small>
-                            </a>
-                        </li>
-                    }
-                    @if (tasks.Any())
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" href="#step-completed">
-                                @Localizer["Completed"]
-                                <br />
-                                <small>@Localizer["Step"] @(tasks.Count + 1)</small>
-                            </a>
-                        </li>
-                    }
-                </ul>
-
-                <div class="tab-content">
-                    @foreach (var task in tasks)
-                    {
-                        var log = logs.FirstOrDefault(l => l.TaskId == task.Id && l.CompletionTime == null);
-                        var completedLog = logs.FirstOrDefault(l => l.TaskId == task.Id && l.CompletionTime != null);
-                        var isCompleted = completedLog != null;
-                        var isInProgress = log != null;
-                        
-                        <div id="step-@task.Id" class="tab-pane" role="tabpanel">
-                            <h3>@task.Title</h3>
-                            <div class="mb-3">
-                                @MarkdownService.RenderMarkdown(task.Description)
-                            </div>
-                            
-                            <hr />
-
-                            @if (isCompleted)
-                            {
-                                <div class="alert alert-success" role="alert">
-                                    <div class="alert-icon">
-                                        <i class="align-middle" data-lucide="check-circle"></i>
-                                    </div>
-                                    <div class="alert-message">
-                                        @Localizer["Completed at"] <label class="text-muted" data-utc-time="@completedLog!.CompletionTime?.ToHtmlDateTime()"></label>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Why use the Aiursoft Template?"]</h5>
+                    <p class="mb-0 text-muted mt-2">@Localizer["A modern, feature-rich, and highly extensible foundation for your next web application."]</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="database"></i>
                                     </div>
                                 </div>
-                            }
-                            else if (isInProgress)
-                            {
-                                var secondsSinceStart = (DateTime.UtcNow - log!.StartTime).TotalSeconds;
-                                var canComplete = secondsSinceStart >= 30;
-                                var remaining = Math.Max(0, 30 - secondsSinceStart);
-
-                                <div class="alert alert-info" role="alert">
-                                    <div class="alert-icon">
-                                        <i class="align-middle" data-lucide="loader"></i>
-                                    </div>
-                                    <div class="alert-message">
-                                        @Localizer["Task in progress..."]
-                                    </div>
-                                </div>
-
-                                <div class="d-flex align-items-center gap-2">
-                                     @if (canComplete)
-                                    {
-                                        <form asp-controller="Onboarding" asp-action="CompleteTask" asp-route-id="@task.Id" method="post">
-                                            <button type="submit" class="btn btn-success">
-                                                <i class="align-middle me-1" data-lucide="check"></i> @Localizer["I have completed"]
-                                            </button>
-                                        </form>
-                                    }
-                                    else
-                                    {
-                                         <button class="btn btn-primary" disabled>
-                                            <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
-                                            @Localizer["Processing..."] <span class="countdown-timer" data-seconds="@((int)remaining)">@((int)remaining)</span>s
-                                        </button>
-                                        <small class="text-muted">@Localizer["Please wait..."]</small>
-                                    }
-                                    <a href="@task.StartLink" target="_blank" class="btn btn-outline-primary ms-2">
-                                        <i class="align-middle me-1" data-lucide="external-link"></i>
-                                        @Localizer["Open Task Link"]
-                                    </a>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="alert alert-warning" role="alert">
-                                    <div class="alert-icon">
-                                        <i class="align-middle" data-lucide="alert-circle"></i>
-                                    </div>
-                                    <div class="alert-message">
-                                        @Localizer["This task is pending."]
-                                    </div>
-                                </div>
-                                
-                                <div class="d-flex align-items-center gap-2">
-                                    <div class="text-muted small">@Localizer["Expected duration"]: @TimeSpan.FromSeconds(task.ExpectedDurationSeconds).ToString(@"hh\:mm\:ss")</div>
-                                </div>
-                                <div class="mt-2">
-                                    <form asp-controller="Onboarding" asp-action="StartTask" asp-route-id="@task.Id" method="post" target="_blank">
-                                        <button type="submit" class="btn btn-warning px-4 fw-bold">
-                                            <i class="align-middle me-1" data-lucide="play"></i> @Localizer["Start Task"]
-                                        </button>
-                                    </form>
-                                </div>
-                            }
-                        </div>
-                    }
-                    @if (tasks.Any())
-                    {
-                        <div id="step-completed" class="tab-pane" role="tabpanel">
-                            <div class="text-center py-5">
-                                <div class="mb-4">
-                                    <i class="align-middle text-success" data-lucide="award" style="width: 100px; height: 100px;"></i>
-                                </div>
-                                <h2 class="display-5 fw-bold mb-3">@Localizer["Congratulations!"]</h2>
-                                <p class="lead mb-4">
-                                    @Localizer["All tasks completed! You are now a fully qualified employee!"]
-                                </p>
-                                <div class="card bg-light border-0 shadow-sm mx-auto" style="max-width: 600px;">
-                                    <div class="card-body p-5">
-                                        <div class="mb-4">
-                                            <img src="~/logo.svg" alt="Aiursoft" style="height: 40px;" />
-                                        </div>
-                                        <h3 class="card-title">@Localizer["Certificate"]</h3>
-                                        <hr />
-                                        <p class="fs-4 mb-4">@(Model.User.LegalName ?? Model.User.DisplayName)</p>
-                                        <p class="text-muted">
-                                            @Localizer["Wish your career takes off at Aiursoft!"]
-                                        </p>
-                                        <div class="mt-4">
-                                            <small class="text-muted" data-utc-time="@DateTime.UtcNow.ToHtmlDateTime()"></small>
-                                        </div>
-                                    </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Multiple Database Provider Support"]</h5>
+                                    <p>@Localizer["Easily switch between database providers, including SQLite, MySQL, SQL Server, and an in-memory database for testing."]</p>
                                 </div>
                             </div>
                         </div>
-                    }
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="key-round"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["OpenID Connect Integration"]</h5>
+                                    <p>@Localizer["Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="shield-check"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["RBAC Authorization"]</h5>
+                                    <p>@Localizer["A built-in Role-Based Access Control (RBAC) system for fine-grained permission management."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="navigation"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Dynamic Navigation Bar"]</h5>
+                                    <p>@Localizer["The navigation bar automatically adjusts based on user roles and permissions."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="check-circle-2"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Consistency Validation"]</h5>
+                                    <p>@Localizer["Models are validated on both client and server sides based on data annotations."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="languages"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["AI-Powered Translations"]</h5>
+                                    <p>@Localizer["Automatic, AI-driven translation into 28 languages."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="book-open-text"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Comprehensive Documentation"]</h5>
+                                    <p>@Localizer["Includes extensive documentation and practical examples to get you started quickly."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="user-cog"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Built-in User Management"]</h5>
+                                    <p>@Localizer["A complete solution for user authentication and profile management."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="zap"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Automatic Dependency Injection"]</h5>
+                                    <p>@Localizer["All dependencies are automatically registered and always available via constructor injection."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="folder-archive"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Integrated File Management"]</h5>
+                                    <p>@Localizer["Features a built-in file management system with automatic avatar compression and privacy protection."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="airplay"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Responsive Design"]</h5>
+                                    <p>@Localizer["A fully responsive layout that looks great on both desktop and mobile devices."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="moon"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Automatic Dark Mode"]</h5>
+                                    <p>@Localizer["Smart dark mode that adapts to the user's system settings."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="ship"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Dockerized for Easy Deployment"]</h5>
+                                    <p>@Localizer["Comes with Docker support for simplified and consistent deployments."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="test-tube-2"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Robust Integration Testing"]</h5>
+                                    <p>@Localizer["Effortlessly write integration tests using in-memory databases, temporary file systems, built-in mocking, and real-world HTTP request simulation."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="globe"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Automatic Time Zone Handling"]</h5>
+                                    <p>@Localizer["Develop exclusively in UTC while the system automatically converts and displays dates in the user's local time zone."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="cpu"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Background Job Processing"]</h5>
+                                    <p>@Localizer["\"Fire-and-forget\" support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="calendar-clock"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Scheduled Task Management"]</h5>
+                                    <p>@Localizer["Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs."]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="d-flex align-items-start py-3">
+                                <div class="d-inline-block me-3">
+                                    <div class="stat">
+                                        <i class="align-middle" data-lucide="settings-2"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mt-0">@Localizer["Smart Configuration Overrides"]</h5>
+                                    <p>@Localizer["Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides."]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Initialize SmartWizard
-        $("#smartwizard-onboarding").smartWizard({
-            theme: "arrows",
-            showStepURLhash: false,
-            // Select the first incomplete step
-            selected: @(allCompleted ? tasks.Count : firstIncompleteIndex),
-            toolbarSettings: {
-                showNextButton: false, 
-                showPreviousButton: false
-            },
-            anchorSettings: {
-                enableAllAnchors: false,
-                markDoneStep: true,
-                markAllPreviousStepsAsDone: true,
-                removeDoneStepOnNavigateBack: false,
-                enableAnchorOnDoneStep: true
-            }
-        });
-        
-        // Handle countdown timers
-        var timers = document.querySelectorAll('.countdown-timer');
-        if (timers.length > 0) {
-            timers.forEach(function(timer) {
-                var seconds = parseInt(timer.getAttribute('data-seconds'));
-                var interval = setInterval(function() {
-                    seconds--;
-                    if (seconds <= 0) {
-                        clearInterval(interval);
-                        timer.innerText = "0";
-                        window.location.reload(); // Reload when timer hits 0 to show Complete button
-                    } else {
-                        timer.innerText = seconds;
-                    }
-                }, 1000);
-            });
-        } 
-        
-        // Auto-refresh fallback for 'In Progress' tasks just in case
-        @if (anyInProgress)
-        {
-            <text>
-            setTimeout(function() {
-                window.location.reload();
-            }, 35000); 
-            </text>
-        }
-    });
-</script>
+</div>

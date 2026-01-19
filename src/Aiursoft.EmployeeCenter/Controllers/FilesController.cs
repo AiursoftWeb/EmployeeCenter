@@ -16,10 +16,32 @@ public class FilesController(
     ILogger<FilesController> logger,
     StorageService storage) : ControllerBase
 {
-    [Route("upload/{subfolder}")]
-    public async Task<IActionResult> Index(
-        [FromRoute][ValidDomainName] string subfolder,
-        [FromQuery] bool useVault = false)
+    [HttpPost]
+    [Route("upload/{**subfolder}")]
+    [DisableRequestSizeLimit]
+    [RequestFormLimits(MultipartBodyLengthLimit = long.MaxValue, ValueLengthLimit = int.MaxValue)]
+    public async Task<IActionResult> Upload(
+        [FromRoute] string subfolder)
+    {
+        return await ProcessUpload(subfolder, isVault: false);
+    }
+
+    [HttpPost]
+    [Route("upload-private/{**subfolder}")]
+    [DisableRequestSizeLimit]
+    [RequestFormLimits(MultipartBodyLengthLimit = long.MaxValue, ValueLengthLimit = int.MaxValue)]
+    public async Task<IActionResult> UploadPrivate(
+        [FromRoute] string subfolder,
+        [FromQuery] string token)
+    {
+        if (!storage.ValidateToken(subfolder, token, FilePermission.Upload))
+        {
+            return Unauthorized("Invalid or expired token.");
+        }
+        return await ProcessUpload(subfolder, isVault: true);
+    }
+
+    private async Task<IActionResult> ProcessUpload(string subfolder, bool isVault)
     {
         if (!ModelState.IsValid)
         {
@@ -49,17 +71,14 @@ public class FilesController(
 
         var storePath = Path.Combine(
             subfolder,
-            DateTime.UtcNow.Year.ToString("D4"),
-            DateTime.UtcNow.Month.ToString("D2"),
-            DateTime.UtcNow.Day.ToString("D2"),
             file.FileName);
-        
+
         // Save returns the logical path (e.g. avatar/2026/01/14/logo.png)
-        var relativePath = await storage.Save(storePath, file, useVault);
+        var relativePath = await storage.Save(storePath, file, isVault);
         return Ok(new
         {
             Path = relativePath,
-            InternetPath = storage.RelativePathToInternetUrl(relativePath, HttpContext, useVault)
+            InternetPath = storage.RelativePathToInternetUrl(relativePath, HttpContext, isVault)
         });
     }
 
@@ -72,7 +91,7 @@ public class FilesController(
     [Route("download-private/{**folderNames}")]
     public async Task<IActionResult> DownloadPrivate([FromRoute] string folderNames, [FromQuery] string token)
     {
-        if (!storage.ValidateDownloadToken(folderNames, token))
+        if (!storage.ValidateToken(folderNames, token, requiredPermission: FilePermission.Download))
         {
             return Unauthorized("Invalid or expired token.");
         }
@@ -98,7 +117,7 @@ public class FilesController(
         {
             return BadRequest("Attempted to access a restricted path.");
         }
-        
+
         if (!System.IO.File.Exists(physicalPath))
         {
             return NotFound();

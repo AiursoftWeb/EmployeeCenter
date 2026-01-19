@@ -10,9 +10,9 @@ public static class AppPermissionNames
     public const string CanDeleteUsers = nameof(CanDeleteUsers);
     public const string CanAddUsers = nameof(CanAddUsers);
     public const string CanEditAndViewDetailsOfUsers = nameof(CanEditAndViewDetailsOfUsers);
-    public const string CanViewUserOperationLog = nameof(CanViewUserOperationLog);
     public const string CanEditUsers = nameof(CanEditUsers);
     public const string CanAssignRoleToUser = nameof(CanAssignRoleToUser);
+    public const string CanViewUserOperationLog = nameof(CanViewUserOperationLog);
 
     // Role Management
     public const string CanReadRoles = nameof(CanReadRoles);
@@ -20,7 +20,14 @@ public static class AppPermissionNames
     public const string CanAddRoles = nameof(CanAddRoles);
     public const string CanEditRoles = nameof(CanEditRoles);
 
+    // Permission Management
+    public const string CanReadPermissions = nameof(CanReadPermissions);
+
     // System Management
+    public const string CanViewSystemContext = nameof(CanViewSystemContext);
+    public const string CanRebootThisApp = nameof(CanRebootThisApp);
+    public const string CanViewBackgroundJobs = nameof(CanViewBackgroundJobs);
+    public const string CanManageGlobalSettings = nameof(CanManageGlobalSettings);
 
     // Payroll Management
     public const string CanManagePayroll = nameof(CanManagePayroll);
@@ -61,13 +68,5 @@ public static class AppPermissionNames
     // Feedback Management (Employee Signals)
     public const string CanSubmitFeedback = nameof(CanSubmitFeedback);
     public const string CanManageFeedback = nameof(CanManageFeedback);
-
-    // Permission Management
-    public const string CanReadPermissions = nameof(CanReadPermissions);
-
-    // System Management
-    public const string CanViewSystemContext = nameof(CanViewSystemContext);
-    public const string CanRebootThisApp = nameof(CanRebootThisApp);
-    public const string CanViewBackgroundJobs = nameof(CanViewBackgroundJobs);
-    public const string CanManageGlobalSettings = nameof(CanManageGlobalSettings);
 }
+

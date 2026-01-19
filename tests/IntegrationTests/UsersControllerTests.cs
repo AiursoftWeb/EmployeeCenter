@@ -1,3 +1,5 @@
+using System.Net;
+using Aiursoft.EmployeeCenter.Entities;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -70,46 +72,6 @@ public class UsersControllerTests : TestBase
             { "id", userId }
         });
         AssertRedirect(deleteResponse, "/Users");
-    }
-
-    [TestMethod]
-    public async Task TestUserPromotionViaEdit()
-    {
-        await LoginAsAdmin();
-
-        // 1. Create a user
-        var userName = "promo-user-" + Guid.NewGuid();
-        var email = userName + "@aiursoft.com";
-        var createResponse = await PostForm("/Users/Create", new Dictionary<string, string>
-        {
-            { "UserName", userName },
-            { "DisplayName", "Promo User" },
-            { "Email", email },
-            { "Password", "TestPassword123" },
-            { "JobLevel", "L1" },
-            { "Title", "Junior" }
-        });
-        var userId = createResponse.Headers.Location?.OriginalString.Split("/").Last();
-
-        // 2. Edit user to update job level
-        await PostForm($"/Users/Edit/{userId}", new Dictionary<string, string>
-        {
-            { "Id", userId! },
-            { "UserName", userName },
-            { "Email", email },
-            { "DisplayName", "Promo User" },
-            { "JobLevel", "L2" },
-            { "Title", "Senior" },
-            { "AvatarUrl", User.DefaultAvatarPath }
-        });
-
-        // 3. Verify promotion history
-        var indexResponse = await Http.GetAsync("/PromotionHistory");
-        indexResponse.EnsureSuccessStatusCode();
-        var indexHtml = await indexResponse.Content.ReadAsStringAsync();
-        Assert.Contains("Promo User", indexHtml);
-        Assert.Contains("L1", indexHtml);
-        Assert.Contains("L2", indexHtml);
     }
 
     [TestMethod]

@@ -62,57 +62,9 @@
                     <span asp-validation-for="Password" class="text-danger"></span>
                     <small class="form-text text-muted">@Localizer["Leave blank if you don't want to change the password."]</small>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label asp-for="JobLevel" class="form-label">@Localizer["Job Level"]</label>
-                    <input asp-for="JobLevel" class="form-control" />
-                    <span asp-validation-for="JobLevel" class="text-danger"></span>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label asp-for="Title" class="form-label">@Localizer["Title"]</label>
-                    <input asp-for="Title" class="form-control" />
-                    <span asp-validation-for="Title" class="text-danger"></span>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label asp-for="LegalName" class="form-label">@Localizer["Legal Name"]</label>
-                    <input asp-for="LegalName" class="form-control" />
-                    <span asp-validation-for="LegalName" class="text-danger"></span>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label asp-for="PhoneNumber" class="form-label">@Localizer["Phone Number"]</label>
-                    <input asp-for="PhoneNumber" class="form-control" />
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                </div>
-                <div class="col-md-12 mb-3">
-                    <label asp-for="CreationTime" class="form-label">@Localizer["Creation Time"]</label>
-                    <input asp-for="CreationTime" class="form-control" type="datetime-local" value="@Model.CreationTime.ToString("yyyy-MM-ddTHH:mm")" />
-                    <span asp-validation-for="CreationTime" class="text-danger"></span>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label asp-for="BaseSalary" class="form-label">@Localizer["Base Salary"]</label>
-                    <input asp-for="BaseSalary" class="form-control" />
-                    <span asp-validation-for="BaseSalary" class="text-danger"></span>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label asp-for="BankName" class="form-label">@Localizer["Bank Name"]</label>
-                    <input asp-for="BankName" class="form-control" />
-                    <span asp-validation-for="BankName" class="text-danger"></span>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label asp-for="BankAccount" class="form-label">@Localizer["Bank Account"]</label>
-                    <input asp-for="BankAccount" class="form-control" />
-                    <span asp-validation-for="BankAccount" class="text-danger"></span>
-                </div>
-                <div class="col-12 mb-3">
-                    <label asp-for="BankAccountName" class="form-label">@Localizer["Bank Account Name"]</label>
-                    <input asp-for="BankAccountName" class="form-control" />
-                    <span asp-validation-for="BankAccountName" class="text-danger"></span>
-                </div>
-                <div class="col-12 mb-3">
-                    <partial name="_UserSelector" model='("ManagerId", "ManagerDisplayName", Model.ManagerId, Model.ManagerDisplayName)' />
-                </div>
                 <div class="mb-3">
                     <label asp-for="AvatarUrl" class="form-label">@Localizer["New avatar file"]</label>
-                    <vc:file-upload asp-for="@Model.AvatarUrl" upload-endpoint="/upload/avatar" allowed-extensions="png bmp jpg" max-size-in-mb="10"></vc:file-upload>
+                    <vc:file-upload asp-for="@Model.AvatarUrl" subfolder="avatar" allowed-extensions="png bmp jpg" max-size-in-mb="10"></vc:file-upload>
                     <span asp-validation-for="AvatarUrl" class="text-danger"></span>
                 </div>
             </div>

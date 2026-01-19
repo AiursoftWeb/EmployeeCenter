@@ -1,3 +1,4 @@
+using System.Net;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -9,7 +10,7 @@ public class CultureControllerTests : TestBase
     {
         var url = "/Culture/Set?culture=en&returnUrl=/";
         var response = await Http.GetAsync(url);
-
+        
         // Assert
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
     }

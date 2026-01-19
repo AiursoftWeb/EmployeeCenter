@@ -9,7 +9,17 @@ public class ErrorViewModel: UiStackLayoutViewModel
         PageTitle = "Error";
     }
 
+<<<<<<< HEAD
     public required string RequestId { get; set; }
 
     public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+=======
+    public int ErrorCode { get; set; } = 500;
+
+    public required string RequestId { get; set; }
+
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+    public string? ReturnUrl { get; set; }
+>>>>>>> template-upgrade-layer
 }

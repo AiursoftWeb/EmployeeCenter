@@ -19,3 +19,4 @@ public class InMemorySupportedDb : SupportedDatabaseType<EmployeeCenterDbContext
         return serviceProvider.GetRequiredService<InMemoryContext>();
     }
 }
+

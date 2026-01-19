@@ -24,3 +24,4 @@ public class AppSettings
     /// </summary>
     public string? DefaultRole { get; init; } = string.Empty;
 }
+

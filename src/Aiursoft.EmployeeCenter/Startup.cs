@@ -72,7 +72,8 @@ public class Startup : IWebStartup
 
     public void Configure(WebApplication app)
     {
-        app.UseExceptionHandler("/Error/Error");
+        app.UseExceptionHandler("/Error/Code500");
+        app.UseStatusCodePagesWithReExecute("/Error/Code{0}");
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthentication();
@@ -80,3 +81,4 @@ public class Startup : IWebStartup
         app.MapDefaultControllerRoute();
     }
 }
+

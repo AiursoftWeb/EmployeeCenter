@@ -122,7 +122,6 @@ public class AccountController(
                 UserName = model.Email!.Split('@')[0],
                 DisplayName = model.Email!.Split('@')[0],
                 Email = model.Email,
-                AvatarRelativePath = Aiursoft.EmployeeCenter.Entities.User.DefaultAvatarPath
             };
             var result = await userManager.CreateAsync(user, model.Password!);
             if (result.Succeeded)

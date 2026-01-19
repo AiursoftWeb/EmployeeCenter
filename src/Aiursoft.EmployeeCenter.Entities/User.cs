@@ -16,7 +16,7 @@ public class User : IdentityUser
     [MinLength(2)]
     public required string AvatarRelativePath { get; set; } = DefaultAvatarPath;
 
-    public DateTime CreationTime { get; set; } = DateTime.UtcNow;
+    public DateTime CreationTime { get; init; } = DateTime.UtcNow;
 
     /// <summary>
     /// The job level of this user. (职级)

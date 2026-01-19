@@ -1,3 +1,4 @@
+using System.Net;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 

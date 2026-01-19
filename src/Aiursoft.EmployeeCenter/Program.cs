@@ -17,3 +17,4 @@ public abstract class Program
         await app.RunAsync();
     }
 }
+

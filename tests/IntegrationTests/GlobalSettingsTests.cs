@@ -1,3 +1,4 @@
+using System.Net;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
 
@@ -6,6 +7,45 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class GlobalSettingsTests : TestBase
 {
+    [TestMethod]
+    public async Task TestAllowUserAdjustNicknameSetting()
+    {
+        // 1. Login as admin
+        await LoginAsAdmin();
+
+        // 2. Disable Allow_User_Adjust_Nickname
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            await settingsService.UpdateSettingAsync(SettingsMap.AllowUserAdjustNickname, "False");
+        }
+
+        // 3. Verify that the "Change your profile" link is NOT visible on Manage/Index
+        var manageIndexResponse = await Http.GetAsync("/Manage/Index");
+        var manageIndexHtml = await manageIndexResponse.Content.ReadAsStringAsync();
+        Assert.DoesNotContain("Change your profile", manageIndexHtml);
+
+        // 4. Verify that accessing /Manage/ChangeProfile directly returns BadRequest
+        var changeProfileResponse = await Http.GetAsync("/Manage/ChangeProfile");
+        Assert.AreEqual(HttpStatusCode.BadRequest, changeProfileResponse.StatusCode);
+
+        // 5. Enable Allow_User_Adjust_Nickname
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            await settingsService.UpdateSettingAsync(SettingsMap.AllowUserAdjustNickname, "True");
+        }
+
+        // 6. Verify that the "Change your profile" link IS visible on Manage/Index
+        manageIndexResponse = await Http.GetAsync("/Manage/Index");
+        manageIndexHtml = await manageIndexResponse.Content.ReadAsStringAsync();
+        Assert.Contains("Change your profile", manageIndexHtml);
+
+        // 7. Verify that accessing /Manage/ChangeProfile directly returns OK
+        changeProfileResponse = await Http.GetAsync("/Manage/ChangeProfile");
+        Assert.AreEqual(HttpStatusCode.OK, changeProfileResponse.StatusCode);
+    }
+
     [TestMethod]
     public async Task TestAdminManageSettings()
     {

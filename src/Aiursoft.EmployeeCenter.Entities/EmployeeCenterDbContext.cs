@@ -45,3 +45,4 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     public virtual Task<bool> CanConnectAsync() =>
         Database.CanConnectAsync();
 }
+

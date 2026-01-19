@@ -40,6 +40,12 @@ public class AppPermissions
             new(AppPermissionNames.CanEditUsers,
                 localizer["Edit User Information"],
                     localizer["Allows modification of user details like email and roles, and can also reset user passwords."]),
+            new(AppPermissionNames.CanAssignRoleToUser,
+                localizer["Assign Roles to Users"],
+                localizer["Allows assigning or removing roles for any user."]),
+            new(AppPermissionNames.CanViewUserOperationLog,
+                localizer["View User Operation Log"],
+                localizer["Allows viewing the operation logs of any user, including their bank card change history."]),
             new(AppPermissionNames.CanReadRoles,
                 localizer["Read Roles"],
                     localizer["Allows viewing the list of roles and their assigned permissions."]),
@@ -52,12 +58,6 @@ public class AppPermissions
             new(AppPermissionNames.CanEditRoles,
                 localizer["Edit Role Information"],
                 localizer["Allows modification of role names and their assigned permissions."]),
-            new(AppPermissionNames.CanAssignRoleToUser,
-                localizer["Assign Roles to Users"],
-                localizer["Allows assigning or removing roles for any user."]),
-            new(AppPermissionNames.CanViewUserOperationLog,
-                localizer["View User Operation Log"],
-                localizer["Allows viewing the operation logs of any user, including their bank card change history."]),
             new(AppPermissionNames.CanReadPermissions,
                 localizer["Read Permissions"],
                 localizer["Allows viewing the list of all permissions and their assignments to roles and users."]),
@@ -67,6 +67,12 @@ public class AppPermissions
             new(AppPermissionNames.CanRebootThisApp,
                 localizer["Reboot This App"],
                 localizer["Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded."]),
+            new(AppPermissionNames.CanViewBackgroundJobs,
+                localizer["View Background Jobs"],
+                localizer["Allows viewing the background job dashboard and managing jobs."]),
+            new(AppPermissionNames.CanManageGlobalSettings,
+                localizer["Manage Global Settings"],
+                localizer["Allows viewing and modifying global application settings."]),
             new(AppPermissionNames.CanManagePayroll,
                 localizer["Manage Payroll"],
                 localizer["Allows issuing and managing payroll slips for all users."]),
@@ -114,14 +120,9 @@ public class AppPermissions
                 localizer["Allows the user to fill out and submit feedback questionnaires."]),
             new(AppPermissionNames.CanManageFeedback,
                 localizer["Manage Feedback"],
-                localizer["Allows creating questions, questionnaires, and viewing feedback responses."]),
-            new(AppPermissionNames.CanViewBackgroundJobs,
-                localizer["View Background Jobs"],
-                localizer["Allows viewing the background job dashboard and managing jobs."]),
-            new(AppPermissionNames.CanManageGlobalSettings,
-                localizer["Manage Global Settings"],
-                localizer["Allows viewing and modifying global application settings."])
+                localizer["Allows creating questions, questionnaires, and viewing feedback responses."])
         ];
         return allPermission;
     }
 }
+

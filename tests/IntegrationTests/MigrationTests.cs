@@ -1,5 +1,6 @@
 using Aiursoft.EmployeeCenter.MySql;
 using Aiursoft.EmployeeCenter.Sqlite;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 

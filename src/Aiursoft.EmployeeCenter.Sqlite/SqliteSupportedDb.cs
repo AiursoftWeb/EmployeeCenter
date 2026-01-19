@@ -24,3 +24,4 @@ public class SqliteSupportedDb(bool allowCache, bool splitQuery) : SupportedData
         return serviceProvider.GetRequiredService<SqliteContext>();
     }
 }
+

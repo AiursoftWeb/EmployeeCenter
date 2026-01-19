@@ -24,3 +24,4 @@ public class MySqlSupportedDb(bool allowCache, bool splitQuery) : SupportedDatab
         return serviceProvider.GetRequiredService<MySqlContext>();
     }
 }
+

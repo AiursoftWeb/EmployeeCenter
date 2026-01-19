@@ -13,3 +13,4 @@ public class SqliteContext(DbContextOptions<SqliteContext> options) : EmployeeCe
         return Task.FromResult(true);
     }
 }
+

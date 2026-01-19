@@ -1,6 +1,6 @@
 @using Aiursoft.EmployeeCenter.Authorization
-@using Aiursoft.EmployeeCenter.Entities
 @using Aiursoft.EmployeeCenter.Services.FileStorage
+@using Aiursoft.WebTools
 @using Microsoft.Extensions.Localization
 @model Aiursoft.EmployeeCenter.Models.UsersViewModels.DetailsViewModel
 @inject IStringLocalizer<AppPermissions> PermissionLocalizer
@@ -11,15 +11,6 @@
         <h3>@Localizer["User Details:"] <span class="text-muted">@Model.User.UserName</span></h3>
     </div>
     <div class="col-auto ms-auto text-end mt-n1">
-        @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanViewContractHistory))
-        {
-            <a asp-controller="ManageContract" asp-action="Index" class="btn btn-outline-info">@Localizer["Manage Contracts"]</a>
-        }
-        <a asp-controller="SshKeys" asp-action="Index" asp-route-userId="@Model.User.Id" class="btn btn-outline-primary">@Localizer["Manage SSH Keys"]</a>
-        @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanEditAndViewDetailsOfUsers))
-        {
-            <a asp-controller="PromotionHistory" asp-action="Create" asp-route-userId="@Model.User.Id" class="btn btn-outline-success">@Localizer["Promote User"]</a>
-        }
         <a asp-action="Edit" asp-route-id="@Model.User.Id" class="btn btn-primary">@Localizer["Edit this User"]</a>
         <a asp-action="Delete" asp-route-id="@Model.User.Id" class="btn btn-danger">@Localizer["Delete this User"]</a>
         <a asp-action="Index" class="btn btn-light">@Localizer["Back to list"]</a>
@@ -59,80 +50,6 @@
                         <strong class="col-sm-3">@Localizer["Creation Time"]</strong>
                         <div class="col-sm-9">
                             <label data-utc-time="@Model.User.CreationTime.ToHtmlDateTime()" class="text-monospace"></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="list-group-item">
-                    <div class="row">
-                        <strong class="col-sm-3">@Localizer["Job Level (职级)"]</strong>
-                        <div class="col-sm-9">@(Model.User.JobLevel ?? "N/A")</div>
-                    </div>
-                </div>
-                <div class="list-group-item">
-                    <div class="row">
-                        <strong class="col-sm-3">@Localizer["Title (职务)"]</strong>
-                        <div class="col-sm-9">@(Model.User.Title ?? "N/A")</div>
-                    </div>
-                </div>
-                <div class="list-group-item">
-                    <div class="row">
-                        <strong class="col-sm-3">@Localizer["Legal Name"]</strong>
-                        <div class="col-sm-9">@(Model.User.LegalName ?? "N/A")</div>
-                    </div>
-                </div>
-                <div class="list-group-item">
-                    <div class="row">
-                        <strong class="col-sm-3">@Localizer["Phone Number"]</strong>
-                        <div class="col-sm-9">@(Model.User.PhoneNumber ?? "N/A")</div>
-                    </div>
-                </div>
-                @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanEditAndViewDetailsOfUsers))
-                {
-                    <div class="list-group-item">
-                        <div class="row">
-                            <strong class="col-sm-3">@Localizer["Base Salary"]</strong>
-                            <div class="col-sm-9">@Model.User.BaseSalary.ToString("C")</div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <strong class="col-sm-3">@Localizer["Bank Name (Branch)"]</strong>
-                            <div class="col-sm-9">@(Model.User.BankName ?? "N/A")</div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <strong class="col-sm-3">@Localizer["Bank Account (Card Number)"]</strong>
-                            <div class="col-sm-9">@(Model.User.BankAccount ?? "N/A")</div>
-                        </div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="row">
-                            <strong class="col-sm-3">@Localizer["Bank Account Name (Holder)"]</strong>
-                            <div class="col-sm-9">@(Model.User.BankAccountName ?? "N/A")</div>
-                        </div>
-                    </div>
-                }
-                <div class="list-group-item">
-                    <div class="row">
-                        <strong class="col-sm-3">@Localizer["Manager"]</strong>
-                        <div class="col-sm-9">
-                            @if (Model.User.Manager != null)
-                            {
-                                <a asp-action="Details" asp-route-id="@Model.User.ManagerId">@Model.User.Manager.DisplayName</a>
-                            }
-                            else
-                            {
-                                <span>N/A</span>
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div class="list-group-item">
-                    <div class="row">
-                        <strong class="col-sm-3">@Localizer["Report Line"]</strong>
-                        <div class="col-sm-9">
-                            <a asp-controller="ReportLine" asp-action="Index" asp-route-id="@Model.User.Id">@Localizer["View Report Line"]</a>
                         </div>
                     </div>
                 </div>
@@ -181,148 +98,5 @@
                 }
             </div>
         </div>
-
-        <div class="card flex-fill mb-4">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="card-title mb-0"><i class="align-middle me-2" data-lucide="monitor"></i> @Localizer["Assigned Assets"]</h5>
-                @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageAssets))
-                {
-                    <a asp-controller="Assets" asp-action="Index" class="btn btn-sm btn-outline-primary">@Localizer["Manage All Assets"]</a>
-                }
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover my-0">
-                    <thead>
-                    <tr>
-                        <th>@Localizer["Asset Tag"]</th>
-                        <th>@Localizer["Model"]</th>
-                        <th>@Localizer["Status"]</th>
-                        <th>@Localizer["Location"]</th>
-                        <th class="text-end">@Localizer["Actions"]</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @if (Model.AssignedAssets.Any())
-                    {
-                        @foreach (var asset in Model.AssignedAssets)
-                        {
-                            <tr>
-                                <td><code>@asset.AssetTag</code></td>
-                                <td>@asset.Model.Brand @asset.Model.ModelName</td>
-                                <td>
-                                    @switch (asset.Status)
-                                    {
-                                        case AssetStatus.Idle:
-                                            <span class="badge bg-secondary">@Localizer["Idle"]</span>
-                                            break;
-                                        case AssetStatus.PendingAccept:
-                                            <span class="badge bg-warning">@Localizer["Pending Accept"]</span>
-                                            break;
-                                        case AssetStatus.InUse:
-                                            <span class="badge bg-success">@Localizer["In Use"]</span>
-                                            break;
-                                        case AssetStatus.Maintenance:
-                                            <span class="badge bg-danger">@Localizer["Maintenance"]</span>
-                                            break;
-                                        case AssetStatus.Retired:
-                                            <span class="badge bg-dark">@Localizer["Retired"]</span>
-                                            break;
-                                        case AssetStatus.Lost:
-                                            <span class="badge bg-danger">@Localizer["Lost"]</span>
-                                            break;
-                                    }
-                                </td>
-                                <td>@(asset.Location?.Name ?? Localizer["N/A"].Value)</td>
-                                <td class="text-end">
-                                    <a asp-controller="Assets" asp-action="Details" asp-route-id="@asset.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
-                                        <i class="align-middle" data-lucide="eye"></i>
-                                    </a>
-                                    @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageAssets))
-                                    {
-                                        <a asp-controller="Assets" asp-action="Edit" asp-route-id="@asset.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Edit"]">
-                                            <i class="align-middle" data-lucide="edit"></i>
-                                        </a>
-                                    }
-                                </td>
-                            </tr>
-                        }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="5" class="text-center text-muted">@Localizer["No assets assigned to this user."]</td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanReadUsers) || 
-             User.HasClaim(AppPermissions.Type, AppPermissionNames.CanViewUserOperationLog))
-        {
-            <div class="card flex-fill mt-4">
-                <div class="card-header">
-                    <h5 class="card-title mb-0"><i class="align-middle me-2" data-lucide="history"></i> @Localizer["Bank Information Change History"]</h5>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-striped my-0">
-                        <thead>
-                            <tr>
-                                <th>@Localizer["Time"]</th>
-                                <th>@Localizer["Changed By"]</th>
-                                <th>@Localizer["Bank Name (Old -> New)"]</th>
-                                <th>@Localizer["Card Number (Old -> New)"]</th>
-                                <th>@Localizer["Holder (Old -> New)"]</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if (Model.BankCardChangeLogs.Any())
-                            {
-                                @foreach (var log in Model.BankCardChangeLogs)
-                                {
-                                    <tr>
-                                        <td><label data-utc-time="@log.ChangeTime.ToHtmlDateTime()"></label></td>
-                                        <td>
-                                            @if (log.ChangedByUser != null)
-                                            {
-                                                <a asp-action="Details" asp-route-id="@log.ChangedByUserId">@log.ChangedByUser.DisplayName</a>
-                                            }
-                                            else
-                                            {
-                                                <span class="text-muted">@Localizer["System"]</span>
-                                            }
-                                        </td>
-                                        <td>
-                                            <span class="text-muted small">@(log.OldBankName ?? "N/A")</span>
-                                            <i data-lucide="arrow-right" class="align-middle mx-1" style="width: 14px; height: 14px;"></i>
-                                            <span class="text-primary font-weight-bold">@(log.NewBankName ?? "N/A")</span>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted small">@(log.OldBankCardNumber ?? "N/A")</span>
-                                            <i data-lucide="arrow-right" class="align-middle mx-1" style="width: 14px; height: 14px;"></i>
-                                            <span class="text-primary font-weight-bold">@(log.NewBankCardNumber ?? "N/A")</span>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted small">@(log.OldBankAccountName ?? "N/A")</span>
-                                            <i data-lucide="arrow-right" class="align-middle mx-1" style="width: 14px; height: 14px;"></i>
-                                            <span class="text-primary font-weight-bold">@(log.NewBankAccountName ?? "N/A")</span>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                            else
-                            {
-                                <tr>
-                                    <td colspan="5" class="text-center text-muted">@Localizer["No change history found."]</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        }
     </div>
 </div>
-@* ReSharper restore NotOverriddenInSpecificCulture *@
-@* ReSharper restore Razor.ResourceNotResolved *@

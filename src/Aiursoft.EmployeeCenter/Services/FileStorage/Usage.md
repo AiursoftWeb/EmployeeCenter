@@ -45,7 +45,11 @@ Use the `vc:file-upload` component in your `.cshtml` pages.
     <label>Upload Avatar</label>
     <vc:file-upload 
         asp-for="IconPath" 
+<<<<<<< HEAD
         upload-endpoint="/upload/avatar" 
+=======
+        subfolder="avatar" 
+>>>>>>> template-upgrade-layer
         allowed-extensions="jpg png"
         max-size-in-mb="5">
     </vc:file-upload>
@@ -66,14 +70,22 @@ Use the `vc:file-upload` component in your `.cshtml` pages.
 
 **Scenario B: Private Files (e.g., Contracts)**
 
+<<<<<<< HEAD
 > **⚠️ Critical Correction**: You must append `?useVault=true` to the `upload-endpoint` to inform the API to store the file in the Vault, **AND** set the component attribute `is-vault="true"`. Otherwise, the image preview will fail (403 Forbidden) during record editing.
+=======
+> **⚠️ Critical Correction**: You must set `is-vault="true"` AND provide a `subfolder`. The system will automatically generate a secure, time-limited upload token.
+>>>>>>> template-upgrade-layer
 
 ```html
 <form asp-action="UpdateContract" method="post">
     <label>Upload Confidential Contract</label>
     <vc:file-upload 
         asp-for="ContractPath" 
+<<<<<<< HEAD
         upload-endpoint="/upload/contract?useVault=true" 
+=======
+        subfolder="contract" 
+>>>>>>> template-upgrade-layer
         is-vault="true"
         allowed-extensions="pdf docx">
     </vc:file-upload>
@@ -172,7 +184,11 @@ In Razor views, use `StorageService` to convert logical paths into accessible UR
 **For Public Files:**
 
 ```html
+<<<<<<< HEAD
 @inject Aiursoft.Template.Services.FileStorage.StorageService Storage
+=======
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
+>>>>>>> template-upgrade-layer
 
 <img src="@Storage.RelativePathToInternetUrl(Model.IconPath)" alt="User Avatar" />
 
@@ -181,7 +197,11 @@ In Razor views, use `StorageService` to convert logical paths into accessible UR
 **For Private Files:**
 
 ```html
+<<<<<<< HEAD
 @inject Aiursoft.Template.Services.FileStorage.StorageService Storage
+=======
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
+>>>>>>> template-upgrade-layer
 
 <a href="@Storage.RelativePathToInternetUrl(Model.ContractPath, isVault: true)" 
    download="contract.pdf"
@@ -297,4 +317,8 @@ A: To implement **Bucket Isolation**. Frontend specifies `/upload/avatar`, and t
 A: Yes. The system detects MIME types and file headers. Non-image files like PDFs or ZIPs are streamed directly without processing.
 
 **Q: How do I change the token expiration time?**
+<<<<<<< HEAD
 A: In the `StorageService.GetDownloadToken` method, simply modify the `TimeSpan.FromMinutes(60)` value.
+=======
+A: In the `StorageService.GetToken` method, simply modify the `TimeSpan.FromMinutes(60)` value.
+>>>>>>> template-upgrade-layer

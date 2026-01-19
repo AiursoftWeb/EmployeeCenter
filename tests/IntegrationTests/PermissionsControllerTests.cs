@@ -1,3 +1,4 @@
+using System.Net;
 using Aiursoft.EmployeeCenter.Authorization;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
