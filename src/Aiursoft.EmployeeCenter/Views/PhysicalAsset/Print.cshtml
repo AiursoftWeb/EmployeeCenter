@@ -59,12 +59,24 @@
         <div class="asset-id">ID: @Model.Id</div>
         <div>Stock: @Model.TotalStock</div>
     </div>
-    
+
     <div class="no-print" style="margin-top: 20px;">
         <button onclick="window.print()">Print Label</button>
     </div>
-    
+
+    <script src="~/node_modules/davidshimjs-qrcodejs/qrcode.min.js"></script>
     <script>
+        var qrPlaceholder = document.querySelector('.qr-placeholder');
+        // Clear placeholder text
+        qrPlaceholder.innerHTML = '';
+        
+        // Generate QR Code
+        new QRCode(qrPlaceholder, {
+            text: '@Model.Id',
+            width: 150,
+            height: 150
+        });
+        
         // Optional: Auto print
         // window.print();
     </script>
