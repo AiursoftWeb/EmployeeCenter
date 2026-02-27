@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Aiursoft.DbTools;
 using Aiursoft.EmployeeCenter.Entities;
 using static Aiursoft.WebTools.Extends;
+using System;
 
 namespace Aiursoft.EmployeeCenter;
 
