@@ -61,4 +61,16 @@ public class ExportTests : TestBase
             Assert.IsTrue(content.Contains("This is a test weekly report."));
         }
     }
+
+    [TestMethod]
+    public async Task TestAutoExportFolderCreation()
+    {
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var pathResolver = scope.ServiceProvider.GetRequiredService<ExportPathResolver>();
+            var autoExportRoot = pathResolver.GetAutoExportRoot();
+            
+            Assert.IsTrue(Directory.Exists(autoExportRoot), "AutoExport root directory was not created.");
+        }
+    }
 }

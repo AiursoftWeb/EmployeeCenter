@@ -69,6 +69,7 @@ public class Startup : IWebStartup
 
         // Background Jobs
         services.AddHostedService<BackgroundJobs.AnnualLeaveAllocationJob>();
+        services.AddHostedService<BackgroundJobs.AutoExportJob>();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddSingleton<NavigationState<Startup>>();
 

@@ -11,12 +11,12 @@ public class ExportService(
     ExportPathResolver pathResolver,
     UserManager<User> userManager) : IScopedDependency
 {
-    public async Task ExportAllForUser(ClaimsPrincipal user)
+    public async Task ExportAllForUser(ClaimsPrincipal user, string? rootOverride = null)
     {
         var currentUser = await userManager.GetUserAsync(user);
         if (currentUser == null) return;
 
-        var root = pathResolver.GetUserExportRoot(currentUser.Id);
+        var root = rootOverride ?? pathResolver.GetUserExportRoot(currentUser.Id);
 
         // Export everything available
         await SaveEntities(await dataFetcher.GetVisibleWeeklyReports(user), root);
