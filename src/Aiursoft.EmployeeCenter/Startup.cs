@@ -61,6 +61,12 @@ public class Startup : IWebStartup
         services.AddScoped<Services.LedgerBalanceService>();
         services.AddScoped<Services.LedgerStatisticsService>();
 
+        // Export Services
+        services.AddScoped<Services.Export.IDataFetcher, Services.Export.DataFetcher>();
+        services.AddScoped<Services.Export.ExportService>();
+        services.AddScoped<Services.Export.MarkdownExporter>();
+        services.AddScoped<Services.Export.ExportPathResolver>();
+
         // Background Jobs
         services.AddHostedService<BackgroundJobs.AnnualLeaveAllocationJob>();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
