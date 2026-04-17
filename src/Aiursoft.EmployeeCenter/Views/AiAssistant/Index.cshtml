@@ -112,7 +112,7 @@
                 if (!response.ok) {
                     throw new Error(data.error || "@Localizer["Unknown error occurred."]");
                 }
-                assistantMsgDiv.innerText = data.answer;
+                assistantMsgDiv.innerHTML = data.answer;
             } catch (error) {
                 assistantMsgDiv.classList.add('text-danger');
                 assistantMsgDiv.innerText = "@Localizer["Error: "]" + error.message;
