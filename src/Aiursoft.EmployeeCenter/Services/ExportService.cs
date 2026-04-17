@@ -66,8 +66,40 @@ public class ExportService(
         foreach (var entity in entities)
         {
             var fileName = SanitizeFileName(entity.CompanyName) + ".md";
-            var content = ObjectToMarkdown(entity, $"Company Entity: {entity.CompanyName}");
-            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+            var sb = new StringBuilder();
+            sb.AppendLine(ObjectToMarkdown(entity, $"Company Entity: {entity.CompanyName}"));
+
+            if (entity.CreateLedger)
+            {
+                sb.AppendLine("\n## 发票开具与报销指引 (Invoice & Reimbursement Guide)");
+                sb.AppendLine("\n### 给员工的操作指引");
+                sb.AppendLine("1. **首选全电发票 (数电票)**: 优先让商家开具电子发票（PDF或OFD格式），直接发送到员工邮箱或公司指定财务邮箱 (employees@aiursoft.com)。避免纸质发票，容易丢失且邮寄麻烦。");
+                sb.AppendLine("2. **报销类目建议**: 重点类目：餐饮费、交通费、通讯费、电子设备（电脑/外设）。注意：必须是真实发生的费用，严禁虚假虚开，这是红线。");
+                sb.AppendLine("3. **特殊情况**: 如果是住宿费（专票），必须在前台开具，且通常需要公司抬头的全称。定额发票（手撕票）金额较小可以使用，但尽量减少。");
+                sb.AppendLine("\n**提示**: 大家外出如果产生业务相关或符合福利政策的费用，请务必开具发票。优先要电子发票。记得把PDF原件留好，不要只截图。");
+            }
+
+            var servers = await db.Servers.Where(s => s.CompanyEntityId == entity.Id).ToListAsync();
+            if (servers.Any())
+            {
+                sb.AppendLine("\n## 关联服务器 (Associated Servers)");
+                foreach (var server in servers)
+                {
+                    sb.AppendLine($"- {server.Hostname} ({server.ServerIp})");
+                }
+            }
+
+            var intangibleAssets = await db.IntangibleAssets.Where(a => a.CompanyEntityId == entity.Id).ToListAsync();
+            if (intangibleAssets.Any())
+            {
+                sb.AppendLine("\n## 关联的无形资产 (Associated Intangible Assets)");
+                foreach (var asset in intangibleAssets)
+                {
+                    sb.AppendLine($"- {asset.Name} ({asset.Type} - {asset.Status})");
+                }
+            }
+
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), sb.ToString());
         }
     }
 
@@ -98,7 +130,7 @@ public class ExportService(
                 Directory.CreateDirectory(fullDirectoryPath);
             }
 
-            var fileName = SanitizeFileName(report.User?.DisplayName ?? "Unknown") + ".md";
+            var fileName = SanitizeFileName(report.User.DisplayName) + ".md";
             await File.WriteAllTextAsync(Path.Combine(fullDirectoryPath, fileName), report.Content);
         }
     }
@@ -191,8 +223,13 @@ public class ExportService(
             var dir = Path.Combine(_exportRoot, "Ledger", entityName, accountName);
             Directory.CreateDirectory(dir);
 
-            var accountInfo = ObjectToMarkdown(account, "Finance Account Details");
-            await File.WriteAllTextAsync(Path.Combine(dir, "AccountInfo.md"), accountInfo);
+            var sb = new StringBuilder();
+            sb.AppendLine(ObjectToMarkdown(account, "Finance Account Details"));
+            if (account.CompanyEntity != null)
+            {
+                sb.AppendLine($"- **Company**: {account.CompanyEntity.CompanyName}");
+            }
+            await File.WriteAllTextAsync(Path.Combine(dir, "AccountInfo.md"), sb.ToString());
 
             var accountTransactions = transactions.Where(t => t.SourceAccountId == account.Id || t.DestinationAccountId == account.Id)
                 .OrderByDescending(t => t.TransactionTime).ToList();
@@ -206,7 +243,7 @@ public class ExportService(
         logger.LogInformation("Exporting assets...");
         var assets = await db.Assets
             .Include(a => a.CompanyEntity)
-            .Include(a => a.Model).ThenInclude(m => m!.Category)
+            .Include(a => a.Model).ThenInclude(m => m.Category)
             .ToListAsync();
 
         foreach (var asset in assets)
@@ -216,18 +253,17 @@ public class ExportService(
             Directory.CreateDirectory(dir);
 
             var fileName = SanitizeFileName(asset.AssetTag) + ".md";
-            var content = ObjectToMarkdown(asset, $"Asset: {asset.AssetTag}");
-            
-            if (asset.Model != null)
+            var sb = new StringBuilder();
+            sb.AppendLine(ObjectToMarkdown(asset, $"Asset: {asset.AssetTag}"));
+            if (asset.CompanyEntity != null)
             {
-                content += "\n\n" + ObjectToMarkdown(asset.Model, "Model Details");
-                if (asset.Model.Category != null)
-                {
-                    content += "\n\n" + ObjectToMarkdown(asset.Model.Category, "Category Details");
-                }
+                sb.AppendLine($"- **Company**: {asset.CompanyEntity.CompanyName}");
             }
             
-            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+            sb.AppendLine("\n\n" + ObjectToMarkdown(asset.Model, "Model Details"));
+            sb.AppendLine("\n\n" + ObjectToMarkdown(asset.Model.Category, "Category Details"));
+            
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), sb.ToString());
         }
     }
 
@@ -257,7 +293,7 @@ public class ExportService(
 
         foreach (var user in users)
         {
-            var userName = SanitizeFileName(user.DisplayName ?? user.UserName ?? "Unknown");
+            var userName = SanitizeFileName(user.DisplayName);
             var dir = Path.Combine(_exportRoot, "Organization", userName);
             Directory.CreateDirectory(dir);
 
@@ -299,7 +335,9 @@ public class ExportService(
     private async Task ExportServers()
     {
         logger.LogInformation("Exporting servers...");
-        var servers = await db.Servers.ToListAsync();
+        var servers = await db.Servers
+            .Include(s => s.CompanyEntity)
+            .ToListAsync();
         var dir = Path.Combine(_exportRoot, "Servers");
         Directory.CreateDirectory(dir);
 
@@ -307,8 +345,13 @@ public class ExportService(
         {
             var name = !string.IsNullOrWhiteSpace(server.Hostname) ? server.Hostname : server.ServerIp ?? server.Id.ToString();
             var fileName = SanitizeFileName(name) + ".md";
-            var content = ObjectToMarkdown(server, $"Server: {name}");
-            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+            var sb = new StringBuilder();
+            sb.AppendLine(ObjectToMarkdown(server, $"Server: {name}"));
+            if (server.CompanyEntity != null)
+            {
+                sb.AppendLine($"- **Company**: {server.CompanyEntity.CompanyName}");
+            }
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), sb.ToString());
         }
     }
 
@@ -377,7 +420,10 @@ public class ExportService(
                     sb.AppendLine($"- **{p.Name}**: {val.ToString()?.Replace("\n", " ").Replace("\r", "")}");
                 }
             }
-            catch {}
+            catch 
+            {
+                // Ignored
+            }
         }
         return sb.ToString();
     }
@@ -398,7 +444,7 @@ public class ExportService(
         var properties = typeof(T).GetProperties().Where(p => IsSimpleType(p.PropertyType)).ToList();
             
         sb.AppendLine("| " + string.Join(" | ", properties.Select(p => p.Name)) + " |");
-        sb.AppendLine("|" + string.Join("|", properties.Select(p => "---")) + "|");
+        sb.AppendLine("|" + string.Join("|", properties.Select(_ => "---")) + "|");
         
         foreach (var item in list)
         {
@@ -409,7 +455,10 @@ public class ExportService(
                     var val = p.GetValue(item);
                     return val?.ToString()?.Replace("\n", " ").Replace("\r", "") ?? string.Empty;
                 }
-                catch { return string.Empty; }
+                catch 
+                {
+                    return string.Empty; 
+                }
             });
             sb.AppendLine("| " + string.Join(" | ", values) + " |");
         }
