@@ -9,6 +9,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Caching.Memory;
 using System.Globalization;
 using System.Text.Json.Serialization;
+using Markdig;
+using Ganss.Xss;
 
 namespace Aiursoft.EmployeeCenter.Controllers;
 
@@ -68,7 +70,19 @@ public class AiAssistantController(
             }
 
             var result = await response.Content.ReadFromJsonAsync<AgentResponse>();
-            return Json(new { answer = result?.Answer ?? "No answer received." });
+            var rawMarkdown = result?.Answer ?? "No answer received.";
+
+            // 1. Convert Markdown to HTML
+            var pipeline = new MarkdownPipelineBuilder()
+                .UseAdvancedExtensions()
+                .Build();
+            var htmlResult = Markdown.ToHtml(rawMarkdown, pipeline);
+
+            // 2. Sanitize HTML
+            var sanitizer = new HtmlSanitizer();
+            var sanitizedHtml = sanitizer.Sanitize(htmlResult);
+
+            return Json(new { answer = sanitizedHtml });
         }
         catch (Exception ex)
         {
