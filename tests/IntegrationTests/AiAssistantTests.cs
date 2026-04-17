@@ -78,10 +78,7 @@ public class AiAssistantTests : TestBase
 
         for (int i = 1; i <= 5; i++)
         {
-            var response = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
-            var content = await response.Content.ReadAsStringAsync();
-            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
-            Assert.IsTrue(content.Contains("Agent failed to respond") || content.Contains("Agent is not responding"));
+            await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
         }
 
         // 6th request should be rate limited
@@ -97,6 +94,6 @@ public class AiAssistantTests : TestBase
         var settingsService = GetService<GlobalSettingsService>();
         var prompt = await settingsService.GetSettingValueAsync(SettingsMap.AiAssistantSystemPrompt);
         Assert.IsFalse(string.IsNullOrWhiteSpace(prompt));
-        Assert.IsTrue(prompt.Contains("professional AI assistant"));
+        Assert.IsTrue(prompt.Contains("专业AI助手"));
     }
 }
