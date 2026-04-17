@@ -1,3 +1,4 @@
+using System.Text;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
@@ -41,6 +42,15 @@ public class ExportService(
         await ExportContracts();
         await ExportWeeklyReports();
 
+        await ExportLedger();
+        await ExportAssets();
+        await ExportIntangibleAssets();
+        await ExportOrganization();
+        await ExportServices();
+        await ExportServers();
+        await ExportMarketChannels();
+        await ExportCustomerRelationships();
+
         logger.LogInformation("Export task completed successfully.");
     }
 
@@ -60,7 +70,7 @@ public class ExportService(
                 Directory.CreateDirectory(fullDirectoryPath);
             }
 
-            var fileName = SanitizeFileName(report.User.DisplayName) + ".md";
+            var fileName = SanitizeFileName(report.User?.DisplayName ?? "Unknown") + ".md";
             await File.WriteAllTextAsync(Path.Combine(fullDirectoryPath, fileName), report.Content);
         }
     }
@@ -138,6 +148,245 @@ public class ExportService(
                 await File.WriteAllTextAsync(Path.Combine(fullDirectoryPath, baseFileName + ".md"), ocrResult.PlainText);
             }
         }
+    }
+
+    private async Task ExportLedger()
+    {
+        logger.LogInformation("Exporting ledger...");
+        var accounts = await db.FinanceAccounts.Include(a => a.CompanyEntity).ToListAsync();
+        var transactions = await db.Transactions.ToListAsync();
+
+        foreach (var account in accounts)
+        {
+            var entityName = SanitizeFileName(account.CompanyEntity?.CompanyName ?? "Unknown Entity");
+            var accountName = SanitizeFileName(account.AccountName);
+            var dir = Path.Combine(_exportRoot, "Ledger", entityName, accountName);
+            Directory.CreateDirectory(dir);
+
+            var accountInfo = ObjectToMarkdown(account, "Finance Account Details");
+            await File.WriteAllTextAsync(Path.Combine(dir, "AccountInfo.md"), accountInfo);
+
+            var accountTransactions = transactions.Where(t => t.SourceAccountId == account.Id || t.DestinationAccountId == account.Id)
+                .OrderByDescending(t => t.TransactionTime).ToList();
+            var txMarkdown = TableToMarkdown(accountTransactions, "Transactions");
+            await File.WriteAllTextAsync(Path.Combine(dir, "Transactions.md"), txMarkdown);
+        }
+    }
+
+    private async Task ExportAssets()
+    {
+        logger.LogInformation("Exporting assets...");
+        var assets = await db.Assets
+            .Include(a => a.CompanyEntity)
+            .Include(a => a.Model).ThenInclude(m => m!.Category)
+            .ToListAsync();
+
+        foreach (var asset in assets)
+        {
+            var entityName = SanitizeFileName(asset.CompanyEntity?.CompanyName ?? "Unknown Entity");
+            var dir = Path.Combine(_exportRoot, "Assets", entityName);
+            Directory.CreateDirectory(dir);
+
+            var fileName = SanitizeFileName(asset.AssetTag) + ".md";
+            var content = ObjectToMarkdown(asset, $"Asset: {asset.AssetTag}");
+            
+            if (asset.Model != null)
+            {
+                content += "\n\n" + ObjectToMarkdown(asset.Model, "Model Details");
+                if (asset.Model.Category != null)
+                {
+                    content += "\n\n" + ObjectToMarkdown(asset.Model.Category, "Category Details");
+                }
+            }
+            
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+        }
+    }
+
+    private async Task ExportIntangibleAssets()
+    {
+        logger.LogInformation("Exporting intangible assets...");
+        var assets = await db.IntangibleAssets.ToListAsync();
+        var dir = Path.Combine(_exportRoot, "IntangibleAssets");
+        Directory.CreateDirectory(dir);
+
+        foreach (var asset in assets)
+        {
+            var fileName = SanitizeFileName(asset.Name) + ".md";
+            var content = ObjectToMarkdown(asset, $"Intangible Asset: {asset.Name}");
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+        }
+    }
+
+    private async Task ExportOrganization()
+    {
+        logger.LogInformation("Exporting organization and leave information...");
+        var users = await db.Users.ToListAsync();
+        var userRoles = await db.UserRoles.ToListAsync();
+        var roles = await db.Roles.ToListAsync();
+        var roleClaims = await db.RoleClaims.Where(rc => rc.ClaimType == "Permission").ToListAsync();
+        var leaves = await db.LeaveApplications.ToListAsync();
+
+        foreach (var user in users)
+        {
+            var userName = SanitizeFileName(user.DisplayName ?? user.UserName ?? "Unknown");
+            var dir = Path.Combine(_exportRoot, "Organization", userName);
+            Directory.CreateDirectory(dir);
+
+            var statusSb = new StringBuilder();
+            statusSb.AppendLine(ObjectToMarkdown(user, $"User: {user.DisplayName}"));
+
+            var uRoles = userRoles.Where(ur => ur.UserId == user.Id).Select(ur => ur.RoleId).ToList();
+            var uRoleNames = roles.Where(r => uRoles.Contains(r.Id)).Select(r => r.Name).ToList();
+            statusSb.AppendLine("\n## Roles");
+            foreach(var r in uRoleNames) statusSb.AppendLine($"- {r}");
+
+            var uClaims = roleClaims.Where(rc => uRoles.Contains(rc.RoleId)).Select(rc => rc.ClaimValue).Distinct().ToList();
+            statusSb.AppendLine("\n## Permissions");
+            foreach(var c in uClaims) statusSb.AppendLine($"- {c}");
+
+            await File.WriteAllTextAsync(Path.Combine(dir, "status.md"), statusSb.ToString());
+
+            var uLeaves = leaves.Where(l => l.UserId == user.Id).OrderByDescending(l => l.StartDate).ToList();
+            var leavesMd = TableToMarkdown(uLeaves, "Leave History");
+            await File.WriteAllTextAsync(Path.Combine(dir, "LeaveHistory.md"), leavesMd);
+        }
+    }
+
+    private async Task ExportServices()
+    {
+        logger.LogInformation("Exporting services...");
+        var services = await db.Services.ToListAsync();
+        var dir = Path.Combine(_exportRoot, "Services");
+        Directory.CreateDirectory(dir);
+
+        foreach (var service in services)
+        {
+            var fileName = SanitizeFileName(service.Domain) + ".md";
+            var content = ObjectToMarkdown(service, $"Service: {service.Domain}");
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+        }
+    }
+
+    private async Task ExportServers()
+    {
+        logger.LogInformation("Exporting servers...");
+        var servers = await db.Servers.ToListAsync();
+        var dir = Path.Combine(_exportRoot, "Servers");
+        Directory.CreateDirectory(dir);
+
+        foreach (var server in servers)
+        {
+            var name = !string.IsNullOrWhiteSpace(server.Hostname) ? server.Hostname : server.ServerIp ?? server.Id.ToString();
+            var fileName = SanitizeFileName(name) + ".md";
+            var content = ObjectToMarkdown(server, $"Server: {name}");
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+        }
+    }
+
+    private async Task ExportMarketChannels()
+    {
+        logger.LogInformation("Exporting market channels...");
+        var channels = await db.MarketChannels.ToListAsync();
+        var dir = Path.Combine(_exportRoot, "MarketChannels");
+        Directory.CreateDirectory(dir);
+
+        foreach (var channel in channels)
+        {
+            var fileName = SanitizeFileName(channel.Name) + ".md";
+            var content = ObjectToMarkdown(channel, $"Market Channel: {channel.Name}");
+            if (!string.IsNullOrWhiteSpace(channel.Description))
+            {
+                content += "\n\n## Description\n\n" + channel.Description;
+            }
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+        }
+    }
+
+    private async Task ExportCustomerRelationships()
+    {
+        logger.LogInformation("Exporting customer relationships...");
+        var customers = await db.CustomerRelationships.ToListAsync();
+        var dir = Path.Combine(_exportRoot, "CustomerRelationships");
+        Directory.CreateDirectory(dir);
+
+        foreach (var customer in customers)
+        {
+            var fileName = SanitizeFileName(customer.Name) + ".md";
+            var content = ObjectToMarkdown(customer, $"Customer: {customer.Name}");
+            if (!string.IsNullOrWhiteSpace(customer.Remark))
+            {
+                content += "\n\n## Remark\n\n" + customer.Remark;
+            }
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+        }
+    }
+
+    private bool IsSimpleType(Type type)
+    {
+        if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+        {
+            type = Nullable.GetUnderlyingType(type)!;
+        }
+        return type.IsPrimitive || type.IsEnum || type == typeof(string) || type == typeof(decimal) || type == typeof(DateTime) || type == typeof(Guid);
+    }
+
+    private string ObjectToMarkdown(object? obj, string title = "Details")
+    {
+        if (obj == null) return string.Empty;
+        var sb = new StringBuilder();
+        sb.AppendLine($"# {title}");
+        sb.AppendLine();
+        
+        var type = obj.GetType();
+        foreach (var p in type.GetProperties().Where(p => IsSimpleType(p.PropertyType)))
+        {
+            try 
+            {
+                var val = p.GetValue(obj);
+                if (val != null)
+                {
+                    sb.AppendLine($"- **{p.Name}**: {val.ToString()?.Replace("\n", " ").Replace("\r", "")}");
+                }
+            }
+            catch {}
+        }
+        return sb.ToString();
+    }
+
+    private string TableToMarkdown<T>(IEnumerable<T> items, string title = "List")
+    {
+        var list = items.ToList();
+        var sb = new StringBuilder();
+        sb.AppendLine($"# {title}");
+        sb.AppendLine();
+        
+        if (!list.Any())
+        {
+            sb.AppendLine("No records found.");
+            return sb.ToString();
+        }
+        
+        var properties = typeof(T).GetProperties().Where(p => IsSimpleType(p.PropertyType)).ToList();
+            
+        sb.AppendLine("| " + string.Join(" | ", properties.Select(p => p.Name)) + " |");
+        sb.AppendLine("|" + string.Join("|", properties.Select(p => "---")) + "|");
+        
+        foreach (var item in list)
+        {
+            var values = properties.Select(p => 
+            {
+                try 
+                {
+                    var val = p.GetValue(item);
+                    return val?.ToString()?.Replace("\n", " ").Replace("\r", "") ?? string.Empty;
+                }
+                catch { return string.Empty; }
+            });
+            sb.AppendLine("| " + string.Join(" | ", values) + " |");
+        }
+        
+        return sb.ToString();
     }
 
     private string SanitizeFileName(string name)
