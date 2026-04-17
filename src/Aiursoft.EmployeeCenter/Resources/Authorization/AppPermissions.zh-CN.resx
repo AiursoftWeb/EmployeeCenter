@@ -120,6 +120,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>允许永久删除用户账户。</value>
   </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>允许用户与 AI 助手聊天以获取公司信息。</value>
+  </data>
   <data name="Allows the user to create their own weekly reports." xml:space="preserve">
     <value>允许用户创建自己的周报。</value>
   </data>
@@ -128,9 +131,6 @@
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>允许用户提交其费用的报销申请。</value>
-  </data>
-  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
-    <value>允许用户与 AI 助手聊天以获取公司信息。</value>
   </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>允许查看公司的所有合同，包括标记为私密的合同。</value>
@@ -177,11 +177,11 @@
   <data name="Approve Reimbursement" xml:space="preserve">
     <value>批准报销</value>
   </data>
-  <data name="Chat with AI" xml:space="preserve">
-    <value>咨询 AI</value>
-  </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>为用户分配角色</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>咨询 AI</value>
   </data>
   <data name="Create and manage company contracts" xml:space="preserve">
     <value>创建和管理公司的合同</value>

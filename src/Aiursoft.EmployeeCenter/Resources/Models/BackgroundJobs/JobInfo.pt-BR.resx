@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+      <data name="Completed at" xml:space="preserve">
+    <value>Concluído em</value>
+  </data>
   <data name="Completed At" xml:space="preserve">
     <value>Concluído Em</value>
+  </data>
+  <data name="Error message" xml:space="preserve">
+    <value>Mensagem de erro</value>
   </data>
   <data name="Error Message" xml:space="preserve">
     <value>Mensagem de Erro</value>
@@ -36,11 +42,20 @@
   <data name="Queue Name" xml:space="preserve">
     <value>Nome da Fila</value>
   </data>
+  <data name="Queued at" xml:space="preserve">
+    <value>Aguardando em</value>
+  </data>
   <data name="Queued At" xml:space="preserve">
     <value>Enfileirado Em</value>
   </data>
+  <data name="Service type" xml:space="preserve">
+    <value>Tipo de serviço</value>
+  </data>
   <data name="Service Type" xml:space="preserve">
     <value>Tipo de Serviço</value>
+  </data>
+  <data name="Started at" xml:space="preserve">
+    <value>Iniciado em</value>
   </data>
   <data name="Started At" xml:space="preserve">
     <value>Iniciado Em</value>
