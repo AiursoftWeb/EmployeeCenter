@@ -18,14 +18,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Completed at" xml:space="preserve">
-    <value>เสร็จสิ้นเมื่อ</value>
-  </data>
   <data name="Completed At" xml:space="preserve">
     <value>เสร็จสิ้นเมื่อ</value>
-  </data>
-  <data name="Error message" xml:space="preserve">
-    <value>ข้อความข้อผิดพลาด</value>
   </data>
   <data name="Error Message" xml:space="preserve">
     <value>ข้อความผิดพลาด</value>
@@ -42,20 +36,11 @@
   <data name="Queue Name" xml:space="preserve">
     <value>ชื่อคิว</value>
   </data>
-  <data name="Queued at" xml:space="preserve">
-    <value>คิวเมื่อ</value>
-  </data>
   <data name="Queued At" xml:space="preserve">
     <value>ถูกใส่ในคิวเมื่อ</value>
   </data>
-  <data name="Service type" xml:space="preserve">
-    <value>ประเภทบริการ</value>
-  </data>
   <data name="Service Type" xml:space="preserve">
     <value>ประเภทบริการ</value>
-  </data>
-  <data name="Started at" xml:space="preserve">
-    <value>เริ่มเมื่อ</value>
   </data>
   <data name="Started At" xml:space="preserve">
     <value>เริ่มเมื่อ</value>

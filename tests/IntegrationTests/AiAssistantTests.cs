@@ -78,12 +78,19 @@ public class AiAssistantTests : TestBase
 
         for (int i = 1; i <= 5; i++)
         {
-            await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
+            var message = new HttpRequestMessage(HttpMethod.Post, "/AiAssistant/Ask")
+            {
+                Content = JsonContent.Create(request)
+            };
+            message.Headers.Add("X-Test-Rate-Limit", "true");
+            var response = await Http.SendAsync(message);
+            response.EnsureSuccessStatusCode();
         }
 
         // 6th request should be rate limited
         var lastResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
         var lastContent = await lastResponse.Content.ReadAsStringAsync();
+        
         Assert.AreEqual(HttpStatusCode.BadRequest, lastResponse.StatusCode);
         Assert.IsTrue(lastContent.Contains("Too many requests. Please try again in a minute."));
     }

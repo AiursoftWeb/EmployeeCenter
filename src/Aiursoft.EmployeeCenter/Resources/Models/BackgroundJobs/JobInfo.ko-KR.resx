@@ -18,14 +18,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Completed at" xml:space="preserve">
-    <value>완료된 시각</value>
-  </data>
   <data name="Completed At" xml:space="preserve">
     <value>완료 시간</value>
-  </data>
-  <data name="Error message" xml:space="preserve">
-    <value>오류 메시지</value>
   </data>
   <data name="Error Message" xml:space="preserve">
     <value>에러 메시지</value>
@@ -42,20 +36,11 @@
   <data name="Queue Name" xml:space="preserve">
     <value>대기열 이름</value>
   </data>
-  <data name="Queued at" xml:space="preserve">
-    <value>대기 시간</value>
-  </data>
   <data name="Queued At" xml:space="preserve">
     <value>대기열에 추가된 시간</value>
   </data>
-  <data name="Service type" xml:space="preserve">
-    <value>서비스 유형</value>
-  </data>
   <data name="Service Type" xml:space="preserve">
     <value>서비스 유형</value>
-  </data>
-  <data name="Started at" xml:space="preserve">
-    <value>시작 시간</value>
   </data>
   <data name="Started At" xml:space="preserve">
     <value>시작 시간</value>

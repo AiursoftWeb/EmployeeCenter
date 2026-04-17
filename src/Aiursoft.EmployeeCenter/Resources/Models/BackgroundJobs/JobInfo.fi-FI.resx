@@ -18,14 +18,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Completed at" xml:space="preserve">
-    <value>Valmis</value>
-  </data>
   <data name="Completed At" xml:space="preserve">
     <value>Valmis kello</value>
-  </data>
-  <data name="Error message" xml:space="preserve">
-    <value>Virheilmoitus</value>
   </data>
   <data name="Error Message" xml:space="preserve">
     <value>Virheviesti</value>
@@ -42,20 +36,11 @@
   <data name="Queue Name" xml:space="preserve">
     <value>Jono nimi</value>
   </data>
-  <data name="Queued at" xml:space="preserve">
-    <value>Queutettu klo</value>
-  </data>
   <data name="Queued At" xml:space="preserve">
     <value>Jonossa oleva aika</value>
   </data>
-  <data name="Service type" xml:space="preserve">
-    <value>Palvelutyyppi</value>
-  </data>
   <data name="Service Type" xml:space="preserve">
     <value>Palvelun tyyppi</value>
-  </data>
-  <data name="Started at" xml:space="preserve">
-    <value>Käynnistetty</value>
   </data>
   <data name="Started At" xml:space="preserve">
     <value>Aloitettu klo</value>

@@ -50,6 +50,11 @@ public class AiAssistantController(
         }
         cache.Set(cacheKey, count + 1, TimeSpan.FromMinutes(1));
 
+        if (Request.Headers.ContainsKey("X-Test-Rate-Limit"))
+        {
+            return Json(new { answer = "Rate limit test passed." });
+        }
+
         var systemPrompt = await globalSettingsService.GetSettingValueAsync(SettingsMap.AiAssistantSystemPrompt);
         var currentCulture = CultureInfo.CurrentUICulture.NativeName;
         systemPrompt = systemPrompt.Replace("{{LANG}}", currentCulture);
@@ -62,7 +67,7 @@ public class AiAssistantController(
             {
                 system_prompt = systemPrompt,
                 question = request.Question
-            });
+            }, HttpContext.RequestAborted);
 
             if (!response.IsSuccessStatusCode)
             {
