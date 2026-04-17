@@ -50,8 +50,36 @@ public class ExportService(
         await ExportServers();
         await ExportMarketChannels();
         await ExportCustomerRelationships();
+        await ExportCompanyEntities();
+        await ExportGlobalSettings();
 
         logger.LogInformation("Export task completed successfully.");
+    }
+
+    private async Task ExportCompanyEntities()
+    {
+        logger.LogInformation("Exporting company entities...");
+        var entities = await db.CompanyEntities.ToListAsync();
+        var dir = Path.Combine(_exportRoot, "CompanyEntities");
+        Directory.CreateDirectory(dir);
+
+        foreach (var entity in entities)
+        {
+            var fileName = SanitizeFileName(entity.CompanyName) + ".md";
+            var content = ObjectToMarkdown(entity, $"Company Entity: {entity.CompanyName}");
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
+        }
+    }
+
+    private async Task ExportGlobalSettings()
+    {
+        logger.LogInformation("Exporting global settings...");
+        var settings = await db.GlobalSettings.ToListAsync();
+        var dir = Path.Combine(_exportRoot, "GlobalSettings");
+        Directory.CreateDirectory(dir);
+
+        var content = TableToMarkdown(settings, "Global Settings");
+        await File.WriteAllTextAsync(Path.Combine(dir, "settings.md"), content);
     }
 
     private async Task ExportWeeklyReports()

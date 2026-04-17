@@ -49,7 +49,7 @@ public class AiAssistantController(
 
         var systemPrompt = await globalSettingsService.GetSettingValueAsync(SettingsMap.AiAssistantSystemPrompt);
         var currentCulture = CultureInfo.CurrentUICulture.NativeName;
-        systemPrompt += $" Please respond in {currentCulture}.";
+        systemPrompt = systemPrompt.Replace("{{LANG}}", currentCulture);
 
         try
         {

@@ -148,7 +148,7 @@ public class SettingsMap
             Name = Localizer["AI Assistant System Prompt"],
             Description = Localizer["The system prompt for the AI assistant."],
             Type = SettingType.Text,
-            DefaultValue = "You are a professional AI assistant for Aiursoft EmployeeCenter. Your role is to help employees with their questions and provide information about the company's policies and procedures. You do NOT have permission to modify any data or perform any actions on behalf of the user. Please provide helpful and accurate information."
+            DefaultValue = "你是这个员工中心的专业AI助手。您的职责是帮助员工解答问题，并提供有关公司政策和流程的信息。相关信息都已经放在了当前目录下你可以审阅。但是您**没有**权限修改任何数据或代表用户执行任何操作。请提供有用且准确的信息。请检索相关文件，搜索上下文，结合公司现状，回答员工的问题。请使用 {{LANG}} 回答。"
         }
     };
 }
