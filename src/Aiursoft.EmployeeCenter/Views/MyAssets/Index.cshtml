@@ -2,6 +2,8 @@
 
 <h1 class="h3 mb-3">@Localizer["My Assets"]</h1>
 
+@if (Model.Assets.Any())
+{
 <div class="card">
     <div class="card-header">
         <h5 class="card-title mb-0">@Localizer["Assets assigned to me"]</h5>
@@ -18,12 +20,6 @@
             </tr>
             </thead>
             <tbody>
-            @if (!Model.Assets.Any())
-            {
-                <tr>
-                    <td colspan="5" class="text-center text-muted">@Localizer["No assets assigned to you yet."]</td>
-                </tr>
-            }
             @foreach (var item in Model.Assets)
             {
                 <tr>
@@ -63,6 +59,11 @@
         </table>
     </div>
 </div>
+}
+else
+{
+    <partial name="_EmptyBanner" model='new Aiursoft.EmployeeCenter.Models.SharedViewModels.EmptyBannerViewModel { Title = Localizer["No Assets"].Value, Message = Localizer["No assets assigned to you yet."].Value, Icon = "monitor" }' />
+}
 
 <!-- Reject Modal -->
 <div class="modal fade" id="rejectModal" tabindex="-1" aria-hidden="true">

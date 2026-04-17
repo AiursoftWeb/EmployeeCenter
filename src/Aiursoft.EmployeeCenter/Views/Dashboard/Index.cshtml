@@ -213,6 +213,11 @@
                     }
                 </div>
             </div>
+            }
+            else
+            {
+                <partial name="_EmptyBanner" model='new Aiursoft.EmployeeCenter.Models.SharedViewModels.EmptyBannerViewModel { Title = Localizer["No Onboarding Tasks"].Value, Message = Localizer["You currently have no onboarding tasks assigned. Have a great day!"].Value, Icon = "check-circle" }' />
+            }
         </div>
     </div>
 </div>
