@@ -1,0 +1,19 @@
+@model Aiursoft.EmployeeCenter.Models.SharedViewModels.EmptyBannerViewModel
+
+<div class="card bg-transparent border-dashed">
+    <div class="card-body text-center p-5">
+        <div class="mb-4 text-muted">
+            <i data-lucide="@Model.Icon" style="width: 48px; height: 48px; opacity: 0.5;"></i>
+        </div>
+        <h4 class="mb-3 text-secondary">@Model.Title</h4>
+        <p class="text-muted mb-4">
+            @Model.Message
+        </p>
+        @if (!string.IsNullOrEmpty(Model.ButtonUrl) && !string.IsNullOrEmpty(Model.ButtonText))
+        {
+            <a href="@Model.ButtonUrl" class="btn btn-primary">
+                @Model.ButtonText
+            </a>
+        }
+    </div>
+</div>
