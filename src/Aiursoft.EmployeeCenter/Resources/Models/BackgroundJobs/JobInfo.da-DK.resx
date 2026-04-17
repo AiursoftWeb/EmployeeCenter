@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+      <data name="Completed at" xml:space="preserve">
+    <value>Færdiggjort kl.</value>
+  </data>
   <data name="Completed At" xml:space="preserve">
     <value>Afsluttet kl.</value>
+  </data>
+  <data name="Error message" xml:space="preserve">
+    <value>Fejlmeddelelse</value>
   </data>
   <data name="Error Message" xml:space="preserve">
     <value>Fejlbesked</value>
@@ -36,11 +42,20 @@
   <data name="Queue Name" xml:space="preserve">
     <value>Køns navn</value>
   </data>
+  <data name="Queued at" xml:space="preserve">
+    <value>Køet kl.</value>
+  </data>
   <data name="Queued At" xml:space="preserve">
     <value>Indsat kl.</value>
   </data>
+  <data name="Service type" xml:space="preserve">
+    <value>Service type</value>
+  </data>
   <data name="Service Type" xml:space="preserve">
     <value>Tjenestetype</value>
+  </data>
+  <data name="Started at" xml:space="preserve">
+    <value>Startet kl.</value>
   </data>
   <data name="Started At" xml:space="preserve">
     <value>Startet kl.</value>

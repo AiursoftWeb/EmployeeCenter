@@ -123,6 +123,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>ユーザーアカウントの完全削除を許可します。</value>
   </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>ユーザーが会社の情報について AI アシスタントとチャットできるようにします。</value>
+  </data>
   <data name="Allows the user to create their own weekly reports." xml:space="preserve">
     <value>ユーザーが自分の週次レポートを作成できるようにします。</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>ユーザーへのロール割り当て</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>AI とチャット</value>
   </data>
   <data name="Create and manage company contracts" xml:space="preserve">
     <value>会社の契約の作成と管理</value>

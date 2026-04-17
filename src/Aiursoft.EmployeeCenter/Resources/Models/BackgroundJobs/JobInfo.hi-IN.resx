@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+      <data name="Completed at" xml:space="preserve">
+    <value>पूर्ण होने पर</value>
+  </data>
   <data name="Completed At" xml:space="preserve">
     <value>पूरा किया गया समय</value>
+  </data>
+  <data name="Error message" xml:space="preserve">
+    <value>त्रुटि संदेश</value>
   </data>
   <data name="Error Message" xml:space="preserve">
     <value>त्रुटि संदेश</value>
@@ -36,11 +42,20 @@
   <data name="Queue Name" xml:space="preserve">
     <value>कतार का नाम</value>
   </data>
+  <data name="Queued at" xml:space="preserve">
+    <value>कतार में</value>
+  </data>
   <data name="Queued At" xml:space="preserve">
     <value>कतार में रखा गया</value>
   </data>
+  <data name="Service type" xml:space="preserve">
+    <value>सेवा प्रकार</value>
+  </data>
   <data name="Service Type" xml:space="preserve">
     <value>सेवा प्रकार</value>
+  </data>
+  <data name="Started at" xml:space="preserve">
+    <value>प्रारंभ हुआ</value>
   </data>
   <data name="Started At" xml:space="preserve">
     <value>शुरू किया गया समय</value>
