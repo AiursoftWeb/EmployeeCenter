@@ -39,7 +39,19 @@
 <div class="container-fluid p-0">
     <h1 class="h3 mb-3">@Localizer["Employee Onboarding"]</h1>
     
-    @if (allCompleted)
+    @if (!tasks.Any())
+    {
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert-message">
+                <h4 class="alert-heading">@Localizer["No Tasks Available"]</h4>
+                <p class="mb-0">
+                    @Localizer["You currently have no onboarding tasks assigned. You may explore other features from the sidebar."]
+                </p>
+            </div>
+        </div>
+    }
+    else if (allCompleted)
     {
         <div class="alert alert-success alert-dismissible" role="alert">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -52,7 +64,9 @@
         </div>
     }
 
-    <div class="row">
+    @if (tasks.Any())
+    {
+        <div class="row">
         <div class="col-12">
             <div id="smartwizard-onboarding" class="wizard wizard-primary mb-4">
                 <ul class="nav">
@@ -215,6 +229,7 @@
             </div>
         </div>
     </div>
+    }
 </div>
 
 <script>
