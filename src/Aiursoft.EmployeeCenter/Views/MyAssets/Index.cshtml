@@ -6,62 +6,72 @@
     <div class="card-header">
         <h5 class="card-title mb-0">@Localizer["Assets assigned to me"]</h5>
     </div>
-    <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead>
-            <tr>
-                <th>@Localizer["Asset Tag"]</th>
-                <th>@Localizer["Model"]</th>
-                <th>@Localizer["Status"]</th>
-                <th>@Localizer["Location"]</th>
-                <th class="text-end">@Localizer["Actions"]</th>
-            </tr>
-            </thead>
-            <tbody>
-            @if (!Model.Assets.Any())
-            {
+    @if (!Model.Assets.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
+                    <p class="mb-0">
+                        @Localizer["There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department."]
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
                 <tr>
-                    <td colspan="5" class="text-center text-muted">@Localizer["No assets assigned to you yet."]</td>
+                    <th>@Localizer["Asset Tag"]</th>
+                    <th>@Localizer["Model"]</th>
+                    <th>@Localizer["Status"]</th>
+                    <th>@Localizer["Location"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
                 </tr>
-            }
-            @foreach (var item in Model.Assets)
-            {
-                <tr>
-                    <td><a asp-action="Details" asp-route-id="@item.Id"><code>@item.AssetTag</code></a></td>
-                    <td><a asp-action="Details" asp-route-id="@item.Id">@item.Model.Brand @item.Model.ModelName</a></td>
-                    <td>
-                        @switch (item.Status)
-                        {
-                            case AssetStatus.PendingAccept:
-                                <span class="badge bg-warning">@Localizer["Pending Accept"]</span>
-                                break;
-                            case AssetStatus.InUse:
-                                <span class="badge bg-success">@Localizer["In Use"]</span>
-                                break;
-                            default:
-                                <span class="badge bg-secondary">@item.Status</span>
-                                break;
-                        }
-                    </td>
-                    <td>@(item.Location?.Name ?? Localizer["N/A"].Value)</td>
-                    <td class="text-end">
-                        @if (item.Status == AssetStatus.PendingAccept)
-                        {
-                            <form asp-action="Confirm" asp-route-id="@item.Id" method="post" class="d-inline">
-                                <button type="submit" class="btn btn-sm btn-success">
-                                    <i class="align-middle" data-lucide="check"></i> @Localizer["Confirm Receipt"]
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Assets)
+                {
+                    <tr>
+                        <td><a asp-action="Details" asp-route-id="@item.Id"><code>@item.AssetTag</code></a></td>
+                        <td><a asp-action="Details" asp-route-id="@item.Id">@item.Model.Brand @item.Model.ModelName</a></td>
+                        <td>
+                            @switch (item.Status)
+                            {
+                                case AssetStatus.PendingAccept:
+                                    <span class="badge bg-warning">@Localizer["Pending Accept"]</span>
+                                    break;
+                                case AssetStatus.InUse:
+                                    <span class="badge bg-success">@Localizer["In Use"]</span>
+                                    break;
+                                default:
+                                    <span class="badge bg-secondary">@item.Status</span>
+                                    break;
+                            }
+                        </td>
+                        <td>@(item.Location?.Name ?? Localizer["N/A"].Value)</td>
+                        <td class="text-end">
+                            @if (item.Status == AssetStatus.PendingAccept)
+                            {
+                                <form asp-action="Confirm" asp-route-id="@item.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-sm btn-success">
+                                        <i class="align-middle" data-lucide="check"></i> @Localizer["Confirm Receipt"]
+                                    </button>
+                                </form>
+                                <button type="button" class="btn btn-sm btn-danger reject-btn" data-id="@item.Id" data-tag="@item.AssetTag">
+                                    <i class="align-middle" data-lucide="x"></i> @Localizer["Reject"]
                                 </button>
-                            </form>
-                            <button type="button" class="btn btn-sm btn-danger reject-btn" data-id="@item.Id" data-tag="@item.AssetTag">
-                                <i class="align-middle" data-lucide="x"></i> @Localizer["Reject"]
-                            </button>
-                        }
-                    </td>
-                </tr>
-            }
-            </tbody>
-        </table>
-    </div>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
 </div>
 
 <!-- Reject Modal -->

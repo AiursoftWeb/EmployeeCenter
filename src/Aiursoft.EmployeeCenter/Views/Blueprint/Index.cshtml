@@ -33,82 +33,102 @@
     <div class="card-header">
         <h5 class="card-title mb-0">@Localizer["Contents"]</h5>
     </div>
-    <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead>
-            <tr>
-                <th>@Localizer["Name"]</th>
-                <th>@Localizer["Author"]</th>
-                <th>@Localizer["Creation Time"]</th>
-                <th>@Localizer["Last Updated"]</th>
-                <th class="text-end">@Localizer["Actions"]</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var folder in Model.SubFolders)
-            {
-                <tr>
-                    <td>
-                        <a asp-action="Index" asp-route-id="@folder.Id">
-                            <i class="align-middle me-2" data-lucide="folder"></i> @folder.Name
-                        </a>
-                    </td>
-                    <td>-</td>
-                    <td><label class="text-muted" data-utc-time="@folder.CreateTime.ToHtmlDateTime()"></label></td>
-                    <td>-</td>
-                    <td class="text-end">
-                        <a asp-action="Index" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-primary">
-                            <i class="align-middle" data-lucide="external-link"></i> @Localizer["Open"]
-                        </a>
+    @if (!Model.SubFolders.Any() && !Model.Blueprints.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
+                    <p class="mb-0">
+                        @Localizer["This folder is currently empty."]
                         @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageBlueprints)).Succeeded)
                         {
-                            <a asp-action="EditFolder" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-primary">
-                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
-                            </a>
-                            <form asp-action="DeleteFolder" asp-route-id="@folder.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-folder-confirm', 'Are you sure you want to delete this folder?'));">
-                                <button type="submit" class="btn btn-sm btn-outline-danger">
-                                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                                </button>
-                            </form>
+                            <a asp-action="Manage" asp-route-folderId="@Model.FolderId">@Localizer["Click here to manage contents."]</a>
                         }
-                    </td>
-                </tr>
-            }
-            @foreach (var doc in Model.Blueprints)
-            {
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
                 <tr>
-                    <td>
-                        <i class="align-middle me-2" data-lucide="map"></i> @doc.Title
-                    </td>
-                    <td class="align-middle">
-                        @if (doc.Author != null)
-                        {
-                            <a asp-controller="Users" asp-action="Details" asp-route-id="@doc.AuthorId" class="text-body d-flex align-items-center">
-                                <img src="@StorageService.RelativePathToInternetUrl(doc.Author?.AvatarRelativePath ?? "images/default-avatar.jpg")?w=30&square=true" class="avatar img-fluid rounded me-1" alt="@doc.Author?.DisplayName" />
-                                @doc.Author?.DisplayName
-                            </a>
-                        }
-                        else
-                        {
-                            <span class="text-muted">@Localizer["Unknown Author"]</span>
-                        }
-                    </td>
-                    <td>
-                        <label class="text-muted" data-utc-time="@doc.CreationTime.ToHtmlDateTime()"></label>
-                    </td>
-                    <td>
-                        <label class="text-muted" data-utc-time="@doc.UpdateTime.ToHtmlDateTime()"></label>
-                    </td>
-                    <td class="text-end">
-                        <a asp-action="View" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
-                            <i class="align-middle" data-lucide="eye"></i> @Localizer["View"]
-                        </a>
-                    </td>
+                    <th>@Localizer["Name"]</th>
+                    <th>@Localizer["Author"]</th>
+                    <th>@Localizer["Creation Time"]</th>
+                    <th>@Localizer["Last Updated"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
                 </tr>
-            }
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                @foreach (var folder in Model.SubFolders)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="Index" asp-route-id="@folder.Id">
+                                <i class="align-middle me-2" data-lucide="folder"></i> @folder.Name
+                            </a>
+                        </td>
+                        <td>-</td>
+                        <td><label class="text-muted" data-utc-time="@folder.CreateTime.ToHtmlDateTime()"></label></td>
+                        <td>-</td>
+                        <td class="text-end">
+                            <a asp-action="Index" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="external-link"></i> @Localizer["Open"]
+                            </a>
+                            @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageBlueprints)).Succeeded)
+                            {
+                                <a asp-action="EditFolder" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-primary">
+                                    <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                </a>
+                                <form asp-action="DeleteFolder" asp-route-id="@folder.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-folder-confirm', 'Are you sure you want to delete this folder?'));">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+                @foreach (var doc in Model.Blueprints)
+                {
+                    <tr>
+                        <td>
+                            <i class="align-middle me-2" data-lucide="map"></i> @doc.Title
+                        </td>
+                        <td class="align-middle">
+                            @if (doc.Author != null)
+                            {
+                                <a asp-controller="Users" asp-action="Details" asp-route-id="@doc.AuthorId" class="text-body d-flex align-items-center">
+                                    <img src="@StorageService.RelativePathToInternetUrl(doc.Author?.AvatarRelativePath ?? "images/default-avatar.jpg")?w=30&square=true" class="avatar img-fluid rounded me-1" alt="@doc.Author?.DisplayName" />
+                                    @doc.Author?.DisplayName
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["Unknown Author"]</span>
+                            }
+                        </td>
+                        <td>
+                            <label class="text-muted" data-utc-time="@doc.CreationTime.ToHtmlDateTime()"></label>
+                        </td>
+                        <td>
+                            <label class="text-muted" data-utc-time="@doc.UpdateTime.ToHtmlDateTime()"></label>
+                        </td>
+                        <td class="text-end">
+                            <a asp-action="View" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="eye"></i> @Localizer["View"]
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
 </div>
 
 <div id="loc-data" class="d-none">
