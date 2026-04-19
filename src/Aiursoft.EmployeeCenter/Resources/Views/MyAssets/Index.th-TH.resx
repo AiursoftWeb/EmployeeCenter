@@ -42,6 +42,9 @@
   <data name="In Use" xml:space="preserve">
     <value>ใช้งานอยู่</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>ที่นี่ว่างเปล่า!</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>สถานที่</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>ยังไม่มีทรัพย์สินที่มอบหมายให้คุณ หากต้องการอุปกรณ์ใดๆ โปรดติดต่อแผนก HR หรือ IT</value>
   </data>
 
 </root>

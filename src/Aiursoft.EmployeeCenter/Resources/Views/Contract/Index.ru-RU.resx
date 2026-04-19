@@ -39,6 +39,9 @@
   <data name="Back" xml:space="preserve">
     <value>Назад</value>
   </data>
+  <data name="Click here to manage contents." xml:space="preserve">
+    <value>Нажмите здесь, чтобы управлять содержимым.</value>
+  </data>
   <data name="Contents" xml:space="preserve">
     <value>Содержимое</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Invalid" xml:space="preserve">
     <value>Недействительный</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Здесь пусто!</value>
   </data>
   <data name="My Contracts" xml:space="preserve">
     <value>Мои контракты</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>
+  </data>
+  <data name="This folder is currently empty." xml:space="preserve">
+    <value>Эта папка в настоящее время пуста.</value>
   </data>
 
 </root>

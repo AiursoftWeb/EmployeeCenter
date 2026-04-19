@@ -39,6 +39,9 @@
   <data name="Back" xml:space="preserve">
     <value>Quay lại</value>
   </data>
+  <data name="Click here to manage contents." xml:space="preserve">
+    <value>Nhấn vào đây để quản lý nội dung.</value>
+  </data>
   <data name="Contents" xml:space="preserve">
     <value>Nội dung</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Invalid" xml:space="preserve">
     <value>Không hợp lệ</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Ở đây trống rỗng!</value>
   </data>
   <data name="My Contracts" xml:space="preserve">
     <value>Hợp đồng của tôi</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Trạng thái</value>
+  </data>
+  <data name="This folder is currently empty." xml:space="preserve">
+    <value>Thư mục này hiện đang trống.</value>
   </data>
 
 </root>

@@ -42,6 +42,9 @@
   <data name="In Use" xml:space="preserve">
     <value>I brug</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Det er tomt her!</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Placering</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>Der er ikke tildelt nogen aktiver til dig endnu. Hvis du har brug for udstyr, skal du kontakte HR- eller IT-afdelingen.</value>
   </data>
 
 </root>
