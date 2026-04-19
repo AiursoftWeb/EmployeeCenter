@@ -24,6 +24,9 @@
   <data name="Actions" xml:space="preserve">
     <value>Acciones</value>
   </data>
+  <data name="Click here to create one." xml:space="preserve">
+    <value>Haz clic aquí para crear uno.</value>
+  </data>
   <data name="Create New" xml:space="preserve">
     <value>Crear Nuevo</value>
   </data>
@@ -36,6 +39,9 @@
   <data name="Editable" xml:space="preserve">
     <value>Editable</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>¡Aquí no hay nada!</value>
+  </data>
   <data name="Manage and view shared account passwords." xml:space="preserve">
     <value>Gestiona y visualiza las contraseñas de cuentas compartidas.</value>
   </data>
@@ -47,6 +53,9 @@
   </data>
   <data name="No passwords created yet." xml:space="preserve">
     <value>No se han creado contraseñas todavía.</value>
+  </data>
+  <data name="No passwords have been shared with you yet." xml:space="preserve">
+    <value>Aún no se han compartido contraseñas contigo.</value>
   </data>
   <data name="No passwords shared with you." xml:space="preserve">
     <value>No se han compartido contraseñas contigo.</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>Título</value>
+  </data>
+  <data name="You have not created any passwords yet." xml:space="preserve">
+    <value>Aún no has creado ninguna contraseña.</value>
   </data>
 
 </root>

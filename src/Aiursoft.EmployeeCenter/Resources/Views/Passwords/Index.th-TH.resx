@@ -24,6 +24,9 @@
   <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
+  <data name="Click here to create one." xml:space="preserve">
+    <value>คลิกที่นี่เพื่อสร้างหนึ่งรายการ</value>
+  </data>
   <data name="Create New" xml:space="preserve">
     <value>สร้างใหม่</value>
   </data>
@@ -36,6 +39,9 @@
   <data name="Editable" xml:space="preserve">
     <value>แก้ไขได้</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>ที่นี่ว่างเปล่า!</value>
+  </data>
   <data name="Manage and view shared account passwords." xml:space="preserve">
     <value>จัดการและดูรหัสผ่านบัญชีที่แชร์</value>
   </data>
@@ -47,6 +53,9 @@
   </data>
   <data name="No passwords created yet." xml:space="preserve">
     <value>ยังไม่มีการสร้างรหัสผ่านใด ๆ</value>
+  </data>
+  <data name="No passwords have been shared with you yet." xml:space="preserve">
+    <value>ยังไม่มีรหัสผ่านใดที่ถูกแชร์ให้คุณ</value>
   </data>
   <data name="No passwords shared with you." xml:space="preserve">
     <value>ไม่มีรหัสผ่านที่แชร์กับคุณ</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>หัวข้อ</value>
+  </data>
+  <data name="You have not created any passwords yet." xml:space="preserve">
+    <value>คุณยังไม่ได้สร้างรหัสผ่านใด ๆ</value>
   </data>
 
 </root>

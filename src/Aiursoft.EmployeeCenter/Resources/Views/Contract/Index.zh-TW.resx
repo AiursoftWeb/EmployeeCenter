@@ -39,6 +39,9 @@
   <data name="Back" xml:space="preserve">
     <value>返回</value>
   </data>
+  <data name="Click here to manage contents." xml:space="preserve">
+    <value>點擊此處以管理內容。</value>
+  </data>
   <data name="Contents" xml:space="preserve">
     <value>內容</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Invalid" xml:space="preserve">
     <value>無效</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>這裡是空的！</value>
   </data>
   <data name="My Contracts" xml:space="preserve">
     <value>我的合約</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>狀態</value>
+  </data>
+  <data name="This folder is currently empty." xml:space="preserve">
+    <value>此資料夾目前為空。</value>
   </data>
 
 </root>

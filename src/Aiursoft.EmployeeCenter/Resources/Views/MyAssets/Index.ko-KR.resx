@@ -42,6 +42,9 @@
   <data name="In Use" xml:space="preserve">
     <value>사용 중</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>여기가 비어있습니다!</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>위치</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>상태</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>아직 귀하에게 할당된 자산이 없습니다. 장비가 필요한 경우 HR 또는 IT 부서에 문의해 주세요.</value>
   </data>
 
 </root>
