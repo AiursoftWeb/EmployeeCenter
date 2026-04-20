@@ -1,7 +1,9 @@
+using System.Diagnostics;
 using System.Text;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Aiursoft.EmployeeCenter.Services.GitLab;
 using Aiursoft.Scanner.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -12,6 +14,7 @@ public class ExportService(
     EmployeeCenterDbContext db,
     IOptions<AppSettings> appSettings,
     StorageService storageService,
+    GitLabService gitLabService,
     ILogger<ExportService> logger) : IScopedDependency
 {
     private readonly string _exportRoot = appSettings.Value.ExportPath;
@@ -26,6 +29,11 @@ public class ExportService(
         {
             foreach (var directory in Directory.GetDirectories(_exportRoot))
             {
+                // Don't delete GitProjects directory to allow incremental updates (git pull)
+                if (Path.GetFileName(directory) == "GitProjects")
+                {
+                    continue;
+                }
                 Directory.Delete(directory, true);
             }
             foreach (var file in Directory.GetFiles(_exportRoot))
@@ -52,8 +60,84 @@ public class ExportService(
         await ExportCustomerRelationships();
         await ExportCompanyEntities();
         await ExportGlobalSettings();
+        await ExportGitProjects();
 
         logger.LogInformation("Export task completed successfully.");
+    }
+
+    private async Task ExportGitProjects()
+    {
+        logger.LogInformation("Exporting GitLab projects...");
+        var projects = await gitLabService.GetAllProjectsAsync();
+        var dir = Path.Combine(_exportRoot, "GitProjects");
+        Directory.CreateDirectory(dir);
+
+        // 1. Clean up old projects that are no longer in GitLab
+        var activeProjectFolders = projects.Select(p => SanitizeFileName(p.Name)).ToHashSet();
+        foreach (var existingDir in Directory.GetDirectories(dir))
+        {
+            var folderName = Path.GetFileName(existingDir);
+            if (!activeProjectFolders.Contains(folderName))
+            {
+                logger.LogInformation("Removing old project directory {FolderName}...", folderName);
+                Directory.Delete(existingDir, true);
+            }
+        }
+
+        // 2. Clone or Pull
+        foreach (var project in projects)
+        {
+            var projectName = SanitizeFileName(project.Name);
+            var projectDir = Path.Combine(dir, projectName);
+            
+            if (Directory.Exists(Path.Combine(projectDir, ".git")))
+            {
+                logger.LogInformation("Updating project {ProjectName}...", project.Name);
+                await RunGitCommand("fetch --all", projectDir, project.Name);
+                await RunGitCommand($"reset --hard origin/{project.DefaultBranch}", projectDir, project.Name);
+            }
+            else 
+            {
+                logger.LogInformation("Cloning project {ProjectName}...", project.Name);
+                if (Directory.Exists(projectDir))
+                {
+                    Directory.Delete(projectDir, true);
+                }
+                await RunGitCommand($"clone --depth 1 {project.HttpUrlToRepo} \"{projectDir}\"", dir, project.Name);
+            }
+        }
+    }
+
+    private async Task RunGitCommand(string args, string workingDir, string projectName)
+    {
+        try 
+        {
+            var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "git",
+                    Arguments = args,
+                    WorkingDirectory = workingDir,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                }
+            };
+            process.Start();
+            var error = await process.StandardError.ReadToEndAsync();
+            await process.WaitForExitAsync();
+
+            if (process.ExitCode != 0)
+            {
+                logger.LogError("Git command '{Args}' failed for project {ProjectName}. Exit code: {ExitCode}. Error: {Error}", args, projectName, process.ExitCode, error);
+            }
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Exception occurred during git command '{Args}' for project {ProjectName}", args, projectName);
+        }
     }
 
     private async Task ExportCompanyEntities()

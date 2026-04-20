@@ -19,7 +19,7 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class AiAssistantController(
     IOptions<AppSettings> appSettings,
     IHttpClientFactory httpClientFactory,
-    GlobalSettingsService globalSettingsService,
+    IServiceScopeFactory scopeFactory,
     IMemoryCache cache) : Controller
 {
     [RenderInNavBar(
@@ -60,7 +60,10 @@ public class AiAssistantController(
         {
             try
             {
-                var systemPrompt = await globalSettingsService.GetSettingValueAsync(SettingsMap.AiAssistantSystemPrompt);
+                using var scope = scopeFactory.CreateScope();
+                var scopedGlobalSettingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+
+                var systemPrompt = await scopedGlobalSettingsService.GetSettingValueAsync(SettingsMap.AiAssistantSystemPrompt);
                 var currentCulture = CultureInfo.CurrentUICulture.NativeName;
                 systemPrompt = systemPrompt.Replace("{{LANG}}", currentCulture);
 

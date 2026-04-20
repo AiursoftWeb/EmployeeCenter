@@ -1,6 +1,7 @@
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Aiursoft.EmployeeCenter.Services.GitLab;
 using Microsoft.Extensions.Options;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
@@ -128,10 +129,14 @@ public class ExportTests : TestBase
             Agent = new AgentSettings { Endpoint = "http://localhost:8000/ask" }
         });
         
-        var exportService = new ExportService(db, options, storageService, GetService<ILogger<ExportService>>());
+        var exportService = new ExportService(db, options, storageService, GetService<GitLabService>(), GetService<ILogger<ExportService>>());
         await exportService.ExportAsync();
 
         // 6. Verify results
+        // Verify Git Projects
+        var gitProjectsDir = Path.Combine(_testExportPath, "GitProjects");
+        Assert.IsTrue(Directory.Exists(gitProjectsDir), $"GitProjects directory not found at {gitProjectsDir}");
+
         // Verify Blueprints
         var blueprintFile = Path.Combine(_testExportPath, "Blueprints", "Level1", "Level2", "Test Blueprint.md");
         Assert.IsTrue(File.Exists(blueprintFile), $"Blueprint file not found at {blueprintFile}");

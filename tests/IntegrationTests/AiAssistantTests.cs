@@ -2,6 +2,7 @@ using System.Text.Json;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -147,6 +148,58 @@ public class AiAssistantTests : TestBase
         }
 
         Assert.IsTrue(finished, "Task did not finish (Completed or Error) within timeout.");
+    }
+
+    [TestMethod]
+    public async Task Ask_BackgroundTask_ShouldNotFailDueToDisposedContext()
+    {
+        await LoginAsAdmin();
+        
+        // Clear cache to ensure GlobalSettingsService hits the database
+        var cache = GetService<IMemoryCache>();
+        var definitions = SettingsMap.Definitions;
+        foreach (var def in definitions)
+        {
+            cache.Remove($"global-setting-{def.Key}");
+        }
+
+        var request = new { Question = "Hello", History = new List<object>() };
+
+        var startResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
+        startResponse.EnsureSuccessStatusCode();
+
+        var startData = await startResponse.Content.ReadFromJsonAsync<JsonDocument>();
+        var taskId = startData?.RootElement.GetProperty("taskId").GetString();
+        Assert.IsNotNull(taskId);
+
+        // Poll for result
+        string? status = null;
+        string? errorMessage = null;
+        for (int i = 0; i < 10; i++)
+        {
+            var statusResponse = await Http.GetAsync($"/AiAssistant/CheckStatus?taskId={taskId}");
+            statusResponse.EnsureSuccessStatusCode();
+            var statusData = await statusResponse.Content.ReadFromJsonAsync<JsonDocument>();
+            
+            if (statusData != null)
+            {
+                var root = statusData.RootElement;
+                if (root.TryGetProperty("status", out var s) || root.TryGetProperty("Status", out s))
+                    status = s.GetString();
+                
+                if (root.TryGetProperty("errorMessage", out var e) || root.TryGetProperty("ErrorMessage", out e))
+                    errorMessage = e.GetString();
+            }
+
+            if (status == "Completed" || status == "Error") break;
+            await Task.Delay(500);
+        }
+
+        if (status == "Error")
+        {
+            Assert.IsFalse(errorMessage?.Contains("Cannot access a disposed context instance") ?? false, 
+                $"Task failed due to disposed context: {errorMessage}");
+        }
     }
 
     [TestMethod]
