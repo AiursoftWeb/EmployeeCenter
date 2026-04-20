@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>本物の業務費用でなければなりません。偽の領収書は不可。</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>このエンティティと契約した従業員はいません。</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>関連する無形資産はありません。</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>特別なケース</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>従業員リスト</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>状態</value>

@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>يجب أن تكون المصروفات التجارية حقيقية. لا تُستخدم فواتير وهمية.</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>لا يوجد موظفون موقعون مع هذه الكيان.</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>لا توجد أصول غير ملموسة مرتبطة.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>الحالات الخاصة</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>قائمة الموظفين</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>الحالة</value>

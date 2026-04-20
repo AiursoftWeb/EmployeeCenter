@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>Gerçek iş giderleri olmalıdır. Sahte faturalar olmamalıdır.</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>Bu varlıkla sözleşme imzalayan çalışan bulunmamaktadır.</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>İlişkili tüzel olmayan varlık yok.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>Özel Durumlar</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Personel Listesi</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Durum</value>

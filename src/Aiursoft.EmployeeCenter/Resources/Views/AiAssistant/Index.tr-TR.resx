@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Assistant" xml:space="preserve">
+      <data name="Agent failed to respond." xml:space="preserve">
+    <value>Agent yanıt veremedi.</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
     <value>Yapay Zeka Asistanı</value>
   </data>
   <data name="Ask anything..." xml:space="preserve">
@@ -33,8 +36,14 @@
   <data name="Error: " xml:space="preserve">
     <value>Hata:</value>
   </data>
+  <data name="Failed to check status." xml:space="preserve">
+    <value>Durum kontrolü başarısız oldu.</value>
+  </data>
   <data name="Hello! Ask me anything about employee handbook, blueprints or weekly reports." xml:space="preserve">
     <value>Merhaba! Çalışan el kitabı, mavi baskılar veya haftalık raporlar hakkında her şeyi bana sorabilirsiniz.</value>
+  </data>
+  <data name="Request timed out." xml:space="preserve">
+    <value>İstek zaman aşımına uğradı.</value>
   </data>
   <data name="Session cleared. Ask me anything!" xml:space="preserve">
     <value>Oturum temizlendi. Her şeyi sorabilirsiniz!</value>

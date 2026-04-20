@@ -129,6 +129,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>必須為真實的業務開支。不得使用偽造發票。</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>無員工與此實體簽署。</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>沒有關聯的無形資產。</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>特別情況</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>員工名單</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>狀態</value>
