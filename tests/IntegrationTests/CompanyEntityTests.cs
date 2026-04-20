@@ -228,4 +228,43 @@ public class CompanyEntityTests : TestBase
             Assert.Contains("Prefer Electronic Invoices", detailsHtml);
         }
     }
+
+    [TestMethod]
+    public async Task StaffListVisibilityTest()
+    {
+        // 1. Login as admin
+        await LoginAsAdmin();
+
+        // 2. Create a Company Entity
+        var createResponse = await PostForm("/CompanyEntity/Create", new Dictionary<string, string>
+        {
+            { "CompanyName", "Staff Test Company" },
+            { "EntityCode", "ST123456" }
+        });
+        Assert.AreEqual(HttpStatusCode.Found, createResponse.StatusCode);
+
+        // 3. Get the ID and update a user to be signed with this entity
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var entity = await db.CompanyEntities.FirstOrDefaultAsync(e => e.EntityCode == "ST123456");
+            Assert.IsNotNull(entity);
+
+            var user = await db.Users.FirstAsync();
+            user.SigningEntityId = entity.Id;
+            user.JobLevel = "Senior Engineer";
+            user.Title = "Fullstack Developer";
+            await db.SaveChangesAsync();
+
+            // 4. Verify Details page
+            var detailsResponse = await Http.GetAsync($"/CompanyEntity/Details/{entity.Id}");
+            detailsResponse.EnsureSuccessStatusCode();
+            var detailsHtml = await detailsResponse.Content.ReadAsStringAsync();
+
+            Assert.Contains("Staff List", detailsHtml);
+            Assert.Contains(user.DisplayName, detailsHtml);
+            Assert.Contains("Senior Engineer", detailsHtml);
+            Assert.Contains("Fullstack Developer", detailsHtml);
+        }
+    }
 }

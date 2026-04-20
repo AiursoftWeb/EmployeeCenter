@@ -83,11 +83,17 @@ public class CompanyEntityController(
             .OrderBy(a => a.Name)
             .ToListAsync();
 
+        var signedEmployees = await dbContext.Users
+            .Where(u => u.SigningEntityId == id)
+            .OrderBy(u => u.DisplayName)
+            .ToListAsync();
+
         var model = new DetailsViewModel
         {
             Entity = entity,
             Servers = servers,
-            IntangibleAssets = intangibleAssets
+            IntangibleAssets = intangibleAssets,
+            SignedEmployees = signedEmployees
         };
         return this.StackView(model);
     }
