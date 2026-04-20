@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Assistant" xml:space="preserve">
+      <data name="Agent failed to respond." xml:space="preserve">
+    <value>エージェントが応答しませんでした。</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
     <value>AI アシスタント</value>
   </data>
   <data name="Ask anything..." xml:space="preserve">
@@ -33,8 +36,14 @@
   <data name="Error: " xml:space="preserve">
     <value>エラー:</value>
   </data>
+  <data name="Failed to check status." xml:space="preserve">
+    <value>ステータスの確認に失敗しました。</value>
+  </data>
   <data name="Hello! Ask me anything about employee handbook, blueprints or weekly reports." xml:space="preserve">
     <value>こんにちは！従業員ハンドブック、設計図、または週次報告書について何でもお気軽にお尋ねください。</value>
+  </data>
+  <data name="Request timed out." xml:space="preserve">
+    <value>リクエストのタイムアウトが発生しました。</value>
   </data>
   <data name="Session cleared. Ask me anything!" xml:space="preserve">
     <value>セッションがクリアされました。何でも聞いてください！</value>

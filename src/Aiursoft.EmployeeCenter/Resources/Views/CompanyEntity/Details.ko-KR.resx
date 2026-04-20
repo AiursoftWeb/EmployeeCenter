@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>실제 사업 비용이어야 하며, 위조된 송장은 사용할 수 없습니다.</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>이 엔티티와 계약한 직원이 없습니다.</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>연결된 무형 자산이 없습니다.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>특별 사례</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>직원 명단</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>상태</value>

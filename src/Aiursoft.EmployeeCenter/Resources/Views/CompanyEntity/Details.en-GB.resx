@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>Must be genuine business expenses. No fake invoices.</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>No employees are signed to this entity.</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>No intangible assets associated.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>Special Cases</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Staff List</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>

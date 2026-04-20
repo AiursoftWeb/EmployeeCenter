@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>Tilanteessa on oltava todellisia liiketoimintakuluja. Ei valelaskuja.</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>Tälle organisaatiolle ei ole allekirjoittanut työntekijöitä.</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>Ei liitettyjä immateriaalisia varoja.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>Erityistapaukset</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Henkilöstölista</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Tila</value>

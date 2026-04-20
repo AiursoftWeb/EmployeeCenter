@@ -129,6 +129,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>注意：必须是真实发生的费用，严禁虚假虚开（如购买购物卡开成办公用品等），这是红线。</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>无员工与此实体签约。</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>暂无关联的无形资产。</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>特殊情况</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>员工名单</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>状态</value>

@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>Πρέπει να είναι πραγματικές επιχειρηματικές δαπάνες. Καμία πλαστή τιμολόγηση.</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>Δεν έχουν υπογράψει εργαζόμενοι με αυτή την οντότητα.</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>Δεν υπάρχουν συνδεδεμένα απαράγωγα περιουσιακά στοιχεία.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>Ειδικές Περιπτώσεις</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Λίστα Προσωπικού</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Κατάσταση</value>
