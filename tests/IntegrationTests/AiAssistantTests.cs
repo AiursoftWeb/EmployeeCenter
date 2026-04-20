@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
@@ -85,6 +86,9 @@ public class AiAssistantTests : TestBase
             message.Headers.Add("X-Test-Rate-Limit", "true");
             var response = await Http.SendAsync(message);
             response.EnsureSuccessStatusCode();
+            
+            var data = await response.Content.ReadFromJsonAsync<JsonDocument>();
+            Assert.IsTrue(data?.RootElement.TryGetProperty("taskId", out _));
         }
 
         // 6th request should be rate limited
@@ -93,6 +97,56 @@ public class AiAssistantTests : TestBase
         
         Assert.AreEqual(HttpStatusCode.BadRequest, lastResponse.StatusCode);
         Assert.IsTrue(lastContent.Contains("Too many requests. Please try again in a minute."));
+    }
+
+    [TestMethod]
+    public async Task Ask_ReturnsTaskId_AndStatusCompletedOrError()
+    {
+        await LoginAsAdmin();
+        var request = new { Question = "Hello" };
+
+        var startResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
+        startResponse.EnsureSuccessStatusCode();
+
+        var startData = await startResponse.Content.ReadFromJsonAsync<JsonDocument>();
+        var taskId = startData?.RootElement.GetProperty("taskId").GetString();
+        Assert.IsFalse(string.IsNullOrEmpty(taskId));
+
+        // Poll for completion
+        bool finished = false;
+        for (int i = 0; i < 20; i++) // Try for 20 seconds
+        {
+            var statusResponse = await Http.GetAsync($"/AiAssistant/CheckStatus?taskId={taskId}");
+            statusResponse.EnsureSuccessStatusCode();
+            var statusData = await statusResponse.Content.ReadFromJsonAsync<JsonDocument>();
+            
+            string? status = null;
+            if (statusData != null && statusData.RootElement.TryGetProperty("status", out var statusProp))
+            {
+                status = statusProp.GetString();
+            }
+            else if (statusData != null && statusData.RootElement.TryGetProperty("Status", out var statusPropPascal))
+            {
+                status = statusPropPascal.GetString();
+            }
+
+            if (status == "Completed")
+            {
+                finished = true;
+                Assert.IsTrue(statusData!.RootElement.TryGetProperty("answer", out _) || statusData.RootElement.TryGetProperty("Answer", out _));
+                break;
+            }
+            else if (status == "Error")
+            {
+                finished = true;
+                Assert.IsTrue(statusData!.RootElement.TryGetProperty("errorMessage", out _) || statusData.RootElement.TryGetProperty("ErrorMessage", out _));
+                break;
+            }
+
+            await Task.Delay(1000);
+        }
+
+        Assert.IsTrue(finished, "Task did not finish (Completed or Error) within timeout.");
     }
 
     [TestMethod]

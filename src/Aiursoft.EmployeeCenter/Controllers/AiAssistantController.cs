@@ -35,65 +35,91 @@ public class AiAssistantController(
     }
 
     [HttpPost]
-    public async Task<IActionResult> Ask([FromBody] AskRequest request)
+    public IActionResult Ask([FromBody] AskRequest request)
     {
         var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
-        var cacheKey = $"ai-assistant-rate-limit-{ip}";
-        if (!cache.TryGetValue(cacheKey, out int count))
+        var rateLimitCacheKey = $"ai-assistant-rate-limit-{ip}";
+        if (!cache.TryGetValue(rateLimitCacheKey, out int count))
         {
             count = 0;
         }
-        
+
         if (count >= 5)
         {
             return BadRequest(new { error = "Too many requests. Please try again in a minute." });
         }
-        cache.Set(cacheKey, count + 1, TimeSpan.FromMinutes(1));
+        cache.Set(rateLimitCacheKey, count + 1, TimeSpan.FromMinutes(1));
 
-        if (Request.Headers.ContainsKey("X-Test-Rate-Limit"))
+        var taskId = Guid.NewGuid().ToString();
+        var status = new TaskStatus { Status = "Processing", TaskId = taskId };
+        cache.Set($"ai-task-{taskId}", status, TimeSpan.FromMinutes(30));
+
+        // Start background task
+        _ = Task.Run(async () =>
         {
-            return Json(new { answer = "Rate limit test passed." });
-        }
-
-        var systemPrompt = await globalSettingsService.GetSettingValueAsync(SettingsMap.AiAssistantSystemPrompt);
-        var currentCulture = CultureInfo.CurrentUICulture.NativeName;
-        systemPrompt = systemPrompt.Replace("{{LANG}}", currentCulture);
-
-        try
-        {
-            var client = httpClientFactory.CreateClient();
-            client.Timeout = TimeSpan.FromMinutes(5);
-            var response = await client.PostAsJsonAsync(appSettings.Value.Agent.Endpoint, new
+            try
             {
-                system_prompt = systemPrompt,
-                question = request.Question
-            }, HttpContext.RequestAborted);
+                var systemPrompt = await globalSettingsService.GetSettingValueAsync(SettingsMap.AiAssistantSystemPrompt);
+                var currentCulture = CultureInfo.CurrentUICulture.NativeName;
+                systemPrompt = systemPrompt.Replace("{{LANG}}", currentCulture);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                return BadRequest(new { error = "Agent is not responding." });
+                var client = httpClientFactory.CreateClient();
+                client.Timeout = TimeSpan.FromMinutes(10);
+                var response = await client.PostAsJsonAsync(appSettings.Value.Agent.Endpoint, new
+                {
+                    system_prompt = systemPrompt,
+                    question = request.Question
+                });
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    status.Status = "Error";
+                    status.ErrorMessage = "Agent is not responding.";
+                    cache.Set($"ai-task-{taskId}", status, TimeSpan.FromMinutes(30));
+                    return;
+                }
+
+                var result = await response.Content.ReadFromJsonAsync<AgentResponse>();
+                var rawMarkdown = result?.Answer ?? "No answer received.";
+
+                var pipeline = new MarkdownPipelineBuilder()
+                    .UseAdvancedExtensions()
+                    .Build();
+                var htmlResult = Markdown.ToHtml(rawMarkdown, pipeline);
+
+                var sanitizer = new HtmlSanitizer();
+                status.Answer = sanitizer.Sanitize(htmlResult);
+                status.Status = "Completed";
+                cache.Set($"ai-task-{taskId}", status, TimeSpan.FromMinutes(30));
             }
+            catch (Exception ex)
+            {
+                status.Status = "Error";
+                status.ErrorMessage = $"Agent failed to respond: {ex.Message}";
+                cache.Set($"ai-task-{taskId}", status, TimeSpan.FromMinutes(30));
+            }
+        });
 
-            var result = await response.Content.ReadFromJsonAsync<AgentResponse>();
-            var rawMarkdown = result?.Answer ?? "No answer received.";
-
-            // 1. Convert Markdown to HTML
-            var pipeline = new MarkdownPipelineBuilder()
-                .UseAdvancedExtensions()
-                .Build();
-            var htmlResult = Markdown.ToHtml(rawMarkdown, pipeline);
-
-            // 2. Sanitize HTML
-            var sanitizer = new HtmlSanitizer();
-            var sanitizedHtml = sanitizer.Sanitize(htmlResult);
-
-            return Json(new { answer = sanitizedHtml });
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { error = $"Agent failed to respond: {ex.Message}" });
-        }
+        return Json(new { taskId });
     }
+
+    [HttpGet]
+    public IActionResult CheckStatus(string taskId)
+    {
+        if (cache.TryGetValue($"ai-task-{taskId}", out TaskStatus? status))
+        {
+            return Json(status);
+        }
+        return NotFound();
+    }
+}
+
+public class TaskStatus
+{
+    public required string TaskId { get; set; }
+    public required string Status { get; set; } // Processing, Completed, Error
+    public string? Answer { get; set; }
+    public string? ErrorMessage { get; set; }
 }
 
 public class AskRequest

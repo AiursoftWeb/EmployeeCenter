@@ -89,6 +89,8 @@
                 </div>`;
         });
 
+        const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
         chatForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const message = userInput.value.trim();
@@ -102,17 +104,43 @@
             const assistantMsgDiv = appendMessage('assistant', '...');
 
             try {
-                const response = await fetch('/AiAssistant/Ask', {
+                const startResponse = await fetch('/AiAssistant/Ask', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ question: message })
                 });
 
-                const data = await response.json();
-                if (!response.ok) {
-                    throw new Error(data.error || "@Localizer["Unknown error occurred."]");
+                const startData = await startResponse.json();
+                if (!startResponse.ok) {
+                    throw new Error(startData.error || "@Localizer["Unknown error occurred."]");
                 }
-                assistantMsgDiv.innerHTML = data.answer;
+
+                const taskId = startData.taskId;
+                let completed = false;
+                const startTime = Date.now();
+                const timeout = 15 * 60 * 1000; // 15 minutes
+
+                while (!completed) {
+                    if (Date.now() - startTime > timeout) {
+                        throw new Error("@Localizer["Request timed out."]");
+                    }
+
+                    await sleep(3000); // Poll every 3 seconds
+
+                    const statusResponse = await fetch(`/AiAssistant/CheckStatus?taskId=${taskId}`);
+                    if (!statusResponse.ok) {
+                        throw new Error("@Localizer["Failed to check status."]");
+                    }
+
+                    const statusData = await statusResponse.json();
+                    if (statusData.status === 'Completed') {
+                        assistantMsgDiv.innerHTML = statusData.answer;
+                        completed = true;
+                    } else if (statusData.status === 'Error') {
+                        throw new Error(statusData.errorMessage || "@Localizer["Agent failed to respond."]");
+                    }
+                    // If status is 'Processing', just continue polling
+                }
             } catch (error) {
                 assistantMsgDiv.classList.add('text-danger');
                 assistantMsgDiv.innerText = "@Localizer["Error: "]" + error.message;
