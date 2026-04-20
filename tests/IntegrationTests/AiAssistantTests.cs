@@ -103,7 +103,7 @@ public class AiAssistantTests : TestBase
     public async Task Ask_ReturnsTaskId_AndStatusCompletedOrError()
     {
         await LoginAsAdmin();
-        var request = new { Question = "Hello" };
+        var request = new { Question = "Hello", History = new List<object>() };
 
         var startResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
         startResponse.EnsureSuccessStatusCode();

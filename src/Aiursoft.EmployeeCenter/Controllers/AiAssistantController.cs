@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Caching.Memory;
 using System.Globalization;
+using System.Text;
 using System.Text.Json.Serialization;
 using Markdig;
 using Ganss.Xss;
@@ -63,12 +64,25 @@ public class AiAssistantController(
                 var currentCulture = CultureInfo.CurrentUICulture.NativeName;
                 systemPrompt = systemPrompt.Replace("{{LANG}}", currentCulture);
 
+                // Construct full question with history
+                var fullQuestionBuilder = new StringBuilder();
+                if (request.History.Any())
+                {
+                    fullQuestionBuilder.AppendLine("Previous conversation history:");
+                    foreach (var msg in request.History)
+                    {
+                        fullQuestionBuilder.AppendLine($"{(msg.Role == "user" ? "User" : "Assistant")}: {msg.Content}");
+                    }
+                    fullQuestionBuilder.AppendLine("\nCurrent Question:");
+                }
+                fullQuestionBuilder.Append(request.Question);
+
                 var client = httpClientFactory.CreateClient();
                 client.Timeout = TimeSpan.FromMinutes(10);
                 var response = await client.PostAsJsonAsync(appSettings.Value.Agent.Endpoint, new
                 {
                     system_prompt = systemPrompt,
-                    question = request.Question
+                    question = fullQuestionBuilder.ToString()
                 });
 
                 if (!response.IsSuccessStatusCode)
@@ -122,9 +136,22 @@ public class TaskStatus
     public string? ErrorMessage { get; set; }
 }
 
+public class ChatMessage
+{
+    [JsonPropertyName("role")]
+    public required string Role { get; set; } // "user" or "assistant"
+
+    [JsonPropertyName("content")]
+    public required string Content { get; set; }
+}
+
 public class AskRequest
 {
+    [JsonPropertyName("question")]
     public required string Question { get; set; }
+
+    [JsonPropertyName("history")]
+    public ChatMessage[] History { get; set; } = Array.Empty<ChatMessage>();
 }
 
 public class AgentResponse

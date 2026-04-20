@@ -67,6 +67,7 @@
         const userInput = document.getElementById('userInput');
         const btnSend = document.getElementById('btnSend');
         const btnClearChat = document.getElementById('btnClearChat');
+        let chatHistory = [];
         
         function appendMessage(role, content) {
             const welcome = document.getElementById('welcomeMessage');
@@ -74,7 +75,7 @@
 
             const msgDiv = document.createElement('div');
             msgDiv.className = `message message-${role}`;
-            msgDiv.innerText = content;
+            msgDiv.innerHTML = content; // Using innerHTML because AI answers might be pre-rendered HTML
             
             chatMessages.appendChild(msgDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -82,6 +83,7 @@
         }
 
         btnClearChat.addEventListener('click', () => {
+            chatHistory = [];
             chatMessages.innerHTML = `
                 <div class="text-center text-muted my-5" id="welcomeMessage">
                     <i class="align-middle me-2" data-lucide="sparkles" style="width: 48px; height: 48px; color: #ffc107;"></i>
@@ -107,13 +109,19 @@
                 const startResponse = await fetch('/AiAssistant/Ask', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ question: message })
+                    body: JSON.stringify({ 
+                        question: message,
+                        history: chatHistory
+                    })
                 });
 
                 const startData = await startResponse.json();
                 if (!startResponse.ok) {
                     throw new Error(startData.error || "@Localizer["Unknown error occurred."]");
                 }
+
+                // Update history with user's question
+                chatHistory.push({ role: 'user', content: message });
 
                 const taskId = startData.taskId;
                 let completed = false;
@@ -135,6 +143,10 @@
                     const statusData = await statusResponse.json();
                     if (statusData.status === 'Completed') {
                         assistantMsgDiv.innerHTML = statusData.answer;
+                        
+                        // Update history with assistant's answer
+                        chatHistory.push({ role: 'assistant', content: statusData.answer });
+                        
                         completed = true;
                     } else if (statusData.status === 'Error') {
                         throw new Error(statusData.errorMessage || "@Localizer["Agent failed to respond."]");
