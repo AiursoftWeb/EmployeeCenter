@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Caching.Memory;
 using System.Globalization;
 using System.Text;
+using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 using Markdig;
 using Ganss.Xss;
@@ -133,27 +134,34 @@ public class AiAssistantController(
 
 public class TaskStatus
 {
+    [JsonProperty("taskId")]
     public required string TaskId { get; set; }
+    
+    [JsonProperty("status")]
     public required string Status { get; set; } // Processing, Completed, Error
+    
+    [JsonProperty("answer")]
     public string? Answer { get; set; }
+    
+    [JsonProperty("errorMessage")]
     public string? ErrorMessage { get; set; }
 }
 
 public class ChatMessage
 {
-    [JsonPropertyName("role")]
+    [JsonProperty("role")]
     public required string Role { get; set; } // "user" or "assistant"
 
-    [JsonPropertyName("content")]
+    [JsonProperty("content")]
     public required string Content { get; set; }
 }
 
 public class AskRequest
 {
-    [JsonPropertyName("question")]
+    [JsonProperty("question")]
     public required string Question { get; set; }
 
-    [JsonPropertyName("history")]
+    [JsonProperty("history")]
     public ChatMessage[] History { get; set; } = Array.Empty<ChatMessage>();
 }
 
@@ -162,3 +170,4 @@ public class AgentResponse
     [JsonPropertyName("answer")]
     public string? Answer { get; set; }
 }
+

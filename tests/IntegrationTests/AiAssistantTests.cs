@@ -203,6 +203,37 @@ public class AiAssistantTests : TestBase
     }
 
     [TestMethod]
+    public async Task Ask_CheckStatus_ReturnsCamelCaseJson()
+    {
+        await LoginAsAdmin();
+        var request = new { Question = "Hello", History = new List<object>() };
+
+        // Test Ask response
+        var askResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
+        askResponse.EnsureSuccessStatusCode();
+        var askContent = await askResponse.Content.ReadAsStringAsync();
+        
+        // Ensure "taskId" exists and "TaskId" does not (in raw JSON)
+        Assert.IsTrue(askContent.Contains("\"taskId\":"), $"Ask response should contain camelCase 'taskId': {askContent}");
+        Assert.IsFalse(askContent.Contains("\"TaskId\":"), $"Ask response should NOT contain PascalCase 'TaskId': {askContent}");
+
+        var askData = await askResponse.Content.ReadFromJsonAsync<JsonDocument>();
+        var taskId = askData?.RootElement.GetProperty("taskId").GetString();
+        Assert.IsNotNull(taskId);
+
+        // Test CheckStatus response
+        var statusResponse = await Http.GetAsync($"/AiAssistant/CheckStatus?taskId={taskId}");
+        statusResponse.EnsureSuccessStatusCode();
+        var statusContent = await statusResponse.Content.ReadAsStringAsync();
+
+        // Ensure camelCase properties exist and PascalCase do not
+        Assert.IsTrue(statusContent.Contains("\"taskId\":"), $"CheckStatus response should contain camelCase 'taskId': {statusContent}");
+        Assert.IsTrue(statusContent.Contains("\"status\":"), $"CheckStatus response should contain camelCase 'status': {statusContent}");
+        Assert.IsFalse(statusContent.Contains("\"TaskId\":"), $"CheckStatus response should NOT contain PascalCase 'TaskId': {statusContent}");
+        Assert.IsFalse(statusContent.Contains("\"Status\":"), $"CheckStatus response should NOT contain PascalCase 'Status': {statusContent}");
+    }
+
+    [TestMethod]
     public async Task AiAssistantSystemPrompt_IsSeeded()
     {
         var settingsService = GetService<GlobalSettingsService>();
