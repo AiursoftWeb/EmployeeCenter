@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.LeaveViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
+    public IndexViewModel()
+    {
+        PageTitle = "Leave";
+    }
+
     /// <summary>
     /// Total annual leave allocated for current year
     /// </summary>

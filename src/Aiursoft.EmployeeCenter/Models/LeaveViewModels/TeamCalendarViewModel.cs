@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.LeaveViewModels;
 
 public class TeamCalendarViewModel : UiStackLayoutViewModel
 {
+    public TeamCalendarViewModel()
+    {
+        PageTitle = "Team Calendar";
+    }
+
     [Display(Name = "Team Leaves")]
     public List<TeamMemberLeave> TeamLeaves { get; set; } = new();
 
