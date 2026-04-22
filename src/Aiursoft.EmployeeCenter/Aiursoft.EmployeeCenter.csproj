@@ -19,10 +19,10 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Aiursoft.Canon.ScheduledTasks" Version="10.0.6" />
-    <PackageReference Include="Aiursoft.ClickhouseLoggerProvider" Version="10.0.17" />
-    <PackageReference Include="Aiursoft.DbTools.Switchable" Version="10.0.17" />
-    <PackageReference Include="Aiursoft.Scanner" Version="10.0.6" />
+    <PackageReference Include="Aiursoft.Canon.ScheduledTasks" Version="10.0.7" />
+    <PackageReference Include="Aiursoft.ClickhouseLoggerProvider" Version="10.0.18" />
+    <PackageReference Include="Aiursoft.DbTools.Switchable" Version="10.0.18" />
+    <PackageReference Include="Aiursoft.Scanner" Version="10.0.7" />
     <PackageReference Include="Aiursoft.UiStack" Version="10.0.8" />
     <PackageReference Include="HtmlSanitizer" Version="9.0.892" />
     <PackageReference Include="Markdig" Version="1.1.3" />
