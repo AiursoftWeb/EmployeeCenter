@@ -6,6 +6,12 @@ namespace Aiursoft.EmployeeCenter.Models.LeaveViewModels;
 
 public class ApplyViewModel : UiStackLayoutViewModel
 {
+    public ApplyViewModel()
+    {
+        PageTitle = "Apply Leave";
+    }
+
+
     [Required(ErrorMessage = "The {0} is required.")]
     [Display(Name = "Leave Type")]
     public LeaveType LeaveType { get; set; }
