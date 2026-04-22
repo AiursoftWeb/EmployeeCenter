@@ -221,6 +221,10 @@ public class ViewModelArgsInjector(
         _ = localizer["AI"];
         _ = localizer["AI Assistant"];
         _ = localizer["Company Info Consultation"];
+    
+        _ = localizer["Apply Leave"];
+        _ = localizer["Incoming Leave"];
+        _ = localizer["Leave"];
     }
 
     public void InjectSimple(
