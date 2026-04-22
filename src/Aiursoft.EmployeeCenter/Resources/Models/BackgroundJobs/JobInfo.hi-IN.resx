@@ -19,7 +19,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Completed at" xml:space="preserve">
-    <value>पूर्ण होने का समय</value>
+    <value>पूर्ण होने पर</value>
   </data>
   <data name="Completed At" xml:space="preserve">
     <value>पूरा किया गया समय</value>
@@ -43,7 +43,7 @@
     <value>कतार का नाम</value>
   </data>
   <data name="Queued at" xml:space="preserve">
-    <value>क्यू में लगा</value>
+    <value>कतार में</value>
   </data>
   <data name="Queued At" xml:space="preserve">
     <value>कतार में रखा गया</value>
@@ -55,7 +55,7 @@
     <value>सेवा प्रकार</value>
   </data>
   <data name="Started at" xml:space="preserve">
-    <value>प्रारंभ</value>
+    <value>प्रारंभ हुआ</value>
   </data>
   <data name="Started At" xml:space="preserve">
     <value>शुरू किया गया समय</value>

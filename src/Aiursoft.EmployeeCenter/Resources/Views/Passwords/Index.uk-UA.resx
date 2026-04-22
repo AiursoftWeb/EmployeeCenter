@@ -24,6 +24,9 @@
   <data name="Actions" xml:space="preserve">
     <value>Дії</value>
   </data>
+  <data name="Click here to create one." xml:space="preserve">
+    <value>Натисніть тут, щоб створити один.</value>
+  </data>
   <data name="Create New" xml:space="preserve">
     <value>Створити новий</value>
   </data>
@@ -36,6 +39,9 @@
   <data name="Editable" xml:space="preserve">
     <value>Редагується</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Тут пусто!</value>
+  </data>
   <data name="Manage and view shared account passwords." xml:space="preserve">
     <value>Керуйте та переглядайте паролі спільних облікових записів.</value>
   </data>
@@ -47,6 +53,9 @@
   </data>
   <data name="No passwords created yet." xml:space="preserve">
     <value>Паролів ще не створено.</value>
+  </data>
+  <data name="No passwords have been shared with you yet." xml:space="preserve">
+    <value>Паролів, якими з вами поділилися, ще немає.</value>
   </data>
   <data name="No passwords shared with you." xml:space="preserve">
     <value>Вам не надано доступ до жодних паролів.</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>Назва</value>
+  </data>
+  <data name="You have not created any passwords yet." xml:space="preserve">
+    <value>Ви ще не створили жодного пароля.</value>
   </data>
 
 </root>

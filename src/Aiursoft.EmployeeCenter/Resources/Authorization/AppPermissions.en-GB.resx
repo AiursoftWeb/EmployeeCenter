@@ -120,6 +120,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Allows the permanent deletion of user accounts.</value>
   </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Allows the user to chat with the AI assistant for company information.</value>
+  </data>
   <data name="Allows the user to create their own weekly reports." xml:space="preserve">
     <value>Allows the user to create their own weekly reports.</value>
   </data>
@@ -128,9 +131,6 @@
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Allows the user to submit reimbursement requests for their expenses.</value>
-  </data>
-  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
-    <value>Allows the user to chat with the AI assistant for company information.</value>
   </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Allows viewing all company contracts, including those marked as private.</value>
@@ -177,11 +177,11 @@
   <data name="Approve Reimbursement" xml:space="preserve">
     <value>Approve Reimbursement</value>
   </data>
-  <data name="Chat with AI" xml:space="preserve">
-    <value>Chat with AI</value>
-  </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Assign Roles to Users</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Chat with AI</value>
   </data>
   <data name="Create and manage company contracts" xml:space="preserve">
     <value>Create and manage company contracts</value>

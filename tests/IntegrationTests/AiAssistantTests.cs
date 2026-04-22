@@ -1,6 +1,8 @@
+using System.Text.Json;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -78,17 +80,157 @@ public class AiAssistantTests : TestBase
 
         for (int i = 1; i <= 5; i++)
         {
-            var response = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
-            var content = await response.Content.ReadAsStringAsync();
-            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
-            Assert.IsTrue(content.Contains("Agent failed to respond") || content.Contains("Agent is not responding"));
+            var message = new HttpRequestMessage(HttpMethod.Post, "/AiAssistant/Ask")
+            {
+                Content = JsonContent.Create(request)
+            };
+            message.Headers.Add("X-Test-Rate-Limit", "true");
+            var response = await Http.SendAsync(message);
+            response.EnsureSuccessStatusCode();
+            
+            var data = await response.Content.ReadFromJsonAsync<JsonDocument>();
+            Assert.IsTrue(data?.RootElement.TryGetProperty("taskId", out _));
         }
 
         // 6th request should be rate limited
         var lastResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
         var lastContent = await lastResponse.Content.ReadAsStringAsync();
+        
         Assert.AreEqual(HttpStatusCode.BadRequest, lastResponse.StatusCode);
         Assert.IsTrue(lastContent.Contains("Too many requests. Please try again in a minute."));
+    }
+
+    [TestMethod]
+    public async Task Ask_ReturnsTaskId_AndStatusCompletedOrError()
+    {
+        await LoginAsAdmin();
+        var request = new { Question = "Hello", History = new List<object>() };
+
+        var startResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
+        startResponse.EnsureSuccessStatusCode();
+
+        var startData = await startResponse.Content.ReadFromJsonAsync<JsonDocument>();
+        var taskId = startData?.RootElement.GetProperty("taskId").GetString();
+        Assert.IsFalse(string.IsNullOrEmpty(taskId));
+
+        // Poll for completion
+        bool finished = false;
+        for (int i = 0; i < 20; i++) // Try for 20 seconds
+        {
+            var statusResponse = await Http.GetAsync($"/AiAssistant/CheckStatus?taskId={taskId}");
+            statusResponse.EnsureSuccessStatusCode();
+            var statusData = await statusResponse.Content.ReadFromJsonAsync<JsonDocument>();
+            
+            string? status = null;
+            if (statusData != null && statusData.RootElement.TryGetProperty("status", out var statusProp))
+            {
+                status = statusProp.GetString();
+            }
+            else if (statusData != null && statusData.RootElement.TryGetProperty("Status", out var statusPropPascal))
+            {
+                status = statusPropPascal.GetString();
+            }
+
+            if (status == "Completed")
+            {
+                finished = true;
+                Assert.IsTrue(statusData!.RootElement.TryGetProperty("answer", out _) || statusData.RootElement.TryGetProperty("Answer", out _));
+                break;
+            }
+            else if (status == "Error")
+            {
+                finished = true;
+                Assert.IsTrue(statusData!.RootElement.TryGetProperty("errorMessage", out _) || statusData.RootElement.TryGetProperty("ErrorMessage", out _));
+                break;
+            }
+
+            await Task.Delay(1000);
+        }
+
+        Assert.IsTrue(finished, "Task did not finish (Completed or Error) within timeout.");
+    }
+
+    [TestMethod]
+    public async Task Ask_BackgroundTask_ShouldNotFailDueToDisposedContext()
+    {
+        await LoginAsAdmin();
+        
+        // Clear cache to ensure GlobalSettingsService hits the database
+        var cache = GetService<IMemoryCache>();
+        var definitions = SettingsMap.Definitions;
+        foreach (var def in definitions)
+        {
+            cache.Remove($"global-setting-{def.Key}");
+        }
+
+        var request = new { Question = "Hello", History = new List<object>() };
+
+        var startResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
+        startResponse.EnsureSuccessStatusCode();
+
+        var startData = await startResponse.Content.ReadFromJsonAsync<JsonDocument>();
+        var taskId = startData?.RootElement.GetProperty("taskId").GetString();
+        Assert.IsNotNull(taskId);
+
+        // Poll for result
+        string? status = null;
+        string? errorMessage = null;
+        for (int i = 0; i < 10; i++)
+        {
+            var statusResponse = await Http.GetAsync($"/AiAssistant/CheckStatus?taskId={taskId}");
+            statusResponse.EnsureSuccessStatusCode();
+            var statusData = await statusResponse.Content.ReadFromJsonAsync<JsonDocument>();
+            
+            if (statusData != null)
+            {
+                var root = statusData.RootElement;
+                if (root.TryGetProperty("status", out var s) || root.TryGetProperty("Status", out s))
+                    status = s.GetString();
+                
+                if (root.TryGetProperty("errorMessage", out var e) || root.TryGetProperty("ErrorMessage", out e))
+                    errorMessage = e.GetString();
+            }
+
+            if (status == "Completed" || status == "Error") break;
+            await Task.Delay(500);
+        }
+
+        if (status == "Error")
+        {
+            Assert.IsFalse(errorMessage?.Contains("Cannot access a disposed context instance") ?? false, 
+                $"Task failed due to disposed context: {errorMessage}");
+        }
+    }
+
+    [TestMethod]
+    public async Task Ask_CheckStatus_ReturnsCamelCaseJson()
+    {
+        await LoginAsAdmin();
+        var request = new { Question = "Hello", History = new List<object>() };
+
+        // Test Ask response
+        var askResponse = await Http.PostAsJsonAsync("/AiAssistant/Ask", request);
+        askResponse.EnsureSuccessStatusCode();
+        var askContent = await askResponse.Content.ReadAsStringAsync();
+        
+        // Ensure "taskId" exists and "TaskId" does not (in raw JSON)
+        Assert.IsTrue(askContent.Contains("\"taskId\":"), $"Ask response should contain camelCase 'taskId': {askContent}");
+        Assert.IsFalse(askContent.Contains("\"TaskId\":"), $"Ask response should NOT contain PascalCase 'TaskId': {askContent}");
+
+        var askData = await askResponse.Content.ReadFromJsonAsync<JsonDocument>();
+        var taskId = askData?.RootElement.GetProperty("taskId").GetString();
+        Assert.IsNotNull(taskId);
+
+        // Test CheckStatus response
+        var statusResponse = await Http.GetAsync($"/AiAssistant/CheckStatus?taskId={taskId}");
+        statusResponse.EnsureSuccessStatusCode();
+        var statusContent = await statusResponse.Content.ReadAsStringAsync();
+
+        // Ensure camelCase properties exist and PascalCase do not
+        Assert.IsTrue(statusContent.Contains("\"taskId\":"), $"CheckStatus response should contain camelCase 'taskId': {statusContent}");
+        Assert.IsTrue(statusContent.Contains("\"status\":"), $"CheckStatus response should contain camelCase 'status': {statusContent}");
+        Assert.IsFalse(statusContent.Contains("\"TaskId\":"), $"CheckStatus response should NOT contain PascalCase 'TaskId': {statusContent}");
+        Assert.IsFalse(statusContent.Contains("\"Status\":"), $"CheckStatus response should NOT contain PascalCase 'Status': {statusContent}");
     }
 
     [TestMethod]
@@ -97,6 +239,6 @@ public class AiAssistantTests : TestBase
         var settingsService = GetService<GlobalSettingsService>();
         var prompt = await settingsService.GetSettingValueAsync(SettingsMap.AiAssistantSystemPrompt);
         Assert.IsFalse(string.IsNullOrWhiteSpace(prompt));
-        Assert.IsTrue(prompt.Contains("professional AI assistant"));
+        Assert.IsTrue(prompt.Contains("专业AI助手"));
     }
 }

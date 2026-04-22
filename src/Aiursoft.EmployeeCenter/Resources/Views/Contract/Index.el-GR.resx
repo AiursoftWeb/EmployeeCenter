@@ -39,6 +39,9 @@
   <data name="Back" xml:space="preserve">
     <value>Επιστροφή</value>
   </data>
+  <data name="Click here to manage contents." xml:space="preserve">
+    <value>Κάντε κλικ εδώ για τη διαχείριση των περιεχομένων.</value>
+  </data>
   <data name="Contents" xml:space="preserve">
     <value>Περιεχόμενα</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Invalid" xml:space="preserve">
     <value>Άκυρο</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Είναι άδειο εδώ!</value>
   </data>
   <data name="My Contracts" xml:space="preserve">
     <value>Τα Συμβόλαιά μου</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Κατάσταση</value>
+  </data>
+  <data name="This folder is currently empty." xml:space="preserve">
+    <value>Αυτός ο φάκελος είναι currently άδειος.</value>
   </data>
 
 </root>

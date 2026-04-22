@@ -24,6 +24,9 @@
   <data name="Actions" xml:space="preserve">
     <value>कार्रवाइयाँ</value>
   </data>
+  <data name="Click here to create one." xml:space="preserve">
+    <value>यहाँ क्लिक करें और एक बनाएं।</value>
+  </data>
   <data name="Create New" xml:space="preserve">
     <value>नया बनाएं</value>
   </data>
@@ -36,6 +39,9 @@
   <data name="Editable" xml:space="preserve">
     <value>संपादन योग्य</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>यहाँ कुछ नहीं है!</value>
+  </data>
   <data name="Manage and view shared account passwords." xml:space="preserve">
     <value>साझा खाता पासवर्ड प्रबंधित करें और देखें।</value>
   </data>
@@ -47,6 +53,9 @@
   </data>
   <data name="No passwords created yet." xml:space="preserve">
     <value>अभी तक कोई पासवर्ड नहीं बनाया गया है।</value>
+  </data>
+  <data name="No passwords have been shared with you yet." xml:space="preserve">
+    <value>आपको अभी तक कोई पासवर्ड साझा नहीं किए गए हैं।</value>
   </data>
   <data name="No passwords shared with you." xml:space="preserve">
     <value>आपके साथ कोई पासवर्ड साझा नहीं किया गया है।</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>शीर्षक</value>
+  </data>
+  <data name="You have not created any passwords yet." xml:space="preserve">
+    <value>आपने अभी तक कोई पासवर्ड नहीं बनाया है।</value>
   </data>
 
 </root>

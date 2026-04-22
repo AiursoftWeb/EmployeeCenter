@@ -102,6 +102,9 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>複数データベースサポート</value>
   </data>
+  <data name="No Tasks Available" xml:space="preserve">
+    <value>タスクがありません</value>
+  </data>
   <data name="Open Task Link" xml:space="preserve">
     <value>タスクリンクを開く</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Wish your career takes off at {0}!" xml:space="preserve">
     <value>Aiursoftでご活躍されることを心からお祈りいたします！</value>
+  </data>
+  <data name="You currently have no onboarding tasks assigned. You may explore other features from the sidebar." xml:space="preserve">
+    <value>現在、オンボーディングタスクは割り当てられていません。サイドバーから他の機能を確認できます。</value>
   </data>
   <data name="You have completed all onboarding tasks. You are now a fully qualified official employee!" xml:space="preserve">
     <value>すべてのオンボーディングタスクを完了しました。あなたは now、完全に資格を備えた公式従業員です！</value>

@@ -19,4 +19,7 @@ public class DetailsViewModel : UiStackLayoutViewModel
 
     [Display(Name = "Intangible Assets")]
     public IEnumerable<IntangibleAsset> IntangibleAssets { get; set; } = new List<IntangibleAsset>();
+
+    [Display(Name = "Signed Employees")]
+    public IEnumerable<User> SignedEmployees { get; set; } = new List<User>();
 }

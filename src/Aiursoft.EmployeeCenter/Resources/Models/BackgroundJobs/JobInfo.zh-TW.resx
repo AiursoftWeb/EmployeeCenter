@@ -19,7 +19,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Completed at" xml:space="preserve">
-    <value>已完成於</value>
+    <value>完成時間</value>
   </data>
   <data name="Completed At" xml:space="preserve">
     <value>完成於</value>
@@ -43,7 +43,7 @@
     <value>佇列名稱</value>
   </data>
   <data name="Queued at" xml:space="preserve">
-    <value>排入佇列時間</value>
+    <value>排程時間</value>
   </data>
   <data name="Queued At" xml:space="preserve">
     <value>排隊時間</value>
@@ -55,7 +55,7 @@
     <value>服務類型</value>
   </data>
   <data name="Started at" xml:space="preserve">
-    <value>已啟動時間</value>
+    <value>開始時間</value>
   </data>
   <data name="Started At" xml:space="preserve">
     <value>開始時間</value>

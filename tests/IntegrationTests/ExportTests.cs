@@ -1,6 +1,7 @@
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Aiursoft.EmployeeCenter.Services.GitLab;
 using Microsoft.Extensions.Options;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
@@ -87,6 +88,15 @@ public class ExportTests : TestBase
             WeekStartDate = new DateTime(2023, 10, 1)
         };
         db.WeeklyReports.Add(report);
+
+        // 4. Setup Company Entity
+        var company = new CompanyEntity
+        {
+            CompanyName = "Test Company",
+            EntityCode = "123456",
+            LegalRepresentative = "Test Boss"
+        };
+        db.CompanyEntities.Add(company);
         await db.SaveChangesAsync();
 
         // Mock the physical file for the contract
@@ -94,7 +104,7 @@ public class ExportTests : TestBase
         Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
         await File.WriteAllTextAsync(physicalPath, "Fake PDF Content");
 
-        // 4. Run Export
+        // 5. Run Export
         var options = Options.Create(new AppSettings 
         { 
             ExportPath = _testExportPath,
@@ -119,10 +129,14 @@ public class ExportTests : TestBase
             Agent = new AgentSettings { Endpoint = "http://localhost:8000/ask" }
         });
         
-        var exportService = new ExportService(db, options, storageService, GetService<ILogger<ExportService>>());
+        var exportService = new ExportService(db, options, storageService, GetService<GitLabService>(), GetService<ILogger<ExportService>>());
         await exportService.ExportAsync();
 
-        // 5. Verify results
+        // 6. Verify results
+        // Verify Git Projects
+        var gitProjectsDir = Path.Combine(_testExportPath, "GitProjects");
+        Assert.IsTrue(Directory.Exists(gitProjectsDir), $"GitProjects directory not found at {gitProjectsDir}");
+
         // Verify Blueprints
         var blueprintFile = Path.Combine(_testExportPath, "Blueprints", "Level1", "Level2", "Test Blueprint.md");
         Assert.IsTrue(File.Exists(blueprintFile), $"Blueprint file not found at {blueprintFile}");
@@ -140,5 +154,19 @@ public class ExportTests : TestBase
         var reportFile = Path.Combine(_testExportPath, "WeeklyReports", "2023-10-01", $"{user.DisplayName}.md");
         Assert.IsTrue(File.Exists(reportFile), $"Weekly report file not found at {reportFile}");
         Assert.AreEqual("Weekly Content", await File.ReadAllTextAsync(reportFile));
+
+        // Verify Company Entities
+        var companyFile = Path.Combine(_testExportPath, "CompanyEntities", "Test Company.md");
+        Assert.IsTrue(File.Exists(companyFile), $"Company entity file not found at {companyFile}");
+        var companyContent = await File.ReadAllTextAsync(companyFile);
+        Assert.IsTrue(companyContent.Contains("Test Company"));
+        Assert.IsTrue(companyContent.Contains("123456"));
+        Assert.IsTrue(companyContent.Contains("Test Boss"));
+
+        // Verify Global Settings
+        var settingsFile = Path.Combine(_testExportPath, "GlobalSettings", "settings.md");
+        Assert.IsTrue(File.Exists(settingsFile), $"Global settings file not found at {settingsFile}");
+        var settingsContent = await File.ReadAllTextAsync(settingsFile);
+        Assert.IsTrue(settingsContent.Contains("ProjectName"));
     }
 }

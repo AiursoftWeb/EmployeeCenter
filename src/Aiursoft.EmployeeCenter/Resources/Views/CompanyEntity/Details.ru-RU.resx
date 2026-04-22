@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>Должно быть реальное деловое расходование. Нет поддельных счетов-фактур.</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>Сотрудники, подписавшие соглашение с этой организацией, отсутствуют.</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>Связанные нематериальные активы отсутствуют.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>Особые случаи</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Список сотрудников</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>

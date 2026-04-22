@@ -82,6 +82,7 @@ public class GitLabService : IScopedDependency
                     HttpUrlToRepo = projectDto.HttpUrlToRepo,
                     SshUrlToRepo = projectDto.SshUrlToRepo,
                     Archived = projectDto.Archived,
+                    DefaultBranch = projectDto.DefaultBranch,
                     Topics = projectDto.Topics ?? new List<string>()
                 };
 

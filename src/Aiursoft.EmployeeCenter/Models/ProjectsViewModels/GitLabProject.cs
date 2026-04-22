@@ -11,6 +11,7 @@ public class GitLabProject
     public bool Archived { get; set; }
     public List<string> Topics { get; set; } = new();
     public List<Badge> Badges { get; set; } = new();
+    public string DefaultBranch { get; set; } = string.Empty;
     public bool IsStarredByRequiredUser { get; set; }
     public bool IsMirroredOnGitHub { get; set; }
 }

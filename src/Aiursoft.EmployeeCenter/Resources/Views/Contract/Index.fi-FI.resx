@@ -39,6 +39,9 @@
   <data name="Back" xml:space="preserve">
     <value>Takaisin</value>
   </data>
+  <data name="Click here to manage contents." xml:space="preserve">
+    <value>Napsauta tästä hallitaksesi sisältöä.</value>
+  </data>
   <data name="Contents" xml:space="preserve">
     <value>Sisältö</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Invalid" xml:space="preserve">
     <value>Epäkelpo</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Täällä ei ole mitään!</value>
   </data>
   <data name="My Contracts" xml:space="preserve">
     <value>Omat sopimukset</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Tila</value>
+  </data>
+  <data name="This folder is currently empty." xml:space="preserve">
+    <value>Tämä kansio on tällä hetkellä tyhjä.</value>
   </data>
 
 </root>

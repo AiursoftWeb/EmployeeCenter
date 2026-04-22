@@ -123,6 +123,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>उपयोगकर्ता खातों को स्थायी रूप से हटाने की अनुमति देता है।</value>
   </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>उपयोगकर्ता को कंपनी की जानकारी के लिए एआई सहायक से चैट करने की अनुमति देता है।</value>
+  </data>
   <data name="Allows the user to create their own weekly reports." xml:space="preserve">
     <value>उपयोगकर्ता को अपने स्वयं के साप्ताहिक रिपोर्ट बनाने की अनुमति देता है।</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>उपयोगकर्ताओं को भूमिकाएँ नियत करें</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>AI से चैट करें</value>
   </data>
   <data name="Create and manage company contracts" xml:space="preserve">
     <value>कंपनी के अनुबंध बनाएं और प्रबंधित करें</value>

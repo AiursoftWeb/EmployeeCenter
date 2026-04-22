@@ -42,6 +42,9 @@
   <data name="In Use" xml:space="preserve">
     <value>使用中</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>這裡是空的！</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>位置</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>狀態</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>目前尚未有任何資產分配給您。如需任何設備，請聯繫 HR 或 IT 部門。</value>
   </data>
 
 </root>

@@ -24,6 +24,9 @@
   <data name="Actions" xml:space="preserve">
     <value>Åtgärder</value>
   </data>
+  <data name="Click here to create one." xml:space="preserve">
+    <value>Klicka här för att skapa en.</value>
+  </data>
   <data name="Create New" xml:space="preserve">
     <value>Skapa ny</value>
   </data>
@@ -36,6 +39,9 @@
   <data name="Editable" xml:space="preserve">
     <value>Redigerbar</value>
   </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Det är tomt här!</value>
+  </data>
   <data name="Manage and view shared account passwords." xml:space="preserve">
     <value>Hantera och visa delade kontolösenord.</value>
   </data>
@@ -47,6 +53,9 @@
   </data>
   <data name="No passwords created yet." xml:space="preserve">
     <value>Inga lösenord har skapats ännu.</value>
+  </data>
+  <data name="No passwords have been shared with you yet." xml:space="preserve">
+    <value>Inga lösenord har delats med dig än.</value>
   </data>
   <data name="No passwords shared with you." xml:space="preserve">
     <value>Inga lösenord delade med dig.</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>Titel</value>
+  </data>
+  <data name="You have not created any passwords yet." xml:space="preserve">
+    <value>Du har inte skapat några lösenord än.</value>
   </data>
 
 </root>

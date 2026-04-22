@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>Phải là chi phí kinh doanh thực tế. Không sử dụng hóa đơn giả mạo.</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>Không có nhân viên nào ký kết với thực thể này.</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>Không có tài sản vô hình nào liên kết.</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>Trường hợp đặc biệt</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Danh sách nhân viên</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Trạng thái</value>

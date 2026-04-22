@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>ต้องเป็นค่าใช้จ่ายทางธุรกิจที่แท้จริง ห้ามใช้ใบแจ้งหนี้ปลอม</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>ไม่มีพนักงานรายใดลงนามกับองค์กรนี้</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>ไม่มีสินทรัพย์ทางปัญญาที่เกี่ยวข้อง</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>กรณีพิเศษ</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>รายการพนักงาน</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>

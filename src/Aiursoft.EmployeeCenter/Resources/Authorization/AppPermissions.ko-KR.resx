@@ -123,6 +123,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>사용자 계정의 영구 삭제를 허용합니다.</value>
   </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>사용자가 회사 정보를 위해 AI 어시스턴트와 채팅할 수 있습니다.</value>
+  </data>
   <data name="Allows the user to create their own weekly reports." xml:space="preserve">
     <value>사용자가 자신의 주간 보고서를 생성할 수 있도록 허용합니다.</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>사용자에게 역할 할당</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>AI 와 채팅</value>
   </data>
   <data name="Create and manage company contracts" xml:space="preserve">
     <value>회사 계약 생성 및 관리</value>

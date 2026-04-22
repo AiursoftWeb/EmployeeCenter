@@ -123,6 +123,9 @@
   <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
     <value>वास्तविक व्यापारिक व्यय होने चाहिए। कृपया नकली इन्वॉइस न भेजें।</value>
   </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>इस संस्था के साथ कोई कर्मचारी साइन नहीं किया।</value>
+  </data>
   <data name="No intangible assets associated." xml:space="preserve">
     <value>कोई अभौतिक परिसंपत्तियाँ संबंधित नहीं हैं।</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Special Cases" xml:space="preserve">
     <value>विशेष मामले</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>कर्मचारी सूची</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>स्थिति</value>

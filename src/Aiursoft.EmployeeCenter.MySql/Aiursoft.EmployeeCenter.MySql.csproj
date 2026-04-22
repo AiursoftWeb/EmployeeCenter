@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <Version>1.0.88</Version>
+    <Version>1.0.90</Version>
     <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>Aiursoft.EmployeeCenter.MySql</AssemblyName>
     <RootNamespace>Aiursoft.EmployeeCenter.MySql</RootNamespace>
@@ -16,9 +16,9 @@
     <PackageId>Aiursoft.EmployeeCenter.MySql</PackageId>
     <PackageTags>employee-management mysql storage aiursoft</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://gitlab.aiursoft.com/aiursoft/employeecenter</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/aiursoftweb/employeecenter</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://gitlab.aiursoft.com/aiursoft/employeecenter.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/aiursoftweb/employeecenter.git</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
@@ -26,6 +26,6 @@
     <None Include="../../README.md" Pack="true" PackagePath="." />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Aiursoft.DbTools.MySql" Version="10.0.17" />
+    <PackageReference Include="Aiursoft.DbTools.MySql" Version="10.0.18" />
   </ItemGroup>
 </Project>

@@ -28,45 +28,59 @@
             <div class="card-header">
                 <h5 class="card-title mb-0">@Localizer["My Passwords"]</h5>
             </div>
-            <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead>
-                    <tr>
-                        <th>@Localizer["Title"]</th>
-                        <th>@Localizer["Account"]</th>
-                        <th class="text-end">@Localizer["Actions"]</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @if (!Model.MyPasswords.Any())
-                    {
+            @if (!Model.MyPasswords.Any())
+            {
+                <div class="card-body">
+                    <div class="alert alert-info mb-0" role="alert">
+                        <div class="alert-message">
+                            <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
+                            <p class="mb-0">
+                                @Localizer["You have not created any passwords yet."]
+                                @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanAddGlobalPassword)).Succeeded)
+                                {
+                                    <a asp-action="Create">@Localizer["Click here to create one."]</a>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
                         <tr>
-                            <td colspan="3" class="text-center text-muted py-4">@Localizer["No passwords created yet."]</td>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["Account"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
                         </tr>
-                    }
-                    @foreach (var item in Model.MyPasswords)
-                    {
-                        <tr>
-                            <td><strong>@item.Title</strong></td>
-                            <td>@item.Account</td>
-                            <td class="text-end">
-                                <div class="btn-group">
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
-                                        <i class="align-middle" data-lucide="eye"></i>
-                                    </a>
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Edit"]">
-                                        <i class="align-middle" data-lucide="edit-2"></i>
-                                    </a>
-                                    <a asp-action="ManageShares" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Manage Shares"]">
-                                        <i class="align-middle" data-lucide="share-2"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model.MyPasswords)
+                        {
+                            <tr>
+                                <td><strong>@item.Title</strong></td>
+                                <td>@item.Account</td>
+                                <td class="text-end">
+                                    <div class="btn-group">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
+                                            <i class="align-middle" data-lucide="eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Edit"]">
+                                            <i class="align-middle" data-lucide="edit-2"></i>
+                                        </a>
+                                        <a asp-action="ManageShares" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Manage Shares"]">
+                                            <i class="align-middle" data-lucide="share-2"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            }
         </div>
     </div>
 
@@ -75,59 +89,69 @@
             <div class="card-header">
                 <h5 class="card-title mb-0">@Localizer["Shared with Me"]</h5>
             </div>
-            <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead>
-                    <tr>
-                        <th>@Localizer["Title"]</th>
-                        <th>@Localizer["Owner"]</th>
-                        <th>@Localizer["Permission"]</th>
-                        <th class="text-end">@Localizer["Actions"]</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @if (!Model.SharedWithMe.Any())
-                    {
+            @if (!Model.SharedWithMe.Any())
+            {
+                <div class="card-body">
+                    <div class="alert alert-info mb-0" role="alert">
+                        <div class="alert-message">
+                            <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
+                            <p class="mb-0">
+                                @Localizer["No passwords have been shared with you yet."]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
                         <tr>
-                            <td colspan="4" class="text-center text-muted py-4">@Localizer["No passwords shared with you."]</td>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["Owner"]</th>
+                            <th>@Localizer["Permission"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
                         </tr>
-                    }
-                    @foreach (var share in Model.SharedWithMe)
-                    {
-                        <tr>
-                            <td><strong>@share.Password.Title</strong></td>
-                                                                        <td>
-                                                                            <a asp-controller="Users" asp-action="Details" asp-route-id="@share.Password.CreatorId" class="text-body">
-                                                                                @share.Password.Creator!.DisplayName
-                                                                            </a>
-                                                                        </td>                            <td>
-                                @if (share.Permission == SharePermission.Editable)
-                                {
-                                    <span class="badge bg-success">@Localizer["Editable"]</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-secondary">@Localizer["Read Only"]</span>
-                                }
-                            </td>
-                            <td class="text-end">
-                                <div class="btn-group">
-                                    <a asp-action="Details" asp-route-id="@share.PasswordId" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
-                                        <i class="align-middle" data-lucide="eye"></i>
-                                    </a>
+                        </thead>
+                        <tbody>
+                        @foreach (var share in Model.SharedWithMe)
+                        {
+                            <tr>
+                                <td><strong>@share.Password.Title</strong></td>
+                                                                            <td>
+                                                                                <a asp-controller="Users" asp-action="Details" asp-route-id="@share.Password.CreatorId" class="text-body">
+                                                                                    @share.Password.Creator!.DisplayName
+                                                                                </a>
+                                                                            </td>                            <td>
                                     @if (share.Permission == SharePermission.Editable)
                                     {
-                                        <a asp-action="Edit" asp-route-id="@share.PasswordId" class="btn btn-sm btn-outline-secondary" title="@Localizer["Edit"]">
-                                            <i class="align-middle" data-lucide="edit-2"></i>
-                                        </a>
+                                        <span class="badge bg-success">@Localizer["Editable"]</span>
                                     }
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                    </tbody>
-                </table>
-            </div>
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">@Localizer["Read Only"]</span>
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    <div class="btn-group">
+                                        <a asp-action="Details" asp-route-id="@share.PasswordId" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
+                                            <i class="align-middle" data-lucide="eye"></i>
+                                        </a>
+                                        @if (share.Permission == SharePermission.Editable)
+                                        {
+                                            <a asp-action="Edit" asp-route-id="@share.PasswordId" class="btn btn-sm btn-outline-secondary" title="@Localizer["Edit"]">
+                                                <i class="align-middle" data-lucide="edit-2"></i>
+                                            </a>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            }
         </div>
     </div>
 </div>
