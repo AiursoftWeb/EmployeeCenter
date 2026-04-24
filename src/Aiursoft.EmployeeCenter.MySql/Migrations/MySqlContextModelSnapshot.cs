@@ -17,7 +17,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.5")
+                .HasAnnotation("ProductVersion", "10.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -2003,9 +2003,15 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)");
 
+                    b.Property<DateTime?>("LastOcrAttemptTime")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("MT103Path")
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)");
+
+                    b.Property<int>("OcrAttemptCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("PaymentVoucherPath")
                         .HasMaxLength(500)
@@ -2024,6 +2030,38 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.HasIndex("SourceAccountId");
 
                     b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.TransactionOcrResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AttachmentType")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("JsonResult")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PlainText")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("TransactionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TransactionId", "AttachmentType")
+                        .IsUnique();
+
+                    b.ToTable("TransactionOcrResults");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.User", b =>
@@ -2924,6 +2962,17 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Navigation("DestinationAccount");
 
                     b.Navigation("SourceAccount");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.TransactionOcrResult", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Transaction", "Transaction")
+                        .WithMany()
+                        .HasForeignKey("TransactionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.User", b =>

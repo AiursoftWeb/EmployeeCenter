@@ -36,6 +36,64 @@ public class OcrService(
 {
     private readonly OcrSettings _ocrSettings = ocrSettings.Value;
 
+    private async Task<(string JsonResult, string PlainText)?> RecognizeAsync(string filePath)
+    {
+        if (string.IsNullOrEmpty(_ocrSettings.Endpoint) || string.IsNullOrEmpty(_ocrSettings.BearerToken))
+        {
+            logger.LogWarning("OCR settings are not configured.");
+            return null;
+        }
+
+        if (!File.Exists(filePath))
+        {
+            logger.LogError("File not found at {FilePath}", filePath);
+            return null;
+        }
+
+        using var form = new MultipartFormDataContent();
+        using var fileStream = File.OpenRead(filePath);
+        using var fileContent = new StreamContent(fileStream);
+
+        var extension = Path.GetExtension(filePath).ToLowerInvariant();
+        if (extension != ".pdf")
+        {
+            logger.LogInformation("File extension {Extension} is not supported. Skipping OCR.", extension);
+            return null;
+        }
+
+        fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/pdf");
+        form.Add(fileContent, "file", Path.GetFileName(filePath));
+
+        var request = new HttpRequestMessage(HttpMethod.Post, _ocrSettings.Endpoint);
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _ocrSettings.BearerToken);
+        request.Content = form;
+
+        var response = await httpClient.SendAsync(request);
+        var content = await response.Content.ReadAsStringAsync();
+
+        if (response.IsSuccessStatusCode)
+        {
+            var ocrResponse = JsonConvert.DeserializeObject<OcrResponse>(content);
+            if (ocrResponse?.Status == "ok")
+            {
+                var plainText = ocrResponse.Results != null
+                    ? string.Join("\n", ocrResponse.Results.Select(r => r.Text))
+                    : string.Empty;
+                return (content, plainText);
+            }
+
+            logger.LogError("OCR API returned error status: {Status}, Error: {Error}",
+                ocrResponse?.Status, ocrResponse?.Error);
+        }
+        else
+        {
+            logger.LogError("OCR API request failed with status {StatusCode}: {Content}",
+                response.StatusCode, content);
+        }
+
+        return null;
+    }
+
     public async Task ProcessContractOcrAsync(int contractId)
     {
         if (!_ocrSettings.Enabled)
@@ -50,12 +108,6 @@ public class OcrService(
             return;
         }
 
-        if (string.IsNullOrEmpty(_ocrSettings.Endpoint) || string.IsNullOrEmpty(_ocrSettings.BearerToken))
-        {
-            logger.LogWarning("OCR settings are not configured. Skipping OCR for contract {ContractId}", contractId);
-            return;
-        }
-
         contract.OcrAttemptCount++;
         contract.LastOcrAttemptTime = DateTime.UtcNow;
         await dbContext.SaveChangesAsync();
@@ -63,63 +115,88 @@ public class OcrService(
         try
         {
             var filePath = storageService.GetFilePhysicalPath(contract.FilePath, isVault: true);
-            if (!File.Exists(filePath))
+            var result = await RecognizeAsync(filePath);
+            if (result != null)
             {
-                logger.LogError("File not found at {FilePath} for contract {ContractId}", filePath, contractId);
-                return;
-            }
-
-            using var form = new MultipartFormDataContent();
-            using var fileContent = new StreamContent(File.OpenRead(filePath));
-            fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/pdf");
-            form.Add(fileContent, "file", Path.GetFileName(filePath));
-
-            var request = new HttpRequestMessage(HttpMethod.Post, _ocrSettings.Endpoint);
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _ocrSettings.BearerToken);
-            request.Content = form;
-
-            var response = await httpClient.SendAsync(request);
-            var content = await response.Content.ReadAsStringAsync();
-
-            if (response.IsSuccessStatusCode)
-            {
-                var ocrResponse = JsonConvert.DeserializeObject<OcrResponse>(content);
-                if (ocrResponse?.Status == "ok")
+                var ocrResult = new ContractOcrResult
                 {
-                    var plainText = ocrResponse.Results != null 
-                        ? string.Join("\n", ocrResponse.Results.Select(r => r.Text))
-                        : string.Empty;
-                        
-                    var result = new ContractOcrResult
-                    {
-                        ContractId = contractId,
-                        JsonResult = content,
-                        PlainText = plainText
-                    };
-                    dbContext.ContractOcrResults.Add(result);
-                    await dbContext.SaveChangesAsync();
-                    logger.LogInformation("Successfully processed OCR for contract {ContractId}", contractId);
-                }
-                else
-                {
-                    logger.LogError("OCR API returned error status: {Status}, Error: {Error} for contract {ContractId}", 
-                        ocrResponse?.Status, ocrResponse?.Error, contractId);
-                }
-            }
-            else
-            {
-                logger.LogError("OCR API request failed with status {StatusCode}: {Content} for contract {ContractId}", 
-                    response.StatusCode, content, contractId);
-                
-                if (content.Contains("too large", StringComparison.OrdinalIgnoreCase) || content.Contains("50 pages", StringComparison.OrdinalIgnoreCase))
-                {
-                    logger.LogError("PDF is too large for OCR processing: contract {ContractId}", contractId);
-                }
+                    ContractId = contractId,
+                    JsonResult = result.Value.JsonResult,
+                    PlainText = result.Value.PlainText
+                };
+                dbContext.ContractOcrResults.Add(ocrResult);
+                await dbContext.SaveChangesAsync();
+                logger.LogInformation("Successfully processed OCR for contract {ContractId}", contractId);
             }
         }
         catch (Exception ex)
         {
             logger.LogError(ex, "An error occurred while processing OCR for contract {ContractId}", contractId);
+        }
+    }
+
+    public async Task ProcessTransactionOcrAsync(int transactionId)
+    {
+        if (!_ocrSettings.Enabled)
+        {
+            return;
+        }
+
+        var transaction = await dbContext.Transactions.FindAsync(transactionId);
+        if (transaction == null)
+        {
+            logger.LogWarning("Transaction with ID {TransactionId} not found for OCR processing", transactionId);
+            return;
+        }
+
+        transaction.OcrAttemptCount++;
+        transaction.LastOcrAttemptTime = DateTime.UtcNow;
+        await dbContext.SaveChangesAsync();
+
+        var attachments = new List<(string? Path, TransactionAttachmentType Type)>
+        {
+            (transaction.InvoicePath, TransactionAttachmentType.Invoice),
+            (transaction.MT103Path, TransactionAttachmentType.MT103),
+            (transaction.PaymentVoucherPath, TransactionAttachmentType.PaymentVoucher)
+        };
+
+        foreach (var (path, type) in attachments)
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                continue;
+            }
+
+            // Check if already processed
+            var exists = await dbContext.TransactionOcrResults
+                .AnyAsync(r => r.TransactionId == transactionId && r.AttachmentType == type);
+            if (exists)
+            {
+                continue;
+            }
+
+            try
+            {
+                var filePath = storageService.GetFilePhysicalPath(path, isVault: true);
+                var result = await RecognizeAsync(filePath);
+                if (result != null)
+                {
+                    var ocrResult = new TransactionOcrResult
+                    {
+                        TransactionId = transactionId,
+                        AttachmentType = type,
+                        JsonResult = result.Value.JsonResult,
+                        PlainText = result.Value.PlainText
+                    };
+                    dbContext.TransactionOcrResults.Add(ocrResult);
+                    await dbContext.SaveChangesAsync();
+                    logger.LogInformation("Successfully processed OCR for transaction {TransactionId} attachment {Type}", transactionId, type);
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "An error occurred while processing OCR for transaction {TransactionId} attachment {Type}", transactionId, type);
+            }
         }
     }
 
