@@ -43,5 +43,9 @@ public class Transaction
 
     public DateTime TransactionTime { get; set; } = DateTime.UtcNow;
 
+    public int OcrAttemptCount { get; set; }
+
+    public DateTime? LastOcrAttemptTime { get; set; }
+
     public DateTime CreateTime { get; init; } = DateTime.UtcNow;
 }

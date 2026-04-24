@@ -70,4 +70,101 @@ public class OcrTests : TestBase
         var hasResult = await db.ContractOcrResults.AnyAsync(r => r.ContractId == contract.Id);
         Assert.IsFalse(hasResult);
     }
+
+    [TestMethod]
+    public async Task TestTransactionOcrJobPicksUpUnprocessed()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var job = scope.ServiceProvider.GetRequiredService<TransactionOcrJob>();
+
+        var company = new CompanyEntity
+        {
+            CompanyName = "Test Company",
+            EntityCode = "123",
+            LegalRepresentative = "Boss"
+        };
+        db.CompanyEntities.Add(company);
+        await db.SaveChangesAsync();
+
+        var account = new FinanceAccount
+        {
+            AccountName = "Test Account",
+            Currency = "CNY",
+            CompanyEntityId = company.Id
+        };
+        db.FinanceAccounts.Add(account);
+        await db.SaveChangesAsync();
+
+        // Add a transaction with attachments
+        var transaction = new Transaction
+        {
+            Description = "Unprocessed Transaction",
+            SourceAccountId = account.Id,
+            DestinationAccountId = account.Id,
+            Amount = 100,
+            InvoicePath = "invoice.pdf",
+            MT103Path = "mt103.pdf",
+            PaymentVoucherPath = "voucher.pdf"
+        };
+        db.Transactions.Add(transaction);
+        await db.SaveChangesAsync();
+
+        // Run the job
+        await job.ExecuteAsync();
+
+        // Since API is not configured, it should not have results,
+        // but the job should finish without exception.
+        var hasResult = await db.TransactionOcrResults.AnyAsync(r => r.TransactionId == transaction.Id);
+        Assert.IsFalse(hasResult);
+    }
+
+    [TestMethod]
+    public async Task TestOcrServiceSkipsNonPdfForTransaction()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+        var ocrService = scope.ServiceProvider.GetRequiredService<OcrService>();
+
+        var company = new CompanyEntity
+        {
+            CompanyName = "Test Company",
+            EntityCode = "123",
+            LegalRepresentative = "Boss"
+        };
+        db.CompanyEntities.Add(company);
+        await db.SaveChangesAsync();
+
+        var account = new FinanceAccount
+        {
+            AccountName = "Test Account",
+            Currency = "CNY",
+            CompanyEntityId = company.Id
+        };
+        db.FinanceAccounts.Add(account);
+        await db.SaveChangesAsync();
+
+        var transaction = new Transaction
+        {
+            Description = "Non-PDF Attachment",
+            SourceAccountId = account.Id,
+            DestinationAccountId = account.Id,
+            Amount = 100,
+            InvoicePath = "test.png" // Not a PDF
+        };
+        db.Transactions.Add(transaction);
+        await db.SaveChangesAsync();
+
+        var physicalPath = storage.GetFilePhysicalPath(transaction.InvoicePath, isVault: true);
+        Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
+        await File.WriteAllTextAsync(physicalPath, "dummy image content");
+
+        // Act
+        await ocrService.ProcessTransactionOcrAsync(transaction.Id);
+
+        // Assert - No result because it's not a PDF
+        var hasResult = await db.TransactionOcrResults.AnyAsync(r => r.TransactionId == transaction.Id);
+        Assert.IsFalse(hasResult);
+    }
 }

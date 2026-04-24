@@ -88,6 +88,9 @@ public class Startup : IWebStartup
         var contractOcrJob = services.RegisterBackgroundJob<Services.BackgroundJobs.ContractOcrJob>();
         services.RegisterScheduledTask(registration: contractOcrJob, period: TimeSpan.FromHours(12), startDelay: TimeSpan.FromMinutes(15));
 
+        var transactionOcrJob = services.RegisterBackgroundJob<Services.BackgroundJobs.TransactionOcrJob>();
+        services.RegisterScheduledTask(registration: transactionOcrJob, period: TimeSpan.FromHours(12), startDelay: TimeSpan.FromMinutes(20));
+
         var exportJob = services.RegisterBackgroundJob<Services.BackgroundJobs.ExportJob>();
         services.RegisterScheduledTask(registration: exportJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromSeconds(35));
 

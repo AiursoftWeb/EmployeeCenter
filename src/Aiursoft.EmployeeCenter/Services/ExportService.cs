@@ -319,6 +319,62 @@ public class ExportService(
                 .OrderByDescending(t => t.TransactionTime).ToList();
             var txMarkdown = TableToMarkdown(accountTransactions, "Transactions");
             await File.WriteAllTextAsync(Path.Combine(dir, "Transactions.md"), txMarkdown);
+
+            // 3. Export Attachments
+            foreach (var tx in accountTransactions)
+            {
+                await ExportTransactionAttachments(tx, dir);
+            }
+        }
+    }
+
+    private async Task ExportTransactionAttachments(Transaction tx, string baseDir)
+    {
+        var attachments = new List<(string? Path, string Name, TransactionAttachmentType Type)>
+        {
+            (tx.InvoicePath, "Invoice", TransactionAttachmentType.Invoice),
+            (tx.MT103Path, "MT103", TransactionAttachmentType.MT103),
+            (tx.PaymentVoucherPath, "PaymentVoucher", TransactionAttachmentType.PaymentVoucher)
+        };
+
+        if (attachments.All(a => string.IsNullOrEmpty(a.Path)))
+        {
+            return;
+        }
+
+        var txDirName = $"{tx.TransactionTime:yyyy-MM-dd}_{SanitizeFileName(tx.Description)}_{tx.Id}";
+        var txDir = Path.Combine(baseDir, "Attachments", txDirName);
+
+        foreach (var (path, name, type) in attachments)
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                continue;
+            }
+
+            if (!Directory.Exists(txDir))
+            {
+                Directory.CreateDirectory(txDir);
+            }
+
+            // 1. Export File
+            var physicalPath = storageService.GetFilePhysicalPath(path);
+            if (File.Exists(physicalPath))
+            {
+                var extension = Path.GetExtension(physicalPath);
+                File.Copy(physicalPath, Path.Combine(txDir, name + extension), true);
+            }
+            else
+            {
+                logger.LogWarning("Physical file not found for transaction {TxId} attachment {Name} at {Path}", tx.Id, name, physicalPath);
+            }
+
+            // 2. Export OCR if available
+            var ocrResult = await db.TransactionOcrResults.FirstOrDefaultAsync(r => r.TransactionId == tx.Id && r.AttachmentType == type);
+            if (ocrResult != null && !string.IsNullOrWhiteSpace(ocrResult.PlainText))
+            {
+                await File.WriteAllTextAsync(Path.Combine(txDir, name + ".md"), ocrResult.PlainText);
+            }
         }
     }
 

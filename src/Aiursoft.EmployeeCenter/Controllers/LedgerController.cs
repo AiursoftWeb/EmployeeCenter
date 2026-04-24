@@ -534,4 +534,31 @@ public class LedgerController(
 
         return RedirectToAction(nameof(Dashboard), new { id = entityId });
     }
+
+    [HttpGet]
+    public async Task<IActionResult> OcrResults(int id)
+    {
+        var transaction = await dbContext.Transactions
+            .Include(t => t.SourceAccount)
+            .Include(t => t.DestinationAccount)
+            .FirstOrDefaultAsync(t => t.Id == id);
+
+        if (transaction == null)
+        {
+            return NotFound();
+        }
+
+        var results = await dbContext.TransactionOcrResults
+            .Where(r => r.TransactionId == id)
+            .ToListAsync();
+
+        var model = new OcrResultsViewModel
+        {
+            Transaction = transaction,
+            OcrResults = results,
+            PageTitle = $"{localizer["OCR Results"]} - {transaction.Description}"
+        };
+
+        return this.StackView(model);
+    }
 }

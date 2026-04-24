@@ -71,6 +71,12 @@
                                             <i class="fas fa-receipt"></i> @Localizer["Voucher"]
                                         </a>
                                     }
+                                    @if (t.OcrAttemptCount > 0)
+                                    {
+                                        <a asp-action="OcrResults" asp-route-id="@t.Id" class="btn btn-sm btn-outline-warning mb-1">
+                                            <i class="fas fa-search"></i> @Localizer["OCR"]
+                                        </a>
+                                    }
                                 </td>
                                 <td>
                                     <a asp-action="EditTransaction" asp-route-id="@t.Id" asp-route-entityId="@Model.Entity.Id" class="btn btn-sm btn-secondary">

@@ -35,9 +35,10 @@ public class ExportTests : TestBase
     [TestMethod]
     public async Task TestExportLogic()
     {
-        var db = GetService<EmployeeCenterDbContext>();
-        var storageService = GetService<StorageService>();
-        
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var storageService = scope.ServiceProvider.GetRequiredService<StorageService>();
+
         // 1. Setup Blueprints with folder structure
         var bFolder1 = new BlueprintFolder { Name = "Level1" };
         db.BlueprintFolders.Add(bFolder1);
@@ -94,10 +95,48 @@ public class ExportTests : TestBase
         {
             CompanyName = "Test Company",
             EntityCode = "123456",
-            LegalRepresentative = "Test Boss"
+            LegalRepresentative = "Test Boss",
+            CreateLedger = true
         };
         db.CompanyEntities.Add(company);
         await db.SaveChangesAsync();
+
+        // 4.1 Setup Ledger
+        var account = new FinanceAccount
+        {
+            AccountName = "Test Account",
+            Currency = "CNY",
+            CompanyEntityId = company.Id
+        };
+        db.FinanceAccounts.Add(account);
+        await db.SaveChangesAsync();
+
+        var transaction = new Transaction
+        {
+            Description = "Test Transaction",
+            SourceAccountId = account.Id,
+            DestinationAccountId = account.Id,
+            Amount = 100,
+            InvoicePath = "test-invoice.pdf",
+            TransactionTime = new DateTime(2023, 10, 15)
+        };
+        db.Transactions.Add(transaction);
+        await db.SaveChangesAsync();
+
+        var txOcrResult = new TransactionOcrResult
+        {
+            TransactionId = transaction.Id,
+            AttachmentType = TransactionAttachmentType.Invoice,
+            JsonResult = "{}",
+            PlainText = "Invoice OCR Content"
+        };
+        db.TransactionOcrResults.Add(txOcrResult);
+        await db.SaveChangesAsync();
+
+        // Mock the physical file for the transaction invoice
+        var txInvoicePhysicalPath = storageService.GetFilePhysicalPath(transaction.InvoicePath);
+        Directory.CreateDirectory(Path.GetDirectoryName(txInvoicePhysicalPath)!);
+        await File.WriteAllTextAsync(txInvoicePhysicalPath, "Fake Invoice PDF Content");
 
         // Mock the physical file for the contract
         var physicalPath = storageService.GetFilePhysicalPath(contract.FilePath);
@@ -105,8 +144,8 @@ public class ExportTests : TestBase
         await File.WriteAllTextAsync(physicalPath, "Fake PDF Content");
 
         // 5. Run Export
-        var options = Options.Create(new AppSettings 
-        { 
+        var options = Options.Create(new AppSettings
+        {
             ExportPath = _testExportPath,
             AuthProvider = "Local",
             Local = new LocalSettings
@@ -128,11 +167,25 @@ public class ExportTests : TestBase
             OCR = new OcrSettings { Enabled = false },
             Agent = new AgentSettings { Endpoint = "http://localhost:8000/ask" }
         });
-        
-        var exportService = new ExportService(db, options, storageService, GetService<GitLabService>(), GetService<ILogger<ExportService>>());
+
+        var exportService = new ExportService(
+            db,
+            options,
+            storageService,
+            scope.ServiceProvider.GetRequiredService<GitLabService>(),
+            scope.ServiceProvider.GetRequiredService<ILogger<ExportService>>());
         await exportService.ExportAsync();
 
         // 6. Verify results
+        // Verify Ledger
+        var txDirName = $"2023-10-15_Test Transaction_{transaction.Id}";
+        var txAttachmentPdf = Path.Combine(_testExportPath, "Ledger", "Test Company", "Test Account", "Attachments", txDirName, "Invoice.pdf");
+        var txAttachmentMd = Path.Combine(_testExportPath, "Ledger", "Test Company", "Test Account", "Attachments", txDirName, "Invoice.md");
+
+        Assert.IsTrue(File.Exists(txAttachmentPdf), $"Transaction attachment PDF not found at {txAttachmentPdf}");
+        Assert.IsTrue(File.Exists(txAttachmentMd), $"Transaction attachment OCR MD not found at {txAttachmentMd}");
+        Assert.AreEqual("Invoice OCR Content", await File.ReadAllTextAsync(txAttachmentMd));
+
         // Verify Git Projects
         var gitProjectsDir = Path.Combine(_testExportPath, "GitProjects");
         Assert.IsTrue(Directory.Exists(gitProjectsDir), $"GitProjects directory not found at {gitProjectsDir}");
