@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Attempt Count" xml:space="preserve">
+    <value>Số lần thử</value>
+  </data>
+  <data name="Back to Transactions" xml:space="preserve">
+    <value>Quay lại Giao dịch</value>
+  </data>
+  <data name="Last Attempt" xml:space="preserve">
+    <value>Lần thử cuối cùng</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Không bao giờ</value>
+  </data>
+  <data name="No OCR results found for this transaction. OCR might still be processing or failed. Note: only PDF files are supported." xml:space="preserve">
+    <value>Không tìm thấy kết quả OCR cho giao dịch này. OCR vẫn đang xử lý hoặc đã thất bại. Lưu ý: chỉ hỗ trợ tệp PDF.</value>
+  </data>
+  <data name="OCR Results" xml:space="preserve">
+    <value>Kết quả OCR</value>
+  </data>
+  <data name="OCR Status Info" xml:space="preserve">
+    <value>Thông tin trạng thái OCR</value>
+  </data>
+  <data name="Plain Text" xml:space="preserve">
+    <value>Văn bản thuần</value>
+  </data>
+  <data name="Raw JSON" xml:space="preserve">
+    <value>JSON thô</value>
+  </data>
+
+</root>
