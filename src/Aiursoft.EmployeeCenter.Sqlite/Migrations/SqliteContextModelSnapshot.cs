@@ -15,7 +15,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.5");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.7");
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AdjustedHoliday", b =>
                 {
@@ -1921,9 +1921,15 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime?>("LastOcrAttemptTime")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("MT103Path")
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("OcrAttemptCount")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("PaymentVoucherPath")
                         .HasMaxLength(500)
@@ -1942,6 +1948,36 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.HasIndex("SourceAccountId");
 
                     b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.TransactionOcrResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AttachmentType")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("JsonResult")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PlainText")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TransactionId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TransactionId", "AttachmentType")
+                        .IsUnique();
+
+                    b.ToTable("TransactionOcrResults");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.User", b =>
@@ -2832,6 +2868,17 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Navigation("DestinationAccount");
 
                     b.Navigation("SourceAccount");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.TransactionOcrResult", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Transaction", "Transaction")
+                        .WithMany()
+                        .HasForeignKey("TransactionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.User", b =>

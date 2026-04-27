@@ -253,12 +253,21 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     /// </summary>
     public DbSet<Reimbursement> Reimbursements => Set<Reimbursement>();
 
+    /// <summary>
+    /// Stores results from OCR processing of transaction attachments (Invoices, MT103s, Payment Vouchers).
+    /// </summary>
+    public DbSet<TransactionOcrResult> TransactionOcrResults => Set<TransactionOcrResult>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 
         builder.Entity<ContractOcrResult>()
             .HasIndex(r => r.ContractId)
+            .IsUnique();
+
+        builder.Entity<TransactionOcrResult>()
+            .HasIndex(r => new { r.TransactionId, r.AttachmentType })
             .IsUnique();
 
         builder.Entity<ContractFolder>()
