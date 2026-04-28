@@ -133,7 +133,7 @@ public class ReimbursementTests
         }
 
         // 4. Login as admin/approver
-        await Login("admin@default.com", "admin123");
+        await Login("admin@default.com", "Admin@123456!");
 
         // 5. Acknowledge the request
         var manageToken = await GetAntiCsrfToken("/Reimbursement/Manage");
@@ -174,7 +174,7 @@ public class ReimbursementTests
     public async Task CannotApproveSelfTest()
     {
         // 1. Login as admin (who has both Submit and Approve permissions)
-        await Login("admin@default.com", "admin123");
+        await Login("admin@default.com", "Admin@123456!");
 
         // 2. Submit a reimbursement request
         var createToken = await GetAntiCsrfToken("/Reimbursement/Create");

@@ -93,7 +93,7 @@ public abstract class TestBase
         var loginResponse = await PostForm("/Account/Login", new Dictionary<string, string>
         {
             { "EmailOrUserName", "admin@default.com" },
-            { "Password", "admin123" }
+            { "Password", "Admin@123456!" }
         });
         Assert.AreEqual(HttpStatusCode.Found, loginResponse.StatusCode);
     }

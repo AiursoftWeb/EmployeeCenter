@@ -61,7 +61,7 @@ public class FeedbackTests
         var loginContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "EmailOrUserName", "admin" },
-            { "Password", "admin123" },
+            { "Password", "Admin@123456!" },
             { "__RequestVerificationToken", loginToken }
         });
         var loginResponse = await _http.PostAsync("/Account/Login", loginContent);

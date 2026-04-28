@@ -96,7 +96,7 @@ public class LeaveTests
     public async Task CanSearchAnyoneLeaveHistoryWithPermissionTest()
     {
         // 1. Login as admin (who has CanApproveAnyLeave)
-        await Login("admin@default.com", "admin123");
+        await Login("admin@default.com", "Admin@123456!");
 
         // 2. Create another user (target user)
         var targetUserEmail = $"target-{Guid.NewGuid()}@aiursoft.com";

@@ -100,7 +100,7 @@ public static class ProgramExtends
                 Email = "admin@default.com",
                 AvatarRelativePath = User.DefaultAvatarPath
             };
-            _ = await userManager.CreateAsync(user, "admin123");
+            _ = await userManager.CreateAsync(user, "Admin@123456!");
             await userManager.AddToRoleAsync(user, "Administrators");
         }
 

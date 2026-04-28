@@ -62,7 +62,7 @@ public class AssetTests
         var loginContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "EmailOrUserName", "admin" },
-            { "Password", "admin123" },
+            { "Password", "Admin@123456!" },
             { "__RequestVerificationToken", loginToken }
         });
         await _http.PostAsync("/Account/Login", loginContent);
@@ -159,7 +159,7 @@ public class AssetTests
         await _http.PostAsync("/Account/Login", new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "EmailOrUserName", "admin" },
-            { "Password", "admin123" },
+            { "Password", "Admin@123456!" },
             { "__RequestVerificationToken", loginToken }
         }));
 
@@ -201,7 +201,7 @@ public class AssetTests
         await _http.PostAsync("/Account/Login", new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "EmailOrUserName", "admin" },
-            { "Password", "admin123" },
+            { "Password", "Admin@123456!" },
             { "__RequestVerificationToken", loginToken }
         }));
 
@@ -230,7 +230,7 @@ public class AssetTests
         var loginContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "EmailOrUserName", "admin" },
-            { "Password", "admin123" },
+            { "Password", "Admin@123456!" },
             { "__RequestVerificationToken", loginToken }
         });
         await _http.PostAsync("/Account/Login", loginContent);
@@ -284,7 +284,7 @@ public class AssetTests
         var loginContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "EmailOrUserName", "admin" },
-            { "Password", "admin123" },
+            { "Password", "Admin@123456!" },
             { "__RequestVerificationToken", loginToken }
         });
         await _http.PostAsync("/Account/Login", loginContent);
@@ -405,7 +405,7 @@ public class AssetTests
         await _http.PostAsync("/Account/Login", new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "EmailOrUserName", "admin" },
-            { "Password", "admin123" },
+            { "Password", "Admin@123456!" },
             { "__RequestVerificationToken", loginToken }
         }));
 
