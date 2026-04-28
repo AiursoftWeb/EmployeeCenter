@@ -94,22 +94,19 @@
 
         userInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
-                // Both Enter and Ctrl+Enter should be newline and not send
-                // Since this is a textarea, Enter is newline by default.
-                // We just need to make sure it doesn't trigger form submission if some browsers do that on Ctrl+Enter.
                 if (e.ctrlKey) {
-                    // Manually insert newline if Ctrl+Enter doesn't do it by default in some browsers
-                    // and prevent any other default action (like sending)
+                    // Ctrl+Enter: Insert a newline
                     const start = this.selectionStart;
                     const end = this.selectionEnd;
                     this.value = this.value.substring(0, start) + "\n" + this.value.substring(end);
                     this.selectionStart = this.selectionEnd = start + 1;
                     this.dispatchEvent(new Event('input'));
                     e.preventDefault();
+                } else {
+                    // Enter only: Submit the form
+                    e.preventDefault();
+                    btnSend.click();
                 }
-                // For plain Enter, we let the default behavior (newline) happen.
-                // We stop propagation to prevent any parent form listeners from catching it if they do.
-                e.stopPropagation();
             }
         });
 

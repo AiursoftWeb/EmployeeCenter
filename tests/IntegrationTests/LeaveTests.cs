@@ -396,9 +396,9 @@ public class LeaveTests
         // 2. Initialize Allocation (Visit Index)
         await _http.GetAsync("/Leave/Index");
 
-        // 3. Find an upcoming Saturday
+        // 3. Find an upcoming Saturday in August (to avoid any public holidays)
         var targetSaturday = DateTime.UtcNow.Date;
-        while (targetSaturday.DayOfWeek != DayOfWeek.Saturday)
+        while (targetSaturday.DayOfWeek != DayOfWeek.Saturday || targetSaturday.Month != 8)
         {
             targetSaturday = targetSaturday.AddDays(1);
         }
