@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.AssetsViewModels;
 
 public class ManageVendorsViewModel : UiStackLayoutViewModel
 {
+    public ManageVendorsViewModel()
+    {
+        PageTitle = "Manage Vendors";
+    }
+
     public List<Vendor> Vendors { get; set; } = new();
 
     [Required(ErrorMessage = "The {0} is required.")]

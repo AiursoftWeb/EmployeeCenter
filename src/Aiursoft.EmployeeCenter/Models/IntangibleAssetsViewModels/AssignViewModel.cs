@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels;
 
 public class AssignViewModel : UiStackLayoutViewModel
 {
+    public AssignViewModel()
+    {
+        PageTitle = "Assign";
+    }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [Display(Name = "Asset Id")]
     public Guid AssetId { get; set; }

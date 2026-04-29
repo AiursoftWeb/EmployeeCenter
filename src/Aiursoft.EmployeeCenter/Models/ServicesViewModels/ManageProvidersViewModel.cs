@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.ServicesViewModels;
 
 public class ManageProvidersViewModel : UiStackLayoutViewModel
 {
+    public ManageProvidersViewModel()
+    {
+        PageTitle = "Manage Providers";
+    }
+
     public IEnumerable<Provider> Providers { get; set; } = new List<Provider>();
 
     [Required(ErrorMessage = "The {0} is required.")]

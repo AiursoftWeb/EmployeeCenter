@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
+    public IndexViewModel()
+    {
+        PageTitle = "Index";
+    }
+
     [Display(Name = "Assets")]
     public IEnumerable<IntangibleAsset> Assets { get; set; } = new List<IntangibleAsset>();
 

@@ -4,6 +4,7 @@ namespace Aiursoft.EmployeeCenter.Models.WeeklyReportViewModels;
 
 public class CreateViewModel
 {
+
     [Required]
     public string Content { get; set; } = string.Empty;
 

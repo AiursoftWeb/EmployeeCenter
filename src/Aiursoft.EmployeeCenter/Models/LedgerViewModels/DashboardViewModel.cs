@@ -19,6 +19,11 @@ public class AccountWithBalance
 /// </summary>
 public class DashboardViewModel : UiStackLayoutViewModel
 {
+    public DashboardViewModel()
+    {
+        PageTitle = "Dashboard";
+    }
+
     [Display(Name = "Entity")]
     public required CompanyEntity Entity { get; set; }
 

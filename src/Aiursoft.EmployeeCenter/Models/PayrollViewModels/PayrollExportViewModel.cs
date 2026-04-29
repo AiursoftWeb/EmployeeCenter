@@ -4,6 +4,7 @@ namespace Aiursoft.EmployeeCenter.Models.PayrollViewModels;
 
 public class PayrollExportViewModel
 {
+
     [CsvProperty("Id")]
     public int Id { get; set; }
 

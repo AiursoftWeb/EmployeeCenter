@@ -5,6 +5,7 @@ namespace Aiursoft.EmployeeCenter.Models.PasswordsViewModels;
 
 public class AddShareViewModel
 {
+
     [Display(Name = "Target User")]
     public string? TargetUserId { get; set; }
 

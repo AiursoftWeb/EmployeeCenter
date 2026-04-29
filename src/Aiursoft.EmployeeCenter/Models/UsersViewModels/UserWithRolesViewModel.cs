@@ -5,6 +5,7 @@ namespace Aiursoft.EmployeeCenter.Models.UsersViewModels;
 
 public class UserWithRolesViewModel
 {
+
     [Display(Name = "User")]
     public required User User { get; set; }
 

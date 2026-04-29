@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.LedgerViewModels;
 
 public class EditAccountViewModel : UiStackLayoutViewModel
 {
+    public EditAccountViewModel()
+    {
+        PageTitle = "Edit Account";
+    }
+
     [Display(Name = "Id")]
     public int Id { get; set; }
 

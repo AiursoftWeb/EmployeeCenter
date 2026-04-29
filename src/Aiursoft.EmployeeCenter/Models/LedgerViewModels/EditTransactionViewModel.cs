@@ -5,6 +5,11 @@ namespace Aiursoft.EmployeeCenter.Models.LedgerViewModels;
 
 public class EditTransactionViewModel : UiStackLayoutViewModel
 {
+    public EditTransactionViewModel()
+    {
+        PageTitle = "Edit Transaction";
+    }
+
     [Display(Name = "Entity Id")]
     public int EntityId { get; set; }
 

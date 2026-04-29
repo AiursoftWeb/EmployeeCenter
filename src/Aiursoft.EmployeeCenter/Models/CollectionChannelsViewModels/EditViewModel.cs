@@ -5,6 +5,11 @@ namespace Aiursoft.EmployeeCenter.Models.CollectionChannelsViewModels;
 
 public class EditViewModel : CreateViewModel
 {
+    public EditViewModel()
+    {
+        PageTitle = "Edit";
+    }
+
     public int Id { get; set; }
 
     [Display(Name = "Status")]

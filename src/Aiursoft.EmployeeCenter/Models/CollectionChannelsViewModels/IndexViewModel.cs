@@ -5,5 +5,10 @@ namespace Aiursoft.EmployeeCenter.Models.CollectionChannelsViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
+    public IndexViewModel()
+    {
+        PageTitle = "Index";
+    }
+
     public List<CollectionChannel> Channels { get; set; } = [];
 }

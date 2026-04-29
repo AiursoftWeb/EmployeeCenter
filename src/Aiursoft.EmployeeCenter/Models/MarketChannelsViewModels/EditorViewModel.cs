@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.MarketChannelsViewModels;
 
 public class EditorViewModel : UiStackLayoutViewModel
 {
+    public EditorViewModel()
+    {
+        PageTitle = "Editor";
+    }
+
     public int? Id { get; set; }
 
     public bool IsNew => Id == null || Id == 0;
