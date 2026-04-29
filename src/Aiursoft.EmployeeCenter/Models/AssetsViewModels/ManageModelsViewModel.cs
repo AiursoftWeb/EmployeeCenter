@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.AssetsViewModels;
 
 public class ManageModelsViewModel : UiStackLayoutViewModel
 {
+    public ManageModelsViewModel()
+    {
+        PageTitle = "Manage Models";
+    }
+
     public List<AssetModel> Models { get; set; } = new();
     public List<AssetCategory> AllCategories { get; set; } = new();
 

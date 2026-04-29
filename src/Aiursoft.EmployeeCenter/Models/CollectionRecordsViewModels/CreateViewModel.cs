@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.CollectionRecordsViewModels;
 
 public class CreateViewModel : UiStackLayoutViewModel
 {
+    public CreateViewModel()
+    {
+        PageTitle = "Create";
+    }
+
     [Required]
     public int ChannelId { get; set; }
 

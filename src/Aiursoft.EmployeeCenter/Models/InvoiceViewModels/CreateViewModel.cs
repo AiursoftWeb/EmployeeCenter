@@ -14,6 +14,11 @@ public enum InvoiceType
 
 public class CreateViewModel : UiStackLayoutViewModel
 {
+    public CreateViewModel()
+    {
+        PageTitle = "Create";
+    }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [Display(Name = "Invoice Type")]
     public InvoiceType Type { get; set; } = InvoiceType.Receipt;

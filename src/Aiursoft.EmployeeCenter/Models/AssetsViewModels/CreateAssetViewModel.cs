@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.AssetsViewModels;
 
 public class CreateAssetViewModel : UiStackLayoutViewModel
 {
+    public CreateAssetViewModel()
+    {
+        PageTitle = "Create Asset";
+    }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [Display(Name = "Asset Tag")]
     [MaxLength(50, ErrorMessage = "The {0} cannot exceed {1} characters.")]

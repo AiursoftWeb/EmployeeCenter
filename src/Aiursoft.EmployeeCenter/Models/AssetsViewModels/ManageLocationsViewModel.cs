@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.AssetsViewModels;
 
 public class ManageLocationsViewModel : UiStackLayoutViewModel
 {
+    public ManageLocationsViewModel()
+    {
+        PageTitle = "Manage Locations";
+    }
+
     public List<Location> Locations { get; set; } = new();
 
     [Required(ErrorMessage = "The {0} is required.")]

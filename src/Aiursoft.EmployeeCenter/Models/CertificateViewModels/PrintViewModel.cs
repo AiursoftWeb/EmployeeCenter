@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.CertificateViewModels;
 
 public class PrintViewModel : UiStackLayoutViewModel
 {
+    public PrintViewModel()
+    {
+        PageTitle = "Print";
+    }
+
     [Display(Name = "Target User")]
     public User? TargetUser { get; set; }
 

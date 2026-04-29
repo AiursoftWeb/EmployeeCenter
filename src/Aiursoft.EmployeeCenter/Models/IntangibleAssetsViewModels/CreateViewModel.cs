@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels;
 
 public class CreateViewModel : UiStackLayoutViewModel
 {
+    public CreateViewModel()
+    {
+        PageTitle = "Create";
+    }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [MaxLength(100, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Name")]

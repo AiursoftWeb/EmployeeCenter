@@ -4,6 +4,7 @@ namespace Aiursoft.EmployeeCenter.Models.RolesViewModels;
 
 public class RoleClaimViewModel
 {
+
     [Required(ErrorMessage = "The {0} is required.")]
     [Display(Name = "Key")]
     public required string Key { get; set; }

@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.ServersViewModels;
 
 public class CreateServerViewModel : UiStackLayoutViewModel
 {
+    public CreateServerViewModel()
+    {
+        PageTitle = "Create Server";
+    }
+
     [MaxLength(100, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "IP Address")]
     public string? ServerIp { get; set; }

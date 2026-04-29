@@ -5,6 +5,11 @@ namespace Aiursoft.EmployeeCenter.Models.LedgerViewModels;
 
 public class AccountsViewModel : UiStackLayoutViewModel
 {
+    public AccountsViewModel()
+    {
+        PageTitle = "Accounts";
+    }
+
     [Display(Name = "Entity Id")]
     public int EntityId { get; set; }
 

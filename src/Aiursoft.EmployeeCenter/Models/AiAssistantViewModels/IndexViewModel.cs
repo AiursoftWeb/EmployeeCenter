@@ -4,4 +4,9 @@ namespace Aiursoft.EmployeeCenter.Models.AiAssistantViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
+    public IndexViewModel()
+    {
+        PageTitle = "Index";
+    }
+
 }

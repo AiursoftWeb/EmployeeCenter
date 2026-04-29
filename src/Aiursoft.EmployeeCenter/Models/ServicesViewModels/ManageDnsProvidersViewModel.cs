@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.ServicesViewModels;
 
 public class ManageDnsProvidersViewModel : UiStackLayoutViewModel
 {
+    public ManageDnsProvidersViewModel()
+    {
+        PageTitle = "Manage Dns Providers";
+    }
+
     public List<DnsProvider> DnsProviders { get; set; } = new();
 
     [Required(ErrorMessage = "The {0} is required.")]

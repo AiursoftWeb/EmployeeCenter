@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.CollectionChannelsViewModels;
 
 public class CreateViewModel : UiStackLayoutViewModel
 {
+    public CreateViewModel()
+    {
+        PageTitle = "Create";
+    }
+
     [Required]
     [Display(Name = "Payer Entity")]
     public int PayerId { get; set; }

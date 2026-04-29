@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.ServicesViewModels;
 
 public class CreateServiceViewModel : UiStackLayoutViewModel
 {
+    public CreateServiceViewModel()
+    {
+        PageTitle = "Create Service";
+    }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [MaxLength(255, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Domain")]

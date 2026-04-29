@@ -4,4 +4,9 @@ namespace Aiursoft.EmployeeCenter.Models.HolidayAdjustmentViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
+    public IndexViewModel()
+    {
+        PageTitle = "Index";
+    }
+
 }

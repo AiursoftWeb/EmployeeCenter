@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.AssetsViewModels;
 
 public class EditAssetViewModel : UiStackLayoutViewModel
 {
+    public EditAssetViewModel()
+    {
+        PageTitle = "Edit Asset";
+    }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [Display(Name = "Id")]
     public Guid Id { get; set; }

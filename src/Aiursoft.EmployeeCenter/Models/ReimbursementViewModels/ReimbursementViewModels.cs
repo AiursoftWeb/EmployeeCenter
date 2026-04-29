@@ -6,11 +6,21 @@ namespace Aiursoft.EmployeeCenter.Models.ReimbursementViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
+    public IndexViewModel()
+    {
+        PageTitle = "My Reimbursements";
+    }
+
     public List<Reimbursement> MyReimbursements { get; set; } = new();
 }
 
 public class CreateViewModel : UiStackLayoutViewModel
 {
+    public CreateViewModel()
+    {
+        PageTitle = "New Reimbursement Request";
+    }
+
     [Required]
     [Display(Name = "Expense Time")]
     [DataType(DataType.Date)]
@@ -57,12 +67,22 @@ public class CreateViewModel : UiStackLayoutViewModel
 
 public class EditViewModel : CreateViewModel
 {
+    public EditViewModel()
+    {
+        PageTitle = "Edit Reimbursement Request";
+    }
+
     public int Id { get; set; }
     public string? ExistingInvoicePath { get; set; }
 }
 
 public class DetailsViewModel : UiStackLayoutViewModel
 {
+    public DetailsViewModel()
+    {
+        PageTitle = "Reimbursement Details";
+    }
+
     public required Reimbursement Reimbursement { get; set; }
     public bool CanApprove { get; set; }
     public string? InvoiceUrl { get; set; }
@@ -70,6 +90,11 @@ public class DetailsViewModel : UiStackLayoutViewModel
 
 public class ManageIndexViewModel : UiStackLayoutViewModel
 {
+    public ManageIndexViewModel()
+    {
+        PageTitle = "Reimbursement Approval Center";
+    }
+
     public List<Reimbursement> PendingRequests { get; set; } = new();
     public List<Reimbursement> AcknowledgedRequests { get; set; } = new();
     public List<Reimbursement> HistoryRequests { get; set; } = new();
@@ -77,6 +102,7 @@ public class ManageIndexViewModel : UiStackLayoutViewModel
 
 public class ActionViewModel
 {
+
     public int Id { get; set; }
 
     [Required]

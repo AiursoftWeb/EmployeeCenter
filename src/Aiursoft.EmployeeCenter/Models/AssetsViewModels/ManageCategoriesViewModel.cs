@@ -6,6 +6,11 @@ namespace Aiursoft.EmployeeCenter.Models.AssetsViewModels;
 
 public class ManageCategoriesViewModel : UiStackLayoutViewModel
 {
+    public ManageCategoriesViewModel()
+    {
+        PageTitle = "Manage Categories";
+    }
+
     public List<AssetCategory> Categories { get; set; } = new();
 
     [Required(ErrorMessage = "The {0} is required.")]
