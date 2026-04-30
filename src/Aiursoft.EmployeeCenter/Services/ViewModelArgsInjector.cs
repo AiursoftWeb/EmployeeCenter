@@ -225,6 +225,36 @@ public class ViewModelArgsInjector(
         _ = localizer["Apply Leave"];
         _ = localizer["Incoming Leave"];
         _ = localizer["Leave"];
+    
+        _ = localizer["Accounts"];
+        _ = localizer["Assign"];
+        _ = localizer["Assign Asset"];
+        _ = localizer["Create"];
+        _ = localizer["Create Account"];
+        _ = localizer["Create Asset"];
+        _ = localizer["Create Server"];
+        _ = localizer["Create Service"];
+        _ = localizer["Create Transaction"];
+        _ = localizer["Details"];
+        _ = localizer["Edit"];
+        _ = localizer["Edit Account"];
+        _ = localizer["Edit Asset"];
+        _ = localizer["Edit Question"];
+        _ = localizer["Edit Questionnaire"];
+        _ = localizer["Edit Server"];
+        _ = localizer["Edit Service"];
+        _ = localizer["Edit Transaction"];
+        _ = localizer["Editor"];
+        _ = localizer["Index Server"];
+        _ = localizer["Manage Categories"];
+        _ = localizer["Manage Dns Providers"];
+        _ = localizer["Manage Locations"];
+        _ = localizer["Manage Models"];
+        _ = localizer["Manage Providers"];
+        _ = localizer["Manage Vendors"];
+        _ = localizer["Ocr Results"];
+        _ = localizer["Print"];
+        _ = localizer["Transactions"];
     }
 
     public void InjectSimple(
