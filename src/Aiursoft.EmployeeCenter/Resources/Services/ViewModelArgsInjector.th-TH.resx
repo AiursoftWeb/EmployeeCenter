@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>การตั้งค่าบัญชี</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>บัญชี</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>การกระทำ</value>
   </data>
@@ -86,6 +89,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>สินทรัพย์</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>กำหนด</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>กำหนดทรัพย์สิน</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>งานพื้นหลัง</value>
@@ -189,6 +198,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>สัญญา</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>สร้าง</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>สร้างบัญชี</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>สร้างทรัพย์สิน</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>สร้างหน่วยงานบริษัท</value>
   </data>
@@ -222,6 +240,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>สร้างบทบาท</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>สร้างเซิร์ฟเวอร์</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>สร้างบริการ</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>สร้างธุรกรรม</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>สร้างผู้ใช้</value>
   </data>
@@ -252,6 +279,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>ดาวน์โหลด / ดู</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>แก้ไขบัญชี</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>แก้ไขสินทรัพย์</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>แก้ไขแบบร่าง</value>
   </data>
@@ -279,20 +315,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>แก้ไขเงินเดือน</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>แก้ไขคำถาม</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>แก้ไขแบบสอบถาม</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>แก้ไขความต้องการ</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>แก้ไขบทบาท</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>แก้ไขเซิร์ฟเวอร์</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>แก้ไขบริการ</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>แก้ไขคีย์ SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>แก้ไขธุรกรรม</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>แก้ไขผู้ใช้</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>แก้ไขรายงานรายสัปดาห์</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>ผู้แก้ไข</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>ศูนย์พนักงาน</value>
@@ -351,6 +405,9 @@
   <data name="Index" xml:space="preserve">
     <value>หน้าหลัก</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>ตัวชี้วัดเซิร์ฟเวอร์</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>ข้อมูล</value>
   </data>
@@ -408,6 +465,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>จัดการบลูพรินต์</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>จัดการหมวดหมู่</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>จัดการหน่วยงานบริษัท</value>
   </data>
@@ -416,6 +476,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>จัดการความสัมพันธ์กับลูกค้า</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>จัดการผู้ให้บริการ DNS</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>จัดการความคิดเห็น</value>
@@ -429,8 +492,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>จัดการบัญชีรายชื่อ</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>จัดการสถานที่</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>จัดการช่องทางตลาด</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>จัดการโมเดล</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>จัดการการรับเข้าทำงาน</value>
@@ -447,6 +516,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>จัดการการพิมพ์</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>จัดการผู้ให้บริการ</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>จัดการคำถาม</value>
   </data>
@@ -458,6 +530,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>จัดการงาน</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>จัดการผู้จัดจำหน่าย</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>ช่องทางการตลาด</value>
@@ -491,6 +566,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>ไม่พบ</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>ผลการรู้จำข้อความด้วยแสง</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>ตรายางราชการ</value>
@@ -668,6 +746,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>แม่แบบ</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>ธุรกรรม</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>ไม่ได้รับอนุญาต</value>

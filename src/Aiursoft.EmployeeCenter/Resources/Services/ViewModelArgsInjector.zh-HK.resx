@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>帳戶設定</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>帳戶</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
@@ -86,6 +89,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>資產</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>分配</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>分配資產</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>背景工作</value>
@@ -189,6 +198,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>合約</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>建立</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>建立帳戶</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>建立資產</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>建立公司實體</value>
   </data>
@@ -222,6 +240,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>建立角色</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>建立伺服器</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>建立服務</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>建立交易</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>建立用戶</value>
   </data>
@@ -252,6 +279,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>下載 / 查看</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>編輯帳戶</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>編輯資產</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>編輯藍圖</value>
   </data>
@@ -279,20 +315,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>編輯薪金</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>編輯問題</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>編輯問卷</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>編輯需求</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>編輯角色</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>編輯伺服器</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>編輯服務</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>編輯 SSH 金鑰</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>編輯交易</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>編輯用戶</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>編輯週報</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>編輯器</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>員工中心</value>
@@ -351,6 +405,9 @@
   <data name="Index" xml:space="preserve">
     <value>索引</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>索引伺服器</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>資訊</value>
   </data>
@@ -408,6 +465,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>管理藍圖</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>管理分類</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>管理公司實體</value>
   </data>
@@ -416,6 +476,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>管理客戶關係</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>管理 DNS 供應商</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>管理反饋</value>
@@ -429,8 +492,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>管理分錄</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>管理地點</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>管理市場渠道</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>管理模型</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>管理入职</value>
@@ -447,6 +516,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>管理列印</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>管理供應商</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>管理問題</value>
   </data>
@@ -458,6 +530,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>管理任務</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>管理供應商</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>市場渠道</value>
@@ -491,6 +566,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>未找到</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR 結果</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>官方印章</value>
@@ -668,6 +746,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>範本</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>交易</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>未獲授權</value>

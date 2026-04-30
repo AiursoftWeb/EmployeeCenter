@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>계정 설정</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>계정</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>작업</value>
   </data>
@@ -86,6 +89,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>자산</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>배정</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>자산 할당</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>백그라운드 작업</value>
@@ -189,6 +198,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>계약서</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>생성</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>계정 생성</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>자산 생성</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>회사 엔티티 생성</value>
   </data>
@@ -222,6 +240,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>역할 생성</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>서버 생성</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>서비스 생성</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>거래 생성</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>사용자 생성</value>
   </data>
@@ -252,6 +279,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>다운로드 / 보기</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>편집</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>계정 수정</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>자산 수정</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>블루프린트 수정</value>
   </data>
@@ -279,20 +315,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>급여 수정</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>질문 수정</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>설문지 편집</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>요구사항 편집</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>역할 편집</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>서버 수정</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>서비스 편집</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>SSH 키 수정</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>거래 수정</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>사용자 편집</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>주간 보고서 편집</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>편집자</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>직원 센터</value>
@@ -351,6 +405,9 @@
   <data name="Index" xml:space="preserve">
     <value>인덱스</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>인덱스 서버</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>정보</value>
   </data>
@@ -408,6 +465,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>블루프린트 관리</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>카테고리 관리</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>회사 엔티티 관리</value>
   </data>
@@ -416,6 +476,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>고객 관계 관리</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>DNS 공급자 관리</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>피드백 관리</value>
@@ -429,8 +492,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>원장 관리</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>장소 관리</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>마켓 채널 관리</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>모델 관리</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>온보딩 관리</value>
@@ -447,6 +516,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>인쇄 관리</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>공급자 관리</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>질문 관리</value>
   </data>
@@ -458,6 +530,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>작업 관리</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>벤더 관리</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>시장 채널</value>
@@ -491,6 +566,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>찾을 수 없음</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR 결과</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>공식 도장</value>
@@ -668,6 +746,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>템플릿</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>거래 내역</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>권한 없음</value>
