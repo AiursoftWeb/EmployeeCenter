@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Akses Ditolak</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Akun</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Tindakan</value>
   </data>
@@ -83,6 +86,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>Aset</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Tetapkan</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Tetapkan Aset</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Pekerjaan Latar Belakang</value>
@@ -186,6 +195,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>Kontrak</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Buat</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Buat Akun</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Buat Aset</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>Buat Entitas Perusahaan</value>
   </data>
@@ -219,6 +237,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>Buat Peran</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Buat Server</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Buat Layanan</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Buat Transaksi</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>Buat Pengguna</value>
   </data>
@@ -249,6 +276,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>Unduh / Lihat</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Edit Akun</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Edit Aset</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>Edit Blueprint</value>
   </data>
@@ -276,20 +312,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>Edit Gaji</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Edit Pertanyaan</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Edit Kuesioner</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>Edit Persyaratan</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Edit Peran</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Edit Server</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Edit Layanan</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>Edit Kunci SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Edit Transaksi</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Edit Pengguna</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>Edit Laporan Mingguan</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Editor</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>Pusat Karyawan</value>
@@ -348,6 +402,9 @@
   <data name="Index" xml:space="preserve">
     <value>Indeks</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Server Indeks</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Informasi</value>
   </data>
@@ -405,6 +462,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Kelola Blueprint</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Kelola Kategori</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>Kelola Entitas Perusahaan</value>
   </data>
@@ -413,6 +473,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>Kelola Hubungan Pelanggan</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Kelola Penyedia DNS</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>Kelola Umpan Balik</value>
@@ -426,8 +489,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>Kelola Buku Besar</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Kelola Lokasi</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Kelola Saluran Pasar</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Kelola Model</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>Kelola Onboarding</value>
@@ -444,6 +513,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>Kelola Pencetakan</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Kelola Penyedia</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>Kelola Pertanyaan</value>
   </data>
@@ -455,6 +527,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>Kelola Tugas</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Kelola Vendor</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>Saluran Pasar</value>
@@ -488,6 +563,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Tidak Ditemukan</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Hasil OCR</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>Cap Resmi</value>
@@ -665,6 +743,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>Template</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transaksi</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Tidak Diizinkan</value>

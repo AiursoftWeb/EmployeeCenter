@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Pääsy estetty</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Tilit</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Toiminnot</value>
   </data>
@@ -83,6 +86,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>Välineet</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Määritä</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Ota käyttöön omaisuus</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Taustatehtävät</value>
@@ -186,6 +195,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>Sopimukset</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Luo</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Luo tili</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Luo varallisuus</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>Luo yritysorganisaatio</value>
   </data>
@@ -219,6 +237,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>Luo rooli</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Luo palvelin</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Luo palvelu</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Luo tapahtuma</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>Luo käyttäjä</value>
   </data>
@@ -249,6 +276,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>Lataa / Näytä</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Muokkaa</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Muokkaa tiliä</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Muokkaa omaisuutta</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>Muokkaa luetteloa</value>
   </data>
@@ -276,20 +312,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>Muokkaa palkkaa</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Muokkaa kysymystä</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Muokkaa kyselylomaketta</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>Muokkaa vaatimusta</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Muokkaa roolia</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Muokkaa palvelinta</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Muokkaa palvelua</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>Muokkaa SSH-avainta</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Muokkaa tapahtumaa</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Muokkaa käyttäjää</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>Muokkaa viikko-raporttia</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Toimittaja</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>Työntekijäkeskus</value>
@@ -348,6 +402,9 @@
   <data name="Index" xml:space="preserve">
     <value>Etusivu</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Indeksointipalvelin</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Tiedot</value>
   </data>
@@ -405,6 +462,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Hallinnoi luonnoksia</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Hallitse kategorioita</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>Yrityksen yksiköiden hallinta</value>
   </data>
@@ -413,6 +473,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>Hallinnoi asiakassuhteita</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Hallitse DNS-palveluntarjoajia</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>Feedbackin hallinta</value>
@@ -426,8 +489,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>Hallinnoi kirjanpitoa</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Hallinnoi sijainteja</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Hallinnoi markkina-kanavia</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Hallitse malleja</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>Hallinnoi rekrytointia</value>
@@ -444,6 +513,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>Tulostuksen hallinta</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Hallinnoi palveluntarjoajia</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>Kysymysten hallinta</value>
   </data>
@@ -455,6 +527,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>Hallinnoi tehtäviä</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Hallitse toimittajia</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>Markkanalit</value>
@@ -488,6 +563,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Ei löytynyt</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR-tulokset</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>Virallinen timo</value>
@@ -665,6 +743,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>Malli</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Tapahtumat</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Luvaton</value>
