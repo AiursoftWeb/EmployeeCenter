@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Access Denied</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Conti</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Azioni</value>
   </data>
@@ -83,6 +86,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>Risorse</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Assegna</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Assegna attività</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Lavori in background</value>
@@ -186,6 +195,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>Contratti</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Crea</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Crea account</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Crea risorsa</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>Crea Entità Aziendale</value>
   </data>
@@ -219,6 +237,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>Crea Ruolo</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Crea server</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Crea servizio</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Crea transazione</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>Crea Utente</value>
   </data>
@@ -249,6 +276,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>Scarica / Visualizza</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Modifica account</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Modifica risorsa</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>Modifica Blueprint</value>
   </data>
@@ -276,20 +312,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>Modifica Busta Paga</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Modifica domanda</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Modifica questionario</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>Modifica Richiesta</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Modifica Ruolo</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Modifica server</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Modifica servizio</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>Modifica chiave SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Modifica transazione</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Modifica Utente</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>Modifica rapporto settimanale</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Redattore</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>Centro Dipendenti</value>
@@ -348,6 +402,9 @@
   <data name="Index" xml:space="preserve">
     <value>Indice</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Server di indicizzazione</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Informazioni</value>
   </data>
@@ -405,6 +462,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Gestisci i Blueprint</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Gestisci categorie</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>Gestisci Entità Aziendali</value>
   </data>
@@ -413,6 +473,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>Gestisci le relazioni con i clienti</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Gestisci fornitori DNS</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>Gestisci Feedback</value>
@@ -426,8 +489,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>Gestisci il registro</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Gestisci sedi</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Gestisci canali di mercato</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Gestisci modelli</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>Gestisci Onboarding</value>
@@ -444,6 +513,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>Gestisci Stampa</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Gestisci provider</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>Gestisci domande</value>
   </data>
@@ -455,6 +527,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>Gestisci attività</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Gestisci fornitori</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>Canali di mercato</value>
@@ -488,6 +563,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Non trovato</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Risultati OCR</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>Sigillo ufficiale</value>
@@ -665,6 +743,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>Modello</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transazioni</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Non autorizzato</value>

@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Toegang geweigerd</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Rekeningen</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Acties</value>
   </data>
@@ -83,6 +86,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>Activas</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Toewijzen</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Materiaal toewijzen</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Achtergrondtaken</value>
@@ -186,6 +195,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>Overeenkomsten</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Aanmaken</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Account aanmaken</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Activum aanmaken</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>Bedrijfseenheid aanmaken</value>
   </data>
@@ -219,6 +237,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>Rol aanmaken</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Server aanmaken</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Service aanmaken</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Transactie aanmaken</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>Gebruiker aanmaken</value>
   </data>
@@ -249,6 +276,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>Download / Bekijk</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bewerk</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Account bewerken</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Asset bewerken</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>Blueprint bewerken</value>
   </data>
@@ -276,20 +312,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>Werkloondetails bewerken</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Vraag bewerken</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Vragenlijst bewerken</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>Bewerk vereiste</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Rol bewerken</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Server bewerken</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Service bewerken</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>SSH-sleutel bewerken</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Transactie bewerken</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Gebruiker bewerken</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>Werkwijze wekelijks verslag bewerken</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Redacteur</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>Medewerkerscentrum</value>
@@ -348,6 +402,9 @@
   <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Indexserver</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Informatie</value>
   </data>
@@ -405,6 +462,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Blauwdrukken beheren</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Categorieën beheren</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>Bedrijfseenheden beheren</value>
   </data>
@@ -413,6 +473,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>Klantenrelaties beheren</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Beheer DNS-aanbieders</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>Feedback beheren</value>
@@ -426,8 +489,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>Ledger beheren</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Locaties beheren</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Marktkanalen beheren</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Modellen beheren</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>Opdrachten voor opstarten beheren</value>
@@ -444,6 +513,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>Afdrukken beheren</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Providers beheren</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>Vragen beheren</value>
   </data>
@@ -455,6 +527,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>Taken beheren</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Leveranciers beheren</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>Marktkanalen</value>
@@ -488,6 +563,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Niet gevonden</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR-resultaten</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>Officiële zegel</value>
@@ -665,6 +743,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>Sjabloon</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transacties</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Niet geautoriseerd</value>
