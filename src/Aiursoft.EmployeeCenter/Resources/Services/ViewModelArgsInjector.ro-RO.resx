@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Acces respins</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Conturi</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
@@ -83,6 +86,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>Active</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Atribuie</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Alocare Activ</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Sarcini în fundal</value>
@@ -186,6 +195,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>Contracte</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Creează</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Creează cont</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Creează Activ</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>Crează entitate companie</value>
   </data>
@@ -219,6 +237,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>Creează Rol</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Creează Server</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Creare serviciu</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Creează tranzacție</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>Creează utilizator</value>
   </data>
@@ -249,6 +276,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>Descarcă / Vizualizează</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editează</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Editare cont</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Editează Activ</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>Editare Plan</value>
   </data>
@@ -276,20 +312,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>Editare salarii</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Editare întrebare</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Edit Questionnaire</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>Editare Cerință</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Editează Rol</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Editare server</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Editare Serviciu</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>Editare cheie SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Editează tranzacția</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Editează Utilizator</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>Editare Raport Săptămânal</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Editor</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>Centrul Angajaților</value>
@@ -348,6 +402,9 @@
   <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Server Index</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Informații</value>
   </data>
@@ -405,6 +462,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Gestionare planuri</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Gestionează categoriile</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>Gestionare entități companie</value>
   </data>
@@ -413,6 +473,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>Gestionare relații cu clienții</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Gestionează furnizorii DNS</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>Gestionare feedback</value>
@@ -426,8 +489,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>Gestionare jurnal</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Gestionează locațiile</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Gestionare canale de piață</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Gestionează modelele</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>Gestionare înscriere</value>
@@ -444,6 +513,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>Gestionare imprimare</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Gestionează furnizorii</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>Gestionare întrebări</value>
   </data>
@@ -455,6 +527,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>Gestionare sarcini</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Gestionează furnizorii</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>Canale de piață</value>
@@ -488,6 +563,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Nu a fost găsit</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Rezultate OCR</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>Sigil oficial</value>
@@ -665,6 +743,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>Șablon</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Tranzacții</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Neautorizat</value>

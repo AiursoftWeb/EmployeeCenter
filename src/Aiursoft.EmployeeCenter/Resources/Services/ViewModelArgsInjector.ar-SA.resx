@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>الوصول ممنوع</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>الحسابات</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>إجراءات</value>
   </data>
@@ -83,6 +86,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>الأصول</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>تعيين</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>تعيين الأصل</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>المهام الخلفية</value>
@@ -186,6 +195,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>العقود</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>إنشاء</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>إنشاء أصل</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>إنشاء كيان شركة</value>
   </data>
@@ -219,6 +237,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>إنشاء دور</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>إنشاء خادم</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>إنشاء خدمة</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>إنشاء معاملة</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>إنشاء مستخدم</value>
   </data>
@@ -249,6 +276,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>تحميل / عرض</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>تعديل الحساب</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>تعديل الأصل</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>تحرير المخطط التفصيلي</value>
   </data>
@@ -276,20 +312,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>تعديل راتب</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>تعديل السؤال</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>تعديل الاستبيان</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>تعديل الطلب</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>تعديل الدور</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>تعديل الخادم</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>تعديل الخدمة</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>تعديل مفتاح SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>تعديل المعاملة</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>تعديل المستخدم</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>تحرير التقرير الأسبوعي</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>محرر</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>مركز الموظفين</value>
@@ -348,6 +402,9 @@
   <data name="Index" xml:space="preserve">
     <value>الفهرس</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>خادم الفهرسة</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>المعلومات</value>
   </data>
@@ -405,6 +462,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>إدارة النماذج</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>إدارة الفئات</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>إدارة الكيانات التابعة للشركة</value>
   </data>
@@ -413,6 +473,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>إدارة علاقات العملاء</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>إدارة مزودي خدمات DNS</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>إدارة التغذية الراجعة</value>
@@ -426,8 +489,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>إدارة السجل</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>إدارة المواقع</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>إدارة قنوات السوق</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>إدارة النماذج</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>إدارة التوجيه</value>
@@ -444,6 +513,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>إدارة الطباعة</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>إدارة المزودين</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>إدارة الأسئلة</value>
   </data>
@@ -455,6 +527,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>إدارة المهام</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>إدارة الموردين</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>قنوات السوق</value>
@@ -488,6 +563,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>غير موجود</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>نتائج التعرف الضوئي على الحروف</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>الختم الرسمي</value>
@@ -665,6 +743,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>قالب</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>المعاملات</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>غير مصرح</value>
