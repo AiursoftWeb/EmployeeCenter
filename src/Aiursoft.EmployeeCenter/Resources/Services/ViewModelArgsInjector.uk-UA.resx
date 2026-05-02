@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Доступ заборонено</value>
   </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Рахунки</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Дії</value>
   </data>
@@ -83,6 +86,12 @@
   </data>
   <data name="Assets" xml:space="preserve">
     <value>Майно</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Призначити</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Призначити актив</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Фонові завдання</value>
@@ -186,6 +195,15 @@
   <data name="Contracts" xml:space="preserve">
     <value>Договори</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Створити</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Створити обліковий запис</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Створити актив</value>
+  </data>
   <data name="Create Company Entity" xml:space="preserve">
     <value>Створити юридичну особу компанії</value>
   </data>
@@ -219,6 +237,15 @@
   <data name="Create Role" xml:space="preserve">
     <value>Створити роль</value>
   </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Створити сервер</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Створити сервіс</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Створити транзакцію</value>
+  </data>
   <data name="Create User" xml:space="preserve">
     <value>Створити користувача</value>
   </data>
@@ -249,6 +276,15 @@
   <data name="Download / View" xml:space="preserve">
     <value>Завантажити / Переглянути</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Редагувати обліковий запис</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Редагувати актив</value>
+  </data>
   <data name="Edit Blueprint" xml:space="preserve">
     <value>Редагувати макет</value>
   </data>
@@ -276,20 +312,38 @@
   <data name="Edit Payroll" xml:space="preserve">
     <value>Редагувати зарплатню</value>
   </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Редагувати запитання</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Редагувати анкету</value>
+  </data>
   <data name="Edit Requirement" xml:space="preserve">
     <value>Редагувати вимогу</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Редагувати роль</value>
   </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Редагувати сервер</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Редагувати послугу</value>
+  </data>
   <data name="Edit SSH Key" xml:space="preserve">
     <value>Редагувати ключ SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Редагувати транзакцію</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Редагувати користувача</value>
   </data>
   <data name="Edit Weekly Report" xml:space="preserve">
     <value>Редагувати тижневий звіт</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Редактор</value>
   </data>
   <data name="Employee Center" xml:space="preserve">
     <value>Центр співробітників</value>
@@ -348,6 +402,9 @@
   <data name="Index" xml:space="preserve">
     <value>Індекс</value>
   </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Індексація сервера</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Інформація</value>
   </data>
@@ -405,6 +462,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Керування макетами</value>
   </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Керувати категоріями</value>
+  </data>
   <data name="Manage Company Entities" xml:space="preserve">
     <value>Керування компанійними сутностями</value>
   </data>
@@ -413,6 +473,9 @@
   </data>
   <data name="Manage Customer Relations" xml:space="preserve">
     <value>Керування відносинами з клієнтами</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Керування провайдерами DNS</value>
   </data>
   <data name="Manage Feedback" xml:space="preserve">
     <value>Керування відгуками</value>
@@ -426,8 +489,14 @@
   <data name="Manage Ledger" xml:space="preserve">
     <value>Керування журналом</value>
   </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Керування локаціями</value>
+  </data>
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Керування каналами ринку</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Керування моделями</value>
   </data>
   <data name="Manage Onboarding" xml:space="preserve">
     <value>Керування онбордингом</value>
@@ -444,6 +513,9 @@
   <data name="Manage Printing" xml:space="preserve">
     <value>Керування друку</value>
   </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Керувати постачальниками</value>
+  </data>
   <data name="Manage Questions" xml:space="preserve">
     <value>Керування питаннями</value>
   </data>
@@ -455,6 +527,9 @@
   </data>
   <data name="Manage Tasks" xml:space="preserve">
     <value>Керування завданнями</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Керувати постачальниками</value>
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>Ринкові канали</value>
@@ -488,6 +563,9 @@
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Не знайдено</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Результати OCR</value>
   </data>
   <data name="Official Seal" xml:space="preserve">
     <value>Офіційний печатка</value>
@@ -665,6 +743,9 @@
   </data>
   <data name="Template" xml:space="preserve">
     <value>Шаблон</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Транзакції</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Неавторизовано</value>
