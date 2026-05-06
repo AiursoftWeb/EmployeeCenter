@@ -1,24 +1,28 @@
-<?xml version='1.0' encoding='utf-8'?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:schema id="root">
-    <xs:element name="root" ns1:IsDataSet="true">
+<?xml version="1.0" encoding="utf-8"?>
 
-        </xs:element>
-  </xs:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>1.3</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="About Team Calendar" xml:space="preserve">
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Team Calendar" xml:space="preserve">
     <value>Informazioni sul calendario del team</value>
+  </data>
+  <data name="Annual" xml:space="preserve">
+    <value>Annual</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Approvato</value>
@@ -44,11 +48,14 @@
   <data name="Green - Leave period has finished" xml:space="preserve">
     <value>Verde - Il periodo di congedo è terminato</value>
   </data>
+  <data name="Leave History: {0}" xml:space="preserve">
+    <value>Leave History: {0}</value>
+  </data>
   <data name="Leave Schedule" xml:space="preserve">
     <value>Piano congedo</value>
   </data>
   <data name="No leave records found for this user in the specified range." xml:space="preserve">
-    <value>Nessun record di congedo trovato per questo utente nell'intervallo specificato.</value>
+    <value>Nessun record di congedo trovato per questo utente nell&apos;intervallo specificato.</value>
   </data>
   <data name="No team members found." xml:space="preserve">
     <value>Nessun membro del team trovato.</value>
@@ -95,6 +102,9 @@
   <data name="Search for any employee to view their full leave history for the past and future 365 days." xml:space="preserve">
     <value>Cerca un qualsiasi dipendente per visualizzare il suo completo storico assenze per gli ultimi e prossimi 365 giorni.</value>
   </data>
+  <data name="Sick" xml:space="preserve">
+    <value>Sick</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Stato</value>
   </data>
@@ -110,10 +120,10 @@
   <data name="Team Member" xml:space="preserve">
     <value>Membro del team</value>
   </data>
-  <data name="Team Members' Leave Status" xml:space="preserve">
+  <data name="Team Members&apos; Leave Status" xml:space="preserve">
     <value>Stato delle assenze dei membri del team</value>
   </data>
-  <data name="This calendar helps you stay informed about your team's availability to facilitate work handovers and planning." xml:space="preserve">
+  <data name="This calendar helps you stay informed about your team&apos;s availability to facilitate work handovers and planning." xml:space="preserve">
     <value>Questo calendario ti aiuta a rimanere aggiornato sulla disponibilità del tuo team per facilitare il passaggio di compiti e la pianificazione.</value>
   </data>
   <data name="Type" xml:space="preserve">
@@ -126,15 +136,7 @@
     <value>Ritirato</value>
   </data>
   <data name="Yellow - Employee is currently away" xml:space="preserve">
-    <value>Giallo - L'impiegato è attualmente assente</value>
+    <value>Giallo - L&apos;impiegato è attualmente assente</value>
   </data>
-  <data name="Leave History: {0}" xml:space="preserve">
-    <value>Leave History: {0}</value>
-  </data>
-  <data name="Annual" xml:space="preserve">
-    <value>Annual</value>
-  </data>
-  <data name="Sick" xml:space="preserve">
-    <value>Sick</value>
-  </data>
+
 </root>

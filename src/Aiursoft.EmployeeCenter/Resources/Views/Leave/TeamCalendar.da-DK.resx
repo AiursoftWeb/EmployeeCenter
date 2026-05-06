@@ -1,24 +1,28 @@
-<?xml version='1.0' encoding='utf-8'?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:schema id="root">
-    <xs:element name="root" ns1:IsDataSet="true">
+<?xml version="1.0" encoding="utf-8"?>
 
-        </xs:element>
-  </xs:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>1.3</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="About Team Calendar" xml:space="preserve">
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Team Calendar" xml:space="preserve">
     <value>Om teamkalender</value>
+  </data>
+  <data name="Annual" xml:space="preserve">
+    <value>Annual</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Godkendt</value>
@@ -43,6 +47,9 @@
   </data>
   <data name="Green - Leave period has finished" xml:space="preserve">
     <value>Grøn - Ferieperioden er afsluttet</value>
+  </data>
+  <data name="Leave History: {0}" xml:space="preserve">
+    <value>Leave History: {0}</value>
   </data>
   <data name="Leave Schedule" xml:space="preserve">
     <value>Ferieplan</value>
@@ -95,6 +102,9 @@
   <data name="Search for any employee to view their full leave history for the past and future 365 days." xml:space="preserve">
     <value>Søg på en medarbejder for at se deres fulde fraværshistorik for de sidste og fremtidige 365 dage.</value>
   </data>
+  <data name="Sick" xml:space="preserve">
+    <value>Sick</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
@@ -110,11 +120,11 @@
   <data name="Team Member" xml:space="preserve">
     <value>Holdemedlem</value>
   </data>
-  <data name="Team Members' Leave Status" xml:space="preserve">
+  <data name="Team Members&apos; Leave Status" xml:space="preserve">
     <value>Medarbejdernes fraværsstatus</value>
   </data>
-  <data name="This calendar helps you stay informed about your team's availability to facilitate work handovers and planning." xml:space="preserve">
-    <value>Denne kalender hjælper dig med at holde dig opdateret om dit team's tilgængelighed, så du nemt kan aflevere arbejde og planlægge.</value>
+  <data name="This calendar helps you stay informed about your team&apos;s availability to facilitate work handovers and planning." xml:space="preserve">
+    <value>Denne kalender hjælper dig med at holde dig opdateret om dit team&apos;s tilgængelighed, så du nemt kan aflevere arbejde og planlægge.</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>
@@ -128,13 +138,5 @@
   <data name="Yellow - Employee is currently away" xml:space="preserve">
     <value>Gul - Medarbejder er for øjeblikket borte</value>
   </data>
-  <data name="Leave History: {0}" xml:space="preserve">
-    <value>Leave History: {0}</value>
-  </data>
-  <data name="Annual" xml:space="preserve">
-    <value>Annual</value>
-  </data>
-  <data name="Sick" xml:space="preserve">
-    <value>Sick</value>
-  </data>
+
 </root>
