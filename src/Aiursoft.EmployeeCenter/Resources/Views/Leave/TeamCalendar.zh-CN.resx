@@ -1,23 +1,24 @@
-<?xml version='1.0' encoding='utf-8'?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:schema id="root">
-    <xs:element name="root" ns1:IsDataSet="true">
+<?xml version="1.0" encoding="utf-8"?>
 
-        </xs:element>
-  </xs:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>1.3</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="About Team Calendar" xml:space="preserve">
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Team Calendar" xml:space="preserve">
     <value>关于同组日历</value>
   </data>
   <data name="Annual" xml:space="preserve">
@@ -55,6 +56,9 @@
   </data>
   <data name="Green - Leave period has finished" xml:space="preserve">
     <value>绿色 - 休假已结束并返回</value>
+  </data>
+  <data name="Leave History: {0}" xml:space="preserve">
+    <value>请假记录：{0}</value>
   </data>
   <data name="Leave Schedule" xml:space="preserve">
     <value>休假安排</value>
@@ -128,10 +132,10 @@
   <data name="Team Member" xml:space="preserve">
     <value>团队成员</value>
   </data>
-  <data name="Team Members' Leave Status" xml:space="preserve">
+  <data name="Team Members&apos; Leave Status" xml:space="preserve">
     <value>团队成员休假状态</value>
   </data>
-  <data name="This calendar helps you stay informed about your team's availability to facilitate work handovers and planning." xml:space="preserve">
+  <data name="This calendar helps you stay informed about your team&apos;s availability to facilitate work handovers and planning." xml:space="preserve">
     <value>此日历可帮助您了解团队成员的可用性，方便工作交接和计划安排。</value>
   </data>
   <data name="Type" xml:space="preserve">
@@ -149,7 +153,5 @@
   <data name="Yellow - Employee is currently away" xml:space="preserve">
     <value>黄色 - 员工目前处于休假状态</value>
   </data>
-  <data name="Leave History: {0}" xml:space="preserve">
-    <value>请假记录：{0}</value>
-  </data>
+
 </root>
