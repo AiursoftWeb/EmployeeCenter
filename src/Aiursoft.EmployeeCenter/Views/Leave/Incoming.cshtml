@@ -213,8 +213,15 @@
                                         }
                                     </td>
                                     <td>
-                                        <div><label data-utc-time="@item.StartDate.ToHtmlDateTime()"></label></div>
-                                        <small class="text-muted">@Localizer["to"] <label data-utc-time="@item.EndDate.ToHtmlDateTime()"></label></small>
+                                        @if (item.StartDate.Date == item.EndDate.Date)
+                                        {
+                                            <div><label data-utc-time="@item.StartDate.ToHtmlDateTime()" data-date-only="true"></label></div>
+                                        }
+                                        else
+                                        {
+                                            <div><label data-utc-time="@item.StartDate.ToHtmlDateTime()" data-date-only="true"></label></div>
+                                            <small class="text-muted">@Localizer["to"] <label data-utc-time="@item.EndDate.ToHtmlDateTime()" data-date-only="true"></label></small>
+                                        }
                                     </td>
                                     <td>@item.TotalDays.ToString("0.##")</td>
                                     <td>@item.Reason</td>
@@ -293,8 +300,15 @@
                                         }
                                     </td>
                                     <td>
-                                        <div><label data-utc-time="@item.StartDate.ToHtmlDateTime()"></label></div>
-                                        <small class="text-muted">@Localizer["to"] <label data-utc-time="@item.EndDate.ToHtmlDateTime()"></label></small>
+                                        @if (item.StartDate.Date == item.EndDate.Date)
+                                        {
+                                            <div><label data-utc-time="@item.StartDate.ToHtmlDateTime()" data-date-only="true"></label></div>
+                                        }
+                                        else
+                                        {
+                                            <div><label data-utc-time="@item.StartDate.ToHtmlDateTime()" data-date-only="true"></label></div>
+                                            <small class="text-muted">@Localizer["to"] <label data-utc-time="@item.EndDate.ToHtmlDateTime()" data-date-only="true"></label></small>
+                                        }
                                     </td>
                                     <td>@item.TotalDays.ToString("0.##")</td>
                                     <td>
@@ -328,3 +342,37 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        (function() {
+            const stripTime = (el) => {
+                const text = el.innerText.trim();
+                if (text && text.includes(' ')) {
+                    const dateOnly = text.split(' ')[0];
+                    if (el.innerText !== dateOnly) {
+                        el.innerText = dateOnly;
+                    }
+                }
+            };
+
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    const target = mutation.target.nodeType === 3 ? mutation.target.parentElement : mutation.target;
+                    if (target && target.hasAttribute('data-date-only')) {
+                        stripTime(target);
+                    }
+                });
+            });
+
+            const config = { childList: true, characterData: true, subtree: true };
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('[data-date-only="true"]').forEach(el => {
+                    observer.observe(el, config);
+                    stripTime(el);
+                });
+            });
+        })();
+    </script>
+}
