@@ -67,7 +67,14 @@
                                             @(leave.LeaveType == LeaveType.AnnualLeave ? Localizer["Annual"] : Localizer["Sick"])
                                         </td>
                                         <td>
-                                            <span data-utc-time="@leave.StartDate.ToHtmlDateTime()"></span> - <span data-utc-time="@leave.EndDate.ToHtmlDateTime()"></span>
+                                            @if (leave.StartDate.Date == leave.EndDate.Date)
+                                            {
+                                                <span data-utc-time="@leave.StartDate.ToHtmlDateTime()" data-date-only="true"></span>
+                                            }
+                                            else
+                                            {
+                                                <span data-utc-time="@leave.StartDate.ToHtmlDateTime()" data-date-only="true"></span><span> - </span><span data-utc-time="@leave.EndDate.ToHtmlDateTime()" data-date-only="true"></span>
+                                            }
                                         </td>
                                         <td>@leave.TotalDays.ToString("0.##")</td>
                                         <td>@leave.Reason</td>
@@ -187,7 +194,16 @@
                                                     
                                                     <div class="border rounded p-2 text-light @statusClass" style="min-width: 150px;">
                                                         <div class="fw-bold small">@statusText</div>
-                                                        <div class="small"><label data-utc-time="@leave.StartDate.ToHtmlDateTime()"></label> - <label data-utc-time="@leave.EndDate.ToHtmlDateTime()"></label></div>
+                                                        <div class="small">
+                                                            @if (leave.StartDate.Date == leave.EndDate.Date)
+                                                            {
+                                                                <label data-utc-time="@leave.StartDate.ToHtmlDateTime()" data-date-only="true"></label>
+                                                            }
+                                                            else
+                                                            {
+                                                                <label data-utc-time="@leave.StartDate.ToHtmlDateTime()" data-date-only="true"></label><span> - </span><label data-utc-time="@leave.EndDate.ToHtmlDateTime()" data-date-only="true"></label>
+                                                            }
+                                                        </div>
                                                         <div class="small opacity-75">@(leave.LeaveType == LeaveType.AnnualLeave ? Localizer["Annual"] : Localizer["Sick"]) (@leave.TotalDays.ToString("0.##") @Localizer["Days label"])</div>
                                                     </div>
                                                 }
@@ -252,6 +268,36 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script>
+        (function() {
+            const stripTime = (el) => {
+                const text = el.innerText.trim();
+                if (text && text.includes(' ')) {
+                    const dateOnly = text.split(' ')[0];
+                    if (el.innerText !== dateOnly) {
+                        el.innerText = dateOnly;
+                    }
+                }
+            };
+
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    const target = mutation.target.nodeType === 3 ? mutation.target.parentElement : mutation.target;
+                    if (target && target.hasAttribute('data-date-only')) {
+                        stripTime(target);
+                    }
+                });
+            });
+
+            const config = { childList: true, characterData: true, subtree: true };
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('[data-date-only="true"]').forEach(el => {
+                    observer.observe(el, config);
+                    stripTime(el);
+                });
+            });
+        })();
+
         document.addEventListener('DOMContentLoaded', function() {
             const input = document.getElementById('user-search-input');
             const resultsDiv = document.getElementById('user-search-results');
