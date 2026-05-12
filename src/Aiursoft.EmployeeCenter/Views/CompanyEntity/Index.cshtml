@@ -66,7 +66,7 @@
                                         <a asp-controller="CompanyEntity" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#delete-modal-@item.Id" class="btn btn-danger btn-sm">
+                                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete-modal-@item.Id" class="btn btn-danger btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                         
@@ -75,15 +75,13 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         @Localizer["Are you sure you want to delete {0}?", item.CompanyName]
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@Localizer["Cancel"]</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
                                                         <form asp-controller="CompanyEntity" asp-action="Delete" asp-route-id="@item.Id" method="post">
                                                             <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
                                                         </form>

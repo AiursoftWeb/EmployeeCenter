@@ -230,6 +230,40 @@ public class CompanyEntityTests : TestBase
     }
 
     [TestMethod]
+    public async Task DeleteCompanyEntityTest()
+    {
+        // 1. Login as admin
+        await LoginAsAdmin();
+
+        // 2. Create a Company Entity
+        var createResponse = await PostForm("/CompanyEntity/Create", new Dictionary<string, string>
+        {
+            { "CompanyName", "Delete Test Company" },
+            { "EntityCode", "DEL123456" }
+        });
+        Assert.AreEqual(HttpStatusCode.Found, createResponse.StatusCode);
+
+        // 3. Get the ID
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var entity = await db.CompanyEntities.FirstOrDefaultAsync(e => e.EntityCode == "DEL123456");
+            Assert.IsNotNull(entity);
+            var entityId = entity.Id;
+
+            // 4. Delete the entity
+            var deleteResponse = await PostForm($"/CompanyEntity/Delete/{entityId}", new Dictionary<string, string>());
+            Assert.AreEqual(HttpStatusCode.Found, deleteResponse.StatusCode);
+            AssertRedirect(deleteResponse, "/CompanyEntity/Manage");
+
+            // 5. Verify it's gone from DB
+            await db.Entry(entity).ReloadAsync();
+            entity = await db.CompanyEntities.FindAsync(entityId);
+            Assert.IsNull(entity);
+        }
+    }
+
+    [TestMethod]
     public async Task StaffListVisibilityTest()
     {
         // 1. Login as admin
