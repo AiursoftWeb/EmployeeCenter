@@ -365,16 +365,64 @@ public class CompanyEntityController(
             return NotFound();
         }
 
-        var user = await userManager.GetUserAsync(User);
-        var log = new CompanyEntityLog
+        // Check for required dependencies
+        var financeAccounts = await dbContext.FinanceAccounts.Where(f => f.CompanyEntityId == id).ToListAsync();
+        var collectionChannelsAsPayer = await dbContext.CollectionChannels.Where(c => c.PayerId == id).ToListAsync();
+        var collectionChannelsAsPayee = await dbContext.CollectionChannels.Where(c => c.PayeeId == id).ToListAsync();
+
+        if (financeAccounts.Any() || collectionChannelsAsPayer.Any() || collectionChannelsAsPayee.Any())
         {
-            CompanyEntityId = entity.Id,
+            var dependencies = new List<string>();
+            if (financeAccounts.Any()) dependencies.Add($"{financeAccounts.Count} finance accounts (Ledger)");
+            if (collectionChannelsAsPayer.Any()) dependencies.Add($"{collectionChannelsAsPayer.Count} collection channels as payer");
+            if (collectionChannelsAsPayee.Any()) dependencies.Add($"{collectionChannelsAsPayee.Count} collection channels as payee");
+
+            ModelState.AddModelError(string.Empty, $"Cannot delete this company entity because it is referenced by: {string.Join(", ", dependencies)}. Please delete or reassign these references first.");
+            
+            var entities = await dbContext.CompanyEntities
+                .OrderByDescending(t => t.CreationTime)
+                .ToListAsync();
+            var model = new IndexViewModel
+            {
+                Entities = entities
+            };
+            return this.StackView(model, "Index");
+        }
+
+        // Handle optional dependencies (Set null)
+        var servers = await dbContext.Servers.Where(s => s.CompanyEntityId == id).ToListAsync();
+        foreach (var server in servers) server.CompanyEntityId = null;
+
+        var assets = await dbContext.Assets.Where(a => a.CompanyEntityId == id).ToListAsync();
+        foreach (var asset in assets) asset.CompanyEntityId = null;
+
+        var intangibleAssets = await dbContext.IntangibleAssets.Where(a => a.CompanyEntityId == id).ToListAsync();
+        foreach (var ia in intangibleAssets) ia.CompanyEntityId = null;
+
+        var relationships = await dbContext.CustomerRelationships.Where(r => r.CompanyEntityId == id).ToListAsync();
+        foreach (var r in relationships) r.CompanyEntityId = null;
+
+        var users = await dbContext.Users.Where(u => u.SigningEntityId == id).ToListAsync();
+        foreach (var u in users) u.SigningEntityId = null;
+
+        var services = await dbContext.Services.Where(s => s.OwnerId == id).ToListAsync();
+        foreach (var s in services) s.OwnerId = null;
+
+        // Handle logs (Recursive delete)
+        var logs = await dbContext.CompanyEntityLogs.Where(l => l.CompanyEntityId == id).ToListAsync();
+        dbContext.CompanyEntityLogs.RemoveRange(logs);
+
+        // Add a log for the deletion itself, but with CompanyEntityId = null to avoid FK constraint
+        var user = await userManager.GetUserAsync(User);
+        var deletionLog = new CompanyEntityLog
+        {
+            CompanyEntityId = null,
             UserId = user!.Id,
             Action = "Delete",
-            Details = "Deleted",
+            Details = $"Deleted company entity: {entity.CompanyName} (ID: {id})",
             Snapshot = JsonConvert.SerializeObject(entity)
         };
-        dbContext.CompanyEntityLogs.Add(log);
+        dbContext.CompanyEntityLogs.Add(deletionLog);
 
         dbContext.CompanyEntities.Remove(entity);
         await dbContext.SaveChangesAsync();
