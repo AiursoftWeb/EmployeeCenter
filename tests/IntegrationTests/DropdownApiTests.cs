@@ -98,6 +98,6 @@ public class DropdownApiTests
         await VerifyApi("/Services/GetProviders", new[] { "Id", "Name" });
         await VerifyApi("/Services/GetCompanyEntities", new[] { "Id", "CompanyName" });
         await VerifyApi("/Services/GetDnsProviders", new[] { "Id", "Domain" });
-        await VerifyApi("/Services/GetServers", new[] { "Id", "HostName" });
+        await VerifyApi("/Services/GetServers", new[] { "Id", "Hostname" });
     }
 }
