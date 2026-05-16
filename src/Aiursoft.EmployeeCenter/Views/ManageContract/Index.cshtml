@@ -30,6 +30,9 @@
             <a asp-action="CreateFolder" asp-route-id="@Model.FolderId" class="btn btn-outline-primary me-2">
                 <i class="align-middle" data-lucide="folder-plus"></i> @Localizer["Create Folder"]
             </a>
+            <a asp-action="ImportZip" asp-route-folderId="@Model.FolderId" class="btn btn-outline-success me-2">
+                <i class="align-middle" data-lucide="archive"></i> @Localizer["Import Zip"]
+            </a>
             <a asp-action="Create" asp-route-folderId="@Model.FolderId" class="btn btn-primary">
                 <i class="align-middle" data-lucide="plus-circle"></i> @Localizer["Create new contract"]
             </a>

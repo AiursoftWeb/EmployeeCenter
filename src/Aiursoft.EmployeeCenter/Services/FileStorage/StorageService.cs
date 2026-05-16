@@ -26,39 +26,54 @@ public class StorageService(
     /// <returns>The actual logical path where the file is saved (may differ if renamed).</returns>
     public async Task<string> Save(string logicalPath, IFormFile file, bool isVault = false)
     {
-        // 1. Get Workspace root
+        var (root, physicalPath) = await ResolveSavePath(logicalPath, isVault);
+
+        await using var fileStream = new FileStream(physicalPath, FileMode.Create);
+        await file.CopyToAsync(fileStream);
+
+        return Path.GetRelativePath(root, physicalPath).Replace("\\", "/");
+    }
+
+    /// <summary>
+    /// Saves a stream to the storage. Used for extracting files from archives, etc.
+    /// </summary>
+    public async Task<string> SaveFromStream(string logicalPath, Stream stream, bool isVault = false)
+    {
+        var (root, physicalPath) = await ResolveSavePath(logicalPath, isVault);
+
+        await using var fileStream = new FileStream(physicalPath, FileMode.Create);
+        await stream.CopyToAsync(fileStream);
+
+        return Path.GetRelativePath(root, physicalPath).Replace("\\", "/");
+    }
+
+    private async Task<(string root, string physicalPath)> ResolveSavePath(string logicalPath, bool isVault)
+    {
         var root = isVault ? folders.GetVaultFolder() : folders.GetWorkspaceFolder();
 
-        // 2. Resolve physical path
         var physicalPath = Path.GetFullPath(Path.Combine(root, logicalPath));
 
-        // 3. Security check: Ensure path is within Workspace
         if (!physicalPath.StartsWith(root, StringComparison.OrdinalIgnoreCase))
         {
             throw new ArgumentException("Path traversal attempt detected!");
         }
 
-        // 4. Create directory if needed
         var directory = Path.GetDirectoryName(physicalPath);
         if (!Directory.Exists(directory))
         {
             Directory.CreateDirectory(directory!);
         }
 
-        // 5. Handle collisions (Renaming)
-        // Lock on the directory to prevent race conditions during renaming
         var lockObj = fileLockProvider.GetLock(directory!);
         await lockObj.WaitAsync();
         try
         {
-            var expectedFileName = Path.GetFileName(physicalPath);
             while (File.Exists(physicalPath))
             {
-                expectedFileName = "_" + expectedFileName;
-                physicalPath = Path.Combine(directory!, expectedFileName);
+                var fileName = "_" + Path.GetFileName(physicalPath);
+                physicalPath = Path.Combine(directory!, fileName);
             }
 
-            // Create placeholder to reserve name
             File.Create(physicalPath).Close();
         }
         finally
@@ -66,12 +81,7 @@ public class StorageService(
             lockObj.Release();
         }
 
-        // 6. Write file content
-        await using var fileStream = new FileStream(physicalPath, FileMode.Create);
-        await file.CopyToAsync(fileStream);
-
-        // 7. Return logical path (relative to Workspace)
-        return Path.GetRelativePath(root, physicalPath).Replace("\\", "/");
+        return (root, physicalPath);
     }
 
     /// <summary>

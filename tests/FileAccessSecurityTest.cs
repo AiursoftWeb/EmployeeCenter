@@ -1,3 +1,4 @@
+using System.Text;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Caching.Memory;
@@ -109,6 +110,75 @@ public class FileAccessSecurityTest
     }
 
     [TestMethod]
+    public async Task TestSaveFromStream_NormalAccess()
+    {
+        var content = "Hello from stream";
+        var fileName = "test_stream_upload.txt";
+        var ms = new MemoryStream();
+        var writer = new StreamWriter(ms);
+        writer.Write(content);
+        writer.Flush();
+        ms.Position = 0;
+
+        var savedPath = await _storageService.SaveFromStream("uploads/" + fileName, ms);
+
+        StringAssert.Contains(savedPath, "uploads");
+        StringAssert.Contains(savedPath, fileName);
+
+        var physicalPath = _storageService.GetFilePhysicalPath(savedPath);
+        Assert.IsTrue(File.Exists(physicalPath));
+        var savedContent = await File.ReadAllTextAsync(physicalPath);
+        Assert.AreEqual(content, savedContent);
+    }
+
+    [TestMethod]
+    public async Task TestSaveFromStream_ConflictResolution_AddsPrefix()
+    {
+        var fileName = "conflict.txt";
+        var ms1 = new MemoryStream();
+        var writer1 = new StreamWriter(ms1);
+        writer1.Write("v1");
+        writer1.Flush();
+        ms1.Position = 0;
+
+        var ms2 = new MemoryStream();
+        var writer2 = new StreamWriter(ms2);
+        writer2.Write("v2");
+        writer2.Flush();
+        ms2.Position = 0;
+
+        var path1 = await _storageService.SaveFromStream(fileName, ms1);
+        var path2 = await _storageService.SaveFromStream(fileName, ms2);
+
+        Assert.AreEqual(fileName, path1);
+        Assert.AreEqual("_conflict.txt", path2);
+
+        var content1 = await File.ReadAllTextAsync(_storageService.GetFilePhysicalPath(path1));
+        var content2 = await File.ReadAllTextAsync(_storageService.GetFilePhysicalPath(path2));
+        Assert.AreEqual("v1", content1);
+        Assert.AreEqual("v2", content2);
+    }
+
+    [TestMethod]
+    [DataRow("../malicious.txt")]
+    [DataRow("../../malicious.txt")]
+    [DataRow("/absolute/path/malicious.txt")]
+    public async Task TestSaveFromStream_PathTraversal(string maliciousPath)
+    {
+        var ms = new MemoryStream(Encoding.UTF8.GetBytes("dummy"));
+
+        try
+        {
+            await _storageService.SaveFromStream(maliciousPath, ms);
+            Assert.Fail("Expected ArgumentException was not thrown.");
+        }
+        catch (ArgumentException)
+        {
+            // Expected
+        }
+    }
+
+    [TestMethod]
     public void TestValidateToken_SitePrefixVulnerability()
     {
         // Arrange: Hacker creates a site named "A"
@@ -120,7 +190,6 @@ public class FileAccessSecurityTest
         var isValid = _storageService.ValidateToken(victimSite, token, FilePermission.Upload);
 
         // Assert: Access should be DENIED
-        // This assertion is expected to FAIL until the vulnerability is fixed
         Assert.IsFalse(isValid, "Vulnerability confirmed: Token for 'A' was accepted for 'AA'");
     }
 }

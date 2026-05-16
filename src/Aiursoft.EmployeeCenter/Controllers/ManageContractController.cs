@@ -161,6 +161,53 @@ public class ManageContractController(
     }
 
     [Authorize(Policy = AppPermissionNames.CanCreateContract)]
+    public async Task<IActionResult> ImportZip(int? folderId)
+    {
+        ViewData["Folders"] = await GetFolderSelectList(folderId);
+        return this.StackView(new ImportZipViewModel { FolderId = folderId });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanCreateContract)]
+    public async Task<IActionResult> ImportZip(ImportZipViewModel model)
+    {
+        if (model.ZipFile == null || model.ZipFile.Length == 0)
+        {
+            ModelState.AddModelError(nameof(model.ZipFile), "Please select a zip file.");
+        }
+        else if (!model.ZipFile.FileName.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            ModelState.AddModelError(nameof(model.ZipFile), "Only .zip files are supported.");
+        }
+
+        if (ModelState.IsValid)
+        {
+            var importService = HttpContext.RequestServices.GetRequiredService<ContractImportService>();
+            await using var stream = model.ZipFile!.OpenReadStream();
+            var result = await importService.ImportFromZipAsync(stream, model.FolderId, model.IsPublic, model.Status);
+
+            if (result.Errors.Any())
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", $"Failed to import: {error}");
+                }
+            }
+
+            if (result.FilesImported > 0)
+            {
+                TempData["SuccessMessage"] = $"Imported {result.FilesImported} files into {result.FoldersCreated} folders.";
+            }
+
+            return RedirectToAction(nameof(Index), new { id = model.FolderId });
+        }
+
+        ViewData["Folders"] = await GetFolderSelectList(model.FolderId);
+        return this.StackView(model);
+    }
+
+    [Authorize(Policy = AppPermissionNames.CanCreateContract)]
     public IActionResult Create(int? folderId)
     {
         return this.StackView(new CreateViewModel { FolderId = folderId });

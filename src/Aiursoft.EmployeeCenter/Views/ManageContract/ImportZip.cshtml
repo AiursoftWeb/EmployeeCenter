@@ -1,0 +1,55 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.ImportZipViewModel
+
+<h1 class="h3 mb-3">@Localizer["Import Contracts from Zip"]</h1>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <form asp-action="ImportZip" method="post" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Import Settings"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="ZipFile" class="form-label">@Localizer["Zip File"]</label>
+                        <input asp-for="ZipFile" type="file" class="form-control" accept=".zip" />
+                        <span asp-validation-for="ZipFile" class="text-danger"></span>
+                        <div class="form-text">@Localizer["Select a .zip file containing contract documents. The folder structure in the zip will be preserved."]</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="FolderId" class="form-label">@Localizer["Target Folder"]</label>
+                        <select asp-for="FolderId" class="form-select" asp-items="@(ViewData["Folders"] as List<SelectListItem>)">
+                            <option value="">@Localizer["(Root)"]</option>
+                        </select>
+                        <span asp-validation-for="FolderId" class="text-danger"></span>
+                        <div class="form-text">@Localizer["All folders and files from the zip will be imported under this folder."]</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Status" class="form-label">@Localizer["Default Status"]</label>
+                        <select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<ContractStatus>()"></select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                        <div class="form-text">@Localizer["This status will be applied to all imported contracts."]</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" asp-for="IsPublic">
+                            <label class="form-check-label" asp-for="IsPublic">@Localizer["Public Contracts (Everyone can see)"]</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="align-middle me-2" data-lucide="upload"></i> @Localizer["Start Import"]
+                    </button>
+                    <a asp-action="Index" asp-route-id="@Model.FolderId" class="btn btn-light">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
