@@ -102,10 +102,10 @@ public class ContractImportService(
 
         return new ImportResult(foldersCreated, filesImported, errors);
 
-        ContractFolder FindOrCreateFolder(string fullPath)
+        void FindOrCreateFolder(string fullPath)
         {
-            if (pathFolderMap.TryGetValue(fullPath, out var cached))
-                return cached;
+            if (pathFolderMap.TryGetValue(fullPath, out _))
+                return;
 
             var parts = fullPath.Split('/', StringSplitOptions.RemoveEmptyEntries);
             ContractFolder? currentParent = null;
@@ -157,8 +157,6 @@ public class ContractImportService(
                 currentParent = folder;
                 currentParentId = folder.Id;
             }
-
-            return currentParent!;
         }
     }
 }

@@ -1,11 +1,9 @@
 using System.IO.Compression;
 using System.Text;
-using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.InMemory;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Microsoft.AspNetCore.DataProtection;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Aiursoft.EmployeeCenter.Tests;
@@ -145,15 +143,15 @@ public class ContractImportServiceTests
         var minutes = folders.FirstOrDefault(f => f.Name == "Minutes");
         Assert.IsNotNull(minutes);
 
-        var directors = folders.FirstOrDefault(f => f.Name == "1 - Directors" && f.ParentFolderId == minutes!.Id);
+        var directors = folders.FirstOrDefault(f => f.Name == "1 - Directors" && f.ParentFolderId == minutes.Id);
         Assert.IsNotNull(directors);
 
-        var shareholders = folders.FirstOrDefault(f => f.Name == "2 - Shareholders" && f.ParentFolderId == minutes!.Id);
+        var shareholders = folders.FirstOrDefault(f => f.Name == "2 - Shareholders" && f.ParentFolderId == minutes.Id);
         Assert.IsNotNull(shareholders);
 
         var contracts = await _dbContext.Contracts.Include(c => c.Folder).ToListAsync();
-        Assert.AreEqual(2, contracts.Count(c => c.Folder?.Id == directors!.Id));
-        Assert.AreEqual(1, contracts.Count(c => c.Folder?.Id == shareholders!.Id));
+        Assert.AreEqual(2, contracts.Count(c => c.Folder?.Id == directors.Id));
+        Assert.AreEqual(1, contracts.Count(c => c.Folder?.Id == shareholders.Id));
     }
 
     [TestMethod]
@@ -200,7 +198,7 @@ public class ContractImportServiceTests
         var folders = await _dbContext.ContractFolders.ToListAsync();
         var sub = folders.FirstOrDefault(f => f.Name == "Sub");
         Assert.IsNotNull(sub);
-        Assert.AreEqual(target.Id, sub!.ParentFolderId);
+        Assert.AreEqual(target.Id, sub.ParentFolderId);
 
         var contracts = await _dbContext.Contracts.Include(c => c.Folder).ToListAsync();
         Assert.AreEqual(1, contracts.Count(c => c.Folder?.Id == sub.Id));
