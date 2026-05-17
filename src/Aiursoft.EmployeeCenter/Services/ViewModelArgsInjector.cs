@@ -255,6 +255,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Ocr Results"];
         _ = localizer["Print"];
         _ = localizer["Transactions"];
+    
+        _ = localizer["Import Contracts from Zip"];
     }
 
     public void InjectSimple(
