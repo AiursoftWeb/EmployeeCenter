@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>是否公开</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>请上传有效的 zip 文件。</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>状态</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} 不能超过 {1} 个字符。</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} 是必需的。</value>

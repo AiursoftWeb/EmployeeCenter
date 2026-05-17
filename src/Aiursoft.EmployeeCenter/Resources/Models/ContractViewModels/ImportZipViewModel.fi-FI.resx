@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>Julkinen</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>Lataa kelvollinen zip-tiedosto.</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Tila</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} ei voi ylittää {1} merkkiä.</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} on pakollinen.</value>

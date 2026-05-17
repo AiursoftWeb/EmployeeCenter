@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>Öffentlich</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>Bitte laden Sie eine gültige ZIP-Datei hoch.</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} darf {1} Zeichen nicht überschreiten.</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} ist erforderlich.</value>

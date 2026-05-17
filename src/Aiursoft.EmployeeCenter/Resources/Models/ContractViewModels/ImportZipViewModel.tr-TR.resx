@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>Herkese Açık</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>Lütfen geçerli bir zip dosyası yükleyin.</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Durum</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} en fazla {1} karakter olabilir.</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} alanı gereklidir.</value>

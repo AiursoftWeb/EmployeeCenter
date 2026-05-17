@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>เป็นสาธารณะ</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>กรุณาอัปโหลดไฟล์ zip ที่ถูกต้อง</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} ไม่สามารถเกิน {1} ตัวอักษรได้</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>จำเป็นต้องกรอก {0}</value>
