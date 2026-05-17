@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>Este public</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>Încărcați un fișier zip valid.</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Stare</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} nu poate depăși {1} caractere.</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>Câmpul {0} este obligatoriu.</value>

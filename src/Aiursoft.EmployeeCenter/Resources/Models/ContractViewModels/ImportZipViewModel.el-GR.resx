@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>Δημόσιο</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>Παρακαλώ ανεβάστε ένα έγκυρο αρχείο zip.</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Κατάσταση</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Το {0} δεν μπορεί να υπερβαίνει τους {1} χαρακτήρες.</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>Το πεδίο {0} είναι υποχρεωτικό.</value>

@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>Công khai</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>Vui lòng tải lên một tệp zip hợp lệ.</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Trạng thái</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} không được vượt quá {1} ký tự.</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} là bắt buộc.</value>

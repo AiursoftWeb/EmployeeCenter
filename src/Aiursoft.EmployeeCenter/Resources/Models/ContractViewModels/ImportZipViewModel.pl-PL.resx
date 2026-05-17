@@ -21,8 +21,14 @@
       <data name="Is Public" xml:space="preserve">
     <value>Czy jest publiczny</value>
   </data>
+  <data name="Please upload a valid zip file." xml:space="preserve">
+    <value>Proszę przesłać prawidłowy plik zip.</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Pole {0} nie może przekraczać {1} znaków.</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>Pole {0} jest wymagane.</value>
