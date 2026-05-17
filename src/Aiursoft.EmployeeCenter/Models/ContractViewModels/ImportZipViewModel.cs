@@ -12,8 +12,10 @@ public class ImportZipViewModel : UiStackLayoutViewModel
     }
 
     [Required(ErrorMessage = "The {0} is required.")]
+    [MaxLength(200, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Zip File")]
-    public IFormFile? ZipFile { get; set; }
+    [RegularExpression(@"^contract/.*", ErrorMessage = "Please upload a valid zip file.")]
+    public string? ZipFilePath { get; set; }
 
     [Display(Name = "Is Public")]
     public bool IsPublic { get; set; }

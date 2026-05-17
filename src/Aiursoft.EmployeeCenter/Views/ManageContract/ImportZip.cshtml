@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-12 col-xl-6">
-        <form asp-action="ImportZip" method="post" enctype="multipart/form-data">
+        <form asp-action="ImportZip" method="post">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">@Localizer["Import Settings"]</h5>
@@ -13,9 +13,14 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                     <div class="mb-3">
-                        <label asp-for="ZipFile" class="form-label">@Localizer["Zip File"]</label>
-                        <input asp-for="ZipFile" type="file" class="form-control" accept=".zip" />
-                        <span asp-validation-for="ZipFile" class="text-danger"></span>
+                        <label asp-for="ZipFilePath" class="form-label">@Localizer["Zip File"]</label>
+                        <vc:file-upload
+                            asp-for="ZipFilePath"
+                            subfolder="contract"
+                            allowed-extensions="zip"
+                            is-vault="true">
+                        </vc:file-upload>
+                        <span asp-validation-for="ZipFilePath" class="text-danger"></span>
                         <div class="form-text">@Localizer["Select a .zip file containing contract documents. The folder structure in the zip will be preserved."]</div>
                     </div>
 
@@ -52,3 +57,14 @@
         </form>
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

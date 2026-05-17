@@ -2,6 +2,7 @@ using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.ContractViewModels;
 using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -14,7 +15,8 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 [Authorize(Policy = AppPermissionNames.CanViewContractHistory)]
 [LimitPerMin]
 public class ManageContractController(
-    EmployeeCenterDbContext context)
+    EmployeeCenterDbContext context,
+    StorageService storageService)
     : Controller
 {
     private async Task<List<SelectListItem>> GetFolderSelectList(int? selectedId, int? excludeId = null)
@@ -172,35 +174,44 @@ public class ManageContractController(
     [Authorize(Policy = AppPermissionNames.CanCreateContract)]
     public async Task<IActionResult> ImportZip(ImportZipViewModel model)
     {
-        if (model.ZipFile == null || model.ZipFile.Length == 0)
-        {
-            ModelState.AddModelError(nameof(model.ZipFile), "Please select a zip file.");
-        }
-        else if (!model.ZipFile.FileName.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
-        {
-            ModelState.AddModelError(nameof(model.ZipFile), "Only .zip files are supported.");
-        }
-
         if (ModelState.IsValid)
         {
-            var importService = HttpContext.RequestServices.GetRequiredService<ContractImportService>();
-            await using var stream = model.ZipFile!.OpenReadStream();
-            var result = await importService.ImportFromZipAsync(stream, model.FolderId, model.IsPublic, model.Status);
-
-            if (result.Errors.Any())
+            try
             {
-                foreach (var error in result.Errors)
+                var physicalPath = storageService.GetFilePhysicalPath(model.ZipFilePath!, isVault: true);
+
+                if (!System.IO.File.Exists(physicalPath))
                 {
-                    ModelState.AddModelError("", $"Failed to import: {error}");
+                    ModelState.AddModelError(nameof(model.ZipFilePath), "File upload failed or missing. Please re-upload.");
+                    ViewData["Folders"] = await GetFolderSelectList(model.FolderId);
+                    return this.StackView(model);
                 }
-            }
 
-            if (result.FilesImported > 0)
+                var importService = HttpContext.RequestServices.GetRequiredService<ContractImportService>();
+                await using var stream = System.IO.File.OpenRead(physicalPath);
+                var result = await importService.ImportFromZipAsync(stream, model.FolderId, model.IsPublic, model.Status);
+
+                System.IO.File.Delete(physicalPath);
+
+                if (result.Errors.Any())
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", $"Failed to import: {error}");
+                    }
+                }
+
+                if (result.FilesImported > 0)
+                {
+                    TempData["SuccessMessage"] = $"Imported {result.FilesImported} files into {result.FoldersCreated} folders.";
+                }
+
+                return RedirectToAction(nameof(Index), new { id = model.FolderId });
+            }
+            catch (ArgumentException)
             {
-                TempData["SuccessMessage"] = $"Imported {result.FilesImported} files into {result.FoldersCreated} folders.";
+                return BadRequest();
             }
-
-            return RedirectToAction(nameof(Index), new { id = model.FolderId });
         }
 
         ViewData["Folders"] = await GetFolderSelectList(model.FolderId);
