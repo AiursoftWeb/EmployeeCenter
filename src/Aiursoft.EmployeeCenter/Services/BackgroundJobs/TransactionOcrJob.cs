@@ -36,7 +36,7 @@ public class TransactionOcrJob(
                     (!string.IsNullOrEmpty(t.MT103Path) && !db.TransactionOcrResults.Any(r => r.TransactionId == t.Id && r.AttachmentType == TransactionAttachmentType.MT103)) ||
                     (!string.IsNullOrEmpty(t.PaymentVoucherPath) && !db.TransactionOcrResults.Any(r => r.TransactionId == t.Id && r.AttachmentType == TransactionAttachmentType.PaymentVoucher))
                 )
-                .Where(t => t.OcrAttemptCount < 10)
+                .Where(t => t.OcrAttemptCount < _ocrSettings.TransactionOcrMaxRetryCount)
                 .OrderBy(t => t.OcrAttemptCount)
                 .ThenByDescending(t => t.TransactionTime)
                 .Select(t => t.Id)
