@@ -56,10 +56,6 @@ public class Startup : IWebStartup
 
         // Services
         services.AddMemoryCache();
-        services.AddHttpClient<Services.OcrService>(client =>
-        {
-            client.Timeout = TimeSpan.FromMinutes(10);
-        });
         services.AddHealthChecks()
             .AddDbContextCheck<Entities.EmployeeCenterDbContext>();
 
@@ -74,6 +70,14 @@ public class Startup : IWebStartup
 
         // Background Jobs (handled by scheduled task engine below)
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
+
+        // Must be registered AFTER AddAssemblyDependencies so the typed HttpClient registration
+        // overrides the plain transient registration from ITransientDependency scanning.
+        services.AddHttpClient<Services.OcrService>(client =>
+        {
+            var ocrConfig = configuration.GetSection("AppSettings:OCR").Get<OcrSettings>();
+            client.Timeout = TimeSpan.FromSeconds(ocrConfig?.TimeoutSeconds ?? 1800);
+        });
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job queue

@@ -16,7 +16,8 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 [LimitPerMin]
 public class ManageContractController(
     EmployeeCenterDbContext context,
-    StorageService storageService)
+    StorageService storageService,
+    OcrService ocrService)
     : Controller
 {
     private async Task<List<SelectListItem>> GetFolderSelectList(int? selectedId, int? excludeId = null)
@@ -359,6 +360,30 @@ public class ManageContractController(
             PlainText = ocrResult?.PlainText,
             JsonResult = ocrResult?.JsonResult
         });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanCreateContract)]
+    public async Task<IActionResult> ResetOcr(int id)
+    {
+        var contract = await context.Contracts.FindAsync(id);
+        if (contract == null) return NotFound();
+
+        var existingResult = await context.ContractOcrResults
+            .FirstOrDefaultAsync(r => r.ContractId == id);
+        if (existingResult != null)
+        {
+            context.ContractOcrResults.Remove(existingResult);
+        }
+
+        contract.OcrAttemptCount = 0;
+        contract.LastOcrAttemptTime = null;
+        await context.SaveChangesAsync();
+
+        await ocrService.ProcessContractOcrAsync(id);
+
+        return RedirectToAction(nameof(OcrResults), new { id });
     }
 
     [HttpPost]

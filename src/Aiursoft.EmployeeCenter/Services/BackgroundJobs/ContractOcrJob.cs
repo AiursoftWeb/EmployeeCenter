@@ -32,7 +32,7 @@ public class ContractOcrJob(
             // Find contracts that don't have OCR results yet AND have not exceeded retry limit (5)
             var unprocessedContractIds = await db.Contracts
                 .Where(c => !db.ContractOcrResults.Any(r => r.ContractId == c.Id))
-                .Where(c => c.OcrAttemptCount < 5)
+                .Where(c => c.OcrAttemptCount < _ocrSettings.ContractOcrMaxRetryCount)
                 .OrderBy(c => c.OcrAttemptCount) // Try those with fewer attempts first
                 .ThenByDescending(c => c.CreateTime) // Then newer ones
                 .Select(c => c.Id)
