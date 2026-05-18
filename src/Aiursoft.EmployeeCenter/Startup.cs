@@ -75,7 +75,7 @@ public class Startup : IWebStartup
         // overrides the plain transient registration from ITransientDependency scanning.
         services.AddHttpClient<Services.OcrService>(client =>
         {
-            var ocrConfig = configuration.GetSection("AppSettings:OCR").Get<Configuration.OcrSettings>();
+            var ocrConfig = configuration.GetSection("AppSettings:OCR").Get<OcrSettings>();
             client.Timeout = TimeSpan.FromSeconds(ocrConfig?.TimeoutSeconds ?? 1800);
         });
         services.AddSingleton<NavigationState<Startup>>();
