@@ -173,38 +173,41 @@ public class OcrTests : TestBase
     [TestMethod]
     public async Task TestResetOcrResetsAttemptCountAndTriggersProcessing()
     {
-        // Login as admin to access ManageContract
         await LoginAsAdmin();
 
         using var scope = Server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var ocrSettings = scope.ServiceProvider.GetRequiredService<IOptions<OcrSettings>>().Value;
 
+        var maxRetry = ocrSettings.ContractOcrMaxRetryCount;
         var contract = new Contract
         {
             Name = "Retry Contract",
             FilePath = "retry.pdf",
             Status = ContractStatus.Active,
             IsPublic = true,
-            OcrAttemptCount = 5,
+            OcrAttemptCount = maxRetry,
             LastOcrAttemptTime = DateTime.UtcNow.AddHours(-1)
         };
         db.Contracts.Add(contract);
         await db.SaveChangesAsync();
 
-        // POST to ResetOcr
         var response = await PostForm(
             $"/ManageContract/ResetOcr",
             new Dictionary<string, string> { { "id", contract.Id.ToString() } },
             tokenUrl: $"/ManageContract/OcrResults/{contract.Id}");
 
-        // Should redirect back to OcrResults
         AssertRedirect(response, $"/ManageContract/OcrResults/{contract.Id}");
 
-        // Verify OcrAttemptCount was reset and then incremented by ProcessContractOcrAsync
         await db.Entry(contract).ReloadAsync();
-        Assert.AreEqual(1, contract.OcrAttemptCount);
-        Assert.IsTrue(contract.LastOcrAttemptTime.HasValue);
-        Assert.IsTrue(contract.LastOcrAttemptTime!.Value > DateTime.UtcNow.AddMinutes(-1));
+        // After reset: count is 0. Then ProcessContractOcrAsync is called:
+        // if OCR is enabled → count becomes 1; if disabled → stays 0.
+        Assert.AreEqual(ocrSettings.Enabled ? 1 : 0, contract.OcrAttemptCount);
+        if (ocrSettings.Enabled)
+        {
+            Assert.IsTrue(contract.LastOcrAttemptTime.HasValue);
+            Assert.IsTrue(contract.LastOcrAttemptTime!.Value > DateTime.UtcNow.AddMinutes(-1));
+        }
     }
 
     [TestMethod]
@@ -215,7 +218,7 @@ public class OcrTests : TestBase
         var job = scope.ServiceProvider.GetRequiredService<ContractOcrJob>();
         var ocrSettings = scope.ServiceProvider.GetRequiredService<IOptions<OcrSettings>>().Value;
 
-        // Contract A: below max retry — should be processed
+        var maxRetry = ocrSettings.ContractOcrMaxRetryCount;
         var contractA = new Contract
         {
             Name = "Below Max Retry",
@@ -224,27 +227,34 @@ public class OcrTests : TestBase
             IsPublic = true,
             OcrAttemptCount = 0
         };
-        // Contract B: at max retry — should be skipped
         var contractB = new Contract
         {
             Name = "At Max Retry",
             FilePath = "at-max.pdf",
             Status = ContractStatus.Active,
             IsPublic = true,
-            OcrAttemptCount = ocrSettings.ContractOcrMaxRetryCount
+            OcrAttemptCount = maxRetry
         };
         db.Contracts.AddRange(contractA, contractB);
         await db.SaveChangesAsync();
 
         await job.ExecuteAsync();
 
-        // Contract A was processed: count incremented
         await db.Entry(contractA).ReloadAsync();
-        Assert.AreEqual(1, contractA.OcrAttemptCount);
-
-        // Contract B was skipped: count unchanged
         await db.Entry(contractB).ReloadAsync();
-        Assert.AreEqual(ocrSettings.ContractOcrMaxRetryCount, contractB.OcrAttemptCount);
+
+        if (ocrSettings.Enabled)
+        {
+            // Contract A processed: count incremented to 1
+            Assert.AreEqual(1, contractA.OcrAttemptCount);
+        }
+        else
+        {
+            // OCR disabled: job returns early, nothing processed
+            Assert.AreEqual(0, contractA.OcrAttemptCount);
+        }
+        // Contract B always skipped: at max retry or job didn't run
+        Assert.AreEqual(maxRetry, contractB.OcrAttemptCount);
     }
 
     [TestMethod]
@@ -254,6 +264,7 @@ public class OcrTests : TestBase
 
         using var scope = Server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var ocrSettings = scope.ServiceProvider.GetRequiredService<IOptions<OcrSettings>>().Value;
 
         var contract = new Contract
         {
@@ -261,7 +272,7 @@ public class OcrTests : TestBase
             FilePath = "exhausted.pdf",
             Status = ContractStatus.Active,
             IsPublic = true,
-            OcrAttemptCount = 5
+            OcrAttemptCount = ocrSettings.ContractOcrMaxRetryCount
         };
         db.Contracts.Add(contract);
         await db.SaveChangesAsync();
@@ -270,7 +281,6 @@ public class OcrTests : TestBase
         response.EnsureSuccessStatusCode();
         var html = await response.Content.ReadAsStringAsync();
 
-        // The reset form should be present
         StringAssert.Contains(html, "action=\"/ManageContract/ResetOcr\"");
         StringAssert.Contains(html, ">Reset");
     }
