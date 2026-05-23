@@ -118,15 +118,43 @@ public class OcrService(
             var result = await RecognizeAsync(filePath);
             if (result != null)
             {
-                var ocrResult = new ContractOcrResult
+                if (string.IsNullOrWhiteSpace(result.Value.PlainText))
                 {
-                    ContractId = contractId,
-                    JsonResult = result.Value.JsonResult,
-                    PlainText = result.Value.PlainText
-                };
-                dbContext.ContractOcrResults.Add(ocrResult);
-                await dbContext.SaveChangesAsync();
-                logger.LogInformation("Successfully processed OCR for contract {ContractId}", contractId);
+                    contract.EmptyResultCount++;
+                    await dbContext.SaveChangesAsync();
+
+                    if (contract.EmptyResultCount >= _ocrSettings.ContractOcrMaxEmptyRetryCount)
+                    {
+                        var ocrResult = new ContractOcrResult
+                        {
+                            ContractId = contractId,
+                            JsonResult = result.Value.JsonResult,
+                            PlainText = string.Empty
+                        };
+                        dbContext.ContractOcrResults.Add(ocrResult);
+                        await dbContext.SaveChangesAsync();
+                        logger.LogInformation("Contract {ContractId} OCR returned empty results {AttemptCount} times. Marking as permanently empty.", contractId, contract.EmptyResultCount);
+                    }
+                }
+                else
+                {
+                    contract.EmptyResultCount = 0;
+
+                    var existing = await dbContext.ContractOcrResults
+                        .FirstOrDefaultAsync(r => r.ContractId == contractId);
+                    if (existing != null)
+                        dbContext.ContractOcrResults.Remove(existing);
+
+                    var ocrResult = new ContractOcrResult
+                    {
+                        ContractId = contractId,
+                        JsonResult = result.Value.JsonResult,
+                        PlainText = result.Value.PlainText
+                    };
+                    dbContext.ContractOcrResults.Add(ocrResult);
+                    await dbContext.SaveChangesAsync();
+                    logger.LogInformation("Successfully processed OCR for contract {ContractId}", contractId);
+                }
             }
         }
         catch (Exception ex)
@@ -160,6 +188,9 @@ public class OcrService(
             (transaction.PaymentVoucherPath, TransactionAttachmentType.PaymentVoucher)
         };
 
+        var hadEmptyResult = false;
+        var hadTextResult = false;
+
         foreach (var (path, type) in attachments)
         {
             if (string.IsNullOrEmpty(path))
@@ -167,7 +198,6 @@ public class OcrService(
                 continue;
             }
 
-            // Check if already processed
             var exists = await dbContext.TransactionOcrResults
                 .AnyAsync(r => r.TransactionId == transactionId && r.AttachmentType == type);
             if (exists)
@@ -181,22 +211,63 @@ public class OcrService(
                 var result = await RecognizeAsync(filePath);
                 if (result != null)
                 {
-                    var ocrResult = new TransactionOcrResult
+                    if (string.IsNullOrWhiteSpace(result.Value.PlainText))
                     {
-                        TransactionId = transactionId,
-                        AttachmentType = type,
-                        JsonResult = result.Value.JsonResult,
-                        PlainText = result.Value.PlainText
-                    };
-                    dbContext.TransactionOcrResults.Add(ocrResult);
-                    await dbContext.SaveChangesAsync();
-                    logger.LogInformation("Successfully processed OCR for transaction {TransactionId} attachment {Type}", transactionId, type);
+                        hadEmptyResult = true;
+
+                        if (transaction.EmptyResultCount + 1 >= _ocrSettings.TransactionOcrMaxEmptyRetryCount)
+                        {
+                            var ocrResult = new TransactionOcrResult
+                            {
+                                TransactionId = transactionId,
+                                AttachmentType = type,
+                                JsonResult = result.Value.JsonResult,
+                                PlainText = string.Empty
+                            };
+                            dbContext.TransactionOcrResults.Add(ocrResult);
+                            await dbContext.SaveChangesAsync();
+                            logger.LogInformation("Transaction {TransactionId} attachment {Type} OCR returned empty results at threshold. Marking as permanently empty.", transactionId, type);
+                        }
+                    }
+                    else
+                    {
+                        hadTextResult = true;
+
+                        var existing = await dbContext.TransactionOcrResults
+                            .FirstOrDefaultAsync(r => r.TransactionId == transactionId && r.AttachmentType == type);
+                        if (existing != null)
+                            dbContext.TransactionOcrResults.Remove(existing);
+
+                        var ocrResult = new TransactionOcrResult
+                        {
+                            TransactionId = transactionId,
+                            AttachmentType = type,
+                            JsonResult = result.Value.JsonResult,
+                            PlainText = result.Value.PlainText
+                        };
+                        dbContext.TransactionOcrResults.Add(ocrResult);
+                        await dbContext.SaveChangesAsync();
+                        logger.LogInformation("Successfully processed OCR for transaction {TransactionId} attachment {Type}", transactionId, type);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 logger.LogError(ex, "An error occurred while processing OCR for transaction {TransactionId} attachment {Type}", transactionId, type);
             }
+        }
+
+        if (hadTextResult)
+        {
+            transaction.EmptyResultCount = 0;
+        }
+        else if (hadEmptyResult)
+        {
+            transaction.EmptyResultCount++;
+        }
+        if (hadTextResult || hadEmptyResult)
+        {
+            await dbContext.SaveChangesAsync();
         }
     }
 

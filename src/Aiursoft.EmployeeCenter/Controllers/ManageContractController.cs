@@ -378,6 +378,7 @@ public class ManageContractController(
         }
 
         contract.OcrAttemptCount = 0;
+        contract.EmptyResultCount = 0;
         contract.LastOcrAttemptTime = null;
         await context.SaveChangesAsync();
 

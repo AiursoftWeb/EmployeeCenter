@@ -45,6 +45,8 @@ public class Transaction
 
     public int OcrAttemptCount { get; set; }
 
+    public int EmptyResultCount { get; set; }
+
     public DateTime? LastOcrAttemptTime { get; set; }
 
     public DateTime CreateTime { get; init; } = DateTime.UtcNow;

@@ -20,6 +20,8 @@ public class Contract
 
     public int OcrAttemptCount { get; set; }
 
+    public int EmptyResultCount { get; set; }
+
     public DateTime? LastOcrAttemptTime { get; set; }
 
     public DateTime CreateTime { get; set; } = DateTime.UtcNow;

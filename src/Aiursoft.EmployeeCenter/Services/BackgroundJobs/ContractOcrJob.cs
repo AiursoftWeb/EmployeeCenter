@@ -29,14 +29,18 @@ public class ContractOcrJob(
         {
             logger.LogInformation("Contract OCR job started");
             
-            // Find contracts that don't have OCR results yet AND have not exceeded retry limit (5)
+            // Find contracts that still need OCR processing:
+            // - No non-empty OCR result exists yet
+            // - Has not exceeded OcrAttemptCount limit (safety valve for crashes)
+            // - Has not exceeded EmptyResultCount limit (truly empty PDFs)
             var unprocessedContractIds = await db.Contracts
-                .Where(c => !db.ContractOcrResults.Any(r => r.ContractId == c.Id))
+                .Where(c => !db.ContractOcrResults.Any(r => r.ContractId == c.Id && r.PlainText != ""))
                 .Where(c => c.OcrAttemptCount < _ocrSettings.ContractOcrMaxRetryCount)
-                .OrderBy(c => c.OcrAttemptCount) // Try those with fewer attempts first
-                .ThenByDescending(c => c.CreateTime) // Then newer ones
+                .Where(c => c.EmptyResultCount < _ocrSettings.ContractOcrMaxEmptyRetryCount)
+                .OrderBy(c => c.OcrAttemptCount)
+                .ThenByDescending(c => c.CreateTime)
                 .Select(c => c.Id)
-                .Take(50) // Process more at once to clear backlog
+                .Take(50)
                 .ToListAsync();
 
             if (unprocessedContractIds.Count == 0)
