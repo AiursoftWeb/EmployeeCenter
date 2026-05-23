@@ -60,7 +60,14 @@ public class ExportService(
         await ExportCustomerRelationships();
         await ExportCompanyEntities();
         await ExportGlobalSettings();
-        await ExportGitProjects();
+        try
+        {
+            await ExportGitProjects();
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Failed to export GitLab projects. Other exports have completed successfully.");
+        }
 
         logger.LogInformation("Export task completed successfully.");
     }
