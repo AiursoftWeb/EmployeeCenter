@@ -62,7 +62,13 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
     <script>
+        function renderMarkdown(text) {
+            const html = marked.parse(text);
+            return DOMPurify.sanitize(html);
+        }
         const chatMessages = document.getElementById('chatMessages');
         const chatForm = document.getElementById('chatForm');
         const userInput = document.getElementById('userInput');
@@ -171,8 +177,8 @@
 
                     const statusData = await statusResponse.json();
                     if (statusData.status === 'Completed') {
-                        assistantMsgDiv.innerHTML = statusData.answer;
-                        
+                        assistantMsgDiv.innerHTML = renderMarkdown(statusData.answer);
+
                         // Update history with assistant's answer
                         chatHistory.push({ role: 'assistant', content: statusData.answer });
                         

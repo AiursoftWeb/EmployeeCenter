@@ -11,8 +11,6 @@ using System.Globalization;
 using System.Text;
 using Newtonsoft.Json;
 using System.Text.Json.Serialization;
-using Markdig;
-using Ganss.Xss;
 
 namespace Aiursoft.EmployeeCenter.Controllers;
 
@@ -98,15 +96,7 @@ public class AiAssistantController(
                 }
 
                 var result = await response.Content.ReadFromJsonAsync<AgentResponse>();
-                var rawMarkdown = result?.Answer ?? "No answer received.";
-
-                var pipeline = new MarkdownPipelineBuilder()
-                    .UseAdvancedExtensions()
-                    .Build();
-                var htmlResult = Markdown.ToHtml(rawMarkdown, pipeline);
-
-                var sanitizer = new HtmlSanitizer();
-                status.Answer = sanitizer.Sanitize(htmlResult);
+                status.Answer = result?.Answer ?? "No answer received.";
                 status.Status = "Completed";
                 cache.Set($"ai-task-{taskId}", status, TimeSpan.FromMinutes(30));
             }
