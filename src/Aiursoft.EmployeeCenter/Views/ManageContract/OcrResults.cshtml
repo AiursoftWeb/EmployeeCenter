@@ -71,17 +71,21 @@
                         </td>
                     </tr>
                 </table>
-                @if (string.IsNullOrEmpty(Model.PlainText) && Model.Contract.OcrAttemptCount >= OcrSettings.Value.ContractOcrMaxRetryCount)
-                {
-                    <div class="alert alert-warning mt-3">
+                <div class="alert alert-warning mt-3">
+                    @if (string.IsNullOrEmpty(Model.PlainText) && Model.Contract.OcrAttemptCount >= OcrSettings.Value.ContractOcrMaxRetryCount)
+                    {
                         <p>@Localizer["OCR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Contract.OcrAttemptCount]</p>
-                        <form asp-action="ResetOcr" method="post">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@Model.Contract.Id" />
-                            <button type="submit" class="btn btn-warning">@Localizer["Reset & Retry OCR"]</button>
-                        </form>
-                    </div>
-                }
+                    }
+                    else
+                    {
+                        <p>@Localizer["If the OCR result is not ideal, you can reset the retry counter and re-trigger OCR."]</p>
+                    }
+                    <form asp-action="ResetOcr" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@Model.Contract.Id" />
+                        <button type="submit" class="btn btn-warning">@Localizer["Reset & Retry OCR"]</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
