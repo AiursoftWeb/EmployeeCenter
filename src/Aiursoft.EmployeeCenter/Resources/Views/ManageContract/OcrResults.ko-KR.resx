@@ -24,6 +24,9 @@
   <data name="Back to List" xml:space="preserve">
     <value>목록으로 돌아가기</value>
   </data>
+  <data name="If the OCR result is not ideal, you can reset the retry counter and re-trigger OCR." xml:space="preserve">
+    <value>OCR 결과가 이상적이지 않은 경우, 재시도 카운터를 초기화하고 OCR을 다시 실행할 수 있습니다.</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>마지막 시도</value>
   </data>
