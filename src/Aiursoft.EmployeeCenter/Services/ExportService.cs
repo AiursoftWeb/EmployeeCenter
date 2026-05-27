@@ -305,7 +305,10 @@ public class ExportService(
     {
         logger.LogInformation("Exporting ledger...");
         var accounts = await db.FinanceAccounts.Include(a => a.CompanyEntity).ToListAsync();
-        var transactions = await db.Transactions.ToListAsync();
+        var transactions = await db.Transactions
+            .Include(t => t.SourceAccount)
+            .Include(t => t.DestinationAccount)
+            .ToListAsync();
 
         foreach (var account in accounts)
         {
@@ -324,7 +327,7 @@ public class ExportService(
 
             var accountTransactions = transactions.Where(t => t.SourceAccountId == account.Id || t.DestinationAccountId == account.Id)
                 .OrderByDescending(t => t.TransactionTime).ToList();
-            var txMarkdown = TableToMarkdown(accountTransactions, "Transactions");
+            var txMarkdown = TransactionsToMarkdown(accountTransactions, "Transactions");
             await File.WriteAllTextAsync(Path.Combine(dir, "Transactions.md"), txMarkdown);
 
             // 3. Export Attachments
@@ -572,6 +575,42 @@ public class ExportService(
                 // Ignored
             }
         }
+        return sb.ToString();
+    }
+
+    private string TransactionsToMarkdown(List<Transaction> transactions, string title = "Transactions")
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine($"# {title}");
+        sb.AppendLine();
+
+        if (!transactions.Any())
+        {
+            sb.AppendLine("No records found.");
+            return sb.ToString();
+        }
+
+        sb.AppendLine("| Date | Description | From | To | Amount | Exchange Rate | Invoice | MT103 | Voucher |");
+        sb.AppendLine("|------|-------------|------|----|--------|---------------|---------|-------|---------|");
+
+        foreach (var t in transactions)
+        {
+            var amountStr = $"{t.Amount:N2} {t.SourceAccount?.Currency}";
+            if (t.ExchangeRate != 1)
+            {
+                var destAmount = t.Amount * t.ExchangeRate;
+                amountStr += $" ({destAmount:N2} {t.DestinationAccount?.Currency})";
+            }
+
+            var rateStr = t.ExchangeRate != 1 ? t.ExchangeRate.ToString("N4") : "-";
+
+            var invoiceStr = string.IsNullOrEmpty(t.InvoicePath) ? "-" : "[Invoice](" + t.InvoicePath + ")";
+            var mt103Str = string.IsNullOrEmpty(t.MT103Path) ? "-" : "[MT103](" + t.MT103Path + ")";
+            var voucherStr = string.IsNullOrEmpty(t.PaymentVoucherPath) ? "-" : "[Voucher](" + t.PaymentVoucherPath + ")";
+
+            sb.AppendLine($"| {t.TransactionTime:yyyy-MM-dd HH:mm} | {t.Description} | {t.SourceAccount?.AccountName} | {t.DestinationAccount?.AccountName} | {amountStr} | {rateStr} | {invoiceStr} | {mt103Str} | {voucherStr} |");
+        }
+
         return sb.ToString();
     }
 
