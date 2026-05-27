@@ -327,7 +327,7 @@ public class ExportService(
 
             var accountTransactions = transactions.Where(t => t.SourceAccountId == account.Id || t.DestinationAccountId == account.Id)
                 .OrderByDescending(t => t.TransactionTime).ToList();
-            var txMarkdown = TransactionsToMarkdown(accountTransactions, "Transactions");
+            var txMarkdown = TransactionsToMarkdown(accountTransactions);
             await File.WriteAllTextAsync(Path.Combine(dir, "Transactions.md"), txMarkdown);
 
             // 3. Export Attachments
