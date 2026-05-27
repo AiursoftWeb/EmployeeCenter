@@ -47,12 +47,12 @@
                                 <td>@item.Amount.ToString("N2") @item.Currency</td>
                                 <td>@item.SubmittedAt.ToString("g")</td>
                                 <td>
-                                    <div class="btn-list flex-nowrap">
+                                    <div class="btn-list flex-nowrap gap-2">
                                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-white btn-sm">
                                             @Localizer["Review"]
                                         </a>
                                         <form asp-action="Acknowledge" asp-route-id="@item.Id" method="post">
-                                            <button type="submit" class="btn btn-info btn-sm">@Localizer["Acknowledge"]</button>
+                                            <button type="submit" class="btn btn-success btn-sm">@Localizer["Acknowledge"]</button>
                                         </form>
                                     </div>
                                 </td>
@@ -93,7 +93,7 @@
                                 <td>@item.Amount.ToString("N2") @item.Currency</td>
                                 <td>@item.ReviewedAt?.ToString("g")</td>
                                 <td>
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-white btn-sm">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-azure btn-sm">
                                         @Localizer["Process"]
                                     </a>
                                 </td>
@@ -145,7 +145,7 @@
                                 <td>@item.ReviewedBy?.DisplayName</td>
                                 <td>@(item.ReviewedAt?.ToString("g") ?? item.SubmittedAt.ToString("g"))</td>
                                 <td>
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-white btn-sm">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">
                                         @Localizer["Details"]
                                     </a>
                                 </td>
