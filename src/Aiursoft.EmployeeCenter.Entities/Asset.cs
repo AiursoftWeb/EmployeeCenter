@@ -67,7 +67,7 @@ public class Asset
 
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-    [Timestamp]
+    [ConcurrencyCheck]
     public byte[] RowVersion { get; set; } = Array.Empty<byte>();
 
     [InverseProperty(nameof(AssetHistory.Asset))]
