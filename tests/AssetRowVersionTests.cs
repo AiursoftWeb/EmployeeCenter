@@ -1,5 +1,4 @@
 using Aiursoft.EmployeeCenter.InMemory;
-using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.EmployeeCenter.Tests;
 
