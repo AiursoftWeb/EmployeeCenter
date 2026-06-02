@@ -24,17 +24,42 @@ public class IntangibleAssetsController(
         CascadedLinksOrder = 4,
         LinkText = "Manage Intangible Assets",
         LinkOrder = 2)]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? companyEntityId)
     {
-        var assets = await context.IntangibleAssets
+        var allCompanyEntities = await context.CompanyEntities
+            .OrderBy(e => e.CompanyName)
+            .ToListAsync();
+
+        // Default to the company entity with the most intangible assets
+        if (companyEntityId == null)
+        {
+            companyEntityId = await context.IntangibleAssets
+                .Where(a => a.CompanyEntityId != null)
+                .GroupBy(a => a.CompanyEntityId)
+                .OrderByDescending(g => g.Count())
+                .Select(g => g.Key)
+                .FirstOrDefaultAsync();
+        }
+
+        var query = context.IntangibleAssets
             .Include(a => a.Assignee)
             .Include(a => a.CompanyEntity)
+            .AsQueryable();
+
+        if (companyEntityId.HasValue)
+        {
+            query = query.Where(a => a.CompanyEntityId == companyEntityId.Value);
+        }
+
+        var assets = await query
             .OrderByDescending(a => a.CreatedAt)
             .ToListAsync();
 
         return this.StackView(new IndexViewModel
         {
-            Assets = assets
+            Assets = assets,
+            SelectedCompanyEntityId = companyEntityId,
+            AllCompanyEntities = allCompanyEntities
         });
     }
 

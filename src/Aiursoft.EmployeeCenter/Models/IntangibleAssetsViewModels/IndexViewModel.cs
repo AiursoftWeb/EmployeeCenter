@@ -16,4 +16,8 @@ public class IndexViewModel : UiStackLayoutViewModel
 
     [Display(Name = "My Assets")]
     public IEnumerable<IntangibleAsset> MyAssets { get; set; } = new List<IntangibleAsset>();
+
+    public int? SelectedCompanyEntityId { get; set; }
+
+    public List<CompanyEntity> AllCompanyEntities { get; set; } = new();
 }
