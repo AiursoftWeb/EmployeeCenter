@@ -25,7 +25,20 @@
 
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">@Localizer["All Assets"]</h5>
+        <div class="row align-items-center">
+            <div class="col">
+                <h5 class="card-title mb-0">@Localizer["All Assets"]</h5>
+            </div>
+            <div class="col-auto">
+                <select class="form-select" onchange="window.location.href='@Url.Action("Index")?companyEntityId=' + this.value">
+                    @foreach (var entity in Model.AllCompanyEntities)
+                    {
+                        var isSelected = entity.Id == Model.SelectedCompanyEntityId;
+                        <option value="@entity.Id" selected="@isSelected">@entity.CompanyName</option>
+                    }
+                </select>
+            </div>
+        </div>
     </div>
     <div class="table-responsive">
         <table class="table table-hover mb-0">

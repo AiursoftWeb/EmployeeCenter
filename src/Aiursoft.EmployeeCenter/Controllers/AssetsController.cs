@@ -26,20 +26,45 @@ public class AssetsController(
         CascadedLinksOrder = 4,
         LinkText = "Manage IT Assets",
         LinkOrder = 1)]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? companyEntityId)
     {
-        var assets = await context.Assets
+        var allCompanyEntities = await context.CompanyEntities
+            .OrderBy(e => e.CompanyName)
+            .ToListAsync();
+
+        // Default to the company entity with the most assets
+        if (companyEntityId == null)
+        {
+            companyEntityId = await context.Assets
+                .Where(a => a.CompanyEntityId != null)
+                .GroupBy(a => a.CompanyEntityId)
+                .OrderByDescending(g => g.Count())
+                .Select(g => g.Key)
+                .FirstOrDefaultAsync();
+        }
+
+        var query = context.Assets
             .Include(a => a.Model)
             .ThenInclude(m => m.Category)
             .Include(a => a.Assignee)
             .Include(a => a.Location)
             .Include(a => a.CompanyEntity)
+            .AsQueryable();
+
+        if (companyEntityId.HasValue)
+        {
+            query = query.Where(a => a.CompanyEntityId == companyEntityId.Value);
+        }
+
+        var assets = await query
             .OrderByDescending(a => a.CreatedAt)
             .ToListAsync();
 
         return this.StackView(new IndexViewModel
         {
-            Assets = assets
+            Assets = assets,
+            SelectedCompanyEntityId = companyEntityId,
+            AllCompanyEntities = allCompanyEntities
         });
     }
 
