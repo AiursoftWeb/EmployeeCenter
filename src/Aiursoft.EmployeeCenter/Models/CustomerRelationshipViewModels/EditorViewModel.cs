@@ -39,6 +39,10 @@ public class EditorViewModel : UiStackLayoutViewModel
     [Display(Name = "Address")]
     public string? Address { get; set; }
 
+    [MaxLength(100)]
+    [Display(Name = "WeChat ID")]
+    public string? WeChatId { get; set; }
+
     [Display(Name = "Remark")]
     public string? Remark { get; set; }
 

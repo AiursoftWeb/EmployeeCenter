@@ -56,6 +56,7 @@ public class CustomerRelationshipsController(
             Email = relationship.Email,
             Phone = relationship.Phone,
             Address = relationship.Address,
+            WeChatId = relationship.WeChatId,
             Remark = relationship.Remark,
             AvailableCompanyEntities = [], // Not needed for details view
             PageTitle = localizer["Customer Relationship Details"]
@@ -118,6 +119,7 @@ public class CustomerRelationshipsController(
             Email = model.Email,
             Phone = model.Phone,
             Address = model.Address,
+            WeChatId = model.WeChatId,
             Remark = model.Remark, // Markdown
             CreationTime = DateTime.UtcNow,
             UpdateTime = DateTime.UtcNow
@@ -145,6 +147,7 @@ public class CustomerRelationshipsController(
             Email = relationship.Email,
             Phone = relationship.Phone,
             Address = relationship.Address,
+            WeChatId = relationship.WeChatId,
             Remark = relationship.Remark,
             AvailableCompanyEntities = await GetCompanyEntities(),
             PageTitle = localizer["Edit Customer Relationship"]
@@ -173,6 +176,7 @@ public class CustomerRelationshipsController(
         relationship.Email = model.Email;
         relationship.Phone = model.Phone;
         relationship.Address = model.Address;
+        relationship.WeChatId = model.WeChatId;
         relationship.Remark = model.Remark;
         relationship.UpdateTime = DateTime.UtcNow;
 

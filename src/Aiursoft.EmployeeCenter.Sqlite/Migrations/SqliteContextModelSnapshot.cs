@@ -738,6 +738,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Property<DateTime>("UpdateTime")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("WeChatId")
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyEntityId");
