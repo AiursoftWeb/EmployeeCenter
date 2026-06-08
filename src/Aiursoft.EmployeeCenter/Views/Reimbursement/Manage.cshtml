@@ -1,6 +1,8 @@
 @model Aiursoft.EmployeeCenter.Models.ReimbursementViewModels.ManageIndexViewModel
 @{
 }
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@inject StorageService StorageService
 
 <div class="container-xl">
     <div class="page-header d-print-none">
@@ -28,7 +30,8 @@
                             <th>@Localizer["Submitter"]</th>
                             <th>@Localizer["Purpose"]</th>
                             <th>@Localizer["Amount"]</th>
-                            <th>@Localizer["Submitted At"]</th>
+							<th>@Localizer["Download"]</th>
+							<th>@Localizer["Submitted At"]</th>
                             <th class="w-1"></th>
                         </tr>
                     </thead>
@@ -45,6 +48,14 @@
                                 <td>@item.Submitter.DisplayName</td>
                                 <td>@item.Purpose</td>
                                 <td>@item.Amount.ToString("N2") @item.Currency</td>
+								<td>
+									@if (item.InvoicePath is not null)
+									{
+										<a href="@StorageService.RelativePathToInternetUrl(@item.InvoicePath, isVault: true)" class="btn btn-sm btn-outline-info" target="_blank">
+											<i class="align-middle" data-lucide="download"></i> @Localizer["Download"]
+										</a>
+									}
+								</td>
                                 <td>@item.SubmittedAt.ToString("g")</td>
                                 <td>
                                     <div class="btn-list flex-nowrap gap-2">
@@ -74,7 +85,7 @@
                             <th>@Localizer["Submitter"]</th>
                             <th>@Localizer["Purpose"]</th>
                             <th>@Localizer["Amount"]</th>
-                            <th>@Localizer["Acknowledged At"]</th>
+							<th>@Localizer["Acknowledged At"]</th>
                             <th class="w-1"></th>
                         </tr>
                     </thead>
@@ -115,7 +126,7 @@
                             <th>@Localizer["Submitter"]</th>
                             <th>@Localizer["Purpose"]</th>
                             <th>@Localizer["Amount"]</th>
-                            <th>@Localizer["Status"]</th>
+							<th>@Localizer["Status"]</th>
                             <th>@Localizer["Reviewed By"]</th>
                             <th>@Localizer["Processed At"]</th>
                             <th class="w-1"></th>

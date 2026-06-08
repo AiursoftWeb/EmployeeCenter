@@ -1,6 +1,8 @@
 @model Aiursoft.EmployeeCenter.Models.ReimbursementViewModels.IndexViewModel
 @{
 }
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@inject StorageService StorageService
 
 <div class="container-xl">
     <div class="page-header d-print-none">
@@ -32,7 +34,8 @@
                         <tr>
                             <th>@Localizer["Purpose"]</th>
                             <th>@Localizer["Amount"]</th>
-                            <th>@Localizer["Category"]</th>
+							<th>@Localizer["Category"]</th>
+							<th>@Localizer["Download"]</th>
                             <th>@Localizer["Expense Time"]</th>
                             <th>@Localizer["Status"]</th>
                             <th class="w-1"></th>
@@ -56,7 +59,15 @@
                                     }
                                 </td>
                                 <td>@item.Amount.ToString("N2") @item.Currency</td>
-                                <td>@item.Category</td>
+								<td>@item.Category</td>
+								<td>
+									@if (item.InvoicePath is not null)
+									{
+										<a href="@StorageService.RelativePathToInternetUrl(@item.InvoicePath, isVault: true)" class="btn btn-sm btn-outline-info" target="_blank">
+											<i class="align-middle" data-lucide="download"></i> @Localizer["Download"]
+										</a>
+									}
+								</td>
                                 <td>@item.ExpenseTime.ToShortDateString()</td>
                                 <td>
                                     @switch (item.Status)
