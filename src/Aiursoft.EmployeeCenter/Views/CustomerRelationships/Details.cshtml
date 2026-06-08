@@ -91,6 +91,18 @@
                     <span class="text-muted">@Localizer["N/A"]</span>
                 }
             </dd>
+
+            <dt class="col-sm-3">@Localizer["WeChat ID"]</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.WeChatId))
+                {
+                    @Model.WeChatId
+                }
+                else
+                {
+                    <span class="text-muted">@Localizer["N/A"]</span>
+                }
+            </dd>
         </dl>
     </div>
 </div>
