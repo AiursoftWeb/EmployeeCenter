@@ -21,6 +21,10 @@ public class EditorViewModel : UiStackLayoutViewModel
     [Required]
     public string Name { get; set; } = string.Empty;
 
+    [MaxLength(100)]
+    [Display(Name = "Job Title")]
+    public string? JobTitle { get; set; }
+
     [EmailAddress]
     [MaxLength(100)]
     [Display(Name = "Email")]

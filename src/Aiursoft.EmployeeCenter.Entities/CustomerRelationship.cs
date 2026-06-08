@@ -17,6 +17,10 @@ public class CustomerRelationship
     [Display(Name = "Name")]
     public required string Name { get; set; }
 
+    [MaxLength(100)]
+    [Display(Name = "Job Title")]
+    public string? JobTitle { get; set; }
+
     [EmailAddress]
     [MaxLength(100)]
     [Display(Name = "Email")]

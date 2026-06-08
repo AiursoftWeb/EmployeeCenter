@@ -27,6 +27,7 @@
                 <thead>
                 <tr>
                     <th>@Localizer["Name"]</th>
+                    <th>@Localizer["Job Title"]</th>
                     <th>@Localizer["Company Entity"]</th>
                     <th>@Localizer["Email"]</th>
                     <th>@Localizer["Phone"]</th>
@@ -40,6 +41,16 @@
                     <tr>
                         <td>
                             @relationship.Name
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(relationship.JobTitle))
+                            {
+                                @relationship.JobTitle
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
                         </td>
                         <td>
                             @if (relationship.CompanyEntity != null)

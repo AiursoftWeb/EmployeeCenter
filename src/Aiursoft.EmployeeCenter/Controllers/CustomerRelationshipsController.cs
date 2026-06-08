@@ -52,6 +52,7 @@ public class CustomerRelationshipsController(
             Id = relationship.Id,
             CompanyEntityId = relationship.CompanyEntityId,
             Name = relationship.Name,
+            JobTitle = relationship.JobTitle,
             Email = relationship.Email,
             Phone = relationship.Phone,
             Address = relationship.Address,
@@ -113,6 +114,7 @@ public class CustomerRelationshipsController(
         {
             CompanyEntityId = model.CompanyEntityId,
             Name = model.Name,
+            JobTitle = model.JobTitle,
             Email = model.Email,
             Phone = model.Phone,
             Address = model.Address,
@@ -139,6 +141,7 @@ public class CustomerRelationshipsController(
             Id = relationship.Id,
             CompanyEntityId = relationship.CompanyEntityId,
             Name = relationship.Name,
+            JobTitle = relationship.JobTitle,
             Email = relationship.Email,
             Phone = relationship.Phone,
             Address = relationship.Address,
@@ -166,6 +169,7 @@ public class CustomerRelationshipsController(
 
         relationship.CompanyEntityId = model.CompanyEntityId;
         relationship.Name = model.Name;
+        relationship.JobTitle = model.JobTitle;
         relationship.Email = model.Email;
         relationship.Phone = model.Phone;
         relationship.Address = model.Address;

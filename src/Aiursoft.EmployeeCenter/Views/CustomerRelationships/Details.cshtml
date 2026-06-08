@@ -30,6 +30,18 @@
             <dt class="col-sm-3">@Localizer["Name"]</dt>
             <dd class="col-sm-9">@Model.Name</dd>
 
+            <dt class="col-sm-3">@Localizer["Job Title"]</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.JobTitle))
+                {
+                    @Model.JobTitle
+                }
+                else
+                {
+                    <span class="text-muted">@Localizer["N/A"]</span>
+                }
+            </dd>
+
             <dt class="col-sm-3">@Localizer["Company Entity"]</dt>
             <dd class="col-sm-9">
                 @if (Model.CompanyEntityId.HasValue)
