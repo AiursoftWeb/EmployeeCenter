@@ -26,6 +26,11 @@
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="col-md-6 mb-3">
+                    <label asp-for="JobTitle" class="form-label"></label>
+                    <input asp-for="JobTitle" class="form-control" />
+                    <span asp-validation-for="JobTitle" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
                     <label asp-for="CompanyEntityId" class="form-label"></label>
                     <select asp-for="CompanyEntityId" asp-items="Model.AvailableCompanyEntities" class="form-select">
                         <option value="">@Localizer["-- None --"]</option>
