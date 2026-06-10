@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <Version>1.0.82</Version>
+  <PropertyGroup><OutputType>Library</OutputType>
+    <Version>1.0.83</Version>
     <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>Aiursoft.EmployeeCenter.InMemory</AssemblyName>
     <RootNamespace>Aiursoft.EmployeeCenter.InMemory</RootNamespace>
@@ -19,13 +18,12 @@
     <PackageProjectUrl>https://github.com/aiursoftweb/employeecenter</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/aiursoftweb/employeecenter.git</RepositoryUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile></PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aiursoft.EmployeeCenter.Entities\Aiursoft.EmployeeCenter.Entities.csproj" />
     <None Include="../../README.md" Pack="true" PackagePath="." />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Aiursoft.DbTools.InMemory" Version="10.0.20" />
+    <PackageReference Include="Aiursoft.DbTools.InMemory" Version="10.0.21" />
   </ItemGroup>
 </Project>
