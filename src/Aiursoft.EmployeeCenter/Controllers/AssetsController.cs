@@ -357,6 +357,16 @@ public class AssetsController(
     }
 
     [HttpGet]
+    public async Task<IActionResult> DownloadInvoice(Guid id)
+    {
+        var asset = await context.Assets.FindAsync(id);
+        if (asset == null || string.IsNullOrWhiteSpace(asset.InvoiceFileUrl))
+            return NotFound();
+
+        return Redirect(asset.InvoiceFileUrl);
+    }
+
+    [HttpGet]
     public async Task<IActionResult> GetModels()
     {
         var models = await context.AssetModels

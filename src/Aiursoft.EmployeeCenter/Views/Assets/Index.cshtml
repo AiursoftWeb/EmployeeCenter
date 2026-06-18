@@ -50,6 +50,7 @@
                 <th>@Localizer["Entity"]</th>
                 <th>@Localizer["Assignee"]</th>
                 <th>@Localizer["Location"]</th>
+                <th>@Localizer["Invoice"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
             </tr>
             </thead>
@@ -95,6 +96,18 @@
                                                             @Localizer["N/A"]
                                                         }
                                                     </td>                    <td>@(item.Location?.Name ?? Localizer["N/A"].Value)</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.InvoiceFileUrl))
+                        {
+                            <a asp-action="DownloadInvoice" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Download Invoice"]" target="_blank">
+                                <i class="align-middle" data-lucide="download"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">@Localizer["N/A"]</span>
+                        }
+                    </td>
                     <td class="text-end">
                         <div class="btn-group">
                             <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
