@@ -7,7 +7,7 @@ namespace Aiursoft.EmployeeCenter.Services;
 /// Service for computing ledger statistics: monthly chart data, flow summaries,
 /// burn rate, runway, and inflow/outflow distributions.
 /// </summary>
-public class LedgerStatisticsService(EmployeeCenterDbContext dbContext)
+public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBalanceService balanceService)
 {
     // ────────────────────────────────────────────
     //  Monthly chart data (line chart – 12 months)
@@ -79,6 +79,120 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext)
             Labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             InflowData = chartInflow,
             OutflowData = chartOutflow,
+        };
+    }
+
+    // ────────────────────────────────────────────
+    //  Asset & Liability trend (Balance Sheet view)
+    // ────────────────────────────────────────────
+
+    /// <summary>
+    /// Returns end-of-month Total Assets and Total Liabilities (13 points: Initial + 12 months),
+    /// converted to base currency via <paramref name="rates"/>.
+    /// Uses sliding-window accumulation: opening balance via <see cref="LedgerBalanceService"/>,
+    /// then adds monthly deltas computed from a single full-year transaction query.
+    /// </summary>
+    public async Task<AssetTrendData> GetMonthlyAssetTrendAsync(
+        int entityId, int year, Dictionary<string, decimal> rates)
+    {
+        var yearStart = new DateTime(year, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        var yearEnd = yearStart.AddYears(1);
+
+        // Phase 1: Opening balances as of Jan 1
+        var openingBalances = await balanceService.GetAccountBalancesAsync(entityId, yearStart);
+        var openingAssets = openingBalances
+            .Where(a => a.Account.AccountType == FinanceAccountType.Asset)
+            .Sum(a => a.Balance * rates.GetValueOrDefault(a.Account.Currency, 1));
+        var openingLiabilities = openingBalances
+            .Where(a => a.Account.AccountType == FinanceAccountType.Liability)
+            .Sum(a => a.Balance * rates.GetValueOrDefault(a.Account.Currency, 1));
+
+        // Phase 2: All Asset/Liability transactions that touch this entity in the year.
+        // Use OR logic (same as GetRecentTransactionsQueryBase) so cross-entity transfers
+        // are captured — money flowing from Entity B into Entity A's Asset account must be
+        // visible on Entity A's dashboard.
+        var yearTransactions = await dbContext.Transactions
+            .Where(t => (t.SourceAccount!.CompanyEntityId == entityId
+                         || t.DestinationAccount!.CompanyEntityId == entityId)
+                        && t.TransactionTime >= yearStart && t.TransactionTime < yearEnd
+                        && (t.SourceAccount!.AccountType == FinanceAccountType.Asset
+                            || t.SourceAccount!.AccountType == FinanceAccountType.Liability
+                            || t.DestinationAccount!.AccountType == FinanceAccountType.Asset
+                            || t.DestinationAccount!.AccountType == FinanceAccountType.Liability))
+            .Select(t => new
+            {
+                t.TransactionTime.Month,
+                SourceType = t.SourceAccount!.AccountType,
+                SourceEntityId = t.SourceAccount.CompanyEntityId,
+                DestType = t.DestinationAccount!.AccountType,
+                DestEntityId = t.DestinationAccount.CompanyEntityId,
+                t.Amount,
+                t.ExchangeRate,
+                SourceCurrency = t.SourceAccount!.Currency,
+                DestCurrency = t.DestinationAccount!.Currency,
+            })
+            .AsNoTracking()
+            .ToListAsync();
+
+        // Phase 3: Monthly deltas + cumulative.
+        // Future months in the current year get null — Chart.js naturally breaks the line
+        // instead of drawing a misleading horizontal flatline.
+        var labels = new string[13];
+        labels[0] = "Initial";
+        for (var m = 1; m <= 12; m++) labels[m] = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(m);
+
+        var assetData = new decimal?[13];
+        var liabilityData = new decimal?[13];
+        assetData[0] = Math.Round(openingAssets, 2);
+        liabilityData[0] = Math.Round(openingLiabilities, 2);
+
+        var utcNow = DateTime.UtcNow;
+        var currentYear = utcNow.Year;
+        var currentMonth = utcNow.Month;
+
+        for (var m = 1; m <= 12; m++)
+        {
+            // Future months (only applicable when viewing the current year)
+            if (year == currentYear && m > currentMonth)
+            {
+                assetData[m] = null;
+                liabilityData[m] = null;
+                continue;
+            }
+
+            var monthTx = yearTransactions.Where(t => t.Month == m).ToList();
+
+            var assetDelta = 0m;
+            var liabilityDelta = 0m;
+
+            foreach (var t in monthTx)
+            {
+                var sourceRate = rates.GetValueOrDefault(t.SourceCurrency, 1);
+                var destConverted = t.Amount * t.ExchangeRate * rates.GetValueOrDefault(t.DestCurrency, 1);
+                var sourceConverted = t.Amount * sourceRate;
+
+                // Asset: balance = dest inflows − source outflows (only when THIS entity owns the account)
+                if (t.DestType == FinanceAccountType.Asset && t.DestEntityId == entityId)
+                    assetDelta += destConverted;
+                if (t.SourceType == FinanceAccountType.Asset && t.SourceEntityId == entityId)
+                    assetDelta -= sourceConverted;
+
+                // Liability: balance = source outflows − dest inflows (only when THIS entity owns the account)
+                if (t.SourceType == FinanceAccountType.Liability && t.SourceEntityId == entityId)
+                    liabilityDelta += sourceConverted;
+                if (t.DestType == FinanceAccountType.Liability && t.DestEntityId == entityId)
+                    liabilityDelta -= destConverted;
+            }
+
+            assetData[m] = Math.Round(assetData[m - 1]!.Value + assetDelta, 2);
+            liabilityData[m] = Math.Round(liabilityData[m - 1]!.Value + liabilityDelta, 2);
+        }
+
+        return new AssetTrendData
+        {
+            Labels = labels,
+            AssetData = assetData,
+            LiabilityData = liabilityData,
         };
     }
 
@@ -238,6 +352,13 @@ public class MonthlyChartData
     public required string[] Labels { get; init; }
     public required decimal[] InflowData { get; init; }
     public required decimal[] OutflowData { get; init; }
+}
+
+public class AssetTrendData
+{
+    public required string[] Labels { get; init; }
+    public required decimal?[] AssetData { get; init; }
+    public required decimal?[] LiabilityData { get; init; }
 }
 
 public class FlowSummary

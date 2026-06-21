@@ -307,6 +307,28 @@
         </div>
     </div>
 
+    @* ── Asset & Liability Trend Chart (company-wide only) ── *@
+    @if (Model.FilteredAccount == null)
+    {
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            @Localizer["Assets & Liabilities Trend"] (@Model.Year)
+                            <small class="text-muted">— @Localizer["converted at current exchange rate"]</small>
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="assetTrendChart" style="height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
     <div class="row">
         <!-- Transaction Feed -->
         <div class="col-xl-8 col-lg-7">
@@ -549,7 +571,82 @@
                 });
             });
 
-            // ── 3. Load Transactions ──
+            // ── 3. Load Asset & Liability Trend (company-wide only) ──
+            if (!hasFilteredAccount) {
+                var assetApiUrl = '@Url.Action("DashboardAssetTrendApi", "Ledger")' + '?id=' + entityId + '&year=' + year;
+                $.getJSON(assetApiUrl, function (data) {
+                    var ctx2 = document.getElementById("assetTrendChart");
+                    new Chart(ctx2, {
+                        type: 'line',
+                        data: {
+                            labels: data.Labels,
+                            datasets: [{
+                                label: "@Localizer["Total Assets"]",
+                                lineTension: 0.3,
+                                backgroundColor: "rgba(28, 200, 138, 0.05)",
+                                borderColor: "rgba(28, 200, 138, 1)",
+                                pointRadius: 3,
+                                pointBackgroundColor: "rgba(28, 200, 138, 1)",
+                                pointBorderColor: "rgba(28, 200, 138, 1)",
+                                pointHoverRadius: 3,
+                                pointHoverBackgroundColor: "rgba(28, 200, 138, 1)",
+                                pointHoverBorderColor: "rgba(28, 200, 138, 1)",
+                                pointHitRadius: 10,
+                                pointBorderWidth: 2,
+                                data: data.AssetData,
+                            }, {
+                                label: "@Localizer["Total Liabilities"]",
+                                lineTension: 0.3,
+                                backgroundColor: "rgba(231, 74, 59, 0.05)",
+                                borderColor: "rgba(231, 74, 59, 1)",
+                                pointRadius: 3,
+                                pointBackgroundColor: "rgba(231, 74, 59, 1)",
+                                pointBorderColor: "rgba(231, 74, 59, 1)",
+                                pointHoverRadius: 3,
+                                pointHoverBackgroundColor: "rgba(231, 74, 59, 1)",
+                                pointHoverBorderColor: "rgba(231, 74, 59, 1)",
+                                pointHitRadius: 10,
+                                pointBorderWidth: 2,
+                                data: data.LiabilityData,
+                            }],
+                        },
+                        options: {
+                            maintainAspectRatio: false,
+                            layout: { padding: { left: 10, right: 25, top: 25, bottom: 0 } },
+                            scales: {
+                                x: { grid: { display: false, drawBorder: false } },
+                                y: {
+                                    ticks: {
+                                        maxTicksLimit: 5, padding: 10,
+                                        callback: function(value) { return value.toLocaleString(); }
+                                    },
+                                    grid: {
+                                        color: "rgb(234, 236, 244)", zeroLineColor: "rgb(234, 236, 244)",
+                                        drawBorder: false, borderDash: [2], zeroLineBorderDash: [2]
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: { display: true },
+                                tooltip: {
+                                    backgroundColor: "rgb(255,255,255)", bodyColor: "#858796",
+                                    titleMarginBottom: 10, titleColor: '#6e707e',
+                                    titleFont: { size: 14 }, borderColor: '#dddfeb', borderWidth: 1,
+                                    padding: 15, displayColors: false, intersect: false, mode: 'index',
+                                    caretPadding: 10,
+                                    callbacks: {
+                                        label: function(tooltipItem) {
+                                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw.toLocaleString();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            // ── 4. Load Transactions ──
             $.getJSON(buildApiUrl('DashboardTransactionsApi'), function (data) {
                 var container = $('#transactions-container');
                 var html = '<table class="table table-hover" id="transactionTable">' +

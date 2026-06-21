@@ -74,6 +74,16 @@ public class TransactionDto
 }
 
 /// <summary>
+/// Response for /Ledger/DashboardAssetTrendApi
+/// </summary>
+public class AssetTrendResponse
+{
+    public string[] Labels { get; set; } = [];
+    public decimal?[] AssetData { get; set; } = [];
+    public decimal?[] LiabilityData { get; set; } = [];
+}
+
+/// <summary>
 /// Response for /Ledger/DashboardDistributionApi
 /// </summary>
 public class DashboardDistributionResponse

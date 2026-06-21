@@ -197,6 +197,28 @@ public class LedgerController(
     }
 
     /// <summary>
+    /// Returns monthly Total Assets and Total Liabilities trend data (company-wide, Balance Sheet view).
+    /// 13 data points: opening balance (Jan 1) + 12 month-end balances.
+    /// </summary>
+    [HttpGet]
+    public async Task<IActionResult> DashboardAssetTrendApi(int id, int? year)
+    {
+        var entity = await dbContext.CompanyEntities.FindAsync(id);
+        if (entity == null || !entity.CreateLedger) return NotFound();
+
+        year ??= DateTime.UtcNow.Year;
+        var rates = await exchangeRateService.GetLatestExchangeRatesAsync(id, entity.BaseCurrency);
+        var trend = await statisticsService.GetMonthlyAssetTrendAsync(id, year.Value, rates);
+
+        return Json(new AssetTrendResponse
+        {
+            Labels = trend.Labels,
+            AssetData = trend.AssetData,
+            LiabilityData = trend.LiabilityData,
+        });
+    }
+
+    /// <summary>
     /// Returns recent transactions for the Dashboard table.
     /// </summary>
     [HttpGet]
