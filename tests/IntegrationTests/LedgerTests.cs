@@ -455,4 +455,156 @@ public class LedgerTests : TestBase
             _ => 0
         };
     }
+
+    /// <summary>
+    /// Regression test: DashboardAssetTrendApi must not throw 500 when the underlying query
+    /// mixes OR navigation conditions (SourceAccount || DestinationAccount) with DateTime
+    /// comparisons and Asset/Liability account types in the same Where chain.
+    ///
+    /// Before the fix, Pomelo MySQL EF Core provider's SqlNullabilityProcessor would crash
+    /// with "Unhandled expression MySqlComplexFunctionArgumentExpression" because it
+    /// doesn't know how to handle this specific expression tree combination.
+    ///
+    /// The fix separates the entityId OR and the DateTime range into two distinct
+    /// Where() calls, and removes the redundant AccountType OR conditions from the server-side
+    /// query (they are already filtered in-memory in Phase 3 of GetMonthlyAssetTrendAsync).
+    /// </summary>
+    [TestMethod]
+    public async Task DashboardAssetTrendApi_WithAssetAndLiabilityTransactions_ReturnsValidTrendData()
+    {
+        // 1. Setup: Create entity with CreateLedger = true and Asset/Liability accounts
+        int entityId;
+        int assetAccountId, liabilityAccountId, equityAccountId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var entity = new CompanyEntity
+            {
+                CompanyName = "AssetTrend Test Entity",
+                EntityCode = "ATT01",
+                BaseCurrency = "USD",
+                CreateLedger = true
+            };
+            db.CompanyEntities.Add(entity);
+            await db.SaveChangesAsync();
+            entityId = entity.Id;
+
+            // Asset account (source of truth for initial balance)
+            var assetAccount = new FinanceAccount
+            {
+                CompanyEntityId = entityId,
+                AccountName = "Cash",
+                AccountType = FinanceAccountType.Asset,
+                Currency = "USD",
+                ShowInDashboard = true
+            };
+            // Liability account
+            var liabilityAccount = new FinanceAccount
+            {
+                CompanyEntityId = entityId,
+                AccountName = "Loan Payable",
+                AccountType = FinanceAccountType.Liability,
+                Currency = "USD",
+                ShowInDashboard = true
+            };
+            // Equity account (for initial capital injection)
+            var equityAccount = new FinanceAccount
+            {
+                CompanyEntityId = entityId,
+                AccountName = "Retained Earnings",
+                AccountType = FinanceAccountType.Equity,
+                Currency = "USD",
+                ShowInDashboard = true
+            };
+            db.FinanceAccounts.AddRange(assetAccount, liabilityAccount, equityAccount);
+            await db.SaveChangesAsync();
+
+            assetAccountId = assetAccount.Id;
+            liabilityAccountId = liabilityAccount.Id;
+            equityAccountId = equityAccount.Id;
+        }
+
+        // 2. Login as Admin
+        await LoginAsAdmin();
+
+        // 3. Create transactions
+        //
+        // Transaction 1: Equity -> Asset (initial capital injection, Asset account receives funds)
+        // Transaction 2: Asset -> Liability (Asset pays Liability, liability owed increases)
+        // Transaction 3: Asset -> Liability (Asset pays Liability again)
+        //
+        // This exercises the exact OR navigation pattern that previously triggered the bug:
+        //   t.SourceAccount!.CompanyEntityId == entityId  OR  t.DestinationAccount!.CompanyEntityId == entityId
+        // combined with DateTime range and AccountType filtering.
+        var utcNow = DateTime.UtcNow;
+
+        var transaction1 = await PostForm("/Ledger/CreateTransaction", new Dictionary<string, string>
+        {
+            { "EntityId", entityId.ToString() },
+            { "Description", "Initial capital injection" },
+            { "SourceAccountId", equityAccountId.ToString() },
+            { "DestinationAccountId", assetAccountId.ToString() },
+            { "Amount", "5000" },
+            { "ExchangeRate", "1" },
+            { "TransactionTime", utcNow.AddDays(-5).ToString("O") }
+        });
+        AssertRedirect(transaction1, $"/Ledger/Dashboard/{entityId}");
+
+        var transaction2 = await PostForm("/Ledger/CreateTransaction", new Dictionary<string, string>
+        {
+            { "EntityId", entityId.ToString() },
+            { "Description", "Asset pays liability" },
+            { "SourceAccountId", assetAccountId.ToString() },
+            { "DestinationAccountId", liabilityAccountId.ToString() },
+            { "Amount", "1000" },
+            { "ExchangeRate", "1" },
+            { "TransactionTime", utcNow.AddDays(-3).ToString("O") }
+        });
+        AssertRedirect(transaction2, $"/Ledger/Dashboard/{entityId}");
+
+        var transaction3 = await PostForm("/Ledger/CreateTransaction", new Dictionary<string, string>
+        {
+            { "EntityId", entityId.ToString() },
+            { "Description", "Asset pays liability again" },
+            { "SourceAccountId", assetAccountId.ToString() },
+            { "DestinationAccountId", liabilityAccountId.ToString() },
+            { "Amount", "500" },
+            { "ExchangeRate", "1" },
+            { "TransactionTime", utcNow.AddDays(-1).ToString("O") }
+        });
+        AssertRedirect(transaction3, $"/Ledger/Dashboard/{entityId}");
+
+        // 4. Call DashboardAssetTrendApi (this previously threw 500 with the buggy query)
+        var apiResponse = await Http.GetAsync($"/Ledger/DashboardAssetTrendApi?id={entityId}&year={utcNow.Year}");
+
+        // 5. Verify the response is 200 OK (regression check for the Pomelo MySQL bug)
+        Assert.AreEqual(HttpStatusCode.OK, apiResponse.StatusCode,
+            "DashboardAssetTrendApi should return 200 OK; a 500 indicates the Pomelo MySQL SqlNullabilityProcessor bug was not fixed.");
+
+        // 6. Verify the response body is a valid AssetTrendResponse
+        var apiContent = await apiResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(apiContent, "Labels", "API response should contain Labels field.");
+        StringAssert.Contains(apiContent, "AssetData", "API response should contain AssetData field.");
+        StringAssert.Contains(apiContent, "LiabilityData", "API response should contain LiabilityData field.");
+
+        // Deserialize and validate the data structure
+        var trend = await apiResponse.Content.ReadFromJsonAsync<AssetTrendResponse>();
+        Assert.IsNotNull(trend);
+        Assert.AreEqual(13, trend.Labels.Length, "Should have 13 labels (Initial + 12 months).");
+        Assert.AreEqual(13, trend.AssetData.Length, "Should have 13 asset data points.");
+        Assert.AreEqual(13, trend.LiabilityData.Length, "Should have 13 liability data points.");
+
+        // Initial balance should be 0 (no transactions as of Jan 1 of current year)
+        Assert.AreEqual(0, trend.AssetData[0], "Initial asset balance should be 0 before capital injection.");
+        Assert.AreEqual(0, trend.LiabilityData[0], "Initial liability balance should be 0.");
+
+        // After capital injection (5000 Asset inflow on equity account), asset should increase.
+        // The capital injection transaction (equity -> asset) increases asset balance.
+        // Find the data point for the current month.
+        var currentMonthIndex = utcNow.Month; // 1-based
+        Assert.IsTrue(trend.AssetData[currentMonthIndex].HasValue,
+            $"Asset data for month {currentMonthIndex} should have a value after transactions.");
+        Assert.IsTrue(trend.LiabilityData[currentMonthIndex].HasValue,
+            $"Liability data for month {currentMonthIndex} should have a value after transactions.");
+    }
 }

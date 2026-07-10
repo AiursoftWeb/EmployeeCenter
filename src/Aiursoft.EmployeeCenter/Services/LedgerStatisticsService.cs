@@ -107,19 +107,15 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
             .Where(a => a.Account.AccountType == FinanceAccountType.Liability)
             .Sum(a => a.Balance * rates.GetValueOrDefault(a.Account.Currency, 1));
 
-        // Phase 2: All Asset/Liability transactions that touch this entity in the year.
-        // Use OR logic (same as GetRecentTransactionsQueryBase) so cross-entity transfers
-        // are captured — money flowing from Entity B into Entity A's Asset account must be
-        // visible on Entity A's dashboard.
-        var yearTransactions = await dbContext.Transactions
-            .Where(t => (t.SourceAccount!.CompanyEntityId == entityId
-                         || t.DestinationAccount!.CompanyEntityId == entityId)
-                        && t.TransactionTime >= yearStart && t.TransactionTime < yearEnd
-                        && (t.SourceAccount!.AccountType == FinanceAccountType.Asset
-                            || t.SourceAccount!.AccountType == FinanceAccountType.Liability
-                            || t.DestinationAccount!.AccountType == FinanceAccountType.Asset
-                            || t.DestinationAccount!.AccountType == FinanceAccountType.Liability))
-            .Select(t => new
+        // Phase 2: All transactions that touch this entity in the year.
+                // AccountType filtering is done in-memory in Phase 3 so we avoid the Pomelo MySQL
+                // SqlNullabilityProcessor bug that occurs when AccountType OR conditions are combined
+                // with navigation property access AND DateTime comparisons in the same Where expression.
+                var yearTransactions = await dbContext.Transactions
+                    .Where(t => t.SourceAccount!.CompanyEntityId == entityId
+                                || t.DestinationAccount!.CompanyEntityId == entityId)
+                    .Where(t => t.TransactionTime >= yearStart && t.TransactionTime < yearEnd)
+                    .Select(t => new
             {
                 t.TransactionTime.Month,
                 SourceType = t.SourceAccount!.AccountType,
