@@ -1,3 +1,5 @@
+using Aiursoft.EmployeeCenter.Models.LedgerViewModels;
+
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
 [TestClass]
