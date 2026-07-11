@@ -108,27 +108,57 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
             .Sum(a => a.Balance * rates.GetValueOrDefault(a.Account.Currency, 1));
 
         // Phase 2: All transactions that touch this entity in the year.
-                // AccountType filtering is done in-memory in Phase 3 so we avoid the Pomelo MySQL
-                // SqlNullabilityProcessor bug that occurs when AccountType OR conditions are combined
-                // with navigation property access AND DateTime comparisons in the same Where expression.
-                var yearTransactions = await dbContext.Transactions
-                    .Where(t => t.SourceAccount!.CompanyEntityId == entityId
-                                || t.DestinationAccount!.CompanyEntityId == entityId)
+                //
+                // We split into TWO queries (source-side + dest-side) to avoid the Pomelo MySQL
+                // SqlNullabilityProcessor bug that crashes with "Unhandled expression
+                // MySqlComplexFunctionArgumentExpression" when OR conditions on navigation
+                // properties (e.g. SourceAccount || DestinationAccount) coexist with
+                // DateTime range comparisons in the same expression tree.
+                //
+                // AccountType filtering is done in-memory in Phase 3 for the same reason.
+                //
+                // Query A: transactions where THIS entity owns the source account.
+                var sourceTx = await dbContext.Transactions
+                    .Where(t => t.SourceAccount!.CompanyEntityId == entityId)
                     .Where(t => t.TransactionTime >= yearStart && t.TransactionTime < yearEnd)
-                    .Select(t => new
-            {
-                t.TransactionTime.Month,
-                SourceType = t.SourceAccount!.AccountType,
-                SourceEntityId = t.SourceAccount.CompanyEntityId,
-                DestType = t.DestinationAccount!.AccountType,
-                DestEntityId = t.DestinationAccount.CompanyEntityId,
-                t.Amount,
-                t.ExchangeRate,
-                SourceCurrency = t.SourceAccount!.Currency,
-                DestCurrency = t.DestinationAccount!.Currency,
-            })
-            .AsNoTracking()
-            .ToListAsync();
+                    .Select(t => new YearTxRow
+                    {
+                        Month = t.TransactionTime.Month,
+                        SourceType = t.SourceAccount!.AccountType,
+                        SourceEntityId = t.SourceAccount.CompanyEntityId,
+                        DestType = t.DestinationAccount!.AccountType,
+                        DestEntityId = t.DestinationAccount.CompanyEntityId,
+                        Amount = t.Amount,
+                        ExchangeRate = t.ExchangeRate,
+                        SourceCurrency = t.SourceAccount!.Currency,
+                        DestCurrency = t.DestinationAccount!.Currency,
+                    })
+                    .AsNoTracking()
+                    .ToListAsync();
+
+                // Query B: transactions where THIS entity owns the destination account
+                // but NOT the source account (to avoid double-counting internal transfers
+                // already captured in Query A).
+                var destTx = await dbContext.Transactions
+                    .Where(t => t.DestinationAccount!.CompanyEntityId == entityId
+                                && t.SourceAccount!.CompanyEntityId != entityId)
+                    .Where(t => t.TransactionTime >= yearStart && t.TransactionTime < yearEnd)
+                    .Select(t => new YearTxRow
+                    {
+                        Month = t.TransactionTime.Month,
+                        SourceType = t.SourceAccount!.AccountType,
+                        SourceEntityId = t.SourceAccount.CompanyEntityId,
+                        DestType = t.DestinationAccount!.AccountType,
+                        DestEntityId = t.DestinationAccount.CompanyEntityId,
+                        Amount = t.Amount,
+                        ExchangeRate = t.ExchangeRate,
+                        SourceCurrency = t.SourceAccount!.Currency,
+                        DestCurrency = t.DestinationAccount!.Currency,
+                    })
+                    .AsNoTracking()
+                    .ToListAsync();
+
+                var yearTransactions = sourceTx.Concat(destTx).ToList();
 
         // Phase 3: Monthly deltas + cumulative.
         // Future months in the current year get null — Chart.js naturally breaks the line
@@ -348,6 +378,23 @@ public class MonthlyChartData
     public required string[] Labels { get; init; }
     public required decimal[] InflowData { get; init; }
     public required decimal[] OutflowData { get; init; }
+}
+
+/// <summary>
+/// Intermediate row projected by the two Phase 2 queries in GetMonthlyAssetTrendAsync.
+/// Not mapped to the database — used only to unify source-side and dest-side results.
+/// </summary>
+internal class YearTxRow
+{
+    public int Month { get; init; }
+    public FinanceAccountType SourceType { get; init; }
+    public int SourceEntityId { get; init; }
+    public FinanceAccountType DestType { get; init; }
+    public int DestEntityId { get; init; }
+    public decimal Amount { get; init; }
+    public decimal ExchangeRate { get; init; }
+    public string SourceCurrency { get; init; } = string.Empty;
+    public string DestCurrency { get; init; } = string.Empty;
 }
 
 public class AssetTrendData

@@ -467,9 +467,12 @@ public class LedgerTests : TestBase
     /// with "Unhandled expression MySqlComplexFunctionArgumentExpression" because it
     /// doesn't know how to handle this specific expression tree combination.
     ///
-    /// The fix separates the entityId OR and the DateTime range into two distinct
-    /// Where() calls, and removes the redundant AccountType OR conditions from the server-side
-    /// query (they are already filtered in-memory in Phase 3 of GetMonthlyAssetTrendAsync).
+    /// The fix splits the query into two completely separate database queries — one for
+    /// transactions where the entity owns the source account, and another for transactions
+    /// where the entity owns the destination account (excluding those already captured by
+    /// the first query). This eliminates the OR condition on navigation properties entirely,
+    /// which avoids the Pomelo SqlNullabilityProcessor bug. AccountType filtering is still
+    /// done in-memory in Phase 3 of GetMonthlyAssetTrendAsync.
     /// </summary>
     [TestMethod]
     public async Task DashboardAssetTrendApi_WithAssetAndLiabilityTransactions_ReturnsValidTrendData()
