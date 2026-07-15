@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup><OutputType>Library</OutputType>
-    <Version>1.0.98</Version>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <Version>1.0.99</Version>
     <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>Aiursoft.EmployeeCenter.Entities</AssemblyName>
     <RootNamespace>Aiursoft.EmployeeCenter.Entities</RootNamespace>
@@ -18,10 +19,11 @@
     <PackageProjectUrl>https://github.com/aiursoftweb/employeecenter</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/aiursoftweb/employeecenter.git</RepositoryUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile></PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Aiursoft.DbTools" Version="10.0.21" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.9" />
+    <PackageReference Include="Aiursoft.DbTools" Version="10.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.10" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <None Include="../../README.md" Pack="true" PackagePath="." />
   </ItemGroup>
