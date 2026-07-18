@@ -1,0 +1,53 @@
+@model Aiursoft.EmployeeCenter.Models.AudioViewModels.CreateViewModel
+
+<h1 class="h3 mb-3">@Localizer["Upload Audio"]</h1>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <form asp-action="Create" method="post">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Audio Details"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">@Localizer["Name"]</label>
+                        <input asp-for="Name" class="form-control" placeholder="@Localizer["e.g. Meeting Recording 2024-01-01"]" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="FilePath" class="form-label">@Localizer["Audio File"]</label>
+                        <vc:file-upload
+                            asp-for="FilePath"
+                            subfolder="audio"
+                            allowed-extensions="mp3 wav m4a ogg flac aac webm amr"
+                            is-vault="true">
+                        </vc:file-upload>
+                        <span asp-validation-for="FilePath" class="text-danger"></span>
+                        <div class="form-text">@Localizer["Upload an audio recording. It will be automatically transcribed to text for archiving and AI processing."]</div>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="align-middle me-2" data-lucide="check-circle"></i> @Localizer["Upload Audio"]
+                    </button>
+                    <a asp-action="Index" class="btn btn-light">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

@@ -1,0 +1,172 @@
+@model Aiursoft.EmployeeCenter.Models.AudioViewModels.TranscriptViewModel
+@using Aiursoft.EmployeeCenter.Authorization
+@using Aiursoft.EmployeeCenter.Configuration
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Options
+@inject IOptions<AsrSettings> AsrSettings
+@inject IAuthorizationService AuthorizationService
+@inject StorageService StorageService
+
+@{
+    var hasTranscript = !string.IsNullOrEmpty(Model.PlainText);
+    var hasFailed = !hasTranscript && Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount;
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Transcript"] - @Model.Audio.Name</h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        <a href="@StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true)" class="btn btn-outline-info" target="_blank">
+            <i class="align-middle" data-lucide="download"></i> @Localizer["Download Audio"]
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to List"]
+        </a>
+    </div>
+</div>
+
+<!-- Audio Player -->
+<div class="card mb-3">
+    <div class="card-body py-2 px-3">
+        <audio controls preload="metadata" class="w-100" style="max-height: 40px;">
+            <source src="@StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true)" type="audio/mpeg">
+            @Localizer["Your browser does not support audio playback."]
+        </audio>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="plain-text-tab" data-bs-toggle="tab" href="#plain-text" role="tab">@Localizer["Plain Text"]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="info-tab" data-bs-toggle="tab" href="#info" role="tab">@Localizer["Status Info"]</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="plain-text" role="tabpanel">
+                @if (!hasTranscript)
+                {
+                    <div class="alert @(hasFailed ? "alert-danger" : "alert-info")">
+                        <i class="align-middle me-2" data-lucide="@(hasFailed ? "x-circle" : "info")"></i>
+                        @if (hasFailed)
+                        {
+                            @Localizer["ASR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Audio.AsrAttemptCount]
+                        }
+                        else
+                        {
+                            @Localizer["No transcript available for this audio. It might still be processing or failed."]
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex justify-content-end mb-2">
+                        <button class="btn btn-sm btn-outline-secondary" onclick="copyTranscript()" title="@Localizer["Copy to clipboard"]">
+                            <i class="align-middle me-1" data-lucide="copy"></i> @Localizer["Copy"]
+                        </button>
+                    </div>
+                    <pre id="transcript-text" class="bg-light p-3 border rounded" style="white-space: pre-wrap; max-height: 60vh; overflow-y: auto;">@Model.PlainText</pre>
+                }
+            </div>
+            <div class="tab-pane fade" id="info" role="tabpanel">
+                <!-- Status Badges -->
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    @if (hasTranscript)
+                    {
+                        <span class="badge bg-success fs-6"><i class="align-middle me-1" data-lucide="check"></i> @Localizer["Transcribed"]</span>
+                    }
+                    else if (hasFailed)
+                    {
+                        <span class="badge bg-danger fs-6"><i class="align-middle me-1" data-lucide="x-circle"></i> @Localizer["Failed"]</span>
+                    }
+                    else if (Model.Audio.AsrAttemptCount > 0)
+                    {
+                        <span class="badge bg-warning text-dark fs-6"><i class="align-middle me-1" data-lucide="loader"></i> @Localizer["Processing"]</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary fs-6"><i class="align-middle me-1" data-lucide="clock"></i> @Localizer["Pending"]</span>
+                    }
+
+                    <span class="badge bg-light border fs-6 text-dark">
+                        <i class="align-middle me-1" data-lucide="repeat"></i> @Model.Audio.AsrAttemptCount / @AsrSettings.Value.AsrMaxRetryCount @Localizer["attempts"]
+                    </span>
+                </div>
+
+                <!-- Details Table -->
+                <table class="table table-sm">
+                    <tr>
+                        <th>@Localizer["Attempt Count"]</th>
+                        <td>@Model.Audio.AsrAttemptCount</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Last Attempt"]</th>
+                        <td>
+                            @if (Model.Audio.LastAsrAttemptTime.HasValue)
+                            {
+                                <label data-utc-time="@Model.Audio.LastAsrAttemptTime.Value.ToHtmlDateTime()"></label>
+                            }
+                            else
+                            {
+                                <span>@Localizer["Never"]</span>
+                            }
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Action Area -->
+                @if (canManage)
+                {
+                    <div class="alert alert-warning mt-3 d-flex align-items-center flex-wrap gap-2">
+                        <div>
+                            <strong><i class="align-middle me-1" data-lucide="alert-triangle"></i> @(hasFailed ? Localizer["Processing Failed"] : Localizer["Re-run ASR"]):</strong>
+                            <span class="text-muted small">
+                                @if (hasFailed)
+                                {
+                                    @Localizer["ASR processing has failed after {0} attempts. Reset and try again?", Model.Audio.AsrAttemptCount]
+                                }
+                                else
+                                {
+                                    @Localizer["Reset the retry counter and re-trigger speech-to-text recognition."]
+                                }
+                            </span>
+                        </div>
+                        <form asp-action="ResetAsr" method="post" class="ms-auto">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.Audio.Id" />
+                            <button type="submit" class="btn btn-warning">
+                                <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Reset & Retry ASR"]
+                            </button>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        function copyTranscript() {
+            const text = document.getElementById('transcript-text')?.innerText;
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.currentTarget;
+                const original = btn.innerHTML;
+                btn.innerHTML = '<i class="align-middle me-1" data-lucide="check"></i> @Localizer["Copied"]';
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-success');
+                setTimeout(() => { btn.innerHTML = original; btn.classList.remove('btn-success'); btn.classList.add('btn-outline-secondary'); }, 2000);
+            });
+        }
+    </script>
+}

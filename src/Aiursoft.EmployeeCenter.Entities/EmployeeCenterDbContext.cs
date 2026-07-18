@@ -258,6 +258,16 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     /// </summary>
     public DbSet<TransactionOcrResult> TransactionOcrResults => Set<TransactionOcrResult>();
 
+    /// <summary>
+    /// Stores uploaded audio recordings that are transcribed to text via the ASR service.
+    /// </summary>
+    public DbSet<Audio> Audios => Set<Audio>();
+
+    /// <summary>
+    /// Stores plain-text transcripts produced by the ASR service for audio recordings.
+    /// </summary>
+    public DbSet<AudioAsrResult> AudioAsrResults => Set<AudioAsrResult>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -268,6 +278,10 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
 
         builder.Entity<TransactionOcrResult>()
             .HasIndex(r => new { r.TransactionId, r.AttachmentType })
+            .IsUnique();
+
+        builder.Entity<AudioAsrResult>()
+            .HasIndex(r => r.AudioId)
             .IsUnique();
 
         builder.Entity<ContractFolder>()

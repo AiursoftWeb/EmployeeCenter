@@ -92,4 +92,8 @@ public static class AppPermissionNames
 
     // AI Management
     public const string CanChatWithAi = nameof(CanChatWithAi);
+
+    // Audio Management
+    public const string CanViewAudio = nameof(CanViewAudio);
+    public const string CanManageAudio = nameof(CanManageAudio);
 }

@@ -17,7 +17,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.8")
+                .HasAnnotation("ProductVersion", "10.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -222,6 +222,67 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("AssetModels");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AsrAttemptCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("EmptyResultCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime?>("LastAsrAttemptTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Audios");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AudioId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("PlainText")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AudioId")
+                        .IsUnique();
+
+                    b.ToTable("AudioAsrResults");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>
@@ -2467,6 +2528,17 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrResult", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
+                        .WithMany("AsrResults")
+                        .HasForeignKey("AudioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Audio");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>
                 {
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "ChangedByUser")
@@ -3098,6 +3170,11 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AssetModel", b =>
                 {
                     b.Navigation("Assets");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
+                {
+                    b.Navigation("AsrResults");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BlueprintFolder", b =>
