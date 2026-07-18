@@ -107,7 +107,7 @@ public class CertificateController(
         {
             TargetUser = targetUser,
             Type = type,
-            Language = lang,
+            CertificateLanguage = lang,
             CompanyName = targetUser.SigningEntity?.CompanyName ?? appSettings.Value.CompanyName,
             CompanyNameEnglish = targetUser.SigningEntity?.CompanyNameEnglish,
             PageTitle = type == CertificateType.Employment ? "Certificate of Employment" : "Certificate of Income"
