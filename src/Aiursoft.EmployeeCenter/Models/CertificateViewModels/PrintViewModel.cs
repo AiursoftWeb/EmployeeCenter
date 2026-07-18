@@ -18,7 +18,7 @@ public class PrintViewModel : UiStackLayoutViewModel
     public CertificateType Type { get; set; }
 
     [Display(Name = "Language")]
-    public string Language { get; set; } = "zh-CN";
+    public new string Language { get; set; } = "zh-CN";
 
     [Display(Name = "Company Name")]
     public string CompanyName { get; set; } = string.Empty;
