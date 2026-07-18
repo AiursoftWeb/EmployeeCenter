@@ -50,16 +50,20 @@
             <div class="card-body">
                 @if (!hasTranscript)
                 {
-                    <div class="alert @(hasFailed ? "alert-danger" : "alert-info") mb-0 d-flex align-items-start">
-                        <i class="align-middle me-2 mt-1" data-lucide="@(hasFailed ? "x-circle" : "info")"></i>
-                        <div>
+                    <div class="alert @(hasFailed ? "alert-danger" : "alert-info") alert-outline-coloured mb-0" role="alert">
+                        <div class="alert-icon">
+                            <i class="align-middle" data-lucide="@(hasFailed ? "x-circle" : "info")"></i>
+                        </div>
+                        <div class="alert-message">
                             @if (hasFailed)
                             {
-                                @Localizer["ASR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Audio.AsrAttemptCount]
+                                <strong>@Localizer["Processing Failed"]</strong>
+                                <div class="mt-1">@Localizer["ASR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Audio.AsrAttemptCount]</div>
                             }
                             else
                             {
-                                @Localizer["No transcript available for this audio. It might still be processing or failed."]
+                                <strong>@Localizer["Processing"]</strong>
+                                <div class="mt-1">@Localizer["No transcript available for this audio. It might still be processing or failed."]</div>
                             }
                         </div>
                     </div>
