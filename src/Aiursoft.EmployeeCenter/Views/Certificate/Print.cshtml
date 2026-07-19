@@ -2,7 +2,7 @@
 @model Aiursoft.EmployeeCenter.Models.CertificateViewModels.PrintViewModel
 @{
     Layout = null;
-    var isEnglish = Model.Language == "en-US";
+    var isEnglish = Model.CertificateLanguage == "en-US";
     var user = Model.TargetUser!;
     var displayedCompanyName = (isEnglish && !string.IsNullOrWhiteSpace(Model.CompanyNameEnglish)) 
         ? Model.CompanyNameEnglish 
@@ -10,7 +10,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="@Model.Language">
+<html lang="@Model.CertificateLanguage">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
