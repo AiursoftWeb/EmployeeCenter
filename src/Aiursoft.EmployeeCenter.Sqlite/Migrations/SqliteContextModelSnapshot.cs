@@ -239,7 +239,21 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("OwnerDepartment")
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ViewScope")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Audios");
                 });
@@ -266,6 +280,38 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .IsUnique();
 
                     b.ToTable("AudioAsrResults");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AudioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Permission")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SharedWithRoleId")
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SharedWithUserId")
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AudioId");
+
+                    b.HasIndex("SharedWithUserId");
+
+                    b.ToTable("AudioShares");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>
@@ -2085,6 +2131,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Department")
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -2429,6 +2479,17 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrResult", b =>
                 {
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
@@ -2438,6 +2499,23 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .IsRequired();
 
                     b.Navigation("Audio");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
+                        .WithMany("AudioShares")
+                        .HasForeignKey("AudioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "SharedWithUser")
+                        .WithMany()
+                        .HasForeignKey("SharedWithUserId");
+
+                    b.Navigation("Audio");
+
+                    b.Navigation("SharedWithUser");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>
@@ -3076,6 +3154,8 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
                 {
                     b.Navigation("AsrResults");
+
+                    b.Navigation("AudioShares");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BlueprintFolder", b =>

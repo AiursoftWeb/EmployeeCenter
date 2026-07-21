@@ -263,6 +263,8 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     /// </summary>
     public DbSet<Audio> Audios => Set<Audio>();
 
+    public DbSet<AudioShare> AudioShares => Set<AudioShare>();
+
     /// <summary>
     /// Stores plain-text transcripts produced by the ASR service for audio recordings.
     /// </summary>

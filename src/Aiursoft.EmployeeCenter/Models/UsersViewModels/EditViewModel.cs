@@ -58,6 +58,10 @@ public class EditViewModel : UiStackLayoutViewModel
     [MaxLength(100, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     public string? Title { get; set; }
 
+    [Display(Name = "Department")]
+    [MaxLength(100, ErrorMessage = "The {0} cannot exceed {1} characters.")]
+    public string? Department { get; set; }
+
     [Display(Name = "Legal Name")]
     [MaxLength(100, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     public string? LegalName { get; set; }

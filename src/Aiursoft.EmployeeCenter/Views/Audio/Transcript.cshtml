@@ -2,6 +2,7 @@
 @using System.Text.Encodings.Web
 @using Aiursoft.EmployeeCenter.Authorization
 @using Aiursoft.EmployeeCenter.Configuration
+@using Aiursoft.EmployeeCenter.Entities
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.Extensions.Options
@@ -153,6 +154,31 @@
                     </div>
                 }
             </div>
+
+            @if (Model.CanManageShares)
+            {
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">@Localizer["Sharing"]</h5>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="SetViewScope" method="post" class="mb-3">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.Audio.Id" />
+                            <label class="form-label">@Localizer["View Scope"]</label>
+                            <select name="viewScope" class="form-select mb-2">
+                                <option value="0" selected="@(Model.Audio.ViewScope == AudioViewScope.Private)">@Localizer["Only me (Private)"]</option>
+                                <option value="1" selected="@(Model.Audio.ViewScope == AudioViewScope.Department)">@Localizer["My department"]</option>
+                                <option value="2" selected="@(Model.Audio.ViewScope == AudioViewScope.Public)">@Localizer["Everyone (CanViewAudio)"]</option>
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-primary w-100">@Localizer["Save Scope"]</button>
+                        </form>
+                        <a asp-action="ManageShares" asp-route-id="@Model.Audio.Id" class="btn btn-sm btn-outline-secondary w-100">
+                            <i class="align-middle me-1" data-lucide="share-2"></i> @Localizer["Manage Shares"]
+                        </a>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>

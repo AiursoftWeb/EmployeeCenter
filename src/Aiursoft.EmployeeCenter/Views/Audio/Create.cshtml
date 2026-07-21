@@ -29,6 +29,17 @@
                         <span asp-validation-for="FilePath" class="text-danger"></span>
                         <div class="form-text">@Localizer["Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis."]</div>
                     </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ViewScope" class="form-label">@Localizer["View Scope"]</label>
+                        <select asp-for="ViewScope" class="form-select">
+                            <option value="0">@Localizer["Only me (Private)"]</option>
+                            <option value="1">@Localizer["My department"]</option>
+                            <option value="2">@Localizer["Everyone (CanViewAudio)"]</option>
+                        </select>
+                        <span asp-validation-for="ViewScope" class="text-danger"></span>
+                        <div class="form-text">@Localizer["Who can view this recording and its transcript. You can change it later or share it with specific users/roles."]</div>
+                    </div>
                 </div>
                 <div class="card-footer text-end">
                     <button type="submit" class="btn btn-primary">

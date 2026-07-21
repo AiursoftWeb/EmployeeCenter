@@ -73,6 +73,11 @@
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
                 <div class="col-md-6 mb-3">
+                    <label asp-for="Department" class="form-label">@Localizer["Department"]</label>
+                    <input asp-for="Department" class="form-control" />
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
                     <label asp-for="LegalName" class="form-label">@Localizer["Legal Name"]</label>
                     <input asp-for="LegalName" class="form-control" />
                     <span asp-validation-for="LegalName" class="text-danger"></span>
