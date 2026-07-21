@@ -1,3 +1,4 @@
+using Aiursoft.Canon.TaskQueue;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.AudioViewModels;
@@ -14,7 +15,8 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 [LimitPerMin]
 public class AudioController(
     EmployeeCenterDbContext context,
-    AsrService asrService)
+    AsrService asrService,
+    ServiceTaskQueue taskQueue)
     : Controller
 {
     private const int AudioPageSize = 50;
@@ -120,7 +122,11 @@ public class AudioController(
         audio.LastAsrAttemptTime = null;
         await context.SaveChangesAsync();
 
-        await asrService.ProcessAudioAsrAsync(id);
+        // 将 ASR 处理放入独立后台任务，避免长耗时（最长 TimeoutSeconds）请求阻塞当前 HTTP 请求。
+        taskQueue.QueueWithDependency<AsrService>(
+            queueName: "asr",
+            taskName: $"Reset ASR for audio {id}",
+            task: svc => svc.ProcessAudioAsrAsync(id));
 
         return RedirectToAction(nameof(Transcript), new { id });
     }
