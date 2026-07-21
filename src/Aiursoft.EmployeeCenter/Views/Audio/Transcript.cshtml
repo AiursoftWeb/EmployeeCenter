@@ -1,4 +1,5 @@
 @model Aiursoft.EmployeeCenter.Models.AudioViewModels.TranscriptViewModel
+@using System.Text.Encodings.Web
 @using Aiursoft.EmployeeCenter.Authorization
 @using Aiursoft.EmployeeCenter.Configuration
 @using Aiursoft.EmployeeCenter.Services.FileStorage
@@ -17,7 +18,7 @@
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-12 col-md">
-        <h3 class="mb-1">@Localizer["Transcript"]</h3>
+        <h3 class="mb-1">@Localizer["Meeting Transcript & AI Prep"]</h3>
         <p class="text-muted mb-2 mb-md-0">
             <i class="align-middle me-1" data-lucide="mic"></i> @Model.Audio.Name
         </p>
@@ -35,16 +36,27 @@
 <div class="row">
     <div class="col-12 col-xl-8 d-flex">
         <div class="card flex-fill w-100">
-            <div class="card-header d-flex align-items-center">
+            <div class="card-header d-flex align-items-center flex-wrap gap-2">
                 <div>
-                    <h5 class="card-title mb-0">@Localizer["Plain Text"]</h5>
+                    <h5 class="card-title mb-0">@Localizer["Transcribed Text"]</h5>
                     <small class="text-muted">@Model.Audio.Name</small>
                 </div>
                 @if (hasTranscript)
                 {
-                    <button class="btn btn-sm btn-outline-secondary ms-auto" type="button" onclick="copyTranscript(this)" title="@Localizer["Copy to clipboard"]">
-                        <i class="align-middle me-1" data-lucide="copy"></i> @Localizer["Copy"]
-                    </button>
+                    <div class="ms-auto d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="copyTranscript(this)" title="@Localizer["Copy to clipboard"]">
+                            <i class="align-middle me-1" data-lucide="copy"></i> @Localizer["Copy"]
+                        </button>
+                        <a href="@Url.Action("Export", new { id = Model.Audio.Id })" class="btn btn-sm btn-outline-primary" title="@Localizer["Export as text file"]">
+                            <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Export .txt"]
+                        </a>
+                        <a href="@Url.Action("RawText", new { id = Model.Audio.Id })" target="_blank" class="btn btn-sm btn-outline-info" title="@Localizer["Raw API endpoint for AI tools"]">
+                            <i class="align-middle me-1" data-lucide="code"></i> @Localizer["AI Raw API"]
+                        </a>
+                        <button class="btn btn-sm btn-warning text-dark fw-bold" type="button" onclick="askAiAboutMeeting()" title="@Localizer["Analyze transcript with AI Assistant"]">
+                            <i class="align-middle me-1" data-lucide="sparkles"></i> @Localizer["Analyze with AI"]
+                        </button>
+                    </div>
                 }
             </div>
             <div class="card-body">
@@ -157,6 +169,16 @@
                 button.classList.add('btn-success');
                 setTimeout(() => { button.innerHTML = original; button.classList.remove('btn-success'); button.classList.add('btn-outline-secondary'); }, 2000);
             });
+        }
+
+        function askAiAboutMeeting() {
+            const text = document.getElementById('transcript-text')?.innerText;
+            if (!text) return;
+            
+            const prompt = "Below is the transcript of the meeting recording \"@Html.Raw(JavaScriptEncoder.Default.Encode(Model.Audio.Name))\". Please analyze this transcript and summarize the core meeting topics discussed, the decisions made, and highlight all next action items with assigned tasks if any:\n\n" + text;
+            
+            sessionStorage.setItem('ai_assistant_prompt', prompt);
+            window.location.href = '@Url.Action("Index", "AiAssistant")';
         }
     </script>
 }

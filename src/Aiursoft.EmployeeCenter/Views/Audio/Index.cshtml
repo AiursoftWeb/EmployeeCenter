@@ -13,14 +13,14 @@
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
-        <h3>@Localizer["Audio Library"]</h3>
+        <h3>@Localizer["Meeting Transcripts"]</h3>
     </div>
 
     <div class="col-auto ms-auto mt-n1">
         @if (canManage)
         {
             <a asp-action="Create" class="btn btn-primary">
-                <i class="align-middle" data-lucide="plus-circle"></i> @Localizer["Upload Audio"]
+                <i class="align-middle" data-lucide="plus-circle"></i> @Localizer["Upload Meeting Recording"]
             </a>
         }
     </div>
@@ -33,9 +33,9 @@
                 <div class="d-flex align-items-start">
                     <div class="flex-grow-1">
                         <h3 class="mb-2">@totalCount</h3>
-                        <p class="mb-2">@Localizer["Total Recordings"]</p>
+                        <p class="mb-2">@Localizer["Total Meetings"]</p>
                         <div class="mb-0">
-                            <span class="text-muted">@Localizer["All uploaded audio"]</span>
+                            <span class="text-muted">@Localizer["All uploaded meeting recordings"]</span>
                         </div>
                     </div>
                     <div class="d-inline-block ms-3">
@@ -113,8 +113,8 @@
 {
     <div class="card">
         <div class="card-header">
-            <h5 class="card-title">@Localizer["Recordings"]</h5>
-            <h6 class="card-subtitle text-muted">@Localizer["A list of uploaded audio recordings and their transcripts."]</h6>
+            <h5 class="card-title">@Localizer["Meeting Recordings"]</h5>
+            <h6 class="card-subtitle text-muted">@Localizer["A list of meeting audio recordings, transcripts, and AI processing statuses."]</h6>
         </div>
         <div class="table-responsive">
             <table class="table table-hover mb-0">
@@ -153,12 +153,12 @@
                             }
                         </td>
                         <td class="text-end">
-                            <a asp-action="Transcript" asp-route-id="@item.Audio.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Transcript"]">
-                                <i class="align-middle" data-lucide="eye"></i> @Localizer["Transcript"]
+                            <a asp-action="Transcript" asp-route-id="@item.Audio.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Transcript & AI"]">
+                                <i class="align-middle" data-lucide="eye"></i> @Localizer["Transcript & AI"]
                             </a>
                             @if (canManage)
                             {
-                                <form asp-action="Delete" asp-route-id="@item.Audio.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-audio-confirm', 'Are you sure you want to delete this audio?'));">
+                                <form asp-action="Delete" asp-route-id="@item.Audio.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-audio-confirm', 'Are you sure you want to delete this meeting recording?'));">
                                     <button type="submit" class="btn btn-sm btn-outline-danger">
                                         <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
                                     </button>
@@ -194,12 +194,12 @@ else
     <div class="card">
         <div class="card-body text-center py-5">
             <i class="align-middle text-muted mb-3" data-lucide="mic" style="width: 48px; height: 48px;"></i>
-            <h5 class="mb-1">@Localizer["No recordings yet"]</h5>
-            <p class="text-muted mb-0">@Localizer["Upload your first audio recording to get started."]</p>
+            <h5 class="mb-1">@Localizer["No meeting recordings yet"]</h5>
+            <p class="text-muted mb-0">@Localizer["Upload your first meeting recording to transcribe and analyze with AI."]</p>
             @if (canManage)
             {
                 <a asp-action="Create" class="btn btn-primary mt-3">
-                    <i class="align-middle me-1" data-lucide="plus-circle"></i> @Localizer["Upload Audio"]
+                    <i class="align-middle me-1" data-lucide="plus-circle"></i> @Localizer["Upload Meeting Recording"]
                 </a>
             }
         </div>
@@ -207,7 +207,7 @@ else
 }
 
 <div id="loc-data" class="d-none">
-    <span data-key="delete-audio-confirm">@Localizer["Are you sure you want to delete this audio?"]</span>
+    <span data-key="delete-audio-confirm">@Localizer["Are you sure you want to delete this meeting recording?"]</span>
 </div>
 
 @* ReSharper disable once Razor.SectionNotResolved *@

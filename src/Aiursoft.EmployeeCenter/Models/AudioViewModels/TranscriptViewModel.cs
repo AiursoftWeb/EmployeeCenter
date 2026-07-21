@@ -7,7 +7,7 @@ public class TranscriptViewModel : UiStackLayoutViewModel
 {
     public TranscriptViewModel()
     {
-        PageTitle = "Transcript";
+        PageTitle = "Meeting Transcript";
     }
 
     public required Audio Audio { get; set; }

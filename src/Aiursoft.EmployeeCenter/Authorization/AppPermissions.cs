@@ -158,11 +158,11 @@ public class AppPermissions
                 localizer["Chat with AI"],
                 localizer["Allows the user to chat with the AI assistant for company information."]),
             new(AppPermissionNames.CanViewAudio,
-                localizer["View Audio Library"],
-                localizer["Allows viewing the audio library and listening to or reading transcripts of any recording."]),
+                localizer["View Meeting Transcripts"],
+                localizer["Allows viewing meeting transcripts and listening to or reading transcripts of any recording."]),
             new(AppPermissionNames.CanManageAudio,
-                localizer["Manage Audio Library"],
-                localizer["Allows uploading, deleting audio recordings, and re-triggering speech-to-text transcription."])
+                localizer["Manage Meeting Transcripts"],
+                localizer["Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription."])
         ];
         return allPermission;
     }

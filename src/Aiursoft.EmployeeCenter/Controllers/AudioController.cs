@@ -25,7 +25,7 @@ public class AudioController(
         CascadedLinksGroupName = "Audio",
         CascadedLinksIcon = "mic",
         CascadedLinksOrder = 6,
-        LinkText = "Audio Library",
+        LinkText = "Meeting Transcripts",
         LinkOrder = 1)]
     public async Task<IActionResult> Index(int page = 1)
     {
@@ -141,4 +141,37 @@ public class AudioController(
 
         return RedirectToAction(nameof(Index));
     }
+
+    [HttpGet]
+    public async Task<IActionResult> Export(int id)
+    {
+        var audio = await context.Audios.FirstOrDefaultAsync(a => a.Id == id);
+        if (audio == null) return NotFound();
+
+        var plainText = await asrService.GetAsrResultByAudioIdAsync(id);
+        if (string.IsNullOrEmpty(plainText))
+        {
+            return BadRequest("Transcript is empty or still processing.");
+        }
+
+        var fileBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        var fileName = $"{audio.Name}.txt";
+        return File(fileBytes, "text/plain", fileName);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> RawText(int id)
+    {
+        var audio = await context.Audios.FirstOrDefaultAsync(a => a.Id == id);
+        if (audio == null) return NotFound();
+
+        var plainText = await asrService.GetAsrResultByAudioIdAsync(id);
+        if (string.IsNullOrEmpty(plainText))
+        {
+            return Content(string.Empty, "text/plain");
+        }
+
+        return Content(plainText, "text/plain", System.Text.Encoding.UTF8);
+    }
 }
+

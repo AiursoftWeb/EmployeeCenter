@@ -7,7 +7,7 @@ public class IndexViewModel : UiStackLayoutViewModel
 {
     public IndexViewModel()
     {
-        PageTitle = "Audio Library";
+        PageTitle = "Meeting Transcripts";
     }
 
     public List<AudioListItemViewModel> Audios { get; set; } = new();
