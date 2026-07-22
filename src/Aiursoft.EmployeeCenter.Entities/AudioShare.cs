@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 
 namespace Aiursoft.EmployeeCenter.Entities;
@@ -25,11 +26,10 @@ public class AudioShare
     /// If null, this share targets a role instead.
     /// </summary>
     [MaxLength(64)]
-    public required string? SharedWithUserId { get; set; }
+    public string? SharedWithUserId { get; set; }
 
     [JsonIgnore]
     [ForeignKey(nameof(SharedWithUserId))]
-    [NotNull]
     public User? SharedWithUser { get; set; }
 
     /// <summary>
@@ -37,7 +37,11 @@ public class AudioShare
     /// If null, this share targets a specific user.
     /// </summary>
     [MaxLength(450)]
-    public required string? SharedWithRoleId { get; set; }
+    public string? SharedWithRoleId { get; set; }
+
+    [JsonIgnore]
+    [ForeignKey(nameof(SharedWithRoleId))]
+    public IdentityRole? SharedWithRole { get; set; }
 
     public required SharePermission Permission { get; set; }
 

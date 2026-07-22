@@ -282,9 +282,34 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             .HasIndex(r => new { r.TransactionId, r.AttachmentType })
             .IsUnique();
 
+        builder.Entity<Audio>()
+            .HasOne(a => a.Owner)
+            .WithMany()
+            .HasForeignKey(a => a.OwnerId)
+            .OnDelete(DeleteBehavior.SetNull);
+
         builder.Entity<AudioAsrResult>()
-            .HasIndex(r => r.AudioId)
-            .IsUnique();
+            .HasOne(r => r.Audio)
+            .WithOne(a => a.AsrResult)
+            .HasForeignKey<AudioAsrResult>(r => r.AudioId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<AudioShare>(entity =>
+        {
+            entity.HasOne(s => s.SharedWithUser)
+                .WithMany()
+                .HasForeignKey(s => s.SharedWithUserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            entity.HasOne(s => s.SharedWithRole)
+                .WithMany()
+                .HasForeignKey(s => s.SharedWithRoleId)
+                .OnDelete(DeleteBehavior.Cascade);
+            entity.HasIndex(s => new { s.AudioId, s.SharedWithUserId }).IsUnique();
+            entity.HasIndex(s => new { s.AudioId, s.SharedWithRoleId }).IsUnique();
+            entity.ToTable(t => t.HasCheckConstraint(
+                "CK_AudioShares_ExactlyOneRecipient",
+                "(SharedWithUserId IS NOT NULL AND SharedWithRoleId IS NULL) OR (SharedWithUserId IS NULL AND SharedWithRoleId IS NOT NULL)"));
+        });
 
         builder.Entity<ContractFolder>()
             .HasIndex(f => new { f.ParentFolderId, f.Name })

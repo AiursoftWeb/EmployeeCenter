@@ -27,17 +27,17 @@ public class Audio
     /// The user who uploaded this recording.
     /// </summary>
     [MaxLength(255)]
-    public required string OwnerId { get; set; }
+    public string? OwnerId { get; set; }
 
     [JsonIgnore]
     [ForeignKey(nameof(OwnerId))]
     public User? Owner { get; set; }
 
     /// <summary>
-    /// Snapshot of the owner's department at creation time. Used for department-scoped visibility.
+    /// Snapshot of the department selected for department-scoped visibility.
     /// </summary>
     [MaxLength(100)]
-    public string? OwnerDepartment { get; set; }
+    public string? AudienceDepartment { get; set; }
 
     /// <summary>
     /// The default visibility scope of this recording.
@@ -48,5 +48,5 @@ public class Audio
     [InverseProperty(nameof(AudioShare.Audio))]
     public List<AudioShare> AudioShares { get; set; } = [];
 
-    public List<AudioAsrResult> AsrResults { get; set; } = [];
+    public AudioAsrResult? AsrResult { get; set; }
 }

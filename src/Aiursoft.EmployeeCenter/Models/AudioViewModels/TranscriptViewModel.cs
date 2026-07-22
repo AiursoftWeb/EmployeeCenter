@@ -14,4 +14,6 @@ public class TranscriptViewModel : UiStackLayoutViewModel
     public string? PlainText { get; set; }
 
     public bool CanManageShares { get; set; }
+
+    public SharePermission Permission { get; set; }
 }

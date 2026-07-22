@@ -6,8 +6,6 @@ namespace Aiursoft.EmployeeCenter.Entities;
 public class AudioAsrResult
 {
     [Key]
-    public int Id { get; set; }
-
     public int AudioId { get; set; }
 
     [ForeignKey(nameof(AudioId))]

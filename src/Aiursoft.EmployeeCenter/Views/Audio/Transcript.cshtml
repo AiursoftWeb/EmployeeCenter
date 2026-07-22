@@ -28,6 +28,12 @@
         <a href="@audioUrl" class="btn btn-light bg-white shadow-sm" target="_blank">
             <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Download Audio"]
         </a>
+        @if (Model.Permission == SharePermission.Editable)
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Audio.Id" class="btn btn-outline-primary shadow-sm">
+                <i class="align-middle me-1" data-lucide="edit-2"></i> @Localizer["Edit"]
+            </a>
+        }
         <a asp-action="Index" class="btn btn-secondary shadow-sm">
             <i class="align-middle me-1" data-lucide="arrow-left"></i> @Localizer["Back to List"]
         </a>
@@ -141,7 +147,7 @@
                         </span>
                     </div>
                 </div>
-                @if (canManage)
+                @if (Model.CanManageShares)
                 {
                     <div class="card-footer">
                         <form asp-action="ResetAsr" method="post" class="d-grid">
