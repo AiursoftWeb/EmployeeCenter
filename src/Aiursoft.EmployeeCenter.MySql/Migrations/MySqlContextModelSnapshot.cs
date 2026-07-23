@@ -17,7 +17,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.8")
+                .HasAnnotation("ProductVersion", "10.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -222,6 +222,114 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("AssetModels");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AsrAttemptCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AudienceDepartment")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("EmptyResultCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime?>("LastAsrAttemptTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("OwnerId")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("ViewScope")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("Audios");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrResult", b =>
+                {
+                    b.Property<int>("AudioId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("PlainText")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("AudioId");
+
+                    b.ToTable("AudioAsrResults");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AudioId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Permission")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SharedWithRoleId")
+                        .HasMaxLength(450)
+                        .HasColumnType("varchar(450)");
+
+                    b.Property<string>("SharedWithUserId")
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SharedWithRoleId");
+
+                    b.HasIndex("SharedWithUserId");
+
+                    b.HasIndex("AudioId", "SharedWithRoleId")
+                        .IsUnique();
+
+                    b.HasIndex("AudioId", "SharedWithUserId")
+                        .IsUnique();
+
+                    b.ToTable("AudioShares", t =>
+                        {
+                            t.HasCheckConstraint("CK_AudioShares_ExactlyOneRecipient", "(SharedWithUserId IS NOT NULL AND SharedWithRoleId IS NULL) OR (SharedWithUserId IS NULL AND SharedWithRoleId IS NOT NULL)");
+                        });
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>
@@ -2113,6 +2221,10 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("Department")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -2465,6 +2577,52 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Owner");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrResult", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
+                        .WithOne("AsrResult")
+                        .HasForeignKey("Aiursoft.EmployeeCenter.Entities.AudioAsrResult", "AudioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Audio");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
+                        .WithMany("AudioShares")
+                        .HasForeignKey("AudioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", "SharedWithRole")
+                        .WithMany()
+                        .HasForeignKey("SharedWithRoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "SharedWithUser")
+                        .WithMany()
+                        .HasForeignKey("SharedWithUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Audio");
+
+                    b.Navigation("SharedWithRole");
+
+                    b.Navigation("SharedWithUser");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>
@@ -3098,6 +3256,13 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AssetModel", b =>
                 {
                     b.Navigation("Assets");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
+                {
+                    b.Navigation("AsrResult");
+
+                    b.Navigation("AudioShares");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BlueprintFolder", b =>

@@ -223,6 +223,7 @@ public class UsersController(
             CreationTime = user.CreationTime,
             JobLevel = user.JobLevel,
             Title = user.Title,
+            Department = user.Department,
             LegalName = user.LegalName,
             PhoneNumber = user.PhoneNumber,
             BaseSalary = user.BaseSalary,
@@ -308,6 +309,7 @@ public class UsersController(
 
             userInDb.JobLevel = model.JobLevel;
             userInDb.Title = model.Title;
+            userInDb.Department = model.Department;
         }
 
         userInDb.ManagerId = model.ManagerId;

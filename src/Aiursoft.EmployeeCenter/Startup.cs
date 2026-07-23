@@ -26,12 +26,19 @@ public class Startup : IWebStartup
         // AppSettings.
         services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
         services.Configure<OcrSettings>(configuration.GetSection("AppSettings:OCR"));
+        services.Configure<AsrSettings>(configuration.GetSection("AppSettings:ASR"));
 
         // Validate OCR configuration (Skip in unit tests to avoid failing all tests)
         var ocrSettings = configuration.GetSection("AppSettings:OCR").Get<OcrSettings>();
         if (!EntryExtends.IsInUnitTests() && ocrSettings is { Enabled: true } && (string.IsNullOrEmpty(ocrSettings.Endpoint) || string.IsNullOrEmpty(ocrSettings.BearerToken)))
         {
             throw new InvalidOperationException("OCR is enabled but Endpoint or BearerToken is not configured in AppSettings:OCR. Please configure them or set Enabled to false.");
+        }
+
+        var asrSettings = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>();
+        if (!EntryExtends.IsInUnitTests() && asrSettings is { Enabled: true } && (string.IsNullOrEmpty(asrSettings.Endpoint) || string.IsNullOrEmpty(asrSettings.BearerToken)))
+        {
+            throw new InvalidOperationException("ASR is enabled but Endpoint or BearerToken is not configured in AppSettings:ASR. Please configure them or set Enabled to false.");
         }
 
         // Relational database
@@ -78,6 +85,11 @@ public class Startup : IWebStartup
             var ocrConfig = configuration.GetSection("AppSettings:OCR").Get<OcrSettings>();
             client.Timeout = TimeSpan.FromSeconds(ocrConfig?.TimeoutSeconds ?? 1800);
         });
+        services.AddHttpClient<Services.AsrService>(client =>
+        {
+            var asrConfig = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>();
+            client.Timeout = TimeSpan.FromSeconds(asrConfig?.TimeoutSeconds ?? 1800);
+        });
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job queue
@@ -94,6 +106,9 @@ public class Startup : IWebStartup
 
         var transactionOcrJob = services.RegisterBackgroundJob<Services.BackgroundJobs.TransactionOcrJob>();
         services.RegisterScheduledTask(registration: transactionOcrJob, period: TimeSpan.FromHours(12), startDelay: TimeSpan.FromMinutes(20));
+
+        var audioAsrJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AudioAsrJob>();
+        services.RegisterScheduledTask(registration: audioAsrJob, period: TimeSpan.FromHours(12), startDelay: TimeSpan.FromMinutes(25));
 
         var exportJob = services.RegisterBackgroundJob<Services.BackgroundJobs.ExportJob>();
         services.RegisterScheduledTask(registration: exportJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromSeconds(35));

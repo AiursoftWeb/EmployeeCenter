@@ -1,0 +1,212 @@
+@model Aiursoft.EmployeeCenter.Models.AudioViewModels.TranscriptViewModel
+@using System.Text.Encodings.Web
+@using Aiursoft.EmployeeCenter.Configuration
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@using Microsoft.Extensions.Options
+@inject IOptions<AsrSettings> AsrSettings
+@inject StorageService StorageService
+
+@{
+    var hasTranscript = !string.IsNullOrEmpty(Model.PlainText);
+    var hasFailed = !hasTranscript && Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount;
+    var audioUrl = StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true);
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-12 col-md">
+        <h3 class="mb-1">@Localizer["Meeting Transcript & AI Prep"]</h3>
+        <p class="text-muted mb-2 mb-md-0">
+            <i class="align-middle me-1" data-lucide="mic"></i> @Model.Audio.Name
+        </p>
+    </div>
+    <div class="col-12 col-md-auto mt-2 mt-md-0 text-md-end">
+        <a href="@audioUrl" class="btn btn-light bg-white shadow-sm" target="_blank">
+            <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Download Audio"]
+        </a>
+        @if (Model.Permission == SharePermission.Editable)
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Audio.Id" class="btn btn-outline-primary shadow-sm">
+                <i class="align-middle me-1" data-lucide="edit-2"></i> @Localizer["Edit"]
+            </a>
+        }
+        <a asp-action="Index" class="btn btn-secondary shadow-sm">
+            <i class="align-middle me-1" data-lucide="arrow-left"></i> @Localizer["Back to List"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-8 d-flex">
+        <div class="card flex-fill w-100">
+            <div class="card-header d-flex align-items-center flex-wrap gap-2">
+                <div>
+                    <h5 class="card-title mb-0">@Localizer["Transcribed Text"]</h5>
+                    <small class="text-muted">@Model.Audio.Name</small>
+                </div>
+                @if (hasTranscript)
+                {
+                    <div class="ms-auto d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-secondary" type="button" onclick="copyTranscript(this)" title="@Localizer["Copy to clipboard"]">
+                            <i class="align-middle me-1" data-lucide="copy"></i> @Localizer["Copy"]
+                        </button>
+                        <a href="@Url.Action("Export", new { id = Model.Audio.Id })" class="btn btn-sm btn-outline-primary" title="@Localizer["Export as text file"]">
+                            <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Export .txt"]
+                        </a>
+                        <a href="@Url.Action("RawText", new { id = Model.Audio.Id })" target="_blank" class="btn btn-sm btn-outline-info" title="@Localizer["Raw API endpoint for AI tools"]">
+                            <i class="align-middle me-1" data-lucide="code"></i> @Localizer["AI Raw API"]
+                        </a>
+                        <button class="btn btn-sm btn-warning text-dark fw-bold" type="button" onclick="askAiAboutMeeting()" title="@Localizer["Analyze transcript with AI Assistant"]">
+                            <i class="align-middle me-1" data-lucide="sparkles"></i> @Localizer["Analyze with AI"]
+                        </button>
+                    </div>
+                }
+            </div>
+            <div class="card-body">
+                @if (!hasTranscript)
+                {
+                    <div class="alert @(hasFailed ? "alert-danger" : "alert-info") alert-outline-coloured mb-0" role="alert">
+                        <div class="alert-icon">
+                            <i class="align-middle" data-lucide="@(hasFailed ? "x-circle" : "info")"></i>
+                        </div>
+                        <div class="alert-message">
+                            @if (hasFailed)
+                            {
+                                <strong>@Localizer["Processing Failed"]</strong>
+                                <div class="mt-1">@Localizer["ASR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Audio.AsrAttemptCount]</div>
+                            }
+                            else
+                            {
+                                <strong>@Localizer["Processing"]</strong>
+                                <div class="mt-1">@Localizer["No transcript available for this audio. It might still be processing or failed."]</div>
+                            }
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <pre id="transcript-text" class="bg-light border rounded p-3 mb-0" style="white-space: pre-wrap; max-height: 65vh; overflow-y: auto;">@Model.PlainText</pre>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-xl-4 d-flex">
+        <div class="w-100">
+            <div class="card">
+                <div class="card-header d-flex align-items-center">
+                    <h5 class="card-title mb-0">@Localizer["Audio File"]</h5>
+                    @if (hasTranscript)
+                    {
+                        <span class="badge badge-subtle-success ms-auto"><i class="align-middle me-1" data-lucide="check"></i>@Localizer["Transcribed"]</span>
+                    }
+                    else if (hasFailed)
+                    {
+                        <span class="badge badge-subtle-danger ms-auto"><i class="align-middle me-1" data-lucide="x-circle"></i>@Localizer["Failed"]</span>
+                    }
+                    else if (Model.Audio.AsrAttemptCount > 0)
+                    {
+                        <span class="badge badge-subtle-warning ms-auto"><i class="align-middle me-1" data-lucide="loader"></i>@Localizer["Processing"]</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-subtle-secondary ms-auto"><i class="align-middle me-1" data-lucide="clock"></i>@Localizer["Pending"]</span>
+                    }
+                </div>
+                <div class="card-body">
+                    <audio controls preload="metadata" class="w-100">
+                        <source src="@audioUrl" type="audio/mpeg">
+                        @Localizer["Your browser does not support audio playback."]
+                    </audio>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Status Info"]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">@Localizer["Attempt Count"]</span>
+                        <span class="fw-semibold">@Model.Audio.AsrAttemptCount / @AsrSettings.Value.AsrMaxRetryCount</span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted">@Localizer["Last Attempt"]</span>
+                        <span class="text-end">
+                            @if (Model.Audio.LastAsrAttemptTime.HasValue)
+                            {
+                                <label data-utc-time="@Model.Audio.LastAsrAttemptTime.Value.ToHtmlDateTime()"></label>
+                            }
+                            else
+                            {
+                                @Localizer["Never"]
+                            }
+                        </span>
+                    </div>
+                </div>
+                @if (Model.CanManageShares)
+                {
+                    <div class="card-footer">
+                        <form asp-action="ResetAsr" method="post" class="d-grid">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.Audio.Id" />
+                            <button type="submit" class="btn btn-warning">
+                                <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Reset & Retry ASR"]
+                            </button>
+                        </form>
+                    </div>
+                }
+            </div>
+
+            @if (Model.CanManageShares)
+            {
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">@Localizer["Sharing"]</h5>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="SetViewScope" method="post" class="mb-3">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.Audio.Id" />
+                            <label class="form-label">@Localizer["View Scope"]</label>
+                            <select name="viewScope" class="form-select mb-2">
+                                <option value="0" selected="@(Model.Audio.ViewScope == AudioViewScope.Private)">@Localizer["Only me (Private)"]</option>
+                                <option value="1" selected="@(Model.Audio.ViewScope == AudioViewScope.Department)">@Localizer["My department"]</option>
+                                <option value="2" selected="@(Model.Audio.ViewScope == AudioViewScope.Public)">@Localizer["Everyone (CanViewAudio)"]</option>
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-primary w-100">@Localizer["Save Scope"]</button>
+                        </form>
+                        <a asp-action="ManageShares" asp-route-id="@Model.Audio.Id" class="btn btn-sm btn-outline-secondary w-100">
+                            <i class="align-middle me-1" data-lucide="share-2"></i> @Localizer["Manage Shares"]
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        function copyTranscript(button) {
+            const text = document.getElementById('transcript-text')?.innerText;
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                const original = button.innerHTML;
+                button.innerHTML = '<i class="align-middle me-1" data-lucide="check"></i> @Localizer["Copied"]';
+                button.classList.remove('btn-outline-secondary');
+                button.classList.add('btn-success');
+                setTimeout(() => { button.innerHTML = original; button.classList.remove('btn-success'); button.classList.add('btn-outline-secondary'); }, 2000);
+            });
+        }
+
+        function askAiAboutMeeting() {
+            const text = document.getElementById('transcript-text')?.innerText;
+            if (!text) return;
+            
+            const prompt = "Below is the transcript of the meeting recording \"@Html.Raw(JavaScriptEncoder.Default.Encode(Model.Audio.Name))\". Please analyze this transcript and summarize the core meeting topics discussed, the decisions made, and highlight all next action items with assigned tasks if any:\n\n" + text;
+            
+            sessionStorage.setItem('ai_assistant_prompt', prompt);
+            window.location.href = '@Url.Action("Index", "AiAssistant")';
+        }
+    </script>
+}
