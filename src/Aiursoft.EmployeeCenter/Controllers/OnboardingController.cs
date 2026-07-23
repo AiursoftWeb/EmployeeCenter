@@ -38,7 +38,11 @@ public class OnboardingController(
             await context.SaveChangesAsync();
         }
 
-        return Redirect(task.StartLink);
+        // Properly encode non-ASCII characters so the Location header is valid.
+        var encodedUrl = Uri.TryCreate(task.StartLink, UriKind.Absolute, out var uri)
+            ? uri.GetComponents(UriComponents.AbsoluteUri, UriFormat.UriEscaped)
+            : task.StartLink;
+        return Redirect(encodedUrl);
     }
 
     [HttpPost]
