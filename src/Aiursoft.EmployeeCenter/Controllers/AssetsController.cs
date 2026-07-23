@@ -363,7 +363,11 @@ public class AssetsController(
         if (asset == null || string.IsNullOrWhiteSpace(asset.InvoiceFileUrl))
             return NotFound();
 
-        return Redirect(asset.InvoiceFileUrl);
+        // Properly encode non-ASCII characters so the Location header is valid.
+        var encodedUrl = Uri.TryCreate(asset.InvoiceFileUrl, UriKind.Absolute, out var uri)
+            ? uri.GetComponents(UriComponents.AbsoluteUri, UriFormat.UriEscaped)
+            : asset.InvoiceFileUrl;
+        return Redirect(encodedUrl);
     }
 
     [HttpGet]
