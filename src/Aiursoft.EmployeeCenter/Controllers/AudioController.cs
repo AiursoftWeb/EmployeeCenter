@@ -310,7 +310,7 @@ public class AudioController(
         if (audio == null) return NotFound();
         if (!await CanManageAudioAsync(audio)) return Unauthorized();
 
-        var targetCount = new[] { model.TargetUserId, model.TargetRoleId }.Count(id => !string.IsNullOrWhiteSpace(id));
+        var targetCount = new[] { model.TargetUserId, model.TargetRoleId }.Count(targetId => !string.IsNullOrWhiteSpace(targetId));
         if (targetCount != 1)
         {
             return RedirectToAction(nameof(ManageShares), new { id, error = "invalid" });

@@ -1,4 +1,3 @@
-@using Aiursoft.EmployeeCenter.Entities
 @using Aiursoft.EmployeeCenter.Models.AudioViewModels
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @model ManageSharesViewModel
@@ -161,7 +160,7 @@
                                         {
                                             <div class="d-flex align-items-center">
                                                 <a asp-controller="Users" asp-action="Details" asp-route-id="@share.SharedWithUserId" class="text-body d-flex align-items-center">
-                                                    <img src="@(StorageService.RelativePathToInternetUrl(share.SharedWithUser.AvatarRelativePath))?w=128&square=true" alt="Avatar" class="rounded-circle me-2" style="width: 32px; height: 32px; object-fit: cover;">
+                                                    <img src="@(StorageService.RelativePathToInternetUrl(share.SharedWithUser!.AvatarRelativePath))?w=128&square=true" alt="Avatar" class="rounded-circle me-2" style="width: 32px; height: 32px; object-fit: cover;">
                                                     <span>@share.SharedWithUser.DisplayName</span>
                                                 </a>
                                             </div>

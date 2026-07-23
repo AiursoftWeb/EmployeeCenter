@@ -1,19 +1,14 @@
 @model Aiursoft.EmployeeCenter.Models.AudioViewModels.TranscriptViewModel
 @using System.Text.Encodings.Web
-@using Aiursoft.EmployeeCenter.Authorization
 @using Aiursoft.EmployeeCenter.Configuration
-@using Aiursoft.EmployeeCenter.Entities
 @using Aiursoft.EmployeeCenter.Services.FileStorage
-@using Microsoft.AspNetCore.Authorization
 @using Microsoft.Extensions.Options
 @inject IOptions<AsrSettings> AsrSettings
-@inject IAuthorizationService AuthorizationService
 @inject StorageService StorageService
 
 @{
     var hasTranscript = !string.IsNullOrEmpty(Model.PlainText);
     var hasFailed = !hasTranscript && Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount;
-    var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
     var audioUrl = StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true);
 }
 
@@ -189,6 +184,7 @@
     </div>
 </div>
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script>
         function copyTranscript(button) {
