@@ -257,6 +257,13 @@ public class ViewModelArgsInjector(
         _ = localizer["Transactions"];
     
         _ = localizer["Import Contracts from Zip"];
+    
+        _ = localizer["Audio"];
+        _ = localizer["Edit Meeting Recording"];
+        _ = localizer["Manage Audio Shares"];
+        _ = localizer["Meeting Transcript"];
+        _ = localizer["Meeting Transcripts"];
+        _ = localizer["Upload Audio"];
     }
 
     public void InjectSimple(
