@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Brugeren kan indsende ansøgninger om refusion af udgifter.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Tillader upload, sletning af mødeoptagelser og genstart af tale-til-tekst-transskription.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Tillader visning af alle virksomhedskontrakter, herunder de, der er markeret som private.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Tillader visning og ændring af globale programindstillinger.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Gør det muligt at se mødeudskrifter og lytte til eller læse udskrifter af optagelser.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Giver mulighed for at se systemniveauoplysninger og -indstillinger.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Administrer markedskanaler</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Administrer mødeudskrifter</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Håndtér påbegyndelsesopgaver</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Vis kontrakthistorik</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Vis mødeprotokoller</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Se Rapportlinje</value>

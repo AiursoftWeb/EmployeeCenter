@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>उपयोगकर्ता को अपने व्यय के लिए वापसी की मांगें जमा करने की अनुमति देता है।</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>मीटिंग रिकॉर्डिंग अपलोड करने, हटाने और स्पीच-टू-टेक्स्ट ट्रांसक्रिप्शन को फिर से ट्रिगर करने की अनुमति देता है।</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>सभी कंपनी के समझौतों को देखने की अनुमति देता है, जिनमें निजी चिह्नित किए गए शामिल हैं।</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>सभी अनुप्रयोग सेटिंग्स के दृश्य एवं संशोधन की अनुमति देता है।</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>मीटिंग के प्रतिलेख देखने और किसी भी रिकॉर्डिंग के प्रतिलेख को सुनने या पढ़ने की अनुमति देता है।</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>सिस्टम-स्तरीय जानकारी और सेटिंग्स देखने की अनुमति देता है।</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>बाजार चैनल प्रबंधित करें</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>मीटिंग ट्रांसक्रिप्ट प्रबंधित करें</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>नए कर्मचारियों के स्वागत के कार्यों का प्रबंधन करें</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>कॉन्ट्रैक्ट इतिहास देखें</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>मीटिंग ट्रांसक्रिप्ट देखें</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>रिपोर्ट लाइन देखें</value>

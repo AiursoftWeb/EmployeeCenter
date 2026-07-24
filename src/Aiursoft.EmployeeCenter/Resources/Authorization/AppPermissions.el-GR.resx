@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Επιτρέπει στον χρήστη να υποβάλλει αιτήματα επιστροφής δαπανών για τις δαπάνες του.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Επιτρέπει την ανάρτηση, τη διαγραφή ηχογραφήσεων συνεδριάσεων και την επαναφορά της μετάφρασης ομιλίας σε κείμενο.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Επιτρέπει την προβολή όλων των συμβάσεων της εταιρείας, συμπεριλαμβανομένων εκείνων που έχουν σημειωθεί ως ιδιωτικές.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Επιτρέπει την προβολή και την τροποποίηση των γενικών ρυθμίσεων της εφαρμογής.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Επιτρέπει την προβολή μεταγραφών συναντήσεων και την ακρόαση ή ανάγνωση μεταγραφών οποιασδήποτε ηχογράφησης.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Επιτρέπει την προβολή πληροφοριών και ρυθμίσεων σε επίπεδο συστήματος.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Διαχείριση Καναλιών Αγοράς</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Διαχείριση μεταγραφών συνεδριάσεων</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Διαχείριση Εργασιών Εγγραφής</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Προβολή Ιστορικού Συμβάσεων</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Προβολή μεταγραφών συνεδριάσεων</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Προβολή Γραμμής Αναφοράς</value>

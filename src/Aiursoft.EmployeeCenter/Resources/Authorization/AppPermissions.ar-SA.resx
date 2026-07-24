@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>يسمح للمستخدم بتقديم طلبات استرداد المصروفات الخاصة به.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>يتيح تحميل مسجلات الاجتماعات وحذفها وإعادة تشغيل عملية تحويل الكلام إلى نص.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>يُمكّن من عرض جميع عقود الشركة، بما في ذلك تلك التي تم تحديدها على أنها خاصة.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>يسمح بعرض إعدادات التطبيق العالمية وتعديلها.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>يسمح بعرض نصوص الاجتماعات والاستماع إليها أو قراءة نصوص أي تسجيل.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>يسمح بعرض معلومات وإعدادات على مستوى النظام.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>إدارة قنوات السوق</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>إدارة محاضر الاجتماعات</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>إدارة مهام توظيف الموظفين الجدد</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>عرض سجل العقود</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>عرض محاضر الاجتماعات</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>عرض خط التقارير</value>

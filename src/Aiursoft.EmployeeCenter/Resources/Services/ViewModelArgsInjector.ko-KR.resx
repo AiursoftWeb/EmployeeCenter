@@ -96,6 +96,9 @@
   <data name="Assign Asset" xml:space="preserve">
     <value>자산 할당</value>
   </data>
+  <data name="Audio" xml:space="preserve">
+    <value>오디오</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>백그라운드 작업</value>
   </data>
@@ -306,6 +309,9 @@
   <data name="Edit Folder" xml:space="preserve">
     <value>폴더 편집</value>
   </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>회의 녹음 편집</value>
+  </data>
   <data name="Edit Onboarding Task" xml:space="preserve">
     <value>온보딩 작업 수정</value>
   </data>
@@ -465,6 +471,9 @@
   <data name="Manage Assets" xml:space="preserve">
     <value>자산 관리</value>
   </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>오디오 공유 관리</value>
+  </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>블루프린트 관리</value>
   </data>
@@ -539,6 +548,12 @@
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>시장 채널</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>회의 기록</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>회의록</value>
   </data>
   <data name="Missions" xml:space="preserve">
     <value>미션</value>
@@ -755,6 +770,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>권한 없음</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>오디오 업로드</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>사용자 세부 정보</value>

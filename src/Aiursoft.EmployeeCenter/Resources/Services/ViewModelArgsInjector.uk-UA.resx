@@ -93,6 +93,9 @@
   <data name="Assign Asset" xml:space="preserve">
     <value>Призначити актив</value>
   </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Аудіо</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Фонові завдання</value>
   </data>
@@ -303,6 +306,9 @@
   <data name="Edit Folder" xml:space="preserve">
     <value>Редагувати папку</value>
   </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Редагувати запис зустрічі</value>
+  </data>
   <data name="Edit Onboarding Task" xml:space="preserve">
     <value>Редагувати завдання ознайомлення</value>
   </data>
@@ -462,6 +468,9 @@
   <data name="Manage Assets" xml:space="preserve">
     <value>Керування активами</value>
   </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Керування спільним доступом до аудіо</value>
+  </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Керування макетами</value>
   </data>
@@ -536,6 +545,12 @@
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>Ринкові канали</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Текст зустрічі</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Стенограми зустрічей</value>
   </data>
   <data name="Missions" xml:space="preserve">
     <value>Місії</value>
@@ -752,6 +767,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Неавторизовано</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Завантажити аудіо</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Деталі користувача</value>

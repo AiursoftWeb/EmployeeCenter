@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Käyttäjä voi jättää korvauspyyntöjä menoistaan.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Mahdollistaa kokousnauhojen lataamisen, poistamisen ja puheesta tekstiksi -muunnoksen uudelleen aloittamisen.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Sallii kaikkien yrityksen sopimusten tarkastelun, mukaan lukien ne, jotka on merkitty yksityisiksi.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Salli globaalien sovellusasetusten tarkastelun ja muokkaamisen.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Mahdollistaa kokouspöytäkirjojen katselun sekä minkä tahansa tallenteen pöytäkirjojen kuuntelun tai lukemisen.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Mahdollistaa järjestelmätason tietojen ja asetusten tarkastelemisen.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Hallinnoi markkinakanavia</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Hallinnoi kokousmuistioita</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Hallinnoi rekrytoinnin tehtäviä</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Näytä sopimushistoria</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Näytä kokousten pöytäkirjat</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Näytä raporttirivi</value>

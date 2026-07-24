@@ -135,6 +135,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>允許用戶提交其費用的報銷申請。</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>允許上傳及刪除會議錄音，並重新觸發語音轉文字功能。</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>允許查看公司的所有合約，包括標記為私密的合約。</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>允許檢視及修改應用程式的全域設定。</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>允許查看會議記錄，並聆聽或閱讀任何錄音的文字稿。</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>容許檢視系統級別的資訊及設定。</value>
@@ -261,6 +267,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>管理市場渠道</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>管理會議記錄</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>管理入職流程任務</value>
   </data>
@@ -305,6 +314,9 @@
   </data>
   <data name="View Collection Channels" xml:space="preserve">
     <value>查看收款渠道</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>檢視會議文字紀錄</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>查看匯報線</value>
