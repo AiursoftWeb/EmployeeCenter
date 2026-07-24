@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Autorise l&apos;utilisateur à soumettre des demandes de remboursement pour ses frais.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Permet de télécharger et supprimer les enregistrements de réunion, ainsi que de relancer la transcription automatique de la parole en texte.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Permet de visualiser tous les contrats de l&apos;entreprise, y compris ceux marqués comme privés.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Permet de visualiser et de modifier les paramètres globaux de l&apos;application.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Permet de consulter les transcriptions de réunions et d&apos;écouter ou de lire les transcriptions de tout enregistrement.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Permet de visualiser les informations et paramètres au niveau du système.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Gérer les canaux de marché</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Gérer les transcriptions de réunions</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Gérer les tâches d&apos;intégration</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Visualiser l&apos;historique des contrats</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Afficher les transcriptions de réunions</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Afficher la ligne de reporting</value>

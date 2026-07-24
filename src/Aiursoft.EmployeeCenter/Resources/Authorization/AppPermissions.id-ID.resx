@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Memungkinkan pengguna mengajukan permintaan penggantian biaya untuk pengeluaran mereka.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Memungkinkan mengunggah, menghapus rekaman rapat, dan memicu ulang transkripsi suara-ke-teks.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Memungkinkan melihat semua kontrak perusahaan, termasuk yang ditandai sebagai pribadi.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Memungkinkan melihat dan mengubah pengaturan aplikasi global.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Memungkinkan melihat transkrip rapat dan mendengarkan atau membaca transkrip dari rekaman apa pun.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Memungkinkan melihat informasi dan pengaturan tingkat sistem.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Kelola Saluran Pasar</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Kelola Transkrip Rapat</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Kelola Tugas Onboarding</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Lihat Riwayat Kontrak</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Lihat Transkrip Rapat</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Lihat Laporan Baris</value>

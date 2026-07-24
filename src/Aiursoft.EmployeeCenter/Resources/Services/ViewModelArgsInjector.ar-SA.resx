@@ -93,6 +93,9 @@
   <data name="Assign Asset" xml:space="preserve">
     <value>تعيين الأصل</value>
   </data>
+  <data name="Audio" xml:space="preserve">
+    <value>صوت</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>المهام الخلفية</value>
   </data>
@@ -303,6 +306,9 @@
   <data name="Edit Folder" xml:space="preserve">
     <value>تحرير المجلد</value>
   </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>تعديل تسجيل الاجتماع</value>
+  </data>
   <data name="Edit Onboarding Task" xml:space="preserve">
     <value>تحرير مهمة التسجيل</value>
   </data>
@@ -462,6 +468,9 @@
   <data name="Manage Assets" xml:space="preserve">
     <value>إدارة الأصول</value>
   </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>إدارة مشاركات الصوت</value>
+  </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>إدارة النماذج</value>
   </data>
@@ -536,6 +545,12 @@
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>قنوات السوق</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>نص الاجتماع</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>نصوص الاجتماعات</value>
   </data>
   <data name="Missions" xml:space="preserve">
     <value>مهمات</value>
@@ -752,6 +767,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>غير مصرح</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>تحميل الصوت</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>تفاصيل المستخدم</value>

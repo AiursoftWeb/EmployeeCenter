@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Staat de gebruiker toe om vergoedingsaanvragen voor hun uitgaven in te dienen.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Staat het uploaden en verwijderen van vergaderopnames toe, en het opnieuw starten van spraak-naar-tekst-transcriptie.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Staats het bekijken van alle bedrijfscontracten, inclusief die die als privé zijn gemarkeerd.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Staat het bekijken en bewerken van globale toepassingsinstellingen toe.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Staart het bekijken van vergadertranscripties en het luisteren naar of lezen van transcripties van elke opname toe.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Staat het bekijken van systeeminformatie en -instellingen toe.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Marktkanalen beheren</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Vergadertranscripties beheren</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Onboardingtaken beheren</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Contractgeschiedenis weergeven</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Vergadertranscripties bekijken</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Bekijk rapportlijn</value>

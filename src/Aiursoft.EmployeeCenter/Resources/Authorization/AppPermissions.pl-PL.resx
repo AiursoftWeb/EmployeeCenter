@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Umożliwia użytkownikowi składanie wniosków o zwrot wydatków.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Umożliwia przesyłanie, usuwanie nagrań spotkań oraz ponowne uruchamianie transkrypcji mowy na tekst.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Zezwala na przeglądanie wszystkich umów firmowych, w tym tych oznaczonych jako prywatne.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Umożliwia przeglądanie i modyfikowanie globalnych ustawień aplikacji.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Umożliwia przeglądanie transkrypcji spotkań oraz słuchanie lub czytanie transkrypcji dowolnych nagrań.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Pozwala na przeglądanie informacji i ustawień na poziomie systemu.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Zarządzaj kanałami rynkowymi</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Zarządzaj transkryptami spotkań</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Zarządzaj zadaniami onboardingu</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Wyświetl historię umów</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Przeglądaj transkrypcje spotkań</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Wyświetl linię raportową</value>

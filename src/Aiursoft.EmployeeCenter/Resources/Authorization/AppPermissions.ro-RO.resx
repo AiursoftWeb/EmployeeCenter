@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Permite utilizatorului să depună cereri de decontare pentru cheltuielile sale.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Permite încărcarea și ștergerea înregistrărilor de întâlniri, precum și reactivarea transcrierii vocal-text.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Permite vizualizarea tuturor contractelor companiei, inclusiv a celor marcate ca private.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Permite vizualizarea și modificarea setărilor globale ale aplicației.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Permite vizualizarea transcrierilor ședințelor și ascultarea sau citirea transcrierilor oricărei înregistrări.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Permite vizualizarea informațiilor și setărilor la nivel de sistem.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Gestionează canalele de piață</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Gestionează transcrierile ședințelor</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Gestionează sarcinile de integrare</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Vizualizează istoricul contractelor</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Vizualizare transcrieri ședințe</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Vizualizează Linia de Raport</value>

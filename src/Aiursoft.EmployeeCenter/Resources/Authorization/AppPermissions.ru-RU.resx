@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Позволяет пользователю подавать заявки на возмещение расходов.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Позволяет загружать и удалять записи встреч, а также повторно запускать транскрибацию речи в текст.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Позволяет просматривать все корпоративные контракты, включая те, которые помечены как приватные.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Позволяет просматривать и изменять глобальные параметры приложения.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Позволяет просматривать расшифровки встреч, а также слушать или читать расшифровки любых записей.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Разрешает просмотр системной информации и настроек.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Управление каналами продаж</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Управление стенограммами встреч</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Управление задачами наboarding</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Просмотр истории контрактов</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Просмотр стенограмм встреч</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Просмотр линии отчетности</value>

@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>사용자가 자신의 지출에 대한 환급 요청을 제출할 수 있도록 합니다.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>미팅 녹음 파일 업로드, 삭제 및 음성-텍스트 변환 다시 실행을 허용합니다.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>모든 회사 계약서를 포함하여 비공개로 표시된 계약서도 볼 수 있도록 허용합니다.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>전역 애플리케이션 설정을 확인하고 수정할 수 있습니다.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>회의록을 görüntü하고 녹음 파일의 내용을 듣거나 읽을 수 있습니다.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>시스템 수준 정보 및 설정을 볼 수 있습니다.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>마켓 채널 관리</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>회의 기록 관리</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>온보딩 작업 관리</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>계약 이력 보기</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>회의록 보기</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>보고선 보기</value>

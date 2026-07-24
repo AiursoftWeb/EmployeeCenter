@@ -96,6 +96,9 @@
   <data name="Assign Asset" xml:space="preserve">
     <value>分配资产</value>
   </data>
+  <data name="Audio" xml:space="preserve">
+    <value>音频</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>后台任务</value>
   </data>
@@ -309,6 +312,9 @@
   <data name="Edit Folder" xml:space="preserve">
     <value>编辑文件夹</value>
   </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>编辑会议录音</value>
+  </data>
   <data name="Edit Onboarding Task" xml:space="preserve">
     <value>编辑入职任务</value>
   </data>
@@ -468,6 +474,9 @@
   <data name="Manage Assets" xml:space="preserve">
     <value>管理资产</value>
   </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>管理音频共享</value>
+  </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>管理蓝图</value>
   </data>
@@ -545,6 +554,12 @@
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>市场渠道</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>会议记录</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>会议记录</value>
   </data>
   <data name="Missions" xml:space="preserve">
     <value>任务</value>
@@ -761,6 +776,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>未授权</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>上传音频</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>用户详情</value>

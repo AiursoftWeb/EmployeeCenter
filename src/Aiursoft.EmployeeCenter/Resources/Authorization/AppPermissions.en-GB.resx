@@ -132,6 +132,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Allows the user to submit reimbursement requests for their expenses.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Allows uploading and deleting meeting recordings, and re-triggering speech-to-text transcription.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Allows viewing all company contracts, including those marked as private.</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Allows viewing and modifying global application settings.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Allows viewing meeting transcripts and listening to or reading transcripts of any recording.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Allows viewing system-level information and settings.</value>
@@ -249,6 +255,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Manage Market Channels</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Manage Meeting Transcripts</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Manage Onboarding Tasks</value>
   </data>
@@ -293,6 +302,9 @@
   </data>
   <data name="View Collection Channels" xml:space="preserve">
     <value>View Collection Channels</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>View Meeting Transcripts</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>View Report Line</value>

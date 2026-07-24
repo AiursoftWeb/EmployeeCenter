@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Cho phép người dùng gửi yêu cầu hoàn trả chi phí cho các khoản chi tiêu của họ.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Cho phép tải lên, xóa bản ghi âm cuộc họp và kích hoạt lại quá trình chuyển đổi giọng nói sang văn bản.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Cho phép xem tất cả hợp đồng công ty, bao gồm cả những hợp đồng được đánh dấu là riêng tư.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Cho phép xem và chỉnh sửa cài đặt ứng dụng toàn cục.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Cho phép xem bản ghi cuộc họp và nghe hoặc đọc bản ghi của bất kỳ bản ghi âm nào.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Cho phép xem thông tin và cài đặt ở cấp hệ thống.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Quản lý Kênh Thị trường</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Quản lý Bản ghi Cuộc họp</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Quản lý Nhiệm vụ Đào tạo Nhân viên Mới</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Xem lịch sử hợp đồng</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Xem bản ghi cuộc họp</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Xem Dòng Báo Cáo</value>

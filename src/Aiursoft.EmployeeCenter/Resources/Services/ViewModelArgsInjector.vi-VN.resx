@@ -96,6 +96,9 @@
   <data name="Assign Asset" xml:space="preserve">
     <value>Gán Tài sản</value>
   </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Âm thanh</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Công việc nền</value>
   </data>
@@ -306,6 +309,9 @@
   <data name="Edit Folder" xml:space="preserve">
     <value>Sửa thư mục</value>
   </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Chỉnh sửa bản ghi cuộc họp</value>
+  </data>
   <data name="Edit Onboarding Task" xml:space="preserve">
     <value>Chỉnh sửa Nhiệm vụ Đào tạo</value>
   </data>
@@ -465,6 +471,9 @@
   <data name="Manage Assets" xml:space="preserve">
     <value>Quản lý Tài sản</value>
   </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Quản lý chia sẻ âm thanh</value>
+  </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Quản lý Bản vẽ</value>
   </data>
@@ -539,6 +548,12 @@
   </data>
   <data name="Market Channels" xml:space="preserve">
     <value>Kênh thị trường</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Bản ghi cuộc họp</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Biên bản cuộc họp</value>
   </data>
   <data name="Missions" xml:space="preserve">
     <value>Nhiệm vụ</value>
@@ -755,6 +770,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Không được ủy quyền</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Tải lên âm thanh</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Thông tin người dùng</value>

@@ -138,6 +138,9 @@
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Kullanıcının giderleri için geri ödeme taleplerini sunmasına olanak tanır.</value>
   </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Toplantı kayıtlarını yükleme, silme ve konuşmadan metne dönüştürmeyi yeniden tetikleme izni verir.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Tüm şirket sözleşmelerinin, özel olarak işaretlenmiş olanların da dahil olmak üzere görüntülenmesine izin verir.</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Genel uygulama ayarlarını görüntüleme ve değiştirme izni verir.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Toplantı metinlerini görüntülemeye ve herhangi bir kayıtlı ses dosyasının transkriptini dinleme veya okuma izni verir.</value>
   </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Sistem düzeyindeki bilgileri ve ayarları görüntülemeye izin verir.</value>
@@ -270,6 +276,9 @@
   <data name="Manage Market Channels" xml:space="preserve">
     <value>Pazar Kanallarını Yönet</value>
   </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Toplantı Metinlerini Yönet</value>
+  </data>
   <data name="Manage Onboarding Tasks" xml:space="preserve">
     <value>Yeni Başlayanları Yönet</value>
   </data>
@@ -317,6 +326,9 @@
   </data>
   <data name="View Contract History" xml:space="preserve">
     <value>Sözleşme Geçmişi Görüntüle</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Toplantı Metinlerini Görüntüle</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Raporlama Hattını Görüntüle</value>
