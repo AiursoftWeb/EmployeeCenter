@@ -12,13 +12,21 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Department",
-                table: "AspNetUsers",
-                type: "varchar(100)",
-                maxLength: 100,
-                nullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4");
+            // Add Department column only if it does not already exist.
+            // (The deleted 20260721170640_AddAudioSharingAndUserDepartment may have
+            //  already added this column on databases that deployed that migration.)
+            migrationBuilder.Sql(@"SET @col_exists = (
+                SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS
+                WHERE TABLE_SCHEMA = DATABASE()
+                AND TABLE_NAME = 'AspNetUsers'
+                AND COLUMN_NAME = 'Department'
+            );
+            SET @stmt = IF(@col_exists = 0,
+                'ALTER TABLE `AspNetUsers` ADD `Department` varchar(100) CHARACTER SET utf8mb4 NULL',
+                'SELECT 1');
+            PREPARE stmt FROM @stmt;
+            EXECUTE stmt;
+            DEALLOCATE PREPARE stmt;");
 
             migrationBuilder.CreateTable(
                 name: "Audios",
@@ -152,9 +160,19 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
             migrationBuilder.DropTable(
                 name: "Audios");
 
-            migrationBuilder.DropColumn(
-                name: "Department",
-                table: "AspNetUsers");
+            // Drop Department column only if it still exists.
+            migrationBuilder.Sql(@"SET @col_exists = (
+                SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS
+                WHERE TABLE_SCHEMA = DATABASE()
+                AND TABLE_NAME = 'AspNetUsers'
+                AND COLUMN_NAME = 'Department'
+            );
+            SET @stmt = IF(@col_exists > 0,
+                'ALTER TABLE `AspNetUsers` DROP COLUMN `Department`',
+                'SELECT 1');
+            PREPARE stmt FROM @stmt;
+            EXECUTE stmt;
+            DEALLOCATE PREPARE stmt;");
         }
     }
 }
