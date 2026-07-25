@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI Raw API" xml:space="preserve">
+    <value>AI 原始 API</value>
+  </data>
+  <data name="Analyze transcript with AI Assistant" xml:space="preserve">
+    <value>使用 AI 助理分析轉錄文字</value>
+  </data>
+  <data name="Analyze with AI" xml:space="preserve">
+    <value>使用 AI 分析</value>
+  </data>
+  <data name="Attempt Count" xml:space="preserve">
+    <value>嘗試次數</value>
+  </data>
+  <data name="Audio File" xml:space="preserve">
+    <value>音訊檔案</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>返回列表</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>已複製</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="Copy to clipboard" xml:space="preserve">
+    <value>複製到剪貼簿</value>
+  </data>
+  <data name="Download Audio" xml:space="preserve">
+    <value>下載音訊</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="Everyone (CanViewAudio)" xml:space="preserve">
+    <value>所有人 (可查看音訊)</value>
+  </data>
+  <data name="Export .txt" xml:space="preserve">
+    <value>匯出 .txt</value>
+  </data>
+  <data name="Export as text file" xml:space="preserve">
+    <value>匯出為文字檔案</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>失敗</value>
+  </data>
+  <data name="Last Attempt" xml:space="preserve">
+    <value>上次嘗試時間</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>管理分享</value>
+  </data>
+  <data name="Meeting Transcript &amp; AI Prep" xml:space="preserve">
+    <value>會議紀錄與 AI 準備</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>我的部門</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>從未</value>
+  </data>
+  <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
+    <value>此音訊目前無轉錄文字。可能仍在處理中或已失敗。</value>
+  </data>
+  <data name="Only me (Private)" xml:space="preserve">
+    <value>僅限我自己（私密）</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>待處理</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>處理中</value>
+  </data>
+  <data name="Processing Failed" xml:space="preserve">
+    <value>處理失敗</value>
+  </data>
+  <data name="Raw API endpoint for AI tools" xml:space="preserve">
+    <value>AI 工具的原始 API 端點</value>
+  </data>
+  <data name="Reset &amp; Retry ASR" xml:space="preserve">
+    <value>重設並重試 ASR</value>
+  </data>
+  <data name="Save Scope" xml:space="preserve">
+    <value>儲存範圍</value>
+  </data>
+  <data name="Sharing" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="Status Info" xml:space="preserve">
+    <value>狀態資訊</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>已轉錄</value>
+  </data>
+  <data name="Transcribed Text" xml:space="preserve">
+    <value>轉錄文字</value>
+  </data>
+  <data name="View Scope" xml:space="preserve">
+    <value>檢視範圍</value>
+  </data>
+  <data name="Your browser does not support audio playback." xml:space="preserve">
+    <value>您的瀏覽器不支援音訊播放。</value>
+  </data>
+
+</root>
