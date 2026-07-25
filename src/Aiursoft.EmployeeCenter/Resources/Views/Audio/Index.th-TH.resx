@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>รายการบันทึกเสียงการประชุม คำบรรยาย และสถานะการประมวลผลของ AI</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>บันทึกการประชุมที่อัปโหลดทั้งหมด</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการลบบันทึกการประชุมนี้?</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>สถานะ ASR</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>รอการจดจำเสียงพูด</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>เวลาสร้าง</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>แผนก</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>ว่างเปล่า</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>บันทึกการประชุม</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>บันทึกข้อความการประชุม</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>ถัดไป</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>ยังไม่มีบันทึกการประชุม</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>รอดำเนินการ</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>ก่อนหน้า</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>ส่วนตัว</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>กำลังประมวลผล</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>สาธารณะ</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>กำลังจดจำเสียงอยู่</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>การแปลงเสียงเป็นข้อความเสร็จสิ้นแล้ว</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>จำนวนการประชุมทั้งหมด</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>ถอดเสียงแล้ว</value>
+  </data>
+  <data name="Transcript &amp; AI" xml:space="preserve">
+    <value>บทสรุปและ AI</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>อัปโหลดการบันทึกการประชุม</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>อัปโหลดการบันทึกการประชุมครั้งแรกของคุณเพื่อถอดเสียงและวิเคราะห์ด้วย AI</value>
+  </data>
+
+</root>

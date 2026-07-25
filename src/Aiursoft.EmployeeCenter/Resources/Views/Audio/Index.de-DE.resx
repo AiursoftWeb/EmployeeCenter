@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>Eine Liste von Tonaufzeichnungen von Besprechungen, Transkripten und KI-Verarbeitungsstatuswerten.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Aktionen</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>Alle hochgeladenen Meeting-Aufzeichnungen</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie diese Meeting-Aufzeichnung löschen möchten?</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>ASR-Status</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>Warten auf Erkennung</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Erstellungszeit</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Abteilung</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Leer</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>Meeting-Aufzeichnungen</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Besprechungsprotokolle</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Weiter</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>Noch keine Meeting-Aufzeichnungen vorhanden</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Ausstehend</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Vorherige</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Verarbeitung</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Öffentlich</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>Erkennung läuft</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>Sprach-zu-Text abgeschlossen</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>Gesamtbesprechungen</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>Transkribiert</value>
+  </data>
+  <data name="Transcript &amp; AI" xml:space="preserve">
+    <value>Transkript &amp; KI</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Sitzungsaufnahme hochladen</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>Laden Sie Ihre erste Meeting-Aufnahme hoch, um sie mit KI transkribieren und analysieren zu lassen.</value>
+  </data>
+
+</root>
