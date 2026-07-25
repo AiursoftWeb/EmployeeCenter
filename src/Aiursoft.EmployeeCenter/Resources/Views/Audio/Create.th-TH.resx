@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>เช่น การบันทึกการประชุม 2024-01-01</value>
+  </data>
+  <data name="Everyone (CanViewAudio)" xml:space="preserve">
+    <value>ทุกคน (CanViewAudio)</value>
+  </data>
+  <data name="Meeting Audio File" xml:space="preserve">
+    <value>ไฟล์เสียงการประชุม</value>
+  </data>
+  <data name="Meeting Recording Details" xml:space="preserve">
+    <value>รายละเอียดการบันทึกการประชุม</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>แผนกของฉัน</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="Only me (Private)" xml:space="preserve">
+    <value>เฉพาะฉัน (ส่วนตัว)</value>
+  </data>
+  <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
+    <value>อัปโหลดไฟล์บันทึกการประชุม ระบบจะแปลงเสียงเป็นข้อความอัตโนมัติ พร้อมสำหรับการจัดเก็บและวิเคราะห์ด้วย AI ในขั้นตอนต่อไป</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>อัปโหลดไฟล์บันทึกการประชุม</value>
+  </data>
+  <data name="View Scope" xml:space="preserve">
+    <value>ขอบเขตการดู</value>
+  </data>
+  <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
+    <value>ผู้ที่มีสิทธิ์เข้าถึงการบันทึกและคำบรรยายนี้ คุณสามารถปรับเปลี่ยนได้ในภายหลังหรือแชร์กับผู้ใช้/บทบาทเฉพาะได้</value>
+  </data>
+
+</root>
