@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>قائمة بتسجيلات صوتية للاجتماعات والنصوص المكتوبة وحالات المعالجة بالذكاء الاصطناعي.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>جميع تسجيلات الاجتماعات المرفوعة</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد حذف تسجيل الاجتماع هذا؟</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>حالة ASR</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>في انتظار التعرف</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>وقت الإنشاء</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>القسم</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>فارغ</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>تسجيلات الاجتماعات</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>نصوص الاجتماعات</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>لا توجد تسجيلات للاجتماعات بعد</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الانتظار</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>خاص</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>جاري المعالجة</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>عام</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>التعرف قيد التنفيذ</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>تمت عملية تحويل الصوت إلى نص</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>إجمالي الاجتماعات</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>تمت النسخة النصية</value>
+  </data>
+  <data name="Transcript &amp; AI" xml:space="preserve">
+    <value>النص والذكاء الاصطناعي</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>تحميل تسجيل الاجتماع</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>قم بتحميل تسجيل اجتماعك الأول لتحويله إلى نص وتحليله باستخدام الذكاء الاصطناعي.</value>
+  </data>
+
+</root>
