@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI Raw API" xml:space="preserve">
+    <value>AI Raw API</value>
+  </data>
+  <data name="Analyze transcript with AI Assistant" xml:space="preserve">
+    <value>Анализировать транскрипт с помощью ИИ-помощника</value>
+  </data>
+  <data name="Analyze with AI" xml:space="preserve">
+    <value>Анализ с ИИ</value>
+  </data>
+  <data name="Attempt Count" xml:space="preserve">
+    <value>Количество попыток</value>
+  </data>
+  <data name="Audio File" xml:space="preserve">
+    <value>Аудиофайл</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Назад к списку</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Скопировано</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="Copy to clipboard" xml:space="preserve">
+    <value>Копировать в буфер обмена</value>
+  </data>
+  <data name="Download Audio" xml:space="preserve">
+    <value>Скачать аудио</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Everyone (CanViewAudio)" xml:space="preserve">
+    <value>Все (CanViewAudio)</value>
+  </data>
+  <data name="Export .txt" xml:space="preserve">
+    <value>Экспорт .txt</value>
+  </data>
+  <data name="Export as text file" xml:space="preserve">
+    <value>Экспорт в текстовый файл</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Не удалось</value>
+  </data>
+  <data name="Last Attempt" xml:space="preserve">
+    <value>Последняя попытка</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Управление доступом</value>
+  </data>
+  <data name="Meeting Transcript &amp; AI Prep" xml:space="preserve">
+    <value>Транскрипт встречи и подготовка ИИ</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Мое подразделение</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Никогда</value>
+  </data>
+  <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
+    <value>Транскрипция для этого аудиофайла недоступна. Возможно, она всё ещё обрабатывается или обработка не удалась.</value>
+  </data>
+  <data name="Only me (Private)" xml:space="preserve">
+    <value>Только я (Приватно)</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Ожидание</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Обработка</value>
+  </data>
+  <data name="Processing Failed" xml:space="preserve">
+    <value>Обработка не выполнена</value>
+  </data>
+  <data name="Raw API endpoint for AI tools" xml:space="preserve">
+    <value>Необработанный конечный пункт API для ИИ-инструментов</value>
+  </data>
+  <data name="Reset &amp; Retry ASR" xml:space="preserve">
+    <value>Сбросить и повторить ASR</value>
+  </data>
+  <data name="Save Scope" xml:space="preserve">
+    <value>Сохранить область видимости</value>
+  </data>
+  <data name="Sharing" xml:space="preserve">
+    <value>Общий доступ</value>
+  </data>
+  <data name="Status Info" xml:space="preserve">
+    <value>Сведения о состоянии</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>Распознанный</value>
+  </data>
+  <data name="Transcribed Text" xml:space="preserve">
+    <value>Распознанный текст</value>
+  </data>
+  <data name="View Scope" xml:space="preserve">
+    <value>Область видимости</value>
+  </data>
+  <data name="Your browser does not support audio playback." xml:space="preserve">
+    <value>Ваш браузер не поддерживает воспроизведение аудио.</value>
+  </data>
+
+</root>

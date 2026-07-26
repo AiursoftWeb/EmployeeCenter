@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>Список аудиозаписей встреч, расшифровок и статусов обработки ИИ.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>Все загруженные записи встреч</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить эту запись встречи?</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>Статус ASR</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>Ожидание распознавания</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Дата создания</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Отдел</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Пусто</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>Записи встреч</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Транскрипты встреч</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Далее</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>Записей встреч пока нет</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Ожидание обработки</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Личное</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Обработка</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Публичный</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>Распознавание в процессе</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>Распознавание речи завершено</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>Всего встреч</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>Распознано</value>
+  </data>
+  <data name="Transcript &amp; AI" xml:space="preserve">
+    <value>Транскрипт и ИИ</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Загрузить запись встречи</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>Загрузите запись первой встречи для транскрибации и анализа с помощью ИИ.</value>
+  </data>
+
+</root>

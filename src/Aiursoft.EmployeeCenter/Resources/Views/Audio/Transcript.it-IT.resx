@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI Raw API" xml:space="preserve">
+    <value>API grezza per AI</value>
+  </data>
+  <data name="Analyze transcript with AI Assistant" xml:space="preserve">
+    <value>Analizza la trascrizione con l&apos;Assistente AI</value>
+  </data>
+  <data name="Analyze with AI" xml:space="preserve">
+    <value>Analizza con l&apos;IA</value>
+  </data>
+  <data name="Attempt Count" xml:space="preserve">
+    <value>Numero di tentativi</value>
+  </data>
+  <data name="Audio File" xml:space="preserve">
+    <value>File audio</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Torna alla lista</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Copiato</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copia</value>
+  </data>
+  <data name="Copy to clipboard" xml:space="preserve">
+    <value>Copia negli appunti</value>
+  </data>
+  <data name="Download Audio" xml:space="preserve">
+    <value>Scarica audio</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="Everyone (CanViewAudio)" xml:space="preserve">
+    <value>Tutti (CanViewAudio)</value>
+  </data>
+  <data name="Export .txt" xml:space="preserve">
+    <value>Esporta .txt</value>
+  </data>
+  <data name="Export as text file" xml:space="preserve">
+    <value>Esporta come file di testo</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Non riuscito</value>
+  </data>
+  <data name="Last Attempt" xml:space="preserve">
+    <value>Ultimo tentativo</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gestisci condivisioni</value>
+  </data>
+  <data name="Meeting Transcript &amp; AI Prep" xml:space="preserve">
+    <value>Trascrizione riunione e preparazione AI</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Il mio reparto</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Mai</value>
+  </data>
+  <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
+    <value>Nessun trascritto disponibile per questo audio. Potrebbe essere ancora in fase di elaborazione o aver subito un errore.</value>
+  </data>
+  <data name="Only me (Private)" xml:space="preserve">
+    <value>Solo io (Privato)</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>In attesa</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Elaborazione in corso</value>
+  </data>
+  <data name="Processing Failed" xml:space="preserve">
+    <value>Elaborazione non riuscita</value>
+  </data>
+  <data name="Raw API endpoint for AI tools" xml:space="preserve">
+    <value>Endpoint API grezzo per strumenti AI</value>
+  </data>
+  <data name="Reset &amp; Retry ASR" xml:space="preserve">
+    <value>Reimposta e riprova ASR</value>
+  </data>
+  <data name="Save Scope" xml:space="preserve">
+    <value>Salva ambito di visualizzazione</value>
+  </data>
+  <data name="Sharing" xml:space="preserve">
+    <value>Condivisione</value>
+  </data>
+  <data name="Status Info" xml:space="preserve">
+    <value>Info stato</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>Trascritto</value>
+  </data>
+  <data name="Transcribed Text" xml:space="preserve">
+    <value>Testo trascritto</value>
+  </data>
+  <data name="View Scope" xml:space="preserve">
+    <value>Ambito di visualizzazione</value>
+  </data>
+  <data name="Your browser does not support audio playback." xml:space="preserve">
+    <value>Il tuo browser non supporta la riproduzione audio.</value>
+  </data>
+
+</root>
