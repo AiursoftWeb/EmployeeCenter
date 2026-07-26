@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Adaugă</value>
+  </data>
+  <data name="Add New Share" xml:space="preserve">
+    <value>Adăugare nouă partajare</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>A apărut o eroare în timpul procesării solicitării dvs.</value>
+  </data>
+  <data name="Are you sure you want to remove this share?" xml:space="preserve">
+    <value>Sunteți sigur că doriți să eliminați acest partaj?</value>
+  </data>
+  <data name="Audio:" xml:space="preserve">
+    <value>Audio:</value>
+  </data>
+  <data name="Back to Transcript" xml:space="preserve">
+    <value>Înapoi la transcriere</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Închide</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Creat</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editabil</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Eroare</value>
+  </data>
+  <data name="Error searching users" xml:space="preserve">
+    <value>Eroare la căutarea utilizatorilor</value>
+  </data>
+  <data name="Existing Shares" xml:space="preserve">
+    <value>Partajări existente</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gestionează partajările</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>membri</value>
+  </data>
+  <data name="No shares yet. Add one above to share this recording." xml:space="preserve">
+    <value>Încă nu există partajări. Adăugați una mai sus pentru a partaja această înregistrare.</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>Niciun utilizator găsit</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Permisiune</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Vă rugăm să selectați un utilizator sau un rol valid.</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Doar citire</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Elimină</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="Select a role..." xml:space="preserve">
+    <value>Selectați un rol...</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Partajează cu</value>
+  </data>
+  <data name="Shared With" xml:space="preserve">
+    <value>Partajat cu</value>
+  </data>
+  <data name="Specific User" xml:space="preserve">
+    <value>Utilizator specific</value>
+  </data>
+  <data name="This user or role already has access to this recording." xml:space="preserve">
+    <value>Acest utilizator sau rol are deja acces la această înregistrare.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="Type to search users..." xml:space="preserve">
+    <value>Tastați pentru a căuta utilizatori...</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Utilizator</value>
+  </data>
+
+</root>

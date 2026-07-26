@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>Lista kokousäänityksistä, transkriptioista ja tekoälyn käsittelytiloista.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>Kaikki ladatut kokousnauhoitteet</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>Haluatko varmasti poistaa tämän kokouksen nauhoituksen?</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>ASR-tila</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>Tunnistusta odotetaan</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Luontiaika</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Poista</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Osasto</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Tyhjä</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>Kokousnauhoitukset</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Kokousmuistiot</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nimi</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Seuraava</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>Ei vielä kokousnauhoituksia</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Odottaa käsitelyä</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Edellinen</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Yksityinen</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Käsitellään</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Julkinen</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>Tunnistus käynnissä</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>Äänitunnistus valmis</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>Kaikki kokoukset</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>Transkriboitu</value>
+  </data>
+  <data name="Transcript &amp; AI" xml:space="preserve">
+    <value>Transkripti &amp; tekoäly</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Lataa kokousnauhanne</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>Lataa ensimmäinen kokousnauhanne, jotta se voidaan transkriboida ja analysoida tekoälyn avulla.</value>
+  </data>
+
+</root>

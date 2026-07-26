@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>मीटिंग रिकॉर्डिंग संपादित करें</value>
+  </data>
+  <data name="Meeting Audio File" xml:space="preserve">
+    <value>मिलन ऑडियो फ़ाइल</value>
+  </data>
+  <data name="Meeting Recording Details" xml:space="preserve">
+    <value>मिटिंग रिकॉर्डिंग विवरण</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
+    <value>रिकॉर्डिंग को बदलने से उसका प्रतिलेख मिट जाता है और उसे फिर से अंतर्वाक्य के लिए कतारबद्ध किया जाता है।</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>सहेजें</value>
+  </data>
+
+</root>
