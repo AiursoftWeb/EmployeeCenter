@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>मीटिंग ऑडियो रिकॉर्डिंग, ट्रांसक्रिप्ट और एआई प्रसंस्करण स्थितियों की सूची।</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>कार्रवाई</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>सभी अपलोड की गई मीटिंग रिकॉर्डिंग</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>क्या आप वाकई इस मीटिंग रिकॉर्डिंग को हटाना चाहते हैं?</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>ASR स्थिति</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>पहचान की प्रतीक्षा में</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>निर्माण समय</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>हटाएं</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>विभाग</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>खाली</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>मिलन रिकॉर्डिंग्स</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>मिलन पत्रिकाएँ</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>अगला</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>अभी तक कोई मीटिंग रिकॉर्डिंग नहीं है</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>लंबित</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>पिछला</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>निजी</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>प्रसंस्करण</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>सार्वजनिक</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>पहचान चल रही है</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>बोलचाल को टेक्स्ट में बदलना पूरा हुआ</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>कुल बैठकें</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>अभिलिखित</value>
+  </data>
+  <data name="Transcript &amp; AI" xml:space="preserve">
+    <value>प्रतिलिपि और AI</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>मीटिंग रिकॉर्डिंग अपलोड करें</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>AI के साथ अनुवाद और विश्लेषण करने के लिए अपना पहला मीटिंग रिकॉर्डिंग अपलोड करें।</value>
+  </data>
+
+</root>
