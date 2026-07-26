@@ -28,11 +28,11 @@
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
     @if (isDarkMode)
     {
-        <link rel="stylesheet" href="~/node_modules/highlight.js/styles/github-dark.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/node_modules/@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
     }
     else
     {
-        <link rel="stylesheet" href="~/node_modules/highlight.js/styles/github.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/node_modules/@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
     }
 }
 
@@ -50,18 +50,10 @@
     </script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
-    <script src="~/node_modules/highlight.js/lib/core.js" asp-append-version="true"></script>
-    <script src="~/node_modules/highlight.js/lib/languages/csharp.js" asp-append-version="true"></script>
-    <script src="~/node_modules/highlight.js/lib/languages/javascript.js" asp-append-version="true"></script>
-    <script src="~/node_modules/highlight.js/lib/languages/css.js" asp-append-version="true"></script>
-    <script src="~/node_modules/highlight.js/lib/languages/xml.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
              // Load highlight.js languages
-            hljs.registerLanguage('csharp', window.hljs.getLanguage('csharp'));
-            hljs.registerLanguage('javascript', window.hljs.getLanguage('javascript'));
-            hljs.registerLanguage('css', window.hljs.getLanguage('css'));
-            hljs.registerLanguage('xml', window.hljs.getLanguage('xml'));
             
              // --- Table & Mermaid Rendering ---
             function styleTables() {
