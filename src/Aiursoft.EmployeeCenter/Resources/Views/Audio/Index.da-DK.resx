@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>En liste over mødeoptagelser, transkriptioner og AI-behandlingsstatusser.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Handlinger</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>Alle uploadede mødeoptagelser</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>Er du sikker på, at du vil slette denne mødeoptagelse?</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>ASR-status</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>Afventer genkendelse</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Oprettelsestidspunkt</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Afdeling</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Tom</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>Mødeoptagelser</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Mødestenotater</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Næste</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>Ingen mødeoptagelser endnu</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Afventende</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Forrige</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Bearbejder</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Offentlig</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>Genkendelse i gang</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>Tale-til-tekst fuldført</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>I alt møder</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>Transkriberet</value>
+  </data>
+  <data name="Transcript &amp; AI" xml:space="preserve">
+    <value>Transkript &amp; AI</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Upload optagelse af møde</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>Upload din første mødeoptagelse for at transskribere og analysere med AI.</value>
+  </data>
+
+</root>
