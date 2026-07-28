@@ -39,8 +39,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -120,7 +120,7 @@
                 }
             });
 
-            if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: isDarkMode ? "dark" : "default" });
+            if (window.mermaid) mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: isDarkMode ? "dark" : "default" });
 
             function renderMermaid() {
                 if (!window.mermaid) return;
@@ -142,7 +142,9 @@
             }
 
             if (window.hljs) {
-                hljs.highlightAll();
+                contentEl.querySelectorAll('pre code:not(.language-mermaid)').forEach(function (block) {
+                    hljs.highlightElement(block);
+                });
             }
         });
     </script>

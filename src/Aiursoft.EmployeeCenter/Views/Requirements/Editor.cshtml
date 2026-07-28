@@ -1,5 +1,6 @@
 @using Aiursoft.EmployeeCenter.Controllers
 @model Aiursoft.EmployeeCenter.Models.RequirementViewModels.EditorViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
 }
@@ -170,8 +171,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -183,6 +184,7 @@
     <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/markdown-image-upload.js" asp-append-version="true"></script>
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
@@ -250,6 +252,10 @@
                         'semanticHighlighting.enabled': true,
                         fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
                         fontSize: 14
+                    });
+                    window.AiursoftMarkdownImageUpload.init({
+                        editor: markdownEditorInstance,
+                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))'
                     });
 
                     var isDirty = false;
@@ -361,7 +367,7 @@
                     });
                 }
 
-                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+                if (window.mermaid) mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: '@(isDarkMode ? "dark" : "default")' });
 
                 function renderMermaid() {
                     var p = document.getElementById('printable-area');
@@ -386,7 +392,11 @@
                 }
 
                 function renderHighlight() {
-                    if (window.hljs) { hljs.highlightAll(); }
+                    if (window.hljs) {
+                        document.querySelectorAll('#printable-area pre code:not(.language-mermaid)').forEach(function (block) {
+                            hljs.highlightElement(block);
+                        });
+                    }
                 }
             });
         });

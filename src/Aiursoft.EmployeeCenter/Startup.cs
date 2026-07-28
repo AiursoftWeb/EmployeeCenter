@@ -119,7 +119,7 @@ public class Startup : IWebStartup
         services.AddHttpClient();
 
         // Add the markdown pipeline and HTML sanitizer
-        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().DisableHtml().Build();
         services.AddSingleton(pipeline);
         services.AddSingleton(_ =>
         {
