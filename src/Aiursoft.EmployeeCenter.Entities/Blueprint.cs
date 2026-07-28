@@ -13,8 +13,6 @@ public class Blueprint
 
     public required string Content { get; set; } // Markdown
 
-    public required string RenderedHtml { get; set; }
-
     public DateTime CreationTime { get; init; } = DateTime.UtcNow;
 
     public DateTime UpdateTime { get; set; } = DateTime.UtcNow;

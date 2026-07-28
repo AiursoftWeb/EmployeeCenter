@@ -133,13 +133,11 @@ public class BlueprintController(
         {
             return Unauthorized();
         }
-        var html = MarkdownService.RenderMarkdown(model.InputMarkdown).Value ?? string.Empty;
 
         var blueprint = new Blueprint
         {
             Title = model.Title,
             Content = model.InputMarkdown,
-            RenderedHtml = html,
             AuthorId = user.Id,
             CreationTime = DateTime.UtcNow,
             UpdateTime = DateTime.UtcNow,
@@ -190,7 +188,6 @@ public class BlueprintController(
             DocumentId = blueprint.Id,
             Title = blueprint.Title,
             InputMarkdown = blueprint.Content,
-            OutputHtml = blueprint.RenderedHtml,
             SavedSuccessfully = saved,
             FolderId = blueprint.FolderId,
             PageTitle = localizer["Edit Blueprint"]
@@ -215,13 +212,11 @@ public class BlueprintController(
 
         blueprint.Title = model.Title;
         blueprint.Content = model.InputMarkdown;
-        blueprint.RenderedHtml = MarkdownService.RenderMarkdown(model.InputMarkdown).Value ?? string.Empty;
         blueprint.UpdateTime = DateTime.UtcNow;
         blueprint.FolderId = model.FolderId;
 
         await dbContext.SaveChangesAsync();
 
-        model.OutputHtml = blueprint.RenderedHtml;
         model.SavedSuccessfully = true;
         model.PageTitle = localizer["Edit Blueprint"];
         ViewData["Folders"] = await GetFolderSelectList(model.FolderId);

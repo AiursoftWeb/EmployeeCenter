@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
 @model List<WeeklyReport>
+@inject MarkdownDisplayService MarkdownDisplay
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
 @inject UserManager<User> UserManager
 @inject IAuthorizationService AuthorizationService
@@ -78,7 +79,7 @@
         </div>
         <div class="card-body pb-1">
             <div class="markdown-body">
-                @MarkdownService.RenderMarkdown(report.Content)
+                @MarkdownDisplay.RenderMarkdown(report.Content)
             </div>
         </div>
     </div>

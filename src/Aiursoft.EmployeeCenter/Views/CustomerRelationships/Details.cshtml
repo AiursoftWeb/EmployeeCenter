@@ -1,6 +1,7 @@
 @using Aiursoft.EmployeeCenter.Authorization
 @using Aiursoft.EmployeeCenter.Services
 @model Aiursoft.EmployeeCenter.Models.CustomerRelationshipViewModels.EditorViewModel
+@inject MarkdownDisplayService MarkdownDisplay
 @inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
 
 @{
@@ -114,7 +115,7 @@
     <div class="card-body markdown-content">
         @if (!string.IsNullOrEmpty(Model.Remark))
         {
-            @MarkdownService.RenderMarkdown(Model.Remark)
+            @MarkdownDisplay.RenderMarkdown(Model.Remark)
         }
         else
         {

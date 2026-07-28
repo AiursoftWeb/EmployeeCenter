@@ -70,15 +70,10 @@ public class MarketChannelsController(
             .FirstOrDefaultAsync(t => t.Id == id);
         if (channel == null) return NotFound();
 
-        var renderedDescription = channel.Description != null
-            ? MarkdownService.RenderMarkdown(channel.Description).Value
-            : null;
-
         return this.StackView(new DetailsViewModel
         {
             MarketChannel = channel,
-            PageTitle = channel.Name,
-            RenderedDescription = renderedDescription
+            PageTitle = channel.Name
         });
     }
 

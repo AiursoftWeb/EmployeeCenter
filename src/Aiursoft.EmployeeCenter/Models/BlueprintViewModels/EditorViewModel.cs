@@ -21,9 +21,6 @@ public class EditorViewModel : UiStackLayoutViewModel
     [Display(Name = "Content (Markdown)")]
     public string InputMarkdown { get; set; } = string.Empty;
 
-    [Display(Name = "Output Html")]
-    public string OutputHtml { get; set; } = string.Empty;
-
     [Display(Name = "Saved Successfully")]
     public bool SavedSuccessfully { get; set; }
 

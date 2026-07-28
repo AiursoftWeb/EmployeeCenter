@@ -1,5 +1,6 @@
 @using Aiursoft.EmployeeCenter.Services
 @using Aiursoft.EmployeeCenter.Configuration
+@inject MarkdownDisplayService MarkdownDisplay
 @inject GlobalSettingsService GlobalSettings
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
 @model Aiursoft.EmployeeCenter.Models.DashboardViewModels.IndexViewModel
@@ -104,7 +105,7 @@
                         <div id="step-@task.Id" class="tab-pane" role="tabpanel">
                             <h3>@task.Title</h3>
                             <div class="mb-3">
-                                @MarkdownService.RenderMarkdown(task.Description)
+                                @MarkdownDisplay.RenderMarkdown(task.Description)
                             </div>
                             
                             <hr />

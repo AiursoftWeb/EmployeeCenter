@@ -17,6 +17,8 @@ using Newtonsoft.Json.Serialization;
 using Aiursoft.Canon.TaskQueue;
 using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.Canon.ScheduledTasks;
+using Ganss.Xss;
+using Markdig;
 
 namespace Aiursoft.EmployeeCenter;
 
@@ -115,6 +117,17 @@ public class Startup : IWebStartup
         services.RegisterScheduledTask(registration: exportJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromSeconds(35));
 
         services.AddHttpClient();
+
+        // Add the markdown pipeline and HTML sanitizer
+        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+        services.AddSingleton(pipeline);
+        services.AddSingleton(_ =>
+        {
+            var sanitizer = new HtmlSanitizer();
+            sanitizer.AllowedTags.Add("br");
+            sanitizer.AllowedAttributes.Add("class");
+            return sanitizer;
+        });
 
         // Controllers and localization
         services.AddControllersWithViews()

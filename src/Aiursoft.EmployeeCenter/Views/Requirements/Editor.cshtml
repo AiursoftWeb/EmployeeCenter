@@ -116,15 +116,14 @@
                             </div>
 
                             <div class="flex-grow-1 overflow-auto p-4 markdown-content" id="printable-area">
-                                @Html.Raw(Model.OutputHtml)
+                                <!-- markdown preview rendered client-side -->
                             </div>
                         </div>
 
                         <div class="tab-pane flex-column h-100" id="code" role="tabpanel">
-                             <div class="flex-grow-1 position-relative editor-wrapper">
-                                <div id="html-output-container" style="width: 100%; height: 100%;"></div>
-                                <textarea id="html-output" style="display: none;">@Model.OutputHtml</textarea>
-                            </div>
+                            <textarea id="html-output" class="form-control border-0 p-3" readonly
+                                style="font-family: 'Cascadia Code', 'Consolas', monospace; font-size: 0.85rem; height: 100%; resize: none;"
+                                placeholder="HTML output will appear here..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -168,12 +167,11 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
-    <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\(', '\)']],
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -181,18 +179,67 @@
         };
     </script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    @* markdown-it, mermaid, hljs MUST be loaded before Monaco's loader.js *@
+    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
+    <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            
-            require(['vs/editor/editor.main'], function () {
-                let markdownEditorInstance, htmlOutputInstance;
-                const markdownEditorElement = document.getElementById('markdown-editor');
-                const htmlOutputElement = document.getElementById('html-output');
-                const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
 
-                // --- Monaco Editor Setup ---
+            function mathPlugin(md) {
+                md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
+                    var pos = state.pos;
+                    if (state.src[pos] !== '$') return false;
+                    if (state.src[pos + 1] === '$') return false;
+                    var start = pos + 1;
+                    if (start >= state.posMax) return false;
+                    if (state.src[start] === ' ') return false;
+                    var end = state.src.indexOf('$', start);
+                    while (end > 0 && state.src[end - 1] === '\\') {
+                        end = state.src.indexOf('$', end + 1);
+                    }
+                    if (end < 0 || end === start) return false;
+                    if (state.src[end - 1] === ' ') return false;
+                    var content = state.src.slice(start, end);
+                    if (content.indexOf('\n') >= 0) return false;
+                    if (!silent) {
+                        var token = state.push('math_inline', '', 0);
+                        token.content = content;
+                    }
+                    state.pos = end + 1;
+                    return true;
+                });
+                md.renderer.rules.math_inline = function (tokens, idx) {
+                    return '\\\(' + tokens[idx].content + '\\\)';
+                };
+            }
+
+            var md = window.markdownit({
+                html: false,
+                linkify: true,
+                typographer: true,
+                highlight: function (str, lang) {
+                    if (lang === 'mermaid') {
+                        return '<div class="mermaid">' + md.utils.escapeHtml(str) + '</div>';
+                    }
+                    if (window.hljs && window.hljs.getLanguage(lang)) {
+                        try {
+                            return '<pre><code class="hljs language-' + lang + '">' +
+                                window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+                                '</code></pre>';
+                        } catch (_) {}
+                    }
+                    return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
+                }
+            }).use(mathPlugin);
+
+            require(['vs/editor/editor.main'], function () {
+                var markdownEditorInstance;
+                var markdownEditorElement = document.getElementById('markdown-editor');
+                var monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
+
                 if (markdownEditorElement) {
                     markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
                         value: markdownEditorElement.value,
@@ -200,175 +247,147 @@
                         theme: monacoTheme,
                         automaticLayout: true,
                         wordWrap: 'on',
-                        'semanticHighlighting.enabled': true
+                        'semanticHighlighting.enabled': true,
+                        fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
+                        fontSize: 14
                     });
 
-                    // --- Unsaved Changes Warning ---
-                    let isDirty = false;
-                    
+                    var isDirty = false;
                     window.addEventListener('beforeunload', function (e) {
-                        if (isDirty) {
-                            e.preventDefault();
-                            e.returnValue = '';
-                        }
+                        if (isDirty) { e.preventDefault(); e.returnValue = ''; }
                     });
+                    var form = document.getElementById('markdown-form');
+                    if (form) { form.addEventListener('submit', function () { isDirty = false; }); }
+                    var titleInput = document.getElementById('Title');
+                    if (titleInput) { titleInput.addEventListener('input', function () { isDirty = true; }); }
 
-                    const form = document.getElementById('markdown-form');
-                    if (form) {
-                        form.addEventListener('submit', () => {
-                            isDirty = false;
-                        });
+                    var previewTimer = null;
+                    function schedulePreviewUpdate(markdown) {
+                        clearTimeout(previewTimer);
+                        previewTimer = setTimeout(function () {
+                            var previewArea = document.getElementById('printable-area');
+                            var htmlOutputEl = document.getElementById('html-output');
+                            if (!previewArea) return;
+                            var html = md.render(markdown);
+                            previewArea.innerHTML = html;
+                            if (htmlOutputEl) htmlOutputEl.value = html;
+                            stylePreviewTables();
+                            renderMermaid();
+                            renderMath();
+                            renderHighlight();
+                        }, 200);
                     }
 
-                    const titleInput = document.getElementById('Title');
-                    if (titleInput) {
-                        titleInput.addEventListener('input', () => {
-                            isDirty = true;
-                        });
-                    }
-
-                    markdownEditorInstance.onDidChangeModelContent(() => {
-                        const currentValue = markdownEditorInstance.getValue();
+                    markdownEditorInstance.onDidChangeModelContent(function () {
+                        var currentValue = markdownEditorInstance.getValue();
                         markdownEditorElement.value = currentValue;
                         markdownEditorElement.dispatchEvent(new Event('change'));
+                        schedulePreviewUpdate(currentValue);
                         isDirty = true;
                     });
-                }
-                
-                if (htmlOutputElement) {
-                     htmlOutputInstance = monaco.editor.create(document.getElementById('html-output-container'), {
-                        value: htmlOutputElement.value,
-                        language: 'html',
-                        theme: monacoTheme,
-                        readOnly: true,
-                        automaticLayout: true,
-                        wordWrap: 'on'
+
+                    schedulePreviewUpdate(markdownEditorElement.value);
+
+                    function wrapSelection(startStr, endStr) {
+                        var selection = markdownEditorInstance.getSelection();
+                        var model = markdownEditorInstance.getModel();
+                        var text = model.getValueInRange(selection);
+                        markdownEditorInstance.executeEdits('shortcut', [{ range: selection, text: startStr + text + endStr }]);
+                    }
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyB, function () { wrapSelection('**', '**'); });
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyI, function () { wrapSelection('*', '*'); });
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, function () {
+                        var sel = markdownEditorInstance.getSelection();
+                        wrapSelection(sel.startLineNumber !== sel.endLineNumber ? '```\n' : '`', sel.startLineNumber !== sel.endLineNumber ? '\n```' : '`');
                     });
                 }
 
-                // --- View Mode Switcher ---
-                const editorCol = document.getElementById('editor-column');
-                const previewCol = document.getElementById('preview-column');
-                const formRoot = document.getElementById('markdown-form');
-                const radiosDesktop = document.querySelectorAll('input[name="view-mode-desktop"]');
-                const radiosMobile = document.querySelectorAll('input[name="view-mode-mobile"]');
+                var editorCol = document.getElementById('editor-column');
+                var previewCol = document.getElementById('preview-column');
+                var formRoot = document.getElementById('markdown-form');
+                var radiosDesktop = document.querySelectorAll('input[name="view-mode-desktop"]');
+                var radiosMobile = document.querySelectorAll('input[name="view-mode-mobile"]');
 
-                function isMobile() {
-                    return window.innerWidth < 992;
-                }
+                function isMobile() { return window.innerWidth < 992; }
 
-                function setViewMode(mode, fromMobile) {
-                    if (!editorCol || !previewCol || !formRoot) return; 
-                    
-                    if (isMobile() && mode === 'split') {
-                        mode = 'editor';
-                    }
-                    
+                function setViewMode(mode) {
+                    if (!editorCol || !previewCol || !formRoot) return;
+                    if (isMobile() && mode === 'split') { mode = 'editor'; }
                     localStorage.setItem('markdown-view-mode', mode);
 
-                    // Sync radio buttons
-                    const desktopRadio = document.querySelector(`input[name="view-mode-desktop"][value="${mode}"]`);
-                    if (desktopRadio) desktopRadio.checked = true;
-                    const mobileRadio = document.querySelector(`input[name="view-mode-mobile"][value="${mode}"]`);
-                    if (mobileRadio) mobileRadio.checked = true;
+                    var dr = document.querySelector('input[name="view-mode-desktop"][value="' + mode + '"]');
+                    if (dr) dr.checked = true;
+                    var mr = document.querySelector('input[name="view-mode-mobile"][value="' + mode + '"]');
+                    if (mr) mr.checked = true;
 
-                    // Apply classes for desktop
                     if (!isMobile()) {
                         formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
                         if (mode === 'split') {
-                            editorCol.classList.remove('d-none', 'col-lg-12');
-                            editorCol.classList.add('col-lg-6');
-                            previewCol.classList.remove('d-none', 'col-lg-12');
-                            previewCol.classList.add('col-lg-6');
+                            editorCol.classList.remove('d-none', 'col-lg-12'); editorCol.classList.add('col-lg-6');
+                            previewCol.classList.remove('d-none', 'col-lg-12'); previewCol.classList.add('col-lg-6');
                         } else if (mode === 'editor') {
-                            editorCol.classList.remove('d-none', 'col-lg-6');
-                            editorCol.classList.add('col-lg-12');
+                            editorCol.classList.remove('d-none', 'col-lg-6'); editorCol.classList.add('col-lg-12');
                             previewCol.classList.add('d-none');
-                        } else if (mode === 'preview') {
+                        } else {
                             editorCol.classList.add('d-none');
-                            previewCol.classList.remove('d-none', 'col-lg-6');
-                            previewCol.classList.add('col-lg-12');
-                            
-                            const previewTabLink = document.querySelector('a[href="#preview"]');
-                            if (previewTabLink) {
-                                bootstrap.Tab.getOrCreateInstance(previewTabLink).show();
-                            }
+                            previewCol.classList.remove('d-none', 'col-lg-6'); previewCol.classList.add('col-lg-12');
                         }
+                    } else {
+                        editorCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
+                        previewCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
+                        formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
+                        formRoot.classList.add('view-mode-' + mode);
                     }
-
-                    // Apply classes for mobile
-                    if (isMobile()) {
-                         editorCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
-                         previewCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
-                         formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
-                         formRoot.classList.add(`view-mode-${mode}`);
-                    }
-                }
-                
-                function applyInitialViewMode() {
-                    const savedMode = localStorage.getItem('markdown-view-mode') || 'split';
-                    setViewMode(savedMode);
+                    if (mode !== 'editor') { renderMermaid(); renderMath(); renderHighlight(); }
                 }
 
-                radiosDesktop.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value, false)));
-                radiosMobile.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value, true)));
-                window.addEventListener('resize', applyInitialViewMode);
-                applyInitialViewMode();
+                radiosDesktop.forEach(function (r) { r.addEventListener('change', function (e) { setViewMode(e.target.value); }); });
+                radiosMobile.forEach(function (r) { r.addEventListener('change', function (e) { setViewMode(e.target.value); }); });
+                window.addEventListener('resize', function () { setViewMode(localStorage.getItem('markdown-view-mode') || 'split'); });
+                setViewMode(localStorage.getItem('markdown-view-mode') || 'split');
 
-                // --- Print Utils ---
-                const printBtn = document.getElementById('print-button');
-                if (printBtn) printBtn.addEventListener('click', () => window.print());
+                var printBtn = document.getElementById('print-button');
+                if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
 
-                // --- Table & Mermaid Rendering ---
                 function stylePreviewTables() {
-                    const p = document.getElementById('preview');
-                    if(!p) return;
-                    p.querySelectorAll('table').forEach(t => {
+                    var p = document.getElementById('printable-area');
+                    if (!p) return;
+                    p.querySelectorAll('table').forEach(function (t) {
                         t.classList.add('table', 'table-striped', 'table-bordered');
                         if (!t.parentElement.classList.contains('table-responsive')) {
-                            const w = document.createElement('div'); w.className = 'table-responsive';
+                            var w = document.createElement('div'); w.className = 'table-responsive';
                             t.parentNode.insertBefore(w, t); w.appendChild(t);
                         }
                     });
                 }
-                stylePreviewTables();
+
                 if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+
                 function renderMermaid() {
-                    const p = document.getElementById('preview');
+                    var p = document.getElementById('printable-area');
                     if (!p || !window.mermaid) return;
-                    p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
-                        const code = b.textContent || '';
-                        const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+                    p.querySelectorAll('pre.mermaid, .mermaid').forEach(function (b, i) {
+                        var code = b.textContent || '';
+                        var id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
                         try {
                             mermaid.parse(code);
-                            mermaid.render(id, code).then(({ svg }) => {
-                                const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
-                            }).catch(e => console.error(e));
-                        } catch (e) { console.error(e); }
+                            mermaid.render(id, code).then(function (r) {
+                                var w = document.createElement('div'); w.innerHTML = r.svg; b.replaceWith(w);
+                            }).catch(function () {});
+                        } catch (_) {}
                     });
                 }
-                const prevTab = document.querySelector('a[href="#preview"]');
-                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMermaid);
-                if (document.getElementById('preview')?.classList.contains('active')) renderMermaid();
 
-                // --- MathJax Rendering ---
                 function renderMath() {
                     if (window.MathJax && window.MathJax.typesetPromise) {
-                        const preview = document.getElementById('preview');
-                        if(preview) window.MathJax.typesetPromise([preview]);
+                        var preview = document.getElementById('printable-area');
+                        if (preview) window.MathJax.typesetPromise([preview]).catch(function () {});
                     }
                 }
-                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
-                if (document.getElementById('preview')?.classList.contains('active')) renderMath();
 
-                // --- Highlight.js Rendering ---
                 function renderHighlight() {
-                    if (window.hljs) {
-                        hljs.highlightAll();
-                    }
+                    if (window.hljs) { hljs.highlightAll(); }
                 }
-                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderHighlight);
-                if (document.getElementById('preview')?.classList.contains('active')) renderHighlight();
             });
         });
     </script>

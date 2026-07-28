@@ -1,4 +1,6 @@
 @model Aiursoft.EmployeeCenter.Models.MarketChannelsViewModels.DetailsViewModel
+@using Aiursoft.EmployeeCenter.Services
+@inject MarkdownDisplayService MarkdownDisplay
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
 @{
 }
@@ -68,7 +70,7 @@
                 else
                 {
                     <div class="markdown-content">
-                        @Html.Raw(Model.RenderedDescription)
+                        @MarkdownDisplay.RenderMarkdown(Model.MarketChannel.Description)
                     </div>
                 }
             </div>

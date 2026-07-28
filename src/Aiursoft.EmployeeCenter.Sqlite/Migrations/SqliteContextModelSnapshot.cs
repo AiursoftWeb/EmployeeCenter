@@ -386,10 +386,6 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Property<int?>("FolderId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("RenderedHtml")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -1669,10 +1665,6 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("RenderedHtml")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Status")
