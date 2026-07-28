@@ -66,9 +66,7 @@
         </div>
     </div>
     <div class="card-body">
-        <div class="markdown-content" id="printable-area">
-            @Html.Raw(Model.Requirement.RenderedHtml)
-        </div>
+        <div class="markdown-content" id="printable-area"></div>
     </div>
 </div>
 
@@ -143,59 +141,106 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\(', '\)']],
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
             }
         };
     </script>
+    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script>
+        var __rawMarkdownContent = @Json.Serialize(Model.Requirement.Content);
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
-             // Load highlight.js languages
-            
-             // --- Table & Mermaid Rendering ---
-            function styleTables() {
-                const p = document.getElementById('printable-area');
-                if(!p) return;
-                p.querySelectorAll('table').forEach(t => {
-                    t.classList.add('table', 'table-striped', 'table-bordered');
-                    if (!t.parentElement.classList.contains('table-responsive')) {
-                        const w = document.createElement('div'); w.className = 'table-responsive';
-                        t.parentNode.insertBefore(w, t); w.appendChild(t);
-                    }
-                });
-            }
-            styleTables();
+            var isDarkMode = @(isDarkMode.ToString().ToLower());
+            var contentEl = document.getElementById('printable-area');
+            if (!contentEl) return;
 
-            const isDarkMode = @(isDarkMode.ToString().ToLower());
+            function mathPlugin(md) {
+                md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
+                    var pos = state.pos;
+                    if (state.src[pos] !== '$') return false;
+                    if (state.src[pos + 1] === '$') return false;
+                    var start = pos + 1;
+                    if (start >= state.posMax) return false;
+                    if (state.src[start] === ' ') return false;
+                    var end = state.src.indexOf('$', start);
+                    while (end > 0 && state.src[end - 1] === '\\') {
+                        end = state.src.indexOf('$', end + 1);
+                    }
+                    if (end < 0 || end === start) return false;
+                    if (state.src[end - 1] === ' ') return false;
+                    var content = state.src.slice(start, end);
+                    if (content.indexOf('\n') >= 0) return false;
+                    if (!silent) {
+                        var token = state.push('math_inline', '', 0);
+                        token.markup = '$';
+                        token.content = content;
+                    }
+                    state.pos = end + 1;
+                    return true;
+                });
+                md.renderer.rules.math_inline = function (tokens, idx) {
+                    return '\\\(' + tokens[idx].content + '\\\)';
+                };
+            }
+
+            var md = window.markdownit({
+                html: false,
+                linkify: true,
+                typographer: true,
+                highlight: function (str, lang) {
+                    if (lang === 'mermaid') {
+                        return '<div class="mermaid">' + md.utils.escapeHtml(str) + '</div>';
+                    }
+                    if (window.hljs && window.hljs.getLanguage(lang)) {
+                        try {
+                            return '<pre><code class="hljs language-' + lang + '">' +
+                                window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+                                '</code></pre>';
+                        } catch (_) {}
+                    }
+                    return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
+                }
+            }).use(mathPlugin);
+
+            contentEl.innerHTML = md.render(__rawMarkdownContent);
+
+            contentEl.querySelectorAll('table').forEach(function(t) {
+                t.classList.add('table', 'table-striped', 'table-bordered');
+                if (!t.parentElement.classList.contains('table-responsive')) {
+                    var w = document.createElement('div'); w.className = 'table-responsive';
+                    t.parentNode.insertBefore(w, t); w.appendChild(t);
+                }
+            });
+
             if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: isDarkMode ? "dark" : "default" });
 
             function renderMermaid() {
-                const p = document.getElementById('printable-area');
-                if (!p || !window.mermaid) return;
-                p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
-                    const code = b.textContent || '';
-                    const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+                if (!window.mermaid) return;
+                contentEl.querySelectorAll('pre.mermaid, .mermaid').forEach(function(b, i) {
+                    var code = b.textContent || '';
+                    var id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
                     try {
                         mermaid.parse(code);
-                        mermaid.render(id, code).then(({ svg }) => {
-                            const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
-                        }).catch(e => console.error(e));
+                        mermaid.render(id, code).then(function(result) {
+                            var w = document.createElement('div'); w.innerHTML = result.svg; b.replaceWith(w);
+                        }).catch(function(e) { console.error(e); });
                     } catch (e) { console.error(e); }
                 });
             }
             renderMermaid();
 
-            // --- MathJax Rendering ---
             if (window.MathJax && window.MathJax.typesetPromise) {
-                 window.MathJax.typesetPromise([document.getElementById('printable-area')]);
+                window.MathJax.typesetPromise([contentEl]);
             }
 
-            // --- Highlight.js Rendering ---
             if (window.hljs) {
                 hljs.highlightAll();
             }

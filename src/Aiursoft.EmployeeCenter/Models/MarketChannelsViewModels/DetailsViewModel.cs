@@ -11,5 +11,4 @@ public class DetailsViewModel : UiStackLayoutViewModel
     }
 
     public required MarketChannel MarketChannel { get; init; }
-    public string? RenderedDescription { get; init; }
 }

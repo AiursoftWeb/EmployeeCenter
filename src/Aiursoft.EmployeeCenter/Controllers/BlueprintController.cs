@@ -3,6 +3,8 @@ using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.BlueprintViewModels;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.UiStack.Navigation;
+using Ganss.Xss;
+using Markdig;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +18,8 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class BlueprintController(
     EmployeeCenterDbContext dbContext,
     UserManager<User> userManager,
+    MarkdownPipeline pipeline,
+    HtmlSanitizer sanitizer,
     IStringLocalizer<BlueprintController> localizer) : Controller
 {
     private async Task<List<SelectListItem>> GetFolderSelectList(int? selectedId, int? excludeId = null)
@@ -133,13 +137,11 @@ public class BlueprintController(
         {
             return Unauthorized();
         }
-        var html = MarkdownService.RenderMarkdown(model.InputMarkdown).Value ?? string.Empty;
 
         var blueprint = new Blueprint
         {
             Title = model.Title,
             Content = model.InputMarkdown,
-            RenderedHtml = html,
             AuthorId = user.Id,
             CreationTime = DateTime.UtcNow,
             UpdateTime = DateTime.UtcNow,
@@ -190,7 +192,6 @@ public class BlueprintController(
             DocumentId = blueprint.Id,
             Title = blueprint.Title,
             InputMarkdown = blueprint.Content,
-            OutputHtml = blueprint.RenderedHtml,
             SavedSuccessfully = saved,
             FolderId = blueprint.FolderId,
             PageTitle = localizer["Edit Blueprint"]
@@ -215,13 +216,11 @@ public class BlueprintController(
 
         blueprint.Title = model.Title;
         blueprint.Content = model.InputMarkdown;
-        blueprint.RenderedHtml = MarkdownService.RenderMarkdown(model.InputMarkdown).Value ?? string.Empty;
         blueprint.UpdateTime = DateTime.UtcNow;
         blueprint.FolderId = model.FolderId;
 
         await dbContext.SaveChangesAsync();
 
-        model.OutputHtml = blueprint.RenderedHtml;
         model.SavedSuccessfully = true;
         model.PageTitle = localizer["Edit Blueprint"];
         ViewData["Folders"] = await GetFolderSelectList(model.FolderId);

@@ -13,8 +13,6 @@ public class Requirement
 
     public required string Content { get; set; } // Markdown
 
-    public required string RenderedHtml { get; set; }
-
     public RequirementStatus Status { get; set; } = RequirementStatus.PendingApproval;
 
     public DateTime CreationTime { get; init; } = DateTime.UtcNow;

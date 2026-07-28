@@ -726,7 +726,6 @@ public class WeeklyReportTests
             {
                 Title = "Test Project",
                 Content = "Desc",
-                RenderedHtml = "Desc",
                 SubmitterId = userId,
                 Status = RequirementStatus.Approved
             };

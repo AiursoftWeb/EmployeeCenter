@@ -52,7 +52,6 @@ public class ExportTests : TestBase
         {
             Title = "Test Blueprint",
             Content = "# Hello World",
-            RenderedHtml = "<h1>Hello World</h1>",
             AuthorId = (await db.Users.FirstAsync()).Id,
             FolderId = bFolder2.Id
         };

@@ -3,6 +3,8 @@ using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.RequirementViewModels;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.UiStack.Navigation;
+using Ganss.Xss;
+using Markdig;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +18,8 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class RequirementsController(
     EmployeeCenterDbContext dbContext,
     UserManager<User> userManager,
+    MarkdownPipeline pipeline,
+    HtmlSanitizer sanitizer,
     IStringLocalizer<RequirementsController> localizer) : Controller
 {
     [HttpGet]
@@ -143,13 +147,10 @@ public class RequirementsController(
         var user = await userManager.GetUserAsync(User);
         if (user == null) return Unauthorized();
 
-        var html = MarkdownService.RenderMarkdown(model.InputMarkdown).Value ?? string.Empty;
-
         var requirement = new Requirement
         {
             Title = model.Title,
             Content = model.InputMarkdown,
-            RenderedHtml = html,
             SubmitterId = user.Id,
             Status = RequirementStatus.PendingApproval,
             CreationTime = DateTime.UtcNow,
@@ -184,7 +185,6 @@ public class RequirementsController(
             RequirementId = requirement.Id,
             Title = requirement.Title,
             InputMarkdown = requirement.Content,
-            OutputHtml = requirement.RenderedHtml,
             PageTitle = localizer["Edit Requirement"]
         };
         return this.StackView(model, "Editor");
@@ -216,7 +216,6 @@ public class RequirementsController(
 
         requirement.Title = model.Title;
         requirement.Content = model.InputMarkdown;
-        requirement.RenderedHtml = MarkdownService.RenderMarkdown(model.InputMarkdown).Value ?? string.Empty;
         if (!canManage)
         {
             requirement.Status = RequirementStatus.PendingApproval; // Re-submit for approval
