@@ -3,8 +3,6 @@ using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.BlueprintViewModels;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.UiStack.Navigation;
-using Ganss.Xss;
-using Markdig;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,8 +16,6 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class BlueprintController(
     EmployeeCenterDbContext dbContext,
     UserManager<User> userManager,
-    MarkdownPipeline pipeline,
-    HtmlSanitizer sanitizer,
     IStringLocalizer<BlueprintController> localizer) : Controller
 {
     private async Task<List<SelectListItem>> GetFolderSelectList(int? selectedId, int? excludeId = null)
