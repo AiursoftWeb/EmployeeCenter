@@ -40,20 +40,14 @@ public class AudioController(
         page = Math.Max(page, 1);
 
         var isManager = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
-        var canViewAll = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanViewAudio)).Succeeded;
         var userId = userManager.GetUserId(User);
-        var currentUser = await userManager.GetUserAsync(User);
-        var userDepartment = currentUser?.Department;
         var userRoleIds = await GetUserRoleIdsAsync();
 
         IQueryable<Audio> query = context.Audios;
         if (!isManager)
         {
-            // 非管理员：仅返回自己可见的录音（本人 / 公开 / 同部门 / 被单独分享）。
             query = query.Where(a =>
                 a.OwnerId == userId ||
-                (canViewAll && a.ViewScope == AudioViewScope.Public) ||
-                (a.ViewScope == AudioViewScope.Department && userDepartment != null && a.AudienceDepartment == userDepartment) ||
                 a.AudioShares.Any(s =>
                     s.SharedWithUserId == userId ||
                     (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId))));
@@ -115,9 +109,7 @@ public class AudioController(
                 Name = model.Name,
                 FilePath = filePath,
                 CreateTime = DateTime.UtcNow,
-                OwnerId = user!.Id,
-                AudienceDepartment = user.Department,
-                ViewScope = model.ViewScope
+                OwnerId = user!.Id
             };
             context.Audios.Add(audio);
             await context.SaveChangesAsync();
@@ -268,20 +260,6 @@ public class AudioController(
         return Content(plainText, "text/plain", System.Text.Encoding.UTF8);
     }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> SetViewScope(int id, AudioViewScope viewScope)
-    {
-        var audio = await context.Audios.FindAsync(id);
-        if (audio == null) return NotFound();
-        if (!await CanManageAudioAsync(audio)) return Unauthorized();
-
-        audio.ViewScope = viewScope;
-
-        await context.SaveChangesAsync();
-        return RedirectToAction(nameof(Transcript), new { id });
-    }
-
     public async Task<IActionResult> ManageShares(int id)
     {
         var audio = await context.Audios
@@ -378,20 +356,6 @@ public class AudioController(
 
         var userId = userManager.GetUserId(User);
         if (audio.OwnerId == userId) return SharePermission.Editable;
-        if (audio.ViewScope == AudioViewScope.Public &&
-            (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanViewAudio)).Succeeded)
-        {
-            return SharePermission.ReadOnly;
-        }
-
-        if (audio.ViewScope == AudioViewScope.Department)
-        {
-            var user = await userManager.GetUserAsync(User);
-            if (user?.Department != null && user.Department == audio.AudienceDepartment)
-            {
-                return SharePermission.ReadOnly;
-            }
-        }
 
         var userRoleIds = await GetUserRoleIdsAsync();
         var share = await context.AudioShares

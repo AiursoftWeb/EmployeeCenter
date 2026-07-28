@@ -235,10 +235,6 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<int>("AsrAttemptCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("AudienceDepartment")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime(6)");
 
@@ -261,9 +257,6 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<string>("OwnerId")
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
-
-                    b.Property<int>("ViewScope")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -2212,10 +2205,6 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Department")
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()

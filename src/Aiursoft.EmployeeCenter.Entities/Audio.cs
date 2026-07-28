@@ -33,17 +33,6 @@ public class Audio
     [ForeignKey(nameof(OwnerId))]
     public User? Owner { get; set; }
 
-    /// <summary>
-    /// Snapshot of the department selected for department-scoped visibility.
-    /// </summary>
-    [MaxLength(100)]
-    public string? AudienceDepartment { get; set; }
-
-    /// <summary>
-    /// The default visibility scope of this recording.
-    /// </summary>
-    public AudioViewScope ViewScope { get; set; } = AudioViewScope.Private;
-
     [JsonIgnore]
     [InverseProperty(nameof(AudioShare.Audio))]
     public List<AudioShare> AudioShares { get; set; } = [];
