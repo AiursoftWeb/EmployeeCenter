@@ -149,7 +149,7 @@
             }
         };
     </script>
-    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
@@ -191,24 +191,7 @@
                 };
             }
 
-            var md = window.markdownit({
-                html: false,
-                linkify: true,
-                typographer: true,
-                highlight: function (str, lang) {
-                    if (lang === 'mermaid') {
-                        return '<div class="mermaid">' + md.utils.escapeHtml(str) + '</div>';
-                    }
-                    if (window.hljs && window.hljs.getLanguage(lang)) {
-                        try {
-                            return '<pre><code class="hljs language-' + lang + '">' +
-                                window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                                '</code></pre>';
-                        } catch (_) {}
-                    }
-                    return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
-                }
-            }).use(mathPlugin);
+            var md = { render: window.AiursoftMarkdownUi.renderMarkdown };
 
             contentEl.innerHTML = md.render(__rawMarkdownContent);
 
@@ -220,32 +203,10 @@
                 }
             });
 
-            if (window.mermaid) mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: isDarkMode ? "dark" : "default" });
-
-            function renderMermaid() {
-                if (!window.mermaid) return;
-                contentEl.querySelectorAll('pre.mermaid, .mermaid').forEach(function(b, i) {
-                    var code = b.textContent || '';
-                    var id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
-                    try {
-                        mermaid.parse(code);
-                        mermaid.render(id, code).then(function(result) {
-                            var w = document.createElement('div'); w.innerHTML = result.svg; b.replaceWith(w);
-                        }).catch(function(e) { console.error(e); });
-                    } catch (e) { console.error(e); }
-                });
-            }
-            renderMermaid();
-
-            if (window.MathJax && window.MathJax.typesetPromise) {
-                window.MathJax.typesetPromise([contentEl]);
-            }
-
-            if (window.hljs) {
-                contentEl.querySelectorAll('pre code:not(.language-mermaid)').forEach(function (block) {
-                    hljs.highlightElement(block);
-                });
-            }
+            window.AiursoftMarkdownUi.enhanceMarkdown({
+                container: contentEl,
+                mermaidTheme: isDarkMode ? "dark" : "default"
+            }).catch(console.error);
 
             // --- Reply Logic ---
             document.querySelectorAll('.reply-link').forEach(link => {

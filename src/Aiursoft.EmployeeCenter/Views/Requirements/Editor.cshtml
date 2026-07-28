@@ -181,10 +181,9 @@
     </script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     @* markdown-it, mermaid, hljs MUST be loaded before Monaco's loader.js *@
-    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
-    <script src="~/scripts/markdown-image-upload.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
@@ -218,24 +217,7 @@
                 };
             }
 
-            var md = window.markdownit({
-                html: false,
-                linkify: true,
-                typographer: true,
-                highlight: function (str, lang) {
-                    if (lang === 'mermaid') {
-                        return '<div class="mermaid">' + md.utils.escapeHtml(str) + '</div>';
-                    }
-                    if (window.hljs && window.hljs.getLanguage(lang)) {
-                        try {
-                            return '<pre><code class="hljs language-' + lang + '">' +
-                                window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                                '</code></pre>';
-                        } catch (_) {}
-                    }
-                    return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
-                }
-            }).use(mathPlugin);
+            var md = { render: window.AiursoftMarkdownUi.renderMarkdown };
 
             require(['vs/editor/editor.main'], function () {
                 var markdownEditorInstance;
@@ -253,7 +235,7 @@
                         fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
                         fontSize: 14
                     });
-                    window.AiursoftMarkdownImageUpload.init({
+                    window.AiursoftMarkdownUi.attachImageUpload({
                         editor: markdownEditorInstance,
                         uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))'
                     });
@@ -367,37 +349,14 @@
                     });
                 }
 
-                if (window.mermaid) mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: '@(isDarkMode ? "dark" : "default")' });
-
                 function renderMermaid() {
-                    var p = document.getElementById('printable-area');
-                    if (!p || !window.mermaid) return;
-                    p.querySelectorAll('pre.mermaid, .mermaid').forEach(function (b, i) {
-                        var code = b.textContent || '';
-                        var id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
-                        try {
-                            mermaid.parse(code);
-                            mermaid.render(id, code).then(function (r) {
-                                var w = document.createElement('div'); w.innerHTML = r.svg; b.replaceWith(w);
-                            }).catch(function () {});
-                        } catch (_) {}
-                    });
+                    window.AiursoftMarkdownUi.enhanceMarkdown({
+                        container: '#printable-area',
+                        mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+                    }).catch(function () {});
                 }
-
-                function renderMath() {
-                    if (window.MathJax && window.MathJax.typesetPromise) {
-                        var preview = document.getElementById('printable-area');
-                        if (preview) window.MathJax.typesetPromise([preview]).catch(function () {});
-                    }
-                }
-
-                function renderHighlight() {
-                    if (window.hljs) {
-                        document.querySelectorAll('#printable-area pre code:not(.language-mermaid)').forEach(function (block) {
-                            hljs.highlightElement(block);
-                        });
-                    }
-                }
+                function renderMath() {}
+                function renderHighlight() {}
             });
         });
     </script>
