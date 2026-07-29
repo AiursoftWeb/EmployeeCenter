@@ -56,57 +56,15 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            var isDarkMode = @(isDarkMode.ToString().ToLower());
             var contentEl = document.getElementById('printable-area');
             if (!contentEl) return;
 
-            // Build custom markdown-it with math plugin
-            function mathPlugin(md) {
-                md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
-                    var pos = state.pos;
-                    if (state.src[pos] !== '$') return false;
-                    if (state.src[pos + 1] === '$') return false;
-                    var start = pos + 1;
-                    if (start >= state.posMax) return false;
-                    if (state.src[start] === ' ') return false;
-                    var end = state.src.indexOf('$', start);
-                    while (end > 0 && state.src[end - 1] === '\\') {
-                        end = state.src.indexOf('$', end + 1);
-                    }
-                    if (end < 0 || end === start) return false;
-                    if (state.src[end - 1] === ' ') return false;
-                    var content = state.src.slice(start, end);
-                    if (content.indexOf('\n') >= 0) return false;
-                    if (!silent) {
-                        var token = state.push('math_inline', '', 0);
-                        token.markup = '$';
-                        token.content = content;
-                    }
-                    state.pos = end + 1;
-                    return true;
-                });
-                md.renderer.rules.math_inline = function (tokens, idx) {
-                    return '\\\(' + tokens[idx].content + '\\\)';
-                };
-            }
-
-            var md = { render: window.AiursoftMarkdownUi.renderMarkdown };
-
-            contentEl.innerHTML = md.render(__rawMarkdownContent);
-
-            // Style tables
-            contentEl.querySelectorAll('table').forEach(function(t) {
-                t.classList.add('table', 'table-striped', 'table-bordered');
-                if (!t.parentElement.classList.contains('table-responsive')) {
-                    var w = document.createElement('div'); w.className = 'table-responsive';
-                    t.parentNode.insertBefore(w, t); w.appendChild(t);
-                }
-            });
+            contentEl.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(__rawMarkdownContent);
 
             window.AiursoftMarkdownUi.enhanceMarkdown({
-                container: contentEl,
-                mermaidTheme: isDarkMode ? "dark" : "default"
-            }).catch(console.error);
+                container: '#printable-area',
+                mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+            }).catch(function () {});
         });
     </script>
 }

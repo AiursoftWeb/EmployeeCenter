@@ -24,6 +24,13 @@
     </div>
 }
 
+<div id="upload-error-banner" class="quick-save-banner">
+    <div class="quick-save-banner-content" style="background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 32px rgba(239,68,68,0.35);">
+        <i class="align-middle" data-lucide="alert-circle"></i>
+        <span>@Localizer["Image upload failed!"]</span>
+    </div>
+</div>
+
 <form asp-action="@(Model.IsEditing ? "Edit" : "Create")" method="post" id="markdown-form">
     <div class="row mb-3">
         <div class="col-12">
@@ -163,6 +170,37 @@
                 display: block;
             }
         }
+
+        /* Quick save banner */
+        .quick-save-banner {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-120%);
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .quick-save-banner.show {
+            transform: translateX(-50%) translateY(24px);
+        }
+        .quick-save-banner-content {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.35);
+            white-space: nowrap;
+        }
+        .quick-save-banner-content i {
+            width: 20px;
+            height: 20px;
+        }
     </style>
 }
 
@@ -180,42 +218,14 @@
         };
     </script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
-    @* markdown-it, mermaid, hljs MUST be loaded before Monaco's loader.js *@
+    @* uistack-markdown-ui, mermaid, hljs MUST be loaded before Monaco's loader.js *@
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
-    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-
-            function mathPlugin(md) {
-                md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
-                    var pos = state.pos;
-                    if (state.src[pos] !== '$') return false;
-                    if (state.src[pos + 1] === '$') return false;
-                    var start = pos + 1;
-                    if (start >= state.posMax) return false;
-                    if (state.src[start] === ' ') return false;
-                    var end = state.src.indexOf('$', start);
-                    while (end > 0 && state.src[end - 1] === '\\') {
-                        end = state.src.indexOf('$', end + 1);
-                    }
-                    if (end < 0 || end === start) return false;
-                    if (state.src[end - 1] === ' ') return false;
-                    var content = state.src.slice(start, end);
-                    if (content.indexOf('\n') >= 0) return false;
-                    if (!silent) {
-                        var token = state.push('math_inline', '', 0);
-                        token.content = content;
-                    }
-                    state.pos = end + 1;
-                    return true;
-                });
-                md.renderer.rules.math_inline = function (tokens, idx) {
-                    return '\\\(' + tokens[idx].content + '\\\)';
-                };
-            }
 
             var md = { render: window.AiursoftMarkdownUi.renderMarkdown };
 
@@ -234,10 +244,6 @@
                         'semanticHighlighting.enabled': true,
                         fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
                         fontSize: 14
-                    });
-                    window.AiursoftMarkdownUi.attachImageUpload({
-                        editor: markdownEditorInstance,
-                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))'
                     });
 
                     var isDirty = false;
@@ -287,6 +293,17 @@
                     markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, function () {
                         var sel = markdownEditorInstance.getSelection();
                         wrapSelection(sel.startLineNumber !== sel.endLineNumber ? '```\n' : '`', sel.startLineNumber !== sel.endLineNumber ? '\n```' : '`');
+                    });
+
+                    window.AiursoftMarkdownUi.attachImageUpload({
+                        editor: markdownEditorInstance,
+                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
+                        onError: function () {
+                            var errBanner = document.getElementById('upload-error-banner');
+                            if (!errBanner) return;
+                            errBanner.classList.add('show');
+                            setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
+                        }
                     });
                 }
 
@@ -350,13 +367,28 @@
                 }
 
                 function renderMermaid() {
-                    window.AiursoftMarkdownUi.enhanceMarkdown({
-                        container: '#printable-area',
-                        mermaidTheme: '@(isDarkMode ? "dark" : "default")'
-                    }).catch(function () {});
+                    var p = document.getElementById('printable-area');
+                    if (!p || !window.mermaid) return;
+                    p.querySelectorAll('pre.mermaid, .mermaid').forEach(function (b, i) {
+                        var code = b.textContent || '';
+                        var id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+                        try {
+                            mermaid.parse(code);
+                            mermaid.render(id, code).then(function (r) {
+                                var w = document.createElement('div'); w.innerHTML = r.svg; b.replaceWith(w);
+                            }).catch(function () {});
+                        } catch (_) {}
+                    });
                 }
-                function renderMath() {}
-                function renderHighlight() {}
+                function renderMath() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        var preview = document.getElementById('printable-area');
+                        if (preview) window.MathJax.typesetPromise([preview]).catch(function () {});
+                    }
+                }
+                function renderHighlight() {
+                    if (window.hljs) { hljs.highlightAll(); }
+                }
             });
         });
     </script>
