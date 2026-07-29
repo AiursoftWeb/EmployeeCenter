@@ -1,5 +1,7 @@
 @using Aiursoft.EmployeeCenter.Controllers
+@using Aiursoft.EmployeeCenter.Services.FileStorage
 @model Aiursoft.EmployeeCenter.Models.BlueprintViewModels.EditorViewModel
+@inject StorageService Storage
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
 }
@@ -22,6 +24,13 @@
         </div>
     </div>
 }
+
+<div id="upload-error-banner" class="quick-save-banner">
+    <div class="quick-save-banner-content" style="background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 32px rgba(239,68,68,0.35);">
+        <i class="align-middle" data-lucide="alert-circle"></i>
+        <span>@Localizer["Image upload failed!"]</span>
+    </div>
+</div>
 
 <form asp-action="@(Model.IsEditing ? "Edit" : "Create")" method="post" id="markdown-form">
     <div class="row mb-3">
@@ -183,6 +192,37 @@
                 display: block;
             }
         }
+
+        /* Quick save banner */
+        .quick-save-banner {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-120%);
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .quick-save-banner.show {
+            transform: translateX(-50%) translateY(24px);
+        }
+        .quick-save-banner-content {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.35);
+            white-space: nowrap;
+        }
+        .quick-save-banner-content i {
+            width: 20px;
+            height: 20px;
+        }
     </style>
 }
 
@@ -279,6 +319,17 @@
                     markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, function () {
                         var sel = markdownEditorInstance.getSelection();
                         wrapSelection(sel.startLineNumber !== sel.endLineNumber ? '```\n' : '`', sel.startLineNumber !== sel.endLineNumber ? '\n```' : '`');
+                    });
+
+                    window.AiursoftMarkdownUi.attachImageUpload({
+                        editor: markdownEditorInstance,
+                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
+                        onError: function () {
+                            var errBanner = document.getElementById('upload-error-banner');
+                            if (!errBanner) return;
+                            errBanner.classList.add('show');
+                            setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
+                        }
                     });
                 }
 
