@@ -226,27 +226,52 @@
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-
-            var md = { render: window.AiursoftMarkdownUi.renderMarkdown };
-
-            require(['vs/editor/editor.main'], function () {
-                var markdownEditorInstance;
+            require(['vs/editor/editor.main'], async function () {
                 var markdownEditorElement = document.getElementById('markdown-editor');
                 var monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
+                var markdownEditorController;
+                var isDirty = false;
 
                 if (markdownEditorElement) {
-                    markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
-                        value: markdownEditorElement.value,
-                        language: 'markdown',
+                    markdownEditorController = await window.AiursoftMarkdownUi.createMarkdownEditor({
+                        editorContainer: document.getElementById('markdown-editor-container'),
+                        textarea: markdownEditorElement,
+                        previewContainer: document.getElementById('printable-area'),
+                        editorPane: document.getElementById('editor-column'),
+                        previewPane: document.getElementById('preview-column'),
+                        form: document.getElementById('markdown-form'),
+                        monaco: monaco,
                         theme: monacoTheme,
-                        automaticLayout: true,
-                        wordWrap: 'on',
-                        'semanticHighlighting.enabled': true,
-                        fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
-                        fontSize: 14
+                        initialViewMode: 'split',
+                        viewModeStorageKey: 'markdown-view-mode',
+                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
+                        mermaidTheme: '@(isDarkMode ? "dark" : "default")',
+                        editorOptions: {
+                            'semanticHighlighting.enabled': true,
+                            fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
+                            fontSize: 14
+                        },
+                        onChange: function () { isDirty = true; },
+                        onPreviewRendered: function (markdown) {
+                            var htmlOutput = document.getElementById('html-output');
+                            if (htmlOutput) {
+                                htmlOutput.value = window.AiursoftMarkdownUi.renderMarkdown(markdown);
+                            }
+                            stylePreviewTables();
+                        },
+                        imageUploadOptions: {
+                            onError: function () {
+                                var errBanner = document.getElementById('upload-error-banner');
+                                if (!errBanner) return;
+                                errBanner.classList.add('show');
+                                setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
+                            }
+                        },
+                        onError: function (error) {
+                            console.error('Markdown editor error:', error);
+                        }
                     });
 
-                    var isDirty = false;
                     window.addEventListener('beforeunload', function (e) {
                         if (isDirty) { e.preventDefault(); e.returnValue = ''; }
                     });
@@ -254,57 +279,6 @@
                     if (form) { form.addEventListener('submit', function () { isDirty = false; }); }
                     var titleInput = document.getElementById('Title');
                     if (titleInput) { titleInput.addEventListener('input', function () { isDirty = true; }); }
-
-                    var previewTimer = null;
-                    function schedulePreviewUpdate(markdown) {
-                        clearTimeout(previewTimer);
-                        previewTimer = setTimeout(function () {
-                            var previewArea = document.getElementById('printable-area');
-                            var htmlOutputEl = document.getElementById('html-output');
-                            if (!previewArea) return;
-                            var html = md.render(markdown);
-                            previewArea.innerHTML = html;
-                            if (htmlOutputEl) htmlOutputEl.value = html;
-                            stylePreviewTables();
-                            renderMermaid();
-                            renderMath();
-                            renderHighlight();
-                        }, 200);
-                    }
-
-                    markdownEditorInstance.onDidChangeModelContent(function () {
-                        var currentValue = markdownEditorInstance.getValue();
-                        markdownEditorElement.value = currentValue;
-                        markdownEditorElement.dispatchEvent(new Event('change'));
-                        schedulePreviewUpdate(currentValue);
-                        isDirty = true;
-                    });
-
-                    schedulePreviewUpdate(markdownEditorElement.value);
-
-                    function wrapSelection(startStr, endStr) {
-                        var selection = markdownEditorInstance.getSelection();
-                        var model = markdownEditorInstance.getModel();
-                        var text = model.getValueInRange(selection);
-                        markdownEditorInstance.executeEdits('shortcut', [{ range: selection, text: startStr + text + endStr }]);
-                    }
-                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyB, function () { wrapSelection('**', '**'); });
-                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyI, function () { wrapSelection('*', '*'); });
-                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, function () {
-                        var sel = markdownEditorInstance.getSelection();
-                        wrapSelection(sel.startLineNumber !== sel.endLineNumber ? '```\n' : '`', sel.startLineNumber !== sel.endLineNumber ? '\n```' : '`');
-                    });
-
-                    window.AiursoftMarkdownUi.attachImageUpload({
-                        editor: markdownEditorInstance,
-                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
-                        onError: function () {
-                            var errBanner = document.getElementById('upload-error-banner');
-                            if (!errBanner) return;
-                            errBanner.classList.add('show');
-                            setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
-                        }
-                    });
                 }
 
                 var editorCol = document.getElementById('editor-column');
@@ -319,6 +293,9 @@
                     if (!editorCol || !previewCol || !formRoot) return;
                     if (isMobile() && mode === 'split') { mode = 'editor'; }
                     localStorage.setItem('markdown-view-mode', mode);
+                    if (markdownEditorController) {
+                        void markdownEditorController.setViewMode(mode);
+                    }
 
                     var dr = document.querySelector('input[name="view-mode-desktop"][value="' + mode + '"]');
                     if (dr) dr.checked = true;
@@ -343,7 +320,6 @@
                         formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
                         formRoot.classList.add('view-mode-' + mode);
                     }
-                    if (mode !== 'editor') { renderMermaid(); renderMath(); renderHighlight(); }
                 }
 
                 radiosDesktop.forEach(function (r) { r.addEventListener('change', function (e) { setViewMode(e.target.value); }); });
@@ -366,14 +342,6 @@
                     });
                 }
 
-                function renderMermaid() {
-                    window.AiursoftMarkdownUi.enhanceMarkdown({
-                        container: '#printable-area',
-                        mermaidTheme: '@(isDarkMode ? "dark" : "default")'
-                    }).catch(function () {});
-                }
-                function renderMath() {}
-                function renderHighlight() {}
             });
         });
     </script>
