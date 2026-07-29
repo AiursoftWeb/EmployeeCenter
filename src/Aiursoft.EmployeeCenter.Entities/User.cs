@@ -32,13 +32,6 @@ public class User : IdentityUser
     [MaxLength(100)]
     public string? Title { get; set; }
 
-    /// <summary>
-    /// The department of this user. Used to scope meeting recordings visibility.
-    /// If null, the user has no department assigned.
-    /// </summary>
-    [MaxLength(100)]
-    public string? Department { get; set; }
-
     [MaxLength(100)]
     public string? LegalName { get; set; }
 

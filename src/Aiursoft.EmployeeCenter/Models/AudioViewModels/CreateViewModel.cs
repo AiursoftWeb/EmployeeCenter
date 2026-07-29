@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.UiStack.Layout;
 
 namespace Aiursoft.EmployeeCenter.Models.AudioViewModels;
@@ -21,7 +20,4 @@ public class CreateViewModel : UiStackLayoutViewModel
     [Display(Name = "Audio File")]
     [RegularExpression(@"^audio/.*", ErrorMessage = "Please upload a valid audio file.")]
     public string? FilePath { get; set; }
-
-    [Display(Name = "View Scope")]
-    public AudioViewScope ViewScope { get; set; } = AudioViewScope.Private;
 }

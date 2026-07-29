@@ -132,18 +132,6 @@
                     <tr>
                         <td>
                             <i class="align-middle me-2" data-lucide="mic"></i> @item.Audio.Name
-                            @if (item.Audio.ViewScope == AudioViewScope.Private)
-                            {
-                                <span class="badge bg-secondary ms-1">@Localizer["Private"]</span>
-                            }
-                            else if (item.Audio.ViewScope == AudioViewScope.Department)
-                            {
-                                <span class="badge bg-info ms-1">@Localizer["Department"]</span>
-                            }
-                            else
-                            {
-                                <span class="badge bg-success ms-1">@Localizer["Public"]</span>
-                            }
                         </td>
                         <td><label class="text-muted" data-utc-time="@item.Audio.CreateTime.ToHtmlDateTime()"></label></td>
                         <td>

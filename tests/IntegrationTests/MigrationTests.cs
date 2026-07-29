@@ -1,5 +1,8 @@
 using Aiursoft.EmployeeCenter.MySql;
 using Aiursoft.EmployeeCenter.Sqlite;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -30,5 +33,83 @@ public class MigrationTests
         using var context = new MySqlContext(options);
         var hasPendingChanges = context.Database.HasPendingModelChanges();
         Assert.IsFalse(hasPendingChanges, "There are pending model changes for MySql. Please run 'dotnet ef migrations add' for MySql.");
+    }
+
+    [TestMethod]
+    public async Task RemovingAudioViewScopesPreservesAudioDataAndExplicitShares()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:");
+        await connection.OpenAsync();
+
+        var options = new DbContextOptionsBuilder<SqliteContext>()
+            .UseSqlite(connection)
+            .Options;
+        await using var context = new SqliteContext(options);
+        var migrator = context.Database.GetService<IMigrator>();
+        await migrator.MigrateAsync("20260728071918_DropRenderedHtml");
+
+        var owner = new User
+        {
+            Id = "audio-owner",
+            UserName = "audio-owner",
+            DisplayName = "Audio Owner",
+            AvatarRelativePath = User.DefaultAvatarPath
+        };
+        var sharedUser = new User
+        {
+            Id = "shared-user",
+            UserName = "shared-user",
+            DisplayName = "Shared User",
+            AvatarRelativePath = User.DefaultAvatarPath
+        };
+        context.Users.AddRange(owner, sharedUser);
+        await context.SaveChangesAsync();
+
+        var createTime = DateTime.UtcNow;
+        await context.Database.ExecuteSqlInterpolatedAsync($"""
+            INSERT INTO Audios
+                (Id, Name, FilePath, AsrAttemptCount, EmptyResultCount, LastAsrAttemptTime, CreateTime, OwnerId, AudienceDepartment, ViewScope)
+            VALUES
+                (1001, 'Legacy public audio', 'audio/public.mp3', 0, 0, NULL, {createTime}, {owner.Id}, NULL, 2),
+                (1002, 'Legacy department audio', 'audio/department.mp3', 0, 0, NULL, {createTime}, {owner.Id}, 'Engineering', 1)
+            """);
+
+        context.AudioAsrResults.AddRange(
+            new AudioAsrResult
+            {
+                AudioId = 1001,
+                PlainText = "Public transcript"
+            },
+            new AudioAsrResult
+            {
+                AudioId = 1002,
+                PlainText = "Department transcript"
+            });
+        context.AudioShares.Add(new AudioShare
+        {
+            AudioId = 1002,
+            SharedWithUserId = sharedUser.Id,
+            Permission = SharePermission.ReadOnly
+        });
+        await context.SaveChangesAsync();
+
+        context.ChangeTracker.Clear();
+        await migrator.MigrateAsync();
+        context.ChangeTracker.Clear();
+
+        var audios = await context.Audios
+            .Where(audio => audio.Id == 1001 || audio.Id == 1002)
+            .Include(audio => audio.AsrResult)
+            .Include(audio => audio.AudioShares)
+            .OrderBy(audio => audio.Id)
+            .ToListAsync();
+
+        Assert.HasCount(2, audios);
+        Assert.AreEqual("Public transcript", audios[0].AsrResult?.PlainText);
+        Assert.IsEmpty(audios[0].AudioShares);
+        Assert.AreEqual("Department transcript", audios[1].AsrResult?.PlainText);
+        Assert.HasCount(1, audios[1].AudioShares);
+        Assert.AreEqual(sharedUser.Id, audios[1].AudioShares[0].SharedWithUserId);
+        Assert.AreEqual(SharePermission.ReadOnly, audios[1].AudioShares[0].Permission);
     }
 }
