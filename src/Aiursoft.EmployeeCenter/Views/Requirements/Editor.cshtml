@@ -86,7 +86,7 @@
                 <div class="card-body p-0 d-flex flex-column h-100">
                     <div class="flex-grow-1 position-relative editor-wrapper">
                         <div id="markdown-editor-container" style="width: 100%; height: 100%;"></div>
-                        <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
+                        <textarea asp-for="InputMarkdown" id="markdown-editor" class="form-control" rows="20"></textarea>
                     </div>
                     <span asp-validation-for="InputMarkdown" class="text-danger px-2"></span>
                 </div>
@@ -217,7 +217,7 @@
             }
         };
     </script>
-    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script id="MathJax-script" defer src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     @* uistack-markdown-ui, mermaid, hljs MUST be loaded before Monaco's loader.js *@
     <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
@@ -225,8 +225,7 @@
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            require(['vs/editor/editor.main'], async function () {
+        document.addEventListener("DOMContentLoaded", async function () {
                 var markdownEditorElement = document.getElementById('markdown-editor');
                 var monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
                 var markdownEditorController;
@@ -240,7 +239,7 @@
                         editorPane: document.getElementById('editor-column'),
                         previewPane: document.getElementById('preview-column'),
                         form: document.getElementById('markdown-form'),
-                        monaco: monaco,
+                        loadMonaco: function () { return window.AiursoftMarkdownUi.loadMonacoFromAmd(); },
                         theme: monacoTheme,
                         initialViewMode: 'split',
                         viewModeStorageKey: 'markdown-view-mode',
@@ -257,7 +256,6 @@
                             if (htmlOutput) {
                                 htmlOutput.value = window.AiursoftMarkdownUi.renderMarkdown(markdown);
                             }
-                            stylePreviewTables();
                         },
                         imageUploadOptions: {
                             onError: function () {
@@ -268,6 +266,7 @@
                             }
                         },
                         onError: function (error) {
+                            document.getElementById('markdown-editor-container').hidden = true;
                             console.error('Markdown editor error:', error);
                         }
                     });
@@ -330,19 +329,6 @@
                 var printBtn = document.getElementById('print-button');
                 if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
 
-                function stylePreviewTables() {
-                    var p = document.getElementById('printable-area');
-                    if (!p) return;
-                    p.querySelectorAll('table').forEach(function (t) {
-                        t.classList.add('table', 'table-striped', 'table-bordered');
-                        if (!t.parentElement.classList.contains('table-responsive')) {
-                            var w = document.createElement('div'); w.className = 'table-responsive';
-                            t.parentNode.insertBefore(w, t); w.appendChild(t);
-                        }
-                    });
-                }
-
-            });
         });
     </script>
 }

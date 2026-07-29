@@ -48,7 +48,7 @@
         };
     </script>
     <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
-    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script id="MathJax-script" defer src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script>
@@ -61,7 +61,7 @@
 
             contentEl.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(__rawMarkdownContent);
 
-            window.AiursoftMarkdownUi.enhanceMarkdown({
+            window.AiursoftMarkdownUi.initializeMarkdownReader({
                 container: '#printable-area',
                 mermaidTheme: '@(isDarkMode ? "dark" : "default")'
             }).catch(function () {});
