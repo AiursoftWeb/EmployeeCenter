@@ -149,7 +149,7 @@
             }
         };
     </script>
-    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
@@ -162,55 +162,7 @@
             var contentEl = document.getElementById('printable-area');
             if (!contentEl) return;
 
-            function mathPlugin(md) {
-                md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
-                    var pos = state.pos;
-                    if (state.src[pos] !== '$') return false;
-                    if (state.src[pos + 1] === '$') return false;
-                    var start = pos + 1;
-                    if (start >= state.posMax) return false;
-                    if (state.src[start] === ' ') return false;
-                    var end = state.src.indexOf('$', start);
-                    while (end > 0 && state.src[end - 1] === '\\') {
-                        end = state.src.indexOf('$', end + 1);
-                    }
-                    if (end < 0 || end === start) return false;
-                    if (state.src[end - 1] === ' ') return false;
-                    var content = state.src.slice(start, end);
-                    if (content.indexOf('\n') >= 0) return false;
-                    if (!silent) {
-                        var token = state.push('math_inline', '', 0);
-                        token.markup = '$';
-                        token.content = content;
-                    }
-                    state.pos = end + 1;
-                    return true;
-                });
-                md.renderer.rules.math_inline = function (tokens, idx) {
-                    return '\\\(' + tokens[idx].content + '\\\)';
-                };
-            }
-
-            var md = window.markdownit({
-                html: false,
-                linkify: true,
-                typographer: true,
-                highlight: function (str, lang) {
-                    if (lang === 'mermaid') {
-                        return '<div class="mermaid">' + md.utils.escapeHtml(str) + '</div>';
-                    }
-                    if (window.hljs && window.hljs.getLanguage(lang)) {
-                        try {
-                            return '<pre><code class="hljs language-' + lang + '">' +
-                                window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                                '</code></pre>';
-                        } catch (_) {}
-                    }
-                    return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
-                }
-            }).use(mathPlugin);
-
-            contentEl.innerHTML = md.render(__rawMarkdownContent);
+            contentEl.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(__rawMarkdownContent);
 
             contentEl.querySelectorAll('table').forEach(function(t) {
                 t.classList.add('table', 'table-striped', 'table-bordered');
