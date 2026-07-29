@@ -1,7 +1,7 @@
 @using Aiursoft.EmployeeCenter.Controllers
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @model Aiursoft.EmployeeCenter.Models.RequirementViewModels.EditorViewModel
-@inject StorageService Storage
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
 }
@@ -210,8 +210,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -367,8 +367,6 @@
                     });
                 }
 
-                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
-
                 function renderMermaid() {
                     var p = document.getElementById('printable-area');
                     if (!p || !window.mermaid) return;
@@ -383,14 +381,12 @@
                         } catch (_) {}
                     });
                 }
-
                 function renderMath() {
                     if (window.MathJax && window.MathJax.typesetPromise) {
                         var preview = document.getElementById('printable-area');
                         if (preview) window.MathJax.typesetPromise([preview]).catch(function () {});
                     }
                 }
-
                 function renderHighlight() {
                     if (window.hljs) { hljs.highlightAll(); }
                 }

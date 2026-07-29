@@ -231,8 +231,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -241,9 +241,9 @@
     </script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     @* uistack-markdown-ui, mermaid, hljs MUST be loaded before Monaco's loader.js *@
-    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
@@ -395,33 +395,14 @@
                     });
                 }
 
-                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
-
                 function renderMermaid() {
-                    var p = document.getElementById('printable-area');
-                    if (!p || !window.mermaid) return;
-                    p.querySelectorAll('pre.mermaid, .mermaid').forEach(function (b, i) {
-                        var code = b.textContent || '';
-                        var id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
-                        try {
-                            mermaid.parse(code);
-                            mermaid.render(id, code).then(function (r) {
-                                var w = document.createElement('div'); w.innerHTML = r.svg; b.replaceWith(w);
-                            }).catch(function () {});
-                        } catch (_) {}
-                    });
+                    window.AiursoftMarkdownUi.enhanceMarkdown({
+                        container: '#printable-area',
+                        mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+                    }).catch(function () {});
                 }
-
-                function renderMath() {
-                    if (window.MathJax && window.MathJax.typesetPromise) {
-                        var preview = document.getElementById('printable-area');
-                        if (preview) window.MathJax.typesetPromise([preview]).catch(function () {});
-                    }
-                }
-
-                function renderHighlight() {
-                    if (window.hljs) { hljs.highlightAll(); }
-                }
+                function renderMath() {}
+                function renderHighlight() {}
             });
         });
     </script>

@@ -39,8 +39,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -61,35 +61,10 @@
 
             contentEl.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(__rawMarkdownContent);
 
-            // Style tables
-            contentEl.querySelectorAll('table').forEach(function(t) {
-                t.classList.add('table', 'table-striped', 'table-bordered');
-                if (!t.parentElement.classList.contains('table-responsive')) {
-                    var w = document.createElement('div'); w.className = 'table-responsive';
-                    t.parentNode.insertBefore(w, t); w.appendChild(t);
-                }
-            });
-
-            if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
-
-            contentEl.querySelectorAll('pre.mermaid, .mermaid').forEach(function(b, i) {
-                var code = b.textContent || '';
-                var id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
-                try {
-                    mermaid.parse(code);
-                    mermaid.render(id, code).then(function(result) {
-                        var w = document.createElement('div'); w.innerHTML = result.svg; b.replaceWith(w);
-                    }).catch(function() {});
-                } catch (_) {}
-            });
-
-            if (window.MathJax && window.MathJax.typesetPromise) {
-                window.MathJax.typesetPromise([contentEl]).catch(function() {});
-            }
-
-            if (window.hljs) {
-                hljs.highlightAll();
-            }
+            window.AiursoftMarkdownUi.enhanceMarkdown({
+                container: '#printable-area',
+                mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+            }).catch(function () {});
         });
     </script>
 }

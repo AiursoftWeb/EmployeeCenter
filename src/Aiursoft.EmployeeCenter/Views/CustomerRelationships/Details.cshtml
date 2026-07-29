@@ -127,3 +127,12 @@
 <div class="mb-3">
     <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to List"]</a>
 </div>
+
+@section styles {
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+}
+
+@section scripts {
+    <partial name="_MarkdownReaderAssets" />
+}
