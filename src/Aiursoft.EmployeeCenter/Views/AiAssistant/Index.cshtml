@@ -62,12 +62,10 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script>
         function renderMarkdown(text) {
-            const html = marked.parse(text);
-            return DOMPurify.sanitize(html);
+            return window.AiursoftMarkdownUi.renderMarkdown(text);
         }
         const chatMessages = document.getElementById('chatMessages');
         const chatForm = document.getElementById('chatForm');
