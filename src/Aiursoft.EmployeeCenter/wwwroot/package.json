@@ -5,7 +5,8 @@
   "author": "Anduin Xue",
   "license": "MIT",
   "dependencies": {
-    "@aiursoft/uistack-markdown-ui": "1.2.3",
+    "@aiursoft/uistack-markdown-ui": "1.2.6",
+    "@fontsource/cascadia-code": "5.3.0",
     "@highlightjs/cdn-assets": "^11.11.1",
     "chart.js": "^4.4.1",
     "dropify": "^0.2.2",
@@ -15,6 +16,7 @@
   },
   "keep": {
     "@aiursoft/uistack-markdown-ui": "dist",
+    "@fontsource/cascadia-code": ".",
     "dropify": "dist",
     "@highlightjs/cdn-assets": ".",
     "mathjax": "es5",

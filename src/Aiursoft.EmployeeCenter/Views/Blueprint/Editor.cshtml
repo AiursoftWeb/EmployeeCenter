@@ -164,6 +164,7 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
+    <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
@@ -267,10 +268,8 @@
                         viewModeStorageKey: 'markdown-view-mode',
                         uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
                         mermaidTheme: '@(isDarkMode ? "dark" : "default")',
-                        editorOptions: {
-                            'semanticHighlighting.enabled': true,
-                            fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
-                            fontSize: 14
+                        onSave: function () {
+                            document.getElementById('markdown-form').requestSubmit();
                         },
                         onChange: function () { isDirty = true; },
                         onPreviewRendered: function (markdown) {
