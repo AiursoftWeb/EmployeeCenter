@@ -265,9 +265,11 @@
                                 setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
                             }
                         },
-                        onError: function (error) {
-                            document.getElementById('markdown-editor-container').hidden = true;
-                            console.error('Markdown editor error:', error);
+                        onInitializationError: function (error) {
+                            console.error('Markdown editor initialization error:', error);
+                        },
+                        onPreviewError: function (error) {
+                            console.error('Markdown preview error:', error);
                         }
                     });
 
