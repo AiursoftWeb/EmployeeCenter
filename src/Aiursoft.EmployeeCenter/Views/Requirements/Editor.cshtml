@@ -117,13 +117,7 @@
                     <div class="tab-content flex-grow-1 d-flex flex-column p-0" style="height: 100%;">
 
                         <div class="tab-pane flex-column h-100 active show" id="preview" role="tabpanel">
-                            <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-end flex-shrink-0">
-                                <button type="button" id="print-button" class="btn btn-sm btn-white border shadow-sm text-info">
-                                    <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
-                                </button>
-                            </div>
-
-                            <div class="flex-grow-1 overflow-auto p-4 markdown-content" id="printable-area">
+                            <div class="flex-grow-1 overflow-auto p-4 markdown-content" id="markdown-preview">
                                 <!-- markdown preview rendered client-side -->
                             </div>
                         </div>
@@ -145,7 +139,6 @@
     <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
     @if (isDarkMode)
     {
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
@@ -236,7 +229,7 @@
                     markdownEditorController = await window.AiursoftMarkdownUi.createMarkdownEditor({
                         editorContainer: document.getElementById('markdown-editor-container'),
                         textarea: markdownEditorElement,
-                        previewContainer: document.getElementById('printable-area'),
+                        previewContainer: document.getElementById('markdown-preview'),
                         editorPane: document.getElementById('editor-column'),
                         previewPane: document.getElementById('preview-column'),
                         form: document.getElementById('markdown-form'),
@@ -326,9 +319,6 @@
                 radiosMobile.forEach(function (r) { r.addEventListener('change', function (e) { setViewMode(e.target.value); }); });
                 window.addEventListener('resize', function () { setViewMode(localStorage.getItem('markdown-view-mode') || 'split'); });
                 setViewMode(localStorage.getItem('markdown-view-mode') || 'split');
-
-                var printBtn = document.getElementById('print-button');
-                if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
 
         });
     </script>

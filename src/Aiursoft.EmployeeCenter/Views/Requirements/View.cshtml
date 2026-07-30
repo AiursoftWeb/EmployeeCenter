@@ -39,9 +39,6 @@
                 </button>
             </form>
         }
-        <a href="javascript:window.print()" class="btn btn-outline-primary">
-            <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
-        </a>
     </div>
 </div>
 
@@ -66,7 +63,7 @@
         </div>
     </div>
     <div class="card-body">
-        <div class="markdown-content" id="printable-area"></div>
+        <div class="markdown-content" id="markdown-preview"></div>
     </div>
 </div>
 
@@ -125,7 +122,6 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
     @if (isDarkMode)
     {
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
@@ -159,13 +155,13 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var isDarkMode = @(isDarkMode.ToString().ToLower());
-            var contentEl = document.getElementById('printable-area');
+            var contentEl = document.getElementById('markdown-preview');
             if (!contentEl) return;
 
             contentEl.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(__rawMarkdownContent);
 
             window.AiursoftMarkdownUi.initializeMarkdownReader({
-                container: '#printable-area',
+                container: '#markdown-preview',
                 mermaidTheme: '@(isDarkMode ? "dark" : "default")'
             }).catch(function () {});
 
