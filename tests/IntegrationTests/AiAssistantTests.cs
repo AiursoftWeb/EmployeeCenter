@@ -26,6 +26,11 @@ public class AiAssistantTests : TestBase
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadAsStringAsync();
         Assert.IsTrue(content.Contains("AI Assistant"));
+        StringAssert.Contains(content, "mathjax/es5/tex-mml-chtml.js");
+        StringAssert.Contains(content, "mermaid/dist/mermaid.min.js");
+        StringAssert.Contains(content, "highlight.min.js");
+        StringAssert.Contains(content, "initializeMarkdownReader");
+        Assert.IsFalse(content.Contains("function renderMarkdown"));
     }
 
     [TestMethod]

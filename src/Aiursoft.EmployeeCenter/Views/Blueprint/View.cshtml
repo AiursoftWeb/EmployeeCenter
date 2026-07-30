@@ -31,21 +31,6 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
-    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
-    <script id="MathJax-script" defer src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
-    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
-    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
-    <script>
         var __rawMarkdownContent = @Json.Serialize(Model.Blueprint.Content);
     </script>
     <script>
@@ -54,11 +39,11 @@
             if (!contentEl) return;
 
             contentEl.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(__rawMarkdownContent);
-
-            window.AiursoftMarkdownUi.initializeMarkdownReader({
-                container: '#markdown-preview',
-                mermaidTheme: '@(isDarkMode ? "dark" : "default")'
-            }).catch(function () {});
         });
     </script>
+    @{
+        ViewData["MarkdownSelector"] = "#markdown-preview";
+        ViewData["MarkdownTheme"] = isDarkMode ? "dark" : "default";
+    }
+    <partial name="_MarkdownReaderAssets" />
 }

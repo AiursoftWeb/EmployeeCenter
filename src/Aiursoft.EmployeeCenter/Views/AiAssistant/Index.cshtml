@@ -1,4 +1,8 @@
+@using Aiursoft.EmployeeCenter.Controllers
 @model Aiursoft.EmployeeCenter.Models.AiAssistantViewModels.IndexViewModel
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
@@ -61,12 +65,26 @@
 </style>
 
 @* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
+    @{
+        ViewData["MarkdownSelector"] = "#chatMessages .markdown-content";
+        ViewData["MarkdownTheme"] = isDarkMode ? "dark" : "default";
+    }
+    <partial name="_MarkdownReaderAssets" />
     <script>
-        function renderMarkdown(text) {
-            return window.AiursoftMarkdownUi.renderMarkdown(text);
-        }
         const chatMessages = document.getElementById('chatMessages');
         const chatForm = document.getElementById('chatForm');
         const userInput = document.getElementById('userInput');
@@ -90,7 +108,8 @@
             const msgDiv = document.createElement('div');
             msgDiv.className = `message message-${role}`;
             if (role === 'assistant') {
-                msgDiv.innerHTML = content; // Using innerHTML because AI answers are pre-rendered sanitized HTML
+                msgDiv.classList.add('markdown-content');
+                msgDiv.innerHTML = content;
             } else {
                 msgDiv.textContent = content; // Using textContent for user messages to avoid XSS and respect newlines
             }
@@ -184,7 +203,15 @@
 
                     const statusData = await statusResponse.json();
                     if (statusData.status === 'Completed') {
-                        assistantMsgDiv.innerHTML = renderMarkdown(statusData.answer);
+                        assistantMsgDiv.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(statusData.answer);
+                        try {
+                            await window.AiursoftMarkdownUi.initializeMarkdownReader({
+                                container: assistantMsgDiv,
+                                mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+                            });
+                        } catch (previewError) {
+                            console.error('Markdown preview enhancement failed:', previewError);
+                        }
 
                         // Update history with assistant's answer
                         chatHistory.push({ role: 'assistant', content: statusData.answer });
