@@ -16,7 +16,7 @@ public class HolidayService
     private readonly IMemoryCache _cache;
     private readonly ILogger<HolidayService> _logger;
     private readonly EmployeeCenterDbContext _context;
-    private const string ApiBaseUrl = "https://cdn.jsdelivr.net/gh/NateScarlet/holiday-cn@master";
+    private const string ApiBaseUrl = "https://raw.githubusercontent.com/NateScarlet/holiday-cn/master";
 
     public HolidayService(
         IHttpClientFactory httpClientFactory,
