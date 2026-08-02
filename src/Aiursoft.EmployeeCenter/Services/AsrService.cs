@@ -485,9 +485,9 @@ public class AsrService(
                !string.IsNullOrEmpty(_asrSettings.BearerToken);
     }
 
-    private static string BuildTaskId(int audioId, int segmentIndex, int attempt)
+    public static string BuildTaskId(int audioId, int segmentIndex, int attempt)
     {
-        return $"audio-{audioId}-segment-{segmentIndex}-attempt-{attempt}";
+        return $"audio-{audioId}-segment-{segmentIndex}-attempt-{attempt}-{Guid.NewGuid():N}";
     }
 
     private static string JoinSegmentText(IEnumerable<AsrTranscriptSegment> segments)

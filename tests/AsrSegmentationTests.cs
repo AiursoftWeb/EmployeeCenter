@@ -76,6 +76,19 @@ public class AsrSegmentationTests
         Assert.IsNull(selected);
     }
 
+    [TestMethod]
+    public void TaskIdsAreGloballyUniqueAndAsrApiCompatible()
+    {
+        var taskIds = Enumerable.Range(0, 100)
+            .Select(_ => AsrService.BuildTaskId(42, 3, 7))
+            .ToList();
+
+        Assert.HasCount(taskIds.Count, taskIds.Distinct().ToList());
+        Assert.IsTrue(taskIds.All(taskId => taskId.Length <= 128));
+        Assert.IsTrue(taskIds.All(taskId => taskId.All(character =>
+            char.IsAsciiLetterOrDigit(character) || character is '-' or '.' or '_' or '~')));
+    }
+
     private static AudioAsrSegment StoredSegment(int index, IReadOnlyList<AsrTranscriptSegment> segments)
     {
         return new AudioAsrSegment
