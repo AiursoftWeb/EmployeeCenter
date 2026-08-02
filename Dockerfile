@@ -46,8 +46,8 @@ ARG PROJ_NAME
 WORKDIR /app
 COPY --from=build-env /app .
 
-# Install git and git-lfs (required by export job)
-RUN apt-get update && apt-get install -y --no-install-recommends git git-lfs && rm -rf /var/lib/apt/lists/* && git lfs install --system
+# Install git, git-lfs and media tools required by background jobs
+RUN apt-get update && apt-get install -y --no-install-recommends git git-lfs ffmpeg && rm -rf /var/lib/apt/lists/* && git lfs install --system
 
 # Edit appsettings.json
 RUN sed -i 's/DataSource=app.db/DataSource=\/data\/app.db/g' appsettings.json

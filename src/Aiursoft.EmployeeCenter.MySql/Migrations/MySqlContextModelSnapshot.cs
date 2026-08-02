@@ -291,6 +291,48 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.ToTable("AudioAsrResults");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrSegment", b =>
+                {
+                    b.Property<int>("AudioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SegmentIndex")
+                        .HasColumnType("int");
+
+                    b.Property<long>("CoreEndMilliseconds")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("CoreStartMilliseconds")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long>("InputEndMilliseconds")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("InputStartMilliseconds")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("OverlapSeconds")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PlainText")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("SegmentDurationSeconds")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SegmentsJson")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("AudioId", "SegmentIndex");
+
+                    b.ToTable("AudioAsrSegments");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
                 {
                     b.Property<int>("Id")
@@ -2594,6 +2636,17 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Navigation("Audio");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrSegment", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
+                        .WithMany("AsrSegments")
+                        .HasForeignKey("AudioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Audio");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
                 {
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
@@ -3255,6 +3308,8 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
                 {
                     b.Navigation("AsrResult");
+
+                    b.Navigation("AsrSegments");
 
                     b.Navigation("AudioShares");
                 });

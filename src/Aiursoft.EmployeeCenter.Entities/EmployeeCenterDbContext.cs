@@ -270,6 +270,8 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     /// </summary>
     public DbSet<AudioAsrResult> AudioAsrResults => Set<AudioAsrResult>();
 
+    public DbSet<AudioAsrSegment> AudioAsrSegments => Set<AudioAsrSegment>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -293,6 +295,15 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             .WithOne(a => a.AsrResult)
             .HasForeignKey<AudioAsrResult>(r => r.AudioId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<AudioAsrSegment>(entity =>
+        {
+            entity.HasKey(segment => new { segment.AudioId, segment.SegmentIndex });
+            entity.HasOne(segment => segment.Audio)
+                .WithMany(audio => audio.AsrSegments)
+                .HasForeignKey(segment => segment.AudioId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
 
         builder.Entity<AudioShare>(entity =>
         {

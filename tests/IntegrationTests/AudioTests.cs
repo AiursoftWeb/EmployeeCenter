@@ -4,6 +4,60 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 public class AudioTests : TestBase
 {
     [TestMethod]
+    public async Task ResetAsrClearsCompletedAndSegmentResults()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var audio = new Audio
+            {
+                Name = "Reset ASR Test",
+                FilePath = "audio/reset-test.mp3",
+                OwnerId = admin.Id,
+                AsrAttemptCount = 3,
+                EmptyResultCount = 1
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audioId,
+                PlainText = "completed"
+            });
+            db.AudioAsrSegments.Add(new AudioAsrSegment
+            {
+                AudioId = audioId,
+                SegmentIndex = 0,
+                SegmentDurationSeconds = 1800,
+                OverlapSeconds = 2,
+                SegmentsJson = "[]",
+                PlainText = "completed"
+            });
+            await db.SaveChangesAsync();
+        }
+
+        var response = await PostForm(
+            $"/Audio/ResetAsr/{audioId}",
+            new Dictionary<string, string>(),
+            $"/Audio/Transcript/{audioId}");
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audioAfterReset = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(audioAfterReset);
+        Assert.AreEqual(0, audioAfterReset.AsrAttemptCount);
+        Assert.AreEqual(0, audioAfterReset.EmptyResultCount);
+        Assert.IsFalse(await verificationDb.AudioAsrResults.AnyAsync(result => result.AudioId == audioId));
+        Assert.IsFalse(await verificationDb.AudioAsrSegments.AnyAsync(segment => segment.AudioId == audioId));
+    }
+
+    [TestMethod]
     public async Task AudioSharingMatchesPasswordSharing()
     {
         await LoginAsAdmin();

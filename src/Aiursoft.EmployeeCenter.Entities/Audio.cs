@@ -38,4 +38,6 @@ public class Audio
     public List<AudioShare> AudioShares { get; set; } = [];
 
     public AudioAsrResult? AsrResult { get; set; }
+
+    public List<AudioAsrSegment> AsrSegments { get; set; } = [];
 }

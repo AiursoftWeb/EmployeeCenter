@@ -39,9 +39,13 @@ public class Startup : IWebStartup
         }
 
         var asrSettings = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>();
-        if (!EntryExtends.IsInUnitTests() && asrSettings is { Enabled: true } && (string.IsNullOrEmpty(asrSettings.Endpoint) || string.IsNullOrEmpty(asrSettings.BearerToken)))
+        if (!EntryExtends.IsInUnitTests() &&
+            asrSettings is { Enabled: true } &&
+            (string.IsNullOrEmpty(asrSettings.Endpoint) ||
+             string.IsNullOrEmpty(asrSettings.SystemEndpoint) ||
+             string.IsNullOrEmpty(asrSettings.BearerToken)))
         {
-            throw new InvalidOperationException("ASR is enabled but Endpoint or BearerToken is not configured in AppSettings:ASR. Please configure them or set Enabled to false.");
+            throw new InvalidOperationException("ASR is enabled but Endpoint, SystemEndpoint, or BearerToken is not configured in AppSettings:ASR. Please configure them or set Enabled to false.");
         }
 
         // Relational database
@@ -91,7 +95,7 @@ public class Startup : IWebStartup
         services.AddHttpClient<Services.AsrService>(client =>
         {
             var asrConfig = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>();
-            client.Timeout = TimeSpan.FromSeconds(asrConfig?.TimeoutSeconds ?? 1800);
+            client.Timeout = TimeSpan.FromSeconds(asrConfig?.TimeoutSeconds ?? 7200);
         });
         services.AddHttpClient<Services.MeetingMinutesService>(client =>
         {

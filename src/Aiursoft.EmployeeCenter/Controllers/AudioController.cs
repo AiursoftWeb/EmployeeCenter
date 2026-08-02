@@ -160,6 +160,10 @@ public class AudioController(
         {
             var transcript = await context.AudioAsrResults.FindAsync(audio.Id);
             if (transcript != null) context.AudioAsrResults.Remove(transcript);
+            var segments = await context.AudioAsrSegments
+                .Where(segment => segment.AudioId == audio.Id)
+                .ToListAsync();
+            context.AudioAsrSegments.RemoveRange(segments);
             audio.AsrAttemptCount = 0;
             audio.EmptyResultCount = 0;
             audio.LastAsrAttemptTime = null;
@@ -207,6 +211,10 @@ public class AudioController(
         {
             context.AudioAsrResults.Remove(existingResult);
         }
+        var segments = await context.AudioAsrSegments
+            .Where(segment => segment.AudioId == id)
+            .ToListAsync();
+        context.AudioAsrSegments.RemoveRange(segments);
 
         audio.AsrAttemptCount = 0;
         audio.EmptyResultCount = 0;
