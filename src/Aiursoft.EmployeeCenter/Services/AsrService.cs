@@ -34,6 +34,7 @@ public class AsrService(
     ILogger<AsrService> logger) : ITransientDependency
 {
     private readonly AsrSettings _asrSettings = asrSettings.Value;
+    private readonly string? _systemEndpoint = asrSettings.Value.ResolveSystemEndpoint();
 
     private static readonly HashSet<string> AllowedExtensions = new(StringComparer.OrdinalIgnoreCase)
     {
@@ -92,7 +93,7 @@ public class AsrService(
                 Path.GetFileName(filePath),
                 "json",
                 BuildTaskId(audio.Id, 0, audio.AsrAttemptCount));
-            return response?.Text ?? string.Empty;
+            return GetRecognizedText(response);
         }
 
         return await RecognizeSegmentedMediaAsync(audio, filePath, probe.Duration, policy, existingSegments);
@@ -147,45 +148,16 @@ public class AsrService(
         var temporaryDirectory = Directory.CreateTempSubdirectory("asr-media-");
         try
         {
-            var segmentFiles = await mediaProcessor.CreateSegmentFilesAsync(
-                filePath,
-                missingWindows,
-                temporaryDirectory.FullName);
-            foreach (var window in missingWindows)
-            {
-                var segmentPath = segmentFiles[window.Index];
-                if (new FileInfo(segmentPath).Length > policy.UploadLimitBytes)
-                {
-                    logger.LogError(
-                        "ASR segment {SegmentIndex} for audio {AudioId} exceeds upload limit {UploadLimitBytes}.",
-                        window.Index,
-                        audio.Id,
-                        policy.UploadLimitBytes);
-                    return false;
-                }
-            }
-
             foreach (var windowBatch in missingWindows.Chunk(2))
             {
-                var transcriptionTasks = windowBatch.Select(window => TranscribeSegmentAsync(
+                var batchCompleted = await TranscribeSegmentBatchAsync(
                     audio,
-                    window,
-                    segmentFiles[window.Index],
+                    filePath,
                     policy,
-                    allowTextFallback));
-                var transcriptionResults = await Task.WhenAll(transcriptionTasks);
-                var batchSucceeded = true;
-                foreach (var result in transcriptionResults)
-                {
-                    if (result == null)
-                    {
-                        batchSucceeded = false;
-                        continue;
-                    }
-                    dbContext.AudioAsrSegments.Add(result);
-                }
-                await dbContext.SaveChangesAsync();
-                if (!batchSucceeded)
+                    windowBatch,
+                    allowTextFallback,
+                    temporaryDirectory.FullName);
+                if (!batchCompleted)
                 {
                     return false;
                 }
@@ -195,6 +167,81 @@ public class AsrService(
         finally
         {
             temporaryDirectory.Delete(recursive: true);
+        }
+    }
+
+    private async Task<bool> TranscribeSegmentBatchAsync(
+        Audio audio,
+        string filePath,
+        AsrTranscriptionPolicy policy,
+        IReadOnlyList<AsrSegmentWindow> windows,
+        bool allowTextFallback,
+        string temporaryDirectory)
+    {
+        var segmentFiles = await mediaProcessor.CreateSegmentFilesAsync(
+            filePath,
+            windows,
+            temporaryDirectory);
+        try
+        {
+            if (!AreSegmentFilesWithinUploadLimit(audio.Id, windows, segmentFiles, policy.UploadLimitBytes))
+            {
+                return false;
+            }
+
+            var transcriptionTasks = windows.Select(window => TranscribeSegmentAsync(
+                audio,
+                window,
+                segmentFiles[window.Index],
+                policy,
+                allowTextFallback));
+            var transcriptionResults = await Task.WhenAll(transcriptionTasks);
+            var batchSucceeded = true;
+            foreach (var result in transcriptionResults)
+            {
+                if (result == null)
+                {
+                    batchSucceeded = false;
+                    continue;
+                }
+                dbContext.AudioAsrSegments.Add(result);
+            }
+            await dbContext.SaveChangesAsync();
+            return batchSucceeded;
+        }
+        finally
+        {
+            DeleteSegmentFiles(segmentFiles.Values);
+        }
+    }
+
+    private bool AreSegmentFilesWithinUploadLimit(
+        int audioId,
+        IReadOnlyList<AsrSegmentWindow> windows,
+        IReadOnlyDictionary<int, string> segmentFiles,
+        long uploadLimitBytes)
+    {
+        foreach (var window in windows)
+        {
+            if (new FileInfo(segmentFiles[window.Index]).Length <= uploadLimitBytes)
+            {
+                continue;
+            }
+            logger.LogError(
+                "ASR segment {SegmentIndex} for audio {AudioId} exceeds upload limit {UploadLimitBytes}.",
+                window.Index,
+                audioId,
+                uploadLimitBytes);
+            return false;
+        }
+        return true;
+    }
+
+    private static void DeleteSegmentFiles(IEnumerable<string> segmentFiles)
+    {
+        foreach (var segmentFile in segmentFiles)
+        {
+            File.Delete(segmentFile);
         }
     }
 
@@ -360,7 +407,7 @@ public class AsrService(
 
     private async Task<AsrTranscriptionPolicy> GetTranscriptionPolicyAsync()
     {
-        using var request = new HttpRequestMessage(HttpMethod.Get, _asrSettings.SystemEndpoint);
+        using var request = new HttpRequestMessage(HttpMethod.Get, _systemEndpoint);
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _asrSettings.BearerToken);
         using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(15));
         using var response = await httpClient.SendAsync(request, timeout.Token);
@@ -381,10 +428,10 @@ public class AsrService(
         {
             throw new InvalidOperationException("ASR system endpoint returned an invalid transcription policy.");
         }
-        if (_asrSettings.TimeoutSeconds <= policy.TranscriptionTimeoutSeconds)
+        if (_asrSettings.TimeoutSeconds < policy.TranscriptionTimeoutSeconds)
         {
             throw new InvalidOperationException(
-                "ASR client timeout must be greater than the server transcription timeout.");
+                "ASR client timeout must be at least the server transcription timeout.");
         }
 
         return new AsrTranscriptionPolicy(
@@ -481,8 +528,13 @@ public class AsrService(
     private bool HasRequiredSettings()
     {
         return !string.IsNullOrEmpty(_asrSettings.Endpoint) &&
-               !string.IsNullOrEmpty(_asrSettings.SystemEndpoint) &&
+               !string.IsNullOrEmpty(_systemEndpoint) &&
                !string.IsNullOrEmpty(_asrSettings.BearerToken);
+    }
+
+    public static string? GetRecognizedText(AsrResponse? response)
+    {
+        return response == null ? null : response.Text ?? string.Empty;
     }
 
     public static string BuildTaskId(int audioId, int segmentIndex, int attempt)

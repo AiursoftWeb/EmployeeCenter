@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using System.Globalization;
+using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.Scanner.Abstractions;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace Aiursoft.EmployeeCenter.Services;
@@ -14,8 +16,13 @@ public sealed record AsrSegmentWindow(
 
 public sealed record AsrMediaProbe(TimeSpan Duration);
 
-public class AsrMediaProcessor(ILogger<AsrMediaProcessor> logger) : ITransientDependency
+public class AsrMediaProcessor(
+    IOptions<AsrSettings> asrSettings,
+    ILogger<AsrMediaProcessor> logger) : ITransientDependency
 {
+    private static readonly TimeSpan ProbeTimeout = TimeSpan.FromSeconds(30);
+    private readonly TimeSpan _segmentProcessingTimeout = asrSettings.Value.GetProcessingTimeout();
+
     public static IReadOnlyList<AsrSegmentWindow> CreateSegmentWindows(
         TimeSpan mediaDuration,
         int segmentDurationSeconds,
@@ -73,7 +80,7 @@ public class AsrMediaProcessor(ILogger<AsrMediaProcessor> logger) : ITransientDe
         startInfo.ArgumentList.Add("json");
         startInfo.ArgumentList.Add(mediaPath);
 
-        var result = await RunProcessAsync(startInfo);
+        var result = await RunProcessAsync(startInfo, ProbeTimeout);
         if (result.ExitCode != 0)
         {
             throw new InvalidOperationException($"ffprobe failed: {result.Error}");
@@ -135,7 +142,7 @@ public class AsrMediaProcessor(ILogger<AsrMediaProcessor> logger) : ITransientDe
             startInfo.ArgumentList.Add(outputPaths[windows[outputIndex].Index]);
         }
 
-        var result = await RunProcessAsync(startInfo);
+        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
         if (result.ExitCode != 0)
         {
             throw new InvalidOperationException($"ffmpeg failed: {result.Error}");
@@ -181,7 +188,7 @@ public class AsrMediaProcessor(ILogger<AsrMediaProcessor> logger) : ITransientDe
         return (milliseconds / 1000d).ToString("0.###", CultureInfo.InvariantCulture);
     }
 
-    private async Task<ProcessResult> RunProcessAsync(ProcessStartInfo startInfo)
+    private async Task<ProcessResult> RunProcessAsync(ProcessStartInfo startInfo, TimeSpan timeout)
     {
         using var process = new Process { StartInfo = startInfo };
         if (!process.Start())
@@ -191,7 +198,24 @@ public class AsrMediaProcessor(ILogger<AsrMediaProcessor> logger) : ITransientDe
 
         var outputTask = process.StandardOutput.ReadToEndAsync();
         var errorTask = process.StandardError.ReadToEndAsync();
-        await process.WaitForExitAsync();
+        using var timeoutSource = new CancellationTokenSource(timeout);
+        try
+        {
+            await process.WaitForExitAsync(timeoutSource.Token);
+        }
+        catch (OperationCanceledException ex) when (timeoutSource.IsCancellationRequested)
+        {
+            logger.LogError(
+                ex,
+                "{ProcessName} timed out after {TimeoutSeconds} seconds.",
+                startInfo.FileName,
+                timeout.TotalSeconds);
+            await TerminateProcessAsync(process, startInfo.FileName);
+            await Task.WhenAll(outputTask, errorTask);
+            throw new TimeoutException(
+                $"{startInfo.FileName} timed out after {timeout.TotalSeconds} seconds.",
+                ex);
+        }
         var output = await outputTask;
         var error = await errorTask;
         if (process.ExitCode != 0)
@@ -199,6 +223,29 @@ public class AsrMediaProcessor(ILogger<AsrMediaProcessor> logger) : ITransientDe
             logger.LogError("{ProcessName} exited with code {ExitCode}: {Error}", startInfo.FileName, process.ExitCode, error);
         }
         return new ProcessResult(process.ExitCode, output, error);
+    }
+
+    private async Task TerminateProcessAsync(Process process, string processName)
+    {
+        if (process.HasExited)
+        {
+            return;
+        }
+
+        try
+        {
+            process.Kill(entireProcessTree: true);
+        }
+        catch (Exception ex)
+        {
+            if (process.HasExited)
+            {
+                return;
+            }
+            logger.LogError(ex, "Failed to terminate timed out process {ProcessName}.", processName);
+            throw new TimeoutException($"Failed to terminate timed out process {processName}.", ex);
+        }
+        await process.WaitForExitAsync();
     }
 
     private sealed record ProcessResult(int ExitCode, string Output, string Error);

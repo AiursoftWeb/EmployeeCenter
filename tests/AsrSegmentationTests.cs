@@ -1,3 +1,4 @@
+using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Services;
 using Newtonsoft.Json;
@@ -87,6 +88,63 @@ public class AsrSegmentationTests
         Assert.IsTrue(taskIds.All(taskId => taskId.Length <= 128));
         Assert.IsTrue(taskIds.All(taskId => taskId.All(character =>
             char.IsAsciiLetterOrDigit(character) || character is '-' or '.' or '_' or '~')));
+    }
+
+    [TestMethod]
+    public void FailedAsrResponseRemainsRetryable()
+    {
+        Assert.IsNull(AsrService.GetRecognizedText(null));
+    }
+
+    [TestMethod]
+    public void SuccessfulAsrResponseWithoutTextIsEmpty()
+    {
+        Assert.AreEqual(string.Empty, AsrService.GetRecognizedText(new AsrResponse()));
+    }
+
+    [TestMethod]
+    public void ProcessingTimeoutIncludesCleanupBuffer()
+    {
+        var settings = new AsrSettings
+        {
+            TimeoutSeconds = 1800
+        };
+
+        Assert.AreEqual(TimeSpan.FromSeconds(1830), settings.GetProcessingTimeout());
+    }
+
+    [TestMethod]
+    public void MissingSystemEndpointUsesTranscriptionEndpointOrigin()
+    {
+        var settings = new AsrSettings
+        {
+            Endpoint = "https://asr.example.com/v1/audio/transcriptions"
+        };
+
+        Assert.AreEqual("https://asr.example.com/v1/system", settings.ResolveSystemEndpoint());
+    }
+
+    [TestMethod]
+    public void ExplicitSystemEndpointIsPreserved()
+    {
+        var settings = new AsrSettings
+        {
+            Endpoint = "https://asr.example.com/v1/audio/transcriptions",
+            SystemEndpoint = "https://status.example.com/custom/system"
+        };
+
+        Assert.AreEqual(settings.SystemEndpoint, settings.ResolveSystemEndpoint());
+    }
+
+    [TestMethod]
+    public void NonstandardTranscriptionEndpointDoesNotDeriveSystemEndpoint()
+    {
+        var settings = new AsrSettings
+        {
+            Endpoint = "https://asr.example.com/custom/transcribe"
+        };
+
+        Assert.IsNull(settings.ResolveSystemEndpoint());
     }
 
     private static AudioAsrSegment StoredSegment(int index, IReadOnlyList<AsrTranscriptSegment> segments)

@@ -42,7 +42,7 @@ public class Startup : IWebStartup
         if (!EntryExtends.IsInUnitTests() &&
             asrSettings is { Enabled: true } &&
             (string.IsNullOrEmpty(asrSettings.Endpoint) ||
-             string.IsNullOrEmpty(asrSettings.SystemEndpoint) ||
+             string.IsNullOrEmpty(asrSettings.ResolveSystemEndpoint()) ||
              string.IsNullOrEmpty(asrSettings.BearerToken)))
         {
             throw new InvalidOperationException("ASR is enabled but Endpoint, SystemEndpoint, or BearerToken is not configured in AppSettings:ASR. Please configure them or set Enabled to false.");
@@ -94,8 +94,8 @@ public class Startup : IWebStartup
         });
         services.AddHttpClient<Services.AsrService>(client =>
         {
-            var asrConfig = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>();
-            client.Timeout = TimeSpan.FromSeconds(asrConfig?.TimeoutSeconds ?? 7200);
+            var asrConfig = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>() ?? new AsrSettings();
+            client.Timeout = asrConfig.GetProcessingTimeout();
         });
         services.AddHttpClient<Services.MeetingMinutesService>(client =>
         {
