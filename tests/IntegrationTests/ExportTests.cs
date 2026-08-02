@@ -89,6 +89,30 @@ public class ExportTests : TestBase
         };
         db.WeeklyReports.Add(report);
 
+        var audio = new Audio
+        {
+            Name = "Test Meeting",
+            FilePath = "audio/test-meeting.mp3"
+        };
+        var emptyAudio = new Audio
+        {
+            Name = "Empty Meeting",
+            FilePath = "audio/empty-meeting.mp3"
+        };
+        db.Audios.AddRange(audio, emptyAudio);
+        await db.SaveChangesAsync();
+        db.AudioAsrResults.AddRange(
+            new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Meeting transcript content"
+            },
+            new AudioAsrResult
+            {
+                AudioId = emptyAudio.Id,
+                PlainText = string.Empty
+            });
+
         // 4. Setup Company Entity
         var company = new CompanyEntity
         {
@@ -206,6 +230,12 @@ public class ExportTests : TestBase
         var reportFile = Path.Combine(_testExportPath, "WeeklyReports", "2023-10-01", $"{user.DisplayName}.md");
         Assert.IsTrue(File.Exists(reportFile), $"Weekly report file not found at {reportFile}");
         Assert.AreEqual("Weekly Content", await File.ReadAllTextAsync(reportFile));
+
+        var meetingTranscriptFile = Path.Combine(_testExportPath, "MeetingTranscripts", $"Test Meeting_{audio.Id}.md");
+        var emptyMeetingTranscriptFile = Path.Combine(_testExportPath, "MeetingTranscripts", $"Empty Meeting_{emptyAudio.Id}.md");
+        Assert.IsTrue(File.Exists(meetingTranscriptFile), $"Meeting transcript file not found at {meetingTranscriptFile}");
+        Assert.AreEqual("Meeting transcript content", await File.ReadAllTextAsync(meetingTranscriptFile));
+        Assert.IsFalse(File.Exists(emptyMeetingTranscriptFile), $"Empty meeting transcript should not be exported at {emptyMeetingTranscriptFile}");
 
         // Verify Company Entities
         var companyFile = Path.Combine(_testExportPath, "CompanyEntities", "Test Company.md");

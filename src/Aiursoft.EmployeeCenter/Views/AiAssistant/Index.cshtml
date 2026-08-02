@@ -92,15 +92,6 @@
         const btnClearChat = document.getElementById('btnClearChat');
         let chatHistory = [];
 
-        // Check for session storage prompt from Meeting Transcripts
-        const storedPrompt = sessionStorage.getItem('ai_assistant_prompt');
-        if (storedPrompt) {
-            userInput.value = storedPrompt;
-            sessionStorage.removeItem('ai_assistant_prompt');
-            userInput.dispatchEvent(new Event('input'));
-            userInput.focus();
-        }
-        
         function appendMessage(role, content) {
             const welcome = document.getElementById('welcomeMessage');
             if (welcome) welcome.remove();

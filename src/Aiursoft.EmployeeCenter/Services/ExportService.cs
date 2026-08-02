@@ -49,6 +49,7 @@ public class ExportService(
         await ExportBlueprints();
         await ExportContracts();
         await ExportWeeklyReports();
+        await ExportMeetingTranscripts();
 
         await ExportLedger();
         await ExportAssets();
@@ -223,6 +224,23 @@ public class ExportService(
 
             var fileName = SanitizeFileName(report.User.DisplayName) + ".md";
             await File.WriteAllTextAsync(Path.Combine(fullDirectoryPath, fileName), report.Content);
+        }
+    }
+
+    private async Task ExportMeetingTranscripts()
+    {
+        logger.LogInformation("Exporting meeting transcripts...");
+        var transcripts = await db.AudioAsrResults
+            .Include(result => result.Audio)
+            .Where(result => result.PlainText != string.Empty)
+            .ToListAsync();
+        var dir = Path.Combine(_exportRoot, "MeetingTranscripts");
+        Directory.CreateDirectory(dir);
+
+        foreach (var transcript in transcripts)
+        {
+            var fileName = $"{SanitizeFileName(transcript.Audio!.Name)}_{transcript.AudioId}.md";
+            await File.WriteAllTextAsync(Path.Combine(dir, fileName), transcript.PlainText);
         }
     }
 
