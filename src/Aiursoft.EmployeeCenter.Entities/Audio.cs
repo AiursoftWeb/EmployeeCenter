@@ -21,6 +21,9 @@ public class Audio
 
     public DateTime? LastAsrAttemptTime { get; set; }
 
+    [MaxLength(32)]
+    public string? AsrProcessingToken { get; set; }
+
     public DateTime CreateTime { get; set; } = DateTime.UtcNow;
 
     /// <summary>

@@ -305,6 +305,10 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
                 .OnDelete(DeleteBehavior.Cascade);
         });
 
+        builder.Entity<Audio>()
+            .Property(audio => audio.AsrProcessingToken)
+            .IsConcurrencyToken();
+
         builder.Entity<AudioShare>(entity =>
         {
             entity.HasOne(s => s.SharedWithUser)

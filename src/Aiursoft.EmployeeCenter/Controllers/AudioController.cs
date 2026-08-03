@@ -167,6 +167,7 @@ public class AudioController(
             audio.AsrAttemptCount = 0;
             audio.EmptyResultCount = 0;
             audio.LastAsrAttemptTime = null;
+            audio.AsrProcessingToken = Guid.NewGuid().ToString("N");
         }
 
         await context.SaveChangesAsync();
@@ -219,6 +220,7 @@ public class AudioController(
         audio.AsrAttemptCount = 0;
         audio.EmptyResultCount = 0;
         audio.LastAsrAttemptTime = null;
+        audio.AsrProcessingToken = Guid.NewGuid().ToString("N");
         await context.SaveChangesAsync();
 
         // 将 ASR 处理放入独立后台任务，避免长耗时（最长 TimeoutSeconds）请求阻塞当前 HTTP 请求。

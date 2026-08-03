@@ -1,0 +1,29 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
+{
+    /// <inheritdoc />
+    public partial class AddAudioAsrProcessingToken : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AddColumn<string>(
+                name: "AsrProcessingToken",
+                table: "Audios",
+                type: "TEXT",
+                maxLength: 32,
+                nullable: true);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "AsrProcessingToken",
+                table: "Audios");
+        }
+    }
+}

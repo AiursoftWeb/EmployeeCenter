@@ -235,6 +235,11 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<int>("AsrAttemptCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("AsrProcessingToken")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime(6)");
 

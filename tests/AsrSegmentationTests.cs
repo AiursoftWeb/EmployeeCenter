@@ -114,37 +114,37 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
-    public void MissingSystemEndpointUsesTranscriptionEndpointOrigin()
+    public void SegmentationDefaultsToThirtyMinutesWithTwoSecondOverlap()
     {
-        var settings = new AsrSettings
-        {
-            Endpoint = "https://asr.example.com/v1/audio/transcriptions"
-        };
+        var settings = new AsrSettings();
 
-        Assert.AreEqual("https://asr.example.com/v1/system", settings.ResolveSystemEndpoint());
+        Assert.AreEqual(1800, settings.SegmentDurationSeconds);
+        Assert.AreEqual(2, settings.SegmentOverlapSeconds);
+        settings.ValidateSegmentation();
     }
 
     [TestMethod]
-    public void ExplicitSystemEndpointIsPreserved()
+    public void SegmentationAllowsZeroOverlap()
     {
         var settings = new AsrSettings
         {
-            Endpoint = "https://asr.example.com/v1/audio/transcriptions",
-            SystemEndpoint = "https://status.example.com/custom/system"
+            SegmentDurationSeconds = 60,
+            SegmentOverlapSeconds = 0
         };
 
-        Assert.AreEqual(settings.SystemEndpoint, settings.ResolveSystemEndpoint());
+        settings.ValidateSegmentation();
     }
 
     [TestMethod]
-    public void NonstandardTranscriptionEndpointDoesNotDeriveSystemEndpoint()
+    public void SegmentationRejectsOverlapEqualToDuration()
     {
         var settings = new AsrSettings
         {
-            Endpoint = "https://asr.example.com/custom/transcribe"
+            SegmentDurationSeconds = 60,
+            SegmentOverlapSeconds = 60
         };
 
-        Assert.IsNull(settings.ResolveSystemEndpoint());
+        Assert.ThrowsExactly<InvalidOperationException>(settings.ValidateSegmentation);
     }
 
     private static AudioAsrSegment StoredSegment(int index, IReadOnlyList<AsrTranscriptSegment> segments)

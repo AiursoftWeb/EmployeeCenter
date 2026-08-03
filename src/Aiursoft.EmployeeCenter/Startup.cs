@@ -42,10 +42,13 @@ public class Startup : IWebStartup
         if (!EntryExtends.IsInUnitTests() &&
             asrSettings is { Enabled: true } &&
             (string.IsNullOrEmpty(asrSettings.Endpoint) ||
-             string.IsNullOrEmpty(asrSettings.ResolveSystemEndpoint()) ||
              string.IsNullOrEmpty(asrSettings.BearerToken)))
         {
-            throw new InvalidOperationException("ASR is enabled but Endpoint, SystemEndpoint, or BearerToken is not configured in AppSettings:ASR. Please configure them or set Enabled to false.");
+            throw new InvalidOperationException("ASR is enabled but Endpoint or BearerToken is not configured in AppSettings:ASR. Please configure them or set Enabled to false.");
+        }
+        if (!EntryExtends.IsInUnitTests() && asrSettings is { Enabled: true })
+        {
+            asrSettings.ValidateSegmentation();
         }
 
         // Relational database
