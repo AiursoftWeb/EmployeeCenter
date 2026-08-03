@@ -1,5 +1,6 @@
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
+using Aiursoft.EmployeeCenter.InMemory;
 using Aiursoft.EmployeeCenter.Services;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
@@ -146,6 +147,48 @@ public class AsrSegmentationTests
             handler.Request.RequestUri?.AbsoluteUri);
         Assert.AreEqual("Bearer", handler.Request.Headers.Authorization?.Scheme);
         Assert.AreEqual("test-token", handler.Request.Headers.Authorization?.Parameter);
+    }
+
+    [TestMethod]
+    public async Task NewProcessingAttemptCancelsPreviouslyActiveTask()
+    {
+        var options = new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+        await using var db = new InMemoryContext(options);
+        var previousToken = Guid.NewGuid().ToString("N");
+        var audio = new Audio
+        {
+            Name = "Takeover Test",
+            FilePath = "audio/takeover-test.mp3",
+            AsrProcessingToken = previousToken,
+            AsrActiveTaskId = "previous-task"
+        };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+
+        var handler = new RecordingHttpMessageHandler();
+        var service = new AsrService(
+            new HttpClient(handler),
+            Options.Create(new AsrSettings
+            {
+                Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                BearerToken = "test-token"
+            }),
+            db,
+            null!,
+            null!,
+            NullLogger<AsrService>.Instance);
+
+        await service.ProcessAudioAsrAsync(audio.Id);
+
+        Assert.IsNotNull(handler.Request);
+        Assert.AreEqual(
+            "https://stt.example.com/v1/tasks/previous-task/cancel",
+            handler.Request.RequestUri?.AbsoluteUri);
+        Assert.AreNotEqual(previousToken, audio.AsrProcessingToken);
+        Assert.IsNull(audio.AsrActiveTaskId);
+        Assert.AreEqual(1, audio.AsrAttemptCount);
     }
 
     [TestMethod]

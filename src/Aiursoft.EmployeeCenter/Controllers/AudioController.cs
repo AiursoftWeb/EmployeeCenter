@@ -244,6 +244,7 @@ public class AudioController(
         if (audio == null) return NotFound();
         if (!await CanManageAudioAsync(audio)) return Unauthorized();
 
+        await asrService.CancelActiveTaskAsync(audio);
         context.Audios.Remove(audio);
         await context.SaveChangesAsync();
 

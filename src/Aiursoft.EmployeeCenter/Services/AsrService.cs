@@ -472,6 +472,7 @@ public class AsrService(
         var processingToken = Guid.NewGuid().ToString("N");
         try
         {
+            await CancelActiveTaskAsync(audio);
             audio.AsrAttemptCount++;
             audio.LastAsrAttemptTime = DateTime.UtcNow;
             audio.AsrProcessingToken = processingToken;
