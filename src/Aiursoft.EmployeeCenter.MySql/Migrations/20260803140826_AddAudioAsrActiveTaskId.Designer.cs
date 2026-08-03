@@ -4,6 +4,7 @@ using Aiursoft.EmployeeCenter.MySql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,13 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.EmployeeCenter.MySql.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    partial class MySqlContextModelSnapshot : ModelSnapshot
+    [Migration("20260803140826_AddAudioAsrActiveTaskId")]
+    partial class AddAudioAsrActiveTaskId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.11")
+                .HasAnnotation("ProductVersion", "10.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -281,15 +284,6 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime?>("LastMeetingMinutesAttemptTime")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("MeetingMinutesAttemptCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MeetingMinutesMarkdown")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("PlainText")
                         .IsRequired()
@@ -1194,10 +1188,6 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<string>("Supplier")
                         .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
-
-                    b.Property<string>("TrademarkImageUrl")
-                        .HasMaxLength(500)
-                        .HasColumnType("varchar(500)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");

@@ -115,6 +115,19 @@ public class AsrMediaProcessor(
         var outputPaths = windows.ToDictionary(
             window => window.Index,
             window => Path.Combine(outputDirectory, $"segment-{window.Index}.flac"));
+        foreach (var window in windows)
+        {
+            await CreateSegmentFileAsync(mediaPath, window, outputPaths[window.Index]);
+        }
+
+        return outputPaths;
+    }
+
+    private async Task CreateSegmentFileAsync(
+        string mediaPath,
+        AsrSegmentWindow window,
+        string outputPath)
+    {
         var startInfo = new ProcessStartInfo
         {
             FileName = "ffmpeg",
@@ -128,59 +141,33 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add("-loglevel");
         startInfo.ArgumentList.Add("error");
         startInfo.ArgumentList.Add("-y");
+        startInfo.ArgumentList.Add("-ss");
+        startInfo.ArgumentList.Add(FormatMilliseconds(window.InputStartMilliseconds));
         startInfo.ArgumentList.Add("-i");
         startInfo.ArgumentList.Add(mediaPath);
-        startInfo.ArgumentList.Add("-filter_complex");
-        startInfo.ArgumentList.Add(BuildFilter(windows));
-
-        for (var outputIndex = 0; outputIndex < windows.Count; outputIndex++)
-        {
-            startInfo.ArgumentList.Add("-map");
-            startInfo.ArgumentList.Add($"[out{outputIndex}]");
-            startInfo.ArgumentList.Add("-c:a");
-            startInfo.ArgumentList.Add("flac");
-            startInfo.ArgumentList.Add(outputPaths[windows[outputIndex].Index]);
-        }
+        startInfo.ArgumentList.Add("-t");
+        startInfo.ArgumentList.Add(FormatMilliseconds(window.InputEndMilliseconds - window.InputStartMilliseconds));
+        startInfo.ArgumentList.Add("-map");
+        startInfo.ArgumentList.Add("0:a:0");
+        startInfo.ArgumentList.Add("-ar");
+        startInfo.ArgumentList.Add("16000");
+        startInfo.ArgumentList.Add("-ac");
+        startInfo.ArgumentList.Add("1");
+        startInfo.ArgumentList.Add("-sample_fmt");
+        startInfo.ArgumentList.Add("s16");
+        startInfo.ArgumentList.Add("-c:a");
+        startInfo.ArgumentList.Add("flac");
+        startInfo.ArgumentList.Add(outputPath);
 
         var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
         if (result.ExitCode != 0)
         {
             throw new InvalidOperationException($"ffmpeg failed: {result.Error}");
         }
-        foreach (var outputPath in outputPaths.Values)
+        if (!File.Exists(outputPath))
         {
-            if (!File.Exists(outputPath))
-            {
-                throw new InvalidOperationException($"ffmpeg did not create expected output {outputPath}.");
-            }
+            throw new InvalidOperationException($"ffmpeg did not create expected output {outputPath}.");
         }
-
-        return outputPaths;
-    }
-
-    private static string BuildFilter(IReadOnlyList<AsrSegmentWindow> windows)
-    {
-        var filters = new List<string>();
-        var normalizedInput = "[0:a:0]aresample=16000,aformat=sample_fmts=s16:channel_layouts=mono";
-        if (windows.Count == 1)
-        {
-            filters.Add($"{normalizedInput}[source0]");
-        }
-        else
-        {
-            var outputs = string.Concat(Enumerable.Range(0, windows.Count).Select(index => $"[source{index}]"));
-            filters.Add($"{normalizedInput},asplit={windows.Count}{outputs}");
-        }
-
-        for (var outputIndex = 0; outputIndex < windows.Count; outputIndex++)
-        {
-            var window = windows[outputIndex];
-            filters.Add(
-                $"[source{outputIndex}]atrim=start={FormatMilliseconds(window.InputStartMilliseconds)}:" +
-                $"end={FormatMilliseconds(window.InputEndMilliseconds)},asetpts=PTS-STARTPTS[out{outputIndex}]");
-        }
-
-        return string.Join(';', filters);
     }
 
     private static string FormatMilliseconds(long milliseconds)

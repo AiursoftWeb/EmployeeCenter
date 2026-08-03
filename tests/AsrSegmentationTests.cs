@@ -1,6 +1,8 @@
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Services;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace Aiursoft.EmployeeCenter.Tests;
@@ -91,6 +93,62 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
+    public void CancelEndpointUsesConfiguredApiBasePath()
+    {
+        var endpoint = AsrService.ResolveCancelEndpoint(
+            "https://stt.example.com/v1/audio/transcriptions",
+            "audio-42-segment-3");
+
+        Assert.IsNotNull(endpoint);
+        Assert.AreEqual(
+            "https://stt.example.com/v1/tasks/audio-42-segment-3/cancel",
+            endpoint.AbsoluteUri);
+    }
+
+    [TestMethod]
+    public void CancelEndpointRejectsUnexpectedTranscriptionPath()
+    {
+        var endpoint = AsrService.ResolveCancelEndpoint(
+            "https://stt.example.com/custom/transcribe",
+            "audio-42-segment-3");
+
+        Assert.IsNull(endpoint);
+    }
+
+    [TestMethod]
+    public async Task CancelActiveTaskUsesGatewayCancellationEndpoint()
+    {
+        var handler = new RecordingHttpMessageHandler();
+        var service = new AsrService(
+            new HttpClient(handler),
+            Options.Create(new AsrSettings
+            {
+                Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                BearerToken = "test-token"
+            }),
+            null!,
+            null!,
+            null!,
+            NullLogger<AsrService>.Instance);
+        var audio = new Audio
+        {
+            Name = "Cancellation Test",
+            FilePath = "audio/cancellation-test.mp3",
+            AsrActiveTaskId = "audio-42-segment-3"
+        };
+
+        await service.CancelActiveTaskAsync(audio);
+
+        Assert.IsNotNull(handler.Request);
+        Assert.AreEqual(HttpMethod.Post, handler.Request.Method);
+        Assert.AreEqual(
+            "https://stt.example.com/v1/tasks/audio-42-segment-3/cancel",
+            handler.Request.RequestUri?.AbsoluteUri);
+        Assert.AreEqual("Bearer", handler.Request.Headers.Authorization?.Scheme);
+        Assert.AreEqual("test-token", handler.Request.Headers.Authorization?.Parameter);
+    }
+
+    [TestMethod]
     public void FailedAsrResponseRemainsRetryable()
     {
         Assert.IsNull(AsrService.GetRecognizedText(null));
@@ -162,5 +220,18 @@ public class AsrSegmentationTests
             SegmentsJson = JsonConvert.SerializeObject(segments),
             PlainText = string.Empty
         };
+    }
+
+    private sealed class RecordingHttpMessageHandler : HttpMessageHandler
+    {
+        public HttpRequestMessage? Request { get; private set; }
+
+        protected override Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request,
+            CancellationToken cancellationToken)
+        {
+            Request = request;
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.Accepted));
+        }
     }
 }

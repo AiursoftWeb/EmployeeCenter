@@ -34,6 +34,7 @@ public class AsrService(
     ILogger<AsrService> logger) : ITransientDependency
 {
     private const long AsrUploadLimitBytes = 1L << 30;
+    private const string TranscriptionEndpointSuffix = "/audio/transcriptions";
     private readonly AsrSettings _asrSettings = asrSettings.Value;
 
     private static readonly HashSet<string> AllowedExtensions = new(StringComparer.OrdinalIgnoreCase)
@@ -92,11 +93,13 @@ public class AsrService(
             new FileInfo(filePath).Length > policy.UploadLimitBytes;
         if (!requiresPreprocessing)
         {
-            var response = await RecognizeFileAsync(
+            var response = await RecognizeTrackedFileAsync(
+                audio,
+                processingToken,
                 filePath,
                 Path.GetFileName(filePath),
                 "json",
-                BuildTaskId(audio.Id, 0, audio.AsrAttemptCount));
+                0);
             return GetRecognizedText(response);
         }
 
@@ -166,13 +169,21 @@ public class AsrService(
         var temporaryDirectory = Directory.CreateTempSubdirectory("asr-media-");
         try
         {
-            foreach (var windowBatch in missingWindows.Chunk(2))
+            foreach (var window in missingWindows)
             {
+                if (!await OwnsProcessingAsync(audio.Id, processingToken))
+                {
+                    logger.LogInformation(
+                        "Stopped stale ASR processing for audio {AudioId} before segment {SegmentIndex}.",
+                        audio.Id,
+                        window.Index);
+                    return false;
+                }
                 var batchCompleted = await TranscribeSegmentBatchAsync(
                     audio,
                     filePath,
                     policy,
-                    windowBatch,
+                    [window],
                     allowTextFallback,
                     processingToken,
                     temporaryDirectory.FullName);
@@ -209,26 +220,21 @@ public class AsrService(
                 return false;
             }
 
-            var transcriptionTasks = windows.Select(window => TranscribeSegmentAsync(
+            var window = windows[0];
+            var transcriptionResult = await TranscribeSegmentAsync(
                 audio,
                 window,
                 segmentFiles[window.Index],
                 policy,
-                allowTextFallback));
-            var transcriptionResults = await Task.WhenAll(transcriptionTasks);
-            var batchSucceeded = true;
-            foreach (var result in transcriptionResults)
+                allowTextFallback,
+                processingToken);
+            if (transcriptionResult != null)
             {
-                if (result == null)
-                {
-                    batchSucceeded = false;
-                    continue;
-                }
-                dbContext.AudioAsrSegments.Add(result);
+                dbContext.AudioAsrSegments.Add(transcriptionResult);
             }
             MarkProcessingTokenForConcurrencyCheck(audio, processingToken);
             await dbContext.SaveChangesAsync();
-            return batchSucceeded;
+            return transcriptionResult != null;
         }
         finally
         {
@@ -271,15 +277,18 @@ public class AsrService(
         AsrSegmentWindow window,
         string segmentPath,
         AsrTranscriptionPolicy policy,
-        bool allowTextFallback)
+        bool allowTextFallback,
+        string processingToken)
     {
         try
         {
-            var response = await RecognizeFileAsync(
+            var response = await RecognizeTrackedFileAsync(
+                audio,
+                processingToken,
                 segmentPath,
                 Path.GetFileName(segmentPath),
                 "verbose_json",
-                BuildTaskId(audio.Id, window.Index, audio.AsrAttemptCount));
+                window.Index);
             if (response == null)
             {
                 return null;
@@ -426,6 +435,26 @@ public class AsrService(
         return asrResponse ?? new AsrResponse();
     }
 
+    private async Task<AsrResponse?> RecognizeTrackedFileAsync(
+        Audio audio,
+        string processingToken,
+        string filePath,
+        string fileName,
+        string responseFormat,
+        int segmentIndex)
+    {
+        var taskId = BuildTaskId(audio.Id, segmentIndex, audio.AsrAttemptCount);
+        await SetActiveTaskAsync(audio, processingToken, taskId);
+        try
+        {
+            return await RecognizeFileAsync(filePath, fileName, responseFormat, taskId);
+        }
+        finally
+        {
+            await ClearActiveTaskAsync(audio, processingToken, taskId);
+        }
+    }
+
     public async Task ProcessAudioAsrAsync(int audioId)
     {
         if (!_asrSettings.Enabled)
@@ -446,6 +475,7 @@ public class AsrService(
             audio.AsrAttemptCount++;
             audio.LastAsrAttemptTime = DateTime.UtcNow;
             audio.AsrProcessingToken = processingToken;
+            audio.AsrActiveTaskId = null;
             await dbContext.SaveChangesAsync();
 
             var filePath = storageService.GetFilePhysicalPath(audio.FilePath, isVault: true);
@@ -497,6 +527,43 @@ public class AsrService(
         return result?.PlainText;
     }
 
+    public async Task CancelActiveTaskAsync(Audio audio)
+    {
+        if (string.IsNullOrEmpty(audio.AsrActiveTaskId))
+        {
+            return;
+        }
+
+        var cancelEndpoint = ResolveCancelEndpoint(_asrSettings.Endpoint, audio.AsrActiveTaskId);
+        if (cancelEndpoint == null)
+        {
+            logger.LogWarning(
+                "Cannot cancel ASR task {TaskId} because the transcription endpoint is invalid.",
+                audio.AsrActiveTaskId);
+            return;
+        }
+
+        try
+        {
+            using var request = new HttpRequestMessage(HttpMethod.Post, cancelEndpoint);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _asrSettings.BearerToken);
+            using var response = await httpClient.SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                logger.LogWarning(
+                    "Failed to cancel ASR task {TaskId} with status {StatusCode}: {Content}",
+                    audio.AsrActiveTaskId,
+                    response.StatusCode,
+                    content);
+            }
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(ex, "Failed to cancel ASR task {TaskId}.", audio.AsrActiveTaskId);
+        }
+    }
+
     private async Task RecordEmptyResultAsync(Audio audio, string processingToken)
     {
         audio.EmptyResultCount++;
@@ -525,6 +592,57 @@ public class AsrService(
     {
         return !string.IsNullOrEmpty(_asrSettings.Endpoint) &&
                !string.IsNullOrEmpty(_asrSettings.BearerToken);
+    }
+
+    private async Task<bool> OwnsProcessingAsync(int audioId, string processingToken)
+    {
+        return await dbContext.Audios
+            .AsNoTracking()
+            .AnyAsync(audio => audio.Id == audioId && audio.AsrProcessingToken == processingToken);
+    }
+
+    private async Task SetActiveTaskAsync(Audio audio, string processingToken, string taskId)
+    {
+        audio.AsrActiveTaskId = taskId;
+        MarkProcessingTokenForConcurrencyCheck(audio, processingToken);
+        await dbContext.SaveChangesAsync();
+    }
+
+    private async Task ClearActiveTaskAsync(Audio audio, string processingToken, string taskId)
+    {
+        var ownsTask = await dbContext.Audios
+            .AsNoTracking()
+            .AnyAsync(item =>
+                item.Id == audio.Id &&
+                item.AsrProcessingToken == processingToken &&
+                item.AsrActiveTaskId == taskId);
+        if (!ownsTask)
+        {
+            return;
+        }
+
+        audio.AsrActiveTaskId = null;
+        MarkProcessingTokenForConcurrencyCheck(audio, processingToken);
+        await dbContext.SaveChangesAsync();
+    }
+
+    public static Uri? ResolveCancelEndpoint(string? endpoint, string taskId)
+    {
+        if (!Uri.TryCreate(endpoint, UriKind.Absolute, out var transcriptionEndpoint) ||
+            !transcriptionEndpoint.AbsolutePath.EndsWith(
+                TranscriptionEndpointSuffix,
+                StringComparison.OrdinalIgnoreCase))
+        {
+            return null;
+        }
+
+        return new UriBuilder(transcriptionEndpoint)
+        {
+            Path = transcriptionEndpoint.AbsolutePath[..^TranscriptionEndpointSuffix.Length] +
+                   $"/tasks/{Uri.EscapeDataString(taskId)}/cancel",
+            Query = string.Empty,
+            Fragment = string.Empty
+        }.Uri;
     }
 
     public static string? GetRecognizedText(AsrResponse? response)

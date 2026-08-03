@@ -158,6 +158,7 @@ public class AudioController(
         audio.FilePath = filePath;
         if (replaceAudio)
         {
+            await asrService.CancelActiveTaskAsync(audio);
             var transcript = await context.AudioAsrResults.FindAsync(audio.Id);
             if (transcript != null) context.AudioAsrResults.Remove(transcript);
             var segments = await context.AudioAsrSegments
@@ -168,6 +169,7 @@ public class AudioController(
             audio.EmptyResultCount = 0;
             audio.LastAsrAttemptTime = null;
             audio.AsrProcessingToken = Guid.NewGuid().ToString("N");
+            audio.AsrActiveTaskId = null;
         }
 
         await context.SaveChangesAsync();
@@ -207,6 +209,7 @@ public class AudioController(
         if (audio == null) return NotFound();
         if (!await CanManageAudioAsync(audio)) return Unauthorized();
 
+        await asrService.CancelActiveTaskAsync(audio);
         var existingResult = await context.AudioAsrResults.FirstOrDefaultAsync(r => r.AudioId == id);
         if (existingResult != null)
         {
@@ -221,6 +224,7 @@ public class AudioController(
         audio.EmptyResultCount = 0;
         audio.LastAsrAttemptTime = null;
         audio.AsrProcessingToken = Guid.NewGuid().ToString("N");
+        audio.AsrActiveTaskId = null;
         await context.SaveChangesAsync();
 
         // 将 ASR 处理放入独立后台任务，避免长耗时（最长 TimeoutSeconds）请求阻塞当前 HTTP 请求。

@@ -24,6 +24,9 @@ public class Audio
     [MaxLength(32)]
     public string? AsrProcessingToken { get; set; }
 
+    [MaxLength(128)]
+    public string? AsrActiveTaskId { get; set; }
+
     public DateTime CreateTime { get; set; } = DateTime.UtcNow;
 
     /// <summary>

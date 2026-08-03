@@ -217,6 +217,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("AsrActiveTaskId")
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("AsrAttemptCount")
                         .HasColumnType("INTEGER");
 

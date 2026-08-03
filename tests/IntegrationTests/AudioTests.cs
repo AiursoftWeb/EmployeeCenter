@@ -52,9 +52,10 @@ public class AudioTests : TestBase
         var audioAfterReset = await verificationDb.Audios.FindAsync(audioId);
         Assert.IsNotNull(audioAfterReset);
         Assert.AreEqual(0, audioAfterReset.AsrAttemptCount);
-            Assert.AreEqual(0, audioAfterReset.EmptyResultCount);
-            Assert.IsFalse(string.IsNullOrEmpty(audioAfterReset.AsrProcessingToken));
-            Assert.IsFalse(await verificationDb.AudioAsrResults.AnyAsync(result => result.AudioId == audioId));
+        Assert.AreEqual(0, audioAfterReset.EmptyResultCount);
+        Assert.IsFalse(string.IsNullOrEmpty(audioAfterReset.AsrProcessingToken));
+        Assert.IsNull(audioAfterReset.AsrActiveTaskId);
+        Assert.IsFalse(await verificationDb.AudioAsrResults.AnyAsync(result => result.AudioId == audioId));
         Assert.IsFalse(await verificationDb.AudioAsrSegments.AnyAsync(segment => segment.AudioId == audioId));
     }
 
