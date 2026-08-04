@@ -85,7 +85,7 @@
                                             }
                                             else if (leave.IsPending)
                                             {
-                                                <span class="badge bg-info text-dark">@Localizer["Pending"]</span>
+                                                <span class="badge text-bg-info">@Localizer["Pending"]</span>
                                             }
                                             else if (leave.IsApproved)
                                             {
@@ -160,7 +160,7 @@
                                 </div>
                                     </td>
                                     <td>
-                                        <span class="badge bg-light text-dark border">@Localizer[member.Relation]</span>
+                                        <span class="badge text-bg-light border">@Localizer[member.Relation]</span>
                                     </td>
                                     <td>
                                         @if (member.Leaves.Count == 0)
@@ -178,7 +178,7 @@
                                                     
                                                     if (today >= leave.StartDate.Date && today <= leave.EndDate.Date)
                                                     {
-                                                        statusClass = "bg-warning text-dark"; // Yellow: Currently on leave
+                                                        statusClass = "text-bg-warning"; // Yellow: Currently on leave
                                                         statusText = Localizer["On Leave"].Value;
                                                     }
                                                     else if (today > leave.EndDate.Date)
