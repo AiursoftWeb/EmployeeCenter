@@ -84,6 +84,9 @@
   <data name="Supplier" xml:space="preserve">
     <value>サプライヤー</value>
   </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>商標画像</value>
+  </data>
   <data name="Type" xml:space="preserve">
     <value>種類</value>
   </data>
@@ -93,11 +96,8 @@
   <data name="View Invoice" xml:space="preserve">
     <value>請求書を表示</value>
   </data>
-
-  <data name="Trademark Image" xml:space="preserve">
-    <value>商標画像</value>
-  </data>
   <data name="View Trademark Image" xml:space="preserve">
     <value>商標画像を表示</value>
   </data>
+
 </root>
