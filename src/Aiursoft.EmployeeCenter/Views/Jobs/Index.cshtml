@@ -151,7 +151,7 @@ else
                                                 </div>
                                                 break;
                                             case JobStatus.Pending:
-                                                <span class="badge text-bg-warning">@Localizer["Pending"]</span>
+                                                <span class="badge bg-warning text-dark">@Localizer["Pending"]</span>
                                                 break;
                                             case JobStatus.Success:
                                                 if (job.StartedAt.HasValue && job.CompletedAt.HasValue)

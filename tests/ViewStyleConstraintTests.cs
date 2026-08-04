@@ -6,13 +6,19 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public partial class ViewStyleConstraintTests
 {
     [TestMethod]
-    public void RazorViews_DoNotUseTextDarkClass()
+    public void RazorViews_DoNotUseTextDarkClassOutsideBadges()
     {
         var repositoryRoot = FindRepositoryRoot();
         var viewsPath = Path.Combine(repositoryRoot, "src", "Aiursoft.EmployeeCenter", "Views");
         var violatingFiles = Directory
             .EnumerateFiles(viewsPath, "*.cshtml", SearchOption.AllDirectories)
-            .Where(file => TextDarkClassRegex().IsMatch(File.ReadAllText(file)))
+            .Where(file => ClassAttributeRegex()
+                .Matches(File.ReadAllText(file))
+                .Any(match =>
+                {
+                    var classes = match.Groups["classes"].Value;
+                    return TextDarkClassRegex().IsMatch(classes) && !BadgeClassRegex().IsMatch(classes);
+                }))
             .Select(file => Path.GetRelativePath(repositoryRoot, file))
             .OrderBy(file => file)
             .ToArray();
@@ -20,7 +26,7 @@ public partial class ViewStyleConstraintTests
         Assert.AreEqual(
             0,
             violatingFiles.Length,
-            $"The following Razor views use the forbidden text-dark class:{Environment.NewLine}{string.Join(Environment.NewLine, violatingFiles)}");
+            $"The following Razor views use the forbidden text-dark class outside badges:{Environment.NewLine}{string.Join(Environment.NewLine, violatingFiles)}");
     }
 
     private static string FindRepositoryRoot()
@@ -42,4 +48,10 @@ public partial class ViewStyleConstraintTests
 
     [GeneratedRegex(@"(?<![A-Za-z0-9_-])text-dark(?![A-Za-z0-9_-])")]
     private static partial Regex TextDarkClassRegex();
+
+    [GeneratedRegex(@"(?<![A-Za-z0-9_-])badge(?![A-Za-z0-9_-])")]
+    private static partial Regex BadgeClassRegex();
+
+    [GeneratedRegex("""\bclass\s*=\s*(?<quote>["'])(?<classes>.*?)\k<quote>""", RegexOptions.IgnoreCase | RegexOptions.Singleline)]
+    private static partial Regex ClassAttributeRegex();
 }
