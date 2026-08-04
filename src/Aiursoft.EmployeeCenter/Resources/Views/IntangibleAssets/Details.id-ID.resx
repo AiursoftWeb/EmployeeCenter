@@ -96,6 +96,9 @@
   <data name="Supplier" xml:space="preserve">
     <value>Pemasok</value>
   </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Gambar Merek Dagang</value>
+  </data>
   <data name="Type" xml:space="preserve">
     <value>Jenis</value>
   </data>
@@ -105,11 +108,8 @@
   <data name="View Invoice" xml:space="preserve">
     <value>Lihat Faktur</value>
   </data>
-
-  <data name="Trademark Image" xml:space="preserve">
-    <value>Gambar Merek Dagang</value>
-  </data>
   <data name="View Trademark Image" xml:space="preserve">
     <value>Lihat Gambar Merek Dagang</value>
   </data>
+
 </root>

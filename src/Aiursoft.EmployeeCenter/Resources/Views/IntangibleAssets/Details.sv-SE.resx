@@ -96,6 +96,9 @@
   <data name="Supplier" xml:space="preserve">
     <value>Leverantör</value>
   </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Varumärkesbild</value>
+  </data>
   <data name="Type" xml:space="preserve">
     <value>Typ</value>
   </data>
@@ -105,11 +108,8 @@
   <data name="View Invoice" xml:space="preserve">
     <value>Visa faktura</value>
   </data>
-
-  <data name="Trademark Image" xml:space="preserve">
-    <value>Varumärkesbild</value>
-  </data>
   <data name="View Trademark Image" xml:space="preserve">
     <value>Visa varumärkesbild</value>
   </data>
+
 </root>

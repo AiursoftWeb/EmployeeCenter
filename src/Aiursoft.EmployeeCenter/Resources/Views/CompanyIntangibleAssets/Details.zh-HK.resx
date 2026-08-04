@@ -84,6 +84,9 @@
   <data name="Supplier" xml:space="preserve">
     <value>供應商</value>
   </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>商標圖樣</value>
+  </data>
   <data name="Type" xml:space="preserve">
     <value>類型</value>
   </data>
@@ -93,11 +96,8 @@
   <data name="View Invoice" xml:space="preserve">
     <value>查看發票</value>
   </data>
-
-  <data name="Trademark Image" xml:space="preserve">
-    <value>商標圖樣</value>
-  </data>
   <data name="View Trademark Image" xml:space="preserve">
     <value>查看商標圖樣</value>
   </data>
+
 </root>
