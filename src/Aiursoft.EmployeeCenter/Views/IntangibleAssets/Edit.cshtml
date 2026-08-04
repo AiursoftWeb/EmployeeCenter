@@ -148,12 +148,17 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="TrademarkImageUrl" class="form-label">@Localizer["Trademark Image"]</label>
+                                <vc:file-upload asp-for="TrademarkImageUrl" subfolder="intangible-assets/trademark-images" allowed-extensions="jpg png" max-size-in-mb="10"></vc:file-upload>
+                                <span asp-validation-for="TrademarkImageUrl" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4 mb-3">
                                 <label asp-for="InvoiceFileUrl" class="form-label">@Localizer["Invoice File"]</label>
                                 <vc:file-upload asp-for="InvoiceFileUrl" subfolder="intangible-assets/invoices" allowed-extensions="pdf jpg png" max-size-in-mb="10"></vc:file-upload>
                                 <span asp-validation-for="InvoiceFileUrl" class="text-danger"></span>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label asp-for="RegistrationCertificateUrl" class="form-label">@Localizer["Registration Certificate"]</label>
                                 <vc:file-upload asp-for="RegistrationCertificateUrl" subfolder="intangible-assets/certificates" allowed-extensions="pdf jpg png" max-size-in-mb="10"></vc:file-upload>
                                 <span asp-validation-for="RegistrationCertificateUrl" class="text-danger"></span>

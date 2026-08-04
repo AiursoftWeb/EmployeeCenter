@@ -47,6 +47,9 @@ public class IntangibleAsset
     public string Currency { get; set; } = "CNY";
 
     [MaxLength(500)]
+    public string? TrademarkImageUrl { get; set; }
+
+    [MaxLength(500)]
     public string? InvoiceFileUrl { get; set; }
 
     [MaxLength(500)]
