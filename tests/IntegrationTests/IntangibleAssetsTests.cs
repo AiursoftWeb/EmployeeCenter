@@ -26,6 +26,10 @@ public class IntangibleAssetTests : TestBase
 
         // 3. Create Intangible Asset with new fields
         var assetName = "Test Domain with New Fields";
+        const string trademarkImageUrl = "intangible-assets/trademark-images/pending-logo.png";
+        const string updatedTrademarkImageUrl = "intangible-assets/trademark-images/updated-logo.jpg";
+        const string invoiceFileUrl = "intangible-assets/invoices/invoice.pdf";
+        const string registrationCertificateUrl = "intangible-assets/certificates/certificate.pdf";
         var createResponse = await PostForm("/IntangibleAssets/Create", new Dictionary<string, string>
         {
             { "Name", assetName },
@@ -34,6 +38,9 @@ public class IntangibleAssetTests : TestBase
             { "Supplier", "GoDaddy" },
             { "Currency", "USD" },
             { "PurchasePrice", "99.99" },
+            { "TrademarkImageUrl", trademarkImageUrl },
+            { "InvoiceFileUrl", invoiceFileUrl },
+            { "RegistrationCertificateUrl", registrationCertificateUrl },
             { "IsPublic", "true" },
             { "CompanyEntityId", entityId.ToString() }
         });
@@ -47,9 +54,17 @@ public class IntangibleAssetTests : TestBase
             assetId = asset.Id;
             Assert.AreEqual("USD", asset.Currency);
             Assert.AreEqual(99.99m, asset.PurchasePrice);
+            Assert.AreEqual(trademarkImageUrl, asset.TrademarkImageUrl);
+            Assert.AreEqual(invoiceFileUrl, asset.InvoiceFileUrl);
+            Assert.AreEqual(registrationCertificateUrl, asset.RegistrationCertificateUrl);
             Assert.IsTrue(asset.IsPublic);
             Assert.AreEqual(entityId, asset.CompanyEntityId);
         }
+
+        var editPageResponse = await Http.GetAsync($"/IntangibleAssets/Edit/{assetId}");
+        editPageResponse.EnsureSuccessStatusCode();
+        var editPageHtml = await editPageResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(editPageHtml, trademarkImageUrl);
 
         // 4. Edit Intangible Asset
         var editResponse = await PostForm($"/IntangibleAssets/Edit/{assetId}", new Dictionary<string, string>
@@ -61,6 +76,9 @@ public class IntangibleAssetTests : TestBase
             { "Supplier", "NameCheap" },
             { "Currency", "HKD" },
             { "PurchasePrice", "150.00" },
+            { "TrademarkImageUrl", updatedTrademarkImageUrl },
+            { "InvoiceFileUrl", invoiceFileUrl },
+            { "RegistrationCertificateUrl", registrationCertificateUrl },
             { "IsPublic", "false" },
             { "CompanyEntityId", entityId.ToString() }
         });
@@ -73,6 +91,9 @@ public class IntangibleAssetTests : TestBase
             Assert.AreEqual("Updated Domain Name", asset.Name);
             Assert.AreEqual("HKD", asset.Currency);
             Assert.AreEqual(150.00m, asset.PurchasePrice);
+            Assert.AreEqual(updatedTrademarkImageUrl, asset.TrademarkImageUrl);
+            Assert.AreEqual(invoiceFileUrl, asset.InvoiceFileUrl);
+            Assert.AreEqual(registrationCertificateUrl, asset.RegistrationCertificateUrl);
             Assert.IsFalse(asset.IsPublic);
         }
 
@@ -85,6 +106,18 @@ public class IntangibleAssetTests : TestBase
             asset.IsPublic = true;
             await db.SaveChangesAsync();
         }
+
+        var managementDetailsResponse = await Http.GetAsync($"/IntangibleAssets/Details/{assetId}");
+        managementDetailsResponse.EnsureSuccessStatusCode();
+        var managementDetailsHtml = await managementDetailsResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(managementDetailsHtml, "View Trademark Image");
+        StringAssert.Contains(managementDetailsHtml, "updated-logo.jpg");
+
+        var publicDetailsWithImageResponse = await Http.GetAsync($"/CompanyIntangibleAssets/Details/{assetId}");
+        publicDetailsWithImageResponse.EnsureSuccessStatusCode();
+        var publicDetailsWithImageHtml = await publicDetailsWithImageResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(publicDetailsWithImageHtml, "View Trademark Image");
+        StringAssert.Contains(publicDetailsWithImageHtml, "updated-logo.jpg");
 
         var publicIndexResponse = await Http.GetAsync("/CompanyIntangibleAssets");
         publicIndexResponse.EnsureSuccessStatusCode();
@@ -129,6 +162,51 @@ public class IntangibleAssetTests : TestBase
         assignedDetailsResponse.EnsureSuccessStatusCode();
 
         // 7. Delete
+        var deleteResponse = await PostForm($"/IntangibleAssets/Delete/{assetId}", new Dictionary<string, string>());
+        AssertRedirect(deleteResponse, "/IntangibleAssets");
+    }
+
+    [TestMethod]
+    public async Task IntangibleAssetCanBeCreatedAndEditedWithoutTrademarkImageTest()
+    {
+        await LoginAsAdmin();
+
+        var assetName = $"Intangible Asset Without Trademark Image {Guid.NewGuid()}";
+        var createResponse = await PostForm("/IntangibleAssets/Create", new Dictionary<string, string>
+        {
+            { "Name", assetName },
+            { "Type", ((int)IntangibleAssetType.Trademark).ToString() },
+            { "Status", ((int)IntangibleAssetStatus.Applying).ToString() },
+            { "Currency", "CNY" }
+        });
+        AssertRedirect(createResponse, "/IntangibleAssets");
+
+        Guid assetId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var asset = await db.IntangibleAssets.FirstAsync(a => a.Name == assetName);
+            assetId = asset.Id;
+            Assert.IsNull(asset.TrademarkImageUrl);
+        }
+
+        var editResponse = await PostForm($"/IntangibleAssets/Edit/{assetId}", new Dictionary<string, string>
+        {
+            { "Id", assetId.ToString() },
+            { "Name", $"{assetName} Updated" },
+            { "Type", ((int)IntangibleAssetType.Trademark).ToString() },
+            { "Status", ((int)IntangibleAssetStatus.Active).ToString() },
+            { "Currency", "CNY" }
+        });
+        AssertRedirect(editResponse, "/IntangibleAssets");
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var asset = await db.IntangibleAssets.FirstAsync(a => a.Id == assetId);
+            Assert.IsNull(asset.TrademarkImageUrl);
+        }
+
         var deleteResponse = await PostForm($"/IntangibleAssets/Delete/{assetId}", new Dictionary<string, string>());
         AssertRedirect(deleteResponse, "/IntangibleAssets");
     }

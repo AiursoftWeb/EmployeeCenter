@@ -95,6 +95,7 @@ public class IntangibleAssetsController(
                 ExpirationDate = model.ExpirationDate,
                 PurchasePrice = model.PurchasePrice,
                 Currency = model.Currency,
+                TrademarkImageUrl = model.TrademarkImageUrl,
                 InvoiceFileUrl = model.InvoiceFileUrl,
                 RegistrationCertificateUrl = model.RegistrationCertificateUrl,
                 IsPublic = model.IsPublic,
@@ -152,6 +153,7 @@ public class IntangibleAssetsController(
             ExpirationDate = asset.ExpirationDate,
             PurchasePrice = asset.PurchasePrice,
             Currency = asset.Currency,
+            TrademarkImageUrl = asset.TrademarkImageUrl,
             InvoiceFileUrl = asset.InvoiceFileUrl,
             RegistrationCertificateUrl = asset.RegistrationCertificateUrl,
             IsPublic = asset.IsPublic,
@@ -187,6 +189,7 @@ public class IntangibleAssetsController(
             asset.ExpirationDate = model.ExpirationDate;
             asset.PurchasePrice = model.PurchasePrice;
             asset.Currency = model.Currency;
+            asset.TrademarkImageUrl = model.TrademarkImageUrl;
             asset.InvoiceFileUrl = model.InvoiceFileUrl;
             asset.RegistrationCertificateUrl = model.RegistrationCertificateUrl;
             asset.IsPublic = model.IsPublic;

@@ -63,6 +63,10 @@ public class CreateViewModel : UiStackLayoutViewModel
     public string Currency { get; set; } = "CNY";
 
     [MaxLength(500, ErrorMessage = "The {0} cannot exceed {1} characters.")]
+    [Display(Name = "Trademark Image")]
+    public string? TrademarkImageUrl { get; set; }
+
+    [MaxLength(500, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Invoice File")]
     public string? InvoiceFileUrl { get; set; }
 
