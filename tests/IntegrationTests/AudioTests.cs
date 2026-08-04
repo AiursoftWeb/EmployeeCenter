@@ -1,8 +1,55 @@
+using Aiursoft.EmployeeCenter.Configuration;
+using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
+using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
+
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
 [TestClass]
 public class AudioTests : TestBase
 {
+    [TestMethod]
+    public async Task AudioAsrJobReportsFailedAudioProcessing()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+        var settings = new AsrSettings
+        {
+            Enabled = true,
+            Endpoint = "https://asr.example.com/v1/audio/transcriptions",
+            BearerToken = "test-token"
+        };
+        var options = Options.Create(settings);
+        var mediaProcessor = new AsrMediaProcessor(
+            options,
+            NullLogger<AsrMediaProcessor>.Instance);
+        var asrService = new AsrService(
+            new HttpClient(),
+            options,
+            db,
+            storage,
+            mediaProcessor,
+            NullLogger<AsrService>.Instance);
+        var job = new AudioAsrJob(
+            db,
+            asrService,
+            options,
+            NullLogger<AudioAsrJob>.Instance);
+        db.Audios.Add(new Audio
+        {
+            Name = "Missing ASR Media",
+            FilePath = $"audio/{Guid.NewGuid():N}.mp3"
+        });
+        await db.SaveChangesAsync();
+
+        var exception = await Assert.ThrowsExactlyAsync<InvalidOperationException>(job.ExecuteAsync);
+
+        StringAssert.Contains(exception.Message, "ASR processing failed for audio IDs");
+    }
+
     [TestMethod]
     public async Task ResetAsrClearsCompletedAndSegmentResults()
     {

@@ -91,14 +91,43 @@ public class AsrMediaProcessor(
         {
             throw new InvalidOperationException("Media does not contain a decodable audio stream.");
         }
-        if (!double.TryParse(payload.Format?.Duration, NumberStyles.Float, CultureInfo.InvariantCulture, out var durationSeconds) ||
-            !double.IsFinite(durationSeconds) ||
-            durationSeconds <= 0)
+        var duration = ParseMetadataDuration(payload.Format?.Duration);
+        if (duration == null)
+        {
+            logger.LogWarning(
+                "Media duration metadata is unavailable for {MediaPath}. Falling back to decoded duration.",
+                mediaPath);
+            duration = await ProbeDecodedDurationAsync(mediaPath);
+        }
+        if (duration == null)
         {
             throw new InvalidOperationException("Media duration is unavailable.");
         }
 
-        return new AsrMediaProbe(TimeSpan.FromSeconds(durationSeconds));
+        return new AsrMediaProbe(duration.Value);
+    }
+
+    public static TimeSpan? ParseDecodedDuration(string progressOutput)
+    {
+        long maxMicroseconds = 0;
+        foreach (var line in progressOutput.Split('\n', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries))
+        {
+            if (!line.StartsWith("out_time_us=", StringComparison.Ordinal))
+            {
+                continue;
+            }
+            if (long.TryParse(
+                    line.AsSpan("out_time_us=".Length),
+                    NumberStyles.Integer,
+                    CultureInfo.InvariantCulture,
+                    out var microseconds) &&
+                microseconds > maxMicroseconds)
+            {
+                maxMicroseconds = microseconds;
+            }
+        }
+
+        return maxMicroseconds > 0 ? TimeSpan.FromMicroseconds(maxMicroseconds) : null;
     }
 
     public async Task<IReadOnlyDictionary<int, string>> CreateSegmentFilesAsync(
@@ -173,6 +202,49 @@ public class AsrMediaProcessor(
     private static string FormatMilliseconds(long milliseconds)
     {
         return (milliseconds / 1000d).ToString("0.###", CultureInfo.InvariantCulture);
+    }
+
+    private static TimeSpan? ParseMetadataDuration(string? rawDuration)
+    {
+        if (!double.TryParse(rawDuration, NumberStyles.Float, CultureInfo.InvariantCulture, out var seconds) ||
+            !double.IsFinite(seconds) ||
+            seconds <= 0)
+        {
+            return null;
+        }
+        return TimeSpan.FromSeconds(seconds);
+    }
+
+    private async Task<TimeSpan?> ProbeDecodedDurationAsync(string mediaPath)
+    {
+        var startInfo = new ProcessStartInfo
+        {
+            FileName = "ffmpeg",
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+        startInfo.ArgumentList.Add("-nostdin");
+        startInfo.ArgumentList.Add("-hide_banner");
+        startInfo.ArgumentList.Add("-loglevel");
+        startInfo.ArgumentList.Add("error");
+        startInfo.ArgumentList.Add("-i");
+        startInfo.ArgumentList.Add(mediaPath);
+        startInfo.ArgumentList.Add("-map");
+        startInfo.ArgumentList.Add("0:a:0");
+        startInfo.ArgumentList.Add("-f");
+        startInfo.ArgumentList.Add("null");
+        startInfo.ArgumentList.Add("-");
+        startInfo.ArgumentList.Add("-progress");
+        startInfo.ArgumentList.Add("pipe:1");
+
+        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        if (result.ExitCode != 0)
+        {
+            throw new InvalidOperationException($"ffmpeg duration probe failed: {result.Error}");
+        }
+        return ParseDecodedDuration(result.Output);
     }
 
     private async Task<ProcessResult> RunProcessAsync(ProcessStartInfo startInfo, TimeSpan timeout)

@@ -51,9 +51,23 @@ public class AudioAsrJob(
 
             logger.LogInformation("Found {Count} unprocessed audio files. Starting ASR processing...", unprocessedAudioIds.Count);
 
+            var failedAudioIds = new List<int>();
             foreach (var audioId in unprocessedAudioIds)
             {
-                await asrService.ProcessAudioAsrAsync(audioId);
+                try
+                {
+                    await asrService.ProcessAudioAsrAsync(audioId);
+                }
+                catch (Exception ex)
+                {
+                    failedAudioIds.Add(audioId);
+                    logger.LogError(ex, "ASR processing failed for audio {AudioId}.", audioId);
+                }
+            }
+            if (failedAudioIds.Count > 0)
+            {
+                throw new InvalidOperationException(
+                    $"ASR processing failed for audio IDs: {string.Join(", ", failedAudioIds)}.");
             }
 
             logger.LogInformation("Audio ASR job completed.");
@@ -61,6 +75,7 @@ public class AudioAsrJob(
         catch (Exception ex)
         {
             logger.LogError(ex, "An error occurred in audio ASR job");
+            throw;
         }
     }
 }

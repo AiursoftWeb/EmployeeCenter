@@ -483,7 +483,7 @@ public class AsrService(
             var plainText = await RecognizeMediaAsync(audio, filePath, processingToken);
             if (plainText == null)
             {
-                return;
+                throw new InvalidOperationException($"ASR processing failed for audio {audioId}.");
             }
             if (string.IsNullOrWhiteSpace(plainText))
             {
@@ -516,6 +516,7 @@ public class AsrService(
         catch (Exception ex)
         {
             logger.LogError(ex, "An error occurred while processing ASR for audio {AudioId}", audioId);
+            throw;
         }
     }
 

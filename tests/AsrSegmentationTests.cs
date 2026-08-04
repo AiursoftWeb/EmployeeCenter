@@ -2,6 +2,8 @@ using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.InMemory;
 using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -25,6 +27,30 @@ public class AsrSegmentationTests
         Assert.AreEqual(3_602_000, windows[1].InputEndMilliseconds);
         Assert.AreEqual(8_998_000, windows[^1].InputStartMilliseconds);
         Assert.AreEqual(10_800_000, windows[^1].InputEndMilliseconds);
+    }
+
+    [TestMethod]
+    public void DecodedProgressProvidesDurationWhenMetadataIsMissing()
+    {
+        const string progress = """
+                                bitrate=N/A
+                                out_time_us=1200000
+                                progress=continue
+                                out_time_us=3552653
+                                progress=end
+                                """;
+
+        var duration = AsrMediaProcessor.ParseDecodedDuration(progress);
+
+        Assert.AreEqual(TimeSpan.FromMicroseconds(3_552_653), duration);
+    }
+
+    [TestMethod]
+    public void DecodedProgressRejectsInvalidDuration()
+    {
+        var duration = AsrMediaProcessor.ParseDecodedDuration("out_time_us=N/A");
+
+        Assert.IsNull(duration);
     }
 
     [TestMethod]
@@ -167,6 +193,17 @@ public class AsrSegmentationTests
         db.Audios.Add(audio);
         await db.SaveChangesAsync();
 
+        var storageRoot = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+        var storageConfiguration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["Storage:Path"] = storageRoot
+            })
+            .Build();
+        var storageService = new StorageService(
+            new FeatureFoldersProvider(new StorageRootPathProvider(storageConfiguration)),
+            null!,
+            null!);
         var handler = new RecordingHttpMessageHandler();
         var service = new AsrService(
             new HttpClient(handler),
@@ -176,11 +213,19 @@ public class AsrSegmentationTests
                 BearerToken = "test-token"
             }),
             db,
-            null!,
+            storageService,
             null!,
             NullLogger<AsrService>.Instance);
 
-        await service.ProcessAudioAsrAsync(audio.Id);
+        try
+        {
+            await Assert.ThrowsExactlyAsync<InvalidOperationException>(
+                async () => await service.ProcessAudioAsrAsync(audio.Id));
+        }
+        finally
+        {
+            Directory.Delete(storageRoot, recursive: true);
+        }
 
         Assert.IsNotNull(handler.Request);
         Assert.AreEqual(
