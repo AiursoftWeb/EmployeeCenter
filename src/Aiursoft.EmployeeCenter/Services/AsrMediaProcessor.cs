@@ -249,7 +249,8 @@ public class AsrMediaProcessor(
 
     private async Task<ProcessResult> RunProcessAsync(ProcessStartInfo startInfo, TimeSpan timeout)
     {
-        using var process = new Process { StartInfo = startInfo };
+        using var process = new Process();
+        process.StartInfo = startInfo;
         if (!process.Start())
         {
             throw new InvalidOperationException($"Failed to start {startInfo.FileName}.");
@@ -311,6 +312,7 @@ public class AsrMediaProcessor(
 
     private sealed class FfprobePayload
     {
+        [JsonProperty("streams")]
         public List<FfprobeStream> Streams { get; set; } = [];
         public FfprobeFormat? Format { get; set; }
     }

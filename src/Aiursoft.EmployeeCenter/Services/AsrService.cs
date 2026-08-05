@@ -13,6 +13,8 @@ public class AsrResponse
 {
     public string? Text { get; set; }
     public string? Error { get; set; }
+
+    [JsonProperty("segments")]
     public List<AsrApiSegment>? Segments { get; set; }
 }
 
