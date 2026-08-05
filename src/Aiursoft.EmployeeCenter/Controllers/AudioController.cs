@@ -233,6 +233,7 @@ public class AudioController(
             taskName: $"Reset ASR for audio {id}",
             task: svc => svc.ProcessAudioAsrAsync(id));
 
+        TempData["AsrTaskQueued"] = true;
         return RedirectToAction(nameof(Transcript), new { id });
     }
 

@@ -93,6 +93,18 @@
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>重設並重試 ASR</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>已建立離線 ASR 工作，請勿重複建立。</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>確認重設 ASR</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>確認重設</value>
+  </data>
+  <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
+    <value>重設 ASR 將刪除目前的轉錄文字和切片結果、重設重試次數，並建立新的離線工作。確定要繼續嗎？</value>
+  </data>
   <data name="Save Scope" xml:space="preserve">
     <value>儲存範圍</value>
   </data>

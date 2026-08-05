@@ -2,7 +2,7 @@ namespace Aiursoft.EmployeeCenter.Configuration;
 
 public class AsrSettings
 {
-    private const int TimeoutBufferSeconds = 30;
+    private const int UploadAndCleanupBufferSeconds = 10 * 60;
 
     public bool Enabled { get; init; } = true;
     public string? Endpoint { get; init; }
@@ -18,7 +18,7 @@ public class AsrSettings
 
     public TimeSpan GetProcessingTimeout()
     {
-        return TimeSpan.FromSeconds(TimeoutSeconds + TimeoutBufferSeconds);
+        return TimeSpan.FromSeconds(TimeoutSeconds + UploadAndCleanupBufferSeconds);
     }
 
     public void ValidateSegmentation()

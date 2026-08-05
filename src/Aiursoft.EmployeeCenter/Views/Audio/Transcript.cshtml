@@ -40,6 +40,18 @@
     </div>
 </div>
 
+@if (TempData["AsrTaskQueued"] is true)
+{
+    <div class="alert alert-success alert-outline-coloured" role="alert">
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="check-circle"></i>
+        </div>
+        <div class="alert-message">
+            @Localizer["An offline ASR task has been created. Please do not create it again."]
+        </div>
+    </div>
+}
+
 <div class="row">
     <div class="col-12 col-xl-8">
         <div class="w-100">
@@ -206,13 +218,9 @@
                 @if (Model.CanManageShares)
                 {
                     <div class="card-footer">
-                        <form asp-action="ResetAsr" method="post" class="d-grid">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@Model.Audio.Id" />
-                            <button type="submit" class="btn btn-warning">
-                                <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Reset & Retry ASR"]
-                            </button>
-                        </form>
+                        <button type="button" class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#resetAsrModal">
+                            <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Reset & Retry ASR"]
+                        </button>
                     </div>
                 }
             </div>
@@ -233,6 +241,35 @@
         </div>
     </div>
 </div>
+
+@if (Model.CanManageShares)
+{
+    <div class="modal modal-blur fade" id="resetAsrModal" tabindex="-1" role="dialog" aria-labelledby="resetAsrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resetAsrModalLabel">@Localizer["Confirm ASR Reset"]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
+                </div>
+                <form asp-action="ResetAsr" method="post" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Audio.Id" />
+                    <div class="modal-body">
+                        <p class="mb-0">
+                            @Localizer["Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?"]
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link link-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                        <button type="submit" class="btn btn-warning ms-auto">
+                            <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Confirm Reset"]
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {

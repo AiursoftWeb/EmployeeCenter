@@ -88,11 +88,24 @@ public class AudioTests : TestBase
             await db.SaveChangesAsync();
         }
 
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcriptHtml, "id=\"resetAsrModal\"");
+        StringAssert.Contains(transcriptHtml, "Are you sure you want to continue?");
+
         var response = await PostForm(
             $"/Audio/ResetAsr/{audioId}",
             new Dictionary<string, string>(),
             $"/Audio/Transcript/{audioId}");
         AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        var redirectedResponse = await Http.GetAsync(response.Headers.Location);
+        redirectedResponse.EnsureSuccessStatusCode();
+        var redirectedHtml = await redirectedResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(
+            redirectedHtml,
+            "An offline ASR task has been created. Please do not create it again.");
 
         using var verificationScope = Server.Services.CreateScope();
         var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();

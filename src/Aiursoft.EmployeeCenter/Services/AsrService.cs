@@ -483,6 +483,14 @@ public class AsrService(
             var plainText = await RecognizeMediaAsync(audio, filePath, processingToken);
             if (plainText == null)
             {
+                if (!await OwnsProcessingAsync(audioId, processingToken))
+                {
+                    dbContext.ChangeTracker.Clear();
+                    logger.LogInformation(
+                        "Stopped stale ASR processing for audio {AudioId} because a newer task took ownership.",
+                        audioId);
+                    return;
+                }
                 throw new InvalidOperationException($"ASR processing failed for audio {audioId}.");
             }
             if (string.IsNullOrWhiteSpace(plainText))

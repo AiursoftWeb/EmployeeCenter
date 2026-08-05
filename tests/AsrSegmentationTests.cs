@@ -249,14 +249,14 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
-    public void ProcessingTimeoutIncludesCleanupBuffer()
+    public void ProcessingTimeoutIncludesUploadAndCleanupBuffer()
     {
         var settings = new AsrSettings
         {
             TimeoutSeconds = 1800
         };
 
-        Assert.AreEqual(TimeSpan.FromSeconds(1830), settings.GetProcessingTimeout());
+        Assert.AreEqual(TimeSpan.FromSeconds(2400), settings.GetProcessingTimeout());
     }
 
     [TestMethod]

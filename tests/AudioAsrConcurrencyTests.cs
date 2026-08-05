@@ -31,6 +31,12 @@ public class AudioAsrConcurrencyTests
         currentAudio.AsrProcessingToken = Guid.NewGuid().ToString("N");
         await currentDb.SaveChangesAsync();
 
+        Assert.IsFalse(await staleDb.Audios
+            .AsNoTracking()
+            .AnyAsync(audio =>
+                audio.Id == staleAudio.Id &&
+                audio.AsrProcessingToken == staleAudio.AsrProcessingToken));
+
         staleDb.Entry(staleAudio).Property(audio => audio.AsrProcessingToken).IsModified = true;
         await Assert.ThrowsExactlyAsync<DbUpdateConcurrencyException>(
             async () => await staleDb.SaveChangesAsync());
