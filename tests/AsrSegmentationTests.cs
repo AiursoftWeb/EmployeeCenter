@@ -173,6 +173,7 @@ public class AsrSegmentationTests
             handler.Request.RequestUri?.AbsoluteUri);
         Assert.AreEqual("Bearer", handler.Request.Headers.Authorization?.Scheme);
         Assert.AreEqual("test-token", handler.Request.Headers.Authorization?.Parameter);
+        Assert.IsTrue(handler.CancellationCanBeCanceled);
     }
 
     [TestMethod]
@@ -396,12 +397,14 @@ public class AsrSegmentationTests
         }
 
         public HttpRequestMessage? Request { get; private set; }
+        public bool CancellationCanBeCanceled { get; private set; }
 
         protected override Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
             Request = request;
+            CancellationCanBeCanceled = cancellationToken.CanBeCanceled;
             var response = new HttpResponseMessage(_statusCode);
             if (_content != null)
             {

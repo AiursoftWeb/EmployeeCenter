@@ -35,6 +35,7 @@ public class AsrService(
 {
     private const long AsrUploadLimitBytes = 1L << 30;
     private const string TranscriptionEndpointSuffix = "/audio/transcriptions";
+    private static readonly TimeSpan CancelRequestTimeout = TimeSpan.FromSeconds(30);
     private readonly AsrSettings _asrSettings = asrSettings.Value;
 
     private static readonly HashSet<string> AllowedExtensions = new(StringComparer.OrdinalIgnoreCase)
@@ -557,7 +558,8 @@ public class AsrService(
         {
             using var request = new HttpRequestMessage(HttpMethod.Post, cancelEndpoint);
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _asrSettings.BearerToken);
-            using var response = await httpClient.SendAsync(request);
+            using var cancellationSource = new CancellationTokenSource(CancelRequestTimeout);
+            using var response = await httpClient.SendAsync(request, cancellationSource.Token);
             if (!response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
