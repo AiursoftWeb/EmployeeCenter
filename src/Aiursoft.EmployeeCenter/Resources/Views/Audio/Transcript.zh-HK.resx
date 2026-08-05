@@ -96,6 +96,9 @@
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>已建立離線 ASR 任務，請勿重複建立。</value>
   </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>無法取消正在執行的 ASR 任務，未進行任何變更。請重試。</value>
+  </data>
   <data name="Confirm ASR Reset" xml:space="preserve">
     <value>確認重置 ASR</value>
   </data>

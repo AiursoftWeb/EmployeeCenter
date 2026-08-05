@@ -52,6 +52,18 @@
     </div>
 }
 
+@if (TempData["AsrResetError"] is true)
+{
+    <div class="alert alert-danger alert-outline-coloured" role="alert">
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="alert-circle"></i>
+        </div>
+        <div class="alert-message">
+            @Localizer["The active ASR task could not be cancelled. No changes were made. Please try again."]
+        </div>
+    </div>
+}
+
 <div class="row">
     <div class="col-12 col-xl-8">
         <div class="w-100">

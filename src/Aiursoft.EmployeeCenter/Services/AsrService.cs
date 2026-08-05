@@ -547,10 +547,10 @@ public class AsrService(
         var cancelEndpoint = ResolveCancelEndpoint(_asrSettings.Endpoint, audio.AsrActiveTaskId);
         if (cancelEndpoint == null)
         {
-            logger.LogWarning(
-                "Cannot cancel ASR task {TaskId} because the transcription endpoint is invalid.",
-                audio.AsrActiveTaskId);
-            return;
+            var exception = new InvalidOperationException(
+                $"Cannot cancel ASR task {audio.AsrActiveTaskId} because the transcription endpoint is invalid.");
+            logger.LogError(exception, "Failed to cancel ASR task {TaskId}.", audio.AsrActiveTaskId);
+            throw exception;
         }
 
         try
@@ -561,16 +561,16 @@ public class AsrService(
             if (!response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                logger.LogWarning(
-                    "Failed to cancel ASR task {TaskId} with status {StatusCode}: {Content}",
-                    audio.AsrActiveTaskId,
-                    response.StatusCode,
-                    content);
+                throw new HttpRequestException(
+                    $"Failed to cancel ASR task {audio.AsrActiveTaskId}: {content}",
+                    null,
+                    response.StatusCode);
             }
         }
         catch (Exception ex)
         {
-            logger.LogWarning(ex, "Failed to cancel ASR task {TaskId}.", audio.AsrActiveTaskId);
+            logger.LogError(ex, "Failed to cancel ASR task {TaskId}.", audio.AsrActiveTaskId);
+            throw;
         }
     }
 

@@ -22,7 +22,8 @@ public class AudioController(
     StorageService storageService,
     UserManager<User> userManager,
     RoleManager<IdentityRole> roleManager,
-    IAuthorizationService authorizationService)
+    IAuthorizationService authorizationService,
+    ILogger<AudioController> logger)
     : Controller
 {
     private const int AudioPageSize = 50;
@@ -154,11 +155,19 @@ public class AudioController(
         }
 
         var replaceAudio = audio.FilePath != filePath;
-        audio.Name = model.Name;
-        audio.FilePath = filePath;
         if (replaceAudio)
         {
-            await asrService.CancelActiveTaskAsync(audio);
+            try
+            {
+                await asrService.CancelActiveTaskAsync(audio);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(
+                    nameof(model.FilePath),
+                    "The active ASR task could not be cancelled. No changes were made. Please try again.");
+                return this.StackView(model);
+            }
             var transcript = await context.AudioAsrResults.FindAsync(audio.Id);
             if (transcript != null) context.AudioAsrResults.Remove(transcript);
             var segments = await context.AudioAsrSegments
@@ -171,6 +180,8 @@ public class AudioController(
             audio.AsrProcessingToken = Guid.NewGuid().ToString("N");
             audio.AsrActiveTaskId = null;
         }
+        audio.Name = model.Name;
+        audio.FilePath = filePath;
 
         await context.SaveChangesAsync();
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
@@ -209,7 +220,15 @@ public class AudioController(
         if (audio == null) return NotFound();
         if (!await CanManageAudioAsync(audio)) return Unauthorized();
 
-        await asrService.CancelActiveTaskAsync(audio);
+        try
+        {
+            await asrService.CancelActiveTaskAsync(audio);
+        }
+        catch (Exception)
+        {
+            TempData["AsrResetError"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
         var existingResult = await context.AudioAsrResults.FirstOrDefaultAsync(r => r.AudioId == id);
         if (existingResult != null)
         {
@@ -245,7 +264,17 @@ public class AudioController(
         if (audio == null) return NotFound();
         if (!await CanManageAudioAsync(audio)) return Unauthorized();
 
-        await asrService.CancelActiveTaskAsync(audio);
+        try
+        {
+            await asrService.CancelActiveTaskAsync(audio);
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(
+                ex,
+                "Deleting audio {AudioId} after its active ASR task could not be cancelled.",
+                audio.Id);
+        }
         context.Audios.Remove(audio);
         await context.SaveChangesAsync();
 

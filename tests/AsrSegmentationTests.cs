@@ -176,6 +176,78 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
+    public async Task CancelActiveTaskPropagatesGatewayFailure()
+    {
+        var handler = new RecordingHttpMessageHandler(
+            HttpStatusCode.BadGateway,
+            "upstream cancellation failed");
+        var service = new AsrService(
+            new HttpClient(handler),
+            Options.Create(new AsrSettings
+            {
+                Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                BearerToken = "test-token"
+            }),
+            null!,
+            null!,
+            null!,
+            NullLogger<AsrService>.Instance);
+        var audio = new Audio
+        {
+            Name = "Cancellation Failure Test",
+            FilePath = "audio/cancellation-failure-test.mp3",
+            AsrActiveTaskId = "audio-42-segment-3"
+        };
+
+        var exception = await Assert.ThrowsExactlyAsync<HttpRequestException>(
+            async () => await service.CancelActiveTaskAsync(audio));
+
+        Assert.AreEqual(HttpStatusCode.BadGateway, exception.StatusCode);
+        StringAssert.Contains(exception.Message, "upstream cancellation failed");
+    }
+
+    [TestMethod]
+    public async Task FailedCancellationDoesNotAdvanceProcessingAttempt()
+    {
+        var options = new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+        await using var db = new InMemoryContext(options);
+        var processingToken = Guid.NewGuid().ToString("N");
+        var audio = new Audio
+        {
+            Name = "Failed Takeover Test",
+            FilePath = "audio/failed-takeover-test.mp3",
+            AsrProcessingToken = processingToken,
+            AsrActiveTaskId = "previous-task"
+        };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+
+        var handler = new RecordingHttpMessageHandler(
+            HttpStatusCode.BadGateway,
+            "upstream cancellation failed");
+        var service = new AsrService(
+            new HttpClient(handler),
+            Options.Create(new AsrSettings
+            {
+                Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                BearerToken = "test-token"
+            }),
+            db,
+            null!,
+            null!,
+            NullLogger<AsrService>.Instance);
+
+        await Assert.ThrowsExactlyAsync<HttpRequestException>(
+            async () => await service.ProcessAudioAsrAsync(audio.Id));
+
+        Assert.AreEqual(processingToken, audio.AsrProcessingToken);
+        Assert.AreEqual("previous-task", audio.AsrActiveTaskId);
+        Assert.AreEqual(0, audio.AsrAttemptCount);
+    }
+
+    [TestMethod]
     public async Task NewProcessingAttemptCancelsPreviouslyActiveTask()
     {
         var options = new DbContextOptionsBuilder<InMemoryContext>()
@@ -312,6 +384,17 @@ public class AsrSegmentationTests
 
     private sealed class RecordingHttpMessageHandler : HttpMessageHandler
     {
+        private readonly HttpStatusCode _statusCode;
+        private readonly string? _content;
+
+        public RecordingHttpMessageHandler(
+            HttpStatusCode statusCode = HttpStatusCode.Accepted,
+            string? content = null)
+        {
+            _statusCode = statusCode;
+            _content = content;
+        }
+
         public HttpRequestMessage? Request { get; private set; }
 
         protected override Task<HttpResponseMessage> SendAsync(
@@ -319,7 +402,12 @@ public class AsrSegmentationTests
             CancellationToken cancellationToken)
         {
             Request = request;
-            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.Accepted));
+            var response = new HttpResponseMessage(_statusCode);
+            if (_content != null)
+            {
+                response.Content = new StringContent(_content);
+            }
+            return Task.FromResult(response);
         }
     }
 }
