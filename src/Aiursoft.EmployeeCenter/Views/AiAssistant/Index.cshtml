@@ -58,6 +58,32 @@
         border-bottom-left-radius: 0.25rem;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     }
+    .assistant-message-container {
+        align-self: flex-start;
+        max-width: 85%;
+        margin-bottom: 1rem;
+    }
+    .assistant-message-container .message-assistant {
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+    .message-actions {
+        display: flex;
+        margin-top: 0.25rem;
+        padding-left: 0.25rem;
+    }
+    .message-copy-button {
+        color: #6c757d;
+        line-height: 1;
+    }
+    .message-copy-button:hover,
+    .message-copy-button:focus {
+        color: #212529;
+    }
+    .message-copy-button svg {
+        width: 1rem;
+        height: 1rem;
+    }
     #chatMessages {
         display: flex;
         flex-direction: column;
@@ -101,13 +127,57 @@
             if (role === 'assistant') {
                 msgDiv.classList.add('markdown-content');
                 msgDiv.innerHTML = content;
+
+                const assistantContainer = document.createElement('div');
+                assistantContainer.className = 'assistant-message-container';
+                assistantContainer.appendChild(msgDiv);
+                chatMessages.appendChild(assistantContainer);
             } else {
                 msgDiv.textContent = content; // Using textContent for user messages to avoid XSS and respect newlines
+                chatMessages.appendChild(msgDiv);
             }
-            
-            chatMessages.appendChild(msgDiv);
+
             chatMessages.scrollTop = chatMessages.scrollHeight;
             return msgDiv;
+        }
+
+        function addCopyButton(messageElement, markdownContent) {
+            const actions = document.createElement('div');
+            actions.className = 'message-actions';
+
+            const copyButton = document.createElement('button');
+            copyButton.type = 'button';
+            copyButton.className = 'btn btn-sm btn-link message-copy-button p-1';
+            copyButton.title = '@Localizer["Copy"]';
+            copyButton.setAttribute('aria-label', '@Localizer["Copy"]');
+            copyButton.innerHTML = '<i class="align-middle" data-lucide="copy"></i>';
+
+            copyButton.addEventListener('click', async () => {
+                copyButton.disabled = true;
+
+                try {
+                    await navigator.clipboard.writeText(markdownContent);
+                    copyButton.title = '@Localizer["Copied"]';
+                    copyButton.setAttribute('aria-label', '@Localizer["Copied"]');
+                    copyButton.innerHTML = '<i class="align-middle" data-lucide="check"></i>';
+                    lucide.createIcons();
+
+                    setTimeout(() => {
+                        copyButton.title = '@Localizer["Copy"]';
+                        copyButton.setAttribute('aria-label', '@Localizer["Copy"]');
+                        copyButton.innerHTML = '<i class="align-middle" data-lucide="copy"></i>';
+                        copyButton.disabled = false;
+                        lucide.createIcons();
+                    }, 2000);
+                } catch (error) {
+                    copyButton.disabled = false;
+                    console.error('Failed to copy Markdown content:', error);
+                }
+            });
+
+            actions.appendChild(copyButton);
+            messageElement.parentElement.appendChild(actions);
+            lucide.createIcons();
         }
 
         userInput.addEventListener('input', function() {
@@ -203,6 +273,8 @@
                         } catch (previewError) {
                             console.error('Markdown preview enhancement failed:', previewError);
                         }
+
+                        addCopyButton(assistantMsgDiv, statusData.answer);
 
                         // Update history with assistant's answer
                         chatHistory.push({ role: 'assistant', content: statusData.answer });
