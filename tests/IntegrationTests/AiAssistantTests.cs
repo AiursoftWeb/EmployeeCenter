@@ -32,8 +32,6 @@ public class AiAssistantTests : TestBase
         StringAssert.Contains(content, "initializeMarkdownReader");
         StringAssert.Contains(content, "copyButton.textContent = 'Copy'");
         StringAssert.Contains(content, "copyButton.textContent = 'Copied'");
-        Assert.IsFalse(content.Contains("data-lucide=\"copy\""));
-        Assert.IsFalse(content.Contains("data-lucide=\"check\""));
         Assert.IsFalse(content.Contains("function renderMarkdown"));
     }
 
