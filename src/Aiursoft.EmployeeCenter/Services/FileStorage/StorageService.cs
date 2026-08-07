@@ -17,6 +17,8 @@ public class StorageService(
     FileLockProvider fileLockProvider,
     IDataProtectionProvider dataProtectionProvider) : ITransientDependency
 {
+
+    #region public async Task<string> Save(string logicalPath, IFormFile file, bool isVault = false)
     /// <summary>
     /// Saves a file to the storage.
     /// </summary>
@@ -83,7 +85,9 @@ public class StorageService(
 
         return (root, physicalPath);
     }
+    #endregion
 
+    #region public string GetFilePhysicalPath(string logicalPath, bool isVault = false)
     /// <summary>
     /// Retrieves the physical file path for a given logical path.
     /// Defaults to Workspace.
@@ -99,7 +103,9 @@ public class StorageService(
         }
         return physicalPath;
     }
+    #endregion
 
+    #region public string GetToken(string path, FilePermission permission)
     public string GetToken(string path, FilePermission permission)
     {
         // Create a time-limited data protector with 60-minute expiration
@@ -113,7 +119,9 @@ public class StorageService(
         var protectedData = protector.Protect(tokenData, TimeSpan.FromMinutes(60));
         return protectedData;
     }
+    #endregion
 
+    #region public bool ValidateToken(string requestPath, string tokenString, FilePermission requiredPermission)
     public bool ValidateToken(string requestPath, string tokenString, FilePermission requiredPermission)
     {
         if (string.IsNullOrEmpty(requestPath) || requestPath.Contains("..")) return false; // Patch for path traversal
@@ -147,7 +155,9 @@ public class StorageService(
             return false;
         }
     }
+    #endregion
 
+    #region private string RelativePathToUriPath(string relativePath)
     /// <summary>
     /// Converts a logical path to a URI-compatible path.
     /// </summary>
@@ -161,7 +171,9 @@ public class StorageService(
             .TrimStart('/');
         return urlPath;
     }
+    #endregion
 
+    #region public string RelativePathToInternetUrl(string relativePath, HttpContext context, bool isVault = false)
     public string RelativePathToInternetUrl(string relativePath, HttpContext context, bool isVault = false)
     {
         if (isVault)
@@ -171,7 +183,9 @@ public class StorageService(
         }
         return $"{context.Request.Scheme}://{context.Request.Host}/download/{RelativePathToUriPath(relativePath)}";
     }
+    #endregion
 
+    #region  public string RelativePathToInternetUrl(string relativePath, bool isVault = false)
     public string RelativePathToInternetUrl(string relativePath, bool isVault = false)
     {
         if (isVault)
@@ -181,7 +195,9 @@ public class StorageService(
         }
         return $"/download/{RelativePathToUriPath(relativePath)}";
     }
+    #endregion
 
+    #region public string GetUploadUrl(string subfolder, bool isVault = false)
     public string GetUploadUrl(string subfolder, bool isVault = false)
     {
         var token = GetToken(subfolder, FilePermission.Upload);
@@ -191,4 +207,6 @@ public class StorageService(
         }
         return $"/upload/{subfolder}?token={token}";
     }
+    #endregion
+
 }
