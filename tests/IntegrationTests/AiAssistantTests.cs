@@ -30,6 +30,8 @@ public class AiAssistantTests : TestBase
         StringAssert.Contains(content, "mermaid/dist/mermaid.min.js");
         StringAssert.Contains(content, "highlight.min.js");
         StringAssert.Contains(content, "initializeMarkdownReader");
+        StringAssert.Contains(content, "copyButton.textContent = 'Copy'");
+        StringAssert.Contains(content, "copyButton.textContent = 'Copied'");
         Assert.IsFalse(content.Contains("function renderMarkdown"));
     }
 
