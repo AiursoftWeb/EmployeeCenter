@@ -80,10 +80,6 @@
     .message-copy-button:focus {
         color: #212529;
     }
-    .message-copy-button svg {
-        width: 1rem;
-        height: 1rem;
-    }
     #chatMessages {
         display: flex;
         flex-direction: column;
@@ -150,7 +146,7 @@
             copyButton.className = 'btn btn-sm btn-link message-copy-button p-1';
             copyButton.title = '@Localizer["Copy"]';
             copyButton.setAttribute('aria-label', '@Localizer["Copy"]');
-            copyButton.innerHTML = '<i class="align-middle" data-lucide="copy"></i>';
+            copyButton.textContent = '@Localizer["Copy"]';
 
             copyButton.addEventListener('click', async () => {
                 copyButton.disabled = true;
@@ -159,15 +155,13 @@
                     await navigator.clipboard.writeText(markdownContent);
                     copyButton.title = '@Localizer["Copied"]';
                     copyButton.setAttribute('aria-label', '@Localizer["Copied"]');
-                    copyButton.innerHTML = '<i class="align-middle" data-lucide="check"></i>';
-                    lucide.createIcons();
+                    copyButton.textContent = '@Localizer["Copied"]';
 
                     setTimeout(() => {
                         copyButton.title = '@Localizer["Copy"]';
                         copyButton.setAttribute('aria-label', '@Localizer["Copy"]');
-                        copyButton.innerHTML = '<i class="align-middle" data-lucide="copy"></i>';
+                        copyButton.textContent = '@Localizer["Copy"]';
                         copyButton.disabled = false;
-                        lucide.createIcons();
                     }, 2000);
                 } catch (error) {
                     copyButton.disabled = false;
@@ -177,7 +171,6 @@
 
             actions.appendChild(copyButton);
             messageElement.parentElement.appendChild(actions);
-            lucide.createIcons();
         }
 
         userInput.addEventListener('input', function() {
