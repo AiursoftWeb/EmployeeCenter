@@ -75,6 +75,12 @@
   <data name="Manage Contracts" xml:space="preserve">
     <value>契約の管理</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>移動</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>フォルダに移動</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>名前</value>
   </data>
@@ -104,13 +110,6 @@
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>公開設定</value>
-  </data>
-
-  <data name="Move" xml:space="preserve">
-    <value>移動</value>
-  </data>
-  <data name="Move to folder" xml:space="preserve">
-    <value>フォルダに移動</value>
   </data>
 
 </root>
