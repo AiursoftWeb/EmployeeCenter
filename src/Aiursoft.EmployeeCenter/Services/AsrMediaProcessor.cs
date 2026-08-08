@@ -21,6 +21,7 @@ public class AsrMediaProcessor(
     ILogger<AsrMediaProcessor> logger) : ITransientDependency
 {
     private static readonly TimeSpan ProbeTimeout = TimeSpan.FromSeconds(30);
+    private readonly bool _preferOriginalSegmentCodec = asrSettings.Value.PreferOriginalSegmentCodec;
     private readonly TimeSpan _segmentProcessingTimeout = asrSettings.Value.GetProcessingTimeout();
 
     public static IReadOnlyList<AsrSegmentWindow> CreateSegmentWindows(
@@ -141,18 +142,35 @@ public class AsrMediaProcessor(
         }
 
         Directory.CreateDirectory(outputDirectory);
-        var outputPaths = windows.ToDictionary(
-            window => window.Index,
-            window => Path.Combine(outputDirectory, $"segment-{window.Index}.flac"));
+        var outputPaths = new Dictionary<int, string>();
         foreach (var window in windows)
         {
-            await CreateSegmentFileAsync(mediaPath, window, outputPaths[window.Index]);
+            outputPaths[window.Index] = await CreateSegmentFileAsync(mediaPath, window, outputDirectory);
         }
 
         return outputPaths;
     }
 
-    private async Task CreateSegmentFileAsync(
+    private async Task<string> CreateSegmentFileAsync(
+        string mediaPath,
+        AsrSegmentWindow window,
+        string outputDirectory)
+    {
+        if (_preferOriginalSegmentCodec)
+        {
+            var copiedPath = Path.Combine(outputDirectory, $"segment-{window.Index}.mka");
+            if (await TryCreateCopiedAudioSegmentFileAsync(mediaPath, window, copiedPath))
+            {
+                return copiedPath;
+            }
+        }
+
+        var transcodedPath = Path.Combine(outputDirectory, $"segment-{window.Index}.flac");
+        await CreateTranscodedSegmentFileAsync(mediaPath, window, transcodedPath);
+        return transcodedPath;
+    }
+
+    private async Task<bool> TryCreateCopiedAudioSegmentFileAsync(
         string mediaPath,
         AsrSegmentWindow window,
         string outputPath)
@@ -165,19 +183,42 @@ public class AsrMediaProcessor(
             UseShellExecute = false,
             CreateNoWindow = true
         };
-        startInfo.ArgumentList.Add("-nostdin");
-        startInfo.ArgumentList.Add("-hide_banner");
-        startInfo.ArgumentList.Add("-loglevel");
-        startInfo.ArgumentList.Add("error");
-        startInfo.ArgumentList.Add("-y");
-        startInfo.ArgumentList.Add("-ss");
-        startInfo.ArgumentList.Add(FormatMilliseconds(window.InputStartMilliseconds));
-        startInfo.ArgumentList.Add("-i");
-        startInfo.ArgumentList.Add(mediaPath);
-        startInfo.ArgumentList.Add("-t");
-        startInfo.ArgumentList.Add(FormatMilliseconds(window.InputEndMilliseconds - window.InputStartMilliseconds));
-        startInfo.ArgumentList.Add("-map");
-        startInfo.ArgumentList.Add("0:a:0");
+        AddCommonSegmentArguments(startInfo, mediaPath, window);
+        startInfo.ArgumentList.Add("-vn");
+        startInfo.ArgumentList.Add("-c:a");
+        startInfo.ArgumentList.Add("copy");
+        startInfo.ArgumentList.Add("-avoid_negative_ts");
+        startInfo.ArgumentList.Add("make_zero");
+        startInfo.ArgumentList.Add(outputPath);
+
+        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        if (result.ExitCode == 0 && File.Exists(outputPath))
+        {
+            return true;
+        }
+
+        logger.LogWarning(
+            "ffmpeg stream-copy segment failed for {MediaPath}. Falling back to FLAC transcoding. Error: {Error}",
+            mediaPath,
+            result.Error);
+        DeleteFileIfExists(outputPath);
+        return false;
+    }
+
+    private async Task CreateTranscodedSegmentFileAsync(
+        string mediaPath,
+        AsrSegmentWindow window,
+        string outputPath)
+    {
+        var startInfo = new ProcessStartInfo
+        {
+            FileName = "ffmpeg",
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+        AddCommonSegmentArguments(startInfo, mediaPath, window);
         startInfo.ArgumentList.Add("-ar");
         startInfo.ArgumentList.Add("16000");
         startInfo.ArgumentList.Add("-ac");
@@ -196,6 +237,34 @@ public class AsrMediaProcessor(
         if (!File.Exists(outputPath))
         {
             throw new InvalidOperationException($"ffmpeg did not create expected output {outputPath}.");
+        }
+    }
+
+    private static void AddCommonSegmentArguments(
+        ProcessStartInfo startInfo,
+        string mediaPath,
+        AsrSegmentWindow window)
+    {
+        startInfo.ArgumentList.Add("-nostdin");
+        startInfo.ArgumentList.Add("-hide_banner");
+        startInfo.ArgumentList.Add("-loglevel");
+        startInfo.ArgumentList.Add("error");
+        startInfo.ArgumentList.Add("-y");
+        startInfo.ArgumentList.Add("-ss");
+        startInfo.ArgumentList.Add(FormatMilliseconds(window.InputStartMilliseconds));
+        startInfo.ArgumentList.Add("-i");
+        startInfo.ArgumentList.Add(mediaPath);
+        startInfo.ArgumentList.Add("-t");
+        startInfo.ArgumentList.Add(FormatMilliseconds(window.InputEndMilliseconds - window.InputStartMilliseconds));
+        startInfo.ArgumentList.Add("-map");
+        startInfo.ArgumentList.Add("0:a:0");
+    }
+
+    private static void DeleteFileIfExists(string path)
+    {
+        if (File.Exists(path))
+        {
+            File.Delete(path);
         }
     }
 

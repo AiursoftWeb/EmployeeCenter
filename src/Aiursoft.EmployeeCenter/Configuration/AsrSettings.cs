@@ -12,6 +12,7 @@ public class AsrSettings
     public string? Language { get; init; }
     public int SegmentDurationSeconds { get; init; } = 30 * 60;
     public int SegmentOverlapSeconds { get; init; } = 2;
+    public bool PreferOriginalSegmentCodec { get; init; } = true;
     public int TimeoutSeconds { get; init; } = 7200;
     public int AsrMaxRetryCount { get; init; } = 30;
     public int AsrMaxEmptyRetryCount { get; init; } = 10;

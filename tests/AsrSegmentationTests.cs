@@ -337,6 +337,7 @@ public class AsrSegmentationTests
 
         Assert.AreEqual(1800, settings.SegmentDurationSeconds);
         Assert.AreEqual(2, settings.SegmentOverlapSeconds);
+        Assert.IsTrue(settings.PreferOriginalSegmentCodec);
         settings.ValidateSegmentation();
     }
 
