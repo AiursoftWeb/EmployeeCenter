@@ -1,3 +1,4 @@
+using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
@@ -316,5 +317,234 @@ public class ContractTests
         Assert.AreEqual(HttpStatusCode.Found, deleteFolderAFinalResponse.StatusCode);
 
         Assert.IsFalse(await dbContext.ContractFolders.AnyAsync(f => f.Id == folderA.Id));
+    }
+
+    [TestMethod]
+    public async Task MoveContractTest()
+    {
+        var loginToken = await GetAntiCsrfToken("/Account/Login");
+        var loginResponse = await _http.PostAsync("/Account/Login", new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "EmailOrUserName", "admin" },
+            { "Password", "Admin@123456!" },
+            { "__RequestVerificationToken", loginToken }
+        }));
+        Assert.AreEqual(HttpStatusCode.Found, loginResponse.StatusCode);
+
+        int contractId;
+        int rootAId;
+        int rootBId;
+        int childId;
+        int grandchildId;
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var context = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var rootA = new ContractFolder { Name = "Move Root A" };
+            var rootB = new ContractFolder { Name = "Move Root B" };
+            context.ContractFolders.AddRange(rootA, rootB);
+            await context.SaveChangesAsync();
+
+            var child = new ContractFolder { Name = "Move Child", ParentFolderId = rootA.Id };
+            context.ContractFolders.Add(child);
+            await context.SaveChangesAsync();
+
+            var grandchild = new ContractFolder { Name = "Move Grandchild", ParentFolderId = child.Id };
+            var contract = new Contract
+            {
+                Name = "Contract To Move",
+                FilePath = "contract/move-test.pdf",
+                Status = ContractStatus.Active,
+                IsPublic = false
+            };
+            context.AddRange(grandchild, contract);
+            await context.SaveChangesAsync();
+
+            contractId = contract.Id;
+            rootAId = rootA.Id;
+            rootBId = rootB.Id;
+            childId = child.Id;
+            grandchildId = grandchild.Id;
+        }
+
+        // The contract list exposes the move entry to an administrator.
+        var indexResponse = await _http.GetAsync("/ManageContract/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        var indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        Assert.Contains("Contract To Move", indexHtml);
+        Assert.Contains($"/ManageContract/Move/{contractId}", indexHtml);
+
+        // Root browsing only shows direct root folders.
+        var rootMoveResponse = await _http.GetAsync($"/ManageContract/Move/{contractId}");
+        rootMoveResponse.EnsureSuccessStatusCode();
+        var rootMoveHtml = await rootMoveResponse.Content.ReadAsStringAsync();
+        Assert.Contains("Move Contract", rootMoveHtml);
+        Assert.Contains("Contract To Move", rootMoveHtml);
+        Assert.Contains("Move Root A", rootMoveHtml);
+        Assert.Contains("Move Root B", rootMoveHtml);
+        Assert.DoesNotContain("Move Child", rootMoveHtml);
+        Assert.DoesNotContain("Move Grandchild", rootMoveHtml);
+
+        // Browsing deeper shows direct children and a complete root-first breadcrumb.
+        var childMoveResponse = await _http.GetAsync(
+            $"/ManageContract/Move/{contractId}?browseFolderId={childId}");
+        childMoveResponse.EnsureSuccessStatusCode();
+        var childMoveHtml = await childMoveResponse.Content.ReadAsStringAsync();
+        Assert.Contains("Move Grandchild", childMoveHtml);
+        Assert.DoesNotContain("Move Root B", childMoveHtml);
+        var rootPosition = childMoveHtml.IndexOf(">Root<", StringComparison.Ordinal);
+        var rootAPosition = childMoveHtml.IndexOf(">Move Root A<", StringComparison.Ordinal);
+        var childPosition = childMoveHtml.IndexOf(">Move Child<", StringComparison.Ordinal);
+        Assert.IsTrue(rootPosition >= 0 && rootPosition < rootAPosition && rootAPosition < childPosition);
+
+        var grandchildMoveResponse = await _http.GetAsync(
+            $"/ManageContract/Move/{contractId}?browseFolderId={grandchildId}");
+        grandchildMoveResponse.EnsureSuccessStatusCode();
+        var grandchildMoveHtml = await grandchildMoveResponse.Content.ReadAsStringAsync();
+        rootPosition = grandchildMoveHtml.IndexOf(">Root<", StringComparison.Ordinal);
+        rootAPosition = grandchildMoveHtml.IndexOf(">Move Root A<", StringComparison.Ordinal);
+        childPosition = grandchildMoveHtml.IndexOf(">Move Child<", StringComparison.Ordinal);
+        var grandchildPosition = grandchildMoveHtml.IndexOf(">Move Grandchild<", StringComparison.Ordinal);
+        Assert.IsTrue(rootPosition >= 0 && rootPosition < rootAPosition && rootAPosition < childPosition &&
+                      childPosition < grandchildPosition);
+        Assert.Contains("No subfolders here.", grandchildMoveHtml);
+
+        Assert.AreEqual(
+            HttpStatusCode.NotFound,
+            (await _http.GetAsync($"/ManageContract/Move/{contractId}?browseFolderId=2147483647")).StatusCode);
+        Assert.AreEqual(
+            HttpStatusCode.NotFound,
+            (await _http.GetAsync("/ManageContract/Move/2147483647")).StatusCode);
+
+        // A valid anti-forgery token moves the contract to a nested folder.
+        var moveToken = await GetAntiCsrfToken(
+            $"/ManageContract/Move/{contractId}?browseFolderId={grandchildId}");
+        var moveResponse = await _http.PostAsync($"/ManageContract/Move/{contractId}",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "targetFolderId", grandchildId.ToString() },
+                { "__RequestVerificationToken", moveToken }
+            }));
+        Assert.AreEqual(HttpStatusCode.Found, moveResponse.StatusCode);
+        Assert.Contains(grandchildId.ToString(), moveResponse.Headers.Location?.OriginalString ?? string.Empty);
+
+        using (var scope = _server.Services.CreateScope())
+        {
+            var context = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            Assert.AreEqual(grandchildId, (await context.Contracts.FindAsync(contractId))?.FolderId);
+        }
+
+        // Invalid identifiers and missing anti-forgery tokens cannot alter the current folder.
+        moveToken = await GetAntiCsrfToken($"/ManageContract/Move/{contractId}");
+        var invalidTargetResponse = await _http.PostAsync($"/ManageContract/Move/{contractId}",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "targetFolderId", "2147483647" },
+                { "__RequestVerificationToken", moveToken }
+            }));
+        Assert.AreEqual(HttpStatusCode.NotFound, invalidTargetResponse.StatusCode);
+
+        var invalidContractResponse = await _http.PostAsync("/ManageContract/Move/2147483647",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "targetFolderId", rootAId.ToString() },
+                { "__RequestVerificationToken", moveToken }
+            }));
+        Assert.AreEqual(HttpStatusCode.NotFound, invalidContractResponse.StatusCode);
+
+        var missingTokenResponse = await _http.PostAsync($"/ManageContract/Move/{contractId}",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "targetFolderId", rootBId.ToString() }
+            }));
+        Assert.AreEqual(HttpStatusCode.BadRequest, missingTokenResponse.StatusCode);
+
+        using (var scope = _server.Services.CreateScope())
+        {
+            var context = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            Assert.AreEqual(grandchildId, (await context.Contracts.FindAsync(contractId))?.FolderId);
+        }
+
+        // Moving to the current folder is an idempotent success.
+        moveToken = await GetAntiCsrfToken(
+            $"/ManageContract/Move/{contractId}?browseFolderId={grandchildId}");
+        var idempotentResponse = await _http.PostAsync($"/ManageContract/Move/{contractId}",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "targetFolderId", grandchildId.ToString() },
+                { "__RequestVerificationToken", moveToken }
+            }));
+        Assert.AreEqual(HttpStatusCode.Found, idempotentResponse.StatusCode);
+
+        // An empty target moves the contract back to the root.
+        moveToken = await GetAntiCsrfToken($"/ManageContract/Move/{contractId}");
+        var moveToRootResponse = await _http.PostAsync($"/ManageContract/Move/{contractId}",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "targetFolderId", string.Empty },
+                { "__RequestVerificationToken", moveToken }
+            }));
+        Assert.AreEqual(HttpStatusCode.Found, moveToRootResponse.StatusCode);
+        using (var scope = _server.Services.CreateScope())
+        {
+            var context = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            Assert.IsNull((await context.Contracts.FindAsync(contractId))?.FolderId);
+        }
+
+        // A viewer without CanCreateContract cannot see, browse, or submit the move action.
+        const string viewerPassword = "Test-Password-123";
+        var viewerEmail = $"contract-viewer-{Guid.NewGuid():N}@aiursoft.com";
+        using (var scope = _server.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var viewer = new User
+            {
+                UserName = viewerEmail,
+                Email = viewerEmail,
+                DisplayName = "Contract Viewer",
+                AvatarRelativePath = User.DefaultAvatarPath
+            };
+            Assert.IsTrue((await userManager.CreateAsync(viewer, viewerPassword)).Succeeded);
+
+            const string roleName = "ContractMoveViewer";
+            var role = new IdentityRole(roleName);
+            Assert.IsTrue((await roleManager.CreateAsync(role)).Succeeded);
+            Assert.IsTrue((await roleManager.AddClaimAsync(
+                role,
+                new Claim(AppPermissions.Type, AppPermissionNames.CanViewContractHistory))).Succeeded);
+            Assert.IsTrue((await userManager.AddToRoleAsync(viewer, roleName)).Succeeded);
+        }
+
+        await _http.GetAsync("/Account/LogOff");
+        loginToken = await GetAntiCsrfToken("/Account/Login");
+        loginResponse = await _http.PostAsync("/Account/Login", new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "EmailOrUserName", viewerEmail },
+            { "Password", viewerPassword },
+            { "__RequestVerificationToken", loginToken }
+        }));
+        Assert.AreEqual(HttpStatusCode.Found, loginResponse.StatusCode);
+
+        indexResponse = await _http.GetAsync("/ManageContract/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        Assert.DoesNotContain($"/ManageContract/Move/{contractId}", indexHtml);
+
+        var forbiddenGetResponse = await _http.GetAsync($"/ManageContract/Move/{contractId}");
+        Assert.IsTrue(forbiddenGetResponse.StatusCode is HttpStatusCode.Forbidden or HttpStatusCode.Found);
+
+        var viewerToken = await GetAntiCsrfToken("/Manage/ChangePassword");
+        var forbiddenPostResponse = await _http.PostAsync($"/ManageContract/Move/{contractId}",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "targetFolderId", rootAId.ToString() },
+                { "__RequestVerificationToken", viewerToken }
+            }));
+        Assert.IsTrue(forbiddenPostResponse.StatusCode is HttpStatusCode.Forbidden or HttpStatusCode.Found);
+        using (var scope = _server.Services.CreateScope())
+        {
+            var context = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            Assert.IsNull((await context.Contracts.FindAsync(contractId))?.FolderId);
+        }
     }
 }
