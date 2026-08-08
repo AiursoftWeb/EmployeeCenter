@@ -17,7 +17,8 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class ManageContractController(
     EmployeeCenterDbContext context,
     StorageService storageService,
-    OcrService ocrService)
+    OcrService ocrService,
+    ILogger<ManageContractController> logger)
     : Controller
 {
     private async Task<List<SelectListItem>> GetFolderSelectList(int? selectedId, int? excludeId = null)
@@ -290,6 +291,93 @@ public class ManageContractController(
             IsPublic = contract.IsPublic,
             FolderId = contract.FolderId
         });
+    }
+
+    /// <summary>
+    /// Browse folders to select a destination for a contract.
+    /// </summary>
+    [HttpGet]
+    [Authorize(Policy = AppPermissionNames.CanCreateContract)]
+    public async Task<IActionResult> Move(int id, int? browseFolderId)
+    {
+        var contract = await context.Contracts.FindAsync(id);
+        if (contract == null)
+        {
+            return NotFound();
+        }
+
+        var browseFolder = browseFolderId.HasValue
+            ? await context.ContractFolders.FindAsync(browseFolderId.Value)
+            : null;
+
+        if (browseFolderId.HasValue && browseFolder == null)
+        {
+            return NotFound();
+        }
+
+        var subFolders = await context.ContractFolders
+            .Where(f => f.ParentFolderId == browseFolderId)
+            .OrderBy(f => f.Name)
+            .ToListAsync();
+
+        var breadcrumb = new List<ContractFolder>();
+        if (browseFolder != null)
+        {
+            var ancestor = browseFolder.ParentFolderId.HasValue
+                ? await context.ContractFolders.FindAsync(browseFolder.ParentFolderId.Value)
+                : null;
+
+            while (ancestor != null)
+            {
+                breadcrumb.Insert(0, ancestor);
+                ancestor = ancestor.ParentFolderId.HasValue
+                    ? await context.ContractFolders.FindAsync(ancestor.ParentFolderId.Value)
+                    : null;
+            }
+        }
+
+        return this.StackView(new MoveViewModel
+        {
+            ContractId = contract.Id,
+            ContractName = contract.Name,
+            BrowseFolderId = browseFolderId,
+            BrowseFolder = browseFolder,
+            SubFolders = subFolders,
+            Breadcrumb = breadcrumb
+        });
+    }
+
+    /// <summary>
+    /// Move a contract to the selected folder. A null target means the root folder.
+    /// </summary>
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanCreateContract)]
+    [ActionName("Move")]
+    public async Task<IActionResult> MoveConfirmed(int id, int? targetFolderId)
+    {
+        var contract = await context.Contracts.FindAsync(id);
+        if (contract == null)
+        {
+            return NotFound();
+        }
+
+        if (targetFolderId.HasValue &&
+            !await context.ContractFolders.AnyAsync(f => f.Id == targetFolderId.Value))
+        {
+            return NotFound();
+        }
+
+        contract.FolderId = targetFolderId;
+        await context.SaveChangesAsync();
+
+        logger.LogInformation(
+            "Contract '{ContractId}' moved to folder '{FolderId}' by user '{UserName}'.",
+            id,
+            targetFolderId,
+            User.Identity?.Name);
+
+        return RedirectToAction(nameof(Index), new { id = targetFolderId });
     }
 
     [Authorize(Policy = AppPermissionNames.CanCreateContract)]
