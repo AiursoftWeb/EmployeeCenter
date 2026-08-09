@@ -126,6 +126,7 @@ public class AudioController(
             };
             context.Audios.Add(audio);
             await context.SaveChangesAsync();
+            DeleteVaultFileIfExists(conversionResult.SourceVideoFilePath);
             return RedirectToAction(nameof(Index));
         }
 
@@ -160,14 +161,17 @@ public class AudioController(
             ModelState.AddModelError(nameof(model.FilePath), "The file upload failed or the file is missing. Please re-upload.");
             return this.StackView(model);
         }
-        var conversionResult = await ConvertVideoUploadToAudioAsync(filePath, nameof(model.FilePath));
+        var originalFilePath = audio.FilePath;
+        var replaceAudio = originalFilePath != filePath;
+        var conversionResult = replaceAudio
+            ? await ConvertVideoUploadToAudioAsync(filePath, nameof(model.FilePath))
+            : new VideoAudioConversionResult(true, filePath, null);
         if (!conversionResult.Success)
         {
             return this.StackView(model);
         }
         filePath = conversionResult.AudioFilePath;
 
-        var replaceAudio = audio.FilePath != filePath;
         if (replaceAudio)
         {
             try
@@ -179,7 +183,8 @@ public class AudioController(
                 ModelState.AddModelError(
                     nameof(model.FilePath),
                     "The active ASR task could not be cancelled. No changes were made. Please try again.");
-                DeleteVaultFileIfExists(conversionResult.ConvertedFilePath);
+                DeleteVaultFileIfExists(conversionResult.AudioFilePath);
+                DeleteVaultFileIfExists(conversionResult.SourceVideoFilePath);
                 return this.StackView(model);
             }
             var transcript = await context.AudioAsrResults.FindAsync(audio.Id);
@@ -198,6 +203,11 @@ public class AudioController(
         audio.FilePath = filePath;
 
         await context.SaveChangesAsync();
+        if (replaceAudio)
+        {
+            DeleteVaultFileIfExists(originalFilePath);
+            DeleteVaultFileIfExists(conversionResult.SourceVideoFilePath);
+        }
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
 
@@ -500,8 +510,7 @@ public class AudioController(
             var audioFilePath = string.IsNullOrEmpty(logicalDirectory)
                 ? Path.GetFileName(physicalAudioPath)
                 : $"{logicalDirectory}/{Path.GetFileName(physicalAudioPath)}";
-            DeleteVaultFileIfExists(filePath);
-            return new VideoAudioConversionResult(true, audioFilePath, audioFilePath);
+            return new VideoAudioConversionResult(true, audioFilePath, filePath);
         }
         catch (Exception ex)
         {
@@ -546,7 +555,7 @@ public class AudioController(
     private sealed record VideoAudioConversionResult(
         bool Success,
         string AudioFilePath,
-        string? ConvertedFilePath);
+        string? SourceVideoFilePath);
 
     private async Task<List<string>> GetUserRoleIdsAsync()
     {

@@ -161,6 +161,57 @@ public class AudioTests : TestBase
     }
 
     [TestMethod]
+    public async Task EditAudioNamePreservesExistingWebmRecording()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        string filePath;
+        string physicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            await using var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes("existing webm audio"));
+            filePath = await storage.SaveFromStream(
+                $"audio/edit-{Guid.NewGuid():N}.webm",
+                stream,
+                isVault: true);
+            physicalPath = storage.GetFilePhysicalPath(filePath, isVault: true);
+            var audio = new Audio
+            {
+                Name = "Original Name",
+                FilePath = filePath,
+                OwnerId = admin.Id
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var response = await PostForm(
+            "/Audio/Edit",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "Name", "Updated Name" },
+                { "FilePath", filePath }
+            },
+            $"/Audio/Edit/{audioId}");
+
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+        Assert.IsTrue(File.Exists(physicalPath));
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var updatedAudio = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(updatedAudio);
+        Assert.AreEqual("Updated Name", updatedAudio.Name);
+        Assert.AreEqual(filePath, updatedAudio.FilePath);
+        File.Delete(physicalPath);
+    }
+
+    [TestMethod]
     public async Task AudioSharingMatchesPasswordSharing()
     {
         await LoginAsAdmin();
