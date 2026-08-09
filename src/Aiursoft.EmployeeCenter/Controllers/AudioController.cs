@@ -18,6 +18,7 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class AudioController(
     EmployeeCenterDbContext context,
     AsrService asrService,
+    AsrMediaProcessor mediaProcessor,
     ServiceTaskQueue taskQueue,
     StorageService storageService,
     UserManager<User> userManager,
@@ -108,6 +109,12 @@ public class AudioController(
                 ModelState.AddModelError(nameof(model.FilePath), "The file upload failed or the file is missing. Please re-upload.");
                 return this.StackView(model);
             }
+            var conversionResult = await ConvertVideoUploadToAudioAsync(filePath, nameof(model.FilePath));
+            if (!conversionResult.Success)
+            {
+                return this.StackView(model);
+            }
+            filePath = conversionResult.AudioFilePath;
 
             var user = await userManager.GetUserAsync(User);
             var audio = new Audio
@@ -153,6 +160,12 @@ public class AudioController(
             ModelState.AddModelError(nameof(model.FilePath), "The file upload failed or the file is missing. Please re-upload.");
             return this.StackView(model);
         }
+        var conversionResult = await ConvertVideoUploadToAudioAsync(filePath, nameof(model.FilePath));
+        if (!conversionResult.Success)
+        {
+            return this.StackView(model);
+        }
+        filePath = conversionResult.AudioFilePath;
 
         var replaceAudio = audio.FilePath != filePath;
         if (replaceAudio)
@@ -166,6 +179,7 @@ public class AudioController(
                 ModelState.AddModelError(
                     nameof(model.FilePath),
                     "The active ASR task could not be cancelled. No changes were made. Please try again.");
+                DeleteVaultFileIfExists(conversionResult.ConvertedFilePath);
                 return this.StackView(model);
             }
             var transcript = await context.AudioAsrResults.FindAsync(audio.Id);
@@ -454,6 +468,83 @@ public class AudioController(
             return false;
         }
     }
+
+    private async Task<VideoAudioConversionResult> ConvertVideoUploadToAudioAsync(
+        string filePath,
+        string modelStateKey)
+    {
+        if (!IsVideoFile(filePath))
+        {
+            return new VideoAudioConversionResult(true, filePath, null);
+        }
+
+        var physicalVideoPath = storageService.GetFilePhysicalPath(filePath, isVault: true);
+        var outputDirectory = Path.GetDirectoryName(physicalVideoPath);
+        if (string.IsNullOrEmpty(outputDirectory))
+        {
+            ModelState.AddModelError(modelStateKey, "The uploaded video could not be processed. Please upload an audio file or another video.");
+            DeleteVaultFileIfExists(filePath);
+            return new VideoAudioConversionResult(false, filePath, null);
+        }
+
+        try
+        {
+            var outputPrefix = $"{Path.GetFileNameWithoutExtension(filePath)}-audio-{Guid.NewGuid():N}";
+            var physicalAudioPath = await mediaProcessor.ExtractAudioTrackAsync(
+                physicalVideoPath,
+                outputDirectory,
+                outputPrefix);
+            var logicalDirectory = Path.GetDirectoryName(filePath)?.Replace("\\", "/");
+            var audioFilePath = string.IsNullOrEmpty(logicalDirectory)
+                ? Path.GetFileName(physicalAudioPath)
+                : $"{logicalDirectory}/{Path.GetFileName(physicalAudioPath)}";
+            DeleteVaultFileIfExists(filePath);
+            return new VideoAudioConversionResult(true, audioFilePath, audioFilePath);
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(ex, "Failed to extract audio track from uploaded video {FilePath}.", filePath);
+            ModelState.AddModelError(modelStateKey, "The uploaded video audio track could not be extracted. Please upload an audio file or another video.");
+            DeleteVaultFileIfExists(filePath);
+            return new VideoAudioConversionResult(false, filePath, null);
+        }
+    }
+
+    private static bool IsVideoFile(string filePath)
+    {
+        var extension = Path.GetExtension(filePath);
+        return extension.Equals(".mp4", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".mov", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".mkv", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".avi", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".webm", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private void DeleteVaultFileIfExists(string? filePath)
+    {
+        if (string.IsNullOrEmpty(filePath))
+        {
+            return;
+        }
+
+        try
+        {
+            var physicalPath = storageService.GetFilePhysicalPath(filePath, isVault: true);
+            if (System.IO.File.Exists(physicalPath))
+            {
+                System.IO.File.Delete(physicalPath);
+            }
+        }
+        catch (ArgumentException ex)
+        {
+            logger.LogWarning(ex, "Skipped deleting invalid vault file path {FilePath}.", filePath);
+        }
+    }
+
+    private sealed record VideoAudioConversionResult(
+        bool Success,
+        string AudioFilePath,
+        string? ConvertedFilePath);
 
     private async Task<List<string>> GetUserRoleIdsAsync()
     {

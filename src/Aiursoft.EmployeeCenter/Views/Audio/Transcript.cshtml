@@ -13,8 +13,6 @@
     var hasMeetingMinutes = !string.IsNullOrWhiteSpace(Model.MeetingMinutesMarkdown);
     var meetingMinutesFailed = hasTranscript && !hasMeetingMinutes && Model.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount;
     var audioUrl = StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true);
-    var videoExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { ".mp4", ".mov", ".mkv", ".avi", ".webm" };
-    var isVideo = videoExtensions.Contains(System.IO.Path.GetExtension(Model.Audio.FilePath));
 }
 
 <div class="row mb-2 mb-xl-3">
@@ -187,20 +185,10 @@
                     }
                 </div>
                 <div class="card-body">
-                    @if (isVideo)
-                    {
-                        <video controls preload="metadata" class="w-100">
-                            <source src="@audioUrl">
-                            @Localizer["Your browser does not support video playback."]
-                        </video>
-                    }
-                    else
-                    {
-                        <audio controls preload="metadata" class="w-100">
-                            <source src="@audioUrl">
-                            @Localizer["Your browser does not support audio playback."]
-                        </audio>
-                    }
+                    <audio controls preload="metadata" class="w-100">
+                        <source src="@audioUrl">
+                        @Localizer["Your browser does not support audio playback."]
+                    </audio>
                 </div>
             </div>
 

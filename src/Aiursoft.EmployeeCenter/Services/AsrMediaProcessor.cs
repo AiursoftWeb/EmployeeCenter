@@ -151,6 +151,80 @@ public class AsrMediaProcessor(
         return outputPaths;
     }
 
+    public async Task<string> ExtractAudioTrackAsync(
+        string mediaPath,
+        string outputDirectory,
+        string outputFileNamePrefix)
+    {
+        Directory.CreateDirectory(outputDirectory);
+        if (_preferOriginalSegmentCodec)
+        {
+            var copiedPath = Path.Combine(outputDirectory, $"{outputFileNamePrefix}.mka");
+            if (await TryCopyAudioTrackAsync(mediaPath, copiedPath))
+            {
+                return copiedPath;
+            }
+        }
+
+        var transcodedPath = Path.Combine(outputDirectory, $"{outputFileNamePrefix}.flac");
+        await TranscodeAudioTrackAsync(mediaPath, transcodedPath);
+        return transcodedPath;
+    }
+
+    private async Task<bool> TryCopyAudioTrackAsync(string mediaPath, string outputPath)
+    {
+        var startInfo = new ProcessStartInfo
+        {
+            FileName = "ffmpeg",
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+        AddCommonAudioOutputArguments(startInfo, mediaPath);
+        startInfo.ArgumentList.Add("-c:a");
+        startInfo.ArgumentList.Add("copy");
+        startInfo.ArgumentList.Add(outputPath);
+
+        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        if (result.ExitCode == 0 && File.Exists(outputPath))
+        {
+            return true;
+        }
+
+        logger.LogWarning(
+            "ffmpeg stream-copy audio extraction failed for {MediaPath}. Falling back to FLAC transcoding. Error: {Error}",
+            mediaPath,
+            result.Error);
+        DeleteFileIfExists(outputPath);
+        return false;
+    }
+
+    private async Task TranscodeAudioTrackAsync(string mediaPath, string outputPath)
+    {
+        var startInfo = new ProcessStartInfo
+        {
+            FileName = "ffmpeg",
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+        AddCommonAudioOutputArguments(startInfo, mediaPath);
+        AddFlacTranscodeArguments(startInfo);
+        startInfo.ArgumentList.Add(outputPath);
+
+        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        if (result.ExitCode != 0)
+        {
+            throw new InvalidOperationException($"ffmpeg failed: {result.Error}");
+        }
+        if (!File.Exists(outputPath))
+        {
+            throw new InvalidOperationException($"ffmpeg did not create expected output {outputPath}.");
+        }
+    }
+
     private async Task<string> CreateSegmentFileAsync(
         string mediaPath,
         AsrSegmentWindow window,
@@ -219,14 +293,7 @@ public class AsrMediaProcessor(
             CreateNoWindow = true
         };
         AddCommonSegmentArguments(startInfo, mediaPath, window);
-        startInfo.ArgumentList.Add("-ar");
-        startInfo.ArgumentList.Add("16000");
-        startInfo.ArgumentList.Add("-ac");
-        startInfo.ArgumentList.Add("1");
-        startInfo.ArgumentList.Add("-sample_fmt");
-        startInfo.ArgumentList.Add("s16");
-        startInfo.ArgumentList.Add("-c:a");
-        startInfo.ArgumentList.Add("flac");
+        AddFlacTranscodeArguments(startInfo);
         startInfo.ArgumentList.Add(outputPath);
 
         var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
@@ -258,6 +325,32 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add(FormatMilliseconds(window.InputEndMilliseconds - window.InputStartMilliseconds));
         startInfo.ArgumentList.Add("-map");
         startInfo.ArgumentList.Add("0:a:0");
+    }
+
+    private static void AddCommonAudioOutputArguments(ProcessStartInfo startInfo, string mediaPath)
+    {
+        startInfo.ArgumentList.Add("-nostdin");
+        startInfo.ArgumentList.Add("-hide_banner");
+        startInfo.ArgumentList.Add("-loglevel");
+        startInfo.ArgumentList.Add("error");
+        startInfo.ArgumentList.Add("-y");
+        startInfo.ArgumentList.Add("-i");
+        startInfo.ArgumentList.Add(mediaPath);
+        startInfo.ArgumentList.Add("-map");
+        startInfo.ArgumentList.Add("0:a:0");
+        startInfo.ArgumentList.Add("-vn");
+    }
+
+    private static void AddFlacTranscodeArguments(ProcessStartInfo startInfo)
+    {
+        startInfo.ArgumentList.Add("-ar");
+        startInfo.ArgumentList.Add("16000");
+        startInfo.ArgumentList.Add("-ac");
+        startInfo.ArgumentList.Add("1");
+        startInfo.ArgumentList.Add("-sample_fmt");
+        startInfo.ArgumentList.Add("s16");
+        startInfo.ArgumentList.Add("-c:a");
+        startInfo.ArgumentList.Add("flac");
     }
 
     private static void DeleteFileIfExists(string path)
