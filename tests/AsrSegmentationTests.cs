@@ -320,6 +320,12 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
+    public void MatroskaAudioSegmentsAreSupported()
+    {
+        Assert.IsTrue(AsrService.IsSupportedMediaExtension(".mka"));
+    }
+
+    [TestMethod]
     public void ProcessingTimeoutIncludesUploadAndCleanupBuffer()
     {
         var settings = new AsrSettings

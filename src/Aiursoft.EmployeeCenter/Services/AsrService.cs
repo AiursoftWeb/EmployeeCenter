@@ -42,7 +42,7 @@ public class AsrService(
 
     private static readonly HashSet<string> AllowedExtensions = new(StringComparer.OrdinalIgnoreCase)
     {
-        ".mp3", ".wav", ".m4a", ".ogg", ".flac", ".aac", ".webm", ".amr",
+        ".mp3", ".wav", ".m4a", ".ogg", ".flac", ".aac", ".webm", ".amr", ".mka",
         ".mp4", ".mov", ".mkv", ".avi"
     };
 
@@ -65,7 +65,7 @@ public class AsrService(
         }
 
         var extension = Path.GetExtension(filePath);
-        if (!AllowedExtensions.Contains(extension))
+        if (!IsSupportedMediaExtension(extension))
         {
             logger.LogInformation("File extension {Extension} is not a supported media format. Skipping ASR.", extension);
             return null;
@@ -657,6 +657,11 @@ public class AsrService(
             Query = string.Empty,
             Fragment = string.Empty
         }.Uri;
+    }
+
+    public static bool IsSupportedMediaExtension(string extension)
+    {
+        return AllowedExtensions.Contains(extension);
     }
 
     public static string? GetRecognizedText(AsrResponse? response)
