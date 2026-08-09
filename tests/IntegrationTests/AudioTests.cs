@@ -120,6 +120,47 @@ public class AudioTests : TestBase
     }
 
     [TestMethod]
+    public async Task DeleteAudioRemovesStoredRecordingFile()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        string physicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var filePath = $"audio/delete-{Guid.NewGuid():N}.mka";
+            await using var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes("audio"));
+            filePath = await storage.SaveFromStream(filePath, stream, isVault: true);
+            physicalPath = storage.GetFilePhysicalPath(filePath, isVault: true);
+            var audio = new Audio
+            {
+                Name = "Delete File Test",
+                FilePath = filePath,
+                OwnerId = admin.Id
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        Assert.IsTrue(File.Exists(physicalPath));
+
+        var response = await PostForm(
+            $"/Audio/Delete/{audioId}",
+            new Dictionary<string, string>(),
+            "/Audio/Index");
+        AssertRedirect(response, "/Audio");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.IsNull(await verificationDb.Audios.FindAsync(audioId));
+        Assert.IsFalse(File.Exists(physicalPath));
+    }
+
+    [TestMethod]
     public async Task AudioSharingMatchesPasswordSharing()
     {
         await LoginAsAdmin();

@@ -289,8 +289,10 @@ public class AudioController(
                 "Deleting audio {AudioId} after its active ASR task could not be cancelled.",
                 audio.Id);
         }
+        var filePath = audio.FilePath;
         context.Audios.Remove(audio);
         await context.SaveChangesAsync();
+        DeleteVaultFileIfExists(filePath);
 
         return RedirectToAction(nameof(Index));
     }
@@ -535,9 +537,9 @@ public class AudioController(
                 System.IO.File.Delete(physicalPath);
             }
         }
-        catch (ArgumentException ex)
+        catch (Exception ex) when (ex is ArgumentException or IOException or UnauthorizedAccessException)
         {
-            logger.LogWarning(ex, "Skipped deleting invalid vault file path {FilePath}.", filePath);
+            logger.LogWarning(ex, "Skipped deleting vault file path {FilePath}.", filePath);
         }
     }
 
