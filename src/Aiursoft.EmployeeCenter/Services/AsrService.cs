@@ -533,11 +533,17 @@ public class AsrService(
         catch (AsrMediaUploadLimitException ex)
         {
             dbContext.ChangeTracker.Clear();
-            var failedAudio = await dbContext.Audios.FindAsync(audioId);
-            if (failedAudio != null)
+            var terminalError = ex.Message.Length <= 1000 ? ex.Message : ex.Message[..1000];
+            var updatedRows = await dbContext.Audios
+                .Where(item => item.Id == audioId && item.AsrProcessingToken == processingToken)
+                .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(item => item.AsrTerminalError, terminalError));
+            if (updatedRows == 0)
             {
-                failedAudio.AsrTerminalError = ex.Message.Length <= 1000 ? ex.Message : ex.Message[..1000];
-                await dbContext.SaveChangesAsync();
+                logger.LogInformation(
+                    "Ignored stale ASR upload-limit failure for audio {AudioId} because a newer task took ownership.",
+                    audioId);
+                return;
             }
             logger.LogError(ex, "ASR media for audio {AudioId} cannot fit within the upload limit.", audioId);
         }

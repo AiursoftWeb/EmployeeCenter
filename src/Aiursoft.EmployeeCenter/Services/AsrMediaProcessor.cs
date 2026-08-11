@@ -66,7 +66,7 @@ public class AsrMediaProcessor(
         return windows;
     }
 
-    public async Task<AsrMediaProbe> ProbeAsync(
+    public virtual async Task<AsrMediaProbe> ProbeAsync(
         string mediaPath,
         CancellationToken cancellationToken = default)
     {
@@ -136,7 +136,7 @@ public class AsrMediaProcessor(
         return maxMicroseconds > 0 ? TimeSpan.FromMicroseconds(maxMicroseconds) : null;
     }
 
-    public async Task<IReadOnlyDictionary<int, string>> CreateSegmentFilesAsync(
+    public virtual async Task<IReadOnlyDictionary<int, string>> CreateSegmentFilesAsync(
         string mediaPath,
         IReadOnlyList<AsrSegmentWindow> windows,
         string outputDirectory,

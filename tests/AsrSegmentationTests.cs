@@ -2,6 +2,8 @@ using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.InMemory;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Aiursoft.EmployeeCenter.Sqlite;
+using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -74,6 +76,86 @@ public class AsrSegmentationTests
         finally
         {
             tempDirectory.Delete(recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task OversizedStaleAsrTaskDoesNotMarkReplacementFailed()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:");
+        await connection.OpenAsync();
+        var options = new DbContextOptionsBuilder<SqliteContext>()
+            .UseSqlite(connection)
+            .Options;
+        await using var db = new SqliteContext(options);
+        await db.Database.EnsureCreatedAsync();
+
+        var storageRoot = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+        var storageConfiguration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["Storage:Path"] = storageRoot
+            })
+            .Build();
+        var storageService = new StorageService(
+            new FeatureFoldersProvider(new StorageRootPathProvider(storageConfiguration)),
+            null!,
+            null!);
+        const string originalFilePath = "audio/stale-limit.mp3";
+        var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(originalFilePath, "audio");
+        Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
+        await File.WriteAllBytesAsync(physicalPath, "audio"u8.ToArray());
+        var audio = new Audio
+        {
+            Name = "Stale upload limit",
+            FilePath = originalFilePath
+        };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+
+        var processor = new PausingOversizedMediaProcessor();
+        var service = new AsrService(
+            new HttpClient(),
+            Options.Create(new AsrSettings
+            {
+                Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                BearerToken = "test-token",
+                SegmentDurationSeconds = 1,
+                SegmentOverlapSeconds = 0
+            }),
+            db,
+            storageService,
+            processor,
+            NullLogger<AsrService>.Instance);
+
+        try
+        {
+            var staleTask = service.ProcessAudioAsrAsync(audio.Id);
+            await processor.SegmentationStarted;
+
+            await using (var replacementDb = new SqliteContext(options))
+            {
+                var replacement = await replacementDb.Audios.FindAsync(audio.Id);
+                Assert.IsNotNull(replacement);
+                replacement.FilePath = "audio/replacement.mp3";
+                replacement.AsrProcessingToken = Guid.NewGuid().ToString("N");
+                replacement.AsrTerminalError = null;
+                await replacementDb.SaveChangesAsync();
+            }
+
+            processor.ReleaseSegmentation();
+            await staleTask;
+
+            db.ChangeTracker.Clear();
+            var updatedAudio = await db.Audios.FindAsync(audio.Id);
+            Assert.IsNotNull(updatedAudio);
+            Assert.AreEqual("audio/replacement.mp3", updatedAudio.FilePath);
+            Assert.IsNull(updatedAudio.AsrTerminalError);
+        }
+        finally
+        {
+            processor.ReleaseSegmentation();
+            Directory.Delete(storageRoot, recursive: true);
         }
     }
 
@@ -467,6 +549,42 @@ public class AsrSegmentationTests
                 response.Content = new StringContent(_content);
             }
             return Task.FromResult(response);
+        }
+    }
+
+    private sealed class PausingOversizedMediaProcessor() : AsrMediaProcessor(
+        Options.Create(new AsrSettings()),
+        NullLogger<AsrMediaProcessor>.Instance)
+    {
+        private readonly TaskCompletionSource _releaseSegmentation =
+            new(TaskCreationOptions.RunContinuationsAsynchronously);
+        private readonly TaskCompletionSource _segmentationStarted =
+            new(TaskCreationOptions.RunContinuationsAsynchronously);
+
+        public Task SegmentationStarted => _segmentationStarted.Task;
+
+        public override Task<AsrMediaProbe> ProbeAsync(
+            string mediaPath,
+            CancellationToken cancellationToken = default)
+        {
+            return Task.FromResult(new AsrMediaProbe(TimeSpan.FromSeconds(2)));
+        }
+
+        public override async Task<IReadOnlyDictionary<int, string>> CreateSegmentFilesAsync(
+            string mediaPath,
+            IReadOnlyList<AsrSegmentWindow> windows,
+            string outputDirectory,
+            long uploadLimitBytes = long.MaxValue,
+            CancellationToken cancellationToken = default)
+        {
+            _segmentationStarted.TrySetResult();
+            await _releaseSegmentation.Task.WaitAsync(cancellationToken);
+            throw new AsrMediaUploadLimitException("Transcoded ASR segment exceeds the upload limit.");
+        }
+
+        public void ReleaseSegmentation()
+        {
+            _releaseSegmentation.TrySetResult();
         }
     }
 }
