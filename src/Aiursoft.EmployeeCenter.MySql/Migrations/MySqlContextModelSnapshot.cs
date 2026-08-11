@@ -292,8 +292,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilePath")
-                        .IsUnique();
+                    b.HasIndex("FilePath");
 
                     b.HasIndex("OwnerId");
 

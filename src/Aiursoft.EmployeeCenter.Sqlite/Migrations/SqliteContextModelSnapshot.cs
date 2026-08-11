@@ -277,8 +277,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilePath")
-                        .IsUnique();
+                    b.HasIndex("FilePath");
 
                     b.HasIndex("OwnerId");
 

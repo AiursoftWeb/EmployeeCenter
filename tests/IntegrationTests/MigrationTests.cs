@@ -111,4 +111,37 @@ public class MigrationTests
         Assert.AreEqual(sharedUser.Id, audios[1].AudioShares[0].SharedWithUserId);
         Assert.AreEqual(SharePermission.ReadOnly, audios[1].AudioShares[0].Permission);
     }
+
+    [TestMethod]
+    public async Task SecureAudioUploadsMigrationPreservesSharedLegacyFilePaths()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:");
+        await connection.OpenAsync();
+
+        var options = new DbContextOptionsBuilder<SqliteContext>()
+            .UseSqlite(connection)
+            .Options;
+        await using var context = new SqliteContext(options);
+        var migrator = context.Database.GetService<IMigrator>();
+        await migrator.MigrateAsync("20260804114043_AddTrademarkImageToIntangibleAssets");
+
+        var createTime = DateTime.UtcNow;
+        await context.Database.ExecuteSqlInterpolatedAsync($"""
+            INSERT INTO Audios
+                (Id, Name, FilePath, AsrAttemptCount, EmptyResultCount, CreateTime)
+            VALUES
+                (2001, 'Shared legacy audio one', 'audio/shared-legacy.mp3', 0, 0, {createTime}),
+                (2002, 'Shared legacy audio two', 'audio/shared-legacy.mp3', 0, 0, {createTime})
+            """);
+
+        await migrator.MigrateAsync();
+        context.ChangeTracker.Clear();
+
+        var sharedPaths = await context.Audios
+            .Where(audio => audio.Id == 2001 || audio.Id == 2002)
+            .Select(audio => audio.FilePath)
+            .ToListAsync();
+        Assert.HasCount(2, sharedPaths);
+        Assert.IsTrue(sharedPaths.All(path => path == "audio/shared-legacy.mp3"));
+    }
 }

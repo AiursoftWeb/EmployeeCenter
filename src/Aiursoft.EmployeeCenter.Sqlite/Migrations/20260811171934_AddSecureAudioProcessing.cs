@@ -6,11 +6,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
 {
     /// <inheritdoc />
-    public partial class SecureAudioUploads : Migration
+    public partial class AddSecureAudioProcessing : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<string>(
+                name: "AsrActiveTaskId",
+                table: "Audios",
+                type: "TEXT",
+                maxLength: 128,
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "AsrProcessingToken",
+                table: "Audios",
+                type: "TEXT",
+                maxLength: 32,
+                nullable: true);
+
             migrationBuilder.AddColumn<string>(
                 name: "AsrTerminalError",
                 table: "Audios",
@@ -53,6 +67,33 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                 nullable: true);
 
             migrationBuilder.CreateTable(
+                name: "AudioAsrSegments",
+                columns: table => new
+                {
+                    AudioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    SegmentIndex = table.Column<int>(type: "INTEGER", nullable: false),
+                    CoreStartMilliseconds = table.Column<long>(type: "INTEGER", nullable: false),
+                    CoreEndMilliseconds = table.Column<long>(type: "INTEGER", nullable: false),
+                    InputStartMilliseconds = table.Column<long>(type: "INTEGER", nullable: false),
+                    InputEndMilliseconds = table.Column<long>(type: "INTEGER", nullable: false),
+                    SegmentDurationSeconds = table.Column<int>(type: "INTEGER", nullable: false),
+                    OverlapSeconds = table.Column<int>(type: "INTEGER", nullable: false),
+                    SegmentsJson = table.Column<string>(type: "TEXT", nullable: false),
+                    PlainText = table.Column<string>(type: "TEXT", nullable: false),
+                    CreateTime = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AudioAsrSegments", x => new { x.AudioId, x.SegmentIndex });
+                    table.ForeignKey(
+                        name: "FK_AudioAsrSegments_Audios_AudioId",
+                        column: x => x.AudioId,
+                        principalTable: "Audios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AudioUploads",
                 columns: table => new
                 {
@@ -74,8 +115,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Audios_FilePath",
                 table: "Audios",
-                column: "FilePath",
-                unique: true);
+                column: "FilePath");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Audios_PendingFilePath",
@@ -94,6 +134,9 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AudioAsrSegments");
+
+            migrationBuilder.DropTable(
                 name: "AudioUploads");
 
             migrationBuilder.DropIndex(
@@ -102,6 +145,14 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
 
             migrationBuilder.DropIndex(
                 name: "IX_Audios_PendingFilePath",
+                table: "Audios");
+
+            migrationBuilder.DropColumn(
+                name: "AsrActiveTaskId",
+                table: "Audios");
+
+            migrationBuilder.DropColumn(
+                name: "AsrProcessingToken",
                 table: "Audios");
 
             migrationBuilder.DropColumn(

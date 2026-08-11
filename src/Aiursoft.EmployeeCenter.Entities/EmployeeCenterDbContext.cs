@@ -293,8 +293,7 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             .OnDelete(DeleteBehavior.SetNull);
 
         builder.Entity<Audio>()
-            .HasIndex(a => a.FilePath)
-            .IsUnique();
+            .HasIndex(a => a.FilePath);
 
         builder.Entity<Audio>()
             .HasIndex(a => a.PendingFilePath)

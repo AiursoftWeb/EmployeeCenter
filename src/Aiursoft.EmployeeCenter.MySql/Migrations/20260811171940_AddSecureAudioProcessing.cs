@@ -6,11 +6,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Aiursoft.EmployeeCenter.MySql.Migrations
 {
     /// <inheritdoc />
-    public partial class SecureAudioUploads : Migration
+    public partial class AddSecureAudioProcessing : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<string>(
+                name: "AsrActiveTaskId",
+                table: "Audios",
+                type: "varchar(128)",
+                maxLength: 128,
+                nullable: true)
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.AddColumn<string>(
+                name: "AsrProcessingToken",
+                table: "Audios",
+                type: "varchar(32)",
+                maxLength: 32,
+                nullable: true)
+                .Annotation("MySql:CharSet", "utf8mb4");
+
             migrationBuilder.AddColumn<string>(
                 name: "AsrTerminalError",
                 table: "Audios",
@@ -57,6 +73,36 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "AudioAsrSegments",
+                columns: table => new
+                {
+                    AudioId = table.Column<int>(type: "int", nullable: false),
+                    SegmentIndex = table.Column<int>(type: "int", nullable: false),
+                    CoreStartMilliseconds = table.Column<long>(type: "bigint", nullable: false),
+                    CoreEndMilliseconds = table.Column<long>(type: "bigint", nullable: false),
+                    InputStartMilliseconds = table.Column<long>(type: "bigint", nullable: false),
+                    InputEndMilliseconds = table.Column<long>(type: "bigint", nullable: false),
+                    SegmentDurationSeconds = table.Column<int>(type: "int", nullable: false),
+                    OverlapSeconds = table.Column<int>(type: "int", nullable: false),
+                    SegmentsJson = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PlainText = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreateTime = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AudioAsrSegments", x => new { x.AudioId, x.SegmentIndex });
+                    table.ForeignKey(
+                        name: "FK_AudioAsrSegments_Audios_AudioId",
+                        column: x => x.AudioId,
+                        principalTable: "Audios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "AudioUploads",
                 columns: table => new
                 {
@@ -82,8 +128,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Audios_FilePath",
                 table: "Audios",
-                column: "FilePath",
-                unique: true);
+                column: "FilePath");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Audios_PendingFilePath",
@@ -102,6 +147,9 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AudioAsrSegments");
+
+            migrationBuilder.DropTable(
                 name: "AudioUploads");
 
             migrationBuilder.DropIndex(
@@ -110,6 +158,14 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
             migrationBuilder.DropIndex(
                 name: "IX_Audios_PendingFilePath",
+                table: "Audios");
+
+            migrationBuilder.DropColumn(
+                name: "AsrActiveTaskId",
+                table: "Audios");
+
+            migrationBuilder.DropColumn(
+                name: "AsrProcessingToken",
                 table: "Audios");
 
             migrationBuilder.DropColumn(

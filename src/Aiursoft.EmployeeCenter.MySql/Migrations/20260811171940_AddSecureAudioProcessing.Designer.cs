@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.EmployeeCenter.MySql.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20260811151413_SecureAudioUploads")]
-    partial class SecureAudioUploads
+    [Migration("20260811171940_AddSecureAudioProcessing")]
+    partial class AddSecureAudioProcessing
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -295,8 +295,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilePath")
-                        .IsUnique();
+                    b.HasIndex("FilePath");
 
                     b.HasIndex("OwnerId");
 
