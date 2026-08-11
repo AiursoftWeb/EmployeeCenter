@@ -18,11 +18,14 @@ public sealed record AsrMediaProbe(TimeSpan Duration);
 
 public class AsrMediaProcessor(
     IOptions<AsrSettings> asrSettings,
-    ILogger<AsrMediaProcessor> logger) : ITransientDependency
+    ILogger<AsrMediaProcessor> logger,
+    FfmpegConcurrencyLimiter? concurrencyLimiter = null) : ITransientDependency
 {
     private static readonly TimeSpan ProbeTimeout = TimeSpan.FromSeconds(30);
     private readonly bool _preferOriginalSegmentCodec = asrSettings.Value.PreferOriginalSegmentCodec;
     private readonly TimeSpan _segmentProcessingTimeout = asrSettings.Value.GetProcessingTimeout();
+    private readonly TimeSpan _mediaProcessingTimeout =
+        TimeSpan.FromSeconds(asrSettings.Value.MediaProcessingTimeoutSeconds);
 
     public static IReadOnlyList<AsrSegmentWindow> CreateSegmentWindows(
         TimeSpan mediaDuration,
@@ -63,7 +66,9 @@ public class AsrMediaProcessor(
         return windows;
     }
 
-    public async Task<AsrMediaProbe> ProbeAsync(string mediaPath)
+    public async Task<AsrMediaProbe> ProbeAsync(
+        string mediaPath,
+        CancellationToken cancellationToken = default)
     {
         var startInfo = new ProcessStartInfo
         {
@@ -81,7 +86,7 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add("json");
         startInfo.ArgumentList.Add(mediaPath);
 
-        var result = await RunProcessAsync(startInfo, ProbeTimeout);
+        var result = await RunProcessAsync(startInfo, ProbeTimeout, cancellationToken);
         if (result.ExitCode != 0)
         {
             throw new InvalidOperationException($"ffprobe failed: {result.Error}");
@@ -98,7 +103,7 @@ public class AsrMediaProcessor(
             logger.LogWarning(
                 "Media duration metadata is unavailable for {MediaPath}. Falling back to decoded duration.",
                 mediaPath);
-            duration = await ProbeDecodedDurationAsync(mediaPath);
+            duration = await ProbeDecodedDurationAsync(mediaPath, cancellationToken);
         }
         if (duration == null)
         {
@@ -134,7 +139,9 @@ public class AsrMediaProcessor(
     public async Task<IReadOnlyDictionary<int, string>> CreateSegmentFilesAsync(
         string mediaPath,
         IReadOnlyList<AsrSegmentWindow> windows,
-        string outputDirectory)
+        string outputDirectory,
+        long uploadLimitBytes = long.MaxValue,
+        CancellationToken cancellationToken = default)
     {
         if (windows.Count == 0)
         {
@@ -145,7 +152,12 @@ public class AsrMediaProcessor(
         var outputPaths = new Dictionary<int, string>();
         foreach (var window in windows)
         {
-            outputPaths[window.Index] = await CreateSegmentFileAsync(mediaPath, window, outputDirectory);
+            outputPaths[window.Index] = await CreateSegmentFileAsync(
+                mediaPath,
+                window,
+                outputDirectory,
+                uploadLimitBytes,
+                cancellationToken);
         }
 
         return outputPaths;
@@ -154,24 +166,30 @@ public class AsrMediaProcessor(
     public async Task<string> ExtractAudioTrackAsync(
         string mediaPath,
         string outputDirectory,
-        string outputFileNamePrefix)
+        string outputFileNamePrefix,
+        CancellationToken cancellationToken = default)
     {
+        using var processingSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        processingSource.CancelAfter(_mediaProcessingTimeout);
         Directory.CreateDirectory(outputDirectory);
         if (_preferOriginalSegmentCodec)
         {
             var copiedPath = Path.Combine(outputDirectory, $"{outputFileNamePrefix}.mka");
-            if (await TryCopyAudioTrackAsync(mediaPath, copiedPath))
+            if (await TryCopyAudioTrackAsync(mediaPath, copiedPath, processingSource.Token))
             {
                 return copiedPath;
             }
         }
 
         var transcodedPath = Path.Combine(outputDirectory, $"{outputFileNamePrefix}.flac");
-        await TranscodeAudioTrackAsync(mediaPath, transcodedPath);
+        await TranscodeAudioTrackAsync(mediaPath, transcodedPath, processingSource.Token);
         return transcodedPath;
     }
 
-    private async Task<bool> TryCopyAudioTrackAsync(string mediaPath, string outputPath)
+    private async Task<bool> TryCopyAudioTrackAsync(
+        string mediaPath,
+        string outputPath,
+        CancellationToken cancellationToken)
     {
         var startInfo = new ProcessStartInfo
         {
@@ -186,7 +204,7 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add("copy");
         startInfo.ArgumentList.Add(outputPath);
 
-        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        var result = await RunProcessAsync(startInfo, _mediaProcessingTimeout, cancellationToken);
         if (result.ExitCode == 0 && File.Exists(outputPath))
         {
             return true;
@@ -200,7 +218,10 @@ public class AsrMediaProcessor(
         return false;
     }
 
-    private async Task TranscodeAudioTrackAsync(string mediaPath, string outputPath)
+    private async Task TranscodeAudioTrackAsync(
+        string mediaPath,
+        string outputPath,
+        CancellationToken cancellationToken)
     {
         var startInfo = new ProcessStartInfo
         {
@@ -214,7 +235,7 @@ public class AsrMediaProcessor(
         AddFlacTranscodeArguments(startInfo);
         startInfo.ArgumentList.Add(outputPath);
 
-        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        var result = await RunProcessAsync(startInfo, _mediaProcessingTimeout, cancellationToken);
         if (result.ExitCode != 0)
         {
             throw new InvalidOperationException($"ffmpeg failed: {result.Error}");
@@ -228,26 +249,42 @@ public class AsrMediaProcessor(
     private async Task<string> CreateSegmentFileAsync(
         string mediaPath,
         AsrSegmentWindow window,
-        string outputDirectory)
+        string outputDirectory,
+        long uploadLimitBytes,
+        CancellationToken cancellationToken)
     {
         if (_preferOriginalSegmentCodec)
         {
             var copiedPath = Path.Combine(outputDirectory, $"segment-{window.Index}.mka");
-            if (await TryCreateCopiedAudioSegmentFileAsync(mediaPath, window, copiedPath))
+            if (await TryCreateCopiedAudioSegmentFileAsync(mediaPath, window, copiedPath, cancellationToken))
             {
-                return copiedPath;
+                if (new FileInfo(copiedPath).Length <= uploadLimitBytes)
+                {
+                    return copiedPath;
+                }
+                logger.LogInformation(
+                    "Stream-copied segment {SegmentIndex} exceeds upload limit. Falling back to FLAC transcoding.",
+                    window.Index);
+                DeleteFileIfExists(copiedPath);
             }
         }
 
         var transcodedPath = Path.Combine(outputDirectory, $"segment-{window.Index}.flac");
-        await CreateTranscodedSegmentFileAsync(mediaPath, window, transcodedPath);
+        await CreateTranscodedSegmentFileAsync(mediaPath, window, transcodedPath, cancellationToken);
+        if (new FileInfo(transcodedPath).Length > uploadLimitBytes)
+        {
+            DeleteFileIfExists(transcodedPath);
+            throw new AsrMediaUploadLimitException(
+                $"Transcoded ASR segment {window.Index} exceeds upload limit {uploadLimitBytes} bytes.");
+        }
         return transcodedPath;
     }
 
     private async Task<bool> TryCreateCopiedAudioSegmentFileAsync(
         string mediaPath,
         AsrSegmentWindow window,
-        string outputPath)
+        string outputPath,
+        CancellationToken cancellationToken)
     {
         var startInfo = new ProcessStartInfo
         {
@@ -265,7 +302,7 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add("make_zero");
         startInfo.ArgumentList.Add(outputPath);
 
-        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout, cancellationToken);
         if (result.ExitCode == 0 && File.Exists(outputPath))
         {
             return true;
@@ -282,7 +319,8 @@ public class AsrMediaProcessor(
     private async Task CreateTranscodedSegmentFileAsync(
         string mediaPath,
         AsrSegmentWindow window,
-        string outputPath)
+        string outputPath,
+        CancellationToken cancellationToken)
     {
         var startInfo = new ProcessStartInfo
         {
@@ -296,7 +334,7 @@ public class AsrMediaProcessor(
         AddFlacTranscodeArguments(startInfo);
         startInfo.ArgumentList.Add(outputPath);
 
-        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout, cancellationToken);
         if (result.ExitCode != 0)
         {
             throw new InvalidOperationException($"ffmpeg failed: {result.Error}");
@@ -377,7 +415,9 @@ public class AsrMediaProcessor(
         return TimeSpan.FromSeconds(seconds);
     }
 
-    private async Task<TimeSpan?> ProbeDecodedDurationAsync(string mediaPath)
+    private async Task<TimeSpan?> ProbeDecodedDurationAsync(
+        string mediaPath,
+        CancellationToken cancellationToken)
     {
         var startInfo = new ProcessStartInfo
         {
@@ -401,7 +441,7 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add("-progress");
         startInfo.ArgumentList.Add("pipe:1");
 
-        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout);
+        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout, cancellationToken);
         if (result.ExitCode != 0)
         {
             throw new InvalidOperationException($"ffmpeg duration probe failed: {result.Error}");
@@ -409,8 +449,14 @@ public class AsrMediaProcessor(
         return ParseDecodedDuration(result.Output);
     }
 
-    private async Task<ProcessResult> RunProcessAsync(ProcessStartInfo startInfo, TimeSpan timeout)
+    private async Task<ProcessResult> RunProcessAsync(
+        ProcessStartInfo startInfo,
+        TimeSpan timeout,
+        CancellationToken cancellationToken)
     {
+        using var limiterLease = concurrencyLimiter == null
+            ? null
+            : await concurrencyLimiter.EnterAsync(cancellationToken);
         using var process = new Process();
         process.StartInfo = startInfo;
         if (!process.Start())
@@ -421,19 +467,26 @@ public class AsrMediaProcessor(
         var outputTask = process.StandardOutput.ReadToEndAsync();
         var errorTask = process.StandardError.ReadToEndAsync();
         using var timeoutSource = new CancellationTokenSource(timeout);
+        using var linkedSource = CancellationTokenSource.CreateLinkedTokenSource(
+            timeoutSource.Token,
+            cancellationToken);
         try
         {
-            await process.WaitForExitAsync(timeoutSource.Token);
+            await process.WaitForExitAsync(linkedSource.Token);
         }
-        catch (OperationCanceledException ex) when (timeoutSource.IsCancellationRequested)
+        catch (OperationCanceledException ex)
         {
+            await TerminateProcessAsync(process, startInfo.FileName);
+            await Task.WhenAll(outputTask, errorTask);
+            if (!timeoutSource.IsCancellationRequested)
+            {
+                throw;
+            }
             logger.LogError(
                 ex,
                 "{ProcessName} timed out after {TimeoutSeconds} seconds.",
                 startInfo.FileName,
                 timeout.TotalSeconds);
-            await TerminateProcessAsync(process, startInfo.FileName);
-            await Task.WhenAll(outputTask, errorTask);
             throw new TimeoutException(
                 $"{startInfo.FileName} timed out after {timeout.TotalSeconds} seconds.",
                 ex);
@@ -490,3 +543,5 @@ public class AsrMediaProcessor(
         public string? Duration { get; set; }
     }
 }
+
+public class AsrMediaUploadLimitException(string message) : InvalidOperationException(message);

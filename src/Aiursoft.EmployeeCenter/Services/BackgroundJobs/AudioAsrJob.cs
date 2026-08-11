@@ -34,6 +34,8 @@ public class AudioAsrJob(
             // - Has not exceeded AsrAttemptCount limit (safety valve for crashes)
             // - Has not exceeded EmptyResultCount limit (truly silent audio)
             var unprocessedAudioIds = await db.Audios
+                .Where(a => a.MediaStatus == AudioMediaStatus.Ready)
+                .Where(a => a.AsrTerminalError == null)
                 .Where(a => !db.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText != ""))
                 .Where(a => a.AsrAttemptCount < _asrSettings.AsrMaxRetryCount)
                 .Where(a => a.EmptyResultCount < _asrSettings.AsrMaxEmptyRetryCount)

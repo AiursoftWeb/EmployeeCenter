@@ -12,13 +12,13 @@ public class FileUpload(StorageService storageService) : ViewComponent
         int maxSizeInMb = 2000,
         string? allowedExtensions = null,
         bool isVault = false,
-        string? fieldName = null)
+        string? fieldName = null,
+        string? uploadEndpoint = null)
     {
-        var uploadEndpoint = storageService.GetUploadUrl(subfolder, isVault);
         return View(new FileUploadViewModel
         {
             AspFor = aspFor,
-            UploadEndpoint = uploadEndpoint,
+            UploadEndpoint = uploadEndpoint ?? storageService.GetUploadUrl(subfolder, isVault),
             MaxSizeInMb = maxSizeInMb,
             AllowedExtensions = allowedExtensions,
             IsVault = isVault,

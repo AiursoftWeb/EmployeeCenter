@@ -52,6 +52,32 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
+    public async Task OversizedCopiedSegmentFallsBackToFlac()
+    {
+        var tempDirectory = Directory.CreateTempSubdirectory("asr-copy-fallback-");
+        try
+        {
+            var inputPath = Path.Combine(tempDirectory.FullName, "input.wav");
+            await File.WriteAllBytesAsync(inputPath, CreateWaveFile());
+            var processor = new AsrMediaProcessor(
+                Options.Create(new AsrSettings { PreferOriginalSegmentCodec = true }),
+                NullLogger<AsrMediaProcessor>.Instance);
+            var windows = AsrMediaProcessor.CreateSegmentWindows(TimeSpan.FromMilliseconds(100), 1, 0);
+
+            var exception = await Assert.ThrowsExactlyAsync<AsrMediaUploadLimitException>(() =>
+                processor.CreateSegmentFilesAsync(inputPath, windows, tempDirectory.FullName, uploadLimitBytes: 1));
+
+            StringAssert.Contains(exception.Message, "Transcoded ASR segment");
+            Assert.IsFalse(File.Exists(Path.Combine(tempDirectory.FullName, "segment-0.mka")));
+            Assert.IsFalse(File.Exists(Path.Combine(tempDirectory.FullName, "segment-0.flac")));
+        }
+        finally
+        {
+            tempDirectory.Delete(recursive: true);
+        }
+    }
+
+    [TestMethod]
     public void SegmentSelectionUsesAbsoluteCoreWindow()
     {
         var window = new AsrSegmentWindow(1, 1_800_000, 3_600_000, 1_798_000, 3_602_000);
@@ -369,6 +395,31 @@ public class AsrSegmentationTests
         };
 
         Assert.ThrowsExactly<InvalidOperationException>(settings.ValidateSegmentation);
+    }
+
+    private static byte[] CreateWaveFile()
+    {
+        const int sampleRate = 16000;
+        const int sampleCount = 1600;
+        using var stream = new MemoryStream();
+        using var writer = new BinaryWriter(stream);
+        writer.Write("RIFF"u8.ToArray());
+        writer.Write(36 + sampleCount * 2);
+        writer.Write("WAVEfmt "u8.ToArray());
+        writer.Write(16);
+        writer.Write((short)1);
+        writer.Write((short)1);
+        writer.Write(sampleRate);
+        writer.Write(sampleRate * 2);
+        writer.Write((short)2);
+        writer.Write((short)16);
+        writer.Write("data"u8.ToArray());
+        writer.Write(sampleCount * 2);
+        for (var index = 0; index < sampleCount; index++)
+        {
+            writer.Write((short)0);
+        }
+        return stream.ToArray();
     }
 
     private static AudioAsrSegment StoredSegment(int index, IReadOnlyList<AsrTranscriptSegment> segments)

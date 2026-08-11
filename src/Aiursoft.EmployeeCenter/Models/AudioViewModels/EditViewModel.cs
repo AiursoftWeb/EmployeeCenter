@@ -18,9 +18,6 @@ public class EditViewModel : UiStackLayoutViewModel
     [Display(Name = "Name")]
     public string Name { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "The {0} is required.")]
-    [MaxLength(200, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Audio File")]
-    [RegularExpression(@"^audio/.*", ErrorMessage = "Please upload a valid audio file.")]
-    public string? FilePath { get; set; }
+    public Guid? UploadId { get; set; }
 }

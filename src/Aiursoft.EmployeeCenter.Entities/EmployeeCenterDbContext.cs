@@ -263,6 +263,8 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     /// </summary>
     public DbSet<Audio> Audios => Set<Audio>();
 
+    public DbSet<AudioUpload> AudioUploads => Set<AudioUpload>();
+
     public DbSet<AudioShare> AudioShares => Set<AudioShare>();
 
     /// <summary>
@@ -290,6 +292,20 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             .HasForeignKey(a => a.OwnerId)
             .OnDelete(DeleteBehavior.SetNull);
 
+        builder.Entity<Audio>()
+            .HasIndex(a => a.FilePath)
+            .IsUnique();
+
+        builder.Entity<Audio>()
+            .HasIndex(a => a.PendingFilePath)
+            .IsUnique();
+
+        builder.Entity<AudioUpload>(entity =>
+        {
+            entity.HasIndex(upload => upload.FilePath).IsUnique();
+            entity.Property(upload => upload.ConcurrencyToken).IsConcurrencyToken();
+        });
+
         builder.Entity<AudioAsrResult>()
             .HasOne(r => r.Audio)
             .WithOne(a => a.AsrResult)
@@ -307,6 +323,10 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
 
         builder.Entity<Audio>()
             .Property(audio => audio.AsrProcessingToken)
+            .IsConcurrencyToken();
+
+        builder.Entity<Audio>()
+            .Property(audio => audio.MediaProcessingToken)
             .IsConcurrencyToken();
 
         builder.Entity<AudioShare>(entity =>

@@ -14,6 +14,8 @@ public class AsrSettings
     public int SegmentOverlapSeconds { get; init; } = 2;
     public bool PreferOriginalSegmentCodec { get; init; } = true;
     public int TimeoutSeconds { get; init; } = 7200;
+    public int MediaProcessingTimeoutSeconds { get; init; } = 1800;
+    public int MaxConcurrentFfmpegProcesses { get; init; } = 2;
     public int AsrMaxRetryCount { get; init; } = 30;
     public int AsrMaxEmptyRetryCount { get; init; } = 10;
 
@@ -31,6 +33,14 @@ public class AsrSettings
         if (SegmentOverlapSeconds < 0 || SegmentOverlapSeconds >= SegmentDurationSeconds)
         {
             throw new InvalidOperationException("ASR segment overlap must be non-negative and less than the segment duration.");
+        }
+        if (MediaProcessingTimeoutSeconds <= 0)
+        {
+            throw new InvalidOperationException("Media processing timeout must be greater than zero.");
+        }
+        if (MaxConcurrentFfmpegProcesses <= 0)
+        {
+            throw new InvalidOperationException("Maximum concurrent ffmpeg processes must be greater than zero.");
         }
     }
 }

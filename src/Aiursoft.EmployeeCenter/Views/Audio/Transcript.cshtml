@@ -15,6 +15,27 @@
     var audioUrl = StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true);
 }
 
+@if (Model.Audio.MediaStatus is AudioMediaStatus.Uploaded or AudioMediaStatus.Processing)
+{
+    <div class="alert alert-info alert-outline-coloured" role="alert">
+        <div class="alert-icon"><i class="align-middle" data-lucide="loader"></i></div>
+        <div class="alert-message">
+            <strong>@Localizer["Processing uploaded media"]</strong>
+            <div class="mt-1">@Localizer["The recording is being prepared in the background. The existing recording remains available during replacement."]</div>
+        </div>
+    </div>
+}
+else if (Model.Audio.MediaStatus == AudioMediaStatus.Failed)
+{
+    <div class="alert alert-danger alert-outline-coloured" role="alert">
+        <div class="alert-icon"><i class="align-middle" data-lucide="x-circle"></i></div>
+        <div class="alert-message">
+            <strong>@Localizer["Media processing failed"]</strong>
+            <div class="mt-1">@Model.Audio.MediaProcessingError</div>
+        </div>
+    </div>
+}
+
 <div class="row mb-2 mb-xl-3">
     <div class="col-12 col-md">
         <h3 class="mb-1">@Localizer["Meeting Transcript"]</h3>

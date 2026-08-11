@@ -215,7 +215,8 @@ public class AsrService(
         var segmentFiles = await mediaProcessor.CreateSegmentFilesAsync(
             filePath,
             windows,
-            temporaryDirectory);
+            temporaryDirectory,
+            policy.UploadLimitBytes);
         try
         {
             if (!AreSegmentFilesWithinUploadLimit(audio.Id, windows, segmentFiles, policy.UploadLimitBytes))
@@ -471,6 +472,11 @@ public class AsrService(
             logger.LogWarning("Audio with ID {AudioId} not found for ASR processing", audioId);
             return;
         }
+        if (audio.MediaStatus != AudioMediaStatus.Ready || audio.AsrTerminalError != null)
+        {
+            logger.LogInformation("Audio {AudioId} is not ready for ASR processing.", audioId);
+            return;
+        }
 
         var processingToken = Guid.NewGuid().ToString("N");
         try
@@ -482,7 +488,7 @@ public class AsrService(
             audio.AsrActiveTaskId = null;
             await dbContext.SaveChangesAsync();
 
-            var filePath = storageService.GetFilePhysicalPath(audio.FilePath, isVault: true);
+            var filePath = storageService.GetVaultSubfolderFilePhysicalPath(audio.FilePath, "audio");
             var plainText = await RecognizeMediaAsync(audio, filePath, processingToken);
             if (plainText == null)
             {
@@ -523,6 +529,17 @@ public class AsrService(
             logger.LogInformation(
                 "Stopped stale ASR processing for audio {AudioId} because a newer task took ownership.",
                 audioId);
+        }
+        catch (AsrMediaUploadLimitException ex)
+        {
+            dbContext.ChangeTracker.Clear();
+            var failedAudio = await dbContext.Audios.FindAsync(audioId);
+            if (failedAudio != null)
+            {
+                failedAudio.AsrTerminalError = ex.Message.Length <= 1000 ? ex.Message : ex.Message[..1000];
+                await dbContext.SaveChangesAsync();
+            }
+            logger.LogError(ex, "ASR media for audio {AudioId} cannot fit within the upload limit.", audioId);
         }
         catch (Exception ex)
         {

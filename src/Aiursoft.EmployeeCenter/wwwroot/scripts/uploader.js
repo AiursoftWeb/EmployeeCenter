@@ -64,6 +64,10 @@ class Uploader {
 
         const formData = new FormData();
         formData.append("file", file);
+        const antiForgeryToken = $('input[name="__RequestVerificationToken"]').first().val();
+        if (antiForgeryToken) {
+            formData.append("__RequestVerificationToken", antiForgeryToken);
+        }
 
         $.ajax({
             url: that.uploadUrl,
@@ -110,4 +114,3 @@ class Uploader {
 }
 
 export default Uploader;
-

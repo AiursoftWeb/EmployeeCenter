@@ -229,6 +229,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("AsrTerminalError")
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("TEXT");
 
@@ -243,6 +247,21 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Property<DateTime?>("LastAsrAttemptTime")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("MediaProcessingError")
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("MediaProcessingStartedTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MediaProcessingToken")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(32)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MediaStatus")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -252,9 +271,19 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PendingFilePath")
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("FilePath")
+                        .IsUnique();
+
                     b.HasIndex("OwnerId");
+
+                    b.HasIndex("PendingFilePath")
+                        .IsUnique();
 
                     b.ToTable("Audios");
                 });
@@ -366,6 +395,51 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         {
                             t.HasCheckConstraint("CK_AudioShares_ExactlyOneRecipient", "(SharedWithUserId IS NOT NULL AND SharedWithRoleId IS NULL) OR (SharedWithUserId IS NULL AND SharedWithRoleId IS NOT NULL)");
                         });
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioUpload", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ConcurrencyToken")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("ConsumedTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ExpiresTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Purpose")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("TargetAudioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FilePath")
+                        .IsUnique();
+
+                    b.ToTable("AudioUploads");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>
