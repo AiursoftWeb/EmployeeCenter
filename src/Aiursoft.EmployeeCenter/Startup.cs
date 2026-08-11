@@ -128,6 +128,9 @@ public class Startup : IWebStartup
         var meetingMinutesJob = services.RegisterBackgroundJob<Services.BackgroundJobs.MeetingMinutesJob>();
         services.RegisterScheduledTask(registration: meetingMinutesJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromMinutes(30));
 
+        var audioUploadCleanupJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AudioUploadCleanupJob>();
+        services.RegisterScheduledTask(registration: audioUploadCleanupJob, period: TimeSpan.FromHours(1), startDelay: TimeSpan.FromMinutes(10));
+
         var exportJob = services.RegisterBackgroundJob<Services.BackgroundJobs.ExportJob>();
         services.RegisterScheduledTask(registration: exportJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromSeconds(35));
 

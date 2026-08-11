@@ -10,16 +10,16 @@ public class AudioFileCleanupService(
     StorageService storageService,
     ILogger<AudioFileCleanupService> logger) : ITransientDependency
 {
-    public async Task DeleteIfUnreferencedAsync(string? filePath)
+    public async Task<bool> DeleteIfUnreferencedAsync(string? filePath)
     {
         if (string.IsNullOrEmpty(filePath))
         {
-            return;
+            return true;
         }
         if (await context.Audios.AnyAsync(audio =>
                 audio.FilePath == filePath || audio.PendingFilePath == filePath))
         {
-            return;
+            return false;
         }
 
         try
@@ -29,10 +29,12 @@ public class AudioFileCleanupService(
             {
                 File.Delete(physicalPath);
             }
+            return true;
         }
         catch (Exception ex) when (ex is ArgumentException or IOException or UnauthorizedAccessException)
         {
             logger.LogWarning(ex, "Skipped deleting audio vault file path {FilePath}.", filePath);
+            return false;
         }
     }
 }
