@@ -563,6 +563,10 @@ public class AsrService(
                 AudioId = audioId,
                 PlainText = plainText
             });
+            var completedSegments = await dbContext.AudioAsrSegments
+                .Where(segment => segment.AudioId == audioId)
+                .ToListAsync();
+            dbContext.AudioAsrSegments.RemoveRange(completedSegments);
             MarkProcessingTokenForConcurrencyCheck(audio, processingToken);
             await dbContext.SaveChangesAsync();
             logger.LogInformation("Successfully processed ASR for audio {AudioId}", audioId);

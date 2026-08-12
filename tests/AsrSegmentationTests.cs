@@ -296,6 +296,7 @@ public class AsrSegmentationTests
 
             Assert.AreEqual(2, handler.RequestCount);
             Assert.IsNotNull(await db.AudioAsrResults.FindAsync(audio.Id));
+            Assert.IsFalse(await db.AudioAsrSegments.AnyAsync(segment => segment.AudioId == audio.Id));
         }
         finally
         {
