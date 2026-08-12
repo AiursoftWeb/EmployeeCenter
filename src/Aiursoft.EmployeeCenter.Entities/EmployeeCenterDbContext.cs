@@ -299,6 +299,12 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             .HasIndex(a => a.PendingFilePath)
             .IsUnique();
 
+        builder.Entity<Audio>()
+            .HasIndex(a => new { a.MediaStatus, a.MediaProcessingStartedTime });
+
+        builder.Entity<Audio>()
+            .HasIndex(a => new { a.MediaStatus, a.CreateTime });
+
         builder.Entity<AudioFileDeletion>(entity =>
         {
             entity.HasIndex(deletion => new { deletion.IsDeadLetter, deletion.NextAttemptTime });

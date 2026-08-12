@@ -284,6 +284,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.HasIndex("PendingFilePath")
                         .IsUnique();
 
+                    b.HasIndex("MediaStatus", "CreateTime");
+
+                    b.HasIndex("MediaStatus", "MediaProcessingStartedTime");
+
                     b.ToTable("Audios");
                 });
 
