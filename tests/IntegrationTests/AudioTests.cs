@@ -11,117 +11,72 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 public class AudioTests : TestBase
 {
     [TestMethod]
-    public async Task AudioUploadEndpointRecordsAuthenticatedOwner()
-    {
-        await LoginAsAdmin();
-        var antiForgeryToken = await GetAntiCsrfToken("/Audio/Create");
-        using var content = new MultipartFormDataContent();
-        content.Add(new StringContent(antiForgeryToken), "__RequestVerificationToken");
-        content.Add(new ByteArrayContent("audio"u8.ToArray()), "file", "meeting.mp3");
-
-        var response = await Http.PostAsync("/audio-uploads?purpose=create", content);
-
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-        using var scope = Server!.Services.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-        var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
-        var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
-        var upload = await db.AudioUploads.SingleAsync();
-        Assert.AreEqual(admin.Id, upload.OwnerId);
-        Assert.AreEqual(AudioUploadPurpose.Create, upload.Purpose);
-        Assert.IsNull(upload.ConsumedTime);
-        var physicalPath = storage.GetVaultSubfolderFilePhysicalPath(upload.FilePath, "audio");
-        Assert.IsTrue(File.Exists(physicalPath));
-        File.Delete(physicalPath);
-    }
-
-    [TestMethod]
-    public async Task CreateConsumesOwnedUploadOnlyOnce()
+    public async Task CreateAcceptsExistingVaultLogicalPath()
     {
         await LoginAsAdmin();
 
-        Guid uploadId;
+        var filePath = $"audio/create-{Guid.NewGuid():N}.mp3";
         using (var scope = Server!.Services.CreateScope())
         {
-            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
             var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
-            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
-            uploadId = Guid.NewGuid();
-            var filePath = $"audio/{admin.Id}/{uploadId:N}.mp3";
             await using var stream = new MemoryStream("audio"u8.ToArray());
             await storage.SaveFromStream(filePath, stream, isVault: true);
-            db.AudioUploads.Add(new AudioUpload
-            {
-                Id = uploadId,
-                OwnerId = admin.Id,
-                FilePath = filePath,
-                Purpose = AudioUploadPurpose.Create,
-                ExpiresTime = DateTime.UtcNow.AddHours(1)
-            });
-            await db.SaveChangesAsync();
-        }
-
-        var firstResponse = await PostForm(
-            "/Audio/Create",
-            new Dictionary<string, string>
-            {
-                { "Name", "One-time upload" },
-                { "UploadId", uploadId.ToString() }
-            },
-            "/Audio/Create");
-        Assert.AreEqual(HttpStatusCode.Found, firstResponse.StatusCode);
-
-        var replayResponse = await PostForm(
-            "/Audio/Create",
-            new Dictionary<string, string>
-            {
-                { "Name", "Replayed upload" },
-                { "UploadId", uploadId.ToString() }
-            },
-            "/Audio/Create");
-        Assert.AreEqual(HttpStatusCode.OK, replayResponse.StatusCode);
-
-        using var verificationScope = Server!.Services.CreateScope();
-        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-        Assert.AreEqual(1, await verificationDb.Audios.CountAsync(audio => audio.Name.Contains("upload")));
-        var upload = await verificationDb.AudioUploads.FindAsync(uploadId);
-        Assert.IsNotNull(upload?.ConsumedTime);
-    }
-
-    [TestMethod]
-    public async Task CreateRejectsUploadOwnedByAnotherUser()
-    {
-        await LoginAsAdmin();
-
-        var uploadId = Guid.NewGuid();
-        using (var scope = Server!.Services.CreateScope())
-        {
-            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-            db.AudioUploads.Add(new AudioUpload
-            {
-                Id = uploadId,
-                OwnerId = "another-user",
-                FilePath = $"audio/another-user/{uploadId:N}.mp3",
-                Purpose = AudioUploadPurpose.Create,
-                ExpiresTime = DateTime.UtcNow.AddHours(1)
-            });
-            await db.SaveChangesAsync();
         }
 
         var response = await PostForm(
             "/Audio/Create",
             new Dictionary<string, string>
             {
-                { "Name", "Cross-user upload" },
-                { "UploadId", uploadId.ToString() }
+                { "Name", "Standard logical path upload" },
+                { "FilePath", filePath }
+            },
+            "/Audio/Create");
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = await verificationDb.Audios.SingleAsync(item => item.Name == "Standard logical path upload");
+        Assert.AreEqual(filePath, audio.FilePath);
+    }
+
+    [TestMethod]
+    public async Task CreateRejectsLogicalPathOutsideAudioBucket()
+    {
+        await LoginAsAdmin();
+
+        var response = await PostForm(
+            "/Audio/Create",
+            new Dictionary<string, string>
+            {
+                { "Name", "Invalid bucket upload" },
+                { "FilePath", "contract/private.mp3" }
             },
             "/Audio/Create");
 
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         using var verificationScope = Server!.Services.CreateScope();
         var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-        Assert.IsFalse(await verificationDb.Audios.AnyAsync(audio => audio.Name == "Cross-user upload"));
-        Assert.IsNull((await verificationDb.AudioUploads.FindAsync(uploadId))?.ConsumedTime);
+        Assert.IsFalse(await verificationDb.Audios.AnyAsync(item => item.Name == "Invalid bucket upload"));
+    }
+
+    [TestMethod]
+    public async Task CreateRejectsAudioPathEscapingItsVaultBucket()
+    {
+        await LoginAsAdmin();
+
+        var response = await PostForm(
+            "/Audio/Create",
+            new Dictionary<string, string>
+            {
+                { "Name", "Escaped bucket upload" },
+                { "FilePath", "audio/../contract/private.mp3" }
+            },
+            "/Audio/Create");
+
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        using var verificationScope = Server!.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.IsFalse(await verificationDb.Audios.AnyAsync(item => item.Name == "Escaped bucket upload"));
     }
 
     [TestMethod]
@@ -163,7 +118,6 @@ public class AudioTests : TestBase
         await LoginAsAdmin();
 
         int replacedAudioId;
-        Guid uploadId;
         string oldPhysicalPath;
         string newFilePath;
         using (var scope = Server!.Services.CreateScope())
@@ -181,20 +135,9 @@ public class AudioTests : TestBase
             await db.SaveChangesAsync();
             replacedAudioId = replacedAudio.Id;
 
-            uploadId = Guid.NewGuid();
-            newFilePath = $"audio/{admin.Id}/{uploadId:N}.mp3";
+            newFilePath = $"audio/{admin.Id}/{Guid.NewGuid():N}.mp3";
             await using var newStream = new MemoryStream("replacement audio"u8.ToArray());
             await storage.SaveFromStream(newFilePath, newStream, isVault: true);
-            db.AudioUploads.Add(new AudioUpload
-            {
-                Id = uploadId,
-                OwnerId = admin.Id,
-                FilePath = newFilePath,
-                Purpose = AudioUploadPurpose.Replace,
-                TargetAudioId = replacedAudioId,
-                ExpiresTime = DateTime.UtcNow.AddHours(1)
-            });
-            await db.SaveChangesAsync();
         }
 
         var response = await PostForm(
@@ -203,7 +146,7 @@ public class AudioTests : TestBase
             {
                 { "Id", replacedAudioId.ToString() },
                 { "Name", "Replaced shared one" },
-                { "UploadId", uploadId.ToString() }
+                { "FilePath", newFilePath }
             },
             $"/Audio/Edit/{replacedAudioId}");
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
@@ -573,7 +516,6 @@ public class AudioTests : TestBase
         await LoginAsAdmin();
 
         int audioId;
-        Guid uploadId;
         string replacementFilePath;
         using (var scope = Server!.Services.CreateScope())
         {
@@ -602,20 +544,9 @@ public class AudioTests : TestBase
             audioId = audio.Id;
 
             var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
-            uploadId = Guid.NewGuid();
-            replacementFilePath = $"audio/{admin.Id}/{uploadId:N}.mp3";
+            replacementFilePath = $"audio/{admin.Id}/{Guid.NewGuid():N}.mp3";
             await using var replacementStream = new MemoryStream("replacement audio"u8.ToArray());
             await storage.SaveFromStream(replacementFilePath, replacementStream, isVault: true);
-            db.AudioUploads.Add(new AudioUpload
-            {
-                Id = uploadId,
-                OwnerId = admin.Id,
-                FilePath = replacementFilePath,
-                Purpose = AudioUploadPurpose.Replace,
-                TargetAudioId = audioId,
-                ExpiresTime = DateTime.UtcNow.AddHours(1)
-            });
-            await db.SaveChangesAsync();
         }
 
         var response = await PostForm(
@@ -624,7 +555,7 @@ public class AudioTests : TestBase
             {
                 { "Id", audioId.ToString() },
                 { "Name", "Replaced Recording" },
-                { "UploadId", uploadId.ToString() }
+                { "FilePath", replacementFilePath }
             },
             $"/Audio/Edit/{audioId}");
         AssertRedirect(response, $"/Audio/Transcript/{audioId}");

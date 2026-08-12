@@ -3,6 +3,7 @@ using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.AudioViewModels;
 using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -20,6 +21,7 @@ public class AudioController(
     ServiceTaskQueue taskQueue,
     AudioMediaQueueService mediaQueueService,
     AudioFileCleanupService fileCleanupService,
+    StorageService storageService,
     UserManager<User> userManager,
     RoleManager<IdentityRole> roleManager,
     IAuthorizationService authorizationService,
@@ -103,36 +105,23 @@ public class AudioController(
     {
         if (ModelState.IsValid)
         {
-            var user = await userManager.GetUserAsync(User);
-            var upload = await GetConsumableUploadAsync(
-                model.UploadId!.Value,
-                user!.Id,
-                AudioUploadPurpose.Create,
-                targetAudioId: null);
-            if (upload == null)
+            if (!TryGetExistingAudioPath(model.FilePath!, out var filePath))
             {
-                ModelState.AddModelError(nameof(model.UploadId), "The upload is invalid, expired, or has already been used. Please re-upload.");
+                ModelState.AddModelError(nameof(model.FilePath), "The file upload failed or the file is missing. Please re-upload.");
                 return this.StackView(model);
             }
+
+            var user = await userManager.GetUserAsync(User);
             var audio = new Audio
             {
                 Name = model.Name,
-                FilePath = upload.FilePath,
+                FilePath = filePath,
                 MediaStatus = AudioMediaStatus.Uploaded,
                 CreateTime = DateTime.UtcNow,
                 OwnerId = user!.Id
             };
             context.Audios.Add(audio);
-            try
-            {
-                await context.SaveChangesAsync();
-            }
-            catch (Exception ex) when (ex is DbUpdateConcurrencyException or DbUpdateException)
-            {
-                context.ChangeTracker.Clear();
-                ModelState.AddModelError(nameof(model.UploadId), "The upload has already been assigned to a recording.");
-                return this.StackView(model);
-            }
+            await context.SaveChangesAsync();
             QueueMediaProcessing(audio.Id);
             return RedirectToAction(nameof(Transcript), new { id = audio.Id });
         }
@@ -150,7 +139,7 @@ public class AudioController(
         {
             Id = audio.Id,
             Name = audio.Name,
-            UploadId = null
+            FilePath = audio.FilePath
         });
     }
 
@@ -163,44 +152,32 @@ public class AudioController(
         var audio = await context.Audios.FindAsync(model.Id);
         if (audio == null) return NotFound();
         if (!await CanEditAudioAsync(audio)) return Unauthorized();
+        if (!TryGetExistingAudioPath(model.FilePath!, out var filePath))
+        {
+            ModelState.AddModelError(nameof(model.FilePath), "The file upload failed or the file is missing. Please re-upload.");
+            return this.StackView(model);
+        }
+
+        var replaceAudio = audio.FilePath != filePath;
         audio.Name = model.Name;
-        if (model.UploadId == null)
+        if (!replaceAudio)
         {
             await context.SaveChangesAsync();
             return RedirectToAction(nameof(Transcript), new { id = audio.Id });
         }
         if (audio.MediaStatus == AudioMediaStatus.Processing)
         {
-            ModelState.AddModelError(nameof(model.UploadId), "Another recording replacement is already being processed.");
+            ModelState.AddModelError(nameof(model.FilePath), "Another recording replacement is already being processed.");
             return this.StackView(model);
         }
-        var userId = userManager.GetUserId(User)!;
-        var upload = await GetConsumableUploadAsync(
-            model.UploadId.Value,
-            userId,
-            AudioUploadPurpose.Replace,
-            audio.Id);
-        if (upload == null)
-        {
-            ModelState.AddModelError(nameof(model.UploadId), "The upload is invalid, expired, or has already been used. Please re-upload.");
-            return this.StackView(model);
-        }
+
         var abandonedPendingPath = audio.PendingFilePath;
-        audio.PendingFilePath = upload.FilePath;
+        audio.PendingFilePath = filePath;
         audio.MediaStatus = AudioMediaStatus.Uploaded;
         audio.MediaProcessingError = null;
         audio.MediaProcessingToken = Guid.NewGuid().ToString("N");
         fileCleanupService.QueueDeletion(abandonedPendingPath);
-        try
-        {
-            await context.SaveChangesAsync();
-        }
-        catch (Exception ex) when (ex is DbUpdateConcurrencyException or DbUpdateException)
-        {
-            context.ChangeTracker.Clear();
-            ModelState.AddModelError(nameof(model.UploadId), "The upload has already been used or assigned to another recording.");
-            return this.StackView(model);
-        }
+        await context.SaveChangesAsync();
         await fileCleanupService.TryCleanupQueuedAsync();
         QueueMediaProcessing(audio.Id);
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
@@ -465,26 +442,20 @@ public class AudioController(
         return audio.OwnerId == userId;
     }
 
-    private async Task<AudioUpload?> GetConsumableUploadAsync(
-        Guid uploadId,
-        string ownerId,
-        AudioUploadPurpose purpose,
-        int? targetAudioId)
+    private bool TryGetExistingAudioPath(string logicalPath, out string filePath)
     {
-        var upload = await context.AudioUploads.FirstOrDefaultAsync(item =>
-            item.Id == uploadId &&
-            item.OwnerId == ownerId &&
-            item.Purpose == purpose &&
-            item.TargetAudioId == targetAudioId &&
-            item.ConsumedTime == null &&
-            item.ExpiresTime > DateTime.UtcNow);
-        if (upload == null)
+        filePath = string.Empty;
+        try
         {
-            return null;
+            var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(logicalPath, "audio");
+            if (!System.IO.File.Exists(physicalPath)) return false;
+            filePath = logicalPath;
+            return true;
         }
-        upload.ConsumedTime = DateTime.UtcNow;
-        upload.ConcurrencyToken = Guid.NewGuid().ToString("N");
-        return upload;
+        catch (ArgumentException)
+        {
+            return false;
+        }
     }
 
     private void QueueMediaProcessing(int audioId)

@@ -66,7 +66,7 @@
 
             sizeInMb: @Model.MaxSizeInMb,
             validExtensions: ('@Model.AllowedExtensions' || '').split(' ').filter(Boolean),
-            uploadUrl: '@Html.Raw(Model.UploadEndpoint)'
+            uploadUrl: '@Model.UploadEndpoint'
         }).init({
             messages: {
                 'default': @Json.Serialize(Localizer["Drag and drop a file here or click"].Value),

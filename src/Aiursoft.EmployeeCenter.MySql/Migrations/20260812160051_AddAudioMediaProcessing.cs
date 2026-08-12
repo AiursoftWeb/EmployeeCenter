@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Aiursoft.EmployeeCenter.MySql.Migrations
 {
     /// <inheritdoc />
-    public partial class AddSecureAudioProcessing : Migration
+    public partial class AddAudioMediaProcessing : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -103,25 +103,22 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "AudioUploads",
+                name: "AudioFileDeletions",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    OwnerId = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     FilePath = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Purpose = table.Column<int>(type: "int", nullable: false),
-                    TargetAudioId = table.Column<int>(type: "int", nullable: true),
                     CreatedTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    ExpiresTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    ConsumedTime = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    ConcurrencyToken = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    AttemptCount = table.Column<int>(type: "int", nullable: false),
+                    NextAttemptTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    LastError = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsDeadLetter = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AudioUploads", x => x.Id);
+                    table.PrimaryKey("PK_AudioFileDeletions", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -137,10 +134,9 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_AudioUploads_FilePath",
-                table: "AudioUploads",
-                column: "FilePath",
-                unique: true);
+                name: "IX_AudioFileDeletions_IsDeadLetter_NextAttemptTime",
+                table: "AudioFileDeletions",
+                columns: new[] { "IsDeadLetter", "NextAttemptTime" });
         }
 
         /// <inheritdoc />
@@ -150,7 +146,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                 name: "AudioAsrSegments");
 
             migrationBuilder.DropTable(
-                name: "AudioUploads");
+                name: "AudioFileDeletions");
 
             migrationBuilder.DropIndex(
                 name: "IX_Audios_FilePath",

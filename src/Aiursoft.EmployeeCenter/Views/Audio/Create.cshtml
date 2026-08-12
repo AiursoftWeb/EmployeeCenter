@@ -19,15 +19,14 @@
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="UploadId" class="form-label">@Localizer["Meeting Audio or Video File"]</label>
+                        <label asp-for="FilePath" class="form-label">@Localizer["Meeting Audio or Video File"]</label>
                         <vc:file-upload
-                            asp-for="UploadId"
+                            asp-for="FilePath"
                             subfolder="audio"
                             allowed-extensions="mp3 wav m4a ogg flac aac webm amr mp4 mov mkv avi"
-                            is-vault="true"
-                            upload-endpoint="@Url.Action("Upload", "AudioUploads", new { purpose = "create" })">
+                            is-vault="true">
                         </vc:file-upload>
-                        <span asp-validation-for="UploadId" class="text-danger"></span>
+                        <span asp-validation-for="FilePath" class="text-danger"></span>
                         <div class="form-text">@Localizer["Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded."]</div>
                     </div>
 

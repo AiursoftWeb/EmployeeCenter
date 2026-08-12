@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
 {
     [DbContext(typeof(SqliteContext))]
-    [Migration("20260812144609_AddAudioFileCleanupRetryState")]
-    partial class AddAudioFileCleanupRetryState
+    [Migration("20260812160046_AddAudioMediaProcessing")]
+    partial class AddAudioMediaProcessing
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.10");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.11");
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AdjustedHoliday", b =>
                 {
@@ -298,6 +298,15 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime?>("LastMeetingMinutesAttemptTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MeetingMinutesAttemptCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MeetingMinutesMarkdown")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PlainText")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -422,51 +431,6 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         {
                             t.HasCheckConstraint("CK_AudioShares_ExactlyOneRecipient", "(SharedWithUserId IS NOT NULL AND SharedWithRoleId IS NULL) OR (SharedWithUserId IS NULL AND SharedWithRoleId IS NOT NULL)");
                         });
-                });
-
-            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioUpload", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ConcurrencyToken")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("ConsumedTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("ExpiresTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OwnerId")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Purpose")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("TargetAudioId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FilePath")
-                        .IsUnique();
-
-                    b.ToTable("AudioUploads");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>

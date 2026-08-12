@@ -113,7 +113,7 @@ public class MigrationTests
     }
 
     [TestMethod]
-    public async Task SecureAudioUploadsMigrationPreservesSharedLegacyFilePaths()
+    public async Task AudioMediaProcessingMigrationPreservesSharedLegacyFilePaths()
     {
         await using var connection = new SqliteConnection("DataSource=:memory:");
         await connection.OpenAsync();

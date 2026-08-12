@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
 {
     /// <inheritdoc />
-    public partial class AddSecureAudioProcessing : Migration
+    public partial class AddAudioMediaProcessing : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -94,22 +94,20 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AudioUploads",
+                name: "AudioFileDeletions",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    OwnerId = table.Column<string>(type: "TEXT", maxLength: 255, nullable: false),
                     FilePath = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
-                    Purpose = table.Column<int>(type: "INTEGER", nullable: false),
-                    TargetAudioId = table.Column<int>(type: "INTEGER", nullable: true),
                     CreatedTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ExpiresTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ConsumedTime = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    ConcurrencyToken = table.Column<string>(type: "TEXT", maxLength: 32, nullable: false)
+                    AttemptCount = table.Column<int>(type: "INTEGER", nullable: false),
+                    NextAttemptTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    LastError = table.Column<string>(type: "TEXT", maxLength: 1000, nullable: true),
+                    IsDeadLetter = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AudioUploads", x => x.Id);
+                    table.PrimaryKey("PK_AudioFileDeletions", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
@@ -124,10 +122,9 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_AudioUploads_FilePath",
-                table: "AudioUploads",
-                column: "FilePath",
-                unique: true);
+                name: "IX_AudioFileDeletions_IsDeadLetter_NextAttemptTime",
+                table: "AudioFileDeletions",
+                columns: new[] { "IsDeadLetter", "NextAttemptTime" });
         }
 
         /// <inheritdoc />
@@ -137,7 +134,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                 name: "AudioAsrSegments");
 
             migrationBuilder.DropTable(
-                name: "AudioUploads");
+                name: "AudioFileDeletions");
 
             migrationBuilder.DropIndex(
                 name: "IX_Audios_FilePath",

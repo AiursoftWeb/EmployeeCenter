@@ -447,51 +447,6 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioUpload", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("ConcurrencyToken")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
-
-                    b.Property<DateTime?>("ConsumedTime")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("CreatedTime")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("ExpiresTime")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("OwnerId")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<int>("Purpose")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TargetAudioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FilePath")
-                        .IsUnique();
-
-                    b.ToTable("AudioUploads");
-                });
-
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BankCardChangeLog", b =>
                 {
                     b.Property<int>("Id")
