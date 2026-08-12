@@ -384,6 +384,19 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
+    public void CancelEndpointAcceptsTrailingSlash()
+    {
+        var endpoint = AsrService.ResolveCancelEndpoint(
+            "https://stt.example.com/v1/audio/transcriptions/",
+            "audio-42-segment-3");
+
+        Assert.IsNotNull(endpoint);
+        Assert.AreEqual(
+            "https://stt.example.com/v1/tasks/audio-42-segment-3/cancel",
+            endpoint.AbsoluteUri);
+    }
+
+    [TestMethod]
     public void CancelEndpointRejectsUnexpectedTranscriptionPath()
     {
         var endpoint = AsrService.ResolveCancelEndpoint(

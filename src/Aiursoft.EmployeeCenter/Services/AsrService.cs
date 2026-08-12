@@ -710,8 +710,13 @@ public class AsrService(
 
     public static Uri? ResolveCancelEndpoint(string? endpoint, string taskId)
     {
-        if (!Uri.TryCreate(endpoint, UriKind.Absolute, out var transcriptionEndpoint) ||
-            !transcriptionEndpoint.AbsolutePath.EndsWith(
+        if (!Uri.TryCreate(endpoint, UriKind.Absolute, out var transcriptionEndpoint))
+        {
+            return null;
+        }
+
+        var transcriptionPath = transcriptionEndpoint.AbsolutePath.TrimEnd('/');
+        if (!transcriptionPath.EndsWith(
                 TranscriptionEndpointSuffix,
                 StringComparison.OrdinalIgnoreCase))
         {
@@ -720,7 +725,7 @@ public class AsrService(
 
         return new UriBuilder(transcriptionEndpoint)
         {
-            Path = transcriptionEndpoint.AbsolutePath[..^TranscriptionEndpointSuffix.Length] +
+            Path = transcriptionPath[..^TranscriptionEndpointSuffix.Length] +
                    $"/tasks/{Uri.EscapeDataString(taskId)}/cancel",
             Query = string.Empty,
             Fragment = string.Empty
