@@ -36,7 +36,7 @@ public class AsrService(
     ILogger<AsrService> logger,
     AsrProcessingCancellationRegistry? cancellationRegistry = null) : ITransientDependency
 {
-    private const long AsrUploadLimitBytes = 1L << 30;
+    private const long AsrUploadLimitBytes = 256L << 20;
     private const string TranscriptionEndpointSuffix = "/audio/transcriptions";
     private static readonly TimeSpan CancelRequestTimeout = TimeSpan.FromSeconds(30);
     private readonly AsrSettings _asrSettings = asrSettings.Value;
