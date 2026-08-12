@@ -9,7 +9,8 @@
 
 @{
     var hasTranscript = !string.IsNullOrEmpty(Model.PlainText);
-    var hasFailed = !hasTranscript && Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount;
+    var hasFailed = !hasTranscript &&
+        (Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount || Model.Audio.AsrTerminalError != null);
     var hasMeetingMinutes = !string.IsNullOrWhiteSpace(Model.MeetingMinutesMarkdown);
     var meetingMinutesFailed = hasTranscript && !hasMeetingMinutes && Model.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount;
     var audioUrl = StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true);

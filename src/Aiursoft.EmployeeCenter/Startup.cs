@@ -125,6 +125,9 @@ public class Startup : IWebStartup
         var audioAsrJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AudioAsrJob>();
         services.RegisterScheduledTask(registration: audioAsrJob, period: TimeSpan.FromHours(12), startDelay: TimeSpan.FromMinutes(25));
 
+        var audioMediaJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AudioMediaJob>();
+        services.RegisterScheduledTask(registration: audioMediaJob, period: TimeSpan.FromMinutes(5), startDelay: TimeSpan.FromMinutes(1));
+
         var meetingMinutesJob = services.RegisterBackgroundJob<Services.BackgroundJobs.MeetingMinutesJob>();
         services.RegisterScheduledTask(registration: meetingMinutesJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromMinutes(30));
 
