@@ -18,6 +18,7 @@ public class AudioController(
     EmployeeCenterDbContext context,
     AsrService asrService,
     ServiceTaskQueue taskQueue,
+    AudioMediaQueueService mediaQueueService,
     AudioFileCleanupService fileCleanupService,
     UserManager<User> userManager,
     RoleManager<IdentityRole> roleManager,
@@ -189,6 +190,7 @@ public class AudioController(
         audio.MediaStatus = AudioMediaStatus.Uploaded;
         audio.MediaProcessingError = null;
         audio.MediaProcessingToken = Guid.NewGuid().ToString("N");
+        fileCleanupService.QueueDeletion(abandonedPendingPath);
         try
         {
             await context.SaveChangesAsync();
@@ -199,10 +201,7 @@ public class AudioController(
             ModelState.AddModelError(nameof(model.UploadId), "The upload has already been used or assigned to another recording.");
             return this.StackView(model);
         }
-        if (abandonedPendingPath != null)
-        {
-            await fileCleanupService.DeleteIfUnreferencedAsync(abandonedPendingPath);
-        }
+        await fileCleanupService.TryCleanupQueuedAsync();
         QueueMediaProcessing(audio.Id);
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
@@ -299,9 +298,10 @@ public class AudioController(
         var filePath = audio.FilePath;
         var pendingFilePath = audio.PendingFilePath;
         context.Audios.Remove(audio);
+        fileCleanupService.QueueDeletion(filePath);
+        fileCleanupService.QueueDeletion(pendingFilePath);
         await context.SaveChangesAsync();
-        await fileCleanupService.DeleteIfUnreferencedAsync(filePath);
-        await fileCleanupService.DeleteIfUnreferencedAsync(pendingFilePath);
+        await fileCleanupService.TryCleanupQueuedAsync();
 
         return RedirectToAction(nameof(Index));
     }
@@ -488,10 +488,7 @@ public class AudioController(
 
     private void QueueMediaProcessing(int audioId)
     {
-        taskQueue.QueueWithDependency<AudioMediaService>(
-            queueName: "audio-media",
-            taskName: $"Process uploaded media for audio {audioId}",
-            task: service => service.ProcessAsync(audioId));
+        mediaQueueService.QueueIfNotActive(audioId);
     }
 
     private async Task<List<string>> GetUserRoleIdsAsync()

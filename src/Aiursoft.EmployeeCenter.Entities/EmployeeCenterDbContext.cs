@@ -265,6 +265,8 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
 
     public DbSet<AudioUpload> AudioUploads => Set<AudioUpload>();
 
+    public DbSet<AudioFileDeletion> AudioFileDeletions => Set<AudioFileDeletion>();
+
     public DbSet<AudioShare> AudioShares => Set<AudioShare>();
 
     /// <summary>
@@ -304,6 +306,9 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             entity.HasIndex(upload => upload.FilePath).IsUnique();
             entity.Property(upload => upload.ConcurrencyToken).IsConcurrencyToken();
         });
+
+        builder.Entity<AudioFileDeletion>()
+            .HasIndex(deletion => deletion.CreatedTime);
 
         builder.Entity<AudioAsrResult>()
             .HasOne(r => r.Audio)

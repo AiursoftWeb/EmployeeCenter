@@ -204,18 +204,29 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add("copy");
         startInfo.ArgumentList.Add(outputPath);
 
-        var result = await RunProcessAsync(startInfo, _mediaProcessingTimeout, cancellationToken);
-        if (result.ExitCode == 0 && File.Exists(outputPath))
+        var succeeded = false;
+        try
         {
-            return true;
-        }
+            var result = await RunProcessAsync(startInfo, _mediaProcessingTimeout, cancellationToken);
+            if (result.ExitCode == 0 && File.Exists(outputPath))
+            {
+                succeeded = true;
+                return true;
+            }
 
-        logger.LogWarning(
-            "ffmpeg stream-copy audio extraction failed for {MediaPath}. Falling back to FLAC transcoding. Error: {Error}",
-            mediaPath,
-            result.Error);
-        DeleteFileIfExists(outputPath);
-        return false;
+            logger.LogWarning(
+                "ffmpeg stream-copy audio extraction failed for {MediaPath}. Falling back to FLAC transcoding. Error: {Error}",
+                mediaPath,
+                result.Error);
+            return false;
+        }
+        finally
+        {
+            if (!succeeded)
+            {
+                DeleteFileIfExists(outputPath);
+            }
+        }
     }
 
     private async Task TranscodeAudioTrackAsync(
@@ -235,14 +246,26 @@ public class AsrMediaProcessor(
         AddFlacTranscodeArguments(startInfo);
         startInfo.ArgumentList.Add(outputPath);
 
-        var result = await RunProcessAsync(startInfo, _mediaProcessingTimeout, cancellationToken);
-        if (result.ExitCode != 0)
+        var succeeded = false;
+        try
         {
-            throw new InvalidOperationException($"ffmpeg failed: {result.Error}");
+            var result = await RunProcessAsync(startInfo, _mediaProcessingTimeout, cancellationToken);
+            if (result.ExitCode != 0)
+            {
+                throw new InvalidOperationException($"ffmpeg failed: {result.Error}");
+            }
+            if (!File.Exists(outputPath))
+            {
+                throw new InvalidOperationException($"ffmpeg did not create expected output {outputPath}.");
+            }
+            succeeded = true;
         }
-        if (!File.Exists(outputPath))
+        finally
         {
-            throw new InvalidOperationException($"ffmpeg did not create expected output {outputPath}.");
+            if (!succeeded)
+            {
+                DeleteFileIfExists(outputPath);
+            }
         }
     }
 
@@ -391,11 +414,18 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add("flac");
     }
 
-    private static void DeleteFileIfExists(string path)
+    private void DeleteFileIfExists(string path)
     {
-        if (File.Exists(path))
+        try
         {
-            File.Delete(path);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            logger.LogWarning(ex, "Failed to clean up incomplete ffmpeg output {OutputPath}.", path);
         }
     }
 
@@ -449,7 +479,7 @@ public class AsrMediaProcessor(
         return ParseDecodedDuration(result.Output);
     }
 
-    private async Task<ProcessResult> RunProcessAsync(
+    protected virtual async Task<ProcessResult> RunProcessAsync(
         ProcessStartInfo startInfo,
         TimeSpan timeout,
         CancellationToken cancellationToken)
@@ -523,7 +553,7 @@ public class AsrMediaProcessor(
         await process.WaitForExitAsync();
     }
 
-    private sealed record ProcessResult(int ExitCode, string Output, string Error);
+    protected sealed record ProcessResult(int ExitCode, string Output, string Error);
 
     private sealed class FfprobePayload
     {

@@ -15,10 +15,9 @@ public class AudioUploadCleanupService(
     {
         var candidates = await context.AudioUploads
             .Where(upload =>
-                upload.ConsumedTime != null ||
-                (upload.ExpiresTime <= utcNow &&
-                 !context.Audios.Any(audio =>
-                     audio.FilePath == upload.FilePath || audio.PendingFilePath == upload.FilePath)))
+                (upload.ConsumedTime != null || upload.ExpiresTime <= utcNow) &&
+                !context.Audios.Any(audio =>
+                    audio.FilePath == upload.FilePath || audio.PendingFilePath == upload.FilePath))
             .OrderBy(upload => upload.CreatedTime)
             .Take(BatchSize)
             .ToListAsync();
@@ -26,8 +25,7 @@ public class AudioUploadCleanupService(
         var removableUploads = new List<AudioUpload>(candidates.Count);
         foreach (var upload in candidates)
         {
-            if (upload.ConsumedTime != null ||
-                await fileCleanupService.DeleteIfUnreferencedAsync(upload.FilePath))
+            if (fileCleanupService.TryDeleteFile(upload.FilePath))
             {
                 removableUploads.Add(upload);
             }
@@ -35,10 +33,12 @@ public class AudioUploadCleanupService(
 
         context.AudioUploads.RemoveRange(removableUploads);
         await context.SaveChangesAsync();
+        var removedDeletions = await fileCleanupService.CleanupQueuedAsync();
         logger.LogInformation(
-            "Removed {RemovedCount} of {CandidateCount} expired or consumed audio upload records.",
+            "Removed {RemovedCount} of {CandidateCount} audio upload records and {DeletionCount} queued files.",
             removableUploads.Count,
-            candidates.Count);
+            candidates.Count,
+            removedDeletions);
         return removableUploads.Count;
     }
 }

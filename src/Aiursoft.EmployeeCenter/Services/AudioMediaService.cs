@@ -64,16 +64,16 @@ public class AudioMediaService(
             audio.MediaStatus = AudioMediaStatus.Ready;
             audio.MediaProcessingToken = null;
             audio.MediaProcessingStartedTime = null;
-            await context.SaveChangesAsync();
-
             if (replaced)
             {
-                await fileCleanupService.DeleteIfUnreferencedAsync(originalPath);
+                fileCleanupService.QueueDeletion(originalPath);
             }
             if (convertedPath != null)
             {
-                await fileCleanupService.DeleteIfUnreferencedAsync(sourcePath);
+                fileCleanupService.QueueDeletion(sourcePath);
             }
+            await context.SaveChangesAsync();
+            await fileCleanupService.TryCleanupQueuedAsync();
 
             taskQueue.QueueWithDependency<AsrService>(
                 queueName: "asr",
@@ -86,7 +86,9 @@ public class AudioMediaService(
             await MarkFailedAsync(audioId, processingToken, ex.Message);
             if (convertedPath != null)
             {
-                await fileCleanupService.DeleteIfUnreferencedAsync(convertedPath);
+                fileCleanupService.QueueDeletion(convertedPath);
+                await context.SaveChangesAsync();
+                await fileCleanupService.TryCleanupQueuedAsync();
             }
         }
     }

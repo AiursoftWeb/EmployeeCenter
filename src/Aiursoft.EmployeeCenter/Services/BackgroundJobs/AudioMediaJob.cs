@@ -1,5 +1,4 @@
 using Aiursoft.Canon.BackgroundJobs;
-using Aiursoft.Canon.TaskQueue;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +8,7 @@ namespace Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 
 public class AudioMediaJob(
     EmployeeCenterDbContext context,
-    ServiceTaskQueue taskQueue,
+    AudioMediaQueueService mediaQueueService,
     IOptions<AsrSettings> settings,
     ILogger<AudioMediaJob> logger) : IBackgroundJob
 {
@@ -38,13 +37,14 @@ public class AudioMediaJob(
             .Select(audio => audio.Id)
             .Take(50)
             .ToListAsync();
+        var queuedCount = 0;
         foreach (var audioId in audioIds)
         {
-            taskQueue.QueueWithDependency<AudioMediaService>(
-                queueName: "audio-media",
-                taskName: $"Recover uploaded media for audio {audioId}",
-                task: service => service.ProcessAsync(audioId));
+            if (mediaQueueService.QueueIfNotActive(audioId))
+            {
+                queuedCount++;
+            }
         }
-        logger.LogInformation("Queued {Count} audio media processing tasks.", audioIds.Count);
+        logger.LogInformation("Queued {Count} audio media processing tasks.", queuedCount);
     }
 }

@@ -1,4 +1,6 @@
 using Aiursoft.Canon.TaskQueue;
+using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -8,6 +10,67 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class BackgroundJobsTests : TestBase
 {
+    [TestMethod]
+    public async Task AudioMediaRecoveryDoesNotQueueDuplicatePendingTasks()
+    {
+        var queue = Server!.Services.GetRequiredService<ServiceTaskQueue>();
+        var blockerStarted = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var releaseBlocker = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        queue.QueueWithDependency<ILogger<BackgroundJobsTests>>(
+            queueName: "audio-media",
+            taskName: "Blocking audio media task",
+            task: async _ =>
+            {
+                blockerStarted.SetResult();
+                await releaseBlocker.Task;
+            });
+        await blockerStarted.Task.WaitAsync(TimeSpan.FromSeconds(5));
+
+        try
+        {
+            using var scope = Server.Services.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            db.Audios.AddRange(
+                new Audio
+                {
+                    Name = "Queued media one",
+                    FilePath = "audio/queued-one.mp3",
+                    MediaStatus = AudioMediaStatus.Uploaded
+                },
+                new Audio
+                {
+                    Name = "Queued media two",
+                    FilePath = "audio/queued-two.mp3",
+                    MediaStatus = AudioMediaStatus.Uploaded
+                });
+            await db.SaveChangesAsync();
+            var audioIds = await db.Audios
+                .Where(audio => audio.Name.StartsWith("Queued media"))
+                .Select(audio => audio.Id)
+                .ToListAsync();
+            var job = scope.ServiceProvider.GetRequiredService<AudioMediaJob>();
+
+            await job.ExecuteAsync();
+            await job.ExecuteAsync();
+            await job.ExecuteAsync();
+
+            var pendingNames = queue.GetPendingTasks()
+                .Where(task => task.QueueName == "audio-media")
+                .Select(task => task.TaskName)
+                .ToList();
+            foreach (var audioId in audioIds)
+            {
+                Assert.AreEqual(
+                    1,
+                    pendingNames.Count(name => name == $"Process uploaded media for audio {audioId}"));
+            }
+        }
+        finally
+        {
+            releaseBlocker.TrySetResult();
+        }
+    }
+
     [TestMethod]
     public async Task JobQueueBasicOperationsTest()
     {

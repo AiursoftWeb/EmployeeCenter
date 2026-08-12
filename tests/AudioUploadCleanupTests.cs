@@ -44,7 +44,7 @@ public class AudioUploadCleanupTests
     }
 
     [TestMethod]
-    public async Task ConsumedUploadRecordIsRemovedWithoutDeletingReferencedFile()
+    public async Task ConsumedUploadRecordIsPreservedWhileFileIsReferenced()
     {
         await using var fixture = await CleanupFixture.CreateAsync(
             fileExists: true,
@@ -53,9 +53,9 @@ public class AudioUploadCleanupTests
 
         var removed = await fixture.Service.CleanupAsync(DateTime.UtcNow);
 
-        Assert.AreEqual(1, removed);
+        Assert.AreEqual(0, removed);
         Assert.IsTrue(File.Exists(fixture.PhysicalPath));
-        Assert.IsFalse(await fixture.Db.AudioUploads.AnyAsync());
+        Assert.IsTrue(await fixture.Db.AudioUploads.AnyAsync());
     }
 
     private sealed class CleanupFixture : IAsyncDisposable

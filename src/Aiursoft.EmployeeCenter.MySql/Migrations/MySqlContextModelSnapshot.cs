@@ -370,6 +370,27 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.ToTable("AudioAsrSegments");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioFileDeletion", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedTime");
+
+                    b.ToTable("AudioFileDeletions");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
                 {
                     b.Property<int>("Id")
