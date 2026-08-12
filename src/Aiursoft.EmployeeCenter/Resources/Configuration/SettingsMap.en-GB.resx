@@ -103,4 +103,11 @@
     <value>The URL of the GitLab organisation to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Meeting Minutes System Prompt</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>The system prompt used to generate meeting minutes from transcripts.</value>
+  </data>
+
 </root>

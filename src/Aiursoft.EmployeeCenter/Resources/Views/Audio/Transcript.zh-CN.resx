@@ -115,4 +115,29 @@
     <value>您的浏览器不支持音频播放。</value>
   </data>
 
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>会议纪要</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>已生成</value>
+  </data>
+  <data name="Generating" xml:space="preserve">
+    <value>生成中</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>等待转录</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>纪要生成失败</value>
+  </data>
+  <data name="Meeting minutes could not be generated after {0} attempts." xml:space="preserve">
+    <value>会议纪要在尝试 {0} 次后仍未能生成。</value>
+  </data>
+  <data name="The transcript is complete. Meeting minutes are being generated in the background." xml:space="preserve">
+    <value>转录已完成，正在后台生成会议纪要。</value>
+  </data>
+  <data name="Meeting minutes will be generated after transcription is complete." xml:space="preserve">
+    <value>转录完成后将自动生成会议纪要。</value>
+  </data>
+
 </root>

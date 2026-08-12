@@ -74,17 +74,12 @@ public class MigrationTests
                 (1002, 'Legacy department audio', 'audio/department.mp3', 0, 0, NULL, {createTime}, {owner.Id}, 'Engineering', 1)
             """);
 
-        context.AudioAsrResults.AddRange(
-            new AudioAsrResult
-            {
-                AudioId = 1001,
-                PlainText = "Public transcript"
-            },
-            new AudioAsrResult
-            {
-                AudioId = 1002,
-                PlainText = "Department transcript"
-            });
+        await context.Database.ExecuteSqlInterpolatedAsync($"""
+            INSERT INTO AudioAsrResults (AudioId, PlainText, CreateTime)
+            VALUES
+                (1001, 'Public transcript', {createTime}),
+                (1002, 'Department transcript', {createTime})
+            """);
         context.AudioShares.Add(new AudioShare
         {
             AudioId = 1002,
@@ -106,8 +101,12 @@ public class MigrationTests
 
         Assert.HasCount(2, audios);
         Assert.AreEqual("Public transcript", audios[0].AsrResult?.PlainText);
+        Assert.IsNull(audios[0].AsrResult?.MeetingMinutesMarkdown);
+        Assert.AreEqual(0, audios[0].AsrResult?.MeetingMinutesAttemptCount);
         Assert.IsEmpty(audios[0].AudioShares);
         Assert.AreEqual("Department transcript", audios[1].AsrResult?.PlainText);
+        Assert.IsNull(audios[1].AsrResult?.MeetingMinutesMarkdown);
+        Assert.AreEqual(0, audios[1].AsrResult?.MeetingMinutesAttemptCount);
         Assert.HasCount(1, audios[1].AudioShares);
         Assert.AreEqual(sharedUser.Id, audios[1].AudioShares[0].SharedWithUserId);
         Assert.AreEqual(SharePermission.ReadOnly, audios[1].AudioShares[0].Permission);

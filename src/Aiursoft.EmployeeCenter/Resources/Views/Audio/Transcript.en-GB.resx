@@ -115,4 +115,29 @@
     <value>Your browser does not support audio playback.</value>
   </data>
 
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Meeting Minutes</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Generated</value>
+  </data>
+  <data name="Generating" xml:space="preserve">
+    <value>Generating</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>Waiting for transcript</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>Minutes Generation Failed</value>
+  </data>
+  <data name="Meeting minutes could not be generated after {0} attempts." xml:space="preserve">
+    <value>Meeting minutes could not be generated after {0} attempts.</value>
+  </data>
+  <data name="The transcript is complete. Meeting minutes are being generated in the background." xml:space="preserve">
+    <value>The transcript is complete. Meeting minutes are being generated in the background.</value>
+  </data>
+  <data name="Meeting minutes will be generated after transcription is complete." xml:space="preserve">
+    <value>Meeting minutes will be generated after transcription is complete.</value>
+  </data>
+
 </root>

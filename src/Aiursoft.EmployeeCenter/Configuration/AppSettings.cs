@@ -36,4 +36,6 @@ public class AppSettings
 public class AgentSettings
 {
     public required string Endpoint { get; init; }
+    public int MeetingMinutesTimeoutSeconds { get; init; } = 600;
+    public int MeetingMinutesMaxRetryCount { get; init; } = 5;
 }

@@ -100,4 +100,20 @@
     <value>上传您的第一段会议录音，以便使用 AI 进行转录和分析。</value>
   </data>
 
+  <data name="Minutes Status" xml:space="preserve">
+    <value>纪要状态</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>等待转录</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>纪要已生成</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>纪要生成失败</value>
+  </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>纪要生成中</value>
+  </data>
+
 </root>

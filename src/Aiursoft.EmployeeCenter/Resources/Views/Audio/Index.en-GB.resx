@@ -100,4 +100,20 @@
     <value>Upload your first meeting recording to transcribe and analyse with AI.</value>
   </data>
 
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Minutes Status</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>Waiting for transcript</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Minutes generated</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Minutes generation failed</value>
+  </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>Generating minutes</value>
+  </data>
+
 </root>

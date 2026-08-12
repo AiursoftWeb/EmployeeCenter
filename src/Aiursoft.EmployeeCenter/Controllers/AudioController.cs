@@ -63,7 +63,12 @@ public class AudioController(
             {
                 Audio = a,
                 HasTranscript = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText != ""),
-                IsEmptyResult = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText == "")
+                IsEmptyResult = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText == ""),
+                HasMeetingMinutes = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.MeetingMinutesMarkdown != null && r.MeetingMinutesMarkdown != ""),
+                MeetingMinutesAttemptCount = context.AudioAsrResults
+                    .Where(r => r.AudioId == a.Id)
+                    .Select(r => r.MeetingMinutesAttemptCount)
+                    .FirstOrDefault()
             })
             .ToListAsync();
 
@@ -173,12 +178,17 @@ public class AudioController(
         var canManageShares = await CanManageAudioAsync(audio);
         var permission = await GetAudioPermissionAsync(audio);
 
-        var plainText = await asrService.GetAsrResultByAudioIdAsync(id);
+        var asrResult = await context.AudioAsrResults
+            .AsNoTracking()
+            .FirstOrDefaultAsync(result => result.AudioId == id);
 
         return this.StackView(new TranscriptViewModel
         {
             Audio = audio,
-            PlainText = plainText,
+            PlainText = asrResult?.PlainText,
+            MeetingMinutesMarkdown = asrResult?.MeetingMinutesMarkdown,
+            MeetingMinutesAttemptCount = asrResult?.MeetingMinutesAttemptCount ?? 0,
+            LastMeetingMinutesAttemptTime = asrResult?.LastMeetingMinutesAttemptTime,
             CanManageShares = canManageShares,
             Permission = permission!.Value
         });

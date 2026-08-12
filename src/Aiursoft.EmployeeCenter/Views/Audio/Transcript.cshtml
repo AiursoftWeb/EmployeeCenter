@@ -3,11 +3,15 @@
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @using Microsoft.Extensions.Options
 @inject IOptions<AsrSettings> AsrSettings
+@inject IOptions<AppSettings> AppSettings
 @inject StorageService StorageService
+@inject Aiursoft.EmployeeCenter.Services.MarkdownDisplayService MarkdownDisplay
 
 @{
     var hasTranscript = !string.IsNullOrEmpty(Model.PlainText);
     var hasFailed = !hasTranscript && Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount;
+    var hasMeetingMinutes = !string.IsNullOrWhiteSpace(Model.MeetingMinutesMarkdown);
+    var meetingMinutesFailed = hasTranscript && !hasMeetingMinutes && Model.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount;
     var audioUrl = StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true);
 }
 
@@ -35,7 +39,55 @@
 </div>
 
 <div class="row">
-    <div class="col-12 col-xl-8 d-flex">
+    <div class="col-12 col-xl-8">
+        <div class="w-100">
+            <div class="card">
+                <div class="card-header d-flex align-items-center">
+                    <h5 class="card-title mb-0">@Localizer["Meeting Minutes"]</h5>
+                    @if (hasMeetingMinutes)
+                    {
+                        <span class="badge badge-subtle-success ms-auto"><i class="align-middle me-1" data-lucide="check"></i>@Localizer["Generated"]</span>
+                    }
+                    else if (meetingMinutesFailed)
+                    {
+                        <span class="badge badge-subtle-danger ms-auto"><i class="align-middle me-1" data-lucide="x-circle"></i>@Localizer["Failed"]</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-subtle-warning ms-auto"><i class="align-middle me-1" data-lucide="loader"></i>@Localizer[hasTranscript ? "Generating" : "Waiting for transcript"]</span>
+                    }
+                </div>
+                <div class="card-body">
+                    @if (hasMeetingMinutes)
+                    {
+                        <div class="markdown-content">@MarkdownDisplay.RenderMarkdown(Model.MeetingMinutesMarkdown)</div>
+                    }
+                    else if (meetingMinutesFailed)
+                    {
+                        <div class="alert alert-danger alert-outline-coloured mb-0" role="alert">
+                            <div class="alert-icon"><i class="align-middle" data-lucide="x-circle"></i></div>
+                            <div class="alert-message">
+                                <strong>@Localizer["Minutes Generation Failed"]</strong>
+                                <div class="mt-1">@Localizer["Meeting minutes could not be generated after {0} attempts.", Model.MeetingMinutesAttemptCount]</div>
+                            </div>
+                        </div>
+                    }
+                    else if (hasTranscript)
+                    {
+                        <div class="alert alert-info alert-outline-coloured mb-0" role="alert">
+                            <div class="alert-icon"><i class="align-middle" data-lucide="loader"></i></div>
+                            <div class="alert-message">@Localizer["The transcript is complete. Meeting minutes are being generated in the background."]</div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-secondary alert-outline-coloured mb-0" role="alert">
+                            <div class="alert-icon"><i class="align-middle" data-lucide="clock"></i></div>
+                            <div class="alert-message">@Localizer["Meeting minutes will be generated after transcription is complete."]</div>
+                        </div>
+                    }
+                </div>
+            </div>
         <div class="card flex-fill w-100">
             <div class="card-header d-flex align-items-center flex-wrap gap-2">
                 <div>
@@ -83,6 +135,7 @@
                     <pre id="transcript-text" class="bg-light border rounded p-3 mb-0" style="white-space: pre-wrap; max-height: 65vh; overflow-y: auto;">@Model.PlainText</pre>
                 }
             </div>
+        </div>
         </div>
     </div>
     <div class="col-12 col-xl-4 d-flex">
@@ -171,6 +224,10 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
+    @if (hasMeetingMinutes)
+    {
+        <partial name="_MarkdownReaderAssets" />
+    }
     <script>
         function copyTranscript(button) {
             const text = document.getElementById('transcript-text')?.innerText;

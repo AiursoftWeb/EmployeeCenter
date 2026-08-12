@@ -17,7 +17,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.10")
+                .HasAnnotation("ProductVersion", "10.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -272,6 +272,15 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("LastMeetingMinutesAttemptTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("MeetingMinutesAttemptCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MeetingMinutesMarkdown")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PlainText")
                         .IsRequired()
