@@ -1,4 +1,5 @@
 using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Aiursoft.EmployeeCenter.Sqlite;
 using Microsoft.Data.Sqlite;
@@ -54,6 +55,54 @@ public class AudioFileDeletionTests
             var secondRemoved = await service.CleanupQueuedAsync();
 
             Assert.AreEqual(1, secondRemoved);
+            Assert.IsFalse(File.Exists(physicalPath));
+            Assert.AreEqual(0, await db.AudioFileDeletions.CountAsync());
+        }
+        finally
+        {
+            Directory.Delete(storageRoot, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task CleanupJobRetriesDueDeletion()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:");
+        await connection.OpenAsync();
+        var options = new DbContextOptionsBuilder<SqliteContext>()
+            .UseSqlite(connection)
+            .Options;
+        await using var db = new SqliteContext(options);
+        await db.Database.EnsureCreatedAsync();
+
+        var storageRoot = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+        var configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["Storage:Path"] = storageRoot
+            })
+            .Build();
+        var storage = new StorageService(
+            new FeatureFoldersProvider(new StorageRootPathProvider(configuration)),
+            null!,
+            null!);
+        var filePath = $"audio/deletion/{Guid.NewGuid():N}.mp3";
+        var physicalPath = storage.GetVaultSubfolderFilePhysicalPath(filePath, "audio");
+        Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
+        await File.WriteAllBytesAsync(physicalPath, "audio"u8.ToArray());
+        db.AudioFileDeletions.Add(new AudioFileDeletion
+        {
+            FilePath = filePath,
+            NextAttemptTime = DateTime.UtcNow.AddSeconds(-1)
+        });
+        await db.SaveChangesAsync();
+        var service = new AudioFileCleanupService(db, storage, NullLogger<AudioFileCleanupService>.Instance);
+        var job = new AudioFileCleanupJob(service, NullLogger<AudioFileCleanupJob>.Instance);
+
+        try
+        {
+            await job.ExecuteAsync();
+
             Assert.IsFalse(File.Exists(physicalPath));
             Assert.AreEqual(0, await db.AudioFileDeletions.CountAsync());
         }
