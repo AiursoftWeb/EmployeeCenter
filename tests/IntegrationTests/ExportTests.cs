@@ -105,7 +105,8 @@ public class ExportTests : TestBase
             new AudioAsrResult
             {
                 AudioId = audio.Id,
-                PlainText = "Meeting transcript content"
+                PlainText = "Meeting transcript content",
+                MeetingMinutesMarkdown = "# Meeting minutes\n\n- Decision"
             },
             new AudioAsrResult
             {
@@ -232,10 +233,15 @@ public class ExportTests : TestBase
         Assert.AreEqual("Weekly Content", await File.ReadAllTextAsync(reportFile));
 
         var meetingTranscriptFile = Path.Combine(_testExportPath, "MeetingTranscripts", $"Test Meeting_{audio.Id}.md");
+        var meetingMinutesFile = Path.Combine(_testExportPath, "MeetingTranscripts", $"Test Meeting_{audio.Id}_minutes.md");
         var emptyMeetingTranscriptFile = Path.Combine(_testExportPath, "MeetingTranscripts", $"Empty Meeting_{emptyAudio.Id}.md");
+        var emptyMeetingMinutesFile = Path.Combine(_testExportPath, "MeetingTranscripts", $"Empty Meeting_{emptyAudio.Id}_minutes.md");
         Assert.IsTrue(File.Exists(meetingTranscriptFile), $"Meeting transcript file not found at {meetingTranscriptFile}");
         Assert.AreEqual("Meeting transcript content", await File.ReadAllTextAsync(meetingTranscriptFile));
+        Assert.IsTrue(File.Exists(meetingMinutesFile), $"Meeting minutes file not found at {meetingMinutesFile}");
+        Assert.AreEqual("# Meeting minutes\n\n- Decision", await File.ReadAllTextAsync(meetingMinutesFile));
         Assert.IsFalse(File.Exists(emptyMeetingTranscriptFile), $"Empty meeting transcript should not be exported at {emptyMeetingTranscriptFile}");
+        Assert.IsFalse(File.Exists(emptyMeetingMinutesFile), $"Missing meeting minutes should not be exported at {emptyMeetingMinutesFile}");
 
         // Verify Company Entities
         var companyFile = Path.Combine(_testExportPath, "CompanyEntities", "Test Company.md");

@@ -13,5 +13,11 @@ public class AudioAsrResult
 
     public required string PlainText { get; set; }
 
+    public string? MeetingMinutesMarkdown { get; set; }
+
+    public int MeetingMinutesAttemptCount { get; set; }
+
+    public DateTime? LastMeetingMinutesAttemptTime { get; set; }
+
     public DateTime CreateTime { get; set; } = DateTime.UtcNow;
 }

@@ -103,4 +103,11 @@
     <value>GitLab 组织的 URL，用于获取项目。例如：https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>会议纪要系统提示词</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>用于根据转录内容生成会议纪要的系统提示词。</value>
+  </data>
+
 </root>

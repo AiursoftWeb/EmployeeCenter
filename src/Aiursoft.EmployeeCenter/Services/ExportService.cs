@@ -241,6 +241,12 @@ public class ExportService(
         {
             var fileName = $"{SanitizeFileName(transcript.Audio!.Name)}_{transcript.AudioId}.md";
             await File.WriteAllTextAsync(Path.Combine(dir, fileName), transcript.PlainText);
+
+            if (!string.IsNullOrWhiteSpace(transcript.MeetingMinutesMarkdown))
+            {
+                var minutesFileName = $"{SanitizeFileName(transcript.Audio.Name)}_{transcript.AudioId}_minutes.md";
+                await File.WriteAllTextAsync(Path.Combine(dir, minutesFileName), transcript.MeetingMinutesMarkdown);
+            }
         }
     }
 

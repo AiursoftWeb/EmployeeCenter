@@ -1,7 +1,10 @@
 @using Aiursoft.EmployeeCenter.Authorization
 @using Microsoft.AspNetCore.Authorization
+@using Aiursoft.EmployeeCenter.Configuration
+@using Microsoft.Extensions.Options
 @model Aiursoft.EmployeeCenter.Models.AudioViewModels.IndexViewModel
 @inject IAuthorizationService AuthorizationService
+@inject IOptions<AppSettings> AppSettings
 
 @{
     var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
@@ -123,6 +126,7 @@
                     <th>@Localizer["Name"]</th>
                     <th>@Localizer["Created Time"]</th>
                     <th>@Localizer["ASR Status"]</th>
+                    <th>@Localizer["Minutes Status"]</th>
                     <th class="text-end">@Localizer["Actions"]</th>
                 </tr>
                 </thead>
@@ -150,6 +154,24 @@
                             else
                             {
                                 <span class="badge bg-secondary">@Localizer["Pending"]</span>
+                            }
+                        </td>
+                        <td>
+                            @if (!item.HasTranscript)
+                            {
+                                <span class="badge bg-secondary">@Localizer["Waiting for transcript"]</span>
+                            }
+                            else if (item.HasMeetingMinutes)
+                            {
+                                <span class="badge bg-success">@Localizer["Minutes generated"]</span>
+                            }
+                            else if (item.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount)
+                            {
+                                <span class="badge bg-danger">@Localizer["Minutes generation failed"]</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-info">@Localizer["Generating minutes"]</span>
                             }
                         </td>
                         <td class="text-end">

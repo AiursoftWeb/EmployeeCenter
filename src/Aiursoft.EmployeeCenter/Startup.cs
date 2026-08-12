@@ -93,6 +93,11 @@ public class Startup : IWebStartup
             var asrConfig = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>();
             client.Timeout = TimeSpan.FromSeconds(asrConfig?.TimeoutSeconds ?? 1800);
         });
+        services.AddHttpClient<Services.MeetingMinutesService>(client =>
+        {
+            var agentConfig = configuration.GetSection("AppSettings:Agent").Get<AgentSettings>();
+            client.Timeout = TimeSpan.FromSeconds(agentConfig?.MeetingMinutesTimeoutSeconds ?? 600);
+        });
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job queue
@@ -112,6 +117,9 @@ public class Startup : IWebStartup
 
         var audioAsrJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AudioAsrJob>();
         services.RegisterScheduledTask(registration: audioAsrJob, period: TimeSpan.FromHours(12), startDelay: TimeSpan.FromMinutes(25));
+
+        var meetingMinutesJob = services.RegisterBackgroundJob<Services.BackgroundJobs.MeetingMinutesJob>();
+        services.RegisterScheduledTask(registration: meetingMinutesJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromMinutes(30));
 
         var exportJob = services.RegisterBackgroundJob<Services.BackgroundJobs.ExportJob>();
         services.RegisterScheduledTask(registration: exportJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromSeconds(35));
