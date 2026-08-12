@@ -44,18 +44,19 @@ public class AudioUploadCleanupTests
     }
 
     [TestMethod]
-    public async Task ConsumedUploadRecordIsPreservedWhileFileIsReferenced()
+    public async Task ConsumedUploadRecordIsRemovedWhileReferencedFileIsPreserved()
     {
         await using var fixture = await CleanupFixture.CreateAsync(
             fileExists: true,
             referenced: true,
-            consumed: true);
+            consumed: true,
+            expired: false);
 
         var removed = await fixture.Service.CleanupAsync(DateTime.UtcNow);
 
-        Assert.AreEqual(0, removed);
+        Assert.AreEqual(1, removed);
         Assert.IsTrue(File.Exists(fixture.PhysicalPath));
-        Assert.IsTrue(await fixture.Db.AudioUploads.AnyAsync());
+        Assert.IsFalse(await fixture.Db.AudioUploads.AnyAsync());
     }
 
     private sealed class CleanupFixture : IAsyncDisposable
@@ -80,7 +81,8 @@ public class AudioUploadCleanupTests
         public static async Task<CleanupFixture> CreateAsync(
             bool fileExists,
             bool referenced = false,
-            bool consumed = false)
+            bool consumed = false,
+            bool expired = true)
         {
             var options = new DbContextOptionsBuilder<InMemoryContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
@@ -118,7 +120,7 @@ public class AudioUploadCleanupTests
                 Id = uploadId,
                 OwnerId = "cleanup-owner",
                 FilePath = filePath,
-                ExpiresTime = DateTime.UtcNow.AddHours(-1),
+                ExpiresTime = expired ? DateTime.UtcNow.AddHours(-1) : DateTime.UtcNow.AddHours(1),
                 ConsumedTime = consumed ? DateTime.UtcNow.AddMinutes(-1) : null
             });
             if (referenced)
