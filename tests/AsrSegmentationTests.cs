@@ -160,6 +160,151 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
+    public async Task DuplicatePendingTaskDoesNotTranscribeCompletedAudioAgain()
+    {
+        var options = new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+        await using var db = new InMemoryContext(options);
+        var generation = Guid.NewGuid().ToString("N");
+        var audio = new Audio
+        {
+            Name = "Duplicate pending task",
+            FilePath = "audio/duplicate-pending.wav",
+            AsrProcessingToken = generation
+        };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+
+        var storageRoot = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+        var storageConfiguration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["Storage:Path"] = storageRoot
+            })
+            .Build();
+        var storageService = new StorageService(
+            new FeatureFoldersProvider(new StorageRootPathProvider(storageConfiguration)),
+            null!,
+            null!);
+        var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(audio.FilePath, "audio");
+        Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
+        await File.WriteAllBytesAsync(physicalPath, CreateWaveFile());
+        var handler = new RecordingHttpMessageHandler(HttpStatusCode.OK, "{\"text\":\"completed\"}");
+        var service = new AsrService(
+            new HttpClient(handler),
+            Options.Create(new AsrSettings
+            {
+                Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                BearerToken = "test-token"
+            }),
+            db,
+            storageService,
+            new AsrMediaProcessor(Options.Create(new AsrSettings()), NullLogger<AsrMediaProcessor>.Instance),
+            NullLogger<AsrService>.Instance);
+
+        try
+        {
+            await service.ProcessAudioAsrAsync(audio.Id, generation);
+            await service.ProcessAudioAsrAsync(audio.Id, generation);
+
+            Assert.AreEqual(1, handler.RequestCount);
+            Assert.AreEqual(1, audio.AsrAttemptCount);
+            Assert.AreEqual("completed", (await db.AudioAsrResults.FindAsync(audio.Id))?.PlainText);
+        }
+        finally
+        {
+            Directory.Delete(storageRoot, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task CancellingAudioStopsBlockedSegmentation()
+    {
+        var options = new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+        await using var db = new InMemoryContext(options);
+        var audio = new Audio
+        {
+            Name = "Blocked segmentation",
+            FilePath = "audio/blocked-segmentation.mp3"
+        };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+
+        var storageRoot = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+        var storageConfiguration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["Storage:Path"] = storageRoot
+            })
+            .Build();
+        var storageService = new StorageService(
+            new FeatureFoldersProvider(new StorageRootPathProvider(storageConfiguration)),
+            null!,
+            null!);
+        var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(audio.FilePath, "audio");
+        Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
+        await File.WriteAllBytesAsync(physicalPath, "audio"u8.ToArray());
+        var processor = new PausingOversizedMediaProcessor();
+        using var registry = new AsrProcessingCancellationRegistry();
+        var service = new AsrService(
+            new HttpClient(),
+            Options.Create(new AsrSettings
+            {
+                Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                BearerToken = "test-token",
+                SegmentDurationSeconds = 1,
+                SegmentOverlapSeconds = 0
+            }),
+            db,
+            storageService,
+            processor,
+            NullLogger<AsrService>.Instance,
+            registry);
+
+        try
+        {
+            var staleTask = service.ProcessAudioAsrAsync(audio.Id);
+            await processor.SegmentationStarted;
+
+            await service.CancelActiveTaskAsync(audio);
+
+            await Assert.ThrowsAsync<OperationCanceledException>(
+                async () => await staleTask.WaitAsync(TimeSpan.FromSeconds(2)));
+
+            var handler = new RecordingHttpMessageHandler(
+                HttpStatusCode.OK,
+                "{\"text\":\"continued\",\"segments\":[{\"start\":0,\"end\":0.5,\"text\":\"continued\"}]}");
+            var nextService = new AsrService(
+                new HttpClient(handler),
+                Options.Create(new AsrSettings
+                {
+                    Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                    BearerToken = "test-token",
+                    SegmentDurationSeconds = 1,
+                    SegmentOverlapSeconds = 0
+                }),
+                db,
+                storageService,
+                new SuccessfulSegmentMediaProcessor(),
+                NullLogger<AsrService>.Instance,
+                registry);
+
+            await nextService.ProcessAudioAsrAsync(audio.Id);
+
+            Assert.AreEqual(2, handler.RequestCount);
+            Assert.IsNotNull(await db.AudioAsrResults.FindAsync(audio.Id));
+        }
+        finally
+        {
+            processor.ReleaseSegmentation();
+            Directory.Delete(storageRoot, recursive: true);
+        }
+    }
+
+    [TestMethod]
     public void SegmentSelectionUsesAbsoluteCoreWindow()
     {
         var window = new AsrSegmentWindow(1, 1_800_000, 3_600_000, 1_798_000, 3_602_000);
@@ -535,6 +680,7 @@ public class AsrSegmentationTests
         }
 
         public HttpRequestMessage? Request { get; private set; }
+        public int RequestCount { get; private set; }
         public bool CancellationCanBeCanceled { get; private set; }
 
         protected override Task<HttpResponseMessage> SendAsync(
@@ -542,6 +688,7 @@ public class AsrSegmentationTests
             CancellationToken cancellationToken)
         {
             Request = request;
+            RequestCount++;
             CancellationCanBeCanceled = cancellationToken.CanBeCanceled;
             var response = new HttpResponseMessage(_statusCode);
             if (_content != null)
@@ -585,6 +732,35 @@ public class AsrSegmentationTests
         public void ReleaseSegmentation()
         {
             _releaseSegmentation.TrySetResult();
+        }
+    }
+
+    private sealed class SuccessfulSegmentMediaProcessor() : AsrMediaProcessor(
+        Options.Create(new AsrSettings()),
+        NullLogger<AsrMediaProcessor>.Instance)
+    {
+        public override Task<AsrMediaProbe> ProbeAsync(
+            string mediaPath,
+            CancellationToken cancellationToken = default)
+        {
+            return Task.FromResult(new AsrMediaProbe(TimeSpan.FromSeconds(2)));
+        }
+
+        public override async Task<IReadOnlyDictionary<int, string>> CreateSegmentFilesAsync(
+            string mediaPath,
+            IReadOnlyList<AsrSegmentWindow> windows,
+            string outputDirectory,
+            long uploadLimitBytes = long.MaxValue,
+            CancellationToken cancellationToken = default)
+        {
+            var paths = new Dictionary<int, string>();
+            foreach (var window in windows)
+            {
+                var path = Path.Combine(outputDirectory, $"successful-{window.Index}.wav");
+                await File.WriteAllBytesAsync(path, "audio"u8.ToArray(), cancellationToken);
+                paths[window.Index] = path;
+            }
+            return paths;
         }
     }
 }

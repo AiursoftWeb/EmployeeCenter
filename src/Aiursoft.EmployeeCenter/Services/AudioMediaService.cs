@@ -64,6 +64,7 @@ public class AudioMediaService(
             audio.MediaStatus = AudioMediaStatus.Ready;
             audio.MediaProcessingToken = null;
             audio.MediaProcessingStartedTime = null;
+            audio.AsrProcessingToken = Guid.NewGuid().ToString("N");
             if (replaced)
             {
                 fileCleanupService.QueueDeletion(originalPath);
@@ -75,10 +76,11 @@ public class AudioMediaService(
             await context.SaveChangesAsync();
             await fileCleanupService.TryCleanupQueuedAsync();
 
+            var asrProcessingToken = audio.AsrProcessingToken;
             taskQueue.QueueWithDependency<AsrService>(
                 queueName: "asr",
                 taskName: $"Process ASR for audio {audioId}",
-                task: service => service.ProcessAudioAsrAsync(audioId));
+                task: service => service.ProcessAudioAsrAsync(audioId, asrProcessingToken));
         }
         catch (Exception ex)
         {

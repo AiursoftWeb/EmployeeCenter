@@ -33,7 +33,7 @@ public class AudioAsrJob(
             // - No non-empty ASR result exists yet
             // - Has not exceeded AsrAttemptCount limit (safety valve for crashes)
             // - Has not exceeded EmptyResultCount limit (truly silent audio)
-            var unprocessedAudioIds = await db.Audios
+            var unprocessedAudios = await db.Audios
                 .Where(a => a.MediaStatus == AudioMediaStatus.Ready)
                 .Where(a => a.AsrTerminalError == null)
                 .Where(a => !db.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText != ""))
@@ -41,29 +41,29 @@ public class AudioAsrJob(
                 .Where(a => a.EmptyResultCount < _asrSettings.AsrMaxEmptyRetryCount)
                 .OrderBy(a => a.AsrAttemptCount)
                 .ThenByDescending(a => a.CreateTime)
-                .Select(a => a.Id)
+                .Select(a => new { a.Id, a.AsrProcessingToken })
                 .Take(50)
                 .ToListAsync();
 
-            if (unprocessedAudioIds.Count == 0)
+            if (unprocessedAudios.Count == 0)
             {
                 logger.LogInformation("No unprocessed audio found.");
                 return;
             }
 
-            logger.LogInformation("Found {Count} unprocessed audio files. Starting ASR processing...", unprocessedAudioIds.Count);
+            logger.LogInformation("Found {Count} unprocessed audio files. Starting ASR processing...", unprocessedAudios.Count);
 
             var failedAudioIds = new List<int>();
-            foreach (var audioId in unprocessedAudioIds)
+            foreach (var audio in unprocessedAudios)
             {
                 try
                 {
-                    await asrService.ProcessAudioAsrAsync(audioId);
+                    await asrService.ProcessAudioAsrAsync(audio.Id, audio.AsrProcessingToken);
                 }
                 catch (Exception ex)
                 {
-                    failedAudioIds.Add(audioId);
-                    logger.LogError(ex, "ASR processing failed for audio {AudioId}.", audioId);
+                    failedAudioIds.Add(audio.Id);
+                    logger.LogError(ex, "ASR processing failed for audio {AudioId}.", audio.Id);
                 }
             }
             if (failedAudioIds.Count > 0)

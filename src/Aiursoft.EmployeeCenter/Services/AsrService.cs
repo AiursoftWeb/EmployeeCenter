@@ -33,7 +33,8 @@ public class AsrService(
     EmployeeCenterDbContext dbContext,
     StorageService storageService,
     AsrMediaProcessor mediaProcessor,
-    ILogger<AsrService> logger) : ITransientDependency
+    ILogger<AsrService> logger,
+    AsrProcessingCancellationRegistry? cancellationRegistry = null) : ITransientDependency
 {
     private const long AsrUploadLimitBytes = 1L << 30;
     private const string TranscriptionEndpointSuffix = "/audio/transcriptions";
@@ -51,7 +52,11 @@ public class AsrService(
         ".mp4", ".mov", ".mkv", ".avi", ".webm"
     };
 
-    private async Task<string?> RecognizeMediaAsync(Audio audio, string filePath, string processingToken)
+    private async Task<string?> RecognizeMediaAsync(
+        Audio audio,
+        string filePath,
+        string processingToken,
+        CancellationToken cancellationToken)
     {
         if (!HasRequiredSettings())
         {
@@ -76,7 +81,7 @@ public class AsrService(
             AsrUploadLimitBytes,
             _asrSettings.SegmentDurationSeconds,
             _asrSettings.SegmentOverlapSeconds);
-        var probe = await mediaProcessor.ProbeAsync(filePath);
+        var probe = await mediaProcessor.ProbeAsync(filePath, cancellationToken);
         var existingSegments = await dbContext.AudioAsrSegments
             .Where(segment => segment.AudioId == audio.Id)
             .OrderBy(segment => segment.SegmentIndex)
@@ -112,7 +117,8 @@ public class AsrService(
             probe.Duration,
             policy,
             existingSegments,
-            processingToken);
+            processingToken,
+            cancellationToken);
     }
 
     private async Task<string?> RecognizeSegmentedMediaAsync(
@@ -121,7 +127,8 @@ public class AsrService(
         TimeSpan mediaDuration,
         AsrTranscriptionPolicy policy,
         IReadOnlyList<AudioAsrSegment> existingSegments,
-        string processingToken)
+        string processingToken,
+        CancellationToken cancellationToken)
     {
         var windows = AsrMediaProcessor.CreateSegmentWindows(
             mediaDuration,
@@ -137,7 +144,8 @@ public class AsrService(
                 policy,
                 missingWindows,
                 windows.Count == 1,
-                processingToken);
+                processingToken,
+                cancellationToken);
             if (!completed)
             {
                 return null;
@@ -167,7 +175,8 @@ public class AsrService(
         AsrTranscriptionPolicy policy,
         IReadOnlyList<AsrSegmentWindow> missingWindows,
         bool allowTextFallback,
-        string processingToken)
+        string processingToken,
+        CancellationToken cancellationToken)
     {
         var temporaryDirectory = Directory.CreateTempSubdirectory("asr-media-");
         try
@@ -189,7 +198,8 @@ public class AsrService(
                     [window],
                     allowTextFallback,
                     processingToken,
-                    temporaryDirectory.FullName);
+                    temporaryDirectory.FullName,
+                    cancellationToken);
                 if (!batchCompleted)
                 {
                     return false;
@@ -210,15 +220,21 @@ public class AsrService(
         IReadOnlyList<AsrSegmentWindow> windows,
         bool allowTextFallback,
         string processingToken,
-        string temporaryDirectory)
+        string temporaryDirectory,
+        CancellationToken cancellationToken)
     {
         var segmentFiles = await mediaProcessor.CreateSegmentFilesAsync(
             filePath,
             windows,
             temporaryDirectory,
-            policy.UploadLimitBytes);
+            policy.UploadLimitBytes,
+            cancellationToken);
         try
         {
+            if (!await OwnsProcessingAsync(audio.Id, processingToken))
+            {
+                return false;
+            }
             if (!AreSegmentFilesWithinUploadLimit(audio.Id, windows, segmentFiles, policy.UploadLimitBytes))
             {
                 return false;
@@ -459,7 +475,20 @@ public class AsrService(
         }
     }
 
-    public async Task ProcessAudioAsrAsync(int audioId)
+    public Task ProcessAudioAsrAsync(int audioId)
+    {
+        return ProcessAudioAsrAsync(audioId, null, enforceExpectedProcessingToken: false);
+    }
+
+    public Task ProcessAudioAsrAsync(int audioId, string? expectedProcessingToken)
+    {
+        return ProcessAudioAsrAsync(audioId, expectedProcessingToken, enforceExpectedProcessingToken: true);
+    }
+
+    private async Task ProcessAudioAsrAsync(
+        int audioId,
+        string? expectedProcessingToken,
+        bool enforceExpectedProcessingToken)
     {
         if (!_asrSettings.Enabled)
         {
@@ -472,7 +501,11 @@ public class AsrService(
             logger.LogWarning("Audio with ID {AudioId} not found for ASR processing", audioId);
             return;
         }
-        if (audio.MediaStatus != AudioMediaStatus.Ready || audio.AsrTerminalError != null)
+        if (audio.MediaStatus != AudioMediaStatus.Ready ||
+            audio.AsrTerminalError != null ||
+            (enforceExpectedProcessingToken && audio.AsrProcessingToken != expectedProcessingToken) ||
+            await dbContext.AudioAsrResults.AnyAsync(result =>
+                result.AudioId == audioId && result.PlainText != ""))
         {
             logger.LogInformation("Audio {AudioId} is not ready for ASR processing.", audioId);
             return;
@@ -488,8 +521,19 @@ public class AsrService(
             audio.AsrActiveTaskId = null;
             await dbContext.SaveChangesAsync();
 
+            using var cancellationRegistration = cancellationRegistry?.Register(audioId);
+            if (!await OwnsProcessingAsync(audioId, processingToken))
+            {
+                cancellationRegistration?.Cancel();
+                dbContext.ChangeTracker.Clear();
+                return;
+            }
             var filePath = storageService.GetVaultSubfolderFilePhysicalPath(audio.FilePath, "audio");
-            var plainText = await RecognizeMediaAsync(audio, filePath, processingToken);
+            var plainText = await RecognizeMediaAsync(
+                audio,
+                filePath,
+                processingToken,
+                cancellationRegistration?.CancellationToken ?? CancellationToken.None);
             if (plainText == null)
             {
                 if (!await OwnsProcessingAsync(audioId, processingToken))
@@ -565,6 +609,7 @@ public class AsrService(
 
     public async Task CancelActiveTaskAsync(Audio audio)
     {
+        cancellationRegistry?.Cancel(audio.Id);
         if (string.IsNullOrEmpty(audio.AsrActiveTaskId))
         {
             return;

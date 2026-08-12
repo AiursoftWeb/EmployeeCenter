@@ -267,10 +267,11 @@ public class AudioController(
         await context.SaveChangesAsync();
 
         // 将 ASR 处理放入独立后台任务，避免长耗时（最长 TimeoutSeconds）请求阻塞当前 HTTP 请求。
+        var asrProcessingToken = audio.AsrProcessingToken;
         taskQueue.QueueWithDependency<AsrService>(
             queueName: "asr",
             taskName: $"Reset ASR for audio {id}",
-            task: svc => svc.ProcessAudioAsrAsync(id));
+            task: svc => svc.ProcessAudioAsrAsync(id, asrProcessingToken));
 
         TempData["AsrTaskQueued"] = true;
         return RedirectToAction(nameof(Transcript), new { id });

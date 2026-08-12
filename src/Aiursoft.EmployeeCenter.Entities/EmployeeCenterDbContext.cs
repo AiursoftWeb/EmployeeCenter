@@ -307,8 +307,10 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             entity.Property(upload => upload.ConcurrencyToken).IsConcurrencyToken();
         });
 
-        builder.Entity<AudioFileDeletion>()
-            .HasIndex(deletion => deletion.CreatedTime);
+        builder.Entity<AudioFileDeletion>(entity =>
+        {
+            entity.HasIndex(deletion => new { deletion.IsDeadLetter, deletion.NextAttemptTime });
+        });
 
         builder.Entity<AudioAsrResult>()
             .HasOne(r => r.Audio)
