@@ -306,6 +306,67 @@ public class AsrSegmentationTests
     }
 
     [TestMethod]
+    public async Task CancellingAudioStopsBlockedAsrRequest()
+    {
+        var options = new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+        await using var db = new InMemoryContext(options);
+        var audio = new Audio
+        {
+            Name = "Blocked ASR request",
+            FilePath = "audio/blocked-request.mp3"
+        };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+
+        var storageRoot = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+        var storageConfiguration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["Storage:Path"] = storageRoot
+            })
+            .Build();
+        var storageService = new StorageService(
+            new FeatureFoldersProvider(new StorageRootPathProvider(storageConfiguration)),
+            null!,
+            null!);
+        var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(audio.FilePath, "audio");
+        Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
+        await File.WriteAllBytesAsync(physicalPath, "audio"u8.ToArray());
+        var handler = new BlockingTranscriptionHttpMessageHandler();
+        using var registry = new AsrProcessingCancellationRegistry();
+        var service = new AsrService(
+            new HttpClient(handler),
+            Options.Create(new AsrSettings
+            {
+                Endpoint = "https://stt.example.com/v1/audio/transcriptions",
+                BearerToken = "test-token"
+            }),
+            db,
+            storageService,
+            new SuccessfulSegmentMediaProcessor(),
+            NullLogger<AsrService>.Instance,
+            registry);
+
+        try
+        {
+            var processingTask = service.ProcessAudioAsrAsync(audio.Id);
+            await handler.TranscriptionStarted;
+
+            await service.CancelActiveTaskAsync(audio);
+
+            await Assert.ThrowsAsync<OperationCanceledException>(
+                async () => await processingTask.WaitAsync(TimeSpan.FromSeconds(2)));
+            Assert.IsTrue(handler.TranscriptionCancellationCanBeCanceled);
+        }
+        finally
+        {
+            Directory.Delete(storageRoot, recursive: true);
+        }
+    }
+
+    [TestMethod]
     public void SegmentSelectionUsesAbsoluteCoreWindow()
     {
         var window = new AsrSegmentWindow(1, 1_800_000, 3_600_000, 1_798_000, 3_602_000);
@@ -710,6 +771,30 @@ public class AsrSegmentationTests
                 response.Content = new StringContent(_content);
             }
             return Task.FromResult(response);
+        }
+    }
+
+    private sealed class BlockingTranscriptionHttpMessageHandler : HttpMessageHandler
+    {
+        private readonly TaskCompletionSource _transcriptionStarted =
+            new(TaskCreationOptions.RunContinuationsAsynchronously);
+
+        public Task TranscriptionStarted => _transcriptionStarted.Task;
+        public bool TranscriptionCancellationCanBeCanceled { get; private set; }
+
+        protected override async Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request,
+            CancellationToken cancellationToken)
+        {
+            if (!request.RequestUri!.AbsolutePath.EndsWith("/audio/transcriptions", StringComparison.Ordinal))
+            {
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+
+            TranscriptionCancellationCanBeCanceled = cancellationToken.CanBeCanceled;
+            _transcriptionStarted.TrySetResult();
+            await Task.Delay(Timeout.InfiniteTimeSpan, cancellationToken);
+            throw new InvalidOperationException("The blocked request completed without cancellation.");
         }
     }
 

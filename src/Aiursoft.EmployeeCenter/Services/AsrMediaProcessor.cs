@@ -14,7 +14,7 @@ public sealed record AsrSegmentWindow(
     long InputStartMilliseconds,
     long InputEndMilliseconds);
 
-public sealed record AsrMediaProbe(TimeSpan Duration);
+public sealed record AsrMediaProbe(TimeSpan Duration, bool HasVideoStream = false);
 
 public class AsrMediaProcessor(
     IOptions<AsrSettings> asrSettings,
@@ -110,7 +110,9 @@ public class AsrMediaProcessor(
             throw new InvalidOperationException("Media duration is unavailable.");
         }
 
-        return new AsrMediaProbe(duration.Value);
+        return new AsrMediaProbe(
+            duration.Value,
+            payload.Streams.Any(stream => stream.CodecType == "video"));
     }
 
     public static TimeSpan? ParseDecodedDuration(string progressOutput)

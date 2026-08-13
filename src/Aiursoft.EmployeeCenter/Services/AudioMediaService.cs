@@ -41,8 +41,16 @@ public class AudioMediaService(
         string? convertedPath = null;
         try
         {
+            var extension = Path.GetExtension(sourcePath);
+            if (!AsrService.IsSupportedMediaExtension(extension))
+            {
+                throw new InvalidOperationException($"Media extension {extension} is not supported.");
+            }
+
+            var physicalSourcePath = storageService.GetVaultSubfolderFilePhysicalPath(sourcePath, "audio");
+            var probe = await mediaProcessor.ProbeAsync(physicalSourcePath);
             var finalPath = sourcePath;
-            if (IsVideoFile(sourcePath))
+            if (probe.HasVideoStream)
             {
                 convertedPath = await ExtractAudioAsync(sourcePath);
                 finalPath = convertedPath;
@@ -143,13 +151,4 @@ public class AudioMediaService(
         await context.SaveChangesAsync();
     }
 
-    private static bool IsVideoFile(string filePath)
-    {
-        var extension = Path.GetExtension(filePath);
-        return extension.Equals(".mp4", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".mov", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".mkv", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".avi", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".webm", StringComparison.OrdinalIgnoreCase);
-    }
 }

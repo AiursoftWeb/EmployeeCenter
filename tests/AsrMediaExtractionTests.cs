@@ -10,6 +10,34 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class AsrMediaExtractionTests
 {
     [TestMethod]
+    public async Task ProbeReportsVideoStreamFromMediaContent()
+    {
+        var processor = new StubMediaProcessor(
+            preferOriginalCodec: true,
+            output: """
+                    {"streams":[{"codec_type":"video"},{"codec_type":"audio"}],"format":{"duration":"12.5"}}
+                    """);
+
+        var probe = await processor.ProbeAsync("recording.mp3");
+
+        Assert.IsTrue(probe.HasVideoStream);
+        Assert.AreEqual(TimeSpan.FromSeconds(12.5), probe.Duration);
+    }
+
+    [TestMethod]
+    public async Task ProbeRejectsMediaWithoutAudioStream()
+    {
+        var processor = new StubMediaProcessor(
+            preferOriginalCodec: true,
+            output: """
+                    {"streams":[{"codec_type":"video"}],"format":{"duration":"12.5"}}
+                    """);
+
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(
+            async () => await processor.ProbeAsync("silent-video.mp4"));
+    }
+
+    [TestMethod]
     public async Task StreamCopyTimeoutDeletesPartialOutput()
     {
         var tempDirectory = Directory.CreateTempSubdirectory("asr-extraction-timeout-");
@@ -82,7 +110,8 @@ public class AsrMediaExtractionTests
     private sealed class StubMediaProcessor(
         bool preferOriginalCodec,
         int exitCode = 0,
-        Exception? exception = null)
+        Exception? exception = null,
+        string output = "")
         : AsrMediaProcessor(
             Options.Create(new AsrSettings { PreferOriginalSegmentCodec = preferOriginalCodec }),
             NullLogger<AsrMediaProcessor>.Instance)
@@ -98,7 +127,7 @@ public class AsrMediaExtractionTests
             {
                 throw exception;
             }
-            return new ProcessResult(exitCode, string.Empty, "stub failure");
+            return new ProcessResult(exitCode, output, "stub failure");
         }
     }
 }

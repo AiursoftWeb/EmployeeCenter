@@ -136,7 +136,7 @@ public class AudioTests : TestBase
             replacedAudioId = replacedAudio.Id;
 
             newFilePath = $"audio/{admin.Id}/{Guid.NewGuid():N}.mp3";
-            await using var newStream = new MemoryStream("replacement audio"u8.ToArray());
+            await using var newStream = new MemoryStream(CreateWaveFile());
             await storage.SaveFromStream(newFilePath, newStream, isVault: true);
         }
 
@@ -545,7 +545,7 @@ public class AudioTests : TestBase
 
             var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
             replacementFilePath = $"audio/{admin.Id}/{Guid.NewGuid():N}.mp3";
-            await using var replacementStream = new MemoryStream("replacement audio"u8.ToArray());
+            await using var replacementStream = new MemoryStream(CreateWaveFile());
             await storage.SaveFromStream(replacementFilePath, replacementStream, isVault: true);
         }
 
@@ -571,5 +571,30 @@ public class AudioTests : TestBase
         Assert.AreEqual(0, replacedAudio.EmptyResultCount);
         Assert.IsNull(replacedAudio.LastAsrAttemptTime);
         Assert.IsFalse(await verificationDb.AudioAsrResults.AnyAsync(result => result.AudioId == audioId));
+    }
+
+    private static byte[] CreateWaveFile()
+    {
+        const int sampleRate = 16000;
+        const int sampleCount = 1600;
+        using var stream = new MemoryStream();
+        using var writer = new BinaryWriter(stream);
+        writer.Write("RIFF"u8.ToArray());
+        writer.Write(36 + sampleCount * 2);
+        writer.Write("WAVEfmt "u8.ToArray());
+        writer.Write(16);
+        writer.Write((short)1);
+        writer.Write((short)1);
+        writer.Write(sampleRate);
+        writer.Write(sampleRate * 2);
+        writer.Write((short)2);
+        writer.Write((short)16);
+        writer.Write("data"u8.ToArray());
+        writer.Write(sampleCount * 2);
+        for (var index = 0; index < sampleCount; index++)
+        {
+            writer.Write((short)0);
+        }
+        return stream.ToArray();
     }
 }

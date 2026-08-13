@@ -47,11 +47,6 @@ public class AsrService(
         ".mp4", ".mov", ".mkv", ".avi"
     };
 
-    private static readonly HashSet<string> VideoExtensions = new(StringComparer.OrdinalIgnoreCase)
-    {
-        ".mp4", ".mov", ".mkv", ".avi", ".webm"
-    };
-
     private async Task<string?> RecognizeMediaAsync(
         Audio audio,
         string filePath,
@@ -96,7 +91,7 @@ public class AsrService(
         }
 
         var requiresPreprocessing =
-            VideoExtensions.Contains(extension) ||
+            probe.HasVideoStream ||
             probe.Duration.TotalSeconds > policy.SegmentDurationSeconds ||
             new FileInfo(filePath).Length > policy.UploadLimitBytes;
         if (!requiresPreprocessing)
@@ -107,7 +102,8 @@ public class AsrService(
                 filePath,
                 Path.GetFileName(filePath),
                 "json",
-                0);
+                0,
+                cancellationToken);
             return GetRecognizedText(response);
         }
 
@@ -247,7 +243,8 @@ public class AsrService(
                 segmentFiles[window.Index],
                 policy,
                 allowTextFallback,
-                processingToken);
+                processingToken,
+                cancellationToken);
             if (transcriptionResult != null)
             {
                 dbContext.AudioAsrSegments.Add(transcriptionResult);
@@ -298,7 +295,8 @@ public class AsrService(
         string segmentPath,
         AsrTranscriptionPolicy policy,
         bool allowTextFallback,
-        string processingToken)
+        string processingToken,
+        CancellationToken cancellationToken)
     {
         try
         {
@@ -308,7 +306,8 @@ public class AsrService(
                 segmentPath,
                 Path.GetFileName(segmentPath),
                 "verbose_json",
-                window.Index);
+                window.Index,
+                cancellationToken);
             if (response == null)
             {
                 return null;
@@ -337,6 +336,10 @@ public class AsrService(
                 SegmentsJson = JsonConvert.SerializeObject(transcriptSegments),
                 PlainText = JoinSegmentText(transcriptSegments)
             };
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
         }
         catch (Exception ex)
         {
@@ -415,7 +418,8 @@ public class AsrService(
         string filePath,
         string fileName,
         string responseFormat,
-        string taskId)
+        string taskId,
+        CancellationToken cancellationToken)
     {
         using var form = new MultipartFormDataContent();
         form.Add(new StringContent(_asrSettings.Model), "model");
@@ -438,8 +442,8 @@ public class AsrService(
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _asrSettings.BearerToken);
         request.Headers.Add("X-Task-Id", taskId);
         request.Content = form;
-        using var response = await httpClient.SendAsync(request);
-        var content = await response.Content.ReadAsStringAsync();
+        using var response = await httpClient.SendAsync(request, cancellationToken);
+        var content = await response.Content.ReadAsStringAsync(cancellationToken);
         if (!response.IsSuccessStatusCode)
         {
             logger.LogError("ASR API request failed with status {StatusCode}: {Content}", response.StatusCode, content);
@@ -461,13 +465,19 @@ public class AsrService(
         string filePath,
         string fileName,
         string responseFormat,
-        int segmentIndex)
+        int segmentIndex,
+        CancellationToken cancellationToken)
     {
         var taskId = BuildTaskId(audio.Id, segmentIndex, audio.AsrAttemptCount);
         await SetActiveTaskAsync(audio, processingToken, taskId);
         try
         {
-            return await RecognizeFileAsync(filePath, fileName, responseFormat, taskId);
+            return await RecognizeFileAsync(
+                filePath,
+                fileName,
+                responseFormat,
+                taskId,
+                cancellationToken);
         }
         finally
         {
