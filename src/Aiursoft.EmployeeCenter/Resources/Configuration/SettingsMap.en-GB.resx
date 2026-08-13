@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Number</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Meeting Minutes System Prompt</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin</value>
   </data>
@@ -96,18 +99,14 @@
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>The system prompt for the AI assistant.</value>
   </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>The system prompt used to generate meeting minutes from transcripts.</value>
+  </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>The URL of the company or project. E.g. https://www.aiursoft.com</value>
   </data>
   <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
     <value>The URL of the GitLab organisation to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft</value>
-  </data>
-
-  <data name="Meeting Minutes System Prompt" xml:space="preserve">
-    <value>Meeting Minutes System Prompt</value>
-  </data>
-  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
-    <value>The system prompt used to generate meeting minutes from transcripts.</value>
   </data>
 
 </root>
