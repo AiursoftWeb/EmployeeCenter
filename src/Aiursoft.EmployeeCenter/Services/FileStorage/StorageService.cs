@@ -23,6 +23,7 @@ public class StorageService(
     /// <param name="logicalPath">The logical path (relative to Workspace) where the file will be saved.</param>
     /// <param name="file">The file to be saved.</param>
     /// <param name="isVault">Whether to save to the private Vault.</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
     /// <returns>The actual logical path where the file is saved (may differ if renamed).</returns>
     public async Task<string> Save(
         string logicalPath,

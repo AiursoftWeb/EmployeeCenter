@@ -1,5 +1,4 @@
 using Aiursoft.Canon.TaskQueue;
-using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
