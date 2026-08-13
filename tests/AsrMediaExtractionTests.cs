@@ -38,6 +38,23 @@ public class AsrMediaExtractionTests
     }
 
     [TestMethod]
+    public async Task DecodedDurationUsesMediaProcessingTimeout()
+    {
+        var processor = new StubMediaProcessor(
+            preferOriginalCodec: true,
+            mediaProcessingTimeoutSeconds: 123,
+            output: """
+                    {"streams":[{"codec_type":"audio"}],"format":{}}
+                    """,
+            ffmpegOutput: "out_time_us=2500000");
+
+        var probe = await processor.ProbeAsync("durationless.mp3");
+
+        Assert.AreEqual(TimeSpan.FromSeconds(2.5), probe.Duration);
+        Assert.AreEqual(TimeSpan.FromSeconds(123), processor.LastTimeout);
+    }
+
+    [TestMethod]
     public async Task StreamCopyTimeoutDeletesPartialOutput()
     {
         var tempDirectory = Directory.CreateTempSubdirectory("asr-extraction-timeout-");
@@ -111,23 +128,36 @@ public class AsrMediaExtractionTests
         bool preferOriginalCodec,
         int exitCode = 0,
         Exception? exception = null,
-        string output = "")
+        string output = "",
+        string? ffmpegOutput = null,
+        int mediaProcessingTimeoutSeconds = 1800)
         : AsrMediaProcessor(
-            Options.Create(new AsrSettings { PreferOriginalSegmentCodec = preferOriginalCodec }),
+            Options.Create(new AsrSettings
+            {
+                PreferOriginalSegmentCodec = preferOriginalCodec,
+                MediaProcessingTimeoutSeconds = mediaProcessingTimeoutSeconds
+            }),
             NullLogger<AsrMediaProcessor>.Instance)
     {
+        public TimeSpan LastTimeout { get; private set; }
+
         protected override async Task<ProcessResult> RunProcessAsync(
             ProcessStartInfo startInfo,
             TimeSpan timeout,
             CancellationToken cancellationToken)
         {
-            var outputPath = startInfo.ArgumentList[^1];
-            await File.WriteAllBytesAsync(outputPath, "partial"u8.ToArray(), CancellationToken.None);
+            LastTimeout = timeout;
+            if (startInfo.FileName == "ffmpeg" && startInfo.ArgumentList[^1] != "pipe:1")
+            {
+                var outputPath = startInfo.ArgumentList[^1];
+                await File.WriteAllBytesAsync(outputPath, "partial"u8.ToArray(), CancellationToken.None);
+            }
             if (exception != null)
             {
                 throw exception;
             }
-            return new ProcessResult(exitCode, output, "stub failure");
+            var processOutput = startInfo.FileName == "ffmpeg" ? ffmpegOutput ?? output : output;
+            return new ProcessResult(exitCode, processOutput, "stub failure");
         }
     }
 }

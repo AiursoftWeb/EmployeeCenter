@@ -38,6 +38,7 @@ public class AudioMediaService(
         }
 
         var sourcePath = audio.PendingFilePath ?? audio.FilePath;
+        var replacing = audio.PendingFilePath != null;
         string? convertedPath = null;
         try
         {
@@ -93,13 +94,13 @@ public class AudioMediaService(
         catch (Exception ex)
         {
             logger.LogWarning(ex, "Failed to process uploaded media for audio {AudioId}.", audioId);
-            await MarkFailedAsync(audioId, processingToken, ex.Message);
-            if (convertedPath != null)
-            {
-                fileCleanupService.QueueDeletion(convertedPath);
-                await context.SaveChangesAsync();
-                await fileCleanupService.TryCleanupQueuedAsync();
-            }
+            await HandleFailureAsync(
+                audioId,
+                processingToken,
+                sourcePath,
+                convertedPath,
+                replacing,
+                GetUserFacingError(ex));
         }
     }
 
@@ -136,19 +137,63 @@ public class AudioMediaService(
         audio.AsrTerminalError = null;
     }
 
-    private async Task MarkFailedAsync(int audioId, string processingToken, string error)
+    private async Task HandleFailureAsync(
+        int audioId,
+        string processingToken,
+        string sourcePath,
+        string? convertedPath,
+        bool replacing,
+        string error)
     {
         context.ChangeTracker.Clear();
         var audio = await context.Audios.FirstOrDefaultAsync(item => item.Id == audioId);
         if (audio == null || audio.MediaProcessingToken != processingToken)
         {
+            if (convertedPath != null)
+            {
+                fileCleanupService.QueueDeletion(convertedPath);
+                await context.SaveChangesAsync();
+                await fileCleanupService.TryCleanupQueuedAsync();
+            }
             return;
         }
-        audio.MediaStatus = AudioMediaStatus.Failed;
-        audio.MediaProcessingError = error.Length <= 1000 ? error : error[..1000];
+
+        if (replacing && audio.PendingFilePath == sourcePath)
+        {
+            audio.PendingFilePath = null;
+            audio.MediaStatus = AudioMediaStatus.Ready;
+        }
+        else
+        {
+            audio.MediaStatus = AudioMediaStatus.Failed;
+        }
+        audio.MediaProcessingError = error;
         audio.MediaProcessingToken = null;
         audio.MediaProcessingStartedTime = null;
+        fileCleanupService.QueueDeletion(sourcePath);
+        if (convertedPath != null)
+        {
+            fileCleanupService.QueueDeletion(convertedPath);
+        }
         await context.SaveChangesAsync();
+        await fileCleanupService.TryCleanupQueuedAsync();
+    }
+
+    private static string GetUserFacingError(Exception exception)
+    {
+        if (exception is OperationCanceledException or TimeoutException)
+        {
+            return "Media processing timed out.";
+        }
+        if (exception.Message.Contains("does not contain a decodable audio stream", StringComparison.Ordinal))
+        {
+            return "The uploaded media does not contain a decodable audio stream.";
+        }
+        if (exception.Message.StartsWith("Media extension ", StringComparison.Ordinal))
+        {
+            return "The uploaded file extension is not supported.";
+        }
+        return "The uploaded file could not be processed.";
     }
 
 }

@@ -11,6 +11,54 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class AudioFileDeletionTests
 {
     [TestMethod]
+    public async Task FailedInitialUploadCanBeDeletedWhileRecordIsRetained()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:");
+        await connection.OpenAsync();
+        var options = new DbContextOptionsBuilder<SqliteContext>()
+            .UseSqlite(connection)
+            .Options;
+        await using var db = new SqliteContext(options);
+        await db.Database.EnsureCreatedAsync();
+
+        var storageRoot = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+        var configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["Storage:Path"] = storageRoot
+            })
+            .Build();
+        var storage = new StorageService(
+            new FeatureFoldersProvider(new StorageRootPathProvider(configuration)),
+            null!,
+            null!);
+        const string filePath = "audio/failed-upload.mp4";
+        var physicalPath = storage.GetVaultSubfolderFilePhysicalPath(filePath, "audio");
+        Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
+        await File.WriteAllBytesAsync(physicalPath, "video"u8.ToArray());
+        db.Audios.Add(new Audio
+        {
+            Name = "Failed upload",
+            FilePath = filePath,
+            MediaStatus = AudioMediaStatus.Failed
+        });
+        db.AudioFileDeletions.Add(new AudioFileDeletion { FilePath = filePath });
+        await db.SaveChangesAsync();
+        var service = new AudioFileCleanupService(db, storage, NullLogger<AudioFileCleanupService>.Instance);
+
+        try
+        {
+            Assert.AreEqual(1, await service.CleanupQueuedAsync());
+            Assert.IsFalse(File.Exists(physicalPath));
+            Assert.IsTrue(await db.Audios.AnyAsync(audio => audio.FilePath == filePath));
+        }
+        finally
+        {
+            Directory.Delete(storageRoot, recursive: true);
+        }
+    }
+
+    [TestMethod]
     public async Task FailedDeletionRemainsQueuedAndIsRetried()
     {
         await using var connection = new SqliteConnection("DataSource=:memory:");

@@ -39,7 +39,8 @@ public class AudioFileCleanupService(
         var candidates = await context.AudioFileDeletions
             .Where(deletion => !deletion.IsDeadLetter && deletion.NextAttemptTime <= utcNow)
             .Where(deletion => !context.Audios.Any(audio =>
-                audio.FilePath == deletion.FilePath || audio.PendingFilePath == deletion.FilePath))
+                audio.PendingFilePath == deletion.FilePath ||
+                (audio.FilePath == deletion.FilePath && audio.MediaStatus != AudioMediaStatus.Failed)))
             .OrderBy(deletion => deletion.NextAttemptTime)
             .ThenBy(deletion => deletion.CreatedTime)
             .Take(BatchSize)

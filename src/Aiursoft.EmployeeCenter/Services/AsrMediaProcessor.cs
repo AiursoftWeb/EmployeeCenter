@@ -473,7 +473,7 @@ public class AsrMediaProcessor(
         startInfo.ArgumentList.Add("-progress");
         startInfo.ArgumentList.Add("pipe:1");
 
-        var result = await RunProcessAsync(startInfo, _segmentProcessingTimeout, cancellationToken);
+        var result = await RunProcessAsync(startInfo, _mediaProcessingTimeout, cancellationToken);
         if (result.ExitCode != 0)
         {
             throw new InvalidOperationException($"ffmpeg duration probe failed: {result.Error}");

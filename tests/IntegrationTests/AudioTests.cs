@@ -80,6 +80,49 @@ public class AudioTests : TestBase
     }
 
     [TestMethod]
+    public async Task FailedInitialUploadIsDeletedAndCannotBeDownloaded()
+    {
+        await LoginAsAdmin();
+
+        const string audioName = "Invalid media upload";
+        var filePath = $"audio/invalid-{Guid.NewGuid():N}.mp4";
+        string physicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            await using var stream = new MemoryStream("not media"u8.ToArray());
+            await storage.SaveFromStream(filePath, stream, isVault: true);
+            physicalPath = storage.GetFilePhysicalPath(filePath, isVault: true);
+        }
+
+        var response = await PostForm(
+            "/Audio/Create",
+            new Dictionary<string, string>
+            {
+                { "Name", audioName },
+                { "FilePath", filePath }
+            },
+            "/Audio/Create");
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+
+        await Task.Delay(TimeSpan.FromSeconds(2));
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = await verificationDb.Audios.SingleAsync(item => item.Name == audioName);
+        Assert.AreEqual(AudioMediaStatus.Failed, audio.MediaStatus);
+        Assert.AreEqual("The uploaded file could not be processed.", audio.MediaProcessingError);
+        Assert.IsFalse(File.Exists(physicalPath));
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audio.Id}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        Assert.DoesNotContain(filePath, transcriptHtml);
+        Assert.DoesNotContain("Download Audio", transcriptHtml);
+        Assert.DoesNotContain("ffprobe", transcriptHtml);
+    }
+
+    [TestMethod]
     public async Task DeletePreservesAFileReferencedByAnotherAudio()
     {
         await LoginAsAdmin();
@@ -268,6 +311,122 @@ public class AudioTests : TestBase
         Assert.IsNull(audioAfterReset.AsrActiveTaskId);
         Assert.IsFalse(await verificationDb.AudioAsrResults.AnyAsync(result => result.AudioId == audioId));
         Assert.IsFalse(await verificationDb.AudioAsrSegments.AnyAsync(segment => segment.AudioId == audioId));
+    }
+
+    [TestMethod]
+    public async Task ResetAsrPreservesResultsWhenMediaIsNotReady()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var audio = new Audio
+            {
+                Name = "Failed media reset",
+                FilePath = "audio/failed-reset.mp3",
+                OwnerId = admin.Id,
+                MediaStatus = AudioMediaStatus.Failed,
+                AsrAttemptCount = 3
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Preserved transcript",
+                MeetingMinutesMarkdown = "# Preserved minutes"
+            });
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var response = await PostForm(
+            $"/Audio/ResetAsr/{audioId}",
+            new Dictionary<string, string>(),
+            "/Audio/Create");
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audioAfterReset = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(audioAfterReset);
+        Assert.AreEqual(3, audioAfterReset.AsrAttemptCount);
+        Assert.AreEqual(
+            "Preserved transcript",
+            (await verificationDb.AudioAsrResults.FindAsync(audioId))?.PlainText);
+    }
+
+    [TestMethod]
+    public async Task FailedReplacementPreservesOriginalRecordingAndTranscript()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        string originalFilePath;
+        string originalPhysicalPath;
+        string replacementFilePath;
+        string replacementPhysicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            originalFilePath = $"audio/original-{Guid.NewGuid():N}.wav";
+            await using var originalStream = new MemoryStream(CreateWaveFile());
+            await storage.SaveFromStream(originalFilePath, originalStream, isVault: true);
+            originalPhysicalPath = storage.GetFilePhysicalPath(originalFilePath, isVault: true);
+            replacementFilePath = $"audio/replacement-{Guid.NewGuid():N}.mp4";
+            await using var replacementStream = new MemoryStream("not media"u8.ToArray());
+            await storage.SaveFromStream(replacementFilePath, replacementStream, isVault: true);
+            replacementPhysicalPath = storage.GetFilePhysicalPath(replacementFilePath, isVault: true);
+            var audio = new Audio
+            {
+                Name = "Failed replacement",
+                FilePath = originalFilePath,
+                OwnerId = admin.Id
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Original transcript",
+                MeetingMinutesMarkdown = "# Original minutes"
+            });
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var response = await PostForm(
+            "/Audio/Edit",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "Name", "Failed replacement" },
+                { "FilePath", replacementFilePath }
+            },
+            $"/Audio/Edit/{audioId}");
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        await Task.Delay(TimeSpan.FromSeconds(2));
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audioAfterReplacement = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(audioAfterReplacement);
+        Assert.AreEqual(AudioMediaStatus.Ready, audioAfterReplacement.MediaStatus);
+        Assert.AreEqual(originalFilePath, audioAfterReplacement.FilePath);
+        Assert.IsNull(audioAfterReplacement.PendingFilePath);
+        Assert.AreEqual("The uploaded file could not be processed.", audioAfterReplacement.MediaProcessingError);
+        Assert.AreEqual(
+            "Original transcript",
+            (await verificationDb.AudioAsrResults.FindAsync(audioId))?.PlainText);
+        Assert.IsTrue(File.Exists(originalPhysicalPath));
+        Assert.IsFalse(File.Exists(replacementPhysicalPath));
+        File.Delete(originalPhysicalPath);
     }
 
     [TestMethod]

@@ -215,6 +215,11 @@ public class AudioController(
         var audio = await context.Audios.FindAsync(id);
         if (audio == null) return NotFound();
         if (!await CanManageAudioAsync(audio)) return Unauthorized();
+        if (audio.MediaStatus != AudioMediaStatus.Ready)
+        {
+            TempData["AsrResetUnavailable"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
 
         try
         {
