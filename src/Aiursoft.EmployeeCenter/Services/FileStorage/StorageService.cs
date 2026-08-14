@@ -23,13 +23,29 @@ public class StorageService(
     /// <param name="logicalPath">The logical path (relative to Workspace) where the file will be saved.</param>
     /// <param name="file">The file to be saved.</param>
     /// <param name="isVault">Whether to save to the private Vault.</param>
+    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
     /// <returns>The actual logical path where the file is saved (may differ if renamed).</returns>
-    public async Task<string> Save(string logicalPath, IFormFile file, bool isVault = false)
+    public async Task<string> Save(
+        string logicalPath,
+        IFormFile file,
+        bool isVault = false,
+        CancellationToken cancellationToken = default)
     {
         var (root, physicalPath) = await ResolveSavePath(logicalPath, isVault);
 
-        await using var fileStream = new FileStream(physicalPath, FileMode.Create);
-        await file.CopyToAsync(fileStream);
+        try
+        {
+            await using var fileStream = new FileStream(physicalPath, FileMode.Create);
+            await file.CopyToAsync(fileStream, cancellationToken);
+        }
+        catch
+        {
+            if (File.Exists(physicalPath))
+            {
+                File.Delete(physicalPath);
+            }
+            throw;
+        }
 
         return Path.GetRelativePath(root, physicalPath).Replace("\\", "/");
     }
@@ -50,13 +66,7 @@ public class StorageService(
     private async Task<(string root, string physicalPath)> ResolveSavePath(string logicalPath, bool isVault)
     {
         var root = isVault ? folders.GetVaultFolder() : folders.GetWorkspaceFolder();
-
-        var physicalPath = Path.GetFullPath(Path.Combine(root, logicalPath));
-
-        if (!physicalPath.StartsWith(root, StringComparison.OrdinalIgnoreCase))
-        {
-            throw new ArgumentException("Path traversal attempt detected!");
-        }
+        var physicalPath = ResolvePhysicalPath(root, logicalPath);
 
         var directory = Path.GetDirectoryName(physicalPath);
         if (!Directory.Exists(directory))
@@ -91,12 +101,33 @@ public class StorageService(
     public string GetFilePhysicalPath(string logicalPath, bool isVault = false)
     {
         var root = isVault ? folders.GetVaultFolder() : folders.GetWorkspaceFolder();
-        var physicalPath = Path.GetFullPath(Path.Combine(root, logicalPath));
+        return ResolvePhysicalPath(root, logicalPath);
+    }
 
-        if (!physicalPath.StartsWith(root, StringComparison.OrdinalIgnoreCase))
+    public string GetVaultSubfolderFilePhysicalPath(string logicalPath, string subfolder)
+    {
+        var vaultRoot = folders.GetVaultFolder();
+        var subfolderRoot = ResolvePhysicalPath(vaultRoot, subfolder);
+        return ResolvePhysicalPath(subfolderRoot, Path.GetRelativePath(subfolder, logicalPath));
+    }
+
+    private static string ResolvePhysicalPath(string root, string logicalPath)
+    {
+        if (string.IsNullOrWhiteSpace(logicalPath) || Path.IsPathRooted(logicalPath))
         {
-            throw new ArgumentException("Restricted path access!");
+            throw new ArgumentException("Restricted path access!", nameof(logicalPath));
         }
+
+        var normalizedRoot = Path.GetFullPath(root);
+        var physicalPath = Path.GetFullPath(Path.Combine(normalizedRoot, logicalPath));
+        var relativePath = Path.GetRelativePath(normalizedRoot, physicalPath);
+        if (relativePath == ".." ||
+            relativePath.StartsWith($"..{Path.DirectorySeparatorChar}", StringComparison.Ordinal) ||
+            Path.IsPathRooted(relativePath))
+        {
+            throw new ArgumentException("Restricted path access!", nameof(logicalPath));
+        }
+
         return physicalPath;
     }
 

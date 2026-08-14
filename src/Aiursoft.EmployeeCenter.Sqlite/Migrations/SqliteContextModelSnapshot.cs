@@ -217,8 +217,21 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("AsrActiveTaskId")
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("AsrAttemptCount")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("AsrProcessingToken")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(32)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AsrTerminalError")
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("TEXT");
@@ -234,6 +247,21 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Property<DateTime?>("LastAsrAttemptTime")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("MediaProcessingError")
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("MediaProcessingStartedTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MediaProcessingToken")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(32)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MediaStatus")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -243,9 +271,22 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PendingFilePath")
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("FilePath");
+
                     b.HasIndex("OwnerId");
+
+                    b.HasIndex("PendingFilePath")
+                        .IsUnique();
+
+                    b.HasIndex("MediaStatus", "CreateTime");
+
+                    b.HasIndex("MediaStatus", "MediaProcessingStartedTime");
 
                     b.ToTable("Audios");
                 });
@@ -274,6 +315,82 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.HasKey("AudioId");
 
                     b.ToTable("AudioAsrResults");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrSegment", b =>
+                {
+                    b.Property<int>("AudioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SegmentIndex")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("CoreEndMilliseconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("CoreStartMilliseconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<long>("InputEndMilliseconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<long>("InputStartMilliseconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OverlapSeconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PlainText")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("SegmentDurationSeconds")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SegmentsJson")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AudioId", "SegmentIndex");
+
+                    b.ToTable("AudioAsrSegments");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioFileDeletion", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("AttemptCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsDeadLetter")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LastError")
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("NextAttemptTime")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeadLetter", "NextAttemptTime");
+
+                    b.ToTable("AudioFileDeletions");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
@@ -2495,6 +2612,17 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Navigation("Audio");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioAsrSegment", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
+                        .WithMany("AsrSegments")
+                        .HasForeignKey("AudioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Audio");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AudioShare", b =>
                 {
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.Audio", "Audio")
@@ -3156,6 +3284,8 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Audio", b =>
                 {
                     b.Navigation("AsrResult");
+
+                    b.Navigation("AsrSegments");
 
                     b.Navigation("AudioShares");
                 });

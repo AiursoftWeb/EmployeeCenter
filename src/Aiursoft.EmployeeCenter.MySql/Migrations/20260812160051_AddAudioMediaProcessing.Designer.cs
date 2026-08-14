@@ -4,6 +4,7 @@ using Aiursoft.EmployeeCenter.MySql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.EmployeeCenter.MySql.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    partial class MySqlContextModelSnapshot : ModelSnapshot
+    [Migration("20260812160051_AddAudioMediaProcessing")]
+    partial class AddAudioMediaProcessing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -298,10 +301,6 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.HasIndex("PendingFilePath")
                         .IsUnique();
-
-                    b.HasIndex("MediaStatus", "CreateTime");
-
-                    b.HasIndex("MediaStatus", "MediaProcessingStartedTime");
 
                     b.ToTable("Audios");
                 });

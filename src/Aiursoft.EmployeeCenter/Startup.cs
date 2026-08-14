@@ -39,9 +39,16 @@ public class Startup : IWebStartup
         }
 
         var asrSettings = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>();
-        if (!EntryExtends.IsInUnitTests() && asrSettings is { Enabled: true } && (string.IsNullOrEmpty(asrSettings.Endpoint) || string.IsNullOrEmpty(asrSettings.BearerToken)))
+        if (!EntryExtends.IsInUnitTests() &&
+            asrSettings is { Enabled: true } &&
+            (string.IsNullOrEmpty(asrSettings.Endpoint) ||
+             string.IsNullOrEmpty(asrSettings.BearerToken)))
         {
             throw new InvalidOperationException("ASR is enabled but Endpoint or BearerToken is not configured in AppSettings:ASR. Please configure them or set Enabled to false.");
+        }
+        if (!EntryExtends.IsInUnitTests() && asrSettings is { Enabled: true })
+        {
+            asrSettings.ValidateSegmentation();
         }
 
         // Relational database
@@ -90,8 +97,8 @@ public class Startup : IWebStartup
         });
         services.AddHttpClient<Services.AsrService>(client =>
         {
-            var asrConfig = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>();
-            client.Timeout = TimeSpan.FromSeconds(asrConfig?.TimeoutSeconds ?? 1800);
+            var asrConfig = configuration.GetSection("AppSettings:ASR").Get<AsrSettings>() ?? new AsrSettings();
+            client.Timeout = asrConfig.GetProcessingTimeout();
         });
         services.AddHttpClient<Services.MeetingMinutesService>(client =>
         {
@@ -117,6 +124,12 @@ public class Startup : IWebStartup
 
         var audioAsrJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AudioAsrJob>();
         services.RegisterScheduledTask(registration: audioAsrJob, period: TimeSpan.FromHours(12), startDelay: TimeSpan.FromMinutes(25));
+
+        var audioMediaJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AudioMediaJob>();
+        services.RegisterScheduledTask(registration: audioMediaJob, period: TimeSpan.FromMinutes(5), startDelay: TimeSpan.FromMinutes(1));
+
+        var audioFileCleanupJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AudioFileCleanupJob>();
+        services.RegisterScheduledTask(registration: audioFileCleanupJob, period: TimeSpan.FromMinutes(5), startDelay: TimeSpan.FromMinutes(2));
 
         var meetingMinutesJob = services.RegisterBackgroundJob<Services.BackgroundJobs.MeetingMinutesJob>();
         services.RegisterScheduledTask(registration: meetingMinutesJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromMinutes(30));

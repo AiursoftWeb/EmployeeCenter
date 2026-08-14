@@ -15,11 +15,33 @@ public class Audio
     [MaxLength(200)]
     public required string FilePath { get; set; }
 
+    [MaxLength(200)]
+    public string? PendingFilePath { get; set; }
+
+    public AudioMediaStatus MediaStatus { get; set; } = AudioMediaStatus.Ready;
+
+    [MaxLength(1000)]
+    public string? MediaProcessingError { get; set; }
+
+    [MaxLength(32)]
+    public string? MediaProcessingToken { get; set; }
+
+    public DateTime? MediaProcessingStartedTime { get; set; }
+
     public int AsrAttemptCount { get; set; }
 
     public int EmptyResultCount { get; set; }
 
     public DateTime? LastAsrAttemptTime { get; set; }
+
+    [MaxLength(32)]
+    public string? AsrProcessingToken { get; set; }
+
+    [MaxLength(128)]
+    public string? AsrActiveTaskId { get; set; }
+
+    [MaxLength(1000)]
+    public string? AsrTerminalError { get; set; }
 
     public DateTime CreateTime { get; set; } = DateTime.UtcNow;
 
@@ -38,4 +60,6 @@ public class Audio
     public List<AudioShare> AudioShares { get; set; } = [];
 
     public AudioAsrResult? AsrResult { get; set; }
+
+    public List<AudioAsrSegment> AsrSegments { get; set; } = [];
 }

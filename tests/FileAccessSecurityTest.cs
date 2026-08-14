@@ -57,6 +57,7 @@ public class FileAccessSecurityTest
     [DataRow("../secret.txt")]
     [DataRow("../../etc/passwd")]
     [DataRow("/etc/passwd")]
+    [DataRow("../WorkspaceOther/secret.txt")]
     public void TestGetFilePhysicalPath_PathTraversal(string maliciousPath)
     {
         try
@@ -68,6 +69,16 @@ public class FileAccessSecurityTest
         {
             // Expected
         }
+    }
+
+    [TestMethod]
+    [DataRow("audio/../collection-record/example.mp4")]
+    [DataRow("audio/../../VaultOther/example.mp4")]
+    [DataRow("collection-record/example.mp4")]
+    public void TestGetVaultSubfolderFilePhysicalPath_RejectsPathsOutsideAudio(string maliciousPath)
+    {
+        Assert.ThrowsExactly<ArgumentException>(() =>
+            _storageService.GetVaultSubfolderFilePhysicalPath(maliciousPath, "audio"));
     }
 
     [TestMethod]
