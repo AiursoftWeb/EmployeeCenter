@@ -9,10 +9,45 @@
 
 @{
     var hasTranscript = !string.IsNullOrEmpty(Model.PlainText);
-    var hasFailed = !hasTranscript && Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount;
+    var hasFailed = !hasTranscript &&
+        (Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount || Model.Audio.AsrTerminalError != null);
     var hasMeetingMinutes = !string.IsNullOrWhiteSpace(Model.MeetingMinutesMarkdown);
     var meetingMinutesFailed = hasTranscript && !hasMeetingMinutes && Model.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount;
-    var audioUrl = StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true);
+    var hasPlayableMedia = Model.Audio.MediaStatus == AudioMediaStatus.Ready || Model.Audio.PendingFilePath != null;
+    var audioUrl = hasPlayableMedia
+        ? StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true)
+        : null;
+}
+
+@if (Model.Audio.MediaStatus is AudioMediaStatus.Uploaded or AudioMediaStatus.Processing)
+{
+    <div class="alert alert-info alert-outline-coloured" role="alert">
+        <div class="alert-icon"><i class="align-middle" data-lucide="loader"></i></div>
+        <div class="alert-message">
+            <strong>@Localizer["Processing uploaded media"]</strong>
+            <div class="mt-1">@Localizer["The recording is being prepared in the background. The existing recording remains available during replacement."]</div>
+        </div>
+    </div>
+}
+else if (Model.Audio.MediaStatus == AudioMediaStatus.Failed)
+{
+    <div class="alert alert-danger alert-outline-coloured" role="alert">
+        <div class="alert-icon"><i class="align-middle" data-lucide="x-circle"></i></div>
+        <div class="alert-message">
+            <strong>@Localizer["Media processing failed"]</strong>
+            <div class="mt-1">@Model.Audio.MediaProcessingError</div>
+        </div>
+    </div>
+}
+else if (Model.Audio.MediaProcessingError != null)
+{
+    <div class="alert alert-warning alert-outline-coloured" role="alert">
+        <div class="alert-icon"><i class="align-middle" data-lucide="alert-triangle"></i></div>
+        <div class="alert-message">
+            <strong>@Localizer["Media replacement failed"]</strong>
+            <div class="mt-1">@Model.Audio.MediaProcessingError</div>
+        </div>
+    </div>
 }
 
 <div class="row mb-2 mb-xl-3">
@@ -23,9 +58,12 @@
         </p>
     </div>
     <div class="col-12 col-md-auto mt-2 mt-md-0 text-md-end">
-        <a href="@audioUrl" class="btn btn-light bg-white shadow-sm" target="_blank">
-            <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Download Audio"]
-        </a>
+        @if (hasPlayableMedia)
+        {
+            <a href="@audioUrl" class="btn btn-light bg-white shadow-sm" target="_blank">
+                <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Download Audio"]
+            </a>
+        }
         @if (Model.Permission == SharePermission.Editable)
         {
             <a asp-action="Edit" asp-route-id="@Model.Audio.Id" class="btn btn-outline-primary shadow-sm">
@@ -37,6 +75,42 @@
         </a>
     </div>
 </div>
+
+@if (TempData["AsrTaskQueued"] is true)
+{
+    <div class="alert alert-success alert-outline-coloured" role="alert">
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="check-circle"></i>
+        </div>
+        <div class="alert-message">
+            @Localizer["An offline ASR task has been created. Please do not create it again."]
+        </div>
+    </div>
+}
+
+@if (TempData["AsrResetError"] is true)
+{
+    <div class="alert alert-danger alert-outline-coloured" role="alert">
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="alert-circle"></i>
+        </div>
+        <div class="alert-message">
+            @Localizer["The active ASR task could not be cancelled. No changes were made. Please try again."]
+        </div>
+    </div>
+}
+
+@if (TempData["AsrResetUnavailable"] is true)
+{
+    <div class="alert alert-warning alert-outline-coloured" role="alert">
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="alert-triangle"></i>
+        </div>
+        <div class="alert-message">
+            @Localizer["ASR can only be reset after media processing succeeds."]
+        </div>
+    </div>
+}
 
 <div class="row">
     <div class="col-12 col-xl-8">
@@ -161,10 +235,17 @@
                     }
                 </div>
                 <div class="card-body">
-                    <audio controls preload="metadata" class="w-100">
-                        <source src="@audioUrl" type="audio/mpeg">
-                        @Localizer["Your browser does not support audio playback."]
-                    </audio>
+                    @if (hasPlayableMedia)
+                    {
+                        <audio controls preload="metadata" class="w-100">
+                            <source src="@audioUrl">
+                            @Localizer["Your browser does not support audio playback."]
+                        </audio>
+                    }
+                    else
+                    {
+                        <span class="text-muted">@Localizer["No playable audio is available."]</span>
+                    }
                 </div>
             </div>
 
@@ -191,16 +272,12 @@
                         </span>
                     </div>
                 </div>
-                @if (Model.CanManageShares)
+                @if (Model.CanManageShares && Model.Audio.MediaStatus == AudioMediaStatus.Ready)
                 {
                     <div class="card-footer">
-                        <form asp-action="ResetAsr" method="post" class="d-grid">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@Model.Audio.Id" />
-                            <button type="submit" class="btn btn-warning">
-                                <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Reset & Retry ASR"]
-                            </button>
-                        </form>
+                        <button type="button" class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#resetAsrModal">
+                            <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Reset & Retry ASR"]
+                        </button>
                     </div>
                 }
             </div>
@@ -221,6 +298,35 @@
         </div>
     </div>
 </div>
+
+@if (Model.CanManageShares && Model.Audio.MediaStatus == AudioMediaStatus.Ready)
+{
+    <div class="modal modal-blur fade" id="resetAsrModal" tabindex="-1" role="dialog" aria-labelledby="resetAsrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resetAsrModalLabel">@Localizer["Confirm ASR Reset"]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
+                </div>
+                <form asp-action="ResetAsr" method="post" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Audio.Id" />
+                    <div class="modal-body">
+                        <p class="mb-0">
+                            @Localizer["Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?"]
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link link-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                        <button type="submit" class="btn btn-warning ms-auto">
+                            <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Confirm Reset"]
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {

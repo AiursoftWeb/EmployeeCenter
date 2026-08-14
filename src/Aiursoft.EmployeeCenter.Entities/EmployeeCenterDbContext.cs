@@ -263,12 +263,16 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     /// </summary>
     public DbSet<Audio> Audios => Set<Audio>();
 
+    public DbSet<AudioFileDeletion> AudioFileDeletions => Set<AudioFileDeletion>();
+
     public DbSet<AudioShare> AudioShares => Set<AudioShare>();
 
     /// <summary>
     /// Stores plain-text transcripts produced by the ASR service for audio recordings.
     /// </summary>
     public DbSet<AudioAsrResult> AudioAsrResults => Set<AudioAsrResult>();
+
+    public DbSet<AudioAsrSegment> AudioAsrSegments => Set<AudioAsrSegment>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -288,11 +292,46 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             .HasForeignKey(a => a.OwnerId)
             .OnDelete(DeleteBehavior.SetNull);
 
+        builder.Entity<Audio>()
+            .HasIndex(a => a.FilePath);
+
+        builder.Entity<Audio>()
+            .HasIndex(a => a.PendingFilePath)
+            .IsUnique();
+
+        builder.Entity<Audio>()
+            .HasIndex(a => new { a.MediaStatus, a.MediaProcessingStartedTime });
+
+        builder.Entity<Audio>()
+            .HasIndex(a => new { a.MediaStatus, a.CreateTime });
+
+        builder.Entity<AudioFileDeletion>(entity =>
+        {
+            entity.HasIndex(deletion => new { deletion.IsDeadLetter, deletion.NextAttemptTime });
+        });
+
         builder.Entity<AudioAsrResult>()
             .HasOne(r => r.Audio)
             .WithOne(a => a.AsrResult)
             .HasForeignKey<AudioAsrResult>(r => r.AudioId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<AudioAsrSegment>(entity =>
+        {
+            entity.HasKey(segment => new { segment.AudioId, segment.SegmentIndex });
+            entity.HasOne(segment => segment.Audio)
+                .WithMany(audio => audio.AsrSegments)
+                .HasForeignKey(segment => segment.AudioId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        builder.Entity<Audio>()
+            .Property(audio => audio.AsrProcessingToken)
+            .IsConcurrencyToken();
+
+        builder.Entity<Audio>()
+            .Property(audio => audio.MediaProcessingToken)
+            .IsConcurrencyToken();
 
         builder.Entity<AudioShare>(entity =>
         {

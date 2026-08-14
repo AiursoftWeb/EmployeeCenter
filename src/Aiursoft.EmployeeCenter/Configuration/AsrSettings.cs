@@ -2,13 +2,45 @@ namespace Aiursoft.EmployeeCenter.Configuration;
 
 public class AsrSettings
 {
+    private const int UploadAndCleanupBufferSeconds = 10 * 60;
+
     public bool Enabled { get; init; } = true;
     public string? Endpoint { get; init; }
     public string? BearerToken { get; init; }
     public string Model { get; init; } = "whisperx";
     public string? Level { get; init; } = "large-v3";
     public string? Language { get; init; }
-    public int TimeoutSeconds { get; init; } = 1800;
+    public int SegmentDurationSeconds { get; init; } = 30 * 60;
+    public int SegmentOverlapSeconds { get; init; } = 2;
+    public bool PreferOriginalSegmentCodec { get; init; } = true;
+    public int TimeoutSeconds { get; init; } = 7200;
+    public int MediaProcessingTimeoutSeconds { get; init; } = 1800;
+    public int MaxConcurrentFfmpegProcesses { get; init; } = 2;
     public int AsrMaxRetryCount { get; init; } = 30;
     public int AsrMaxEmptyRetryCount { get; init; } = 10;
+
+    public TimeSpan GetProcessingTimeout()
+    {
+        return TimeSpan.FromSeconds(TimeoutSeconds + UploadAndCleanupBufferSeconds);
+    }
+
+    public void ValidateSegmentation()
+    {
+        if (SegmentDurationSeconds <= 0)
+        {
+            throw new InvalidOperationException("ASR segment duration must be greater than zero.");
+        }
+        if (SegmentOverlapSeconds < 0 || SegmentOverlapSeconds >= SegmentDurationSeconds)
+        {
+            throw new InvalidOperationException("ASR segment overlap must be non-negative and less than the segment duration.");
+        }
+        if (MediaProcessingTimeoutSeconds <= 0)
+        {
+            throw new InvalidOperationException("Media processing timeout must be greater than zero.");
+        }
+        if (MaxConcurrentFfmpegProcesses <= 0)
+        {
+            throw new InvalidOperationException("Maximum concurrent ffmpeg processes must be greater than zero.");
+        }
+    }
 }

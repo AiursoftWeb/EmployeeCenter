@@ -19,10 +19,13 @@ public class AudioController(
     EmployeeCenterDbContext context,
     AsrService asrService,
     ServiceTaskQueue taskQueue,
+    AudioMediaQueueService mediaQueueService,
+    AudioFileCleanupService fileCleanupService,
     StorageService storageService,
     UserManager<User> userManager,
     RoleManager<IdentityRole> roleManager,
-    IAuthorizationService authorizationService)
+    IAuthorizationService authorizationService,
+    ILogger<AudioController> logger)
     : Controller
 {
     private const int AudioPageSize = 50;
@@ -113,12 +116,14 @@ public class AudioController(
             {
                 Name = model.Name,
                 FilePath = filePath,
+                MediaStatus = AudioMediaStatus.Uploaded,
                 CreateTime = DateTime.UtcNow,
                 OwnerId = user!.Id
             };
             context.Audios.Add(audio);
             await context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            QueueMediaProcessing(audio.Id);
+            return RedirectToAction(nameof(Transcript), new { id = audio.Id });
         }
 
         return this.StackView(model);
@@ -155,17 +160,26 @@ public class AudioController(
 
         var replaceAudio = audio.FilePath != filePath;
         audio.Name = model.Name;
-        audio.FilePath = filePath;
-        if (replaceAudio)
+        if (!replaceAudio)
         {
-            var transcript = await context.AudioAsrResults.FindAsync(audio.Id);
-            if (transcript != null) context.AudioAsrResults.Remove(transcript);
-            audio.AsrAttemptCount = 0;
-            audio.EmptyResultCount = 0;
-            audio.LastAsrAttemptTime = null;
+            await context.SaveChangesAsync();
+            return RedirectToAction(nameof(Transcript), new { id = audio.Id });
+        }
+        if (audio.MediaStatus == AudioMediaStatus.Processing)
+        {
+            ModelState.AddModelError(nameof(model.FilePath), "Another recording replacement is already being processed.");
+            return this.StackView(model);
         }
 
+        var abandonedPendingPath = audio.PendingFilePath;
+        audio.PendingFilePath = filePath;
+        audio.MediaStatus = AudioMediaStatus.Uploaded;
+        audio.MediaProcessingError = null;
+        audio.MediaProcessingToken = Guid.NewGuid().ToString("N");
+        fileCleanupService.QueueDeletion(abandonedPendingPath);
         await context.SaveChangesAsync();
+        await fileCleanupService.TryCleanupQueuedAsync();
+        QueueMediaProcessing(audio.Id);
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
 
@@ -201,24 +215,47 @@ public class AudioController(
         var audio = await context.Audios.FindAsync(id);
         if (audio == null) return NotFound();
         if (!await CanManageAudioAsync(audio)) return Unauthorized();
+        if (audio.MediaStatus != AudioMediaStatus.Ready)
+        {
+            TempData["AsrResetUnavailable"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
 
+        try
+        {
+            await asrService.CancelActiveTaskAsync(audio);
+        }
+        catch (Exception)
+        {
+            TempData["AsrResetError"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
         var existingResult = await context.AudioAsrResults.FirstOrDefaultAsync(r => r.AudioId == id);
         if (existingResult != null)
         {
             context.AudioAsrResults.Remove(existingResult);
         }
+        var segments = await context.AudioAsrSegments
+            .Where(segment => segment.AudioId == id)
+            .ToListAsync();
+        context.AudioAsrSegments.RemoveRange(segments);
 
         audio.AsrAttemptCount = 0;
         audio.EmptyResultCount = 0;
         audio.LastAsrAttemptTime = null;
+        audio.AsrProcessingToken = Guid.NewGuid().ToString("N");
+        audio.AsrActiveTaskId = null;
+        audio.AsrTerminalError = null;
         await context.SaveChangesAsync();
 
         // 将 ASR 处理放入独立后台任务，避免长耗时（最长 TimeoutSeconds）请求阻塞当前 HTTP 请求。
+        var asrProcessingToken = audio.AsrProcessingToken;
         taskQueue.QueueWithDependency<AsrService>(
             queueName: "asr",
             taskName: $"Reset ASR for audio {id}",
-            task: svc => svc.ProcessAudioAsrAsync(id));
+            task: svc => svc.ProcessAudioAsrAsync(id, asrProcessingToken));
 
+        TempData["AsrTaskQueued"] = true;
         return RedirectToAction(nameof(Transcript), new { id });
     }
 
@@ -230,8 +267,24 @@ public class AudioController(
         if (audio == null) return NotFound();
         if (!await CanManageAudioAsync(audio)) return Unauthorized();
 
+        try
+        {
+            await asrService.CancelActiveTaskAsync(audio);
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(
+                ex,
+                "Deleting audio {AudioId} after its active ASR task could not be cancelled.",
+                audio.Id);
+        }
+        var filePath = audio.FilePath;
+        var pendingFilePath = audio.PendingFilePath;
         context.Audios.Remove(audio);
+        fileCleanupService.QueueDeletion(filePath);
+        fileCleanupService.QueueDeletion(pendingFilePath);
         await context.SaveChangesAsync();
+        await fileCleanupService.TryCleanupQueuedAsync();
 
         return RedirectToAction(nameof(Index));
     }
@@ -399,7 +452,7 @@ public class AudioController(
         filePath = string.Empty;
         try
         {
-            var physicalPath = storageService.GetFilePhysicalPath(logicalPath, isVault: true);
+            var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(logicalPath, "audio");
             if (!System.IO.File.Exists(physicalPath)) return false;
             filePath = logicalPath;
             return true;
@@ -408,6 +461,11 @@ public class AudioController(
         {
             return false;
         }
+    }
+
+    private void QueueMediaProcessing(int audioId)
+    {
+        mediaQueueService.QueueIfNotActive(audioId);
     }
 
     private async Task<List<string>> GetUserRoleIdsAsync()
