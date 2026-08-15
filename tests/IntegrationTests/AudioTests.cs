@@ -11,6 +11,52 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 public class AudioTests : TestBase
 {
     [TestMethod]
+    public async Task TranscriptPageShowsSeparateSpeechToTextAndSummaryProgress()
+    {
+        await LoginAsAdmin();
+
+        int pendingAudioId;
+        int transcribingAudioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var pendingAudio = new Audio
+            {
+                Name = "Pending speech-to-text",
+                FilePath = "audio/pending-speech-to-text.mp3",
+                OwnerId = admin.Id
+            };
+            var transcribingAudio = new Audio
+            {
+                Name = "Active speech-to-text",
+                FilePath = "audio/active-speech-to-text.mp3",
+                OwnerId = admin.Id,
+                AsrAttemptCount = 1,
+                LastAsrAttemptTime = DateTime.UtcNow
+            };
+            db.Audios.AddRange(pendingAudio, transcribingAudio);
+            await db.SaveChangesAsync();
+            pendingAudioId = pendingAudio.Id;
+            transcribingAudioId = transcribingAudio.Id;
+        }
+
+        var pendingResponse = await Http.GetAsync($"/Audio/Transcript/{pendingAudioId}");
+        pendingResponse.EnsureSuccessStatusCode();
+        var pendingHtml = await pendingResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(pendingHtml, "Waiting to transcribe audio");
+        StringAssert.Contains(pendingHtml, "Waiting for speech-to-text to finish");
+        Assert.AreEqual(2, pendingHtml.Split("progress-bar-animated").Length - 1);
+
+        var transcribingResponse = await Http.GetAsync($"/Audio/Transcript/{transcribingAudioId}");
+        transcribingResponse.EnsureSuccessStatusCode();
+        var transcribingHtml = await transcribingResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcribingHtml, "Transcribing audio");
+        StringAssert.Contains(transcribingHtml, "Waiting for speech-to-text to finish");
+        Assert.AreEqual(2, transcribingHtml.Split("progress-bar-animated").Length - 1);
+    }
+
+    [TestMethod]
     public async Task CreateAcceptsExistingVaultLogicalPath()
     {
         await LoginAsAdmin();

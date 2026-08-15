@@ -13,6 +13,7 @@
         (Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount || Model.Audio.AsrTerminalError != null);
     var hasMeetingMinutes = !string.IsNullOrWhiteSpace(Model.MeetingMinutesMarkdown);
     var meetingMinutesFailed = hasTranscript && !hasMeetingMinutes && Model.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount;
+    var isTranscribing = !hasTranscript && !hasFailed && Model.Audio.AsrAttemptCount > 0;
     var hasPlayableMedia = Model.Audio.MediaStatus == AudioMediaStatus.Ready || Model.Audio.PendingFilePath != null;
     var audioUrl = hasPlayableMedia
         ? StorageService.RelativePathToInternetUrl(Model.Audio.FilePath, isVault: true)
@@ -128,7 +129,9 @@ else if (Model.Audio.MediaProcessingError != null)
                     }
                     else
                     {
-                        <span class="badge badge-subtle-warning ms-auto"><i class="align-middle me-1" data-lucide="loader"></i>@Localizer[hasTranscript ? "Generating" : "Waiting for transcript"]</span>
+                        <span class="badge badge-subtle-warning ms-auto">
+                            <i class="align-middle me-1" data-lucide="loader"></i>@Localizer[hasTranscript ? "Generating meeting summary" : "Waiting for speech-to-text"]
+                        </span>
                     }
                 </div>
                 <div class="card-body">
@@ -150,14 +153,26 @@ else if (Model.Audio.MediaProcessingError != null)
                     {
                         <div class="alert alert-info alert-outline-coloured mb-0" role="alert">
                             <div class="alert-icon"><i class="align-middle" data-lucide="loader"></i></div>
-                            <div class="alert-message">@Localizer["The transcript is complete. Meeting minutes are being generated in the background."]</div>
+                            <div class="alert-message">
+                                <strong>@Localizer["Generating meeting summary"]</strong>
+                                <div class="mt-1">@Localizer["Speech-to-text is complete. The meeting summary is now being prepared."]</div>
+                                <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer["Generating meeting summary"]">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated w-100"></div>
+                                </div>
+                            </div>
                         </div>
                     }
                     else
                     {
                         <div class="alert alert-secondary alert-outline-coloured mb-0" role="alert">
                             <div class="alert-icon"><i class="align-middle" data-lucide="clock"></i></div>
-                            <div class="alert-message">@Localizer["Meeting minutes will be generated after transcription is complete."]</div>
+                            <div class="alert-message">
+                                <strong>@Localizer["Waiting for speech-to-text to finish"]</strong>
+                                <div class="mt-1">@Localizer["The meeting summary will start automatically after speech-to-text is complete."]</div>
+                                <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer["Waiting for speech-to-text to finish"]">
+                                    <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated w-100"></div>
+                                </div>
+                            </div>
                         </div>
                     }
                 </div>
@@ -198,8 +213,15 @@ else if (Model.Audio.MediaProcessingError != null)
                             }
                             else
                             {
-                                <strong>@Localizer["Processing"]</strong>
-                                <div class="mt-1">@Localizer["No transcript available for this audio. It might still be processing or failed."]</div>
+                                <strong>@Localizer[isTranscribing ? "Transcribing audio" : "Waiting to transcribe audio"]</strong>
+                                <div class="mt-1">
+                                    @Localizer[isTranscribing
+                                        ? "Speech-to-text is processing the recording. The transcript will appear here automatically when it is ready."
+                                        : "The speech-to-text task is queued and will begin shortly."]
+                                </div>
+                                <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer[isTranscribing ? "Transcribing audio" : "Waiting to transcribe audio"]">
+                                    <div class="progress-bar @(isTranscribing ? "" : "bg-secondary") progress-bar-striped progress-bar-animated w-100"></div>
+                                </div>
                             }
                         </div>
                     </div>
