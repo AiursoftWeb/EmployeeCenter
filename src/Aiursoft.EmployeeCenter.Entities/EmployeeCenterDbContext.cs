@@ -316,6 +316,10 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
             .HasForeignKey<AudioAsrResult>(r => r.AudioId)
             .OnDelete(DeleteBehavior.Cascade);
 
+        builder.Entity<AudioAsrResult>()
+            .Property(result => result.TranscriptRevision)
+            .IsConcurrencyToken();
+
         builder.Entity<AudioAsrSegment>(entity =>
         {
             entity.HasKey(segment => new { segment.AudioId, segment.SegmentIndex });

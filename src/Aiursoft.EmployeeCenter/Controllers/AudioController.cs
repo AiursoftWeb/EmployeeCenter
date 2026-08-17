@@ -20,6 +20,7 @@ public class AudioController(
     AsrService asrService,
     ServiceTaskQueue taskQueue,
     AudioMediaQueueService mediaQueueService,
+    MeetingMinutesQueueService meetingMinutesQueueService,
     AudioFileCleanupService fileCleanupService,
     StorageService storageService,
     UserManager<User> userManager,
@@ -68,6 +69,8 @@ public class AudioController(
                 HasTranscript = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText != ""),
                 IsEmptyResult = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText == ""),
                 HasMeetingMinutes = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.MeetingMinutesMarkdown != null && r.MeetingMinutesMarkdown != ""),
+                MeetingMinutesOutdated = context.AudioAsrResults.Any(r =>
+                    r.AudioId == a.Id && r.TranscriptRevision != r.MeetingMinutesTranscriptRevision),
                 MeetingMinutesAttemptCount = context.AudioAsrResults
                     .Where(r => r.AudioId == a.Id)
                     .Select(r => r.MeetingMinutesAttemptCount)
@@ -183,6 +186,94 @@ public class AudioController(
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
 
+    public async Task<IActionResult> Rename(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        return this.StackView(new RenameViewModel
+        {
+            Id = audio.Id,
+            Name = audio.Name
+        });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Rename(RenameViewModel model)
+    {
+        var audio = await context.Audios.FindAsync(model.Id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+        if (!ModelState.IsValid) return this.StackView(model);
+
+        audio.Name = model.Name;
+        await context.SaveChangesAsync();
+        return RedirectToAction(nameof(Transcript), new { id = audio.Id });
+    }
+
+    public async Task<IActionResult> EditTranscript(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        var asrResult = await context.AudioAsrResults.FindAsync(id);
+        if (asrResult == null || string.IsNullOrEmpty(asrResult.PlainText)) return NotFound();
+
+        return this.StackView(new EditTranscriptViewModel
+        {
+            Id = audio.Id,
+            PlainText = asrResult.PlainText
+        });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> EditTranscript(EditTranscriptViewModel model)
+    {
+        var audio = await context.Audios.FindAsync(model.Id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        var asrResult = await context.AudioAsrResults.FindAsync(model.Id);
+        if (asrResult == null || string.IsNullOrEmpty(asrResult.PlainText)) return NotFound();
+        if (!ModelState.IsValid) return this.StackView(model);
+
+        if (asrResult.PlainText != model.PlainText)
+        {
+            asrResult.PlainText = model.PlainText;
+            asrResult.TranscriptRevision++;
+            asrResult.MeetingMinutesAttemptCount = 0;
+            asrResult.LastMeetingMinutesAttemptTime = null;
+            await context.SaveChangesAsync();
+        }
+        return RedirectToAction(nameof(Transcript), new { id = audio.Id });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RegenerateMeetingMinutes(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        var asrResult = await context.AudioAsrResults
+            .AsNoTracking()
+            .FirstOrDefaultAsync(result => result.AudioId == id);
+        if (asrResult == null || string.IsNullOrWhiteSpace(asrResult.PlainText)) return NotFound();
+        if (asrResult.TranscriptRevision == asrResult.MeetingMinutesTranscriptRevision)
+        {
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
+
+        meetingMinutesQueueService.QueueIfNotActive(id, asrResult.TranscriptRevision);
+        TempData["MeetingMinutesRegenerationQueued"] = true;
+        return RedirectToAction(nameof(Transcript), new { id });
+    }
+
     public async Task<IActionResult> Transcript(int id)
     {
         var audio = await context.Audios.FirstOrDefaultAsync(a => a.Id == id);
@@ -203,6 +294,8 @@ public class AudioController(
             MeetingMinutesMarkdown = asrResult?.MeetingMinutesMarkdown,
             MeetingMinutesAttemptCount = asrResult?.MeetingMinutesAttemptCount ?? 0,
             LastMeetingMinutesAttemptTime = asrResult?.LastMeetingMinutesAttemptTime,
+            MeetingMinutesOutdated = asrResult != null &&
+                                     asrResult.TranscriptRevision != asrResult.MeetingMinutesTranscriptRevision,
             CanManageShares = canManageShares,
             Permission = permission!.Value
         });

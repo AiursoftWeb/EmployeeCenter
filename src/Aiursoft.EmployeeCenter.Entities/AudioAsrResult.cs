@@ -13,7 +13,11 @@ public class AudioAsrResult
 
     public required string PlainText { get; set; }
 
+    public int TranscriptRevision { get; set; }
+
     public string? MeetingMinutesMarkdown { get; set; }
+
+    public int MeetingMinutesTranscriptRevision { get; set; }
 
     public int MeetingMinutesAttemptCount { get; set; }
 

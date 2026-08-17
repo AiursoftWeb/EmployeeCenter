@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.Scanner.Abstractions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace Aiursoft.EmployeeCenter.Services;
@@ -15,10 +16,27 @@ public class MeetingMinutesService(
 {
     private readonly AgentSettings _agentSettings = appSettings.Value.Agent;
 
-    public async Task GenerateAsync(AudioAsrResult asrResult)
+    public Task GenerateAsync(AudioAsrResult asrResult)
+    {
+        return GenerateAsync(asrResult, asrResult.TranscriptRevision, replaceExisting: false);
+    }
+
+    public async Task RegenerateAsync(int audioId, int transcriptRevision)
+    {
+        var asrResult = await dbContext.AudioAsrResults
+            .Include(result => result.Audio)
+            .FirstOrDefaultAsync(result => result.AudioId == audioId);
+        if (asrResult == null) return;
+
+        await GenerateAsync(asrResult, transcriptRevision, replaceExisting: true);
+    }
+
+    private async Task GenerateAsync(AudioAsrResult asrResult, int transcriptRevision, bool replaceExisting)
     {
         if (string.IsNullOrWhiteSpace(asrResult.PlainText) ||
-            !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown) ||
+            asrResult.TranscriptRevision != transcriptRevision ||
+            (!replaceExisting && !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown)) ||
+            (replaceExisting && asrResult.MeetingMinutesTranscriptRevision == transcriptRevision) ||
             asrResult.MeetingMinutesAttemptCount >= _agentSettings.MeetingMinutesMaxRetryCount)
         {
             return;
@@ -71,7 +89,21 @@ public class MeetingMinutesService(
                 return;
             }
 
+            var currentTranscriptRevision = await dbContext.AudioAsrResults
+                .AsNoTracking()
+                .Where(item => item.AudioId == asrResult.AudioId)
+                .Select(item => (int?)item.TranscriptRevision)
+                .FirstOrDefaultAsync();
+            if (currentTranscriptRevision != transcriptRevision)
+            {
+                logger.LogInformation(
+                    "Discarded meeting minutes for audio {AudioId} because its transcript changed during generation.",
+                    asrResult.AudioId);
+                return;
+            }
+
             asrResult.MeetingMinutesMarkdown = result.Answer.Trim();
+            asrResult.MeetingMinutesTranscriptRevision = transcriptRevision;
             await dbContext.SaveChangesAsync();
             logger.LogInformation("Successfully generated meeting minutes for audio {AudioId}.", asrResult.AudioId);
         }

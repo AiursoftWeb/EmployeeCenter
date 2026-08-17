@@ -25,6 +25,7 @@ public class MeetingMinutesJob(
             var candidates = await db.AudioAsrResults
                 .Include(result => result.Audio)
                 .Where(result => result.PlainText != string.Empty)
+                .Where(result => result.TranscriptRevision == result.MeetingMinutesTranscriptRevision)
                 .Where(result => result.MeetingMinutesMarkdown == null || result.MeetingMinutesMarkdown == string.Empty)
                 .Where(result => result.MeetingMinutesAttemptCount < _agentSettings.MeetingMinutesMaxRetryCount)
                 .OrderBy(result => result.MeetingMinutesAttemptCount)

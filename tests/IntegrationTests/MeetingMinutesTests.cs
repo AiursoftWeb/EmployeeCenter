@@ -91,11 +91,77 @@ public class MeetingMinutesTests : TestBase
     }
 
     [TestMethod]
+    public async Task ServiceRegeneratesStaleMinutesForTheCurrentTranscriptRevision()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = new Audio { Name = "Corrected Meeting", FilePath = "audio/corrected.mp3" };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            Audio = audio,
+            PlainText = "Corrected transcript",
+            TranscriptRevision = 1,
+            MeetingMinutesMarkdown = "Old minutes"
+        };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var handler = new StubHttpMessageHandler(_ =>
+            Task.FromResult(JsonResponse("""{"answer":"Minutes based on the corrected transcript"}""")));
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+
+        await service.RegenerateAsync(audio.Id, transcriptRevision: 1);
+
+        Assert.AreEqual(1, handler.CallCount);
+        Assert.AreEqual("Minutes based on the corrected transcript", result.MeetingMinutesMarkdown);
+        Assert.AreEqual(1, result.MeetingMinutesTranscriptRevision);
+
+        await service.RegenerateAsync(audio.Id, transcriptRevision: 1);
+        Assert.AreEqual(1, handler.CallCount, "Current meeting minutes must not be regenerated again.");
+    }
+
+    [TestMethod]
+    public async Task ServiceDiscardsMinutesWhenTranscriptChangesDuringGeneration()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = new Audio { Name = "Concurrent Edit", FilePath = "audio/concurrent.mp3" };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            Audio = audio,
+            PlainText = "Original transcript"
+        };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var handler = new StubHttpMessageHandler(async _ =>
+        {
+            result.PlainText = "Edited transcript";
+            result.TranscriptRevision++;
+            await db.SaveChangesAsync();
+            return JsonResponse("""{"answer":"Minutes based on the original transcript"}""");
+        });
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+
+        await service.GenerateAsync(result);
+
+        Assert.AreEqual(1, handler.CallCount);
+        Assert.IsNull(result.MeetingMinutesMarkdown);
+        Assert.AreEqual(0, result.MeetingMinutesTranscriptRevision);
+    }
+
+    [TestMethod]
     public async Task JobFiltersCandidatesOrdersRetriesAndIsolatesFailures()
     {
         using var scope = Server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-        var audios = Enumerable.Range(1, 5)
+        var audios = Enumerable.Range(1, 6)
             .Select(index => new Audio { Name = $"Meeting {index}", FilePath = $"audio/{index}.mp3" })
             .ToArray();
         db.Audios.AddRange(audios);
@@ -119,7 +185,13 @@ public class MeetingMinutesTests : TestBase
             second,
             new AudioAsrResult { AudioId = audios[2].Id, PlainText = string.Empty },
             new AudioAsrResult { AudioId = audios[3].Id, PlainText = "Done", MeetingMinutesMarkdown = "Existing" },
-            new AudioAsrResult { AudioId = audios[4].Id, PlainText = "Maxed", MeetingMinutesAttemptCount = 3 });
+            new AudioAsrResult { AudioId = audios[4].Id, PlainText = "Maxed", MeetingMinutesAttemptCount = 3 },
+            new AudioAsrResult
+            {
+                AudioId = audios[5].Id,
+                PlainText = "Manually edited",
+                TranscriptRevision = 1
+            });
         await db.SaveChangesAsync();
 
         var requestedBodies = new List<string>();

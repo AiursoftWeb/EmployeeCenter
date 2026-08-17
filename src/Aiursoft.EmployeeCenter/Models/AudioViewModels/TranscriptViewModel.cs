@@ -16,6 +16,8 @@ public class TranscriptViewModel : UiStackLayoutViewModel
     public int MeetingMinutesAttemptCount { get; set; }
     public DateTime? LastMeetingMinutesAttemptTime { get; set; }
 
+    public bool MeetingMinutesOutdated { get; set; }
+
     public bool CanManageShares { get; set; }
 
     public SharePermission Permission { get; set; }

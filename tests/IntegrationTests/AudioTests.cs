@@ -649,9 +649,20 @@ public class AudioTests : TestBase
         transcriptResponse.EnsureSuccessStatusCode();
         var sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(sharedTranscriptHtml, "Meeting Summary");
+        Assert.DoesNotContain("Edit Transcript", sharedTranscriptHtml);
+        Assert.DoesNotContain(">Rename<", sharedTranscriptHtml);
 
         var editResponse = await Http.GetAsync($"/Audio/Edit/{audioId}");
         Assert.AreEqual(HttpStatusCode.Unauthorized, editResponse.StatusCode);
+        var renameResponse = await Http.GetAsync($"/Audio/Rename/{audioId}");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, renameResponse.StatusCode);
+        var editTranscriptResponse = await Http.GetAsync($"/Audio/EditTranscript/{audioId}");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, editTranscriptResponse.StatusCode);
+        var regenerateResponse = await PostForm(
+            "/Audio/RegenerateMeetingMinutes",
+            new Dictionary<string, string> { { "id", audioId.ToString() } },
+            "/");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, regenerateResponse.StatusCode);
 
         using (var scope = Server.Services.CreateScope())
         {
@@ -664,6 +675,53 @@ public class AudioTests : TestBase
 
         editResponse = await Http.GetAsync($"/Audio/Edit/{audioId}");
         editResponse.EnsureSuccessStatusCode();
+        renameResponse = await Http.GetAsync($"/Audio/Rename/{audioId}");
+        renameResponse.EnsureSuccessStatusCode();
+        editTranscriptResponse = await Http.GetAsync($"/Audio/EditTranscript/{audioId}");
+        editTranscriptResponse.EnsureSuccessStatusCode();
+
+        renameResponse = await PostForm(
+            "/Audio/Rename",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "Name", "Renamed shared meeting" }
+            },
+            $"/Audio/Rename/{audioId}");
+        AssertRedirect(renameResponse, $"/Audio/Transcript/{audioId}");
+
+        editTranscriptResponse = await PostForm(
+            "/Audio/EditTranscript",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "PlainText", "Corrected shared transcript" }
+            },
+            $"/Audio/EditTranscript/{audioId}");
+        AssertRedirect(editTranscriptResponse, $"/Audio/Transcript/{audioId}");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.AreEqual("Renamed shared meeting", (await verificationDb.Audios.FindAsync(audioId))?.Name);
+        var correctedResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(correctedResult);
+        Assert.AreEqual("Corrected shared transcript", correctedResult.PlainText);
+        Assert.AreEqual(1, correctedResult.TranscriptRevision);
+        Assert.AreEqual(0, correctedResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual("# Meeting Summary\n\n| Item | Owner |\n|---|---|\n| Ship | Alice |\n\n<script>alert('x')</script>", correctedResult.MeetingMinutesMarkdown);
+
+        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(sharedTranscriptHtml, "Meeting minutes may be outdated");
+        StringAssert.Contains(sharedTranscriptHtml, "Regenerate Meeting Minutes");
+        StringAssert.Contains(sharedTranscriptHtml, "Transcript API");
+        Assert.DoesNotContain("AI Raw API", sharedTranscriptHtml);
+
+        indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(indexHtml, "Minutes outdated");
     }
 
     [TestMethod]
