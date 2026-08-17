@@ -1,8 +1,5 @@
-using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
