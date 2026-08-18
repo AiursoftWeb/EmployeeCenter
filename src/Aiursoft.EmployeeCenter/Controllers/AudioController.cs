@@ -296,17 +296,18 @@ public class AudioController(
         if (!await CanEditAudioAsync(audio)) return Unauthorized();
 
         var asrResult = await context.AudioAsrResults
-            .AsNoTracking()
             .FirstOrDefaultAsync(result => result.AudioId == id);
         if (asrResult == null || string.IsNullOrWhiteSpace(asrResult.PlainText)) return NotFound();
-        if (asrResult.TranscriptRevision == asrResult.MeetingMinutesTranscriptRevision)
+        if (!string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown) &&
+            asrResult.TranscriptRevision == asrResult.MeetingMinutesTranscriptRevision)
         {
             return RedirectToAction(nameof(Transcript), new { id });
         }
         if (asrResult.MeetingMinutesAttemptCount >= meetingMinutesQueueService.MaxRetryCount)
         {
-            TempData["MeetingMinutesRegenerationRetryLimitReached"] = true;
-            return RedirectToAction(nameof(Transcript), new { id });
+            asrResult.MeetingMinutesAttemptCount = 0;
+            asrResult.LastMeetingMinutesAttemptTime = null;
+            await context.SaveChangesAsync();
         }
 
         TempData["MeetingMinutesRegenerationQueued"] = meetingMinutesQueueService.QueueIfNotActive(

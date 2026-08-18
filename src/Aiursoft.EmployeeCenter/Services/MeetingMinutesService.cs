@@ -36,7 +36,8 @@ public class MeetingMinutesService(
         if (string.IsNullOrWhiteSpace(asrResult.PlainText) ||
             asrResult.TranscriptRevision != transcriptRevision ||
             (!replaceExisting && !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown)) ||
-            (replaceExisting && asrResult.MeetingMinutesTranscriptRevision == transcriptRevision) ||
+            (replaceExisting && !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown) &&
+             asrResult.MeetingMinutesTranscriptRevision == transcriptRevision) ||
             asrResult.MeetingMinutesAttemptCount >= _agentSettings.MeetingMinutesMaxRetryCount)
         {
             return;

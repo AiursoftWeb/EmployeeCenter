@@ -758,22 +758,22 @@ public class AudioTests : TestBase
         var retryLimit = Server.Services
             .GetRequiredService<IOptions<AppSettings>>()
             .Value.Agent.MeetingMinutesMaxRetryCount;
+        correctedResult.MeetingMinutesMarkdown = null;
+        correctedResult.MeetingMinutesTranscriptRevision = correctedResult.TranscriptRevision;
         correctedResult.MeetingMinutesAttemptCount = retryLimit;
         await verificationDb.SaveChangesAsync();
         transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
         sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
-        StringAssert.Contains(sharedTranscriptHtml, $"The retry limit of {retryLimit} attempts has been reached.");
-        Assert.DoesNotContain("Regenerate Meeting Minutes", sharedTranscriptHtml);
+        StringAssert.Contains(sharedTranscriptHtml, "Retry Meeting Minutes");
 
         regenerateResponse = await PostForm(
             "/Audio/RegenerateMeetingMinutes",
             new Dictionary<string, string> { { "id", audioId.ToString() } },
             $"/Audio/EditTranscript/{audioId}");
         AssertRedirect(regenerateResponse, $"/Audio/Transcript/{audioId}");
-        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
-        StringAssert.Contains(
-            await transcriptResponse.Content.ReadAsStringAsync(),
-            "Meeting minutes could not be queued because the retry limit has been reached.");
+        await verificationDb.Entry(correctedResult).ReloadAsync();
+        Assert.AreEqual(0, correctedResult.MeetingMinutesAttemptCount);
+        Assert.IsNull(correctedResult.LastMeetingMinutesAttemptTime);
     }
 
     [TestMethod]
