@@ -13,6 +13,7 @@
         (Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount || Model.Audio.AsrTerminalError != null);
     var hasMeetingMinutes = !string.IsNullOrWhiteSpace(Model.MeetingMinutesMarkdown);
     var meetingMinutesFailed = hasTranscript && !hasMeetingMinutes && Model.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount;
+    var meetingMinutesRetryLimitReached = Model.MeetingMinutesOutdated && Model.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount;
     var isTranscribing = !hasTranscript && !hasFailed && Model.Audio.AsrAttemptCount > 0;
     var hasPlayableMedia = Model.Audio.MediaStatus == AudioMediaStatus.Ready || Model.Audio.PendingFilePath != null;
     var audioUrl = hasPlayableMedia
@@ -100,6 +101,14 @@ else if (Model.Audio.MediaProcessingError != null)
     </div>
 }
 
+@if (TempData["MeetingMinutesRegenerationRetryLimitReached"] is true)
+{
+    <div class="alert alert-danger alert-outline-coloured" role="alert">
+        <div class="alert-icon"><i class="align-middle" data-lucide="x-circle"></i></div>
+        <div class="alert-message">@Localizer["Meeting minutes could not be queued because the retry limit has been reached."]</div>
+    </div>
+}
+
 @if (TempData["AsrResetError"] is true)
 {
     <div class="alert alert-danger alert-outline-coloured" role="alert">
@@ -161,7 +170,13 @@ else if (Model.Audio.MediaProcessingError != null)
                                         ? "The transcript was edited after these meeting minutes were generated. Review the changes before regenerating."
                                         : "The transcript was edited. Generate meeting minutes manually when the text is ready."]
                                 </div>
-                                @if (Model.Permission == SharePermission.Editable)
+                                @if (meetingMinutesRetryLimitReached)
+                                {
+                                    <div class="mt-2 text-danger">
+                                        @Localizer["The retry limit of {0} attempts has been reached.", Model.MeetingMinutesAttemptCount]
+                                    </div>
+                                }
+                                else if (Model.Permission == SharePermission.Editable)
                                 {
                                     <form asp-action="RegenerateMeetingMinutes" method="post" class="mt-3" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
                                         <input type="hidden" name="id" value="@Model.Audio.Id" />

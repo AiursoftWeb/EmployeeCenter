@@ -208,8 +208,18 @@ public class AudioController(
         if (!await CanEditAudioAsync(audio)) return Unauthorized();
         if (!ModelState.IsValid) return this.StackView(model);
 
-        audio.Name = model.Name;
-        await context.SaveChangesAsync();
+        if (audio.Name != model.Name)
+        {
+            audio.Name = model.Name;
+            var asrResult = await context.AudioAsrResults.FindAsync(model.Id);
+            if (asrResult != null && !string.IsNullOrWhiteSpace(asrResult.PlainText))
+            {
+                asrResult.TranscriptRevision++;
+                asrResult.MeetingMinutesAttemptCount = 0;
+                asrResult.LastMeetingMinutesAttemptTime = null;
+            }
+            await context.SaveChangesAsync();
+        }
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
 
@@ -225,6 +235,7 @@ public class AudioController(
         return this.StackView(new EditTranscriptViewModel
         {
             Id = audio.Id,
+            TranscriptRevision = asrResult.TranscriptRevision,
             PlainText = asrResult.PlainText
         });
     }
@@ -240,6 +251,11 @@ public class AudioController(
         var asrResult = await context.AudioAsrResults.FindAsync(model.Id);
         if (asrResult == null || string.IsNullOrEmpty(asrResult.PlainText)) return NotFound();
         if (!ModelState.IsValid) return this.StackView(model);
+        if (asrResult.TranscriptRevision != model.TranscriptRevision)
+        {
+            ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+            return this.StackView(model);
+        }
 
         if (asrResult.PlainText != model.PlainText)
         {
@@ -247,7 +263,15 @@ public class AudioController(
             asrResult.TranscriptRevision++;
             asrResult.MeetingMinutesAttemptCount = 0;
             asrResult.LastMeetingMinutesAttemptTime = null;
-            await context.SaveChangesAsync();
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+                return this.StackView(model);
+            }
         }
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
@@ -268,9 +292,15 @@ public class AudioController(
         {
             return RedirectToAction(nameof(Transcript), new { id });
         }
+        if (asrResult.MeetingMinutesAttemptCount >= meetingMinutesQueueService.MaxRetryCount)
+        {
+            TempData["MeetingMinutesRegenerationRetryLimitReached"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
 
-        meetingMinutesQueueService.QueueIfNotActive(id, asrResult.TranscriptRevision);
-        TempData["MeetingMinutesRegenerationQueued"] = true;
+        TempData["MeetingMinutesRegenerationQueued"] = meetingMinutesQueueService.QueueIfNotActive(
+            id,
+            asrResult.TranscriptRevision);
         return RedirectToAction(nameof(Transcript), new { id });
     }
 

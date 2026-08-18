@@ -695,10 +695,25 @@ public class AudioTests : TestBase
             new Dictionary<string, string>
             {
                 { "Id", audioId.ToString() },
+                { "TranscriptRevision", "1" },
                 { "PlainText", "Corrected shared transcript" }
             },
             $"/Audio/EditTranscript/{audioId}");
         AssertRedirect(editTranscriptResponse, $"/Audio/Transcript/{audioId}");
+
+        var staleEditResponse = await PostForm(
+            "/Audio/EditTranscript",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "TranscriptRevision", "1" },
+                { "PlainText", "Stale overwrite" }
+            },
+            $"/Audio/EditTranscript/{audioId}");
+        staleEditResponse.EnsureSuccessStatusCode();
+        StringAssert.Contains(
+            await staleEditResponse.Content.ReadAsStringAsync(),
+            "The transcript was changed by another user.");
 
         using var verificationScope = Server.Services.CreateScope();
         var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
@@ -706,7 +721,7 @@ public class AudioTests : TestBase
         var correctedResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
         Assert.IsNotNull(correctedResult);
         Assert.AreEqual("Corrected shared transcript", correctedResult.PlainText);
-        Assert.AreEqual(1, correctedResult.TranscriptRevision);
+        Assert.AreEqual(2, correctedResult.TranscriptRevision);
         Assert.AreEqual(0, correctedResult.MeetingMinutesTranscriptRevision);
         Assert.AreEqual("# Meeting Summary\n\n| Item | Owner |\n|---|---|\n| Ship | Alice |\n\n<script>alert('x')</script>", correctedResult.MeetingMinutesMarkdown);
 
@@ -722,6 +737,26 @@ public class AudioTests : TestBase
         indexResponse.EnsureSuccessStatusCode();
         indexHtml = await indexResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(indexHtml, "Minutes outdated");
+
+        var retryLimit = Server.Services
+            .GetRequiredService<IOptions<AppSettings>>()
+            .Value.Agent.MeetingMinutesMaxRetryCount;
+        correctedResult.MeetingMinutesAttemptCount = retryLimit;
+        await verificationDb.SaveChangesAsync();
+        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(sharedTranscriptHtml, $"The retry limit of {retryLimit} attempts has been reached.");
+        Assert.DoesNotContain("Regenerate Meeting Minutes", sharedTranscriptHtml);
+
+        regenerateResponse = await PostForm(
+            "/Audio/RegenerateMeetingMinutes",
+            new Dictionary<string, string> { { "id", audioId.ToString() } },
+            $"/Audio/EditTranscript/{audioId}");
+        AssertRedirect(regenerateResponse, $"/Audio/Transcript/{audioId}");
+        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        StringAssert.Contains(
+            await transcriptResponse.Content.ReadAsStringAsync(),
+            "Meeting minutes could not be queued because the retry limit has been reached.");
     }
 
     [TestMethod]
