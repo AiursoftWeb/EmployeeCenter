@@ -161,6 +161,10 @@ public class MeetingMinutesTests : TestBase
     {
         using var scope = Server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        db.AudioAsrResults.RemoveRange(db.AudioAsrResults);
+        db.Audios.RemoveRange(db.Audios);
+        await db.SaveChangesAsync();
+
         var audios = Enumerable.Range(1, 6)
             .Select(index => new Audio { Name = $"Meeting {index}", FilePath = $"audio/{index}.mp3" })
             .ToArray();
