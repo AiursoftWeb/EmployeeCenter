@@ -543,6 +543,17 @@ public class AudioTests : TestBase
             };
             db.Audios.Add(audio);
             await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Existing transcript",
+                TranscriptRevision = 3,
+                MeetingMinutesMarkdown = "# Existing minutes",
+                MeetingMinutesTranscriptRevision = 3,
+                MeetingMinutesAttemptCount = 2,
+                LastMeetingMinutesAttemptTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
             audioId = audio.Id;
         }
 
@@ -564,6 +575,12 @@ public class AudioTests : TestBase
         Assert.IsNotNull(updatedAudio);
         Assert.AreEqual("Updated Name", updatedAudio.Name);
         Assert.AreEqual(filePath, updatedAudio.FilePath);
+        var asrResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(asrResult);
+        Assert.AreEqual(4, asrResult.TranscriptRevision);
+        Assert.AreEqual(3, asrResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual(0, asrResult.MeetingMinutesAttemptCount);
+        Assert.IsNull(asrResult.LastMeetingMinutesAttemptTime);
         File.Delete(physicalPath);
     }
 

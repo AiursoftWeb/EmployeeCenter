@@ -165,7 +165,16 @@ public class AudioController(
         audio.Name = model.Name;
         if (!replaceAudio)
         {
-            await context.SaveChangesAsync();
+            await InvalidateMeetingMinutesForNameChangeAsync(audio);
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+                return this.StackView(model);
+            }
             return RedirectToAction(nameof(Transcript), new { id = audio.Id });
         }
         if (audio.MediaStatus == AudioMediaStatus.Processing)
@@ -211,14 +220,16 @@ public class AudioController(
         if (audio.Name != model.Name)
         {
             audio.Name = model.Name;
-            var asrResult = await context.AudioAsrResults.FindAsync(model.Id);
-            if (asrResult != null && !string.IsNullOrWhiteSpace(asrResult.PlainText))
+            await InvalidateMeetingMinutesForNameChangeAsync(audio);
+            try
             {
-                asrResult.TranscriptRevision++;
-                asrResult.MeetingMinutesAttemptCount = 0;
-                asrResult.LastMeetingMinutesAttemptTime = null;
+                await context.SaveChangesAsync();
             }
-            await context.SaveChangesAsync();
+            catch (DbUpdateConcurrencyException)
+            {
+                ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+                return this.StackView(model);
+            }
         }
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
@@ -589,6 +600,18 @@ public class AudioController(
     private void QueueMediaProcessing(int audioId)
     {
         mediaQueueService.QueueIfNotActive(audioId);
+    }
+
+    private async Task InvalidateMeetingMinutesForNameChangeAsync(Audio audio)
+    {
+        if (context.Entry(audio).Property(item => item.Name).OriginalValue == audio.Name) return;
+
+        var asrResult = await context.AudioAsrResults.FindAsync(audio.Id);
+        if (asrResult == null || string.IsNullOrWhiteSpace(asrResult.PlainText)) return;
+
+        asrResult.TranscriptRevision++;
+        asrResult.MeetingMinutesAttemptCount = 0;
+        asrResult.LastMeetingMinutesAttemptTime = null;
     }
 
     private async Task<List<string>> GetUserRoleIdsAsync()
