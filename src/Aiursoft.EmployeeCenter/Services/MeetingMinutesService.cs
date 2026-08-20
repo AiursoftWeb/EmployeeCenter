@@ -43,12 +43,12 @@ public class MeetingMinutesService(
             return;
         }
 
-        asrResult.MeetingMinutesAttemptCount++;
-        asrResult.LastMeetingMinutesAttemptTime = DateTime.UtcNow;
-        await dbContext.SaveChangesAsync();
-
         try
         {
+            asrResult.MeetingMinutesAttemptCount++;
+            asrResult.LastMeetingMinutesAttemptTime = DateTime.UtcNow;
+            await dbContext.SaveChangesAsync();
+
             var systemPrompt = await globalSettingsService.GetSettingValueAsync(SettingsMap.MeetingMinutesSystemPrompt);
             var meetingName = asrResult.Audio?.Name ?? $"Audio {asrResult.AudioId}";
             var question = $$"""
@@ -108,6 +108,13 @@ public class MeetingMinutesService(
             await dbContext.SaveChangesAsync();
             logger.LogInformation("Successfully generated meeting minutes for audio {AudioId}.", asrResult.AudioId);
         }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            DetachConflictingEntries(ex);
+            logger.LogInformation(
+                "Discarded meeting minutes work for audio {AudioId} because its transcript changed concurrently.",
+                asrResult.AudioId);
+        }
         catch (Exception ex)
         {
             logger.LogWarning(
@@ -115,6 +122,14 @@ public class MeetingMinutesService(
                 "Meeting minutes generation failed for audio {AudioId} on attempt {AttemptCount}.",
                 asrResult.AudioId,
                 asrResult.MeetingMinutesAttemptCount);
+        }
+    }
+
+    private static void DetachConflictingEntries(DbUpdateConcurrencyException exception)
+    {
+        foreach (var entry in exception.Entries)
+        {
+            entry.State = EntityState.Detached;
         }
     }
 

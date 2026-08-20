@@ -163,9 +163,9 @@ public class AudioController(
 
         var replaceAudio = audio.FilePath != filePath;
         audio.Name = model.Name;
+        await InvalidateMeetingMinutesForNameChangeAsync(audio);
         if (!replaceAudio)
         {
-            await InvalidateMeetingMinutesForNameChangeAsync(audio);
             try
             {
                 await context.SaveChangesAsync();
@@ -189,7 +189,15 @@ public class AudioController(
         audio.MediaProcessingError = null;
         audio.MediaProcessingToken = Guid.NewGuid().ToString("N");
         fileCleanupService.QueueDeletion(abandonedPendingPath);
-        await context.SaveChangesAsync();
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+            return this.StackView(model);
+        }
         await fileCleanupService.TryCleanupQueuedAsync();
         QueueMediaProcessing(audio.Id);
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });

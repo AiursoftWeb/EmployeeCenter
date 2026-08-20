@@ -406,7 +406,7 @@ public class AudioTests : TestBase
     }
 
     [TestMethod]
-    public async Task FailedReplacementPreservesOriginalRecordingAndTranscript()
+    public async Task FailedReplacementPreservesOriginalRecordingAndInvalidatesMinutesAfterRename()
     {
         await LoginAsAdmin();
 
@@ -430,7 +430,7 @@ public class AudioTests : TestBase
             replacementPhysicalPath = storage.GetFilePhysicalPath(replacementFilePath, isVault: true);
             var audio = new Audio
             {
-                Name = "Failed replacement",
+                Name = "Original recording",
                 FilePath = originalFilePath,
                 OwnerId = admin.Id
             };
@@ -440,7 +440,11 @@ public class AudioTests : TestBase
             {
                 AudioId = audio.Id,
                 PlainText = "Original transcript",
-                MeetingMinutesMarkdown = "# Original minutes"
+                TranscriptRevision = 2,
+                MeetingMinutesMarkdown = "# Original minutes",
+                MeetingMinutesTranscriptRevision = 2,
+                MeetingMinutesAttemptCount = 2,
+                LastMeetingMinutesAttemptTime = DateTime.UtcNow
             });
             await db.SaveChangesAsync();
             audioId = audio.Id;
@@ -451,7 +455,7 @@ public class AudioTests : TestBase
             new Dictionary<string, string>
             {
                 { "Id", audioId.ToString() },
-                { "Name", "Failed replacement" },
+                { "Name", "Renamed failed replacement" },
                 { "FilePath", replacementFilePath }
             },
             $"/Audio/Edit/{audioId}");
@@ -464,12 +468,23 @@ public class AudioTests : TestBase
         var audioAfterReplacement = await verificationDb.Audios.FindAsync(audioId);
         Assert.IsNotNull(audioAfterReplacement);
         Assert.AreEqual(AudioMediaStatus.Ready, audioAfterReplacement.MediaStatus);
+        Assert.AreEqual("Renamed failed replacement", audioAfterReplacement.Name);
         Assert.AreEqual(originalFilePath, audioAfterReplacement.FilePath);
         Assert.IsNull(audioAfterReplacement.PendingFilePath);
         Assert.AreEqual("The uploaded file could not be processed.", audioAfterReplacement.MediaProcessingError);
-        Assert.AreEqual(
-            "Original transcript",
-            (await verificationDb.AudioAsrResults.FindAsync(audioId))?.PlainText);
+        var asrResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(asrResult);
+        Assert.AreEqual("Original transcript", asrResult.PlainText);
+        Assert.AreEqual(3, asrResult.TranscriptRevision);
+        Assert.AreEqual(2, asrResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual(0, asrResult.MeetingMinutesAttemptCount);
+        Assert.IsNull(asrResult.LastMeetingMinutesAttemptTime);
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcriptHtml, "Meeting minutes may be outdated");
+        StringAssert.Contains(transcriptHtml, "Regenerate Meeting Minutes");
         Assert.IsTrue(File.Exists(originalPhysicalPath));
         Assert.IsFalse(File.Exists(replacementPhysicalPath));
         File.Delete(originalPhysicalPath);

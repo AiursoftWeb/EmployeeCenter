@@ -9,6 +9,7 @@ namespace Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 public class MeetingMinutesJob(
     EmployeeCenterDbContext db,
     MeetingMinutesService meetingMinutesService,
+    MeetingMinutesQueueService meetingMinutesQueueService,
     IOptions<AppSettings> appSettings,
     ILogger<MeetingMinutesJob> logger) : IBackgroundJob
 {
@@ -44,7 +45,10 @@ public class MeetingMinutesJob(
             {
                 try
                 {
-                    await meetingMinutesService.GenerateAsync(candidate);
+                    await meetingMinutesQueueService.ExecuteIfNotActiveAsync(
+                        candidate.AudioId,
+                        candidate.TranscriptRevision,
+                        () => meetingMinutesService.GenerateAsync(candidate));
                 }
                 catch (Exception ex)
                 {

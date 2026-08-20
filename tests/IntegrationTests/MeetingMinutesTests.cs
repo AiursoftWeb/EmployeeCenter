@@ -157,6 +157,77 @@ public class MeetingMinutesTests : TestBase
     }
 
     [TestMethod]
+    public async Task ServiceCleansConcurrencyConflictBeforeProcessingTheNextCandidate()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audios = new[]
+        {
+            new Audio { Name = "Concurrent candidate", FilePath = "audio/concurrent-candidate.mp3" },
+            new Audio { Name = "Next candidate", FilePath = "audio/next-candidate.mp3" }
+        };
+        db.Audios.AddRange(audios);
+        await db.SaveChangesAsync();
+
+        var concurrentCandidate = new AudioAsrResult
+        {
+            AudioId = audios[0].Id,
+            Audio = audios[0],
+            PlainText = "Original transcript"
+        };
+        var nextCandidate = new AudioAsrResult
+        {
+            AudioId = audios[1].Id,
+            Audio = audios[1],
+            PlainText = "Next transcript"
+        };
+        db.AudioAsrResults.AddRange(concurrentCandidate, nextCandidate);
+        await db.SaveChangesAsync();
+
+        using (var concurrentScope = Server.Services.CreateScope())
+        {
+            var concurrentDb = concurrentScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var editedResult = await concurrentDb.AudioAsrResults.FindAsync(concurrentCandidate.AudioId);
+            Assert.IsNotNull(editedResult);
+            editedResult.PlainText = "Edited by another request";
+            editedResult.TranscriptRevision++;
+            await concurrentDb.SaveChangesAsync();
+        }
+
+        var handler = new StubHttpMessageHandler(_ =>
+            Task.FromResult(JsonResponse("""{"answer":"Generated minutes"}""")));
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+
+        await service.GenerateAsync(concurrentCandidate);
+        await service.GenerateAsync(nextCandidate);
+
+        Assert.AreEqual(1, handler.CallCount);
+        Assert.AreEqual("Generated minutes", nextCandidate.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
+    public async Task ManualQueueDoesNotDuplicateAnActiveScheduledGeneration()
+    {
+        var queueService = GetService<MeetingMinutesQueueService>();
+        var started = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var release = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var audioId = int.MaxValue;
+        const int transcriptRevision = 17;
+
+        var scheduledTask = queueService.ExecuteIfNotActiveAsync(audioId, transcriptRevision, async () =>
+        {
+            started.SetResult();
+            await release.Task;
+        });
+        await started.Task;
+
+        Assert.IsFalse(queueService.QueueIfNotActive(audioId, transcriptRevision));
+
+        release.SetResult();
+        Assert.IsTrue(await scheduledTask);
+    }
+
+    [TestMethod]
     public async Task JobFiltersCandidatesOrdersRetriesAndIsolatesFailures()
     {
         using var scope = Server!.Services.CreateScope();
@@ -211,6 +282,7 @@ public class MeetingMinutesTests : TestBase
         var job = new MeetingMinutesJob(
             db,
             service,
+            scope.ServiceProvider.GetRequiredService<MeetingMinutesQueueService>(),
             options,
             scope.ServiceProvider.GetRequiredService<ILogger<MeetingMinutesJob>>());
 
