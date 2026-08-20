@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json;
+using Aiursoft.Canon.TaskQueue;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
@@ -91,11 +92,244 @@ public class MeetingMinutesTests : TestBase
     }
 
     [TestMethod]
+    public async Task ServiceRegeneratesStaleMinutesForTheCurrentTranscriptRevision()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = new Audio { Name = "Corrected Meeting", FilePath = "audio/corrected.mp3" };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            Audio = audio,
+            PlainText = "Corrected transcript",
+            TranscriptRevision = 1,
+            MeetingMinutesMarkdown = "Old minutes"
+        };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var handler = new StubHttpMessageHandler(_ =>
+            Task.FromResult(JsonResponse("""{"answer":"Minutes based on the corrected transcript"}""")));
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+
+        await service.RegenerateAsync(audio.Id, transcriptRevision: 1, result.CreateTime);
+
+        Assert.AreEqual(1, handler.CallCount);
+        Assert.AreEqual("Minutes based on the corrected transcript", result.MeetingMinutesMarkdown);
+        Assert.AreEqual(1, result.MeetingMinutesTranscriptRevision);
+
+        await service.RegenerateAsync(audio.Id, transcriptRevision: 1, result.CreateTime);
+        Assert.AreEqual(1, handler.CallCount, "Current meeting minutes must not be regenerated again.");
+    }
+
+    [TestMethod]
+    public async Task ManualRetryResetsTheLimitOnlyWhenTheTaskExecutes()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = new Audio { Name = "Retry limit", FilePath = "audio/retry-limit.mp3" };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            Audio = audio,
+            PlainText = "Transcript",
+            MeetingMinutesAttemptCount = 3
+        };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var handler = new StubHttpMessageHandler(_ =>
+            Task.FromResult(JsonResponse("""{"answer":"Generated after manual retry"}""")));
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+
+        await service.RegenerateAsync(audio.Id, result.TranscriptRevision, result.CreateTime);
+
+        Assert.AreEqual(1, handler.CallCount);
+        Assert.AreEqual(1, result.MeetingMinutesAttemptCount);
+        Assert.AreEqual("Generated after manual retry", result.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
+    public async Task ServiceDiscardsMinutesWhenTranscriptChangesDuringGeneration()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = new Audio { Name = "Concurrent Edit", FilePath = "audio/concurrent.mp3" };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            Audio = audio,
+            PlainText = "Original transcript"
+        };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var handler = new StubHttpMessageHandler(async _ =>
+        {
+            result.PlainText = "Edited transcript";
+            result.TranscriptRevision++;
+            await db.SaveChangesAsync();
+            return JsonResponse("""{"answer":"Minutes based on the original transcript"}""");
+        });
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+
+        await service.GenerateAsync(result);
+
+        Assert.AreEqual(1, handler.CallCount);
+        Assert.IsNull(result.MeetingMinutesMarkdown);
+        Assert.AreEqual(0, result.MeetingMinutesTranscriptRevision);
+    }
+
+    [TestMethod]
+    public async Task ServiceDiscardsMinutesWhenTranscriptIsRecreatedWithTheSameRevision()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = new Audio { Name = "Recreated transcript", FilePath = "audio/recreated.mp3" };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var originalCreateTime = DateTime.UtcNow.AddMinutes(-1);
+        var result = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            Audio = audio,
+            PlainText = "Original transcript",
+            CreateTime = originalCreateTime
+        };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var handler = new StubHttpMessageHandler(async _ =>
+        {
+            using var concurrentScope = Server.Services.CreateScope();
+            var concurrentDb = concurrentScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var originalResult = await concurrentDb.AudioAsrResults.FindAsync(audio.Id);
+            Assert.IsNotNull(originalResult);
+            concurrentDb.AudioAsrResults.Remove(originalResult);
+            await concurrentDb.SaveChangesAsync();
+            concurrentDb.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Replacement transcript",
+                CreateTime = originalCreateTime.AddSeconds(1)
+            });
+            await concurrentDb.SaveChangesAsync();
+            return JsonResponse("""{"answer":"Minutes based on the original transcript"}""");
+        });
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+
+        await service.GenerateAsync(result);
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var replacementResult = await verificationDb.AudioAsrResults.FindAsync(audio.Id);
+        Assert.IsNotNull(replacementResult);
+        Assert.AreEqual("Replacement transcript", replacementResult.PlainText);
+        Assert.IsNull(replacementResult.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
+    public async Task ServiceCleansConcurrencyConflictBeforeProcessingTheNextCandidate()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audios = new[]
+        {
+            new Audio { Name = "Concurrent candidate", FilePath = "audio/concurrent-candidate.mp3" },
+            new Audio { Name = "Next candidate", FilePath = "audio/next-candidate.mp3" }
+        };
+        db.Audios.AddRange(audios);
+        await db.SaveChangesAsync();
+
+        var concurrentCandidate = new AudioAsrResult
+        {
+            AudioId = audios[0].Id,
+            Audio = audios[0],
+            PlainText = "Original transcript"
+        };
+        var nextCandidate = new AudioAsrResult
+        {
+            AudioId = audios[1].Id,
+            Audio = audios[1],
+            PlainText = "Next transcript"
+        };
+        db.AudioAsrResults.AddRange(concurrentCandidate, nextCandidate);
+        await db.SaveChangesAsync();
+
+        using (var concurrentScope = Server.Services.CreateScope())
+        {
+            var concurrentDb = concurrentScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var editedResult = await concurrentDb.AudioAsrResults.FindAsync(concurrentCandidate.AudioId);
+            Assert.IsNotNull(editedResult);
+            editedResult.PlainText = "Edited by another request";
+            editedResult.TranscriptRevision++;
+            await concurrentDb.SaveChangesAsync();
+        }
+
+        var handler = new StubHttpMessageHandler(_ =>
+            Task.FromResult(JsonResponse("""{"answer":"Generated minutes"}""")));
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+
+        await service.GenerateAsync(concurrentCandidate);
+        await service.GenerateAsync(nextCandidate);
+
+        Assert.AreEqual(1, handler.CallCount);
+        Assert.AreEqual("Generated minutes", nextCandidate.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
+    public async Task ManualQueueDefersOneRetryBehindAnActiveScheduledGeneration()
+    {
+        var queueService = GetService<MeetingMinutesQueueService>();
+        var started = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var release = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var audioId = int.MaxValue;
+        const int transcriptRevision = 17;
+        var transcriptCreateTime = DateTime.UtcNow;
+
+        var scheduledTask = queueService.ExecuteIfNotActiveAsync(
+            audioId,
+            transcriptRevision,
+            transcriptCreateTime,
+            async () =>
+            {
+                started.SetResult();
+                await release.Task;
+            });
+        await started.Task;
+
+        try
+        {
+            Assert.IsTrue(queueService.QueueRetry(audioId, transcriptRevision, transcriptCreateTime));
+            Assert.IsFalse(queueService.QueueRetry(audioId, transcriptRevision, transcriptCreateTime));
+        }
+        finally
+        {
+            release.TrySetResult();
+            await scheduledTask;
+        }
+        Assert.IsTrue(await scheduledTask);
+
+        var taskName = $"Generate meeting minutes for audio {audioId} revision {transcriptRevision} instance {transcriptCreateTime.Ticks}";
+        Assert.IsTrue(await WaitForCompletedTaskAsync(GetService<ServiceTaskQueue>(), taskName));
+    }
+
+    [TestMethod]
     public async Task JobFiltersCandidatesOrdersRetriesAndIsolatesFailures()
     {
         using var scope = Server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-        var audios = Enumerable.Range(1, 5)
+        db.AudioAsrResults.RemoveRange(db.AudioAsrResults);
+        db.Audios.RemoveRange(db.Audios);
+        await db.SaveChangesAsync();
+
+        var audios = Enumerable.Range(1, 6)
             .Select(index => new Audio { Name = $"Meeting {index}", FilePath = $"audio/{index}.mp3" })
             .ToArray();
         db.Audios.AddRange(audios);
@@ -119,7 +353,13 @@ public class MeetingMinutesTests : TestBase
             second,
             new AudioAsrResult { AudioId = audios[2].Id, PlainText = string.Empty },
             new AudioAsrResult { AudioId = audios[3].Id, PlainText = "Done", MeetingMinutesMarkdown = "Existing" },
-            new AudioAsrResult { AudioId = audios[4].Id, PlainText = "Maxed", MeetingMinutesAttemptCount = 3 });
+            new AudioAsrResult { AudioId = audios[4].Id, PlainText = "Maxed", MeetingMinutesAttemptCount = 3 },
+            new AudioAsrResult
+            {
+                AudioId = audios[5].Id,
+                PlainText = "Manually edited",
+                TranscriptRevision = 1
+            });
         await db.SaveChangesAsync();
 
         var requestedBodies = new List<string>();
@@ -135,6 +375,7 @@ public class MeetingMinutesTests : TestBase
         var job = new MeetingMinutesJob(
             db,
             service,
+            scope.ServiceProvider.GetRequiredService<MeetingMinutesQueueService>(),
             options,
             scope.ServiceProvider.GetRequiredService<ILogger<MeetingMinutesJob>>());
 
@@ -199,6 +440,20 @@ public class MeetingMinutesTests : TestBase
                 MeetingMinutesTimeoutSeconds = 30
             }
         });
+    }
+
+    private static async Task<bool> WaitForCompletedTaskAsync(ServiceTaskQueue taskQueue, string taskName)
+    {
+        for (var attempt = 0; attempt < 50; attempt++)
+        {
+            if (taskQueue.GetRecentCompletedTasks(TimeSpan.FromMinutes(1))
+                .Any(task => task.QueueName == "meeting-minutes" && task.TaskName == taskName))
+            {
+                return true;
+            }
+            await Task.Delay(100);
+        }
+        return false;
     }
 
     private static HttpResponseMessage JsonResponse(string json)

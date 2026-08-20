@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.Scanner.Abstractions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace Aiursoft.EmployeeCenter.Services;
@@ -15,21 +16,53 @@ public class MeetingMinutesService(
 {
     private readonly AgentSettings _agentSettings = appSettings.Value.Agent;
 
-    public async Task GenerateAsync(AudioAsrResult asrResult)
+    public Task GenerateAsync(AudioAsrResult asrResult)
+    {
+        return GenerateAsync(
+            asrResult,
+            asrResult.TranscriptRevision,
+            asrResult.CreateTime,
+            replaceExisting: false);
+    }
+
+    public async Task RegenerateAsync(int audioId, int transcriptRevision, DateTime transcriptCreateTime)
+    {
+        var asrResult = await dbContext.AudioAsrResults
+            .Include(result => result.Audio)
+            .FirstOrDefaultAsync(result => result.AudioId == audioId);
+        if (asrResult == null) return;
+
+        await GenerateAsync(asrResult, transcriptRevision, transcriptCreateTime, replaceExisting: true);
+    }
+
+    private async Task GenerateAsync(
+        AudioAsrResult asrResult,
+        int transcriptRevision,
+        DateTime transcriptCreateTime,
+        bool replaceExisting)
     {
         if (string.IsNullOrWhiteSpace(asrResult.PlainText) ||
-            !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown) ||
-            asrResult.MeetingMinutesAttemptCount >= _agentSettings.MeetingMinutesMaxRetryCount)
+            asrResult.TranscriptRevision != transcriptRevision ||
+            asrResult.CreateTime != transcriptCreateTime ||
+            (!replaceExisting && !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown)) ||
+            (replaceExisting && !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown) &&
+             asrResult.MeetingMinutesTranscriptRevision == transcriptRevision) ||
+            (!replaceExisting && asrResult.MeetingMinutesAttemptCount >= _agentSettings.MeetingMinutesMaxRetryCount))
         {
             return;
         }
 
-        asrResult.MeetingMinutesAttemptCount++;
-        asrResult.LastMeetingMinutesAttemptTime = DateTime.UtcNow;
-        await dbContext.SaveChangesAsync();
-
         try
         {
+            if (asrResult.MeetingMinutesAttemptCount >= _agentSettings.MeetingMinutesMaxRetryCount)
+            {
+                asrResult.MeetingMinutesAttemptCount = 0;
+                asrResult.LastMeetingMinutesAttemptTime = null;
+            }
+            asrResult.MeetingMinutesAttemptCount++;
+            asrResult.LastMeetingMinutesAttemptTime = DateTime.UtcNow;
+            await dbContext.SaveChangesAsync();
+
             var systemPrompt = await globalSettingsService.GetSettingValueAsync(SettingsMap.MeetingMinutesSystemPrompt);
             var meetingName = asrResult.Audio?.Name ?? $"Audio {asrResult.AudioId}";
             var question = $$"""
@@ -71,9 +104,32 @@ public class MeetingMinutesService(
                 return;
             }
 
+            var currentTranscript = await dbContext.AudioAsrResults
+                .AsNoTracking()
+                .Where(item => item.AudioId == asrResult.AudioId)
+                .Select(item => new { item.TranscriptRevision, item.CreateTime })
+                .FirstOrDefaultAsync();
+            if (currentTranscript == null ||
+                currentTranscript.TranscriptRevision != transcriptRevision ||
+                currentTranscript.CreateTime != transcriptCreateTime)
+            {
+                logger.LogInformation(
+                    "Discarded meeting minutes for audio {AudioId} because its transcript changed during generation.",
+                    asrResult.AudioId);
+                return;
+            }
+
             asrResult.MeetingMinutesMarkdown = result.Answer.Trim();
+            asrResult.MeetingMinutesTranscriptRevision = transcriptRevision;
             await dbContext.SaveChangesAsync();
             logger.LogInformation("Successfully generated meeting minutes for audio {AudioId}.", asrResult.AudioId);
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            DetachConflictingEntries(ex);
+            logger.LogInformation(
+                "Discarded meeting minutes work for audio {AudioId} because its transcript changed concurrently.",
+                asrResult.AudioId);
         }
         catch (Exception ex)
         {
@@ -82,6 +138,14 @@ public class MeetingMinutesService(
                 "Meeting minutes generation failed for audio {AudioId} on attempt {AttemptCount}.",
                 asrResult.AudioId,
                 asrResult.MeetingMinutesAttemptCount);
+        }
+    }
+
+    private static void DetachConflictingEntries(DbUpdateConcurrencyException exception)
+    {
+        foreach (var entry in exception.Entries)
+        {
+            entry.State = EntityState.Detached;
         }
     }
 

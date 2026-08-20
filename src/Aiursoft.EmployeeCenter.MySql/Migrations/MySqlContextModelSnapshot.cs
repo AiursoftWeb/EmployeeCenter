@@ -323,9 +323,16 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<string>("MeetingMinutesMarkdown")
                         .HasColumnType("longtext");
 
+                    b.Property<int>("MeetingMinutesTranscriptRevision")
+                        .HasColumnType("int");
+
                     b.Property<string>("PlainText")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("TranscriptRevision")
+                        .IsConcurrencyToken()
+                        .HasColumnType("int");
 
                     b.HasKey("AudioId");
 

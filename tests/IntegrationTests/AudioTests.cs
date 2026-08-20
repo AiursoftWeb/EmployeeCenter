@@ -406,7 +406,7 @@ public class AudioTests : TestBase
     }
 
     [TestMethod]
-    public async Task FailedReplacementPreservesOriginalRecordingAndTranscript()
+    public async Task FailedReplacementPreservesOriginalRecordingAndInvalidatesMinutesAfterRename()
     {
         await LoginAsAdmin();
 
@@ -430,7 +430,7 @@ public class AudioTests : TestBase
             replacementPhysicalPath = storage.GetFilePhysicalPath(replacementFilePath, isVault: true);
             var audio = new Audio
             {
-                Name = "Failed replacement",
+                Name = "Original recording",
                 FilePath = originalFilePath,
                 OwnerId = admin.Id
             };
@@ -440,7 +440,11 @@ public class AudioTests : TestBase
             {
                 AudioId = audio.Id,
                 PlainText = "Original transcript",
-                MeetingMinutesMarkdown = "# Original minutes"
+                TranscriptRevision = 2,
+                MeetingMinutesMarkdown = "# Original minutes",
+                MeetingMinutesTranscriptRevision = 2,
+                MeetingMinutesAttemptCount = 2,
+                LastMeetingMinutesAttemptTime = DateTime.UtcNow
             });
             await db.SaveChangesAsync();
             audioId = audio.Id;
@@ -451,7 +455,7 @@ public class AudioTests : TestBase
             new Dictionary<string, string>
             {
                 { "Id", audioId.ToString() },
-                { "Name", "Failed replacement" },
+                { "Name", "Renamed failed replacement" },
                 { "FilePath", replacementFilePath }
             },
             $"/Audio/Edit/{audioId}");
@@ -464,12 +468,23 @@ public class AudioTests : TestBase
         var audioAfterReplacement = await verificationDb.Audios.FindAsync(audioId);
         Assert.IsNotNull(audioAfterReplacement);
         Assert.AreEqual(AudioMediaStatus.Ready, audioAfterReplacement.MediaStatus);
+        Assert.AreEqual("Renamed failed replacement", audioAfterReplacement.Name);
         Assert.AreEqual(originalFilePath, audioAfterReplacement.FilePath);
         Assert.IsNull(audioAfterReplacement.PendingFilePath);
         Assert.AreEqual("The uploaded file could not be processed.", audioAfterReplacement.MediaProcessingError);
-        Assert.AreEqual(
-            "Original transcript",
-            (await verificationDb.AudioAsrResults.FindAsync(audioId))?.PlainText);
+        var asrResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(asrResult);
+        Assert.AreEqual("Original transcript", asrResult.PlainText);
+        Assert.AreEqual(3, asrResult.TranscriptRevision);
+        Assert.AreEqual(2, asrResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual(0, asrResult.MeetingMinutesAttemptCount);
+        Assert.IsNull(asrResult.LastMeetingMinutesAttemptTime);
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcriptHtml, "Meeting minutes may be outdated");
+        StringAssert.Contains(transcriptHtml, "Regenerate Meeting Minutes");
         Assert.IsTrue(File.Exists(originalPhysicalPath));
         Assert.IsFalse(File.Exists(replacementPhysicalPath));
         File.Delete(originalPhysicalPath);
@@ -543,6 +558,17 @@ public class AudioTests : TestBase
             };
             db.Audios.Add(audio);
             await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Existing transcript",
+                TranscriptRevision = 3,
+                MeetingMinutesMarkdown = "# Existing minutes",
+                MeetingMinutesTranscriptRevision = 3,
+                MeetingMinutesAttemptCount = 2,
+                LastMeetingMinutesAttemptTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
             audioId = audio.Id;
         }
 
@@ -564,6 +590,12 @@ public class AudioTests : TestBase
         Assert.IsNotNull(updatedAudio);
         Assert.AreEqual("Updated Name", updatedAudio.Name);
         Assert.AreEqual(filePath, updatedAudio.FilePath);
+        var asrResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(asrResult);
+        Assert.AreEqual(4, asrResult.TranscriptRevision);
+        Assert.AreEqual(3, asrResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual(0, asrResult.MeetingMinutesAttemptCount);
+        Assert.IsNull(asrResult.LastMeetingMinutesAttemptTime);
         File.Delete(physicalPath);
     }
 
@@ -649,9 +681,20 @@ public class AudioTests : TestBase
         transcriptResponse.EnsureSuccessStatusCode();
         var sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(sharedTranscriptHtml, "Meeting Summary");
+        Assert.DoesNotContain("Edit Transcript", sharedTranscriptHtml);
+        Assert.DoesNotContain(">Rename<", sharedTranscriptHtml);
 
         var editResponse = await Http.GetAsync($"/Audio/Edit/{audioId}");
         Assert.AreEqual(HttpStatusCode.Unauthorized, editResponse.StatusCode);
+        var renameResponse = await Http.GetAsync($"/Audio/Rename/{audioId}");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, renameResponse.StatusCode);
+        var editTranscriptResponse = await Http.GetAsync($"/Audio/EditTranscript/{audioId}");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, editTranscriptResponse.StatusCode);
+        var regenerateResponse = await PostForm(
+            "/Audio/RegenerateMeetingMinutes",
+            new Dictionary<string, string> { { "id", audioId.ToString() } },
+            "/");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, regenerateResponse.StatusCode);
 
         using (var scope = Server.Services.CreateScope())
         {
@@ -664,6 +707,110 @@ public class AudioTests : TestBase
 
         editResponse = await Http.GetAsync($"/Audio/Edit/{audioId}");
         editResponse.EnsureSuccessStatusCode();
+        renameResponse = await Http.GetAsync($"/Audio/Rename/{audioId}");
+        renameResponse.EnsureSuccessStatusCode();
+        editTranscriptResponse = await Http.GetAsync($"/Audio/EditTranscript/{audioId}");
+        editTranscriptResponse.EnsureSuccessStatusCode();
+
+        renameResponse = await PostForm(
+            "/Audio/Rename",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "Name", "Renamed shared meeting" }
+            },
+            $"/Audio/Rename/{audioId}");
+        AssertRedirect(renameResponse, $"/Audio/Transcript/{audioId}");
+
+        editTranscriptResponse = await PostForm(
+            "/Audio/EditTranscript",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "TranscriptRevision", "1" },
+                { "PlainText", "Corrected shared transcript" }
+            },
+            $"/Audio/EditTranscript/{audioId}");
+        AssertRedirect(editTranscriptResponse, $"/Audio/Transcript/{audioId}");
+
+        var staleEditResponse = await PostForm(
+            "/Audio/EditTranscript",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "TranscriptRevision", "1" },
+                { "PlainText", "Stale overwrite" }
+            },
+            $"/Audio/EditTranscript/{audioId}");
+        staleEditResponse.EnsureSuccessStatusCode();
+        StringAssert.Contains(
+            await staleEditResponse.Content.ReadAsStringAsync(),
+            "The transcript was changed by another user.");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.AreEqual("Renamed shared meeting", (await verificationDb.Audios.FindAsync(audioId))?.Name);
+        var correctedResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(correctedResult);
+        Assert.AreEqual("Corrected shared transcript", correctedResult.PlainText);
+        Assert.AreEqual(2, correctedResult.TranscriptRevision);
+        Assert.AreEqual(0, correctedResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual("# Meeting Summary\n\n| Item | Owner |\n|---|---|\n| Ship | Alice |\n\n<script>alert('x')</script>", correctedResult.MeetingMinutesMarkdown);
+
+        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(sharedTranscriptHtml, "Meeting minutes may be outdated");
+        StringAssert.Contains(sharedTranscriptHtml, "Regenerate Meeting Minutes");
+        StringAssert.Contains(sharedTranscriptHtml, "Transcript API");
+        Assert.DoesNotContain("AI Raw API", sharedTranscriptHtml);
+
+        indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(indexHtml, "Minutes outdated");
+
+        var retryLimit = Server.Services
+            .GetRequiredService<IOptions<AppSettings>>()
+            .Value.Agent.MeetingMinutesMaxRetryCount;
+        correctedResult.MeetingMinutesMarkdown = null;
+        correctedResult.MeetingMinutesTranscriptRevision = correctedResult.TranscriptRevision;
+        correctedResult.MeetingMinutesAttemptCount = retryLimit;
+        await verificationDb.SaveChangesAsync();
+        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(sharedTranscriptHtml, "Retry Meeting Minutes");
+
+        var queueService = Server.Services.GetRequiredService<MeetingMinutesQueueService>();
+        var activeTaskStarted = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var releaseActiveTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var activeTask = queueService.ExecuteIfNotActiveAsync(
+            audioId,
+            correctedResult.TranscriptRevision,
+            correctedResult.CreateTime,
+            async () =>
+            {
+                activeTaskStarted.SetResult();
+                await releaseActiveTask.Task;
+            });
+        await activeTaskStarted.Task;
+
+        try
+        {
+            regenerateResponse = await PostForm(
+                "/Audio/RegenerateMeetingMinutes",
+                new Dictionary<string, string> { { "id", audioId.ToString() } },
+                $"/Audio/EditTranscript/{audioId}");
+            AssertRedirect(regenerateResponse, $"/Audio/Transcript/{audioId}");
+            await verificationDb.Entry(correctedResult).ReloadAsync();
+            Assert.AreEqual(retryLimit, correctedResult.MeetingMinutesAttemptCount);
+            Assert.IsNull(correctedResult.LastMeetingMinutesAttemptTime);
+        }
+        finally
+        {
+            releaseActiveTask.TrySetResult();
+            await activeTask;
+        }
     }
 
     [TestMethod]

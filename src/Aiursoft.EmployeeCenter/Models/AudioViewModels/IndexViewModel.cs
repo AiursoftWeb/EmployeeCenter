@@ -25,5 +25,6 @@ public class AudioListItemViewModel
     public bool HasTranscript { get; set; }
     public bool IsEmptyResult { get; set; }
     public bool HasMeetingMinutes { get; set; }
+    public bool MeetingMinutesOutdated { get; set; }
     public int MeetingMinutesAttemptCount { get; set; }
 }

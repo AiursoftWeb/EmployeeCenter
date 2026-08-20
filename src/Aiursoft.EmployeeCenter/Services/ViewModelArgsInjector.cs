@@ -260,10 +260,12 @@ public class ViewModelArgsInjector(
     
         _ = localizer["Audio"];
         _ = localizer["Edit Meeting Recording"];
+        _ = localizer["Edit Transcript"];
         _ = localizer["Manage Audio Shares"];
         _ = localizer["Meeting Transcript"];
         _ = localizer["Meeting Transcripts"];
         _ = localizer["Meeting Minutes"];
+        _ = localizer["Rename Meeting Recording"];
         _ = localizer["Upload Audio"];
     
         _ = localizer["Move Contract"];
