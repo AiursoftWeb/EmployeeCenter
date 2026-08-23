@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>खाली</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>मिनट्स जनरेट हो रहे हैं</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>मिलन रिकॉर्डिंग्स</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>मिलन पत्रिकाएँ</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>मिनट्स जनरेटेड</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>मिनट्स जनरेशन विफल रहा</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>मिनट्स अपडेटेड नहीं</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>मिनट्स स्थिति</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>नाम</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>AI के साथ अनुवाद और विश्लेषण करने के लिए अपना पहला मीटिंग रिकॉर्डिंग अपलोड करें।</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>प्राप्ति की प्रतीक्षा में</value>
   </data>
 
 </root>

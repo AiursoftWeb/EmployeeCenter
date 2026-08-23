@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>Leeg</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>Notulen genereren</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>Vergistingsopnames</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Vergadertranscripties</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Notulen gegenereerd</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Notulen genereren mislukt</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Notulen verouderd</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Notulenstatus</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Naam</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>Upload uw eerste vergaderopname om deze met AI te transcriberen en te analyseren.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>Wachten op transcript</value>
   </data>
 
 </root>

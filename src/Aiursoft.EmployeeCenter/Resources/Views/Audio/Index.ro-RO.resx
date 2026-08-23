@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>Gol</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>Generare proces verbal</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>Înregistrări de ședințe</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Transcrieri ale ședințelor</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Notițe generate</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Generarea notelor a eșuat</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Minute expirate</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Starea procesului verbal</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nume</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>Încărcați prima înregistrare de ședință pentru a fi transcrisă și analizată cu IA.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>În așteptarea transcrierii</value>
   </data>
 
 </root>

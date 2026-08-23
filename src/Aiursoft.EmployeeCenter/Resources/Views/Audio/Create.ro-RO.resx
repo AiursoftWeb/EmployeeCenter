@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Fișier audio ședință</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Fișier audio sau video al ședinței</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Detalii înregistrare ședință</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Încărcați un fișier cu înregistrarea unei ședințe. Acesta va fi transcris automat în text, fiind pregătit pentru arhivare și analiza ulterioară AI.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Încărcați un fișier audio sau un fișier video. Încărcările video sunt salvate doar ca audio, iar video-ul original este eliminat.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Încărcare înregistrare ședință</value>

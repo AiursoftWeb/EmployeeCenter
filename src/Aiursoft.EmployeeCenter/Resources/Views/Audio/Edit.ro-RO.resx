@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Fișier audio ședință</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Fișier audio sau video al ședinței</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Detalii înregistrare ședință</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>Înlocuirea înregistrării șterge transcrierea sa și o pune în coadă pentru a fi transcrisă din nou.</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Înlocuirea înregistrării șterge transcripția acesteia și o adaugă din nou în coada de transcriere. Încărcările de video sunt salvate doar ca audio, iar video-ul original este eliminat.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Salvează</value>

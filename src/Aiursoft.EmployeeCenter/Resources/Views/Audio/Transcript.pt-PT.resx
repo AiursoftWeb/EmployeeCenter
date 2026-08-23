@@ -21,6 +21,12 @@
       <data name="AI Raw API" xml:space="preserve">
     <value>API Crua de IA</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>Foi criada uma tarefa ASR offline. Por favor, não a crie novamente.</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>A ASR só pode ser redefinida após o processamento de media ter sido bem-sucedido.</value>
+  </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Número de Tentativas</value>
   </data>
@@ -29,6 +35,18 @@
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Voltar à Lista</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>Confirmar reinício do ASR</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>Confirmar Reinicialização</value>
   </data>
   <data name="Copied" xml:space="preserve">
     <value>Copiado</value>
@@ -39,11 +57,17 @@
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Copiar para a área de transferência</value>
   </data>
+  <data name="Correct transcription errors" xml:space="preserve">
+    <value>Corrigir erros de transcrição</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Transferir áudio</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Editar</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Editar Transcrição</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Todos (CanViewAudio)</value>
@@ -57,14 +81,35 @@
   <data name="Failed" xml:space="preserve">
     <value>Falhou</value>
   </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Gerado</value>
+  </data>
+  <data name="Generating meeting summary" xml:space="preserve">
+    <value>A gerar resumo da reunião</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>Última Tentativa</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Gerir Partilhas</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>Falha no processamento de media</value>
+  </data>
+  <data name="Media replacement failed" xml:space="preserve">
+    <value>Falha na substituição da media</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Atas da Reunião</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>A regeneração das atas da reunião foi colocada em fila.</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Transcrição da Reunião</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>Falha na Geração de Minutos</value>
   </data>
   <data name="My department" xml:space="preserve">
     <value>O meu departamento</value>
@@ -72,11 +117,17 @@
   <data name="Never" xml:space="preserve">
     <value>Nunca</value>
   </data>
+  <data name="No playable audio is available." xml:space="preserve">
+    <value>Não há áudio reproduzível disponível.</value>
+  </data>
   <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
     <value>Não há transcrição disponível para este áudio. Poderá estar ainda em processamento ou ter falhado.</value>
   </data>
   <data name="Only me (Private)" xml:space="preserve">
     <value>Apenas eu (Privado)</value>
+  </data>
+  <data name="Outdated" xml:space="preserve">
+    <value>Desatualizado</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Pendente</value>
@@ -87,11 +138,26 @@
   <data name="Processing Failed" xml:space="preserve">
     <value>Falha no Processamento</value>
   </data>
+  <data name="Processing uploaded media" xml:space="preserve">
+    <value>A processar os meios de comunicação carregados</value>
+  </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Endpoint da API em bruto para ferramentas de IA</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Renomear</value>
+  </data>
+  <data name="Replace Recording" xml:space="preserve">
+    <value>Substituir Gravação</value>
+  </data>
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>Repor e Repetir ASR</value>
+  </data>
+  <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
+    <value>Reiniciar o ASR eliminará a transcrição atual e os resultados dos segmentos, reiniciará o contador de tentativas e criará uma nova tarefa offline. Tem a certeza de que pretende continuar?</value>
+  </data>
+  <data name="Retry Meeting Minutes" xml:space="preserve">
+    <value>Tentar Minuta da Reunião</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>Guardar âmbito</value>
@@ -99,8 +165,20 @@
   <data name="Sharing" xml:space="preserve">
     <value>Partilha</value>
   </data>
+  <data name="Speech-to-text is complete. The meeting summary is now being prepared." xml:space="preserve">
+    <value>A transcrição de fala para texto está concluída. O resumo da reunião está agora a ser preparado.</value>
+  </data>
   <data name="Status Info" xml:space="preserve">
     <value>Informações de Estado</value>
+  </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>A tarefa de ASR ativa não pôde ser cancelada. Não foram efetuadas alterações. Por favor, tente novamente.</value>
+  </data>
+  <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
+    <value>O resumo da reunião será iniciado automaticamente após a conclusão da transcrição de voz.</value>
+  </data>
+  <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
+    <value>A gravação está a ser preparada em segundo plano. A gravação existente permanece disponível durante a substituição.</value>
   </data>
   <data name="Transcribed" xml:space="preserve">
     <value>Transcrito</value>
@@ -108,8 +186,17 @@
   <data name="Transcribed Text" xml:space="preserve">
     <value>Texto Transcrito</value>
   </data>
+  <data name="Transcript API" xml:space="preserve">
+    <value>API de Transcrição</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Âmbito de visualização</value>
+  </data>
+  <data name="View the current transcript as plain text" xml:space="preserve">
+    <value>Ver a transcrição atual como texto simples</value>
+  </data>
+  <data name="Waiting for speech-to-text to finish" xml:space="preserve">
+    <value>A aguardar a conclusão da transcrição de voz em texto</value>
   </data>
   <data name="Your browser does not support audio playback." xml:space="preserve">
     <value>O seu navegador não suporta a reprodução de áudio.</value>

@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Αρχείο Ήχου Συνεδρίας</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Αρχείο ήχου ή βίντεο συνεδρίας</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Λεπτομέρειες Εγγραφής Συνεδρίας</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Ανεβάστε ένα αρχείο ηχογράφησης συνάντησης. Θα μεταγραφεί αυτόματα σε κείμενο, έτοιμο για αρχειοθέτηση και επόμενη ανάλυση από τεχνητή νοημοσύνη.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Ανεβάστε ένα αρχείο ήχου ή ένα αρχείο βίντεο. Τα ανεβασμένα βίντεο αποθηκεύονται μόνο ως ήχος και το αρχικό βίντεο απορρίπτεται.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Ανέβασμα ηχογράφησης συνάντησης</value>

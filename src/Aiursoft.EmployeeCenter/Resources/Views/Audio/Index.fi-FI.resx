@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>Tyhjä</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>Päiväkirjaa luodaan</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>Kokousnauhoitukset</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Kokousmuistiot</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Päiväkirja luotu</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Muistiinpanojen luonti epäonnistui</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Muistiinpanot vanhentuneet</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Päiväkirjan tila</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nimi</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>Lataa ensimmäinen kokousnauhanne, jotta se voidaan transkriboida ja analysoida tekoälyn avulla.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>Odotetaan transkriptiota</value>
   </data>
 
 </root>
