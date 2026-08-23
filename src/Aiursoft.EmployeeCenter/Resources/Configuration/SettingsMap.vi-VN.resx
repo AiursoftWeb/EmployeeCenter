@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>Số đăng ký ICP</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Lời nhắc hệ thống cho biên bản cuộc họp</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>Chỉ các dự án được người dùng này đánh dấu sao mới được hiển thị. Để trống để hiển thị tất cả dự án. Ví dụ: anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Hướng dẫn hệ thống cho trợ lý AI.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Lời nhắc hệ thống được sử dụng để tạo biên bản họp từ bản ghi âm.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Địa chỉ URL của công ty hoặc dự án. Ví dụ: https://www.aiursoft.com</value>

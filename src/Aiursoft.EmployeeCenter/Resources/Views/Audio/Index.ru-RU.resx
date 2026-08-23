@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>Пусто</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>Генерация протокола</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>Записи встреч</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Транскрипты встреч</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Протокол создан</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Ошибка генерации протокола</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Протокол устарел</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Статус протокола</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>Загрузите запись первой встречи для транскрибации и анализа с помощью ИИ.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>Ожидание транскрипции</value>
   </data>
 
 </root>

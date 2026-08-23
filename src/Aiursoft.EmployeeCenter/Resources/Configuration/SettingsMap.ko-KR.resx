@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 번호</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>회의록 시스템 프롬프트</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>이 사용자가 별표를 친 프로젝트만 표시됩니다. 모든 프로젝트를 표시하려면 비워 두세요. 예: anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>AI 어시스턴트의 시스템 프롬프트입니다.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>전사본에서 회의록을 생성하는 데 사용되는 시스템 프롬프트입니다.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>회사 또는 프로젝트의 URL입니다. 예: https://www.aiursoft.com</value>

@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Tệp âm thanh cuộc họp</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Tệp âm thanh hoặc video cuộc họp</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Chi tiết ghi âm cuộc họp</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Tải lên tệp ghi âm cuộc họp. Tệp sẽ được tự động chuyển đổi thành văn bản, sẵn sàng để lưu trữ và phân tích bằng AI sau này.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Tải lên tệp âm thanh hoặc tệp video. Các tệp video được tải lên sẽ chỉ được lưu dưới dạng âm thanh và video gốc sẽ bị loại bỏ.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Tải lên bản ghi cuộc họp</value>

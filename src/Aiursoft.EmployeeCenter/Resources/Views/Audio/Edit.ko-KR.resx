@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>회의 오디오 파일</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>회의 오디오 또는 비디오 파일</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>회의 녹음 세부 정보</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>녹음 파일을 교체하면 기존 전사 결과가 삭제되고 다시 전사 대기열에 등록됩니다.</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>녹음을 교체하면 기존 자막이 삭제되고 다시 전사 작업이 대기열에 추가됩니다. 동영상은 오디오로만 저장되며 원본 동영상은 삭제됩니다.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>저장</value>

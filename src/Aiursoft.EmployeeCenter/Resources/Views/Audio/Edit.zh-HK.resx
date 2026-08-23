@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>會議音頻文件</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>會議音訊或影片檔案</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>會議錄音詳情</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>替換錄音將清除其文字稿，並重新排隊進行轉錄。</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>替換錄音會清除其文字記錄並重新加入轉錄佇列。上傳的影片只會儲存為音訊，原始影片會被丟棄。</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>儲存</value>

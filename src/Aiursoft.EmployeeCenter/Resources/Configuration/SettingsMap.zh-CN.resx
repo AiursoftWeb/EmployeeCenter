@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 备案号</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>会议纪要系统提示词</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>仅显示该用户加星的项目。留空以显示所有项目。例如：andin</value>
   </data>
@@ -96,18 +99,14 @@
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>AI 助手的系统提示。</value>
   </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>用于根据转录内容生成会议纪要的系统提示词。</value>
+  </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>公司或项目的网址。例如：https://www.aiursoft.com</value>
   </data>
   <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
     <value>GitLab 组织的 URL，用于获取项目。例如：https://gitlab.aiursoft.com/aiursoft</value>
-  </data>
-
-  <data name="Meeting Minutes System Prompt" xml:space="preserve">
-    <value>会议纪要系统提示词</value>
-  </data>
-  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
-    <value>用于根据转录内容生成会议纪要的系统提示词。</value>
   </data>
 
 </root>

@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>ICP編號</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>會議記錄系統提示詞</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>只有此用戶標記的項目會顯示。留空以顯示所有項目。例如 anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>AI 助理的系統提示</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>用於根據記錄生成會議紀要嘅系統提示詞。</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>公司或項目的網址。例如：https://www.aiursoft.com</value>

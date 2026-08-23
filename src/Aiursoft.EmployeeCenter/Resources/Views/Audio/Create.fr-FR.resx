@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Fichier audio de la réunion</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Fichier audio ou vidéo de la réunion</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Détails de l&apos;enregistrement de réunion</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Téléversez un fichier d’enregistrement de réunion. Il sera automatiquement transcrit en texte, prêt à être archivé et analysé par l’IA.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Téléchargez un fichier audio ou un fichier vidéo. Les vidéos téléversées sont enregistrées uniquement en audio et la vidéo originale est supprimée.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Télécharger l&apos;enregistrement de réunion</value>

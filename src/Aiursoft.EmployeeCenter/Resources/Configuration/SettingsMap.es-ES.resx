@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>Número ICP</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Prompt de sistema para actas de reunión</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>Solo se mostrarán los proyectos marcados con estrella por este usuario. Dejar vacío para mostrar todos los proyectos. Ej. anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>El mensaje del sistema para el asistente de IA.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>El prompt de sistema utilizado para generar actas de reunión a partir de transcripciones.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>La URL de la empresa o proyecto. Por ejemplo: https://www.aiursoft.com</value>

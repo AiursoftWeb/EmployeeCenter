@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>비어 있음</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>회의록 생성 중</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>회의 녹음 파일</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>회의 기록</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>회의록 생성됨</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>회의록 생성 실패</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>회의록 만료됨</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>회의록 상태</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>이름</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>AI로 전사 및 분석할 수 있도록 첫 번째 회의 녹음 파일을 업로드하세요.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>전사 대기 중</value>
   </data>
 
 </root>

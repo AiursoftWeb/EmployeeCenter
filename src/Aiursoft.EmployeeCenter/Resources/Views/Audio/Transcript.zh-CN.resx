@@ -21,6 +21,12 @@
       <data name="AI Raw API" xml:space="preserve">
     <value>AI 原始 API</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>已创建离线 ASR 任务，请勿重复创建。</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR 只能在媒体处理成功后才能重置。</value>
+  </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>尝试次数</value>
   </data>
@@ -29,6 +35,18 @@
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>返回列表</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>确认重置 ASR</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>确认重置</value>
   </data>
   <data name="Copied" xml:space="preserve">
     <value>已复制</value>
@@ -39,11 +57,17 @@
   <data name="Copy to clipboard" xml:space="preserve">
     <value>复制到剪贴板</value>
   </data>
+  <data name="Correct transcription errors" xml:space="preserve">
+    <value>纠正转录错误</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>下载音频</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>编辑</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>编辑转录文本</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>所有人（可收听音频）</value>
@@ -57,14 +81,44 @@
   <data name="Failed" xml:space="preserve">
     <value>失败</value>
   </data>
+  <data name="Generated" xml:space="preserve">
+    <value>已生成</value>
+  </data>
+  <data name="Generating" xml:space="preserve">
+    <value>生成中</value>
+  </data>
+  <data name="Generating meeting summary" xml:space="preserve">
+    <value>正在生成会议摘要</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>上次尝试时间</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>管理共享</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>媒体处理失败</value>
+  </data>
+  <data name="Media replacement failed" xml:space="preserve">
+    <value>媒体替换失败</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>会议纪要</value>
+  </data>
+  <data name="Meeting minutes could not be generated after {0} attempts." xml:space="preserve">
+    <value>会议纪要在尝试 {0} 次后仍未能生成。</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>会议纪要重新生成任务已加入队列。</value>
+  </data>
+  <data name="Meeting minutes will be generated after transcription is complete." xml:space="preserve">
+    <value>转录完成后将自动生成会议纪要。</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>会议记录</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>纪要生成失败</value>
   </data>
   <data name="My department" xml:space="preserve">
     <value>本部门</value>
@@ -72,11 +126,17 @@
   <data name="Never" xml:space="preserve">
     <value>从未</value>
   </data>
+  <data name="No playable audio is available." xml:space="preserve">
+    <value>没有可播放的音频。</value>
+  </data>
   <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
     <value>该音频暂无字幕。可能仍在处理中，也可能已失败。</value>
   </data>
   <data name="Only me (Private)" xml:space="preserve">
     <value>仅我自己（私有）</value>
+  </data>
+  <data name="Outdated" xml:space="preserve">
+    <value>已过期</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>待处理</value>
@@ -87,26 +147,26 @@
   <data name="Processing Failed" xml:space="preserve">
     <value>处理失败</value>
   </data>
+  <data name="Processing uploaded media" xml:space="preserve">
+    <value>正在处理已上传的媒体</value>
+  </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>供 AI 工具使用的原始 API 端点</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="Replace Recording" xml:space="preserve">
+    <value>替换录音</value>
   </data>
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>重置并重试 ASR</value>
   </data>
-  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
-    <value>已创建离线 ASR 任务，请勿重复创建。</value>
-  </data>
-  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
-    <value>无法取消正在运行的 ASR 任务，未进行任何更改。请重试。</value>
-  </data>
-  <data name="Confirm ASR Reset" xml:space="preserve">
-    <value>确认重置 ASR</value>
-  </data>
-  <data name="Confirm Reset" xml:space="preserve">
-    <value>确认重置</value>
-  </data>
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>重置 ASR 将删除当前转录文本和切片结果、重置重试次数，并创建新的离线任务。确认继续吗？</value>
+  </data>
+  <data name="Retry Meeting Minutes" xml:space="preserve">
+    <value>重试会议纪要</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>保存范围</value>
@@ -114,8 +174,23 @@
   <data name="Sharing" xml:space="preserve">
     <value>共享设置</value>
   </data>
+  <data name="Speech-to-text is complete. The meeting summary is now being prepared." xml:space="preserve">
+    <value>语音转文字已完成。会议纪要正在生成中。</value>
+  </data>
   <data name="Status Info" xml:space="preserve">
     <value>状态信息</value>
+  </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>无法取消正在运行的 ASR 任务，未进行任何更改。请重试。</value>
+  </data>
+  <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
+    <value>语音转文字完成后，会议摘要将自动生成。</value>
+  </data>
+  <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
+    <value>录音正在后台准备中。替换期间，现有录音仍可正常访问。</value>
+  </data>
+  <data name="The transcript is complete. Meeting minutes are being generated in the background." xml:space="preserve">
+    <value>转录已完成，正在后台生成会议纪要。</value>
   </data>
   <data name="Transcribed" xml:space="preserve">
     <value>已转录</value>
@@ -123,36 +198,23 @@
   <data name="Transcribed Text" xml:space="preserve">
     <value>转录文本</value>
   </data>
+  <data name="Transcript API" xml:space="preserve">
+    <value>转录文本 API</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>查看范围</value>
   </data>
-  <data name="Your browser does not support audio playback." xml:space="preserve">
-    <value>您的浏览器不支持音频播放。</value>
+  <data name="View the current transcript as plain text" xml:space="preserve">
+    <value>以纯文本格式查看当前转录文本</value>
   </data>
-
-  <data name="Meeting Minutes" xml:space="preserve">
-    <value>会议纪要</value>
-  </data>
-  <data name="Generated" xml:space="preserve">
-    <value>已生成</value>
-  </data>
-  <data name="Generating" xml:space="preserve">
-    <value>生成中</value>
+  <data name="Waiting for speech-to-text to finish" xml:space="preserve">
+    <value>等待语音转文字完成</value>
   </data>
   <data name="Waiting for transcript" xml:space="preserve">
     <value>等待转录</value>
   </data>
-  <data name="Minutes Generation Failed" xml:space="preserve">
-    <value>纪要生成失败</value>
-  </data>
-  <data name="Meeting minutes could not be generated after {0} attempts." xml:space="preserve">
-    <value>会议纪要在尝试 {0} 次后仍未能生成。</value>
-  </data>
-  <data name="The transcript is complete. Meeting minutes are being generated in the background." xml:space="preserve">
-    <value>转录已完成，正在后台生成会议纪要。</value>
-  </data>
-  <data name="Meeting minutes will be generated after transcription is complete." xml:space="preserve">
-    <value>转录完成后将自动生成会议纪要。</value>
+  <data name="Your browser does not support audio playback." xml:space="preserve">
+    <value>您的浏览器不支持音频播放。</value>
   </data>
 
 </root>

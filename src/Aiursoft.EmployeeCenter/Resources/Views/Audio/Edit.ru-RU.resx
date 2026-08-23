@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Аудиофайл встречи</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Аудио- или видеозапись встречи</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Детали записи встречи</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>Замена записи очищает её расшифровку и ставит в очередь для повторной транскрипции.</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Замена записи очищает её расшифровку и ставит её в очередь для повторной транскрипции. Загруженные видео сохраняются только в формате аудио, а исходное видео удаляется.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Сохранить</value>

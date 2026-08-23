@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>Αριθμός ICP</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Προβολή Συστήματος για Σημειώσεις Συναντήσεων</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>Θα εμφανίζονται μόνο τα έργα που έχουν αστερίσει αυτός ο χρήστης. Αφήστε το κενό για να εμφανιστούν όλα τα έργα. Π.χ. anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Η οδηγία συστήματος για τον βοηθό AI.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Η προεντολή συστήματος που χρησιμοποιείται για τη δημιουργία πρακτικών συνεδριάσεων από τα πρακτικά ομιλιών.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Η διεύθυνση της εταιρείας ή του έργου. Π.χ. https://www.aiursoft.com</value>

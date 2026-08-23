@@ -342,6 +342,9 @@
   <data name="Edit Transaction" xml:space="preserve">
     <value>Изменить транзакцию</value>
   </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Редактировать протокол</value>
+  </data>
   <data name="Edit User" xml:space="preserve">
     <value>Редактировать пользователя</value>
   </data>
@@ -546,6 +549,9 @@
   <data name="Market Channels" xml:space="preserve">
     <value>Рыночные каналы</value>
   </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Протокол совещания</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Транскрипт встречи</value>
   </data>
@@ -665,6 +671,9 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Отклонено</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>Переименовать запись встречи</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>Ответ</value>

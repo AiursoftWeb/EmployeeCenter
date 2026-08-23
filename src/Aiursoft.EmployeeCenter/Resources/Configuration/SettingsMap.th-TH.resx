@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>เลขที่ ICP</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>พรอมต์ระบบสำหรับบันทึกการประชุม</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>เฉพาะโปรเจกต์ที่ผู้ใช้รายนี้ให้ดาวเท่านั้นที่จะถูกแสดง ปล่อยให้เป็นค่าว่างเพื่อแสดงโปรเจกต์ทั้งหมด ตัวอย่างเช่น anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>คำสั่งระบบสำหรับผู้ช่วย AI</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>พรอมป์ตระบบที่ใช้สร้างสรุปการประชุมจากรายงานการบันทึกเสียง</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL ของบริษัทหรือโครงการ ตัวอย่างเช่น https://www.aiursoft.com</value>
