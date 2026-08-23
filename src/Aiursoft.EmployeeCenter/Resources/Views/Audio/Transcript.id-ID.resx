@@ -21,6 +21,12 @@
       <data name="AI Raw API" xml:space="preserve">
     <value>API AI Mentah</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>Tugas ASR offline telah dibuat. Jangan buat lagi.</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR hanya dapat direset setelah pemrosesan media berhasil.</value>
+  </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Jumlah Percobaan</value>
   </data>
@@ -29,6 +35,18 @@
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Kembali ke Daftar</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Tutup</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>Konfirmasi Pengaturan Ulang ASR</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>Konfirmasi Reset</value>
   </data>
   <data name="Copied" xml:space="preserve">
     <value>Disalin</value>
@@ -39,11 +57,17 @@
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Salin ke papan klip</value>
   </data>
+  <data name="Correct transcription errors" xml:space="preserve">
+    <value>Perbaiki kesalahan transkripsi</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Unduh Audio</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Sunting</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Ubah Transkrip</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Semua Orang (CanViewAudio)</value>
@@ -57,14 +81,35 @@
   <data name="Failed" xml:space="preserve">
     <value>Gagal</value>
   </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Terdapat</value>
+  </data>
+  <data name="Generating meeting summary" xml:space="preserve">
+    <value>Membuat ringkasan rapat</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>Percobaan Terakhir</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Kelola Berbagi</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>Pemrosesan media gagal</value>
+  </data>
+  <data name="Media replacement failed" xml:space="preserve">
+    <value>Ganti media gagal</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Notulen Rapat</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Regenerasi notulensi rapat telah ditambahkan ke antrean.</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Transkrip Rapat</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>Gagal Membuat Notulen</value>
   </data>
   <data name="My department" xml:space="preserve">
     <value>Departemen saya</value>
@@ -72,11 +117,17 @@
   <data name="Never" xml:space="preserve">
     <value>Tidak Pernah</value>
   </data>
+  <data name="No playable audio is available." xml:space="preserve">
+    <value>Tidak ada audio yang dapat diputar.</value>
+  </data>
   <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
     <value>Tidak ada transkrip yang tersedia untuk audio ini. Mungkin masih diproses atau gagal.</value>
   </data>
   <data name="Only me (Private)" xml:space="preserve">
     <value>Hanya saya (Pribadi)</value>
+  </data>
+  <data name="Outdated" xml:space="preserve">
+    <value>Kadaluarsa</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Menunggu</value>
@@ -87,11 +138,26 @@
   <data name="Processing Failed" xml:space="preserve">
     <value>Pemrosesan Gagal</value>
   </data>
+  <data name="Processing uploaded media" xml:space="preserve">
+    <value>Memproses media yang diunggah</value>
+  </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Titik akhir API mentah untuk alat AI</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Ubah Nama</value>
+  </data>
+  <data name="Replace Recording" xml:space="preserve">
+    <value>Ganti Rekaman</value>
+  </data>
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>Setel Ulang &amp; Coba Lagi ASR</value>
+  </data>
+  <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
+    <value>Pengaturan ulang ASR akan menghapus transkrip dan hasil segmen saat ini, mengatur ulang penghitung percobaan ulang, dan membuat tugas offline baru. Apakah Anda yakin ingin melanjutkan?</value>
+  </data>
+  <data name="Retry Meeting Minutes" xml:space="preserve">
+    <value>Ulangi Notulen Rapat</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>Simpan Lingkup</value>
@@ -99,8 +165,20 @@
   <data name="Sharing" xml:space="preserve">
     <value>Berbagi</value>
   </data>
+  <data name="Speech-to-text is complete. The meeting summary is now being prepared." xml:space="preserve">
+    <value>Pengubahan suara menjadi teks telah selesai. Ringkasan rapat sedang disiapkan.</value>
+  </data>
   <data name="Status Info" xml:space="preserve">
     <value>Info Status</value>
+  </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>Tugas ASR aktif tidak dapat dibatalkan. Tidak ada perubahan yang dilakukan. Silakan coba lagi.</value>
+  </data>
+  <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
+    <value>Ringkasan rapat akan dimulai secara otomatis setelah transkripsi ucapan selesai.</value>
+  </data>
+  <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
+    <value>Rekaman sedang disiapkan di latar belakang. Rekaman yang sudah ada tetap tersedia selama penggantian.</value>
   </data>
   <data name="Transcribed" xml:space="preserve">
     <value>Ditranskripsikan</value>
@@ -108,8 +186,17 @@
   <data name="Transcribed Text" xml:space="preserve">
     <value>Teks Transkripsi</value>
   </data>
+  <data name="Transcript API" xml:space="preserve">
+    <value>API Transkrip</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Lingkup Tampilan</value>
+  </data>
+  <data name="View the current transcript as plain text" xml:space="preserve">
+    <value>Lihat transkripsi saat ini sebagai teks polos</value>
+  </data>
+  <data name="Waiting for speech-to-text to finish" xml:space="preserve">
+    <value>Menunggu transkripsi suara selesai</value>
   </data>
   <data name="Your browser does not support audio playback." xml:space="preserve">
     <value>Peramban Anda tidak mendukung pemutaran audio.</value>

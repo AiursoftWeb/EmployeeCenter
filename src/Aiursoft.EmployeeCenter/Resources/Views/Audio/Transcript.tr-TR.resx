@@ -21,6 +21,12 @@
       <data name="AI Raw API" xml:space="preserve">
     <value>Yapay Zeka Ham API</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>Çevrimdışı bir ASR görevi oluşturuldu. Lütfen tekrar oluşturmaya çalışmayın.</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR yalnızca medya işleme başarılı olduktan sonra sıfırlanabilir.</value>
+  </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Deneme Sayısı</value>
   </data>
@@ -29,6 +35,18 @@
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Listeye Dön</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>ASR Sıfırlamasını Onayla</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>Sıfırlamayı Onayla</value>
   </data>
   <data name="Copied" xml:space="preserve">
     <value>Kopyalandı</value>
@@ -39,11 +57,17 @@
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Panoya kopyala</value>
   </data>
+  <data name="Correct transcription errors" xml:space="preserve">
+    <value>Transkripsiyon hatalarını düzeltin</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Sesli Dosyayı İndir</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Düzenle</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Transkripti Düzenle</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Herkes (CanViewAudio)</value>
@@ -57,14 +81,35 @@
   <data name="Failed" xml:space="preserve">
     <value>Başarısız</value>
   </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Oluşturuldu</value>
+  </data>
+  <data name="Generating meeting summary" xml:space="preserve">
+    <value>Toplantı özeti oluşturuluyor</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>Son Deneme</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Paylaşımları Yönet</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>Medya işleme başarısız oldu</value>
+  </data>
+  <data name="Media replacement failed" xml:space="preserve">
+    <value>Medya değiştirme başarısız oldu</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Toplantı Tutanakları</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Toplantı notları yeniden oluşturma işlemi kuyruğa alındı.</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Toplantı Transkripti</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>Tutanak Oluşturma Başarısız</value>
   </data>
   <data name="My department" xml:space="preserve">
     <value>Benim departmanım</value>
@@ -72,11 +117,17 @@
   <data name="Never" xml:space="preserve">
     <value>Asla</value>
   </data>
+  <data name="No playable audio is available." xml:space="preserve">
+    <value>Oynatılabilir ses mevcut değil.</value>
+  </data>
   <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
     <value>Bu ses dosyası için transkript mevcut değil. İşleniyor olabilir veya başarısız olmuş olabilir.</value>
   </data>
   <data name="Only me (Private)" xml:space="preserve">
     <value>Sadece ben (Özel)</value>
+  </data>
+  <data name="Outdated" xml:space="preserve">
+    <value>Eski</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Beklemede</value>
@@ -87,11 +138,26 @@
   <data name="Processing Failed" xml:space="preserve">
     <value>İşleme Başarısız</value>
   </data>
+  <data name="Processing uploaded media" xml:space="preserve">
+    <value>Yüklenen medya işleniyor</value>
+  </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Yapay zeka araçları için ham API uç noktası</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Yeniden Adlandır</value>
+  </data>
+  <data name="Replace Recording" xml:space="preserve">
+    <value>Kaydı Değiştir</value>
+  </data>
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>ASR&apos;yi Sıfırla ve Yeniden Dene</value>
+  </data>
+  <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
+    <value>ASR sıfırlanırsa mevcut transkript ve segment sonuçları silinecek, yeniden deneme sayacı sıfırlanacak ve yeni bir çevrimdışı görev oluşturulacaktır. Devam etmek istediğinize emin misiniz?</value>
+  </data>
+  <data name="Retry Meeting Minutes" xml:space="preserve">
+    <value>Toplantı Notlarını Tekrar Dene</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>Etki Alanını Kaydet</value>
@@ -99,8 +165,20 @@
   <data name="Sharing" xml:space="preserve">
     <value>Paylaşım</value>
   </data>
+  <data name="Speech-to-text is complete. The meeting summary is now being prepared." xml:space="preserve">
+    <value>Konuşmadan metne dönüştürme tamamlandı. Toplantı özeti hazırlanıyor.</value>
+  </data>
   <data name="Status Info" xml:space="preserve">
     <value>Durum Bilgisi</value>
+  </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>Aktif ASR görevi iptal edilemedi. Hiçbir değişiklik yapılmadı. Lütfen tekrar deneyin.</value>
+  </data>
+  <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
+    <value>Konuşma metne dönüştürme tamamlandıktan sonra toplantı özeti otomatik olarak başlatılacaktır.</value>
+  </data>
+  <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
+    <value>Kayıt arka planda hazırlanıyor. Değiştirme sırasında mevcut kayıt kullanılabilir durumda kalmaya devam eder.</value>
   </data>
   <data name="Transcribed" xml:space="preserve">
     <value>Transkribe Edildi</value>
@@ -108,8 +186,17 @@
   <data name="Transcribed Text" xml:space="preserve">
     <value>Dışarı Aktarılan Metin</value>
   </data>
+  <data name="Transcript API" xml:space="preserve">
+    <value>Transkript API</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Görüntüleme Kapsamı</value>
+  </data>
+  <data name="View the current transcript as plain text" xml:space="preserve">
+    <value>Mevcut transkripti düz metin olarak görüntüle</value>
+  </data>
+  <data name="Waiting for speech-to-text to finish" xml:space="preserve">
+    <value>Konuşmadan metne dönüştürme işleminin bitmesini bekleniyor</value>
   </data>
   <data name="Your browser does not support audio playback." xml:space="preserve">
     <value>Tarayıcınız ses çalmayı desteklemiyor.</value>

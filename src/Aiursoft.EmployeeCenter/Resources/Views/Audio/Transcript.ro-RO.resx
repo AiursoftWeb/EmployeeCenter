@@ -21,6 +21,12 @@
       <data name="AI Raw API" xml:space="preserve">
     <value>API brută pentru IA</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>A fost creată o sarcină ASR offline. Vă rugăm să nu o creați din nou.</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR poate fi resetat doar după ce procesarea media reușește.</value>
+  </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Număr încercări</value>
   </data>
@@ -29,6 +35,18 @@
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Înapoi la listă</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Închide</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>Confirmare resetare ASR</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>Confirmă resetarea</value>
   </data>
   <data name="Copied" xml:space="preserve">
     <value>Copiat</value>
@@ -39,11 +57,17 @@
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Copiază în clipboard</value>
   </data>
+  <data name="Correct transcription errors" xml:space="preserve">
+    <value>Corectează erorile de transcriere</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Descarcă audio</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Editează</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Editează transcrierea</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Toată lumea (CanViewAudio)</value>
@@ -57,14 +81,35 @@
   <data name="Failed" xml:space="preserve">
     <value>Eșuat</value>
   </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Generat</value>
+  </data>
+  <data name="Generating meeting summary" xml:space="preserve">
+    <value>Se generează rezumatul întâlnirii</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>Ultima încercare</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Gestionează partajările</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>Procesarea media a eșuat</value>
+  </data>
+  <data name="Media replacement failed" xml:space="preserve">
+    <value>Înlocuirea media a eșuat</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Notițe de ședință</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Regenerarea minutelor de ședință a fost pusă în coadă.</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Transcriptul ședinței</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>Generarea procesului-verbal a eșuat</value>
   </data>
   <data name="My department" xml:space="preserve">
     <value>Departamentul meu</value>
@@ -72,11 +117,17 @@
   <data name="Never" xml:space="preserve">
     <value>Niciodată</value>
   </data>
+  <data name="No playable audio is available." xml:space="preserve">
+    <value>Nu este disponibil niciun fișier audio redabil.</value>
+  </data>
   <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
     <value>Niciun transcriere disponibilă pentru acest fișier audio. Este posibil să fie încă în curs de procesare sau a eșuat.</value>
   </data>
   <data name="Only me (Private)" xml:space="preserve">
     <value>Numai eu (Privat)</value>
+  </data>
+  <data name="Outdated" xml:space="preserve">
+    <value>Depășit</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>În așteptare</value>
@@ -87,11 +138,26 @@
   <data name="Processing Failed" xml:space="preserve">
     <value>Procesarea a eșuat</value>
   </data>
+  <data name="Processing uploaded media" xml:space="preserve">
+    <value>Se procesuează media încărcată</value>
+  </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Punct de acces API brut pentru instrumente AI</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Redenumire</value>
+  </data>
+  <data name="Replace Recording" xml:space="preserve">
+    <value>Înlocuiește înregistrarea</value>
+  </data>
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>Resetează și reîncearcă ASR</value>
+  </data>
+  <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
+    <value>Resetează ASR va șterge transcrierea și rezultatele segmentelor curente, va reseta contorul de reîncercări și va crea o nouă task offline. Ești sigur că vrei să continui?</value>
+  </data>
+  <data name="Retry Meeting Minutes" xml:space="preserve">
+    <value>Reîncearcă procesul-verbal</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>Salvează vizibilitatea</value>
@@ -99,8 +165,20 @@
   <data name="Sharing" xml:space="preserve">
     <value>Distribuire</value>
   </data>
+  <data name="Speech-to-text is complete. The meeting summary is now being prepared." xml:space="preserve">
+    <value>Transcrierea vorbirii în text este finalizată. Rezumatul ședinței este acum în pregătire.</value>
+  </data>
   <data name="Status Info" xml:space="preserve">
     <value>Informații stare</value>
+  </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>Sarcina ASR activă nu a putut fi anulată. Nu au fost efectuate modificări. Vă rugăm să încercați din nou.</value>
+  </data>
+  <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
+    <value>Rezumatul ședinței va începe automat după finalizarea transcrierii vorbirii în text.</value>
+  </data>
+  <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
+    <value>Înregistrarea este pregătită în fundal. Înregistrarea existentă rămâne disponibilă în timpul înlocuirii.</value>
   </data>
   <data name="Transcribed" xml:space="preserve">
     <value>Transcris</value>
@@ -108,8 +186,17 @@
   <data name="Transcribed Text" xml:space="preserve">
     <value>Text transcris</value>
   </data>
+  <data name="Transcript API" xml:space="preserve">
+    <value>API Transcripție</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Domeniu de vizualizare</value>
+  </data>
+  <data name="View the current transcript as plain text" xml:space="preserve">
+    <value>Vizualizați transcrierea curentă ca text simplu</value>
+  </data>
+  <data name="Waiting for speech-to-text to finish" xml:space="preserve">
+    <value>Așteptare pentru finalizarea conversiei vorbirii în text</value>
   </data>
   <data name="Your browser does not support audio playback." xml:space="preserve">
     <value>Browser-ul dvs. nu suportă redarea audio.</value>

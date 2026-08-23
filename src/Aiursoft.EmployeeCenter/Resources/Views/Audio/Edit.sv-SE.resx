@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Mötesljudfil</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Mötesljud- eller videofil</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Detaljer för mötesinspelning</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>Att byta ut inspelningen rensar dess transkript och köar den för ny transkribering.</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Att byta ut inspelningen rensar dess transkript och köar den för transkribering igen. Videouppladdningar sparas endast som ljud och den ursprungliga videon kasseras.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Spara</value>

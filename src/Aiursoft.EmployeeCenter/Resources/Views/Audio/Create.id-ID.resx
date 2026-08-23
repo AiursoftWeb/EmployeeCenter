@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>File Audio Rapat</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Berkas Audio atau Video Rapat</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Detail Rekaman Rapat</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Unggah file rekaman rapat. File tersebut akan ditranskripsikan secara otomatis ke dalam teks, siap untuk diarsipkan dan dianalisis lebih lanjut oleh AI.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Unggah file audio atau file video. Unggahan video disimpan hanya sebagai audio dan video asli akan dihapus.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Unggikan Rekaman Rapat</value>

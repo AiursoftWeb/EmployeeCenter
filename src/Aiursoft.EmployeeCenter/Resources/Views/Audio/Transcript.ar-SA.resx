@@ -21,6 +21,12 @@
       <data name="AI Raw API" xml:space="preserve">
     <value>واجهة برمجة التطبيقات الخام للذكاء الاصطناعي</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>تم إنشاء مهمة ASR غير متصلة. يرجى عدم إنشائها مرة أخرى.</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>لا يمكن إعادة تعيين ASR إلا بعد نجاح معالجة الوسائط.</value>
+  </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>عدد المحاولات</value>
   </data>
@@ -29,6 +35,18 @@
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>العودة إلى القائمة</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>تأكيد إعادة تعيين ASR</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>تأكيد إعادة الضبط</value>
   </data>
   <data name="Copied" xml:space="preserve">
     <value>تم النسخ</value>
@@ -39,11 +57,17 @@
   <data name="Copy to clipboard" xml:space="preserve">
     <value>نسخ إلى الحافظة</value>
   </data>
+  <data name="Correct transcription errors" xml:space="preserve">
+    <value>تصحيح أخطاء النسخ</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>تحميل الصوت</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>تعديل</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>تحرير النص المنقول</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>الجميع (CanViewAudio)</value>
@@ -57,14 +81,35 @@
   <data name="Failed" xml:space="preserve">
     <value>فشل</value>
   </data>
+  <data name="Generated" xml:space="preserve">
+    <value>تم إنشاؤها</value>
+  </data>
+  <data name="Generating meeting summary" xml:space="preserve">
+    <value>جارٍ إنشاء ملخص الاجتماع</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>آخر محاولة</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>إدارة المشاركات</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>فشل معالجة الوسائط</value>
+  </data>
+  <data name="Media replacement failed" xml:space="preserve">
+    <value>فشل استبدال الوسائط</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>دقائق الاجتماع</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>تمت إضافة إعادة توليد محضر الاجتماع إلى قائمة الانتظار.</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>نص الاجتماع</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>فشل إنشاء الدقائق</value>
   </data>
   <data name="My department" xml:space="preserve">
     <value>قسمي</value>
@@ -72,11 +117,17 @@
   <data name="Never" xml:space="preserve">
     <value>أبداً</value>
   </data>
+  <data name="No playable audio is available." xml:space="preserve">
+    <value>لا يتوفر صوت قابل للتشغيل.</value>
+  </data>
   <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
     <value>لا يوجد نص متاح لهذا الملف الصوتي. قد لا يزال قيد المعالجة أو فشل في ذلك.</value>
   </data>
   <data name="Only me (Private)" xml:space="preserve">
     <value>أنا فقط (خاص)</value>
+  </data>
+  <data name="Outdated" xml:space="preserve">
+    <value>قديم</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>قيد الانتظار</value>
@@ -87,11 +138,26 @@
   <data name="Processing Failed" xml:space="preserve">
     <value>فشل المعالجة</value>
   </data>
+  <data name="Processing uploaded media" xml:space="preserve">
+    <value>جارٍ معالجة الوسائط المرفوعة</value>
+  </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>نقطة نهاية واجهة برمجة التطبيقات الخام لأدوات الذكاء الاصطناعي</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>إعادة تسمية</value>
+  </data>
+  <data name="Replace Recording" xml:space="preserve">
+    <value>استبدال التسجيل</value>
+  </data>
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>إعادة تعيين وإعادة محاولة التعرف التلقائي على الكلام (ASR)</value>
+  </data>
+  <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
+    <value>سيؤدي إعادة تعيين ASR إلى حذف النص الحالي ونتائج المقاطع، وإعادة تعيين عدّاد إعادة المحاولة، وإنشاء مهمة جديدة غير متصلة. هل أنت متأكد من أنك تريد المتابعة؟</value>
+  </data>
+  <data name="Retry Meeting Minutes" xml:space="preserve">
+    <value>إعادة محاولة تذكير الاجتماع</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>حفظ النطاق</value>
@@ -99,8 +165,20 @@
   <data name="Sharing" xml:space="preserve">
     <value>المشاركة</value>
   </data>
+  <data name="Speech-to-text is complete. The meeting summary is now being prepared." xml:space="preserve">
+    <value>اكتمل تحويل الصوت إلى نص. جارٍ إعداد ملخص الاجتماع الآن.</value>
+  </data>
   <data name="Status Info" xml:space="preserve">
     <value>معلومات الحالة</value>
+  </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>تعذر إلغاء مهمة ASR النشطة. لم يتم إجراء أي تغييرات. يرجى المحاولة مرة أخرى.</value>
+  </data>
+  <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
+    <value>سيبدأ ملخص الاجتماع تلقائيًا بعد اكتمال التحويل من الكلام إلى نص.</value>
+  </data>
+  <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
+    <value>جارٍ تجهيز التسجيل في الخلفية. يظل التسجيل الحالي متاحًا أثناء الاستبدال.</value>
   </data>
   <data name="Transcribed" xml:space="preserve">
     <value>مسجَّل</value>
@@ -108,8 +186,17 @@
   <data name="Transcribed Text" xml:space="preserve">
     <value>النص المحول</value>
   </data>
+  <data name="Transcript API" xml:space="preserve">
+    <value>واجهة برمجة النسخ</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>نطاق العرض</value>
+  </data>
+  <data name="View the current transcript as plain text" xml:space="preserve">
+    <value>عرض النص المحوّل الحالي كنص عادي</value>
+  </data>
+  <data name="Waiting for speech-to-text to finish" xml:space="preserve">
+    <value>بانتظار اكتمال تحويل الكلام إلى نص</value>
   </data>
   <data name="Your browser does not support audio playback." xml:space="preserve">
     <value>متصفحك لا يدعم تشغيل الصوت.</value>

@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Audio-bestand van vergadering</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Audio- of videobestand van vergadering</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Details vergaderopname</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Upload een vergisteringsbestand. Het wordt automatisch getranscribeerd naar tekst, klaar voor archivering en daaropvolgende AI-analyse.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Upload een audiobestand of videobestand. Videobestanden worden alleen als audio opgeslagen en het originele video wordt verwijderd.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Vergadersonderwerp uploaden</value>

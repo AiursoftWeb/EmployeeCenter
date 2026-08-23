@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Toplantı Ses Dosyası</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Toplantı Sesli veya Görsel Dosyası</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Toplantı Kaydı Ayrıntıları</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Bir toplantı kaydı dosyası yükleyin. Dosya otomatik olarak metne dönüştürülecek, arşivleme ve sonraki AI analizi için hazır hale gelecektir.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Bir ses dosyası veya video dosyası yükleyin. Video yüklemeleri yalnızca ses olarak kaydedilir ve orijinal video silinir.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Toplantı Kaydını Yükle</value>

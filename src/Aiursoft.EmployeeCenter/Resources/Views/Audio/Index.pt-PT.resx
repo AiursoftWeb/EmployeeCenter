@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>Vazio</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>A gerar atas</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>Gravações de Reuniões</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Transcrições de Reuniões</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Atas geradas</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Falha na geração de ata</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Atas desatualizadas</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Estado das Actas</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nome</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>Carregue a sua primeira gravação de reunião para transcrever e analisar com IA.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>A aguardar transcrição</value>
   </data>
 
 </root>

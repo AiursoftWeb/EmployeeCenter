@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>Tom</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>Genererer mødeprotokol</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>Mødeoptagelser</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Mødestenotater</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Notater genereret</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Generering af referat mislykkedes</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Notitser foreldede</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Status for mødeprotokol</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Navn</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>Upload din første mødeoptagelse for at transskribere og analysere med AI.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>Venter på transkription</value>
   </data>
 
 </root>

@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Bestandsnaam audiobestand vergadering</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Audio- of videobestand van vergadering</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Details van vergaderopname</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>Het vervangen van de opname verwijdert het transcript en voegt deze opnieuw toe aan de wachtrij voor transcribering.</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Het vervangen van de opname wist het transcript en voegt het opnieuw toe aan de wachtrij voor transcriptie. Videobestanden worden alleen als audio opgeslagen en het originele video wordt verwijderd.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Opslaan</value>

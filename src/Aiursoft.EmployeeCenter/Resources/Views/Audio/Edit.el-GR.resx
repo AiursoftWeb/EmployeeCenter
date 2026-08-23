@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Αρχείο Ήχου Συνάντησης</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Αρχείο ήχου ή βίντεο συνάντησης</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Λεπτομέρειες ηχογράφησης συνάντησης</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>Η αντικατάσταση της ηχογράφησης διαγράφει τη μετάφρασή της και την προσθέτει ξανά στην ουρά για μεταγραφή.</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Η αντικατάσταση της εγγραφής διαγράφει τη μεταγραφή της και την προσθέτει ξανά στην ουρά για μεταγραφή. Οι αναρτήσεις βίντεο αποθηκεύονται μόνο ως ήχος και το αρχικό βίντεο απορρίπτεται.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Αποθήκευση</value>

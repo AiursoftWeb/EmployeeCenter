@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Kokousäännetiedosto</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Kokouksen ääni- tai videotiedosto</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Kokousnauhoitteen tiedot</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Lataa kokousäänite. Se transkriptoidaan automaattisesti tekstiksi, jolloin se on valmis arkistointiin ja jälkikäteiseen tekoälyanalyysiin.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Lataa äänitiedosto tai videotiedosto. Videolataukset tallennetaan vain äänenä ja alkuperäinen video hylätään.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Lataa kokousäänite</value>

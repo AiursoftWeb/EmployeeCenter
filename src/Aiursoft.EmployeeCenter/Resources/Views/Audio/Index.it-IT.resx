@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>Vuoto</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>Generazione verbali</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>Registrazioni delle Riunioni</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Trascrizioni delle Riunioni</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Verbali generati</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Generazione verbale non riuscita</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Verbale non aggiornato</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Stato verbale</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nome</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>Carica la tua prima registrazione di riunione per trascriverla e analizzarla con l&apos;IA.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>In attesa della trascrizione</value>
   </data>
 
 </root>

@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Kokousäännetiedosto</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Kokouksen ääni- tai videotiedosto</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Kokousauheen tiedot</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>Äänityksen vaihtaminen tyhjentää sen transkriptin ja laittaa sen jonoon uudestaan käsiteltäväksi.</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Tallenteen vaihtaminen tyhjentää sen siirto- ja tallennustekstin ja luo uuden siirto- ja tallennustekstin. Videolataukset tallennetaan vain ääniaineistona, ja alkuperäinen video hylätään.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Tallenna</value>
