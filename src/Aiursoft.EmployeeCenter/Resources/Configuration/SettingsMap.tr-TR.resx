@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Numarası</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Toplantı Tutanakları Sistem İfadesi</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>Bu kullanıcı tarafından yıldızlanan projeler yalnızca gösterilecektir. Tüm projeleri göstermek için boş bırakın. Örnek: anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Yapay zeka asistanı için sistem komutu.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Daktilo kayıtlarından toplantı tutanakları oluşturmak için kullanılan sistem istemi.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Şirketin veya projenin URL&apos;si. Örnek: https://www.aiursoft.com</value>

@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>空</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>纪要生成中</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>会议录音</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>会议记录</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>纪要已生成</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>纪要生成失败</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>纪要已过期</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>纪要状态</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>名称</value>
@@ -99,21 +114,8 @@
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>上传您的第一段会议录音，以便使用 AI 进行转录和分析。</value>
   </data>
-
-  <data name="Minutes Status" xml:space="preserve">
-    <value>纪要状态</value>
-  </data>
   <data name="Waiting for transcript" xml:space="preserve">
     <value>等待转录</value>
-  </data>
-  <data name="Minutes generated" xml:space="preserve">
-    <value>纪要已生成</value>
-  </data>
-  <data name="Minutes generation failed" xml:space="preserve">
-    <value>纪要生成失败</value>
-  </data>
-  <data name="Generating minutes" xml:space="preserve">
-    <value>纪要生成中</value>
   </data>
 
 </root>

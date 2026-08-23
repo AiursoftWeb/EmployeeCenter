@@ -27,6 +27,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>Tệp âm thanh cuộc họp</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>Tệp âm thanh hoặc video cuộc họp</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>Chi tiết bản ghi cuộc họp</value>
   </data>
@@ -35,6 +38,9 @@
   </data>
   <data name="Replacing the recording clears its transcript and queues it for transcription again." xml:space="preserve">
     <value>Thay thế bản ghi sẽ xóa bản ghi chép của nó và đưa nó vào hàng đợi để chuyển thành văn bản lại.</value>
+  </data>
+  <data name="Replacing the recording clears its transcript and queues it for transcription again. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>Việc thay thế bản ghi âm sẽ xóa bản chuyển tự hiện tại và đưa nó vào hàng đợi để chuyển tự lại. Các tệp video tải lên sẽ được lưu dưới dạng âm thanh duy nhất và tệp video gốc sẽ bị loại bỏ.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Lưu</value>

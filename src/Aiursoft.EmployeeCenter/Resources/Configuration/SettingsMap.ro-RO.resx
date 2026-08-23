@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>Număr ICP</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Prompt de sistem pentru procesele verbale ale ședințelor</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>Vor fi afișate doar proiectele notate cu stea de către acest utilizator. Lăsați câmpul gol pentru a afișa toate proiectele. De exemplu: anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Sarcina sistem pentru asistentul AI.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Promptul de sistem utilizat pentru a genera minutele de ședință din transcrieri.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Adresa URL a companiei sau a proiectului. De exemplu: https://www.aiursoft.com</value>

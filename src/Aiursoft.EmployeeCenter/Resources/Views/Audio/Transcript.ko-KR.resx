@@ -21,6 +21,12 @@
       <data name="AI Raw API" xml:space="preserve">
     <value>AI 원시 API</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>오프라인 ASR 작업이 생성되었습니다. 다시 생성하지 마세요.</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>미디어 처리가 성공한 후에만 ASR을 재설정할 수 있습니다.</value>
+  </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>시도 횟수</value>
   </data>
@@ -29,6 +35,18 @@
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>목록으로 돌아가기</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>ASR 재시작 확인</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>리셋 확인</value>
   </data>
   <data name="Copied" xml:space="preserve">
     <value>복사됨</value>
@@ -39,11 +57,17 @@
   <data name="Copy to clipboard" xml:space="preserve">
     <value>클립보드에 복사하기</value>
   </data>
+  <data name="Correct transcription errors" xml:space="preserve">
+    <value>전사 오류 수정</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>오디오 다운로드</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>수정</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>전사 내용 편집</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>전체 (CanViewAudio)</value>
@@ -57,14 +81,35 @@
   <data name="Failed" xml:space="preserve">
     <value>실패함</value>
   </data>
+  <data name="Generated" xml:space="preserve">
+    <value>생성됨</value>
+  </data>
+  <data name="Generating meeting summary" xml:space="preserve">
+    <value>회의 요약 생성 중</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>마지막 시도</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>공유 관리</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>미디어 처리 실패</value>
+  </data>
+  <data name="Media replacement failed" xml:space="preserve">
+    <value>미디어 교체 실패</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>회의록</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>회의록 재생성 작업이 대기열에 추가되었습니다.</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>회의록</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>회의록 생성 실패</value>
   </data>
   <data name="My department" xml:space="preserve">
     <value>내 부서</value>
@@ -72,11 +117,17 @@
   <data name="Never" xml:space="preserve">
     <value>없음</value>
   </data>
+  <data name="No playable audio is available." xml:space="preserve">
+    <value>재생 가능한 오디오가 없습니다.</value>
+  </data>
   <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
     <value>이 오디오에 대한 전사 결과가 없습니다. 아직 처리 중이거나 실패했을 수 있습니다.</value>
   </data>
   <data name="Only me (Private)" xml:space="preserve">
     <value>나만 보기 (비공개)</value>
+  </data>
+  <data name="Outdated" xml:space="preserve">
+    <value>구식</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>대기 중</value>
@@ -87,11 +138,26 @@
   <data name="Processing Failed" xml:space="preserve">
     <value>처리 실패</value>
   </data>
+  <data name="Processing uploaded media" xml:space="preserve">
+    <value>업로드된 미디어 처리 중</value>
+  </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>AI 도구를 위한 원시 API 엔드포인트</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>이름 변경</value>
+  </data>
+  <data name="Replace Recording" xml:space="preserve">
+    <value>녹음 교체</value>
+  </data>
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>ASR 초기화 및 재시도</value>
+  </data>
+  <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
+    <value>ASR를 재설정하면 현재 전사본과 세그먼트 결과가 삭제되고, 재시도 카운터가 초기화되며, 새로운 오프라인 작업이 생성됩니다. 계속하시겠습니까?</value>
+  </data>
+  <data name="Retry Meeting Minutes" xml:space="preserve">
+    <value>회의록 다시 생성</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>범위 저장</value>
@@ -99,8 +165,20 @@
   <data name="Sharing" xml:space="preserve">
     <value>공유</value>
   </data>
+  <data name="Speech-to-text is complete. The meeting summary is now being prepared." xml:space="preserve">
+    <value>음성 인식 변환이 완료되었습니다. 회의 요약을 준비하고 있습니다.</value>
+  </data>
   <data name="Status Info" xml:space="preserve">
     <value>상태 정보</value>
+  </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>활성 ASR 작업을 취소할 수 없습니다. 변경 사항이 없습니다. 다시 시도해 주세요.</value>
+  </data>
+  <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
+    <value>음성 인식 변환이 완료되면 회의 요약이 자동으로 시작됩니다.</value>
+  </data>
+  <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
+    <value>녹음이 백그라운드에서 준비 중입니다. 교체 중에 기존 녹음은 계속 사용할 수 있습니다.</value>
   </data>
   <data name="Transcribed" xml:space="preserve">
     <value>전사됨</value>
@@ -108,8 +186,17 @@
   <data name="Transcribed Text" xml:space="preserve">
     <value>전사된 텍스트</value>
   </data>
+  <data name="Transcript API" xml:space="preserve">
+    <value>전사 API</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>보기 범위</value>
+  </data>
+  <data name="View the current transcript as plain text" xml:space="preserve">
+    <value>현재 전사본을 일반 텍스트로 보기</value>
+  </data>
+  <data name="Waiting for speech-to-text to finish" xml:space="preserve">
+    <value>음성 인식 완료 대기 중</value>
   </data>
   <data name="Your browser does not support audio playback." xml:space="preserve">
     <value>사용자의 브라우저는 오디오 재생을 지원하지 않습니다.</value>

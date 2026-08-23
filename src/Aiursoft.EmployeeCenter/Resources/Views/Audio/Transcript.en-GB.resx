@@ -21,6 +21,12 @@
       <data name="AI Raw API" xml:space="preserve">
     <value>AI Raw API</value>
   </data>
+  <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
+    <value>An offline ASR task has been created. Please do not create it again.</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR can only be reset after media processing succeeds.</value>
+  </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Attempt Count</value>
   </data>
@@ -29,6 +35,18 @@
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Back to List</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Confirm ASR Reset" xml:space="preserve">
+    <value>Confirm ASR Reset</value>
+  </data>
+  <data name="Confirm Reset" xml:space="preserve">
+    <value>Confirm Reset</value>
   </data>
   <data name="Copied" xml:space="preserve">
     <value>Copied</value>
@@ -39,11 +57,17 @@
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Copy to clipboard</value>
   </data>
+  <data name="Correct transcription errors" xml:space="preserve">
+    <value>Correct transcription errors</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Download Audio</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Edit Transcript</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Everyone (CanViewAudio)</value>
@@ -57,14 +81,44 @@
   <data name="Failed" xml:space="preserve">
     <value>Failed</value>
   </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Generated</value>
+  </data>
+  <data name="Generating" xml:space="preserve">
+    <value>Generating</value>
+  </data>
+  <data name="Generating meeting summary" xml:space="preserve">
+    <value>Generating meeting summary</value>
+  </data>
   <data name="Last Attempt" xml:space="preserve">
     <value>Last Attempt</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Manage Shares</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>Media processing failed</value>
+  </data>
+  <data name="Media replacement failed" xml:space="preserve">
+    <value>Media replacement failed</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Meeting Minutes</value>
+  </data>
+  <data name="Meeting minutes could not be generated after {0} attempts." xml:space="preserve">
+    <value>Meeting minutes could not be generated after {0} attempts.</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Meeting minutes regeneration has been queued.</value>
+  </data>
+  <data name="Meeting minutes will be generated after transcription is complete." xml:space="preserve">
+    <value>Meeting minutes will be generated after transcription is complete.</value>
+  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Meeting Transcript</value>
+  </data>
+  <data name="Minutes Generation Failed" xml:space="preserve">
+    <value>Minutes Generation Failed</value>
   </data>
   <data name="My department" xml:space="preserve">
     <value>My department</value>
@@ -72,11 +126,17 @@
   <data name="Never" xml:space="preserve">
     <value>Never</value>
   </data>
+  <data name="No playable audio is available." xml:space="preserve">
+    <value>No playable audio is available.</value>
+  </data>
   <data name="No transcript available for this audio. It might still be processing or failed." xml:space="preserve">
     <value>No transcript available for this audio. It may still be processing or have failed.</value>
   </data>
   <data name="Only me (Private)" xml:space="preserve">
     <value>Only me (Private)</value>
+  </data>
+  <data name="Outdated" xml:space="preserve">
+    <value>Outdated</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
@@ -87,11 +147,26 @@
   <data name="Processing Failed" xml:space="preserve">
     <value>Processing Failed</value>
   </data>
+  <data name="Processing uploaded media" xml:space="preserve">
+    <value>Processing uploaded media</value>
+  </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Raw API endpoint for AI tools</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="Replace Recording" xml:space="preserve">
+    <value>Replace Recording</value>
+  </data>
   <data name="Reset &amp; Retry ASR" xml:space="preserve">
     <value>Reset &amp; Retry ASR</value>
+  </data>
+  <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
+    <value>Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?</value>
+  </data>
+  <data name="Retry Meeting Minutes" xml:space="preserve">
+    <value>Retry Meeting Minutes</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>Save Scope</value>
@@ -99,8 +174,23 @@
   <data name="Sharing" xml:space="preserve">
     <value>Sharing</value>
   </data>
+  <data name="Speech-to-text is complete. The meeting summary is now being prepared." xml:space="preserve">
+    <value>Speech-to-text is complete. The meeting summary is now being prepared.</value>
+  </data>
   <data name="Status Info" xml:space="preserve">
     <value>Status Information</value>
+  </data>
+  <data name="The active ASR task could not be cancelled. No changes were made. Please try again." xml:space="preserve">
+    <value>The active ASR task could not be cancelled. No changes were made. Please try again.</value>
+  </data>
+  <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
+    <value>The meeting summary will start automatically once speech-to-text is complete.</value>
+  </data>
+  <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
+    <value>The recording is being prepared in the background. The existing recording remains available during replacement.</value>
+  </data>
+  <data name="The transcript is complete. Meeting minutes are being generated in the background." xml:space="preserve">
+    <value>The transcript is complete. Meeting minutes are being generated in the background.</value>
   </data>
   <data name="Transcribed" xml:space="preserve">
     <value>Transcribed</value>
@@ -108,36 +198,23 @@
   <data name="Transcribed Text" xml:space="preserve">
     <value>Transcribed Text</value>
   </data>
+  <data name="Transcript API" xml:space="preserve">
+    <value>Transcript API</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>View Scope</value>
   </data>
-  <data name="Your browser does not support audio playback." xml:space="preserve">
-    <value>Your browser does not support audio playback.</value>
+  <data name="View the current transcript as plain text" xml:space="preserve">
+    <value>View the current transcript as plain text</value>
   </data>
-
-  <data name="Meeting Minutes" xml:space="preserve">
-    <value>Meeting Minutes</value>
-  </data>
-  <data name="Generated" xml:space="preserve">
-    <value>Generated</value>
-  </data>
-  <data name="Generating" xml:space="preserve">
-    <value>Generating</value>
+  <data name="Waiting for speech-to-text to finish" xml:space="preserve">
+    <value>Waiting for speech-to-text to finish</value>
   </data>
   <data name="Waiting for transcript" xml:space="preserve">
     <value>Waiting for transcript</value>
   </data>
-  <data name="Minutes Generation Failed" xml:space="preserve">
-    <value>Minutes Generation Failed</value>
-  </data>
-  <data name="Meeting minutes could not be generated after {0} attempts." xml:space="preserve">
-    <value>Meeting minutes could not be generated after {0} attempts.</value>
-  </data>
-  <data name="The transcript is complete. Meeting minutes are being generated in the background." xml:space="preserve">
-    <value>The transcript is complete. Meeting minutes are being generated in the background.</value>
-  </data>
-  <data name="Meeting minutes will be generated after transcription is complete." xml:space="preserve">
-    <value>Meeting minutes will be generated after transcription is complete.</value>
+  <data name="Your browser does not support audio playback." xml:space="preserve">
+    <value>Your browser does not support audio playback.</value>
   </data>
 
 </root>

@@ -60,6 +60,9 @@
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-numero</value>
   </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Kokouksen pöytäkirjan järjestelmäohje</value>
+  </data>
   <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
     <value>Vain tämän käyttäjän tähdäämät projektit näytetään. Jätä tyhjäksi nähdäksesi kaikki projektit. Esim. anduin</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Järjestelmän kehotus tekoälyavustajalle.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Järjestelmän ohje, jota käytetään kokouksen pöytäkirjan tuottamiseen äänitallenteista.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Yrityksen tai projektin verkkosivuosoite. Esim. https://www.aiursoft.com</value>

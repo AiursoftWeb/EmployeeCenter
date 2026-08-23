@@ -48,11 +48,26 @@
   <data name="Empty" xml:space="preserve">
     <value>空</value>
   </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>議事録を生成中</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>会議録音</value>
   </data>
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>会議の文字起こし</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>議事録生成済み</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>議事録の生成に失敗しました</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>議事録が期限切れ</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>議事録ステータス</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>名前</value>
@@ -98,6 +113,9 @@
   </data>
   <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
     <value>AIによる文字起こしと分析のために、最初の会議録音をアップロードしてください。</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>文字起こし待機中</value>
   </data>
 
 </root>

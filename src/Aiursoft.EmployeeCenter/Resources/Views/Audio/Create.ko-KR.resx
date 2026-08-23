@@ -30,6 +30,9 @@
   <data name="Meeting Audio File" xml:space="preserve">
     <value>회의 오디오 파일</value>
   </data>
+  <data name="Meeting Audio or Video File" xml:space="preserve">
+    <value>회의 오디오 또는 비디오 파일</value>
+  </data>
   <data name="Meeting Recording Details" xml:space="preserve">
     <value>회의 녹음 세부 정보</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>회의 녹음 파일을 업로드하세요. 파일은 자동으로 텍스트로 변환되어 보관 및 후속 AI 분석을 위해 준비됩니다.</value>
+  </data>
+  <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
+    <value>오디오 파일 또는 비디오 파일을 업로드하세요. 비디오 업로드의 경우 오디오만 저장되며, 원본 비디오는 삭제됩니다.</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>회의 녹음 파일 업로드</value>
