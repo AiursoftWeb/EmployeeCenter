@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Aiursoft.EmployeeCenter.Views.Shared.Components.FileUpload;
 
-public class FileUpload(StorageService storageService) : ViewComponent
+public class FileUpload(StorageService storage) : ViewComponent
 {
     public IViewComponentResult Invoke(
         ModelExpression aspFor,
@@ -14,7 +14,11 @@ public class FileUpload(StorageService storageService) : ViewComponent
         bool isVault = false,
         string? fieldName = null)
     {
-        var uploadEndpoint = storageService.GetUploadUrl(subfolder, isVault);
+        var uploadEndpoint = storage.GetUploadUrl(
+            subfolder.TrimEnd('/', '\\'),
+            isVault,
+            maxSizeInMb,
+            allowedExtensions);
         return View(new FileUploadViewModel
         {
             AspFor = aspFor,

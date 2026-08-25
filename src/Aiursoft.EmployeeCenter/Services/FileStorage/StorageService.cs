@@ -1,13 +1,8 @@
+using System.Text.Json;
 using Aiursoft.Scanner.Abstractions;
 using Microsoft.AspNetCore.DataProtection;
 
 namespace Aiursoft.EmployeeCenter.Services.FileStorage;
-
-public enum FilePermission
-{
-    Upload,
-    Download
-}
 
 /// <summary>
 /// Represents a service for storing and managing files. (Level 3: Business Gateway)
@@ -15,89 +10,51 @@ public enum FilePermission
 public class StorageService(
     FeatureFoldersProvider folders,
     FileLockProvider fileLockProvider,
-    IDataProtectionProvider dataProtectionProvider) : ITransientDependency
+    IDataProtectionProvider dataProtectionProvider,
+    IConfiguration? configuration = null) : ITransientDependency
 {
-    /// <summary>
-    /// Saves a file to the storage.
-    /// </summary>
-    /// <param name="logicalPath">The logical path (relative to Workspace) where the file will be saved.</param>
-    /// <param name="file">The file to be saved.</param>
-    /// <param name="isVault">Whether to save to the private Vault.</param>
-    /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
-    /// <returns>The actual logical path where the file is saved (may differ if renamed).</returns>
+    private const string ProtectorPurpose = "FileOperation/v2";
+
     public async Task<string> Save(
         string logicalPath,
         IFormFile file,
         bool isVault = false,
         CancellationToken cancellationToken = default)
     {
-        var (root, physicalPath) = await ResolveSavePath(logicalPath, isVault);
-
-        try
-        {
-            await using var fileStream = new FileStream(physicalPath, FileMode.Create);
-            await file.CopyToAsync(fileStream, cancellationToken);
-        }
-        catch
-        {
-            if (File.Exists(physicalPath))
-            {
-                File.Delete(physicalPath);
-            }
-            throw;
-        }
-
-        return Path.GetRelativePath(root, physicalPath).Replace("\\", "/");
+        return await SaveStream(
+            logicalPath,
+            (destination, token) => file.CopyToAsync(destination, token),
+            isVault,
+            cancellationToken);
     }
 
-    /// <summary>
-    /// Saves a stream to the storage. Used for extracting files from archives, etc.
-    /// </summary>
-    public async Task<string> SaveFromStream(string logicalPath, Stream stream, bool isVault = false)
+    public async Task<string> SaveFromStream(
+        string logicalPath,
+        Stream stream,
+        bool isVault = false,
+        CancellationToken cancellationToken = default)
     {
-        var (root, physicalPath) = await ResolveSavePath(logicalPath, isVault);
-
-        await using var fileStream = new FileStream(physicalPath, FileMode.Create);
-        await stream.CopyToAsync(fileStream);
-
-        return Path.GetRelativePath(root, physicalPath).Replace("\\", "/");
+        return await SaveStream(
+            logicalPath,
+            (destination, token) => stream.CopyToAsync(destination, token),
+            isVault,
+            cancellationToken);
     }
 
-    private async Task<(string root, string physicalPath)> ResolveSavePath(string logicalPath, bool isVault)
+    public async Task<string> SaveFileFromPhysicalPath(
+        string sourcePhysicalPath,
+        string destinationLogicalPath,
+        bool isVault = false,
+        CancellationToken cancellationToken = default)
     {
-        var root = isVault ? folders.GetVaultFolder() : folders.GetWorkspaceFolder();
-        var physicalPath = ResolvePhysicalPath(root, logicalPath);
-
-        var directory = Path.GetDirectoryName(physicalPath);
-        if (!Directory.Exists(directory))
-        {
-            Directory.CreateDirectory(directory!);
-        }
-
-        var lockObj = fileLockProvider.GetLock(directory!);
-        await lockObj.WaitAsync();
-        try
-        {
-            while (File.Exists(physicalPath))
-            {
-                var fileName = "_" + Path.GetFileName(physicalPath);
-                physicalPath = Path.Combine(directory!, fileName);
-            }
-
-            File.Create(physicalPath).Close();
-        }
-        finally
-        {
-            lockObj.Release();
-        }
-
-        return (root, physicalPath);
+        await using var source = new FileStream(
+            sourcePhysicalPath,
+            FileMode.Open,
+            FileAccess.Read,
+            FileShare.Read);
+        return await SaveFromStream(destinationLogicalPath, source, isVault, cancellationToken);
     }
 
-    /// <summary>
-    /// Retrieves the physical file path for a given logical path.
-    /// Defaults to Workspace.
-    /// </summary>
     public string GetFilePhysicalPath(string logicalPath, bool isVault = false)
     {
         var root = isVault ? folders.GetVaultFolder() : folders.GetWorkspaceFolder();
@@ -106,21 +63,239 @@ public class StorageService(
 
     public string GetVaultSubfolderFilePhysicalPath(string logicalPath, string subfolder)
     {
-        var vaultRoot = folders.GetVaultFolder();
-        var subfolderRoot = ResolvePhysicalPath(vaultRoot, subfolder);
-        return ResolvePhysicalPath(subfolderRoot, Path.GetRelativePath(subfolder, logicalPath));
+        var normalizedLogicalPath = NormalizeLogicalPath(logicalPath);
+        var normalizedSubfolder = NormalizeLogicalPath(subfolder);
+        var subfolderRoot = ResolvePhysicalPath(folders.GetVaultFolder(), normalizedSubfolder);
+        var relativePath = Path.GetRelativePath(normalizedSubfolder, normalizedLogicalPath);
+        return ResolvePhysicalPath(subfolderRoot, relativePath);
+    }
+
+    public string GetToken(
+        string path,
+        FilePermission permission,
+        bool isVault = false,
+        FileUploadPolicy? uploadPolicy = null)
+    {
+        var normalizedPath = NormalizeLogicalPath(path);
+        if (permission == FilePermission.Upload)
+        {
+            uploadPolicy ??= FileUploadPolicy.Create(FileUploadPolicy.DefaultMaxSizeInMb, allowedExtensions: null);
+            if (!uploadPolicy.IsStructurallyValid())
+            {
+                throw new ArgumentException("The upload policy is invalid.", nameof(uploadPolicy));
+            }
+        }
+        else if (uploadPolicy is not null)
+        {
+            throw new ArgumentException("Download grants cannot contain an upload policy.", nameof(uploadPolicy));
+        }
+
+        var grant = new FileOperationGrant(
+            Version: FileOperationGrant.CurrentVersion,
+            Path: normalizedPath,
+            Permission: permission,
+            StorageArea: isVault ? FileStorageArea.Vault : FileStorageArea.Workspace,
+            AllowDescendants: permission == FilePermission.Upload,
+            UploadPolicy: uploadPolicy);
+
+        var protector = dataProtectionProvider
+            .CreateProtector(ProtectorPurpose)
+            .ToTimeLimitedDataProtector();
+        return protector.Protect(JsonSerializer.Serialize(grant), TimeSpan.FromMinutes(60));
+    }
+
+    public bool ValidateToken(
+        string requestPath,
+        string tokenString,
+        FilePermission requiredPermission,
+        bool isVault = false)
+    {
+        return TryValidateToken(requestPath, tokenString, requiredPermission, isVault, out _);
+    }
+
+    public bool TryValidateToken(
+        string requestPath,
+        string tokenString,
+        FilePermission requiredPermission,
+        bool isVault,
+        out FileOperationGrant grant)
+    {
+        grant = null!;
+        if (string.IsNullOrWhiteSpace(tokenString))
+        {
+            return false;
+        }
+
+        try
+        {
+            var normalizedRequestPath = NormalizeLogicalPath(requestPath);
+            var protector = dataProtectionProvider
+                .CreateProtector(ProtectorPurpose)
+                .ToTimeLimitedDataProtector();
+            var tokenData = protector.Unprotect(tokenString);
+            var parsedGrant = JsonSerializer.Deserialize<FileOperationGrant>(tokenData);
+
+            if (parsedGrant is null ||
+                parsedGrant.Version != FileOperationGrant.CurrentVersion ||
+                parsedGrant.Permission != requiredPermission ||
+                parsedGrant.StorageArea != (isVault ? FileStorageArea.Vault : FileStorageArea.Workspace) ||
+                (requiredPermission == FilePermission.Upload &&
+                 (parsedGrant.UploadPolicy is null || !parsedGrant.UploadPolicy.IsStructurallyValid())) ||
+                (requiredPermission == FilePermission.Download && parsedGrant.UploadPolicy is not null))
+            {
+                return false;
+            }
+
+            var normalizedAuthorizedPath = NormalizeLogicalPath(parsedGrant.Path);
+            var pathMatches = string.Equals(
+                                  normalizedRequestPath,
+                                  normalizedAuthorizedPath,
+                                  StringComparison.Ordinal) ||
+                              (parsedGrant.AllowDescendants && normalizedRequestPath.StartsWith(
+                                  normalizedAuthorizedPath + "/",
+                                  StringComparison.Ordinal));
+
+            if (!pathMatches)
+            {
+                return false;
+            }
+
+            grant = parsedGrant with { Path = normalizedAuthorizedPath };
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public string RelativePathToInternetUrl(string relativePath, HttpContext context, bool isVault = false)
+    {
+        var origin = GetPublicOrigin(configuration)?.GetLeftPart(UriPartial.Authority) ??
+                     $"{context.Request.Scheme}://{context.Request.Host}";
+        return BuildDownloadUrlOrEmpty(relativePath, isVault, origin);
+    }
+
+    public string RelativePathToInternetUrl(string relativePath, bool isVault = false)
+    {
+        var origin = GetPublicOrigin(configuration)?.GetLeftPart(UriPartial.Authority) ?? string.Empty;
+        return BuildDownloadUrlOrEmpty(relativePath, isVault, origin);
+    }
+
+    public string GetUploadUrl(
+        string subfolder,
+        bool isVault = false,
+        int maxSizeInMb = FileUploadPolicy.DefaultMaxSizeInMb,
+        string? allowedExtensions = null)
+    {
+        var policy = FileUploadPolicy.Create(
+            maxSizeInMb,
+            allowedExtensions,
+            configuration?.GetValue<bool>("Storage:UploadPolicy:RequireAuthenticatedUser") ?? false,
+            configuration?.GetValue<bool>("Storage:UploadPolicy:ReplaceSpacesWithHyphens") ?? false);
+        var token = Uri.EscapeDataString(GetToken(subfolder, FilePermission.Upload, isVault, policy));
+        var route = isVault ? "upload-private" : "upload";
+        return $"/{route}/{RelativePathToUriPath(subfolder)}?token={token}";
+    }
+
+    internal static Uri? GetPublicOrigin(IConfiguration? configuration)
+    {
+        var value = configuration?["Storage:PublicOrigin"];
+        if (Uri.TryCreate(value, UriKind.Absolute, out var origin) &&
+            origin.Scheme is "http" or "https" &&
+            string.IsNullOrEmpty(origin.PathAndQuery.Trim('/')))
+        {
+            return origin;
+        }
+
+        return null;
+    }
+
+    private string BuildDownloadUrl(string relativePath, bool isVault, string origin)
+    {
+        var uriPath = RelativePathToUriPath(relativePath);
+        if (!isVault)
+        {
+            return $"{origin}/download/{uriPath}";
+        }
+
+        var token = Uri.EscapeDataString(GetToken(relativePath, FilePermission.Download, isVault: true));
+        return $"{origin}/download-private/{uriPath}?token={token}";
+    }
+
+    private string BuildDownloadUrlOrEmpty(string relativePath, bool isVault, string origin)
+    {
+        try
+        {
+            return BuildDownloadUrl(relativePath, isVault, origin);
+        }
+        catch (ArgumentException)
+        {
+            return string.Empty;
+        }
+    }
+
+    private async Task<string> SaveStream(
+        string logicalPath,
+        Func<Stream, CancellationToken, Task> copy,
+        bool isVault,
+        CancellationToken cancellationToken)
+    {
+        var (root, physicalPath) = await ReserveSavePath(logicalPath, isVault, cancellationToken);
+        try
+        {
+            await using var destination = new FileStream(
+                physicalPath,
+                FileMode.Truncate,
+                FileAccess.Write,
+                FileShare.None);
+            await copy(destination, cancellationToken);
+        }
+        catch
+        {
+            File.Delete(physicalPath);
+            throw;
+        }
+
+        return Path.GetRelativePath(root, physicalPath).Replace("\\", "/");
+    }
+
+    private async Task<(string Root, string PhysicalPath)> ReserveSavePath(
+        string logicalPath,
+        bool isVault,
+        CancellationToken cancellationToken)
+    {
+        var root = isVault ? folders.GetVaultFolder() : folders.GetWorkspaceFolder();
+        var physicalPath = ResolvePhysicalPath(root, logicalPath);
+        var directory = Path.GetDirectoryName(physicalPath)!;
+        Directory.CreateDirectory(directory);
+
+        var fileLock = fileLockProvider.GetLock(directory);
+        await fileLock.WaitAsync(cancellationToken);
+        try
+        {
+            while (File.Exists(physicalPath))
+            {
+                physicalPath = Path.Combine(directory, "_" + Path.GetFileName(physicalPath));
+            }
+
+            File.Create(physicalPath).Dispose();
+        }
+        finally
+        {
+            fileLock.Release();
+        }
+
+        return (root, physicalPath);
     }
 
     private static string ResolvePhysicalPath(string root, string logicalPath)
     {
-        if (string.IsNullOrWhiteSpace(logicalPath) || Path.IsPathRooted(logicalPath))
-        {
-            throw new ArgumentException("Restricted path access!", nameof(logicalPath));
-        }
-
+        var normalizedLogicalPath = NormalizeLogicalPath(logicalPath);
         var normalizedRoot = Path.GetFullPath(root);
-        var physicalPath = Path.GetFullPath(Path.Combine(normalizedRoot, logicalPath));
+        var physicalPath = Path.GetFullPath(Path.Combine(normalizedRoot, normalizedLogicalPath));
         var relativePath = Path.GetRelativePath(normalizedRoot, physicalPath);
+
         if (relativePath == ".." ||
             relativePath.StartsWith($"..{Path.DirectorySeparatorChar}", StringComparison.Ordinal) ||
             Path.IsPathRooted(relativePath))
@@ -131,95 +306,33 @@ public class StorageService(
         return physicalPath;
     }
 
-    public string GetToken(string path, FilePermission permission)
+    private static string NormalizeLogicalPath(string logicalPath)
     {
-        // Create a time-limited data protector with 60-minute expiration
-        var protector = dataProtectionProvider
-            .CreateProtector("FileOperation")
-            .ToTimeLimitedDataProtector();
+        if (string.IsNullOrWhiteSpace(logicalPath) || Path.IsPathRooted(logicalPath))
+        {
+            throw new ArgumentException("A non-empty relative path is required.", nameof(logicalPath));
+        }
 
-        var tokenData = $"{path}|{permission}";
+        var slashNormalizedPath = logicalPath.Replace('\\', '/');
+        if (slashNormalizedPath.StartsWith('/'))
+        {
+            throw new ArgumentException("An absolute path is not allowed.", nameof(logicalPath));
+        }
 
-        // Protect the path with time-limited encryption
-        var protectedData = protector.Protect(tokenData, TimeSpan.FromMinutes(60));
-        return protectedData;
+        var segments = slashNormalizedPath.Split('/');
+        if (segments.Any(segment =>
+                string.IsNullOrWhiteSpace(segment) ||
+                segment is "." or ".." ||
+                segment.Any(char.IsControl)))
+        {
+            throw new ArgumentException("The path contains an invalid segment.", nameof(logicalPath));
+        }
+
+        return string.Join('/', segments);
     }
 
-    public bool ValidateToken(string requestPath, string tokenString, FilePermission requiredPermission)
+    private static string RelativePathToUriPath(string relativePath)
     {
-        if (string.IsNullOrEmpty(requestPath) || requestPath.Contains("..")) return false; // Patch for path traversal
-        try
-        {
-            // Create the same protector used for token generation
-            var protector = dataProtectionProvider
-                .CreateProtector("FileOperation")
-                .ToTimeLimitedDataProtector();
-
-            // Unprotect and validate expiration automatically
-            var tokenData = protector.Unprotect(tokenString);
-            var parts = tokenData.Split('|');
-            if (parts.Length != 2) return false;
-
-            var authorizedPath = parts[0];
-            var authorizedPermission = Enum.Parse<FilePermission>(parts[1]);
-
-            if (authorizedPermission != requiredPermission) return false;
-
-            // Verify the token authorizes access to the requested path
-            // Fix: Enforce trailing slash to prevent partial directory matching (e.g. "A" matching "AA")
-            var normalizedRequestPath = requestPath.TrimEnd('/') + "/";
-            var normalizedAuthorizedPath = authorizedPath.TrimEnd('/') + "/";
-
-            return normalizedRequestPath.StartsWith(normalizedAuthorizedPath, StringComparison.OrdinalIgnoreCase);
-        }
-        catch
-        {
-            // Token is invalid, expired, or tampered with
-            return false;
-        }
-    }
-
-    /// <summary>
-    /// Converts a logical path to a URI-compatible path.
-    /// </summary>
-    private string RelativePathToUriPath(string relativePath)
-    {
-        var urlPath = Uri.EscapeDataString(relativePath)
-            .Replace("%5C", "/")
-            .Replace("%5c", "/")
-            .Replace("%2F", "/")
-            .Replace("%2f", "/")
-            .TrimStart('/');
-        return urlPath;
-    }
-
-    public string RelativePathToInternetUrl(string relativePath, HttpContext context, bool isVault = false)
-    {
-        if (isVault)
-        {
-            var token = GetToken(relativePath, FilePermission.Download);
-            return $"{context.Request.Scheme}://{context.Request.Host}/download-private/{RelativePathToUriPath(relativePath)}?token={token}";
-        }
-        return $"{context.Request.Scheme}://{context.Request.Host}/download/{RelativePathToUriPath(relativePath)}";
-    }
-
-    public string RelativePathToInternetUrl(string relativePath, bool isVault = false)
-    {
-        if (isVault)
-        {
-            var token = GetToken(relativePath, FilePermission.Download);
-            return $"/download-private/{RelativePathToUriPath(relativePath)}?token={token}";
-        }
-        return $"/download/{RelativePathToUriPath(relativePath)}";
-    }
-
-    public string GetUploadUrl(string subfolder, bool isVault = false)
-    {
-        var token = GetToken(subfolder, FilePermission.Upload);
-        if (isVault)
-        {
-            return $"/upload-private/{subfolder}?token={token}";
-        }
-        return $"/upload/{subfolder}?token={token}";
+        return string.Join('/', NormalizeLogicalPath(relativePath).Split('/').Select(Uri.EscapeDataString));
     }
 }
