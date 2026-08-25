@@ -13,7 +13,8 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 [Authorize(Policy = AppPermissionNames.CanManageAssets)]
 [LimitPerMin]
 public class IntangibleAssetsController(
-    EmployeeCenterDbContext context)
+    EmployeeCenterDbContext context,
+    AssetFileService assetFiles)
     : Controller
 {
     [RenderInNavBar(
@@ -77,6 +78,8 @@ public class IntangibleAssetsController(
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CreateViewModel model)
     {
+        ValidateNewFiles(model);
+
         if (ModelState.IsValid)
         {
             var asset = new IntangibleAsset
@@ -174,6 +177,8 @@ public class IntangibleAssetsController(
         var asset = await context.IntangibleAssets.FindAsync(model.Id);
         if (asset == null) return NotFound();
 
+        ValidateReplacementFiles(model, asset);
+
         if (ModelState.IsValid)
         {
             asset.Name = model.Name;
@@ -207,6 +212,68 @@ public class IntangibleAssetsController(
         model.AllCompanyEntities = await context.CompanyEntities.ToListAsync();
         model.CurrencyOptions = Configuration.SettingsMap.Definitions.First(d => d.Key == Configuration.SettingsMap.DefaultPayrollCurrency).ChoiceOptions!;
         return this.StackView(model);
+    }
+
+    private void ValidateNewFiles(CreateViewModel model)
+    {
+        ValidateNewFile(
+            model.TrademarkImageUrl,
+            nameof(model.TrademarkImageUrl),
+            AssetFileService.TrademarkImageFolder,
+            isVault: false);
+        ValidateNewFile(
+            model.InvoiceFileUrl,
+            nameof(model.InvoiceFileUrl),
+            AssetFileService.IntangibleAssetInvoiceFolder,
+            isVault: true);
+        ValidateNewFile(
+            model.RegistrationCertificateUrl,
+            nameof(model.RegistrationCertificateUrl),
+            AssetFileService.IntangibleAssetCertificateFolder,
+            isVault: true);
+    }
+
+    private void ValidateReplacementFiles(EditViewModel model, IntangibleAsset asset)
+    {
+        ValidateReplacementFile(
+            model.TrademarkImageUrl,
+            asset.TrademarkImageUrl,
+            nameof(model.TrademarkImageUrl),
+            AssetFileService.TrademarkImageFolder,
+            isVault: false);
+        ValidateReplacementFile(
+            model.InvoiceFileUrl,
+            asset.InvoiceFileUrl,
+            nameof(model.InvoiceFileUrl),
+            AssetFileService.IntangibleAssetInvoiceFolder,
+            isVault: true);
+        ValidateReplacementFile(
+            model.RegistrationCertificateUrl,
+            asset.RegistrationCertificateUrl,
+            nameof(model.RegistrationCertificateUrl),
+            AssetFileService.IntangibleAssetCertificateFolder,
+            isVault: true);
+    }
+
+    private void ValidateNewFile(string? path, string field, string folder, bool isVault)
+    {
+        if (!string.IsNullOrWhiteSpace(path) && !assetFiles.IsExistingFile(path, folder, isVault))
+        {
+            ModelState.AddModelError(field, "The selected file is invalid.");
+        }
+    }
+
+    private void ValidateReplacementFile(
+        string? submittedPath,
+        string? existingPath,
+        string field,
+        string folder,
+        bool isVault)
+    {
+        if (!assetFiles.IsValidReplacement(submittedPath, existingPath, folder, isVault))
+        {
+            ModelState.AddModelError(field, "The selected file is invalid.");
+        }
     }
 
     public async Task<IActionResult> Assign(Guid id)

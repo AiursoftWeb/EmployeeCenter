@@ -1,6 +1,8 @@
 @using Aiursoft.EmployeeCenter.Services.FileStorage
+@using Aiursoft.EmployeeCenter.Services
 @model Aiursoft.EmployeeCenter.Models.AssetsViewModels.DetailsViewModel
 @inject StorageService Storage
+@inject AssetFileService AssetFiles
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
@@ -96,7 +98,7 @@
                 @if (!string.IsNullOrEmpty(Model.Asset.InvoiceFileUrl))
                 {
                     <div class="mt-3 text-center">
-                        <a href="@Storage.RelativePathToInternetUrl(Model.Asset.InvoiceFileUrl)" target="_blank" class="btn btn-outline-info">
+                        <a href="@AssetFiles.GetInternetUrl(Model.Asset.InvoiceFileUrl)" target="_blank" class="btn btn-outline-info">
                             <i class="align-middle me-1" data-lucide="file-text"></i> @Localizer["View Invoice"]
                         </a>
                     </div>

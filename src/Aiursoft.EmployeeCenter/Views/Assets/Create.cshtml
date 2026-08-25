@@ -168,7 +168,7 @@
 
                     <div class="mb-3">
                         <label asp-for="InvoiceFileUrl" class="form-label"></label>
-                        <vc:file-upload asp-for="InvoiceFileUrl" subfolder="assets" allowed-extensions="pdf jpg png" max-size-in-mb="10"></vc:file-upload>
+                        <vc:file-upload asp-for="InvoiceFileUrl" subfolder="asset-invoices" is-vault="true" allowed-extensions="pdf jpg png" max-size-in-mb="10"></vc:file-upload>
                         <span asp-validation-for="InvoiceFileUrl" class="text-danger"></span>
                     </div>
 

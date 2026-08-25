@@ -15,7 +15,8 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 [LimitPerMin]
 public class AssetsController(
     EmployeeCenterDbContext context,
-    UserManager<User> userManager)
+    UserManager<User> userManager,
+    AssetFileService assetFiles)
     : Controller
 {
     [RenderInNavBar(
@@ -87,6 +88,15 @@ public class AssetsController(
         if (await context.Assets.AnyAsync(a => a.AssetTag == model.AssetTag))
         {
             ModelState.AddModelError(nameof(model.AssetTag), "Asset tag already exists.");
+        }
+
+        if (!string.IsNullOrWhiteSpace(model.InvoiceFileUrl) &&
+            !assetFiles.IsExistingFile(
+                model.InvoiceFileUrl,
+                AssetFileService.AssetInvoiceFolder,
+                isVault: true))
+        {
+            ModelState.AddModelError(nameof(model.InvoiceFileUrl), "The invoice file is invalid.");
         }
 
         if (ModelState.IsValid)
@@ -191,6 +201,15 @@ public class AssetsController(
         if (await context.Assets.AnyAsync(a => a.AssetTag == model.AssetTag && a.Id != model.Id))
         {
             ModelState.AddModelError(nameof(model.AssetTag), "Asset tag already exists.");
+        }
+
+        if (!assetFiles.IsValidReplacement(
+                model.InvoiceFileUrl,
+                asset.InvoiceFileUrl,
+                AssetFileService.AssetInvoiceFolder,
+                isVault: true))
+        {
+            ModelState.AddModelError(nameof(model.InvoiceFileUrl), "The invoice file is invalid.");
         }
 
         if (ModelState.IsValid)
@@ -363,11 +382,8 @@ public class AssetsController(
         if (asset == null || string.IsNullOrWhiteSpace(asset.InvoiceFileUrl))
             return NotFound();
 
-        // Properly encode non-ASCII characters so the Location header is valid.
-        var encodedUrl = Uri.TryCreate(asset.InvoiceFileUrl, UriKind.Absolute, out var uri)
-            ? uri.GetComponents(UriComponents.AbsoluteUri, UriFormat.UriEscaped)
-            : asset.InvoiceFileUrl;
-        return Redirect(encodedUrl);
+        var url = assetFiles.GetInternetUrl(asset.InvoiceFileUrl);
+        return string.IsNullOrEmpty(url) ? NotFound() : Redirect(url);
     }
 
     [HttpGet]

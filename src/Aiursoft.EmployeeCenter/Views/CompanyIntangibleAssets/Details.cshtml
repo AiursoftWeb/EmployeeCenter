@@ -1,6 +1,6 @@
-@using Aiursoft.EmployeeCenter.Services.FileStorage
+@using Aiursoft.EmployeeCenter.Services
 @model Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels.DetailsViewModel
-@inject StorageService Storage
+@inject AssetFileService AssetFiles
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
@@ -100,7 +100,7 @@
                     <dd class="col-sm-8">
                         @if (!string.IsNullOrEmpty(Model.Asset.TrademarkImageUrl))
                         {
-                            <a href="@Storage.RelativePathToInternetUrl(Model.Asset.TrademarkImageUrl)" target="_blank">@Localizer["View Trademark Image"]</a>
+                            <a href="@AssetFiles.GetInternetUrl(Model.Asset.TrademarkImageUrl)" target="_blank">@Localizer["View Trademark Image"]</a>
                         }
                         else
                         {
@@ -112,7 +112,7 @@
                     <dd class="col-sm-8">
                          @if (!string.IsNullOrEmpty(Model.Asset.InvoiceFileUrl))
                         {
-                            <a href="@Storage.RelativePathToInternetUrl(Model.Asset.InvoiceFileUrl)" target="_blank">@Localizer["View Invoice"]</a>
+                            <a href="@AssetFiles.GetInternetUrl(Model.Asset.InvoiceFileUrl)" target="_blank">@Localizer["View Invoice"]</a>
                         }
                         else
                         {
@@ -124,7 +124,7 @@
                     <dd class="col-sm-8">
                         @if (!string.IsNullOrEmpty(Model.Asset.RegistrationCertificateUrl))
                         {
-                            <a href="@Storage.RelativePathToInternetUrl(Model.Asset.RegistrationCertificateUrl)" target="_blank">@Localizer["View Certificate"]</a>
+                            <a href="@AssetFiles.GetInternetUrl(Model.Asset.RegistrationCertificateUrl)" target="_blank">@Localizer["View Certificate"]</a>
                         }
                         else
                         {

@@ -1,3 +1,5 @@
+using Aiursoft.EmployeeCenter.Services.FileStorage;
+
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
 [TestClass]
@@ -26,10 +28,16 @@ public class IntangibleAssetTests : TestBase
 
         // 3. Create Intangible Asset with new fields
         var assetName = "Test Domain with New Fields";
-        const string trademarkImageUrl = "intangible-assets/trademark-images/pending-logo.png";
-        const string updatedTrademarkImageUrl = "intangible-assets/trademark-images/updated-logo.jpg";
-        const string invoiceFileUrl = "intangible-assets/invoices/invoice.pdf";
-        const string registrationCertificateUrl = "intangible-assets/certificates/certificate.pdf";
+        var suffix = Guid.NewGuid().ToString("N");
+        var trademarkImageUrl = $"intangible-assets/trademark-images/{suffix}.png";
+        var updatedTrademarkImageUrl = $"intangible-assets/trademark-images/{suffix}-updated.jpg";
+        var invoiceFileUrl = $"intangible-asset-invoices/{suffix}.pdf";
+        var registrationCertificateUrl = $"intangible-asset-certificates/{suffix}.pdf";
+        var storage = GetService<StorageService>();
+        await SaveFile(storage, trademarkImageUrl, isVault: false);
+        await SaveFile(storage, updatedTrademarkImageUrl, isVault: false);
+        await SaveFile(storage, invoiceFileUrl, isVault: true);
+        await SaveFile(storage, registrationCertificateUrl, isVault: true);
         var createResponse = await PostForm("/IntangibleAssets/Create", new Dictionary<string, string>
         {
             { "Name", assetName },
@@ -111,13 +119,13 @@ public class IntangibleAssetTests : TestBase
         managementDetailsResponse.EnsureSuccessStatusCode();
         var managementDetailsHtml = await managementDetailsResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(managementDetailsHtml, "View Trademark Image");
-        StringAssert.Contains(managementDetailsHtml, "updated-logo.jpg");
+        StringAssert.Contains(managementDetailsHtml, updatedTrademarkImageUrl);
 
         var publicDetailsWithImageResponse = await Http.GetAsync($"/CompanyIntangibleAssets/Details/{assetId}");
         publicDetailsWithImageResponse.EnsureSuccessStatusCode();
         var publicDetailsWithImageHtml = await publicDetailsWithImageResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(publicDetailsWithImageHtml, "View Trademark Image");
-        StringAssert.Contains(publicDetailsWithImageHtml, "updated-logo.jpg");
+        StringAssert.Contains(publicDetailsWithImageHtml, updatedTrademarkImageUrl);
 
         var publicIndexResponse = await Http.GetAsync("/CompanyIntangibleAssets");
         publicIndexResponse.EnsureSuccessStatusCode();
@@ -167,6 +175,55 @@ public class IntangibleAssetTests : TestBase
     }
 
     [TestMethod]
+    public async Task LegacyWorkspaceDocumentsRemainEditable()
+    {
+        await LoginAsAdmin();
+
+        var asset = new IntangibleAsset
+        {
+            Id = Guid.NewGuid(),
+            Name = "Legacy intangible asset",
+            Type = IntangibleAssetType.Trademark,
+            Status = IntangibleAssetStatus.Active,
+            InvoiceFileUrl = "intangible-assets/invoices/legacy-invoice.pdf",
+            RegistrationCertificateUrl = "intangible-assets/certificates/legacy-certificate.pdf"
+        };
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            db.IntangibleAssets.Add(asset);
+            await db.SaveChangesAsync();
+        }
+
+        var editPage = await Http.GetAsync($"/IntangibleAssets/Edit/{asset.Id}");
+        editPage.EnsureSuccessStatusCode();
+        var html = await editPage.Content.ReadAsStringAsync();
+        StringAssert.Contains(html, "/download/intangible-assets/invoices/legacy-invoice.pdf");
+        StringAssert.Contains(html, "/upload-private/intangible-asset-invoices");
+
+        var editResponse = await PostForm($"/IntangibleAssets/Edit/{asset.Id}", new Dictionary<string, string>
+        {
+            ["Id"] = asset.Id.ToString(),
+            ["Name"] = "Updated legacy intangible asset",
+            ["Type"] = ((int)asset.Type).ToString(),
+            ["Status"] = ((int)asset.Status).ToString(),
+            ["Currency"] = asset.Currency,
+            ["InvoiceFileUrl"] = asset.InvoiceFileUrl!,
+            ["RegistrationCertificateUrl"] = asset.RegistrationCertificateUrl!
+        });
+        AssertRedirect(editResponse, "/IntangibleAssets");
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var updated = await db.IntangibleAssets.FindAsync(asset.Id);
+            Assert.AreEqual("Updated legacy intangible asset", updated!.Name);
+            Assert.AreEqual(asset.InvoiceFileUrl, updated.InvoiceFileUrl);
+            Assert.AreEqual(asset.RegistrationCertificateUrl, updated.RegistrationCertificateUrl);
+        }
+    }
+
+    [TestMethod]
     public async Task IntangibleAssetCanBeCreatedAndEditedWithoutTrademarkImageTest()
     {
         await LoginAsAdmin();
@@ -209,5 +266,11 @@ public class IntangibleAssetTests : TestBase
 
         var deleteResponse = await PostForm($"/IntangibleAssets/Delete/{assetId}", new Dictionary<string, string>());
         AssertRedirect(deleteResponse, "/IntangibleAssets");
+    }
+
+    private static async Task SaveFile(StorageService storage, string path, bool isVault)
+    {
+        await using var content = new MemoryStream("test"u8.ToArray());
+        await storage.SaveFromStream(path, content, isVault);
     }
 }

@@ -12,6 +12,7 @@ public class FileUpload(StorageService storage) : ViewComponent
         int maxSizeInMb = 2000,
         string? allowedExtensions = null,
         bool isVault = false,
+        bool? existingFileIsVault = null,
         string? fieldName = null)
     {
         var uploadEndpoint = storage.GetUploadUrl(
@@ -26,6 +27,7 @@ public class FileUpload(StorageService storage) : ViewComponent
             MaxSizeInMb = maxSizeInMb,
             AllowedExtensions = allowedExtensions,
             IsVault = isVault,
+            ExistingFileIsVault = existingFileIsVault ?? isVault,
             FieldName = fieldName
         });
     }
