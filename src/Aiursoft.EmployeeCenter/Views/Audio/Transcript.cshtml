@@ -1,5 +1,6 @@
 @model Aiursoft.EmployeeCenter.Models.AudioViewModels.TranscriptViewModel
 @using Aiursoft.EmployeeCenter.Configuration
+@using Aiursoft.EmployeeCenter.Models.AudioViewModels
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @using Microsoft.Extensions.Options
 @inject IOptions<AsrSettings> AsrSettings
@@ -321,6 +322,63 @@ else if (Model.Audio.MediaProcessingError != null)
                     {
                         <span class="text-muted">@Localizer["No playable audio is available."]</span>
                     }
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Access Details"]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div class="text-muted mb-1">@Localizer["Owner"]</div>
+                        @if (Model.AccessContext.OwnerId != null && Model.AccessContext.OwnerDisplayName != null)
+                        {
+                            <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.AccessContext.OwnerId" class="text-body fw-semibold">
+                                @Model.AccessContext.OwnerDisplayName
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">@Localizer["Unknown Owner"]</span>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <div class="text-muted mb-1">@Localizer["Access Source"]</div>
+                        <div class="d-flex flex-wrap gap-1">
+                            @foreach (var source in Model.AccessContext.Sources)
+                            {
+                                <span class="badge badge-subtle-secondary" data-access-source="@source.Type">
+                                    @switch (source.Type)
+                                    {
+                                        case AudioAccessSourceType.Owner:
+                                            @Localizer["Owner"]
+                                            break;
+                                        case AudioAccessSourceType.AudioManagementPermission:
+                                            @Localizer["Audio Management Permission"]
+                                            break;
+                                        case AudioAccessSourceType.DirectShare:
+                                            @Localizer["Direct Share"]
+                                            break;
+                                        case AudioAccessSourceType.RoleShare:
+                                            @Localizer["Role: {0}", source.RoleName ?? Localizer["Unknown Role"].Value]
+                                            break;
+                                    }
+                                </span>
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-muted mb-1">@Localizer["My Permission"]</div>
+                        @if (Model.AccessContext.EffectivePermission == SharePermission.Editable)
+                        {
+                            <span class="badge badge-subtle-success" data-effective-permission="Editable">@Localizer["Editable"]</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-subtle-secondary" data-effective-permission="ReadOnly">@Localizer["Read-only"]</span>
+                        }
+                    </div>
                 </div>
             </div>
 

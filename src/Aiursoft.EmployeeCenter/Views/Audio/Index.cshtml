@@ -1,4 +1,5 @@
 @using Aiursoft.EmployeeCenter.Authorization
+@using Aiursoft.EmployeeCenter.Models.AudioViewModels
 @using Microsoft.AspNetCore.Authorization
 @using Aiursoft.EmployeeCenter.Configuration
 @using Microsoft.Extensions.Options
@@ -124,6 +125,9 @@
                 <thead>
                 <tr>
                     <th>@Localizer["Name"]</th>
+                    <th>@Localizer["Owner"]</th>
+                    <th>@Localizer["Access Source"]</th>
+                    <th>@Localizer["My Permission"]</th>
                     <th>@Localizer["Created Time"]</th>
                     <th>@Localizer["ASR Status"]</th>
                     <th>@Localizer["Minutes Status"]</th>
@@ -136,6 +140,52 @@
                     <tr>
                         <td>
                             <i class="align-middle me-2" data-lucide="mic"></i> @item.Audio.Name
+                        </td>
+                        <td>
+                            @if (item.AccessContext.OwnerId != null && item.AccessContext.OwnerDisplayName != null)
+                            {
+                                <a asp-controller="Users" asp-action="Details" asp-route-id="@item.AccessContext.OwnerId" class="text-body">
+                                    @item.AccessContext.OwnerDisplayName
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["Unknown Owner"]</span>
+                            }
+                        </td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1">
+                                @foreach (var source in item.AccessContext.Sources)
+                                {
+                                    <span class="badge badge-subtle-secondary" data-access-source="@source.Type">
+                                        @switch (source.Type)
+                                        {
+                                            case AudioAccessSourceType.Owner:
+                                                @Localizer["Owner"]
+                                                break;
+                                            case AudioAccessSourceType.AudioManagementPermission:
+                                                @Localizer["Audio Management Permission"]
+                                                break;
+                                            case AudioAccessSourceType.DirectShare:
+                                                @Localizer["Direct Share"]
+                                                break;
+                                            case AudioAccessSourceType.RoleShare:
+                                                @Localizer["Role: {0}", source.RoleName ?? Localizer["Unknown Role"].Value]
+                                                break;
+                                        }
+                                    </span>
+                                }
+                            </div>
+                        </td>
+                        <td>
+                            @if (item.AccessContext.EffectivePermission == SharePermission.Editable)
+                            {
+                                <span class="badge badge-subtle-success" data-effective-permission="Editable">@Localizer["Editable"]</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-subtle-secondary" data-effective-permission="ReadOnly">@Localizer["Read-only"]</span>
+                            }
                         </td>
                         <td><label class="text-muted" data-utc-time="@item.Audio.CreateTime.ToHtmlDateTime()"></label></td>
                         <td>

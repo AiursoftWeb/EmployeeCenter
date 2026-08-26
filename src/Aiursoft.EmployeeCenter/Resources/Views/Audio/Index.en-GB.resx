@@ -118,4 +118,34 @@
     <value>Waiting for transcript</value>
   </data>
 
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Access Source</value>
+  </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>My Permission</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Unknown Owner</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Audio Management Permission</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Direct Share</value>
+  </data>
+  <data name="Role: {0}" xml:space="preserve">
+    <value>Role: {0}</value>
+  </data>
+  <data name="Unknown Role" xml:space="preserve">
+    <value>Unknown Role</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editable</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Read-only</value>
+  </data>
 </root>

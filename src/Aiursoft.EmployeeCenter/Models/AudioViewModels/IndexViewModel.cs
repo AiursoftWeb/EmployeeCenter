@@ -22,6 +22,7 @@ public class IndexViewModel : UiStackLayoutViewModel
 public class AudioListItemViewModel
 {
     public required Audio Audio { get; set; }
+    public required AudioAccessContextViewModel AccessContext { get; set; }
     public bool HasTranscript { get; set; }
     public bool IsEmptyResult { get; set; }
     public bool HasMeetingMinutes { get; set; }

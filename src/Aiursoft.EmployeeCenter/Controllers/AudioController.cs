@@ -45,7 +45,7 @@ public class AudioController(
 
         var isManager = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
         var userId = userManager.GetUserId(User);
-        var userRoleIds = await GetUserRoleIdsAsync();
+        var userRoleIds = isManager ? [] : await GetUserRoleIdsAsync();
 
         IQueryable<Audio> query = context.Audios;
         if (!isManager)
@@ -66,6 +66,12 @@ public class AudioController(
             .Select(a => new AudioListItemViewModel
             {
                 Audio = a,
+                AccessContext = new AudioAccessContextViewModel
+                {
+                    OwnerId = a.OwnerId,
+                    OwnerDisplayName = a.Owner == null ? null : a.Owner.DisplayName,
+                    EffectivePermission = SharePermission.Editable
+                },
                 HasTranscript = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText != ""),
                 IsEmptyResult = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText == ""),
                 HasMeetingMinutes = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.MeetingMinutesMarkdown != null && r.MeetingMinutesMarkdown != ""),
@@ -82,6 +88,42 @@ public class AudioController(
         if (hasNextPage)
         {
             audios.RemoveAt(AudioPageSize);
+        }
+
+        var matchingShares = isManager || audios.Count == 0
+            ? []
+            : await context.AudioShares
+                .Where(s => audios.Select(item => item.Audio.Id).Contains(s.AudioId))
+                .Where(s => s.SharedWithUserId == userId ||
+                            (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
+                .OrderBy(s => s.Id)
+                .Select(s => new AudioAccessSourceRecord
+                {
+                    AudioId = s.AudioId,
+                    Type = s.SharedWithUserId == userId
+                        ? AudioAccessSourceType.DirectShare
+                        : AudioAccessSourceType.RoleShare,
+                    RoleName = s.SharedWithRole == null ? null : s.SharedWithRole.Name,
+                    Permission = s.Permission
+                })
+                .ToListAsync();
+
+        foreach (var item in audios)
+        {
+            item.AccessContext = BuildAudioAccessContext(
+                item.AccessContext.OwnerId,
+                item.AccessContext.OwnerDisplayName,
+                userId,
+                isManager,
+                matchingShares
+                    .Where(share => share.AudioId == item.Audio.Id)
+                    .Select(share => new AudioAccessSourceViewModel
+                    {
+                        Type = share.Type,
+                        RoleName = share.RoleName,
+                        Permission = share.Permission
+                    })
+                    .ToList())!;
         }
 
         var model = new IndexViewModel
@@ -320,12 +362,39 @@ public class AudioController(
 
     public async Task<IActionResult> Transcript(int id)
     {
-        var audio = await context.Audios.FirstOrDefaultAsync(a => a.Id == id);
+        var audio = await context.Audios
+            .Include(a => a.Owner)
+            .FirstOrDefaultAsync(a => a.Id == id);
         if (audio == null) return NotFound();
-        if (!await CanViewAudioAsync(audio)) return NotFound();
 
-        var canManageShares = await CanManageAudioAsync(audio);
-        var permission = await GetAudioPermissionAsync(audio);
+        var isManager = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
+        var userId = userManager.GetUserId(User);
+        var userRoleIds = isManager || audio.OwnerId == userId ? [] : await GetUserRoleIdsAsync();
+        var matchingShares = isManager || audio.OwnerId == userId
+            ? []
+            : await context.AudioShares
+                .Where(s => s.AudioId == audio.Id)
+                .Where(s => s.SharedWithUserId == userId ||
+                            (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
+                .OrderBy(s => s.Id)
+                .Select(s => new AudioAccessSourceViewModel
+                {
+                    Type = s.SharedWithUserId == userId
+                        ? AudioAccessSourceType.DirectShare
+                        : AudioAccessSourceType.RoleShare,
+                    RoleName = s.SharedWithRole == null ? null : s.SharedWithRole.Name,
+                    Permission = s.Permission
+                })
+                .ToListAsync();
+        var accessContext = BuildAudioAccessContext(
+            audio.OwnerId,
+            audio.Owner?.DisplayName,
+            userId,
+            isManager,
+            matchingShares);
+        if (accessContext == null) return NotFound();
+
+        var canManageShares = isManager || (userId != null && audio.OwnerId == userId);
 
         var asrResult = await context.AudioAsrResults
             .AsNoTracking()
@@ -341,7 +410,7 @@ public class AudioController(
             MeetingMinutesOutdated = asrResult != null &&
                                      asrResult.TranscriptRevision != asrResult.MeetingMinutesTranscriptRevision,
             CanManageShares = canManageShares,
-            Permission = permission!.Value
+            AccessContext = accessContext
         });
     }
 
@@ -584,6 +653,60 @@ public class AudioController(
         return audio.OwnerId == userId;
     }
 
+    private static AudioAccessContextViewModel? BuildAudioAccessContext(
+        string? ownerId,
+        string? ownerDisplayName,
+        string? userId,
+        bool isManager,
+        List<AudioAccessSourceViewModel> matchingShares)
+    {
+        if (userId != null && ownerId == userId)
+        {
+            return new AudioAccessContextViewModel
+            {
+                OwnerId = ownerId,
+                OwnerDisplayName = ownerDisplayName,
+                EffectivePermission = SharePermission.Editable,
+                Sources =
+                [
+                    new AudioAccessSourceViewModel
+                    {
+                        Type = AudioAccessSourceType.Owner,
+                        Permission = SharePermission.Editable
+                    }
+                ]
+            };
+        }
+
+        if (isManager)
+        {
+            return new AudioAccessContextViewModel
+            {
+                OwnerId = ownerId,
+                OwnerDisplayName = ownerDisplayName,
+                EffectivePermission = SharePermission.Editable,
+                Sources =
+                [
+                    new AudioAccessSourceViewModel
+                    {
+                        Type = AudioAccessSourceType.AudioManagementPermission,
+                        Permission = SharePermission.Editable
+                    }
+                ]
+            };
+        }
+
+        if (matchingShares.Count == 0) return null;
+
+        return new AudioAccessContextViewModel
+        {
+            OwnerId = ownerId,
+            OwnerDisplayName = ownerDisplayName,
+            EffectivePermission = matchingShares.Max(share => share.Permission),
+            Sources = matchingShares
+        };
+    }
+
     private bool TryGetExistingAudioPath(string logicalPath, out string filePath)
     {
         filePath = string.Empty;
@@ -627,5 +750,13 @@ public class AudioController(
             .Where(r => userRoles.Contains(r.Name!))
             .Select(r => r.Id)
             .ToListAsync();
+    }
+
+    private sealed class AudioAccessSourceRecord
+    {
+        public int AudioId { get; init; }
+        public AudioAccessSourceType Type { get; init; }
+        public string? RoleName { get; init; }
+        public SharePermission Permission { get; init; }
     }
 }
