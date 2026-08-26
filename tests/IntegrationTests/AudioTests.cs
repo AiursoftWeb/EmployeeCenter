@@ -47,6 +47,8 @@ public class AudioTests : TestBase
         var pendingHtml = await pendingResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(pendingHtml, "Waiting to transcribe audio");
         StringAssert.Contains(pendingHtml, "Waiting for speech-to-text to finish");
+        Assert.DoesNotContain("id=\"copy-meeting-minutes\"", pendingHtml);
+        Assert.DoesNotContain("const meetingMinutesMarkdown", pendingHtml);
         Assert.AreEqual(2, pendingHtml.Split("progress-bar-animated").Length - 1);
 
         var transcribingResponse = await Http.GetAsync($"/Audio/Transcript/{transcribingAudioId}");
@@ -639,6 +641,11 @@ public class AudioTests : TestBase
         StringAssert.Contains(ownerTranscriptHtml, ownerDisplayName);
         StringAssert.Contains(ownerTranscriptHtml, "data-access-source=\"Owner\"");
         StringAssert.Contains(ownerTranscriptHtml, "data-effective-permission=\"Editable\"");
+        StringAssert.Contains(ownerTranscriptHtml, "id=\"copy-meeting-minutes\"");
+        StringAssert.Contains(ownerTranscriptHtml, "onclick=\"copyMeetingMinutes(this)\"");
+        StringAssert.Contains(ownerTranscriptHtml, "const meetingMinutesMarkdown");
+        StringAssert.Contains(ownerTranscriptHtml, "Meeting Summary\\n\\n| Item | Owner |");
+        StringAssert.Contains(ownerTranscriptHtml, "\\u003cscript\\u003ealert(\\u0027x\\u0027)\\u003c/script\\u003e");
         Assert.DoesNotContain("<script>alert('x')</script>", ownerTranscriptHtml);
 
         await Http.GetAsync("/Account/LogOff");
@@ -693,8 +700,10 @@ public class AudioTests : TestBase
         StringAssert.Contains(sharedTranscriptHtml, ownerDisplayName);
         StringAssert.Contains(sharedTranscriptHtml, "data-access-source=\"DirectShare\"");
         StringAssert.Contains(sharedTranscriptHtml, "data-effective-permission=\"ReadOnly\"");
+        StringAssert.Contains(sharedTranscriptHtml, "id=\"copy-meeting-minutes\"");
         Assert.DoesNotContain("Edit Transcript", sharedTranscriptHtml);
         Assert.DoesNotContain(">Rename<", sharedTranscriptHtml);
+        Assert.DoesNotContain("Regenerate Meeting Minutes", sharedTranscriptHtml);
 
         var editResponse = await Http.GetAsync($"/Audio/Edit/{audioId}");
         Assert.AreEqual(HttpStatusCode.Unauthorized, editResponse.StatusCode);

@@ -149,6 +149,12 @@ else if (Model.Audio.MediaProcessingError != null)
                             <i class="align-middle me-1" data-lucide="loader"></i>@Localizer[hasTranscript ? "Generating meeting summary" : "Waiting for speech-to-text"]
                         </span>
                     }
+                    @if (hasMeetingMinutes)
+                    {
+                        <button id="copy-meeting-minutes" class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyMeetingMinutes(this)" title="@Localizer["Copy to clipboard"]">
+                            <i class="align-middle me-1" data-lucide="copy"></i> @Localizer["Copy"]
+                        </button>
+                    }
                 </div>
                 <div class="card-body">
                     @if (Model.MeetingMinutesOutdated)
@@ -468,16 +474,48 @@ else if (Model.Audio.MediaProcessingError != null)
         <partial name="_MarkdownReaderAssets" />
     }
     <script>
-        function copyTranscript(button) {
-            const text = document.getElementById('transcript-text')?.innerText;
+        async function copyToClipboard(button, text) {
             if (!text) return;
-            navigator.clipboard.writeText(text).then(() => {
-                const original = button.innerHTML;
+
+            const original = button.innerHTML;
+            button.disabled = true;
+
+            try {
+                await navigator.clipboard.writeText(text);
                 button.innerHTML = '<i class="align-middle me-1" data-lucide="check"></i> @Localizer["Copied"]';
                 button.classList.remove('btn-outline-secondary');
                 button.classList.add('btn-success');
-                setTimeout(() => { button.innerHTML = original; button.classList.remove('btn-success'); button.classList.add('btn-outline-secondary'); }, 2000);
-            });
+                setTimeout(() => {
+                    resetCopyButton(button, original);
+                    button.disabled = false;
+                }, 2000);
+            } catch (error) {
+                resetCopyButton(button, original);
+                button.disabled = false;
+                console.error('Failed to copy to clipboard.', error);
+            }
+        }
+
+        function resetCopyButton(button, original) {
+            button.innerHTML = original;
+            button.classList.remove('btn-success');
+            button.classList.add('btn-outline-secondary');
+        }
+
+        function copyTranscript(button) {
+            const text = document.getElementById('transcript-text')?.innerText;
+            copyToClipboard(button, text);
+        }
+
+        @if (hasMeetingMinutes)
+        {
+            <text>
+        const meetingMinutesMarkdown = @Json.Serialize(Model.MeetingMinutesMarkdown);
+
+        function copyMeetingMinutes(button) {
+            copyToClipboard(button, meetingMinutesMarkdown);
+        }
+            </text>
         }
     </script>
 }
