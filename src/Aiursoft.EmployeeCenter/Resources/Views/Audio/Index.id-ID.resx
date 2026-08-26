@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Daftar rekaman audio rapat, transkrip, dan status pemrosesan AI.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Sumber Akses</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Tindakan</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>Status ASR</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Izin Manajemen Audio</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>Menunggu pengenalan</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Departemen</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Berbagi Langsung</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Dapat Diedit</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Kosong</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Status Notulen</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Izin Saya</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nama</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>Belum ada rekaman rapat</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Pemilik</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Menunggu</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>Publik</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Hanya-baca</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Pengenalan sedang berlangsung</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>Transkrip</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Pemilik Tidak Diketahui</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Unggikan Rekaman Rapat</value>

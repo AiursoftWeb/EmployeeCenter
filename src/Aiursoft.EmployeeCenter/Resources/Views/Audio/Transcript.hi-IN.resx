@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>पहुँच विवरण</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>पहुँच स्रोत</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>एआई रॉ एपीआई</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>ऑडियो फ़ाइल</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>ऑडियो प्रबंधन की अनुमति</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>सूची पर वाप जाएं</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>पुनरलेखन त्रुटियों को सुधारें</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>सीधा शेयर</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>ऑडियो डाउनलोड करें</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>ट्रांसक्रिप्ट संपादित करें</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>संपादन योग्य</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>सभी (CanViewAudio)</value>
@@ -114,6 +129,9 @@
   <data name="My department" xml:space="preserve">
     <value>मेरा विभाग</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>मेरी अनुमति</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>कभी नहीं</value>
   </data>
@@ -129,6 +147,9 @@
   <data name="Outdated" xml:space="preserve">
     <value>पुराना</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>मालिक</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>लंबित</value>
   </data>
@@ -143,6 +164,9 @@
   </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>AI टूल्स के लिए कच्चा API एंडपॉइंट</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>केवल-पठन</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>पुनः नामकरण करें</value>
@@ -188,6 +212,9 @@
   </data>
   <data name="Transcript API" xml:space="preserve">
     <value>ट्रांसक्रिप्ट API</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>अज्ञात स्वामी</value>
   </data>
   <data name="View Scope" xml:space="preserve">
     <value>देखने की सीमा</value>

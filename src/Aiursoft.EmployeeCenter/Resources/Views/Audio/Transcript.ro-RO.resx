@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>Detalii de acces</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Sursa accesului</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>API brută pentru IA</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>Fișier audio</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Permisiunea de administrare a audio</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Înapoi la listă</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>Corectează erorile de transcriere</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Partajare directă</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Descarcă audio</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>Editează transcrierea</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editable</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Toată lumea (CanViewAudio)</value>
@@ -114,6 +129,9 @@
   <data name="My department" xml:space="preserve">
     <value>Departamentul meu</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Permisiunea mea</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>Niciodată</value>
   </data>
@@ -129,6 +147,9 @@
   <data name="Outdated" xml:space="preserve">
     <value>Depășit</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Deținător</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>În așteptare</value>
   </data>
@@ -143,6 +164,9 @@
   </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Punct de acces API brut pentru instrumente AI</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Doar citire</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Redenumire</value>
@@ -188,6 +212,9 @@
   </data>
   <data name="Transcript API" xml:space="preserve">
     <value>API Transcripție</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Proprietar necunoscut</value>
   </data>
   <data name="View Scope" xml:space="preserve">
     <value>Domeniu de vizualizare</value>

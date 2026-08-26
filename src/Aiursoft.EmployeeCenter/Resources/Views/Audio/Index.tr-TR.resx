@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Toplantı ses kayıtları, metin transkriptleri ve AI işleme durumlarının listesi.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Erişim Kaynağı</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>İşlemler</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>ASR Durumu</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Ses Yönetimi İzni</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>Tanıma bekleniyor</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Bölüm</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Doğrudan Paylaşım</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Düzenlenebilir</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Boş</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Tutanak Durumu</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Benim İznim</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Ad</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>Henüz toplantı kaydı yok</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Sahip</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Beklemede</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>Herkese Açık</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Salt okunur</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Tanıma devam ediyor</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>Transkript</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Bilinmeyen Sahip</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Toplantı Kaydını Yükle</value>

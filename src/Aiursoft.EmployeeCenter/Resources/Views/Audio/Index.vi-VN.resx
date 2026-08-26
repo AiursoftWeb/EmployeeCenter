@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Danh sách các bản ghi âm cuộc họp, văn bản chuyển lời nói và trạng thái xử lý AI.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Nguồn truy cập</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Hành động</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>Trạng thái ASR</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Quyền Quản lý Âm thanh</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>Đang chờ nhận diện</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Bộ phận</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Chia sẻ trực tiếp</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Có thể chỉnh sửa</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Trống</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Trạng thái biên bản</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Quyền của tôi</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Tên</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>Chưa có bản ghi cuộc họp nào</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Chủ sở hữu</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Đang chờ xử lý</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>Công khai</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Chỉ đọc</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Đang nhận diện</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>Bản ghi</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Chủ sở hữu không xác định</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Tải lên bản ghi cuộc họp</value>

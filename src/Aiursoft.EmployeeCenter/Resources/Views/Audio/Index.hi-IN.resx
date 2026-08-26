@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>मीटिंग ऑडियो रिकॉर्डिंग, ट्रांसक्रिप्ट और एआई प्रसंस्करण स्थितियों की सूची।</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>पहुँच स्रोत</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>कार्रवाई</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>ASR स्थिति</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>ऑडियो प्रबंधन अनुमति</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>पहचान की प्रतीक्षा में</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>विभाग</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>सीधा शेयर</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>संपादन योग्य</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>खाली</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>मिनट्स स्थिति</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>मेरी अनुमति</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>नाम</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>अभी तक कोई मीटिंग रिकॉर्डिंग नहीं है</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>मालिक</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>लंबित</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>सार्वजनिक</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>केवल-पठन</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>पहचान चल रही है</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>प्रतिलिपि</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>अज्ञात मालिक</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>मीटिंग रिकॉर्डिंग अपलोड करें</value>
