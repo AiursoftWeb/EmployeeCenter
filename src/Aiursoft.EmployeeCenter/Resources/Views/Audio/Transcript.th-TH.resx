@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>รายละเอียดการเข้าถึง</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>แหล่งที่มาของการเข้าถึง</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>API ข้อมูลดิบสำหรับ AI</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>ไฟล์เสียง</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>สิทธิ์การจัดการเสียง</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>กลับไปยังรายการ</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>แก้ไขข้อผิดพลาดในการถอดความ</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>แชร์โดยตรง</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>ดาวน์โหลดเสียง</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>แก้ไขบันทึก</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>แก้ไขได้</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>ทุกคน (CanViewAudio)</value>
@@ -114,6 +129,9 @@
   <data name="My department" xml:space="preserve">
     <value>แผนกของฉัน</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>สิทธิ์ของฉัน</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>ไม่เคย</value>
   </data>
@@ -129,6 +147,9 @@
   <data name="Outdated" xml:space="preserve">
     <value>หมดอายุ</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>เจ้าของ</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>รอดำเนินการ</value>
   </data>
@@ -143,6 +164,9 @@
   </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>จุดสิ้นสุด API แบบดิบสำหรับเครื่องมือ AI</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>อ่านอย่างเดียว</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>เปลี่ยนชื่อ</value>
@@ -188,6 +212,9 @@
   </data>
   <data name="Transcript API" xml:space="preserve">
     <value>API บทสรุป</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>ผู้ครอบครองที่ไม่ทราบ</value>
   </data>
   <data name="View Scope" xml:space="preserve">
     <value>ขอบเขตการดู</value>

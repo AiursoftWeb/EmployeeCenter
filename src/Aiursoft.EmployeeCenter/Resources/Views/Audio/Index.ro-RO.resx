@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>O listă cu înregistrările audio ale ședințelor, transcrierile și staturile de procesare AI.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Sursa accesului</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>Starea ASR</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Permis de gestion audio</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>În așteptarea recunoașterii</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Departament</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Partajare directă</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editabil</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Gol</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Starea procesului verbal</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Permisia mea</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nume</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>Nicio înregistrare de ședință încă</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Proprietar</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>În așteptare</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>Public</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Doar citire</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Recunoaștere în curs</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>Transcriere</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Deținător necunoscut</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Încărcare înregistrare ședință</value>

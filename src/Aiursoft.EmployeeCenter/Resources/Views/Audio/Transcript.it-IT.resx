@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>Dettagli di accesso</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Origine accesso</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>API grezza per AI</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>File audio</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Permesso di gestione audio</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Torna alla lista</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>Correggi gli errori di trascrizione</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Condivisione diretta</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Scarica audio</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>Modifica trascrizione</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Modificabile</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Tutti (CanViewAudio)</value>
@@ -114,6 +129,9 @@
   <data name="My department" xml:space="preserve">
     <value>Il mio reparto</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>La mia autorizzazione</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>Mai</value>
   </data>
@@ -129,6 +147,9 @@
   <data name="Outdated" xml:space="preserve">
     <value>Non aggiornato</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Proprietario</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>In attesa</value>
   </data>
@@ -143,6 +164,9 @@
   </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Endpoint API grezzo per strumenti AI</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Sola lettura</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Rinomina</value>
@@ -188,6 +212,9 @@
   </data>
   <data name="Transcript API" xml:space="preserve">
     <value>API Trascrizione</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Proprietario sconosciuto</value>
   </data>
   <data name="View Scope" xml:space="preserve">
     <value>Ambito di visualizzazione</value>

@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>會議錄音、文字稿及 AI 處理狀態清單。</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>存取來源</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>語音轉文字狀態</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>音訊管理權限</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>等待辨識</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>部門</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>直接共享</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>可編輯</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>空</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>會議記錄狀態</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>我的權限</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>名稱</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>暫無會議錄音</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>擁有者</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>等待中</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>公開</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>唯讀</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>識別進行中</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>文字記錄</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>未知擁有者</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>上載會議錄音</value>

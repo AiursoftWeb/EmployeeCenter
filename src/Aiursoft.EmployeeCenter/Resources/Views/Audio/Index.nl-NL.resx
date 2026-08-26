@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Een lijst met vergaderaudio-opnames, transcripties en AI-verwerkingsstatussen.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Toegangsbron</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Acties</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>ASR-status</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Audio-beheer toestemming</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>Wachten op herkenning</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Afdeling</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Directe deel</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Bewerkbaar</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Leeg</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Notulenstatus</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Mijn toestemming</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Naam</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>Nog geen vergister opnames</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Eigenaar</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>In afwachting</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>Openbaar</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Alleen-lezen</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Herkenning bezig</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>Transcript</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Onbekende eigenaar</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Vergistingsopname uploaden</value>

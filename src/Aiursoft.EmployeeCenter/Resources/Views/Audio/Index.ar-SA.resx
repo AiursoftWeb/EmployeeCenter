@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>قائمة بتسجيلات صوتية للاجتماعات والنصوص المكتوبة وحالات المعالجة بالذكاء الاصطناعي.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>مصدر الوصول</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>حالة ASR</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>صلاحيات إدارة الصوت</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>في انتظار التعرف</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>القسم</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>مشاركة مباشرة</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>قابل للتعديل</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>فارغ</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>حالة الدقائق</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>إذني</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>الاسم</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>لا توجد تسجيلات للاجتماعات بعد</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>المالك</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>قيد الانتظار</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>عام</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>قراءة فقط</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>التعرف قيد التنفيذ</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>النص</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>مالك غير معروف</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>تحميل تسجيل الاجتماع</value>

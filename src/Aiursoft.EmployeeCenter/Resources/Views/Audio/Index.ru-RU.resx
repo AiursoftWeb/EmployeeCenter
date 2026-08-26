@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Список аудиозаписей встреч, расшифровок и статусов обработки ИИ.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Источник доступа</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Действия</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>Статус ASR</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Разрешение управления аудио</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>Ожидание распознавания</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Отдел</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Прямой доступ</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Редактируемый</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Пусто</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Статус протокола</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Мои права доступа</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>Записей встреч пока нет</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Владелец</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Ожидание обработки</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>Публичный</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Только чтение</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Распознавание в процессе</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>Транскрипт</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Неизвестный владелец</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Загрузить запись встречи</value>

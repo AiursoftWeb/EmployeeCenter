@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>存取詳情</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>存取來源</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>AI 原始 API</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>音訊檔案</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>音訊管理權限</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>返回列表</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>修正轉錄錯誤</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>直接共享</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>下載音頻</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>編輯文字稿</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>可編輯</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>所有人（可查看音訊）</value>
@@ -114,6 +129,9 @@
   <data name="My department" xml:space="preserve">
     <value>我的部門</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>我的權限</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>從無</value>
   </data>
@@ -129,6 +147,9 @@
   <data name="Outdated" xml:space="preserve">
     <value>已過時</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>擁有者</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>等待中</value>
   </data>
@@ -143,6 +164,9 @@
   </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>供 AI 工具使用的原始 API 端點</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>唯讀</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>重新命名</value>
@@ -188,6 +212,9 @@
   </data>
   <data name="Transcript API" xml:space="preserve">
     <value>文字記錄 API</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>未知擁有者</value>
   </data>
   <data name="View Scope" xml:space="preserve">
     <value>查看範圍</value>

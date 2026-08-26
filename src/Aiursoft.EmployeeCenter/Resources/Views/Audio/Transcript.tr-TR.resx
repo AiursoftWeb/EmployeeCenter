@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>Erişim Detayları</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Erişim Kaynağı</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>Yapay Zeka Ham API</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>Ses Dosyası</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Ses Yönetimi İzni</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Listeye Dön</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>Transkripsiyon hatalarını düzeltin</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Doğrudan Paylaşım</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Sesli Dosyayı İndir</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>Transkripti Düzenle</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Düzenlenebilir</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Herkes (CanViewAudio)</value>
@@ -114,6 +129,9 @@
   <data name="My department" xml:space="preserve">
     <value>Benim departmanım</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Yetkilerim</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>Asla</value>
   </data>
@@ -129,6 +147,9 @@
   <data name="Outdated" xml:space="preserve">
     <value>Eski</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Sahip</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Beklemede</value>
   </data>
@@ -143,6 +164,9 @@
   </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Yapay zeka araçları için ham API uç noktası</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Salt-okunur</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Yeniden Adlandır</value>
@@ -188,6 +212,9 @@
   </data>
   <data name="Transcript API" xml:space="preserve">
     <value>Transkript API</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Bilinmeyen Sahip</value>
   </data>
   <data name="View Scope" xml:space="preserve">
     <value>Görüntüleme Kapsamı</value>
