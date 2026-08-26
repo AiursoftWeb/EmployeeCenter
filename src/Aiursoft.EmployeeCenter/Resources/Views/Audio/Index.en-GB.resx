@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>A list of meeting audio recordings, transcripts, and AI processing statuses.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Access Source</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>ASR Status</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Audio Management Permission</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>Awaiting recognition</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Department</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Direct Share</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editable</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Empty</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Minutes Status</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>My Permission</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>No meeting recordings yet</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
@@ -93,8 +111,14 @@
   <data name="Public" xml:space="preserve">
     <value>Public</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Read-only</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Recognition in progress</value>
+  </data>
+  <data name="Role: {0}" xml:space="preserve">
+    <value>Role: {0}</value>
   </data>
   <data name="Speech-to-text completed" xml:space="preserve">
     <value>Speech-to-text completed</value>
@@ -108,6 +132,12 @@
   <data name="Transcript" xml:space="preserve">
     <value>Transcript</value>
   </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Unknown Owner</value>
+  </data>
+  <data name="Unknown Role" xml:space="preserve">
+    <value>Unknown Role</value>
+  </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Upload Meeting Recording</value>
   </data>
@@ -118,34 +148,4 @@
     <value>Waiting for transcript</value>
   </data>
 
-  <data name="Owner" xml:space="preserve">
-    <value>Owner</value>
-  </data>
-  <data name="Access Source" xml:space="preserve">
-    <value>Access Source</value>
-  </data>
-  <data name="My Permission" xml:space="preserve">
-    <value>My Permission</value>
-  </data>
-  <data name="Unknown Owner" xml:space="preserve">
-    <value>Unknown Owner</value>
-  </data>
-  <data name="Audio Management Permission" xml:space="preserve">
-    <value>Audio Management Permission</value>
-  </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>Direct Share</value>
-  </data>
-  <data name="Role: {0}" xml:space="preserve">
-    <value>Role: {0}</value>
-  </data>
-  <data name="Unknown Role" xml:space="preserve">
-    <value>Unknown Role</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Editable</value>
-  </data>
-  <data name="Read-only" xml:space="preserve">
-    <value>Read-only</value>
-  </data>
 </root>
