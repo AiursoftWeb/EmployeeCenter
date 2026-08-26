@@ -118,4 +118,34 @@
     <value>等待转录</value>
   </data>
 
+  <data name="Owner" xml:space="preserve">
+    <value>所有者</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>访问来源</value>
+  </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>我的权限</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>未知所有者</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>音频管理权限</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>直接分享</value>
+  </data>
+  <data name="Role: {0}" xml:space="preserve">
+    <value>角色：{0}</value>
+  </data>
+  <data name="Unknown Role" xml:space="preserve">
+    <value>未知角色</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>可编辑</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>只读</value>
+  </data>
 </root>

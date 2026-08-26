@@ -1,4 +1,5 @@
 using Aiursoft.EmployeeCenter.Configuration;
+using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
@@ -606,10 +607,12 @@ public class AudioTests : TestBase
 
         const string audioName = "Sharing Test Recording";
         int audioId;
+        string ownerDisplayName;
         using (var scope = Server!.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
             var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            ownerDisplayName = admin.DisplayName;
             var audio = new Audio
             {
                 Name = audioName,
@@ -633,6 +636,9 @@ public class AudioTests : TestBase
         var ownerTranscriptHtml = await ownerTranscriptResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(ownerTranscriptHtml, "Meeting Summary");
         StringAssert.Contains(ownerTranscriptHtml, "<table");
+        StringAssert.Contains(ownerTranscriptHtml, ownerDisplayName);
+        StringAssert.Contains(ownerTranscriptHtml, "data-access-source=\"Owner\"");
+        StringAssert.Contains(ownerTranscriptHtml, "data-effective-permission=\"Editable\"");
         Assert.DoesNotContain("<script>alert('x')</script>", ownerTranscriptHtml);
 
         await Http.GetAsync("/Account/LogOff");
@@ -676,11 +682,17 @@ public class AudioTests : TestBase
         indexResponse.EnsureSuccessStatusCode();
         indexHtml = await indexResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(indexHtml, audioName);
+        StringAssert.Contains(indexHtml, ownerDisplayName);
+        StringAssert.Contains(indexHtml, "data-access-source=\"DirectShare\"");
+        StringAssert.Contains(indexHtml, "data-effective-permission=\"ReadOnly\"");
 
         transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
         transcriptResponse.EnsureSuccessStatusCode();
         var sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(sharedTranscriptHtml, "Meeting Summary");
+        StringAssert.Contains(sharedTranscriptHtml, ownerDisplayName);
+        StringAssert.Contains(sharedTranscriptHtml, "data-access-source=\"DirectShare\"");
+        StringAssert.Contains(sharedTranscriptHtml, "data-effective-permission=\"ReadOnly\"");
         Assert.DoesNotContain("Edit Transcript", sharedTranscriptHtml);
         Assert.DoesNotContain(">Rename<", sharedTranscriptHtml);
 
@@ -760,6 +772,7 @@ public class AudioTests : TestBase
         transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
         transcriptResponse.EnsureSuccessStatusCode();
         sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(sharedTranscriptHtml, "data-effective-permission=\"Editable\"");
         StringAssert.Contains(sharedTranscriptHtml, "Meeting minutes may be outdated");
         StringAssert.Contains(sharedTranscriptHtml, "Regenerate Meeting Minutes");
         StringAssert.Contains(sharedTranscriptHtml, "Transcript API");
@@ -811,6 +824,153 @@ public class AudioTests : TestBase
             releaseActiveTask.TrySetResult();
             await activeTask;
         }
+    }
+
+    [TestMethod]
+    public async Task AudioAccessContextShowsRoleSourcesHighestPermissionOwnerFallbackAndManagementPermission()
+    {
+        await LoginAsAdmin();
+        await Http.GetAsync("/Account/LogOff");
+        var (email, password) = await RegisterAndLoginAsync();
+
+        var readerRoleName = $"AudioReaders{Guid.NewGuid():N}";
+        var editorRoleName = $"AudioEditors{Guid.NewGuid():N}";
+        int roleSharedAudioId;
+        int ownedAudioId;
+        int unknownOwnerAudioId;
+        string ownerDisplayName;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var user = await userManager.FindByEmailAsync(email);
+            Assert.IsNotNull(user);
+            var owner = await db.Users.FirstAsync(item => item.Email == "admin@default.com");
+            ownerDisplayName = owner.DisplayName;
+
+            var readerRole = new IdentityRole(readerRoleName);
+            var editorRole = new IdentityRole(editorRoleName);
+            Assert.IsTrue((await roleManager.CreateAsync(readerRole)).Succeeded);
+            Assert.IsTrue((await roleManager.CreateAsync(editorRole)).Succeeded);
+            Assert.IsTrue((await userManager.AddToRoleAsync(user, readerRoleName)).Succeeded);
+            Assert.IsTrue((await userManager.AddToRoleAsync(user, editorRoleName)).Succeeded);
+
+            var roleSharedAudio = new Audio
+            {
+                Name = "Role shared access context",
+                FilePath = "audio/role-shared-access-context.mp3",
+                OwnerId = owner.Id
+            };
+            var ownedAudio = new Audio
+            {
+                Name = "Owned access context",
+                FilePath = "audio/owned-access-context.mp3",
+                OwnerId = user.Id
+            };
+            var unknownOwnerAudio = new Audio
+            {
+                Name = "Unknown owner access context",
+                FilePath = "audio/unknown-owner-access-context.mp3",
+                OwnerId = null
+            };
+            db.Audios.AddRange(roleSharedAudio, ownedAudio, unknownOwnerAudio);
+            await db.SaveChangesAsync();
+
+            db.AudioShares.AddRange(
+                new AudioShare
+                {
+                    AudioId = roleSharedAudio.Id,
+                    SharedWithRoleId = readerRole.Id,
+                    Permission = SharePermission.ReadOnly
+                },
+                new AudioShare
+                {
+                    AudioId = roleSharedAudio.Id,
+                    SharedWithRoleId = editorRole.Id,
+                    Permission = SharePermission.Editable
+                },
+                new AudioShare
+                {
+                    AudioId = unknownOwnerAudio.Id,
+                    SharedWithUserId = user.Id,
+                    Permission = SharePermission.ReadOnly
+                });
+            await db.SaveChangesAsync();
+
+            roleSharedAudioId = roleSharedAudio.Id;
+            ownedAudioId = ownedAudio.Id;
+            unknownOwnerAudioId = unknownOwnerAudio.Id;
+        }
+
+        await Http.GetAsync("/Account/LogOff");
+        await LoginAsAsync(email, password);
+
+        var indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        var indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(indexHtml, "Role shared access context");
+        StringAssert.Contains(indexHtml, ownerDisplayName);
+        StringAssert.Contains(indexHtml, $"Role: {readerRoleName}");
+        StringAssert.Contains(indexHtml, $"Role: {editorRoleName}");
+        StringAssert.Contains(indexHtml, "data-effective-permission=\"Editable\"");
+        StringAssert.Contains(indexHtml, "Unknown Owner");
+
+        var roleSharedResponse = await Http.GetAsync($"/Audio/Transcript/{roleSharedAudioId}");
+        roleSharedResponse.EnsureSuccessStatusCode();
+        var roleSharedHtml = await roleSharedResponse.Content.ReadAsStringAsync();
+        Assert.AreEqual(2, roleSharedHtml.Split("data-access-source=\"RoleShare\"").Length - 1);
+        StringAssert.Contains(roleSharedHtml, $"Role: {readerRoleName}");
+        StringAssert.Contains(roleSharedHtml, $"Role: {editorRoleName}");
+        StringAssert.Contains(roleSharedHtml, "data-effective-permission=\"Editable\"");
+
+        var editResponse = await Http.GetAsync($"/Audio/Edit/{roleSharedAudioId}");
+        editResponse.EnsureSuccessStatusCode();
+
+        var ownedResponse = await Http.GetAsync($"/Audio/Transcript/{ownedAudioId}");
+        ownedResponse.EnsureSuccessStatusCode();
+        var ownedHtml = await ownedResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(ownedHtml, "data-access-source=\"Owner\"");
+        StringAssert.Contains(ownedHtml, "data-effective-permission=\"Editable\"");
+
+        var unknownOwnerResponse = await Http.GetAsync($"/Audio/Transcript/{unknownOwnerAudioId}");
+        unknownOwnerResponse.EnsureSuccessStatusCode();
+        var unknownOwnerHtml = await unknownOwnerResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(unknownOwnerHtml, "Unknown Owner");
+        StringAssert.Contains(unknownOwnerHtml, "data-access-source=\"DirectShare\"");
+        StringAssert.Contains(unknownOwnerHtml, "data-effective-permission=\"ReadOnly\"");
+
+        var managerRoleName = $"AudioManagers{Guid.NewGuid():N}";
+        using (var scope = Server.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var managerRole = new IdentityRole(managerRoleName);
+            Assert.IsTrue((await roleManager.CreateAsync(managerRole)).Succeeded);
+            Assert.IsTrue((await roleManager.AddClaimAsync(
+                managerRole,
+                new Claim(AppPermissions.Type, AppPermissionNames.CanManageAudio))).Succeeded);
+            var user = await userManager.FindByEmailAsync(email);
+            Assert.IsNotNull(user);
+            Assert.IsTrue((await userManager.AddToRoleAsync(user, managerRoleName)).Succeeded);
+        }
+
+        await Http.GetAsync("/Account/LogOff");
+        await LoginAsAsync(email, password);
+
+        var managerResponse = await Http.GetAsync($"/Audio/Transcript/{roleSharedAudioId}");
+        managerResponse.EnsureSuccessStatusCode();
+        var managerHtml = await managerResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(managerHtml, "data-access-source=\"AudioManagementPermission\"");
+        StringAssert.Contains(managerHtml, "Audio Management Permission");
+        StringAssert.Contains(managerHtml, "data-effective-permission=\"Editable\"");
+        Assert.DoesNotContain("data-access-source=\"RoleShare\"", managerHtml);
+
+        var managerIndexResponse = await Http.GetAsync("/Audio/Index");
+        managerIndexResponse.EnsureSuccessStatusCode();
+        var managerIndexHtml = await managerIndexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(managerIndexHtml, "data-access-source=\"AudioManagementPermission\"");
+        StringAssert.Contains(managerIndexHtml, "Audio Management Permission");
     }
 
     [TestMethod]

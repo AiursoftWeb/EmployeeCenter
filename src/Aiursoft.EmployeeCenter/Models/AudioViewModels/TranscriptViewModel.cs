@@ -20,5 +20,7 @@ public class TranscriptViewModel : UiStackLayoutViewModel
 
     public bool CanManageShares { get; set; }
 
-    public SharePermission Permission { get; set; }
+    public required AudioAccessContextViewModel AccessContext { get; set; }
+
+    public SharePermission Permission => AccessContext.EffectivePermission;
 }
