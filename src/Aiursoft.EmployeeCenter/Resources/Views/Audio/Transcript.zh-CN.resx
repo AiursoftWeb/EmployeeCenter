@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>访问详情</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>访问来源</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>AI 原始 API</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>音频文件</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>音频管理权限</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>返回列表</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>纠正转录错误</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>直接分享</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>下载音频</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>编辑转录文本</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>可编辑</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>所有人（可收听音频）</value>
@@ -123,6 +138,9 @@
   <data name="My department" xml:space="preserve">
     <value>本部门</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>我的权限</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>从未</value>
   </data>
@@ -137,6 +155,9 @@
   </data>
   <data name="Outdated" xml:space="preserve">
     <value>已过期</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>所有者</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>待处理</value>
@@ -153,6 +174,9 @@
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>供 AI 工具使用的原始 API 端点</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>只读</value>
+  </data>
   <data name="Rename" xml:space="preserve">
     <value>重命名</value>
   </data>
@@ -167,6 +191,9 @@
   </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>重试会议纪要</value>
+  </data>
+  <data name="Role: {0}" xml:space="preserve">
+    <value>角色：{0}</value>
   </data>
   <data name="Save Scope" xml:space="preserve">
     <value>保存范围</value>
@@ -201,6 +228,12 @@
   <data name="Transcript API" xml:space="preserve">
     <value>转录文本 API</value>
   </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>未知所有者</value>
+  </data>
+  <data name="Unknown Role" xml:space="preserve">
+    <value>未知角色</value>
+  </data>
   <data name="View Scope" xml:space="preserve">
     <value>查看范围</value>
   </data>
@@ -217,37 +250,4 @@
     <value>您的浏览器不支持音频播放。</value>
   </data>
 
-  <data name="Access Details" xml:space="preserve">
-    <value>访问详情</value>
-  </data>
-  <data name="Owner" xml:space="preserve">
-    <value>所有者</value>
-  </data>
-  <data name="Access Source" xml:space="preserve">
-    <value>访问来源</value>
-  </data>
-  <data name="My Permission" xml:space="preserve">
-    <value>我的权限</value>
-  </data>
-  <data name="Unknown Owner" xml:space="preserve">
-    <value>未知所有者</value>
-  </data>
-  <data name="Audio Management Permission" xml:space="preserve">
-    <value>音频管理权限</value>
-  </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>直接分享</value>
-  </data>
-  <data name="Role: {0}" xml:space="preserve">
-    <value>角色：{0}</value>
-  </data>
-  <data name="Unknown Role" xml:space="preserve">
-    <value>未知角色</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>可编辑</value>
-  </data>
-  <data name="Read-only" xml:space="preserve">
-    <value>只读</value>
-  </data>
 </root>
