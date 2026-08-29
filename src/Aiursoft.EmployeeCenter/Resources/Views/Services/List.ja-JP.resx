@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Are you sure you want to delete this service?" xml:space="preserve">
+    <value>このサービスを削除してもよろしいですか？</value>
+  </data>
+  <data name="Authentik" xml:space="preserve">
+    <value>Authentik</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>利用可能性</value>
+  </data>
+  <data name="Back to Servers" xml:space="preserve">
+    <value>サーバー一覧に戻る</value>
+  </data>
+  <data name="Cloudflare Proxied" xml:space="preserve">
+    <value>Cloudflareプロキシ</value>
+  </data>
+  <data name="Create New Service" xml:space="preserve">
+    <value>新しいサービスを作成</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>ダッシュボード</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Developing" xml:space="preserve">
+    <value>開発中</value>
+  </data>
+  <data name="DNS" xml:space="preserve">
+    <value>DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>ドメイン</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>ロケーション</value>
+  </data>
+  <data name="Manage DNS Providers" xml:space="preserve">
+    <value>DNSプロバイダーの管理</value>
+  </data>
+  <data name="No services found." xml:space="preserve">
+    <value>サービスが見つかりません。</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>オフライン</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>所有者</value>
+  </data>
+  <data name="Please associate an FRPS server." xml:space="preserve">
+    <value>FRPSサーバーに関連付けしてください。</value>
+  </data>
+  <data name="Protocols" xml:space="preserve">
+    <value>プロトコル</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>目的</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>実行中</value>
+  </data>
+  <data name="Self" xml:space="preserve">
+    <value>自分</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>サーバー</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>サービス</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="Testing" xml:space="preserve">
+    <value>テスト中</value>
+  </data>
+  <data name="Via Frps" xml:space="preserve">
+    <value>Frps経由</value>
+  </data>
+
+</root>

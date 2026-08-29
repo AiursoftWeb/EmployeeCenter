@@ -27,6 +27,12 @@
   <data name="Audit failed" xml:space="preserve">
     <value>稽核失敗</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>立即稽核</value>
+  </data>
+  <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
+    <value>每 20 分鐘自動更新</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>檢查項目</value>
   </data>
@@ -44,6 +50,9 @@
   </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS 稽核</value>
+  </data>
+  <data name="DNS audit is starting" xml:space="preserve">
+    <value>DNS 稽核正在啟動</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS 記錄</value>
@@ -69,6 +78,12 @@
   <data name="Info" xml:space="preserve">
     <value>資訊</value>
   </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>最近一次成功稽核</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>最新更新失敗</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>未發現 DNS 稽核問題。</value>
   </data>
@@ -80,6 +95,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>嚴重性</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>首次背景稽核尚未完成。此頁面將從記憶體快取中讀取其結果。</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>以下顯示的是最近一次成功快取的稽核結果。</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>警告</value>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Are you sure you want to delete this service?" xml:space="preserve">
+    <value>确定要删除此服务吗？</value>
+  </data>
+  <data name="Authentik" xml:space="preserve">
+    <value>Authentik</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>可用性</value>
+  </data>
+  <data name="Back to Servers" xml:space="preserve">
+    <value>返回服务器列表</value>
+  </data>
+  <data name="Cloudflare Proxied" xml:space="preserve">
+    <value>Cloudflare 代理</value>
+  </data>
+  <data name="Create New Service" xml:space="preserve">
+    <value>创建新服务</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>仪表盘</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Developing" xml:space="preserve">
+    <value>开发中</value>
+  </data>
+  <data name="DNS" xml:space="preserve">
+    <value>DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>域名</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="Manage DNS Providers" xml:space="preserve">
+    <value>管理 DNS 提供商</value>
+  </data>
+  <data name="No services found." xml:space="preserve">
+    <value>未找到任何服务。</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>离线</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>所有者</value>
+  </data>
+  <data name="Please associate an FRPS server." xml:space="preserve">
+    <value>请关联一个 FRPS 服务器。</value>
+  </data>
+  <data name="Protocols" xml:space="preserve">
+    <value>协议</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>用途</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>运行中</value>
+  </data>
+  <data name="Self" xml:space="preserve">
+    <value>自身</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>服务器</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Testing" xml:space="preserve">
+    <value>测试中</value>
+  </data>
+  <data name="Via Frps" xml:space="preserve">
+    <value>通过 Frps</value>
+  </data>
+
+</root>

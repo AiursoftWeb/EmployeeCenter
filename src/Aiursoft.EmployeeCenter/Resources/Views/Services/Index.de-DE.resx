@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>Eine Übersicht auf hoher Ebene zur Serviceverfügbarkeit, -platzierung und Infrastrukturabdeckung.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Aktionen</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Aktive Server</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>Alle Dienste</value>
@@ -27,11 +33,29 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie diesen Dienst löschen möchten?</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>zugewiesen</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>Zielgruppe und Routingbereich des Service-Portfolios.</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Audit ausstehend</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Authentik-Integration</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>Verfügbarkeit</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>blockierende Befunde</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>Klicken Sie auf einen Balken oder Servernamen, um seine Dienste zu überprüfen.</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +66,9 @@
   <data name="Create New Service" xml:space="preserve">
     <value>Neuen Dienst erstellen</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>Aktueller Zustand jedes registrierten Dienstes.</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Löschen</value>
   </data>
@@ -51,14 +78,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Audit Health" xml:space="preserve">
+    <value>DNS-Audit-Status</value>
+  </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>DNS-Verteilung</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>DNS-Anbieter-Registrierung</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>Edge-Routing</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>Geografische Verteilung</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>gesunde Objekte</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>Wie vollständig das Servicekatalog Infrastruktur und Governance beschreibt.</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>Infrastruktur-Register</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>Ist online</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>Lebenszyklus-Status</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Link</value>
@@ -66,8 +120,20 @@
   <data name="Location" xml:space="preserve">
     <value>Standort</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>Standorte</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>DNS-Anbieter verwalten</value>
+  </data>
+  <data name="Manage Servers" xml:space="preserve">
+    <value>Server verwalten</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>Neuer Dienst</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>Noch sind keine Dienste Servern zugewiesen.</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>Keine Dienste gefunden.</value>
@@ -78,6 +144,12 @@
   <data name="Online" xml:space="preserve">
     <value>Online</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>Betriebsbereit</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Sonstige</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>Eigentümer</value>
   </data>
@@ -87,14 +159,29 @@
   <data name="Purpose" xml:space="preserve">
     <value>Zweck</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>registrierte Dienste</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>Registrierte Dienste nach DNS-Anbieter gruppiert.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>Registrierungsqualität</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Laufend</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>Eigen</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>Eigenentwickelte Dienste</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>Server</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Serverzuordnung</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>Server-Details</value>
@@ -102,8 +189,23 @@
   <data name="Server IP" xml:space="preserve">
     <value>Server-IP</value>
   </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Service-Verteilung nach Serverstandort.</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>Zweck des Dienstes</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>Diensteregister</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Dienste</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Dienste nach Server</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Dienst-Dashboard</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
@@ -113,6 +215,12 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Über Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>Detaillierte Dienstetabelle anzeigen</value>
+  </data>
+  <data name="View DNS Audit" xml:space="preserve">
+    <value>DNS-Audit anzeigen</value>
   </data>
 
 </root>
