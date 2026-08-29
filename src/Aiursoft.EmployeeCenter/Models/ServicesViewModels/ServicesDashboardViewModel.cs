@@ -18,8 +18,14 @@ public class ServicesDashboardViewModel : UiStackLayoutViewModel
     public int SelfDevelopedServices { get; set; }
     public int ActiveServerCount { get; set; }
     public int ActiveLocationCount { get; set; }
+    public double? OperationalPercentage { get; set; }
+    public int? OperationalHealthySubjectCount { get; set; }
+    public int? OperationalSubjectCount { get; set; }
+    public int? DnsAuditCriticalCount { get; set; }
+    public int? DnsAuditErrorCount { get; set; }
+    public int? DnsAuditWarningCount { get; set; }
+    public DateTime? DnsAuditGeneratedAt { get; set; }
 
-    public double RunningPercentage => Percentage(RunningServices);
     public double AssignmentPercentage => Percentage(AssignedServices);
     public double DnsProviderPercentage { get; set; }
     public double AuthentikPercentage => Percentage(AuthentikIntegratedServices);

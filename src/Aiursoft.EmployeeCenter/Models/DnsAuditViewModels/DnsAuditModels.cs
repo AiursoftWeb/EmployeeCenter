@@ -82,9 +82,12 @@ public sealed class DnsAuditIndexViewModel : UiStackLayoutViewModel
         PageTitle = "DNS Audit";
     }
 
+    public bool IsInitialized { get; init; }
     public bool IsConfigured { get; init; }
     public string? ErrorMessage { get; init; }
     public DnsAuditReport? Report { get; init; }
+    public DateTime? LastAttemptedAt { get; init; }
+    public DateTime? LastSuccessfulAt { get; init; }
 }
 
 /// <summary>

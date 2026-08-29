@@ -1,8 +1,9 @@
+using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Models.DnsAuditViewModels;
 using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 using Aiursoft.EmployeeCenter.Services.DnsAudit;
-using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,54 +13,28 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 [Authorize(Policy = AppPermissionNames.CanAuditDns)]
 [LimitPerMin]
 public sealed class DnsAuditController(
-    CloudflareDnsAuditService auditService,
-    ILogger<DnsAuditController> logger) : Controller
+    DnsAuditSnapshotCache snapshotCache,
+    BackgroundJobRegistry jobRegistry) : Controller
 {
-    [RenderInNavBar(
-        NavGroupName = "Career",
-        NavGroupOrder = 1,
-        CascadedLinksGroupName = "Development",
-        CascadedLinksIcon = "git-branch",
-        CascadedLinksOrder = 2,
-        LinkText = "DNS Audit",
-        LinkOrder = 3)]
-    public async Task<IActionResult> Index(CancellationToken cancellationToken)
+    public IActionResult Index()
     {
-        var isConfigured = await auditService.IsConfiguredAsync();
-        if (!isConfigured)
+        var snapshot = snapshotCache.Current;
+        return this.StackView(new DnsAuditIndexViewModel
         {
-            return this.StackView(new DnsAuditIndexViewModel
-            {
-                IsConfigured = false
-            });
-        }
+            IsInitialized = snapshot.IsInitialized,
+            IsConfigured = snapshot.IsConfigured,
+            ErrorMessage = snapshot.ErrorMessage,
+            Report = snapshot.Report,
+            LastAttemptedAt = snapshot.LastAttemptedAt,
+            LastSuccessfulAt = snapshot.LastSuccessfulAt
+        });
+    }
 
-        try
-        {
-            var report = await auditService.AuditAsync(cancellationToken);
-            return this.StackView(new DnsAuditIndexViewModel
-            {
-                IsConfigured = true,
-                Report = report
-            });
-        }
-        catch (CloudflareDnsAuditException ex)
-        {
-            logger.LogWarning(ex, "Cloudflare DNS audit failed");
-            return this.StackView(new DnsAuditIndexViewModel
-            {
-                IsConfigured = true,
-                ErrorMessage = ex.Message
-            });
-        }
-        catch (HttpRequestException ex)
-        {
-            logger.LogWarning(ex, "Cloudflare DNS audit could not reach the API");
-            return this.StackView(new DnsAuditIndexViewModel
-            {
-                IsConfigured = true,
-                ErrorMessage = "Cloudflare API could not be reached. Try the audit again later."
-            });
-        }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Refresh()
+    {
+        jobRegistry.TriggerNow(nameof(DnsAuditJob));
+        return RedirectToAction(nameof(Index));
     }
 }

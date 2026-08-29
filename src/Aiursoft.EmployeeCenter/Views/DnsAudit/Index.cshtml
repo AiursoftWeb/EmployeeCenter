@@ -6,12 +6,31 @@
         <h1 class="h3 mb-1">@Localizer["DNS Audit"]</h1>
         <p class="text-muted mb-0">@Localizer["Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations."]</p>
     </div>
-    <a asp-action="Index" class="btn btn-primary">
-        <i class="align-middle" data-lucide="refresh-cw"></i> @Localizer["Run audit"]
-    </a>
+    <div class="d-flex align-items-center gap-3">
+        <div class="text-end text-muted small">
+            <div><i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Automatically refreshed every 20 minutes"]</div>
+            @if (Model.LastSuccessfulAt.HasValue)
+            {
+                <div>@Localizer["Last successful audit"] @Model.LastSuccessfulAt.Value.ToString("u")</div>
+            }
+        </div>
+        <form asp-action="Refresh" method="post">
+            <button type="submit" class="btn btn-primary text-nowrap">
+                <i class="align-middle me-1" data-lucide="refresh-cw"></i>
+                @Localizer["Audit now"]
+            </button>
+        </form>
+    </div>
 </div>
 
-@if (!Model.IsConfigured)
+@if (!Model.IsInitialized)
+{
+    <div class="alert alert-info">
+        <h5 class="alert-heading">@Localizer["DNS audit is starting"]</h5>
+        <p class="mb-0">@Localizer["The first background audit has not completed yet. This page will read its result from the in-memory cache."]</p>
+    </div>
+}
+else if (!Model.IsConfigured)
 {
     <div class="alert alert-warning">
         <h5 class="alert-heading">@Localizer["Cloudflare API token is not configured"]</h5>
@@ -20,7 +39,7 @@
         </p>
     </div>
 }
-else if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+else if (Model.Report == null && !string.IsNullOrWhiteSpace(Model.ErrorMessage))
 {
     <div class="alert alert-danger">
         <h5 class="alert-heading">@Localizer["Audit failed"]</h5>
@@ -30,6 +49,14 @@ else if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
 else if (Model.Report != null)
 {
     var report = Model.Report;
+    @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+    {
+        <div class="alert alert-warning">
+            <h5 class="alert-heading">@Localizer["Latest refresh failed"]</h5>
+            <p class="mb-1">@Model.ErrorMessage</p>
+            <p class="mb-0">@Localizer["The last successful cached audit is shown below."]</p>
+        </div>
+    }
     <div class="row g-3 mb-3">
         <div class="col-sm-6 col-lg-4 col-xl-2">
             <div class="card h-100"><div class="card-body">

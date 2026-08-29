@@ -2,6 +2,7 @@ using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.ServicesViewModels;
 using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.DnsAudit;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -16,6 +17,7 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 [LimitPerMin]
 public class ServicesController(
     EmployeeCenterDbContext context,
+    DnsAuditSnapshotCache dnsAuditSnapshotCache,
     IStringLocalizer<ServicesController> localizer)
     : Controller
 {
@@ -43,6 +45,12 @@ public class ServicesController(
 
         var assignedServices = services.Count(service => service.ServerId.HasValue);
         var dnsAssignedServices = services.Count(service => service.DnsProviderId.HasValue);
+        var auditSnapshot = dnsAuditSnapshotCache.Current;
+        var auditHealth = auditSnapshot.Report == null
+            ? null
+            : DnsAuditHealthCalculator.Calculate(
+                services.Select(service => service.Id).ToHashSet(),
+                auditSnapshot.Report);
         var serverDistribution = services
             .Where(service => service.ServerId.HasValue)
             .GroupBy(service => new
@@ -75,6 +83,13 @@ public class ServicesController(
                 .Select(service => service.Server!.LocationId)
                 .Distinct()
                 .Count(),
+            OperationalPercentage = auditHealth?.Percentage,
+            OperationalHealthySubjectCount = auditHealth?.HealthySubjectCount,
+            OperationalSubjectCount = auditHealth?.TotalSubjectCount,
+            DnsAuditCriticalCount = auditSnapshot.Report?.CriticalCount,
+            DnsAuditErrorCount = auditSnapshot.Report?.ErrorCount,
+            DnsAuditWarningCount = auditSnapshot.Report?.WarningCount,
+            DnsAuditGeneratedAt = auditSnapshot.LastSuccessfulAt,
             DnsProviderPercentage = services.Count == 0
                 ? 0
                 : Math.Round(dnsAssignedServices * 100.0 / services.Count, 1),

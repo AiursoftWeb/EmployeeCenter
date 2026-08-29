@@ -4,6 +4,18 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 public class ServiceTests : TestBase
 {
     [TestMethod]
+    public async Task DnsAuditDashboardLinkRequiresAuditPermission()
+    {
+        await RegisterAndLoginAsync();
+
+        var response = await Http.GetAsync("/Services/Index");
+
+        response.EnsureSuccessStatusCode();
+        var content = await response.Content.ReadAsStringAsync();
+        Assert.DoesNotContain("/DnsAudit", content, StringComparison.OrdinalIgnoreCase);
+    }
+
+    [TestMethod]
     public async Task TestServiceIndex()
     {
         await LoginAsAdmin();

@@ -76,7 +76,13 @@ public class BackgroundJobsTests : TestBase
         // 直接从服务容器获取ServiceTaskQueue实例
         var queue = Server!.Services.GetRequiredService<ServiceTaskQueue>();
 
-        // Step 1: 验证初始状态 - 没有任何任务
+        // Step 1: wait for immediate startup jobs (such as DNS Audit) to drain,
+        // then verify that the queue has no leftover work.
+        for (var attempt = 0; attempt < 100 &&
+             (queue.GetPendingTasks().Any() || queue.GetProcessingTasks().Any()); attempt++)
+        {
+            await Task.Delay(50);
+        }
         var initialPending = queue.GetPendingTasks().Count();
         var initialProcessing = queue.GetProcessingTasks().Count();
         Assert.AreEqual(0, initialPending);

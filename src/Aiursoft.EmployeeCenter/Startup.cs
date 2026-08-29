@@ -73,6 +73,7 @@ public class Startup : IWebStartup
 
         // Services
         services.AddMemoryCache();
+        services.AddSingleton<Services.DnsAudit.DnsAuditSnapshotCache>();
         services.AddHealthChecks()
             .AddDbContextCheck<Entities.EmployeeCenterDbContext>();
 
@@ -136,6 +137,9 @@ public class Startup : IWebStartup
 
         var exportJob = services.RegisterBackgroundJob<Services.BackgroundJobs.ExportJob>();
         services.RegisterScheduledTask(registration: exportJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromSeconds(35));
+
+        var dnsAuditJob = services.RegisterBackgroundJob<Services.BackgroundJobs.DnsAuditJob>();
+        services.RegisterScheduledTask(registration: dnsAuditJob, period: TimeSpan.FromMinutes(20), startDelay: TimeSpan.Zero);
 
         services.AddHttpClient();
 

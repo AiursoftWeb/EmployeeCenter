@@ -11,9 +11,6 @@
             <a asp-action="List" class="btn btn-primary shadow-sm ms-1">
                 <i class="align-middle" data-lucide="list"></i> @Localizer["View Detailed Service Table"]
             </a>
-            <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-outline-info shadow-sm ms-1">
-                <i class="align-middle" data-lucide="scan-search"></i> @Localizer["DNS Audit"]
-            </a>
             @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
             {
                 <a asp-action="Create" class="btn btn-outline-primary shadow-sm ms-1">
@@ -38,8 +35,16 @@
                 <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="d-flex justify-content-lg-end">
                         <div class="service-dashboard-score text-center">
-                            <div class="display-5 fw-bold">@Model.RunningPercentage.ToString("0.#")%</div>
-                            <div class="small text-uppercase opacity-75">@Localizer["Operational"]</div>
+                            @if (Model.OperationalPercentage.HasValue)
+                            {
+                                <div class="display-5 fw-bold">@Model.OperationalPercentage.Value.ToString("0.#")%</div>
+                                <div class="small text-uppercase opacity-75">@Localizer["Operational"]</div>
+                            }
+                            else
+                            {
+                                <div class="display-5 fw-bold">—</div>
+                                <div class="small text-uppercase opacity-75">@Localizer["Audit pending"]</div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -69,10 +74,20 @@
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
                         <div class="flex-grow-1">
-                            <h3 class="mb-2">@Model.RunningPercentage.ToString("0.#")%</h3>
-                            <p class="mb-2">@Localizer["Operational Coverage"]</p>
-                            <span class="badge badge-subtle-success me-2">@Model.RunningServices @Localizer["Online"]</span>
-                            <span class="text-muted">@Localizer["of"] @Model.TotalServices</span>
+                            @if (Model.OperationalPercentage.HasValue)
+                            {
+                                var blockingFindings = Model.DnsAuditCriticalCount.GetValueOrDefault() + Model.DnsAuditErrorCount.GetValueOrDefault() + Model.DnsAuditWarningCount.GetValueOrDefault();
+                                <h3 class="mb-2">@Model.OperationalPercentage.Value.ToString("0.#")%</h3>
+                                <p class="mb-2">@Localizer["DNS Audit Health"]</p>
+                                <span class="badge @(blockingFindings == 0 ? "badge-subtle-success" : "badge-subtle-warning") me-2">@Model.OperationalHealthySubjectCount/@Model.OperationalSubjectCount @Localizer["healthy subjects"]</span>
+                                <span class="text-muted">@blockingFindings @Localizer["blocking findings"]</span>
+                            }
+                            else
+                            {
+                                <h3 class="mb-2">—</h3>
+                                <p class="mb-2">@Localizer["DNS Audit Health"]</p>
+                                <span class="badge badge-subtle-secondary">@Localizer["Audit pending"]</span>
+                            }
                         </div>
                         <div class="stat ms-3"><i class="align-middle text-success" data-lucide="activity"></i></div>
                     </div>
@@ -210,7 +225,10 @@
                 <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="badge-check"></i> @Localizer["Registry Quality"]</h5>
                 <div class="text-muted small">@Localizer["How completely the service catalog describes infrastructure and governance."]</div>
             </div>
-            <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-sm btn-outline-info">@Localizer["Run DNS Audit"]</a>
+            @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanAuditDns))
+            {
+                <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-sm btn-outline-info">@Localizer["View DNS Audit"]</a>
+            }
         </div>
         <div class="card-body">
             <div class="row g-4">
