@@ -124,6 +124,40 @@ public class ServiceTests : TestBase
     }
 
     [TestMethod]
+    public async Task ServiceListWarnsAboutMissingFrpsAssignmentWithoutShowingFrpsName()
+    {
+        await LoginAsAdmin();
+
+        var db = GetService<EmployeeCenterDbContext>();
+        var runningServer = new Server { Hostname = "list-running-server", ServerIp = "192.168.50.178" };
+        var frpsServer = new Server { Hostname = "list-hidden-frps-server", ServerIp = "124.160.101.12" };
+        db.Services.AddRange(
+            new Service
+            {
+                Domain = "valid-list-frps-service.example.com",
+                Server = runningServer,
+                FrpsServer = frpsServer,
+                IsViaFrps = true,
+                Status = ServiceStatus.Running
+            },
+            new Service
+            {
+                Domain = "missing-list-frps-service.example.com",
+                Server = runningServer,
+                IsViaFrps = true,
+                Status = ServiceStatus.Running
+            });
+        await db.SaveChangesAsync();
+
+        var response = await Http.GetAsync("/Services/List");
+
+        response.EnsureSuccessStatusCode();
+        var content = await response.Content.ReadAsStringAsync();
+        Assert.Contains("Please associate an FRPS server.", content);
+        Assert.DoesNotContain("list-hidden-frps-server", content);
+    }
+
+    [TestMethod]
     public async Task TestProviders()
     {
         await LoginAsAdmin();

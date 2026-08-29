@@ -153,11 +153,17 @@
                                     <i class="text-warning align-middle" data-lucide="x-circle"></i>
                                 }
                             </td>
-                            <td data-order="@(s.IsViaFrps ? 1 : 0)">
-                                @if (s.IsViaFrps)
+                            <td data-order="@(s.IsViaFrps ? (s.FrpsServerId.HasValue ? 2 : 1) : 0)">
+                                @if (s.IsViaFrps && s.FrpsServerId.HasValue)
                                 {
                                     <i class="text-success align-middle" data-lucide="check-circle"></i>
-                                    <span>@(s.FrpsServer?.Hostname ?? s.FrpsServer?.ServerIp ?? "Unassigned")</span>
+                                }
+                                else if (s.IsViaFrps)
+                                {
+                                    <div class="d-flex align-items-center gap-1 text-warning" role="alert">
+                                        <i class="align-middle" data-lucide="triangle-alert"></i>
+                                        <span class="small">@Localizer["Please associate an FRPS server."]</span>
+                                    </div>
                                 }
                                 else
                                 {
