@@ -31,29 +31,41 @@ else if (Model.Report != null)
 {
     var report = Model.Report;
     <div class="row g-3 mb-3">
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-lg-4 col-xl-2">
             <div class="card h-100"><div class="card-body">
                 <div class="text-muted">@Localizer["Zones"]</div>
                 <div class="display-6">@report.ZoneCount</div>
             </div></div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-lg-4 col-xl-2">
             <div class="card h-100"><div class="card-body">
                 <div class="text-muted">@Localizer["DNS records"]</div>
                 <div class="display-6">@report.RecordCount</div>
                 <small class="text-muted">@report.AuditedHostnameCount @Localizer["service hostnames audited"]</small>
             </div></div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-lg-4 col-xl-2">
             <div class="card h-100 border-danger"><div class="card-body">
                 <div class="text-danger">@Localizer["Critical"]</div>
                 <div class="display-6">@report.CriticalCount</div>
             </div></div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-6 col-lg-4 col-xl-2">
+            <div class="card h-100 border-danger"><div class="card-body">
+                <div class="text-danger">@Localizer["Errors"]</div>
+                <div class="display-6">@report.ErrorCount</div>
+            </div></div>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xl-2">
             <div class="card h-100 border-warning"><div class="card-body">
                 <div class="text-warning">@Localizer["Warnings"]</div>
                 <div class="display-6">@report.WarningCount</div>
+            </div></div>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xl-2">
+            <div class="card h-100 border-info"><div class="card-body">
+                <div class="text-info">@Localizer["Info"]</div>
+                <div class="display-6">@report.InfoCount</div>
             </div></div>
         </div>
     </div>
@@ -92,9 +104,17 @@ else if (Model.Report != null)
                                 {
                                     <span class="badge bg-danger">@Localizer["Critical"]</span>
                                 }
-                                else
+                                else if (issue.Severity == DnsAuditSeverity.Error)
+                                {
+                                    <span class="badge bg-danger bg-opacity-75">@Localizer["Error"]</span>
+                                }
+                                else if (issue.Severity == DnsAuditSeverity.Warning)
                                 {
                                     <span class="badge bg-warning text-dark">@Localizer["Warning"]</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-info text-dark">@Localizer["Info"]</span>
                                 }
                             </td>
                             <td>@Localizer[issue.CheckName]</td>

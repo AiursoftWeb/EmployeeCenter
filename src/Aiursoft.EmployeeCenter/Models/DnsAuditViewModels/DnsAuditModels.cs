@@ -24,8 +24,10 @@ public enum DnsAuditIssueType
 
 public enum DnsAuditSeverity
 {
-    Warning = 1,
-    Critical = 2
+    Info = 1,
+    Warning = 2,
+    Error = 3,
+    Critical = 4
 }
 
 public sealed class DnsAuditIssue
@@ -66,7 +68,9 @@ public sealed class DnsAuditReport
     public required IReadOnlyList<DnsAuditIssue> Issues { get; init; }
 
     public int CriticalCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Critical);
+    public int ErrorCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Error);
     public int WarningCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Warning);
+    public int InfoCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Info);
 }
 
 public sealed class DnsAuditIndexViewModel : UiStackLayoutViewModel

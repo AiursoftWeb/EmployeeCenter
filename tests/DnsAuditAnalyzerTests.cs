@@ -138,7 +138,9 @@ public class DnsAuditAnalyzerTests
             servers: []);
 
         Assert.IsTrue(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.DanglingCname));
-        Assert.IsTrue(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.UnverifiableDnsTarget));
+        Assert.IsTrue(report.Issues.Any(issue =>
+            issue.Type == DnsAuditIssueType.UnverifiableDnsTarget &&
+            issue.Severity == DnsAuditSeverity.Info));
     }
 
     [TestMethod]
@@ -197,7 +199,7 @@ public class DnsAuditAnalyzerTests
         Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.MissingDns));
         Assert.IsTrue(report.Issues.Any(issue =>
             issue.Type == DnsAuditIssueType.ManagedDnsOutsideRecordApi &&
-            issue.Severity == DnsAuditSeverity.Warning));
+            issue.Severity == DnsAuditSeverity.Info));
     }
 
     private static DnsAuditReport Analyze(

@@ -130,7 +130,7 @@ public static partial class DnsAuditAnalyzer
                     issues.Add(new DnsAuditIssue
                     {
                         Type = DnsAuditIssueType.ManagedDnsOutsideRecordApi,
-                        Severity = DnsAuditSeverity.Warning,
+                        Severity = DnsAuditSeverity.Info,
                         Domain = domain,
                         ServiceId = service.Id,
                         Details = "The hostname resolves publicly but is absent from Cloudflare's standard DNS record API. It may be managed by Load Balancing, R2, Workers, or another Cloudflare product; its origin cannot be reconciled from ordinary DNS records."
@@ -166,7 +166,7 @@ public static partial class DnsAuditAnalyzer
             issues.Add(new DnsAuditIssue
             {
                 Type = DnsAuditIssueType.UnverifiableDnsTarget,
-                Severity = DnsAuditSeverity.Warning,
+                Severity = DnsAuditSeverity.Info,
                 Domain = domain,
                 ServiceId = servicesByDomain.GetValueOrDefault(domain)?.FirstOrDefault()?.Id,
                 Details = "The A/AAAA/CNAME chain did not yield a verifiable origin IP address, so server ownership cannot be checked."
