@@ -1,0 +1,138 @@
+@using Aiursoft.EmployeeCenter.Models.DnsAuditViewModels
+@model DnsAuditIndexViewModel
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h3 mb-1">@Localizer["DNS Audit"]</h1>
+        <p class="text-muted mb-0">@Localizer["Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations."]</p>
+    </div>
+    <a asp-action="Index" class="btn btn-primary">
+        <i class="align-middle" data-lucide="refresh-cw"></i> @Localizer["Run audit"]
+    </a>
+</div>
+
+@if (!Model.IsConfigured)
+{
+    <div class="alert alert-warning">
+        <h5 class="alert-heading">@Localizer["Cloudflare API token is not configured"]</h5>
+        <p class="mb-0">
+            @Localizer["Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token."]
+        </p>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        <h5 class="alert-heading">@Localizer["Audit failed"]</h5>
+        <p class="mb-0">@Model.ErrorMessage</p>
+    </div>
+}
+else if (Model.Report != null)
+{
+    var report = Model.Report;
+    <div class="row g-3 mb-3">
+        <div class="col-sm-6 col-xl-3">
+            <div class="card h-100"><div class="card-body">
+                <div class="text-muted">@Localizer["Zones"]</div>
+                <div class="display-6">@report.ZoneCount</div>
+            </div></div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card h-100"><div class="card-body">
+                <div class="text-muted">@Localizer["DNS records"]</div>
+                <div class="display-6">@report.RecordCount</div>
+                <small class="text-muted">@report.AuditedHostnameCount @Localizer["service hostnames audited"]</small>
+            </div></div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 border-danger"><div class="card-body">
+                <div class="text-danger">@Localizer["Critical"]</div>
+                <div class="display-6">@report.CriticalCount</div>
+            </div></div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 border-warning"><div class="card-body">
+                <div class="text-warning">@Localizer["Warnings"]</div>
+                <div class="display-6">@report.WarningCount</div>
+            </div></div>
+        </div>
+    </div>
+
+    @if (report.Issues.Count == 0)
+    {
+        <div class="alert alert-success">
+            <i class="align-middle" data-lucide="check-circle"></i>
+            @Localizer["No DNS audit issues were found."]
+        </div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Findings"]</h5>
+                <small class="text-muted">@Localizer["Generated at"] @report.GeneratedAt.ToString("u")</small>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0" id="dnsAuditTable">
+                    <thead>
+                    <tr>
+                        <th>@Localizer["Severity"]</th>
+                        <th>@Localizer["Check"]</th>
+                        <th>@Localizer["Domain"]</th>
+                        <th>@Localizer["Details"]</th>
+                        <th class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var issue in report.Issues)
+                    {
+                        <tr>
+                            <td data-order="@((int)issue.Severity)">
+                                @if (issue.Severity == DnsAuditSeverity.Critical)
+                                {
+                                    <span class="badge bg-danger">@Localizer["Critical"]</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">@Localizer["Warning"]</span>
+                                }
+                            </td>
+                            <td>@Localizer[issue.CheckName]</td>
+                            <td><code>@issue.Domain</code></td>
+                            <td>@issue.Details</td>
+                            <td class="text-end">
+                                @if (issue.ServiceId.HasValue)
+                                {
+                                    <a asp-controller="Services" asp-action="Edit" asp-route-id="@issue.ServiceId" class="btn btn-sm btn-outline-primary">
+                                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit service"]
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            const table = $('#dnsAuditTable');
+            if (table.length) {
+                table.DataTable({
+                    "destroy": true,
+                    "responsive": true,
+                    "paging": true,
+                    "pageLength": 50,
+                    "searching": true,
+                    "info": false,
+                    "order": [[0, "desc"], [2, "asc"]]
+                });
+            }
+        });
+    </script>
+}

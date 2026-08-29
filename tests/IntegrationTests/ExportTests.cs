@@ -114,6 +114,11 @@ public class ExportTests : TestBase
                 PlainText = string.Empty
             });
 
+        const string cloudflareSecret = "cloudflare-secret-must-never-be-exported";
+        var cloudflareSetting = await db.GlobalSettings.FindAsync(SettingsMap.CloudflareApiToken);
+        Assert.IsNotNull(cloudflareSetting);
+        cloudflareSetting.Value = cloudflareSecret;
+
         // 4. Setup Company Entity
         var company = new CompanyEntity
         {
@@ -256,5 +261,7 @@ public class ExportTests : TestBase
         Assert.IsTrue(File.Exists(settingsFile), $"Global settings file not found at {settingsFile}");
         var settingsContent = await File.ReadAllTextAsync(settingsFile);
         Assert.IsTrue(settingsContent.Contains("ProjectName"));
+        Assert.DoesNotContain(cloudflareSecret, settingsContent);
+        Assert.Contains("[REDACTED]", settingsContent);
     }
 }

@@ -17,6 +17,7 @@ public class SettingsMap
     public const string GitLabProjectMustBeStaredBy = "GitLab_Project_Must_Be_Stared_By";
     public const string GitLabEnsureGitHubOrgMirrored = "GitLab_Ensure_GitHub_Org_Mirrored";
     public const string GitLabGitHubToken = "GitLab_GitHub_Token";
+    public const string CloudflareApiToken = "Cloudflare_API_Token";
     public const string AiAssistantSystemPrompt = "Ai_Assistant_System_Prompt";
     public const string MeetingMinutesSystemPrompt = "Meeting_Minutes_System_Prompt";
 
@@ -140,7 +141,15 @@ public class SettingsMap
             Key = GitLabGitHubToken,
             Name = Localizer["GitLab GitHub Token"],
             Description = Localizer["Optional GitHub personal access token to increase API rate limits for mirroring checks."],
-            Type = SettingType.Text,
+            Type = SettingType.Secret,
+            DefaultValue = ""
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CloudflareApiToken,
+            Name = Localizer["Cloudflare API Token"],
+            Description = Localizer["A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones."],
+            Type = SettingType.Secret,
             DefaultValue = ""
         },
         new GlobalSettingDefinition

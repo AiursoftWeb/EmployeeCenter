@@ -24,6 +24,9 @@ public class SettingViewModel
     [Display(Name = "Value")]
     public string? Value { get; set; }
 
+    [Display(Name = "Is Configured")]
+    public bool IsConfigured { get; set; }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [Display(Name = "Default Value")]
     public required string DefaultValue { get; set; }

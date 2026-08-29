@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Text;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
+using Aiursoft.EmployeeCenter.Models;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Aiursoft.EmployeeCenter.Services.GitLab;
 using Aiursoft.Scanner.Abstractions;
@@ -199,10 +200,21 @@ public class ExportService(
     {
         logger.LogInformation("Exporting global settings...");
         var settings = await db.GlobalSettings.ToListAsync();
+        var secretKeys = SettingsMap.Definitions
+            .Where(definition => definition.Type == SettingType.Secret)
+            .Select(definition => definition.Key)
+            .ToHashSet(StringComparer.Ordinal);
+        var exportableSettings = settings.Select(setting => new GlobalSetting
+        {
+            Key = setting.Key,
+            Value = secretKeys.Contains(setting.Key) && !string.IsNullOrEmpty(setting.Value)
+                ? "[REDACTED]"
+                : setting.Value
+        }).ToList();
         var dir = Path.Combine(_exportRoot, "GlobalSettings");
         Directory.CreateDirectory(dir);
 
-        var content = TableToMarkdown(settings, "Global Settings");
+        var content = TableToMarkdown(exportableSettings, "Global Settings");
         await File.WriteAllTextAsync(Path.Combine(dir, "settings.md"), content);
     }
 

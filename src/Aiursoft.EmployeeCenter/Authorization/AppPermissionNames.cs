@@ -74,6 +74,7 @@ public static class AppPermissionNames
 
     // Service Management
     public const string CanManageServices = nameof(CanManageServices);
+    public const string CanAuditDns = nameof(CanAuditDns);
 
     // Permission Management
     public const string CanReadPermissions = nameof(CanReadPermissions);
