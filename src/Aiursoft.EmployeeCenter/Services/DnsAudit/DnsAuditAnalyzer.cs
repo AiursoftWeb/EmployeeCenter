@@ -91,7 +91,7 @@ public static partial class DnsAuditAnalyzer
             issues.Add(new DnsAuditIssue
             {
                 Type = DnsAuditIssueType.UnknownDns,
-                Severity = DnsAuditSeverity.Warning,
+                Severity = DnsAuditSeverity.Error,
                 Domain = domain,
                 Details = "Cloudflare has an A, AAAA, or CNAME record for this hostname, but EmployeeCenter has no matching service registration."
             });

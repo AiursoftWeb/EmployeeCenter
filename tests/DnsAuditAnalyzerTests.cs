@@ -21,6 +21,7 @@ public class DnsAuditAnalyzerTests
         Assert.HasCount(1, report.Issues);
         var issue = report.Issues.Single();
         Assert.AreEqual(DnsAuditIssueType.UnknownDns, issue.Type);
+        Assert.AreEqual(DnsAuditSeverity.Error, issue.Severity);
         Assert.AreEqual("unknown.example.com", issue.Domain);
     }
 
