@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>รายการบันทึกเสียงการประชุม คำบรรยาย และสถานะการประมวลผลของ AI</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>แหล่งที่มา</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>สถานะ ASR</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>สิทธิ์การจัดการเสียง</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>รอการจดจำเสียงพูด</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>แผนก</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>การแชร์โดยตรง</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>แก้ไขได้</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>ว่างเปล่า</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>สถานะบันทึกการประชุม</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>สิทธิ์ของฉัน</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>ชื่อ</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>ยังไม่มีบันทึกการประชุม</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>เจ้าของ</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>รอดำเนินการ</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>สาธารณะ</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>อ่านเท่านั้น</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>กำลังจดจำเสียงอยู่</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>บทสรุป</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>ผู้ครอบครองไม่ทราบ</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>อัปโหลดการบันทึกการประชุม</value>

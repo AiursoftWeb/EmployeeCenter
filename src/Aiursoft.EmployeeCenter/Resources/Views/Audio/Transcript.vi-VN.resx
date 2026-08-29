@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>Chi tiết truy cập</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Nguồn truy cập</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>API Dữ liệu Gốc AI</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>Tệp âm thanh</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Quyền Quản lý Âm thanh</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Quay lại danh sách</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>Sửa lỗi chuyển văn bản</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Chia sẻ trực tiếp</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Tải xuống Âm thanh</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>Chỉnh sửa bản ghi</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Có thể chỉnh sửa</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Mọi người (CanViewAudio)</value>
@@ -114,6 +129,9 @@
   <data name="My department" xml:space="preserve">
     <value>Phòng của tôi</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Quyền của tôi</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>Chưa bao giờ</value>
   </data>
@@ -129,6 +147,9 @@
   <data name="Outdated" xml:space="preserve">
     <value>Đã lỗi thời</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Chủ sở hữu</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>Chờ xử lý</value>
   </data>
@@ -143,6 +164,9 @@
   </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Điểm cuối API thô cho các công cụ AI</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Chỉ đọc</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Đổi tên</value>
@@ -188,6 +212,9 @@
   </data>
   <data name="Transcript API" xml:space="preserve">
     <value>API Transcript</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Chủ sở hữu không xác định</value>
   </data>
   <data name="View Scope" xml:space="preserve">
     <value>Phạm vi xem</value>

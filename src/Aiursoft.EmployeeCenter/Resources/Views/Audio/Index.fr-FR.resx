@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Une liste des enregistrements audio de réunion, des transcriptions et des statuts de traitement par IA.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Source d’accès</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>État de l&apos;ASR</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Autorisation de gestion audio</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>En attente de reconnaissance</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Département</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Partage direct</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Modifiable</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Vide</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Statut des comptes rendus</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Ma permission</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nom</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>Aucun enregistrement de réunion pour le moment</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Propriétaire</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>En attente</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>Public</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Lecture seule</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Reconnaissance en cours</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>Transcription</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Propriétaire inconnu</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Télécharger l&apos;enregistrement de réunion</value>

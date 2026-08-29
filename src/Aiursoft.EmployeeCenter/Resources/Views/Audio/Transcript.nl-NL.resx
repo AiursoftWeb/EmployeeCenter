@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Raw API" xml:space="preserve">
+      <data name="Access Details" xml:space="preserve">
+    <value>Toegangsgegevens</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Toegangsbron</value>
+  </data>
+  <data name="AI Raw API" xml:space="preserve">
     <value>AI-onbewerkte API</value>
   </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
@@ -32,6 +38,9 @@
   </data>
   <data name="Audio File" xml:space="preserve">
     <value>Audiotbestand</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Audiebeheer toestemming</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Terug naar lijst</value>
@@ -60,6 +69,9 @@
   <data name="Correct transcription errors" xml:space="preserve">
     <value>Transcriptfouten corrigeren</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Directe share</value>
+  </data>
   <data name="Download Audio" xml:space="preserve">
     <value>Audio downloaden</value>
   </data>
@@ -68,6 +80,9 @@
   </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>Transcript bewerken</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editable</value>
   </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Iedereen (CanViewAudio)</value>
@@ -114,6 +129,9 @@
   <data name="My department" xml:space="preserve">
     <value>Mijn afdeling</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Mijn machtiging</value>
+  </data>
   <data name="Never" xml:space="preserve">
     <value>Nooit</value>
   </data>
@@ -129,6 +147,9 @@
   <data name="Outdated" xml:space="preserve">
     <value>Verouderd</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Eigenaar</value>
+  </data>
   <data name="Pending" xml:space="preserve">
     <value>In afwachting</value>
   </data>
@@ -143,6 +164,9 @@
   </data>
   <data name="Raw API endpoint for AI tools" xml:space="preserve">
     <value>Raw API-eindpunt voor AI-tools</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Alleen-lezen</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Hernoemen</value>
@@ -188,6 +212,9 @@
   </data>
   <data name="Transcript API" xml:space="preserve">
     <value>Transcript API</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Onbekende eigenaar</value>
   </data>
   <data name="View Scope" xml:space="preserve">
     <value>Bereik van weergave</value>

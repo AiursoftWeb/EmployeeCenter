@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Lista nagrań audio spotkań, transkrypcji oraz statusów przetwarzania AI.</value>
   </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Źródło dostępu</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="ASR Status" xml:space="preserve">
     <value>Stan ASR</value>
   </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Uprawnienie do zarządzania audio</value>
+  </data>
   <data name="Awaiting recognition" xml:space="preserve">
     <value>Oczekiwanie na rozpoznawanie</value>
   </data>
@@ -44,6 +50,12 @@
   </data>
   <data name="Department" xml:space="preserve">
     <value>Dział</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Bezpośredni udostępnij</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Edytowalny</value>
   </data>
   <data name="Empty" xml:space="preserve">
     <value>Pusty</value>
@@ -69,6 +81,9 @@
   <data name="Minutes Status" xml:space="preserve">
     <value>Status notatek</value>
   </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Moje uprawnienia</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
   </data>
@@ -77,6 +92,9 @@
   </data>
   <data name="No meeting recordings yet" xml:space="preserve">
     <value>Brak nagrań spotkań</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Właściciel</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Oczekujące</value>
@@ -93,6 +111,9 @@
   <data name="Public" xml:space="preserve">
     <value>Publiczny</value>
   </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Tylko do odczytu</value>
+  </data>
   <data name="Recognition in progress" xml:space="preserve">
     <value>Rozpoznawanie w toku</value>
   </data>
@@ -107,6 +128,9 @@
   </data>
   <data name="Transcript" xml:space="preserve">
     <value>Transkrypt</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Nieznany właściciel</value>
   </data>
   <data name="Upload Meeting Recording" xml:space="preserve">
     <value>Prześlij nagranie spotkania</value>
