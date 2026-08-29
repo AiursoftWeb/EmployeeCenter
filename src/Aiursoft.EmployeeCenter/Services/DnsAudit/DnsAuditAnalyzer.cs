@@ -161,7 +161,9 @@ public static partial class DnsAuditAnalyzer
             StringComparer.OrdinalIgnoreCase);
 
         // Never silently accept a record whose final destination could not be established.
-        foreach (var (domain, addresses) in effectiveAddressesByDomain.Where(pair => pair.Value.Count == 0))
+        foreach (var domain in effectiveAddressesByDomain
+                     .Where(pair => pair.Value.Count == 0)
+                     .Select(pair => pair.Key))
         {
             issues.Add(new DnsAuditIssue
             {
