@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Assistant System Prompt" xml:space="preserve">
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Một token API Cloudflare chỉ đọc được sử dụng bởi DNS Audit. Cấp quyền DNS Settings:Read cho tất cả các tài khoản và DNS:Read cho tất cả các zone.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Lời nhắc hệ thống Trợ lý AI</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
     <value>Kiểm tra xem dự án có được mirror sang tổ chức GitHub này không. Để trống để tắt kiểm tra. Ví dụ: aiursoftweb</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API Token</value>
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Tiền tệ lương mặc định</value>

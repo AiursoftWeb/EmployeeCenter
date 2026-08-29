@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Assistant System Prompt" xml:space="preserve">
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Token API Cloudflare hanya-baca yang digunakan oleh DNS Audit. Berikan izin DNS Settings:Read untuk semua akun dan DNS:Read untuk semua zona.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Perintah Sistem Asisten AI</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
     <value>Periksa apakah proyek tersebut di-mirror ke organisasi GitHub ini. Kosongkan untuk menonaktifkan pemeriksaan. Contoh: aiursoftweb</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API Token</value>
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Mata Uang Gaji Default</value>

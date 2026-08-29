@@ -117,6 +117,9 @@
   <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
     <value>Permite imprimir certificados de emprego e renda para si mesmo.</value>
   </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Permite executar a auditoria de DNS do Cloudflare somente leitura e visualizar suas descobertas.</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>Permite a exclusão permanente de funções.</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Atribuir Funções a Usuários</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Auditar DNS</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Chat com IA</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Assistant System Prompt" xml:space="preserve">
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>DNS Audit द्वारा उपयोग किया जाने वाला एक केवल-पठनीय Cloudflare API टोकन। सभी खातों के लिए DNS Settings:Read और सभी ज़ोन के लिए DNS:Read प्रदान करें।</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>एआई सहायक सिस्टम संकेत</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
     <value>जाँचें कि परियोजना इस GitHub संगठन में प्रतिबिंबित है या नहीं। जाँच को अक्षम करने के लिए खाली छोड़ दें। उदाहरण के लिए: aiursoftweb</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API टोकन</value>
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>डिफ़ॉल्ट पेरॉल मुद्रा</value>

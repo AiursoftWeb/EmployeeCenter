@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Assistant System Prompt" xml:space="preserve">
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Токен Cloudflare API лише для читання, який використовується DNS Audit. Надішіть дозволи DNS Settings:Read для всіх облікових записів та DNS:Read для всіх зон.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Системний промпт штучного інтелекту</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
     <value>Перевірте, чи проєкт дубльовано в цю організацію GitHub. Залиште порожнім, щоб вимкнути перевірку. Наприклад: aiursoftweb</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API Token</value>
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>За замовчуванням валюта заробітної плати</value>

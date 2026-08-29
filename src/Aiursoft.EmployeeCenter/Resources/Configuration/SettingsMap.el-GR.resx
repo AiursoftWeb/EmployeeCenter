@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Assistant System Prompt" xml:space="preserve">
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Μονά-αναγνώσιμη διακριτική τιμή API της Cloudflare που χρησιμοποιείται από το DNS Audit. Χωρίστε τα δικαιώματα DNS Settings:Read για όλους τους λογαριασμούς και DNS:Read για όλες τις ζώνες.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Πρόγραμμα Συστήματος Βοηθού AI</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
     <value>Ελέγξτε αν το έργο είναι αντιγραμμένο σε αυτήν την οργάνωση του GitHub. Αφήστε κενό για απενεργοποίηση του ελέγχου. Π.χ. aiursoftweb</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Διακριτικό API του Cloudflare</value>
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Προεπιλεγμένο Νόμισμα Μισθοδοσίας</value>

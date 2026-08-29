@@ -269,6 +269,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Upload Audio"];
     
         _ = localizer["Move Contract"];
+    
+        _ = localizer["DNS Audit"];
     }
 
     public void InjectSimple(
