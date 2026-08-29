@@ -117,6 +117,9 @@
   <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
     <value>Cho phép in chứng nhận việc làm và thu nhập cho bản thân.</value>
   </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Cho phép chạy kiểm toán DNS Cloudflare chỉ đọc và xem các phát hiện của nó.</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>Cho phép xóa vĩnh viễn các vai trò.</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Gán Vai trò cho Người dùng</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Kiểm toán DNS</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Trò chuyện với AI</value>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Akcje</value>
+  </data>
+  <data name="Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token." xml:space="preserve">
+    <value>Poproś administratora z uprawnieniem do ustawień globalnych o skonfigurowanie tokena API Cloudflare tylko do odczytu.</value>
+  </data>
+  <data name="Audit failed" xml:space="preserve">
+    <value>Audyt nie powiódł się</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Sprawdzenie</value>
+  </data>
+  <data name="Cloudflare API token is not configured" xml:space="preserve">
+    <value>Token API Cloudflare nie jest skonfigurowany</value>
+  </data>
+  <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
+    <value>Porównaj rejestr usług EmployeeCenter z obserwacjami DNS Cloudflare w trybie tylko do odczytu.</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Krytyczne</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Audyt DNS</value>
+  </data>
+  <data name="DNS records" xml:space="preserve">
+    <value>rekordy DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domena</value>
+  </data>
+  <data name="Edit service" xml:space="preserve">
+    <value>Edytuj usługę</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Błędy</value>
+  </data>
+  <data name="Findings" xml:space="preserve">
+    <value>Wyniki</value>
+  </data>
+  <data name="Generated at" xml:space="preserve">
+    <value>Wygenerowano w</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Informacje</value>
+  </data>
+  <data name="No DNS audit issues were found." xml:space="preserve">
+    <value>Nie znaleziono problemów z audytem DNS.</value>
+  </data>
+  <data name="Run audit" xml:space="preserve">
+    <value>Uruchom audyt</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>przebadanych nazw hostów usługi</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Waga</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Ostrzeżenie</value>
+  </data>
+  <data name="Warnings" xml:space="preserve">
+    <value>Ostrzeżenia</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Strefy</value>
+  </data>
+
+</root>

@@ -117,6 +117,9 @@
   <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
     <value>Επιτρέπει την εκτύπωση πιστοποιητικών απασχόλησης και εισοδήματος για τον εαυτό του.</value>
   </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Επιτρέπει την εκτέλεση του ελέγχου DNS του Cloudflare μόνο για ανάγνωση και την προβολή των ευρημάτων του.</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>Επιτρέπει την μόνιμη διαγραφή ρόλων.</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Ανάθεση Ρόλων σε Χρήστες</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Έλεγχος DNS</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Συνομιλία με AI</value>

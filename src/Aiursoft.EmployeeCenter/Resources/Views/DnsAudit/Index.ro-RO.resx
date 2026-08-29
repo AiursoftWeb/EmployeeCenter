@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+  <data name="Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token." xml:space="preserve">
+    <value>Solicitați de la un administrator cu permisiunea de Configurări globale să configureze tokenul API Cloudflare în mod de doar-lectură.</value>
+  </data>
+  <data name="Audit failed" xml:space="preserve">
+    <value>Audit eșuat</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Verificare</value>
+  </data>
+  <data name="Cloudflare API token is not configured" xml:space="preserve">
+    <value>Token-ul API Cloudflare nu este configurat</value>
+  </data>
+  <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
+    <value>Comparați registrul de servicii EmployeeCenter cu observațiile DNS Cloudflare în mod de doar-citire.</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Critic</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalii</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Audit DNS</value>
+  </data>
+  <data name="DNS records" xml:space="preserve">
+    <value>înregistrări DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domeniu</value>
+  </data>
+  <data name="Edit service" xml:space="preserve">
+    <value>Editează serviciul</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Eroare</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Erori</value>
+  </data>
+  <data name="Findings" xml:space="preserve">
+    <value>Constatări</value>
+  </data>
+  <data name="Generated at" xml:space="preserve">
+    <value>Generat la</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Informații</value>
+  </data>
+  <data name="No DNS audit issues were found." xml:space="preserve">
+    <value>Nu s-au găsit probleme în auditul DNS.</value>
+  </data>
+  <data name="Run audit" xml:space="preserve">
+    <value>Rulează auditul</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>nume de gazdă ale serviciilor auditate</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Gravitate</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Avertisment</value>
+  </data>
+  <data name="Warnings" xml:space="preserve">
+    <value>Avertismente</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zone</value>
+  </data>
+
+</root>

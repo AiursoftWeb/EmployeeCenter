@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="AI Assistant System Prompt" xml:space="preserve">
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>供 DNS Audit 使用的唯讀 Cloudflare API 權杖。請為所有帳號授予 DNS Settings:Read 權限，並為所有區域授予 DNS:Read 權限。</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>AI 助理系統提示</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
     <value>檢查專案是否已鏡像至該 GitHub 組織。留空以停用檢查。例如：aiursoftweb</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API 權杖</value>
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>預設薪資貨幣</value>
