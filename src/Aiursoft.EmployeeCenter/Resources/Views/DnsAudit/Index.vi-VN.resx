@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token." xml:space="preserve">
+    <value>Hãy yêu cầu quản trị viên có quyền Cài đặt chung cấu hình mã thông báo API Cloudflare chỉ đọc.</value>
+  </data>
+  <data name="Audit failed" xml:space="preserve">
+    <value>Kiểm toán thất bại</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Kiểm tra</value>
+  </data>
+  <data name="Cloudflare API token is not configured" xml:space="preserve">
+    <value>Đã không cấu hình Cloudflare API token</value>
+  </data>
+  <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
+    <value>So sánh sổ đăng ký dịch vụ EmployeeCenter với các quan sát DNS Cloudflare chỉ đọc.</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Nghiêm trọng</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Kiểm toán DNS</value>
+  </data>
+  <data name="DNS records" xml:space="preserve">
+    <value>Bản ghi DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Tên miền</value>
+  </data>
+  <data name="Edit service" xml:space="preserve">
+    <value>Chỉnh sửa dịch vụ</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="Findings" xml:space="preserve">
+    <value>Kết quả</value>
+  </data>
+  <data name="Generated at" xml:space="preserve">
+    <value>Được tạo lúc</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="No DNS audit issues were found." xml:space="preserve">
+    <value>Không tìm thấy vấn đề kiểm toán DNS nào.</value>
+  </data>
+  <data name="Run audit" xml:space="preserve">
+    <value>Chạy kiểm toán</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>tên miền dịch vụ được kiểm toán</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Mức độ nghiêm trọng</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Cảnh báo</value>
+  </data>
+  <data name="Warnings" xml:space="preserve">
+    <value>Cảnh báo</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Vùng</value>
+  </data>
+
+</root>

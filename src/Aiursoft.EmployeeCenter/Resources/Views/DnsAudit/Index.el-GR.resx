@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Ενέργειες</value>
+  </data>
+  <data name="Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token." xml:space="preserve">
+    <value>Ζητήστε από έναν διαχειριστή με άδεια για ρυθμίσεις παγκόσμιας κλίμακας να διαμορφώσει το read-only token API του Cloudflare.</value>
+  </data>
+  <data name="Audit failed" xml:space="preserve">
+    <value>Η επιθεώρηση απέτυχε</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Έλεγχος</value>
+  </data>
+  <data name="Cloudflare API token is not configured" xml:space="preserve">
+    <value>Το διακριτικό API της Cloudflare δεν έχει ρυθμιστεί</value>
+  </data>
+  <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
+    <value>Συγκρίνετε το μητρώο υπηρεσιών του EmployeeCenter με τις μονό-αναγνωστικές παρατηρήσεις DNS του Cloudflare.</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Κρίσιμο</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Λεπτομέρειες</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Έλεγχος DNS</value>
+  </data>
+  <data name="DNS records" xml:space="preserve">
+    <value>Εγγραφές DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Δομάνιο</value>
+  </data>
+  <data name="Edit service" xml:space="preserve">
+    <value>Επεξεργασία υπηρεσίας</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Σφάλμα</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Σφάλματα</value>
+  </data>
+  <data name="Findings" xml:space="preserve">
+    <value>Εύρεσματα</value>
+  </data>
+  <data name="Generated at" xml:space="preserve">
+    <value>Γεννήθηκε στις</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Πληροφορίες</value>
+  </data>
+  <data name="No DNS audit issues were found." xml:space="preserve">
+    <value>Δεν εντοπίστηκαν προβλήματα ελέγχου DNS.</value>
+  </data>
+  <data name="Run audit" xml:space="preserve">
+    <value>Εκτέλεση ελέγχου</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>ονόματα υπολογιστών υπηρεσιών ελεγχθέντα</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Σοβαρότητα</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Προειδοποίηση</value>
+  </data>
+  <data name="Warnings" xml:space="preserve">
+    <value>Προειδοποιήσεις</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Ζώνες</value>
+  </data>
+
+</root>

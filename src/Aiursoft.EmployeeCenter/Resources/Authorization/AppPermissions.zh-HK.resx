@@ -114,6 +114,9 @@
   <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
     <value>允許列印本人的僱用及收入證明文件。</value>
   </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>允許執行唯讀的 Cloudflare DNS 審計，並檢視其結果。</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>允許永久刪除角色。</value>
   </data>
@@ -188,6 +191,9 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>為用戶分配角色</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>審計 DNS</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>與 AI 交談</value>

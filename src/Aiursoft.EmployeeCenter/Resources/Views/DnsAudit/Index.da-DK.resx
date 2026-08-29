@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Handlinger</value>
+  </data>
+  <data name="Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token." xml:space="preserve">
+    <value>Bed en administrator med tilladelse til Globale indstillinger om at konfigurere den læsebeskyttede Cloudflare API-nøgle.</value>
+  </data>
+  <data name="Audit failed" xml:space="preserve">
+    <value>Auditfejlet</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Tjek</value>
+  </data>
+  <data name="Cloudflare API token is not configured" xml:space="preserve">
+    <value>Cloudflare API-token er ikke konfigureret</value>
+  </data>
+  <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
+    <value>Sammenlign EmployeeCenter-tjenesteregistret med læsebeskyttede Cloudflare DNS-observationer.</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Kritisk</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS-audit</value>
+  </data>
+  <data name="DNS records" xml:space="preserve">
+    <value>DNS-optegnelser</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domæne</value>
+  </data>
+  <data name="Edit service" xml:space="preserve">
+    <value>Rediger service</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fejl</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Fejl</value>
+  </data>
+  <data name="Findings" xml:space="preserve">
+    <value>Resultater</value>
+  </data>
+  <data name="Generated at" xml:space="preserve">
+    <value>Genereret kl.</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="No DNS audit issues were found." xml:space="preserve">
+    <value>Der blev ikke fundet nogen DNS-audit-problemer.</value>
+  </data>
+  <data name="Run audit" xml:space="preserve">
+    <value>Kør revision</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>serviceværtnavne revideret</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Alvør</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Advarsel</value>
+  </data>
+  <data name="Warnings" xml:space="preserve">
+    <value>Advarsler</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zoner</value>
+  </data>
+
+</root>
