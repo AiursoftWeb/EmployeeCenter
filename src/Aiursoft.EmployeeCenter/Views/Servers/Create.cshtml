@@ -18,10 +18,15 @@
                             <input asp-for="Hostname" class="form-control" placeholder="@Localizer["e.g. web-server-01"]" />
                             <span asp-validation-for="Hostname" class="text-danger"></span>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label asp-for="ServerIp" class="form-label"></label>
                             <input asp-for="ServerIp" class="form-control" placeholder="@Localizer["e.g. 192.168.1.10"]" />
                             <span asp-validation-for="ServerIp" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="Ipv6Address" class="form-label"></label>
+                            <input asp-for="Ipv6Address" class="form-control" placeholder="@Localizer["e.g. 2001:db8::10"]" />
+                            <span asp-validation-for="Ipv6Address" class="text-danger"></span>
                         </div>
                     </div>
 

@@ -36,7 +36,9 @@
                 <thead>
                     <tr>
                         <th>@Localizer["Hostname"]</th>
-                        <th>@Localizer["IP Address"]</th>
+                        <th>@Localizer["IPv4 Address"]</th>
+                        <th>@Localizer["IPv6 Address"]</th>
+                        <th>@Localizer["Associated Services"]</th>
                         <th>@Localizer["Location"]</th>
                         <th>@Localizer["Company"]</th>
                         <th>@Localizer["Owner"]</th>
@@ -54,6 +56,17 @@
                             </td>
                             <td>
                                 @s.ServerIp
+                            </td>
+                            <td>
+                                @s.Ipv6Address
+                            </td>
+                            <td>
+                                <a asp-controller="Services"
+                                   asp-action="List"
+                                   asp-route-serverId="@s.Id"
+                                   class="badge bg-primary text-decoration-none">
+                                    @Model.AssociatedServiceCounts.GetValueOrDefault(s.Id)
+                                </a>
                             </td>
                             <td>
                                 @(s.Location?.Name ?? "-")

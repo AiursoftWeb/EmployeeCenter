@@ -13,4 +13,7 @@ public class IndexServerViewModel : UiStackLayoutViewModel
 
     [Display(Name = "Servers")]
     public IEnumerable<Server> Servers { get; set; } = new List<Server>();
+
+    public IReadOnlyDictionary<int, int> AssociatedServiceCounts { get; set; } =
+        new Dictionary<int, int>();
 }

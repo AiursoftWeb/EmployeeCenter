@@ -79,6 +79,63 @@ public class DnsAuditAnalyzerTests
     }
 
     [TestMethod]
+    public void RecognizesIpv4AndIpv6RegisteredOnTheSameServer()
+    {
+        var server = RegisteredServer("192.0.2.10", id: 1, ipv6Address: "2001:db8::10");
+        var report = Analyze(
+            records: [Record("dual-stack.example.com", "AAAA", "2001:db8::10", proxied: true)],
+            services: [RegisteredService("dual-stack.example.com", proxied: true, serverId: server.Id)],
+            servers: [server]);
+
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.UnknownServer));
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.ServerAssignmentMismatch));
+    }
+
+    [TestMethod]
+    public void AcceptsFrpsServerIpv6ForAServiceRunningOnAnotherServer()
+    {
+        var runningServer = RegisteredServer("192.168.50.178", id: 1);
+        var frpsServer = RegisteredServer(
+            "124.160.101.12",
+            id: 2,
+            ipv6Address: "240e:f7:a020:203::9:de");
+        var service = RegisteredService(
+            "apkg-dev.example.com",
+            proxied: true,
+            serverId: runningServer.Id,
+            isViaFrps: true,
+            frpsServerId: frpsServer.Id);
+
+        var report = Analyze(
+            records: [Record("apkg-dev.example.com", "AAAA", "240e:f7:a020:203::9:de", proxied: true)],
+            services: [service],
+            servers: [runningServer, frpsServer]);
+
+        Assert.IsEmpty(report.Issues);
+    }
+
+    [TestMethod]
+    public void FindsFrpsServiceWithoutFrpsServerAssignment()
+    {
+        var report = Analyze(
+            records: [Record("frps.example.com", "A", "192.0.2.10", proxied: true)],
+            services:
+            [
+                RegisteredService(
+                    "frps.example.com",
+                    proxied: true,
+                    serverId: 1,
+                    isViaFrps: true,
+                    frpsServerId: null)
+            ],
+            servers: [RegisteredServer("192.0.2.10")]);
+
+        Assert.IsTrue(report.Issues.Any(issue =>
+            issue.Type == DnsAuditIssueType.MissingFrpsServerAssignment &&
+            issue.Severity == DnsAuditSeverity.Warning));
+    }
+
+    [TestMethod]
     public void UsesResolvedAddressesForDnsOnlyCnameSymmetryAndServerCheck()
     {
         var report = Analyze(
@@ -236,7 +293,9 @@ public class DnsAuditAnalyzerTests
         string domain,
         bool proxied = false,
         int? serverId = 1,
-        ServiceStatus status = ServiceStatus.Running)
+        ServiceStatus status = ServiceStatus.Running,
+        bool isViaFrps = false,
+        int? frpsServerId = null)
     {
         return new Service
         {
@@ -244,16 +303,19 @@ public class DnsAuditAnalyzerTests
             Domain = domain,
             IsCloudflareProxied = proxied,
             ServerId = serverId,
+            IsViaFrps = isViaFrps,
+            FrpsServerId = frpsServerId,
             Status = status
         };
     }
 
-    private static Server RegisteredServer(string addresses, int id = 1)
+    private static Server RegisteredServer(string addresses, int id = 1, string? ipv6Address = null)
     {
         return new Server
         {
             Id = id,
-            ServerIp = addresses
+            ServerIp = addresses,
+            Ipv6Address = ipv6Address
         };
     }
 }

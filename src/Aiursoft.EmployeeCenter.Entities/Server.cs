@@ -12,6 +12,9 @@ public class Server
     [MaxLength(100)]
     public string? ServerIp { get; set; }
 
+    [MaxLength(100)]
+    public string? Ipv6Address { get; set; }
+
     [MaxLength(500)]
     public string? DetailLink { get; set; }
 
@@ -46,6 +49,10 @@ public class Server
     [JsonIgnore]
     [InverseProperty(nameof(Service.Server))]
     public IEnumerable<Service> Services { get; init; } = new List<Service>();
+
+    [JsonIgnore]
+    [InverseProperty(nameof(Service.FrpsServer))]
+    public IEnumerable<Service> FrpsServices { get; init; } = new List<Service>();
 
     public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 

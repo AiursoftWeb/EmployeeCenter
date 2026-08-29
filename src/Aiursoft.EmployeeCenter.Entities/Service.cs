@@ -34,6 +34,12 @@ public class Service
     [ForeignKey(nameof(ServerId))]
     public Server? Server { get; set; }
 
+    public int? FrpsServerId { get; set; }
+
+    [JsonIgnore]
+    [ForeignKey(nameof(FrpsServerId))]
+    public Server? FrpsServer { get; set; }
+
     public int? DnsProviderId { get; set; }
 
     [JsonIgnore]

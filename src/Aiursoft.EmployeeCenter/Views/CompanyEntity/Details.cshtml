@@ -365,7 +365,7 @@
                                         <div>
                                             <strong>@server.Hostname</strong>
                                             <br/>
-                                            <small class="text-muted">@server.ServerIp</small>
+                                            <small class="text-muted">@string.Join(" · ", new[] { server.ServerIp, server.Ipv6Address }.Where(address => !string.IsNullOrWhiteSpace(address)))</small>
                                         </div>
                                         <a asp-controller="Servers" asp-action="Edit" asp-route-id="@server.Id" class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-external-link-alt"></i>

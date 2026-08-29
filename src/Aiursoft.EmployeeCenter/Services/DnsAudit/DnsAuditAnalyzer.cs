@@ -276,7 +276,6 @@ public static partial class DnsAuditAnalyzer
             foreach (var service in registeredServices)
             {
                 if (service.Status == Entities.ServiceStatus.Running &&
-                    !service.IsViaFrps &&
                     !service.ServerId.HasValue)
                 {
                     issues.Add(new DnsAuditIssue
@@ -285,7 +284,19 @@ public static partial class DnsAuditAnalyzer
                         Severity = DnsAuditSeverity.Warning,
                         Domain = domain,
                         ServiceId = service.Id,
-                        Details = "The running service has DNS but no server assignment in EmployeeCenter."
+                        Details = "The running service has DNS but no running server assignment in EmployeeCenter."
+                    });
+                }
+
+                if (service.IsViaFrps && !service.FrpsServerId.HasValue)
+                {
+                    issues.Add(new DnsAuditIssue
+                    {
+                        Type = DnsAuditIssueType.MissingFrpsServerAssignment,
+                        Severity = DnsAuditSeverity.Warning,
+                        Domain = domain,
+                        ServiceId = service.Id,
+                        Details = "The service uses FRPS but has no FRPS server assignment in EmployeeCenter."
                     });
                 }
 
@@ -313,10 +324,18 @@ public static partial class DnsAuditAnalyzer
                     });
                 }
 
-                if (!service.IsViaFrps &&
-                    service.ServerId.HasValue &&
+                var expectedServerIds = new HashSet<int>();
+                if (service.ServerId.HasValue)
+                {
+                    expectedServerIds.Add(service.ServerId.Value);
+                }
+                if (service.IsViaFrps && service.FrpsServerId.HasValue)
+                {
+                    expectedServerIds.Add(service.FrpsServerId.Value);
+                }
+                if (expectedServerIds.Count > 0 &&
                     actualServerIds.Count > 0 &&
-                    !actualServerIds.Contains(service.ServerId.Value))
+                    !actualServerIds.Overlaps(expectedServerIds))
                 {
                     issues.Add(new DnsAuditIssue
                     {
@@ -324,7 +343,7 @@ public static partial class DnsAuditAnalyzer
                         Severity = DnsAuditSeverity.Critical,
                         Domain = domain,
                         ServiceId = service.Id,
-                        Details = $"DNS points to registered server ID(s) {string.Join(", ", actualServerIds.Order())}, but the service is assigned to server ID {service.ServerId.Value}."
+                        Details = $"DNS points to registered server ID(s) {string.Join(", ", actualServerIds.Order())}, but the service expects running/FRPS server ID(s) {string.Join(", ", expectedServerIds.Order())}."
                     });
                 }
             }
@@ -436,22 +455,25 @@ public static partial class DnsAuditAnalyzer
         var addresses = new Dictionary<string, HashSet<int>>(StringComparer.OrdinalIgnoreCase);
         foreach (var server in servers)
         {
-            if (string.IsNullOrWhiteSpace(server.ServerIp))
+            foreach (var addressField in new[] { server.ServerIp, server.Ipv6Address })
             {
-                continue;
-            }
-
-            foreach (var candidate in AddressSeparatorRegex().Split(server.ServerIp))
-            {
-                var normalizedAddress = NormalizeIpAddress(candidate.Trim('[', ']'));
-                if (normalizedAddress != null)
+                if (string.IsNullOrWhiteSpace(addressField))
                 {
-                    if (!addresses.TryGetValue(normalizedAddress, out var serverIds))
+                    continue;
+                }
+
+                foreach (var candidate in AddressSeparatorRegex().Split(addressField))
+                {
+                    var normalizedAddress = NormalizeIpAddress(candidate.Trim('[', ']'));
+                    if (normalizedAddress != null)
                     {
-                        serverIds = [];
-                        addresses[normalizedAddress] = serverIds;
+                        if (!addresses.TryGetValue(normalizedAddress, out var serverIds))
+                        {
+                            serverIds = [];
+                            addresses[normalizedAddress] = serverIds;
+                        }
+                        serverIds.Add(server.Id);
                     }
-                    serverIds.Add(server.Id);
                 }
             }
         }

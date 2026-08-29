@@ -19,7 +19,8 @@ public enum DnsAuditIssueType
     UnverifiableDnsTarget = 12,
     MissingServerAssignment = 13,
     WildcardDnsRecord = 14,
-    ManagedDnsOutsideRecordApi = 15
+    ManagedDnsOutsideRecordApi = 15,
+    MissingFrpsServerAssignment = 16
 }
 
 public enum DnsAuditSeverity
@@ -55,6 +56,7 @@ public sealed class DnsAuditIssue
         DnsAuditIssueType.MissingServerAssignment => "Missing server assignment",
         DnsAuditIssueType.WildcardDnsRecord => "Wildcard DNS record is forbidden",
         DnsAuditIssueType.ManagedDnsOutsideRecordApi => "Cloudflare-managed DNS target",
+        DnsAuditIssueType.MissingFrpsServerAssignment => "Missing FRPS server assignment",
         _ => Type.ToString()
     };
 }

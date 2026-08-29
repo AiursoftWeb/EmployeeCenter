@@ -7,10 +7,39 @@ public class ServiceTests : TestBase
     public async Task TestServiceIndex()
     {
         await LoginAsAdmin();
+
+        var db = GetService<EmployeeCenterDbContext>();
+        var location = new Location { Name = "Frankfurt" };
+        var dnsProvider = new DnsProvider { Name = "Cloudflare" };
+        var server = new Server
+        {
+            Hostname = "dashboard-server",
+            ServerIp = "192.0.2.30",
+            Location = location
+        };
+        db.Services.Add(new Service
+        {
+            Domain = "dashboard.example.com",
+            Server = server,
+            DnsProvider = dnsProvider,
+            Status = ServiceStatus.Running,
+            IsCloudflareProxied = true
+        });
+        await db.SaveChangesAsync();
+
         var response = await Http.GetAsync("/Services/Index");
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadAsStringAsync();
-        Assert.Contains("Services", content);
+        StringAssert.Contains(content, "Services Dashboard");
+        StringAssert.Contains(content, "service-dashboard-data");
+        StringAssert.Contains(content, "dashboard-server");
+        StringAssert.Contains(content, "Frankfurt");
+        StringAssert.Contains(content, "Cloudflare");
+
+        var listResponse = await Http.GetAsync("/Services/List");
+        listResponse.EnsureSuccessStatusCode();
+        var listContent = await listResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(listContent, "dashboard.example.com");
     }
 
     [TestMethod]
@@ -35,6 +64,51 @@ public class ServiceTests : TestBase
         var service = await db.Services.FirstOrDefaultAsync(s => s.Domain == "test-service.com");
         Assert.IsNotNull(service);
         Assert.AreEqual(ServiceStatus.Running, service.Status);
+    }
+
+    [TestMethod]
+    public async Task TestFrpsServiceRequiresAndStoresBothServers()
+    {
+        await LoginAsAdmin();
+
+        var db = GetService<EmployeeCenterDbContext>();
+        var runningServer = new Server { Hostname = "running-server", ServerIp = "192.168.50.178" };
+        var frpsServer = new Server
+        {
+            Hostname = "frps-server",
+            ServerIp = "124.160.101.12",
+            Ipv6Address = "240e:f7:a020:203::9:de"
+        };
+        db.Servers.AddRange(runningServer, frpsServer);
+        await db.SaveChangesAsync();
+
+        var invalidResponse = await PostForm("/Services/Create", new Dictionary<string, string>
+        {
+            { "Domain", "invalid-frps-service.com" },
+            { "Status", "1" },
+            { "Purpose", "1" },
+            { "IsViaFrps", "true" },
+            { "ServerId", runningServer.Id.ToString() }
+        });
+        Assert.AreEqual(HttpStatusCode.OK, invalidResponse.StatusCode);
+        Assert.IsNull(await db.Services.FirstOrDefaultAsync(service => service.Domain == "invalid-frps-service.com"));
+
+        var validResponse = await PostForm("/Services/Create", new Dictionary<string, string>
+        {
+            { "Domain", "valid-frps-service.com" },
+            { "Status", "1" },
+            { "Purpose", "1" },
+            { "IsViaFrps", "true" },
+            { "ServerId", runningServer.Id.ToString() },
+            { "FrpsServerId", frpsServer.Id.ToString() }
+        });
+        Assert.AreEqual(HttpStatusCode.Redirect, validResponse.StatusCode);
+
+        db.ChangeTracker.Clear();
+        var service = await db.Services.SingleAsync(item => item.Domain == "valid-frps-service.com");
+        Assert.AreEqual(runningServer.Id, service.ServerId);
+        Assert.AreEqual(frpsServer.Id, service.FrpsServerId);
+        Assert.IsTrue(service.IsViaFrps);
     }
 
     [TestMethod]

@@ -12,8 +12,12 @@ public class CreateServerViewModel : UiStackLayoutViewModel
     }
 
     [MaxLength(100, ErrorMessage = "The {0} cannot exceed {1} characters.")]
-    [Display(Name = "IP Address")]
+    [Display(Name = "IPv4 Address")]
     public string? ServerIp { get; set; }
+
+    [MaxLength(100, ErrorMessage = "The {0} cannot exceed {1} characters.")]
+    [Display(Name = "IPv6 Address")]
+    public string? Ipv6Address { get; set; }
 
     [MaxLength(500, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Detail Link")]

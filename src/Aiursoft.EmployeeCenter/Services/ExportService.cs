@@ -178,7 +178,9 @@ public class ExportService(
                 sb.AppendLine("\n## 关联服务器 (Associated Servers)");
                 foreach (var server in servers)
                 {
-                    sb.AppendLine($"- {server.Hostname} ({server.ServerIp})");
+                    var addresses = string.Join(", ", new[] { server.ServerIp, server.Ipv6Address }
+                        .Where(address => !string.IsNullOrWhiteSpace(address)));
+                    sb.AppendLine($"- {server.Hostname} ({addresses})");
                 }
             }
 

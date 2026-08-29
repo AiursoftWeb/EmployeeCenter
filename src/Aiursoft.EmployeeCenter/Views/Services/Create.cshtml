@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label asp-for="ServerId" class="form-label"></label>
                             <div class="input-group">
                                 <select asp-for="ServerId" class="form-select" asp-items="@(new SelectList(Model.AllServers, "Id", "Hostname"))">
@@ -89,6 +89,27 @@
                                 </button>
                             </div>
                             <span asp-validation-for="ServerId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3" id="frps-server-container">
+                            <label asp-for="FrpsServerId" class="form-label"></label>
+                            <div class="input-group">
+                                <select asp-for="FrpsServerId" class="form-select" asp-items="@(new SelectList(Model.AllServers, "Id", "Hostname"))">
+                                    <option value="">-- @Localizer["Select FRPS Server"] --</option>
+                                </select>
+                                <a asp-controller="Servers" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                    <i class="align-middle" data-lucide="plus-circle"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetServers")"
+                                        data-target="FrpsServerId"
+                                        data-placeholder="@Localizer["Select FRPS Server"]"
+                                        data-name-key="HostName"
+                                        title="@Localizer["Reload"]">
+                                    <i class="align-middle" data-lucide="rotate-cw"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">@Localizer["Required when Via FRPS is enabled."]</div>
+                            <span asp-validation-for="FrpsServerId" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -195,4 +216,17 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <partial name="_DropdownReload" />
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viaFrps = document.getElementById('IsViaFrps');
+            const container = document.getElementById('frps-server-container');
+            const frpsServer = document.getElementById('FrpsServerId');
+            const updateFrpsServer = () => {
+                container.classList.toggle('d-none', !viaFrps.checked);
+                frpsServer.required = viaFrps.checked;
+            };
+            viaFrps.addEventListener('change', updateFrpsServer);
+            updateFrpsServer();
+        });
+    </script>
 }

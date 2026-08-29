@@ -1,0 +1,226 @@
+@using Aiursoft.EmployeeCenter.Authorization
+@model Aiursoft.EmployeeCenter.Models.ServicesViewModels.IndexViewModel
+@{
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        @if (Model.FilteredServer == null)
+        {
+            <h3>@Localizer["Services"]</h3>
+        }
+        else
+        {
+            <h3>@Localizer["Services associated with {0}", Model.FilteredServer.Hostname ?? Model.FilteredServer.ServerIp ?? Model.FilteredServer.Id.ToString()]</h3>
+        }
+    </div>
+
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="Index" class="btn btn-outline-secondary me-2">
+            <i class="align-middle" data-lucide="layout-dashboard"></i> @Localizer["Dashboard"]
+        </a>
+        @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
+        {
+            @if (Model.FilteredServer != null)
+            {
+                <a asp-controller="Servers" asp-action="Index" class="btn btn-outline-secondary me-2">
+                    <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Servers"]
+                </a>
+            }
+            <a asp-action="DnsProviders" class="btn btn-outline-primary me-2">
+                <i class="align-middle" data-lucide="globe"></i> @Localizer["Manage DNS Providers"]
+            </a>
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Service"]
+            </a>
+        }
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">
+            @(Model.FilteredServer == null
+                ? Localizer["All Services"]
+                : Localizer["Associated Services"])
+        </h5>
+    </div>
+    @if (!Model.Services.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    @Localizer["No services found."]
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0" id="servicesTable">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Domain"]</th>
+                        <th>@Localizer["Availability"]</th>
+                        <th>@Localizer["Owner"]</th>
+                        <th>@Localizer["Protocols"]</th>
+                        <th>@Localizer["Location"]</th>
+                        <th>@Localizer["Server"]</th>
+                        <th>@Localizer["DNS"]</th>
+                        <th>@Localizer["Purpose"]</th>
+                        <th>@Localizer["Self"]</th>
+                        <th>@Localizer["Authentik"]</th>
+                        <th>@Localizer["Cloudflare Proxied"]</th>
+                        <th>@Localizer["Via Frps"]</th>
+                        <th>@Localizer["Status"]</th>
+                        <th class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var s in Model.Services)
+                    {
+                        <tr>
+                            <td>
+                                <code>@s.Domain</code>
+                            </td>
+                            <td>
+                                @if (s.Protocols?.Trim().StartsWith("HTTP", StringComparison.OrdinalIgnoreCase) == true)
+                                {
+                                    var protocol = s.Protocols.Contains("HTTPS", StringComparison.OrdinalIgnoreCase) ? "https" : "http";
+                                    var url = $"{protocol}://{s.Domain}";
+                                    var encodedUrl = Uri.EscapeDataString(url);
+                                    <a href="@url" target="_blank">
+                                        <img src="https://img.shields.io/website?url=@encodedUrl" alt="Status" />
+                                    </a>
+                                }
+                            </td>
+                            <td>
+                                @(s.Owner?.CompanyName ?? "-")
+                            </td>
+                            <td>
+                                @(s.Protocols ?? "-")
+                            </td>
+                            <td>
+                                @(s.Server?.Location?.Name ?? "-")
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrWhiteSpace(s.Server?.DetailLink))
+                                {
+                                    <a href="@s.Server.DetailLink" target="_blank" class="btn btn-sm btn-light border shadow-sm">
+                                         <i class="align-middle text-muted" data-lucide="server"></i>
+                                         @(s.Server?.Hostname ?? s.Server?.ServerIp ?? "-")
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span>@(s.Server?.Hostname ?? s.Server?.ServerIp ?? "-")</span>
+                                }
+                            </td>
+                            <td>
+                                @(s.DnsProvider?.Name ?? "-")
+                            </td>
+                            <td>
+                                @Localizer[s.Purpose.ToString()]
+                            </td>
+                            <td data-order="@(s.IsSelfDeveloped ? 1 : 0)">
+                                @if (s.IsSelfDeveloped)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
+                                }
+                            </td>
+                            <td data-order="@(s.AuthentikIntegrated ? 1 : 0)">
+                                @if (s.AuthentikIntegrated)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
+                                }
+                            </td>
+                            <td data-order="@(s.IsCloudflareProxied ? 1 : 0)">
+                                @if (s.IsCloudflareProxied)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
+                                }
+                            </td>
+                            <td data-order="@(s.IsViaFrps ? 1 : 0)">
+                                @if (s.IsViaFrps)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                    <span>@(s.FrpsServer?.Hostname ?? s.FrpsServer?.ServerIp ?? "Unassigned")</span>
+                                }
+                                else
+                                {
+                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
+                                }
+                            </td>
+                            <td data-order="@((int)s.Status)">
+                                @switch (s.Status)
+                                {
+                                    case ServiceStatus.Running:
+                                        <span class="badge bg-success">@Localizer["Running"]</span>
+                                        break;
+                                    case ServiceStatus.Developing:
+                                        <span class="badge bg-warning">@Localizer["Developing"]</span>
+                                        break;
+                                    case ServiceStatus.Testing:
+                                        <span class="badge bg-info">@Localizer["Testing"]</span>
+                                        break;
+                                    case ServiceStatus.Offline:
+                                        <span class="badge bg-danger">@Localizer["Offline"]</span>
+                                        break;
+                                }
+                            </td>
+                            <td class="text-end">
+
+                                @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-outline-primary">
+                                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                    </a>
+                                    <form asp-action="Delete" asp-route-id="@s.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('confirm-delete-service', '@Localizer["Are you sure you want to delete this service?"]'));">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                        </button>
+                                    </form>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<div id="loc-data" hidden>
+    <span data-key="confirm-delete-service">@Localizer["Are you sure you want to delete this service?"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+    <script>
+        $(document).ready(function () {
+            $('#servicesTable').DataTable({
+                "destroy": true,
+                "responsive": true,
+                "paging": true,
+                "pageLength": 25,
+                "searching": true,
+                "info": false,
+                "order": [[0, "asc"]]
+            });
+        });
+    </script>
+}

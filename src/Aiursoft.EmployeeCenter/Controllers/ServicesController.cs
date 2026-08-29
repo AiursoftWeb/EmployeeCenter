@@ -27,22 +27,130 @@ public class ServicesController(
         CascadedLinksOrder = 2,
         LinkText = "Services",
         LinkOrder = 2)]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int? serverId = null)
     {
+        if (serverId.HasValue)
+        {
+            return RedirectToAction(nameof(List), new { serverId });
+        }
+
         var services = await context.Services
+            .AsNoTracking()
+            .Include(service => service.Server)
+            .ThenInclude(server => server!.Location)
+            .Include(service => service.DnsProvider)
+            .ToListAsync();
+
+        var assignedServices = services.Count(service => service.ServerId.HasValue);
+        var dnsAssignedServices = services.Count(service => service.DnsProviderId.HasValue);
+        var serverDistribution = services
+            .Where(service => service.ServerId.HasValue)
+            .GroupBy(service => new
+            {
+                service.ServerId,
+                Name = service.Server?.Hostname ?? service.Server?.ServerIp ?? $"Server #{service.ServerId}"
+            })
+            .Select(group => new ServiceDashboardDistributionItem
+            {
+                Name = group.Key.Name,
+                Count = group.Count(),
+                ServerId = group.Key.ServerId
+            })
+            .OrderByDescending(item => item.Count)
+            .ThenBy(item => item.Name)
+            .ToList();
+
+        return this.StackView(new ServicesDashboardViewModel
+        {
+            TotalServices = services.Count,
+            RunningServices = services.Count(service => service.Status == ServiceStatus.Running),
+            AssignedServices = assignedServices,
+            CloudflareProxiedServices = services.Count(service => service.IsCloudflareProxied),
+            FrpsServices = services.Count(service => service.IsViaFrps),
+            AuthentikIntegratedServices = services.Count(service => service.AuthentikIntegrated),
+            SelfDevelopedServices = services.Count(service => service.IsSelfDeveloped),
+            ActiveServerCount = serverDistribution.Count,
+            ActiveLocationCount = services
+                .Where(service => service.Server?.LocationId != null)
+                .Select(service => service.Server!.LocationId)
+                .Distinct()
+                .Count(),
+            DnsProviderPercentage = services.Count == 0
+                ? 0
+                : Math.Round(dnsAssignedServices * 100.0 / services.Count, 1),
+            ServerDistribution = serverDistribution,
+            LocationDistribution = BuildDistribution(
+                services,
+                service => service.Server?.Location?.Name ?? localizer["Unassigned"].Value),
+            DnsProviderDistribution = BuildDistribution(
+                services,
+                service => service.DnsProvider?.Name ?? localizer["Unassigned"].Value),
+            StatusDistribution = BuildDistribution(
+                services,
+                service => localizer[service.Status.ToString()].Value),
+            PurposeDistribution = BuildDistribution(
+                services,
+                service => localizer[service.Purpose.ToString()].Value),
+            PageTitle = localizer["Services Dashboard"]
+        });
+    }
+
+    public async Task<IActionResult> List(int? serverId = null)
+    {
+        Server? filteredServer = null;
+        if (serverId.HasValue)
+        {
+            filteredServer = await context.Servers
+                .AsNoTracking()
+                .FirstOrDefaultAsync(server => server.Id == serverId.Value);
+            if (filteredServer == null)
+            {
+                return NotFound();
+            }
+        }
+
+        var servicesQuery = context.Services
             .Include(s => s.Owner)
             .Include(s => s.CrossEntityLink)
             .Include(s => s.DnsProvider)
             .Include(s => s.Server)
             .ThenInclude(s => s!.Location)
+            .Include(s => s.FrpsServer)
+            .AsQueryable();
+        if (serverId.HasValue)
+        {
+            servicesQuery = servicesQuery.Where(service =>
+                service.ServerId == serverId.Value || service.FrpsServerId == serverId.Value);
+        }
+
+        var services = await servicesQuery
             .OrderBy(s => s.Domain)
             .ToListAsync();
 
         return this.StackView(new IndexViewModel
         {
             Services = services,
-            PageTitle = localizer["Services"]
+            FilteredServer = filteredServer,
+            PageTitle = filteredServer == null
+                ? localizer["Services"]
+                : localizer["Services associated with {0}", filteredServer.Hostname ?? filteredServer.ServerIp ?? filteredServer.Id.ToString()]
         });
+    }
+
+    private static List<ServiceDashboardDistributionItem> BuildDistribution(
+        IEnumerable<Service> services,
+        Func<Service, string> keySelector)
+    {
+        return services
+            .GroupBy(keySelector)
+            .Select(group => new ServiceDashboardDistributionItem
+            {
+                Name = group.Key,
+                Count = group.Count()
+            })
+            .OrderByDescending(item => item.Count)
+            .ThenBy(item => item.Name)
+            .ToList();
     }
 
     [Authorize(Policy = AppPermissionNames.CanManageServices)]
@@ -71,6 +179,7 @@ public class ServicesController(
                 CrossEntityLinkId = model.CrossEntityLinkId,
                 Protocols = model.Protocols,
                 ServerId = model.ServerId,
+                FrpsServerId = model.IsViaFrps ? model.FrpsServerId : null,
                 DnsProviderId = model.DnsProviderId,
                 IsViaFrps = model.IsViaFrps,
                 IsCloudflareProxied = model.IsCloudflareProxied,
@@ -84,7 +193,7 @@ public class ServicesController(
             };
             context.Services.Add(service);
             await context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(List));
         }
 
         model.AllOwners = await context.CompanyEntities.ToListAsync();
@@ -108,6 +217,7 @@ public class ServicesController(
             CrossEntityLinkId = service.CrossEntityLinkId,
             Protocols = service.Protocols,
             ServerId = service.ServerId,
+            FrpsServerId = service.FrpsServerId,
             DnsProviderId = service.DnsProviderId,
             IsViaFrps = service.IsViaFrps,
             IsCloudflareProxied = service.IsCloudflareProxied,
@@ -138,6 +248,7 @@ public class ServicesController(
             service.CrossEntityLinkId = model.CrossEntityLinkId;
             service.Protocols = model.Protocols;
             service.ServerId = model.ServerId;
+            service.FrpsServerId = model.IsViaFrps ? model.FrpsServerId : null;
             service.DnsProviderId = model.DnsProviderId;
             service.IsViaFrps = model.IsViaFrps;
             service.IsCloudflareProxied = model.IsCloudflareProxied;
@@ -149,7 +260,7 @@ public class ServicesController(
             service.UpdatedAt = DateTime.UtcNow;
 
             await context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(List));
         }
 
         model.AllOwners = await context.CompanyEntities.ToListAsync();
@@ -175,7 +286,7 @@ public class ServicesController(
 
         context.Services.Remove(service);
         await context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(List));
     }
 
     [Authorize(Policy = AppPermissionNames.CanManageServices)]

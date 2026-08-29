@@ -13,4 +13,6 @@ public class IndexViewModel : UiStackLayoutViewModel
 
     [Display(Name = "Services")]
     public List<Service> Services { get; set; } = new();
+
+    public Server? FilteredServer { get; set; }
 }

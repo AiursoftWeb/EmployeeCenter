@@ -67,6 +67,7 @@ public sealed class CloudflareDnsAuditService(
         var services = await dbContext.Services
             .AsNoTracking()
             .Include(service => service.Server)
+            .Include(service => service.FrpsServer)
             .Include(service => service.DnsProvider)
             .ToListAsync(cancellationToken);
         var servers = await dbContext.Servers

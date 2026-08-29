@@ -1,204 +1,374 @@
 @using Aiursoft.EmployeeCenter.Authorization
-@model Aiursoft.EmployeeCenter.Models.ServicesViewModels.IndexViewModel
-@{
-}
+@model Aiursoft.EmployeeCenter.Models.ServicesViewModels.ServicesDashboardViewModel
 
-<div class="row mb-2 mb-xl-3">
-    <div class="col-auto d-none d-sm-block">
-        <h3>@Localizer["Services"]</h3>
-    </div>
-
-    @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
-    {
-        <div class="col-auto ms-auto text-end">
-            <a asp-action="DnsProviders" class="btn btn-outline-primary me-2">
-                <i class="align-middle" data-lucide="globe"></i> @Localizer["Manage DNS Providers"]
-            </a>
-            <a asp-action="Create" class="btn btn-primary">
-                <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Service"]
-            </a>
+<div class="container-fluid p-0">
+    <div class="row mb-2 mb-xl-3 align-items-center">
+        <div class="col-auto d-none d-sm-block">
+            <h3 class="mb-1">@Localizer["Services Dashboard"]</h3>
+            <p class="text-muted mb-0">@Localizer["A high-level view of service availability, placement, and infrastructure coverage."]</p>
         </div>
-    }
-</div>
-
-<div class="card">
-    <div class="card-header">
-        <h5 class="card-title mb-0">@Localizer["All Services"]</h5>
+        <div class="col-auto ms-auto text-end mt-n1">
+            <a asp-action="List" class="btn btn-primary shadow-sm ms-1">
+                <i class="align-middle" data-lucide="list"></i> @Localizer["View Detailed Service Table"]
+            </a>
+            <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-outline-info shadow-sm ms-1">
+                <i class="align-middle" data-lucide="scan-search"></i> @Localizer["DNS Audit"]
+            </a>
+            @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
+            {
+                <a asp-action="Create" class="btn btn-outline-primary shadow-sm ms-1">
+                    <i class="align-middle" data-lucide="plus"></i> @Localizer["New Service"]
+                </a>
+            }
+        </div>
     </div>
-    @if (!Model.Services.Any())
-    {
-        <div class="card-body">
-            <div class="alert alert-info mb-0" role="alert">
-                <div class="alert-message">
-                    @Localizer["No services found."]
+
+    <div class="card border-0 overflow-hidden service-dashboard-hero mb-4">
+        <div class="card-body p-4 p-lg-5 position-relative">
+            <div class="row align-items-center position-relative service-dashboard-hero-content">
+                <div class="col-lg-8">
+                    <div class="text-uppercase small fw-semibold opacity-75 mb-2">@Localizer["Infrastructure Registry"]</div>
+                    <h1 class="display-6 fw-bold mb-2">@Model.TotalServices @Localizer["registered services"]</h1>
+                    <p class="lead mb-0 opacity-75">
+                        @Model.RunningServices @Localizer["running"] ·
+                        @Model.ActiveServerCount @Localizer["active servers"] ·
+                        @Model.ActiveLocationCount @Localizer["locations"]
+                    </p>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="d-flex justify-content-lg-end">
+                        <div class="service-dashboard-score text-center">
+                            <div class="display-5 fw-bold">@Model.RunningPercentage.ToString("0.#")%</div>
+                            <div class="small text-uppercase opacity-75">@Localizer["Operational"]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <i class="service-dashboard-watermark" data-lucide="network"></i>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body py-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-2">@Model.TotalServices</h3>
+                            <p class="mb-2">@Localizer["Service Registry"]</p>
+                            <span class="badge badge-subtle-primary me-2">@Model.RunningServices @Localizer["Running"]</span>
+                            <span class="text-muted">@(Model.TotalServices - Model.RunningServices) @Localizer["Other"]</span>
+                        </div>
+                        <div class="stat ms-3"><i class="align-middle text-primary" data-lucide="layers-3"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
-    }
-    else
-    {
-        <div class="table-responsive">
-            <table class="table table-hover mb-0" id="servicesTable">
-                <thead>
-                    <tr>
-                        <th>@Localizer["Domain"]</th>
-                        <th>@Localizer["Availability"]</th>
-                        <th>@Localizer["Owner"]</th>
-                        <th>@Localizer["Protocols"]</th>
-                        <th>@Localizer["Location"]</th>
-                        <th>@Localizer["Server"]</th>
-                        <th>@Localizer["DNS"]</th>
-                        <th>@Localizer["Purpose"]</th>
-                        <th>@Localizer["Self"]</th>
-                        <th>@Localizer["Authentik"]</th>
-                        <th>@Localizer["Cloudflare Proxied"]</th>
-                        <th>@Localizer["Via Frps"]</th>
-                        <th>@Localizer["Status"]</th>
-                        <th class="text-end">@Localizer["Actions"]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var s in Model.Services)
-                    {
-                        <tr>
-                            <td>
-                                <code>@s.Domain</code>
-                            </td>
-                            <td>
-                                @if (s.Protocols?.Trim().StartsWith("HTTP", StringComparison.OrdinalIgnoreCase) == true)
-                                {
-                                    var protocol = s.Protocols.Contains("HTTPS", StringComparison.OrdinalIgnoreCase) ? "https" : "http";
-                                    var url = $"{protocol}://{s.Domain}";
-                                    var encodedUrl = Uri.EscapeDataString(url);
-                                    <a href="@url" target="_blank">
-                                        <img src="https://img.shields.io/website?url=@encodedUrl" alt="Status" />
-                                    </a>
-                                }
-                            </td>
-                            <td>
-                                @(s.Owner?.CompanyName ?? "-")
-                            </td>
-                            <td>
-                                @(s.Protocols ?? "-")
-                            </td>
-                            <td>
-                                @(s.Server?.Location?.Name ?? "-")
-                            </td>
-                            <td>
-                                @if (!string.IsNullOrWhiteSpace(s.Server?.DetailLink))
-                                {
-                                    <a href="@s.Server.DetailLink" target="_blank" class="btn btn-sm btn-light border shadow-sm">
-                                         <i class="align-middle text-muted" data-lucide="server"></i> 
-                                         @(s.Server?.Hostname ?? s.Server?.ServerIp ?? "-")
-                                    </a>
-                                }
-                                else
-                                {
-                                    <span>@(s.Server?.Hostname ?? s.Server?.ServerIp ?? "-")</span>
-                                }
-                            </td>
-                            <td>
-                                @(s.DnsProvider?.Name ?? "-")
-                            </td>
-                            <td>
-                                @Localizer[s.Purpose.ToString()]
-                            </td>
-                            <td data-order="@(s.IsSelfDeveloped ? 1 : 0)">
-                                @if (s.IsSelfDeveloped)
-                                {
-                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
-                                }
-                                else
-                                {
-                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
-                                }
-                            </td>
-                            <td data-order="@(s.AuthentikIntegrated ? 1 : 0)">
-                                @if (s.AuthentikIntegrated)
-                                {
-                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
-                                }
-                                else
-                                {
-                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
-                                }
-                            </td>
-                            <td data-order="@(s.IsCloudflareProxied ? 1 : 0)">
-                                @if (s.IsCloudflareProxied)
-                                {
-                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
-                                }
-                                else
-                                {
-                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
-                                }
-                            </td>
-                            <td data-order="@(s.IsViaFrps ? 1 : 0)">
-                                @if (s.IsViaFrps)
-                                {
-                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
-                                }
-                                else
-                                {
-                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
-                                }
-                            <td data-order="@((int)s.Status)">
-                                @switch (s.Status)
-                                {
-                                    case ServiceStatus.Running:
-                                        <span class="badge bg-success">@Localizer["Running"]</span>
-                                        break;
-                                    case ServiceStatus.Developing:
-                                        <span class="badge bg-warning">@Localizer["Developing"]</span>
-                                        break;
-                                    case ServiceStatus.Testing:
-                                        <span class="badge bg-info">@Localizer["Testing"]</span>
-                                        break;
-                                    case ServiceStatus.Offline:
-                                        <span class="badge bg-danger">@Localizer["Offline"]</span>
-                                        break;
-                                }
-                            </td>
-                            <td class="text-end">
-
-                                @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
-                                {
-                                    <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-outline-primary">
-                                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
-                                    </a>
-                                    <form asp-action="Delete" asp-route-id="@s.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('confirm-delete-service', '@Localizer["Are you sure you want to delete this service?"]'));">
-                                        <button type="submit" class="btn btn-sm btn-outline-danger">
-                                            <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                                        </button>
-                                    </form>
-                                }
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+        <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body py-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-2">@Model.RunningPercentage.ToString("0.#")%</h3>
+                            <p class="mb-2">@Localizer["Operational Coverage"]</p>
+                            <span class="badge badge-subtle-success me-2">@Model.RunningServices @Localizer["Online"]</span>
+                            <span class="text-muted">@Localizer["of"] @Model.TotalServices</span>
+                        </div>
+                        <div class="stat ms-3"><i class="align-middle text-success" data-lucide="activity"></i></div>
+                    </div>
+                </div>
+            </div>
         </div>
-    }
+        <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body py-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-2">@Model.ActiveServerCount</h3>
+                            <p class="mb-2">@Localizer["Active Servers"]</p>
+                            <span class="badge badge-subtle-info me-2">@Model.ActiveLocationCount @Localizer["Locations"]</span>
+                            <span class="text-muted">@Model.AssignedServices @Localizer["assigned"]</span>
+                        </div>
+                        <div class="stat ms-3"><i class="align-middle text-info" data-lucide="server"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body py-4">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-2">@Model.CloudflareProxiedServices</h3>
+                            <p class="mb-2">@Localizer["Edge Routed"]</p>
+                            <span class="badge badge-subtle-warning me-2">@Model.FrpsServices FRPS</span>
+                            <span class="text-muted">@Localizer["Cloudflare proxied"]</span>
+                        </div>
+                        <div class="stat ms-3"><i class="align-middle text-warning" data-lucide="cloud"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-xl-8 d-flex">
+            <div class="card flex-fill w-100">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <div>
+                        <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="bar-chart-3"></i> @Localizer["Services by Server"]</h5>
+                        <div class="text-muted small">@Localizer["Click a bar or server name to inspect its services."]</div>
+                    </div>
+                    <a asp-controller="Servers" asp-action="Index" class="btn btn-sm btn-outline-primary">@Localizer["Manage Servers"]</a>
+                </div>
+                <div class="card-body">
+                    @if (Model.ServerDistribution.Any())
+                    {
+                        <div class="chart" style="min-height: @(Math.Max(280, Model.ServerDistribution.Count * 38))px; max-height: 620px;">
+                            <canvas id="serverDistributionChart"></canvas>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            @foreach (var server in Model.ServerDistribution.Take(8))
+                            {
+                                <a asp-action="List" asp-route-serverId="@server.ServerId" class="badge badge-subtle-primary text-decoration-none px-3 py-2">
+                                    @server.Name <strong class="ms-1">@server.Count</strong>
+                                </a>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center text-muted py-5">
+                            <i data-lucide="server-off" class="d-block mx-auto mb-2 dashboard-empty-icon"></i>
+                            @Localizer["No services are assigned to servers yet."]
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4 d-flex">
+            <div class="card flex-fill w-100">
+                <div class="card-header">
+                    <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="heart-pulse"></i> @Localizer["Lifecycle Status"]</h5>
+                    <div class="text-muted small">@Localizer["Current state of every registered service."]</div>
+                </div>
+                <div class="card-body d-flex align-items-center">
+                    <div class="w-100">
+                        <div class="chart chart-sm service-doughnut-chart">
+                            <canvas id="statusDistributionChart"></canvas>
+                        </div>
+                        <div class="row g-2 mt-3">
+                            @foreach (var item in Model.StatusDistribution)
+                            {
+                                <div class="col-6">
+                                    <div class="border rounded p-2 d-flex justify-content-between align-items-center">
+                                        <span class="text-muted small">@item.Name</span>
+                                        <strong>@item.Count</strong>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-4 d-flex">
+            <div class="card flex-fill w-100">
+                <div class="card-header">
+                    <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="map-pin"></i> @Localizer["Geographic Distribution"]</h5>
+                    <div class="text-muted small">@Localizer["Service placement by server location."]</div>
+                </div>
+                <div class="card-body"><div class="chart chart-sm service-doughnut-chart"><canvas id="locationDistributionChart"></canvas></div></div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 d-flex">
+            <div class="card flex-fill w-100">
+                <div class="card-header">
+                    <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="globe-2"></i> @Localizer["DNS Distribution"]</h5>
+                    <div class="text-muted small">@Localizer["Registered services grouped by DNS provider."]</div>
+                </div>
+                <div class="card-body"><div class="chart chart-sm service-doughnut-chart"><canvas id="dnsDistributionChart"></canvas></div></div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 d-flex">
+            <div class="card flex-fill w-100">
+                <div class="card-header">
+                    <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="compass"></i> @Localizer["Service Purpose"]</h5>
+                    <div class="text-muted small">@Localizer["Audience and routing scope of the service portfolio."]</div>
+                </div>
+                <div class="card-body"><div class="chart chart-sm service-doughnut-chart"><canvas id="purposeDistributionChart"></canvas></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <div>
+                <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="badge-check"></i> @Localizer["Registry Quality"]</h5>
+                <div class="text-muted small">@Localizer["How completely the service catalog describes infrastructure and governance."]</div>
+            </div>
+            <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-sm btn-outline-info">@Localizer["Run DNS Audit"]</a>
+        </div>
+        <div class="card-body">
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Server assignment"]</span><strong>@Model.AssignmentPercentage.ToString("0.#")%</strong></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-primary" style="width: @Model.AssignmentPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["DNS provider registration"]</span><strong>@Model.DnsProviderPercentage.ToString("0.#")%</strong></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-info" style="width: @Model.DnsProviderPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Authentik integration"]</span><strong>@Model.AuthentikPercentage.ToString("0.#")%</strong></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-success" style="width: @Model.AuthentikPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Self-developed services"]</span><strong>@Model.SelfDevelopedPercentage.ToString("0.#")%</strong></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-warning" style="width: @Model.SelfDevelopedPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="loc-data" hidden>
-    <span data-key="confirm-delete-service">@Localizer["Are you sure you want to delete this service?"]</span>
+<div id="service-dashboard-data" hidden
+     data-server-labels='@Json.Serialize(Model.ServerDistribution.Select(item => item.Name))'
+     data-server-values='@Json.Serialize(Model.ServerDistribution.Select(item => item.Count))'
+     data-server-ids='@Json.Serialize(Model.ServerDistribution.Select(item => item.ServerId))'
+     data-status-labels='@Json.Serialize(Model.StatusDistribution.Select(item => item.Name))'
+     data-status-values='@Json.Serialize(Model.StatusDistribution.Select(item => item.Count))'
+     data-location-labels='@Json.Serialize(Model.LocationDistribution.Select(item => item.Name))'
+     data-location-values='@Json.Serialize(Model.LocationDistribution.Select(item => item.Count))'
+     data-dns-labels='@Json.Serialize(Model.DnsProviderDistribution.Select(item => item.Name))'
+     data-dns-values='@Json.Serialize(Model.DnsProviderDistribution.Select(item => item.Count))'
+     data-purpose-labels='@Json.Serialize(Model.PurposeDistribution.Select(item => item.Name))'
+     data-purpose-values='@Json.Serialize(Model.PurposeDistribution.Select(item => item.Count))'
+     data-service-count-label='@Localizer["Services"]'
+     data-server-list-url='@Url.Action("List", "Services")'>
 </div>
+
+<style>
+    .service-dashboard-hero {
+        color: #fff;
+        background: linear-gradient(125deg, #2446a8 0%, #3b7ddd 48%, #36a2ae 100%);
+        box-shadow: 0 1rem 2.5rem rgba(36, 70, 168, .22);
+    }
+    .service-dashboard-hero-content { z-index: 2; }
+    .service-dashboard-score {
+        min-width: 160px;
+        padding: 1.25rem 1.5rem;
+        border: 1px solid rgba(255, 255, 255, .28);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, .12);
+        backdrop-filter: blur(8px);
+    }
+    .service-dashboard-watermark {
+        position: absolute;
+        right: -1.5rem;
+        bottom: -2.5rem;
+        width: 15rem;
+        height: 15rem;
+        opacity: .08;
+        z-index: 1;
+    }
+    .service-doughnut-chart { min-height: 260px; }
+    .service-quality-progress { height: .55rem; border-radius: 1rem; }
+    .dashboard-empty-icon { width: 2.5rem; height: 2.5rem; }
+</style>
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    <partial name="_LocalizationHelper" />
+    <script src="~/node_modules/chart.js/dist/chart.umd.min.js" asp-append-version="true"></script>
     <script>
-        $(document).ready(function () {
-            $('#servicesTable').DataTable({
-                "destroy": true,
-                "responsive": true,
-                "paging": true,
-                "pageLength": 25,
-                "searching": true,
-                "info": false,
-                "order": [[0, "asc"]]
-            });
+        document.addEventListener('DOMContentLoaded', function () {
+            const dataElement = document.getElementById('service-dashboard-data');
+            const readJson = name => JSON.parse(dataElement.getAttribute(name));
+            const palette = [
+                'rgba(59, 125, 221, .86)', 'rgba(40, 167, 69, .86)',
+                'rgba(255, 193, 7, .86)', 'rgba(220, 53, 69, .86)',
+                'rgba(23, 162, 184, .86)', 'rgba(111, 66, 193, .86)',
+                'rgba(253, 126, 20, .86)', 'rgba(108, 117, 125, .86)'
+            ];
+            const chartBorder = getComputedStyle(document.body).getPropertyValue('--bs-body-bg').trim() || '#fff';
+
+            const doughnut = (canvasId, labelsAttribute, valuesAttribute) => {
+                const canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                new Chart(canvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: readJson(labelsAttribute),
+                        datasets: [{
+                            data: readJson(valuesAttribute),
+                            backgroundColor: palette,
+                            borderColor: chartBorder,
+                            borderWidth: 3,
+                            hoverOffset: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '66%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { padding: 14, usePointStyle: true, pointStyle: 'circle' }
+                            }
+                        }
+                    }
+                });
+            };
+
+            const serverCanvas = document.getElementById('serverDistributionChart');
+            if (serverCanvas) {
+                const serverIds = readJson('data-server-ids');
+                const listUrl = dataElement.getAttribute('data-server-list-url');
+                new Chart(serverCanvas, {
+                    type: 'bar',
+                    data: {
+                        labels: readJson('data-server-labels'),
+                        datasets: [{
+                            label: dataElement.getAttribute('data-service-count-label'),
+                            data: readJson('data-server-values'),
+                            backgroundColor: palette,
+                            borderRadius: 6,
+                            borderSkipped: false,
+                            barPercentage: .68
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        onHover: (event, elements) => {
+                            event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+                        },
+                        onClick: (event, elements) => {
+                            if (!elements.length) return;
+                            window.location.href = `${listUrl}?serverId=${serverIds[elements[0].index]}`;
+                        },
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                ticks: { precision: 0 },
+                                grid: { color: 'rgba(148, 163, 184, .14)' }
+                            },
+                            y: { grid: { display: false } }
+                        }
+                    }
+                });
+            }
+
+            doughnut('statusDistributionChart', 'data-status-labels', 'data-status-values');
+            doughnut('locationDistributionChart', 'data-location-labels', 'data-location-values');
+            doughnut('dnsDistributionChart', 'data-dns-labels', 'data-dns-values');
+            doughnut('purposeDistributionChart', 'data-purpose-labels', 'data-purpose-values');
         });
     </script>
 }

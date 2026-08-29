@@ -36,9 +36,27 @@ public class ServersController(
             .OrderBy(s => s.Hostname)
             .ToListAsync();
 
+        var serviceAssociations = await context.Services
+            .AsNoTracking()
+            .Select(service => new
+            {
+                service.Id,
+                service.ServerId,
+                service.FrpsServerId
+            })
+            .ToListAsync();
+        var associatedServiceCounts = serviceAssociations
+            .SelectMany(service => new[] { service.ServerId, service.FrpsServerId }
+                .Where(serverId => serverId.HasValue)
+                .Select(serverId => new { ServiceId = service.Id, ServerId = serverId!.Value }))
+            .Distinct()
+            .GroupBy(association => association.ServerId)
+            .ToDictionary(group => group.Key, group => group.Count());
+
         return this.StackView(new IndexServerViewModel
         {
             Servers = servers,
+            AssociatedServiceCounts = associatedServiceCounts,
             PageTitle = localizer["Servers"]
         });
     }
@@ -64,6 +82,7 @@ public class ServersController(
             var server = new Server
             {
                 ServerIp = model.ServerIp,
+                Ipv6Address = model.Ipv6Address,
                 DetailLink = model.DetailLink,
                 LocationId = model.LocationId,
                 Hostname = model.Hostname,
@@ -94,6 +113,7 @@ public class ServersController(
         {
             Id = server.Id,
             ServerIp = server.ServerIp,
+            Ipv6Address = server.Ipv6Address,
             DetailLink = server.DetailLink,
             LocationId = server.LocationId,
             Hostname = server.Hostname,
@@ -118,6 +138,7 @@ public class ServersController(
         if (ModelState.IsValid)
         {
             server.ServerIp = model.ServerIp;
+            server.Ipv6Address = model.Ipv6Address;
             server.DetailLink = model.DetailLink;
             server.LocationId = model.LocationId;
             server.Hostname = model.Hostname;
@@ -143,11 +164,12 @@ public class ServersController(
     {
         var server = await context.Servers
             .Include(s => s.Services)
+            .Include(s => s.FrpsServices)
             .FirstOrDefaultAsync(s => s.Id == id);
 
         if (server == null) return NotFound();
 
-        if (server.Services.Any())
+        if (server.Services.Any() || server.FrpsServices.Any())
         {
             return BadRequest("Cannot delete a server that is being used by services.");
         }

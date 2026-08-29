@@ -297,6 +297,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CreateTime")
+                        .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("LastMeetingMinutesAttemptTime")
@@ -1873,6 +1874,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Ipv6Address")
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("LocationId")
                         .HasColumnType("INTEGER");
 
@@ -1926,6 +1931,9 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("FrpsServerId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("IsCloudflareProxied")
                         .HasColumnType("INTEGER");
 
@@ -1963,6 +1971,8 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.HasIndex("CrossEntityLinkId");
 
                     b.HasIndex("DnsProviderId");
+
+                    b.HasIndex("FrpsServerId");
 
                     b.HasIndex("OwnerId");
 
@@ -3062,6 +3072,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .WithMany("Services")
                         .HasForeignKey("DnsProviderId");
 
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Server", "FrpsServer")
+                        .WithMany("FrpsServices")
+                        .HasForeignKey("FrpsServerId");
+
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.CompanyEntity", "Owner")
                         .WithMany()
                         .HasForeignKey("OwnerId");
@@ -3073,6 +3087,8 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Navigation("CrossEntityLink");
 
                     b.Navigation("DnsProvider");
+
+                    b.Navigation("FrpsServer");
 
                     b.Navigation("Owner");
 
@@ -3363,6 +3379,8 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Server", b =>
                 {
+                    b.Navigation("FrpsServices");
+
                     b.Navigation("Services");
                 });
 

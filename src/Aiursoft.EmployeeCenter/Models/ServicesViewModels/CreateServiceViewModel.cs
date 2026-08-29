@@ -4,7 +4,7 @@ using Aiursoft.UiStack.Layout;
 
 namespace Aiursoft.EmployeeCenter.Models.ServicesViewModels;
 
-public class CreateServiceViewModel : UiStackLayoutViewModel
+public class CreateServiceViewModel : UiStackLayoutViewModel, IValidatableObject
 {
     public CreateServiceViewModel()
     {
@@ -28,6 +28,9 @@ public class CreateServiceViewModel : UiStackLayoutViewModel
 
     [Display(Name = "Server")]
     public int? ServerId { get; set; }
+
+    [Display(Name = "FRPS Server")]
+    public int? FrpsServerId { get; set; }
 
     [Display(Name = "DNS Provider")]
     public int? DnsProviderId { get; set; }
@@ -58,4 +61,26 @@ public class CreateServiceViewModel : UiStackLayoutViewModel
     public List<DnsProvider> AllDnsProviders { get; set; } = new();
     public List<Service> AllServices { get; set; } = new();
     public List<Server> AllServers { get; set; } = new();
+
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        if (!IsViaFrps)
+        {
+            yield break;
+        }
+
+        if (!ServerId.HasValue)
+        {
+            yield return new ValidationResult(
+                "The running server is required when the service uses FRPS.",
+                [nameof(ServerId)]);
+        }
+
+        if (!FrpsServerId.HasValue)
+        {
+            yield return new ValidationResult(
+                "The FRPS server is required when the service uses FRPS.",
+                [nameof(FrpsServerId)]);
+        }
+    }
 }
