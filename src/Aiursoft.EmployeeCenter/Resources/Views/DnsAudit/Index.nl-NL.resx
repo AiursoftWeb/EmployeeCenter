@@ -27,6 +27,12 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Audit mislukt</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Nu auditeren</value>
+  </data>
+  <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
+    <value>Automatisch bijgewerkt elke 20 minuten</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Controle</value>
   </data>
@@ -44,6 +50,9 @@
   </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS-audit</value>
+  </data>
+  <data name="DNS audit is starting" xml:space="preserve">
+    <value>DNS-audit wordt gestart</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS-records</value>
@@ -69,6 +78,12 @@
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Laatste geslaagde audit</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Laatste vernieuwing mislukt</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Er zijn geen DNS-auditproblemen gevonden.</value>
   </data>
@@ -80,6 +95,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Ernst</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>De eerste achtergrondaudit is nog niet voltooid. Deze pagina leest het resultaat uit de in-geheugen-cache.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>De laatste succesvolle gecachte audit wordt hieronder weergegeven.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Waarschuwing</value>

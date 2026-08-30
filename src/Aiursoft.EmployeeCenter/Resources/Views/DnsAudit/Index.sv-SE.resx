@@ -27,6 +27,12 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Audit misslyckades</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Auditera nu</value>
+  </data>
+  <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
+    <value>Uppdateras automatiskt var 20:e minut</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Kontroll</value>
   </data>
@@ -44,6 +50,9 @@
   </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS-granskning</value>
+  </data>
+  <data name="DNS audit is starting" xml:space="preserve">
+    <value>DNS-återvinning påbörjas</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS-poster</value>
@@ -69,6 +78,12 @@
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Senast lyckad revision</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Senaste uppdateringen misslyckades</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Inga DNS-audditeringsproblem hittades.</value>
   </data>
@@ -80,6 +95,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Allvarlighetsgrad</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>Den första bakgrundsskontrollen är inte klar än. Denna sida läser resultatet från det minnesbaserade cachen.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Den senast lyckade cachade granskningen visas nedan.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Varning</value>
