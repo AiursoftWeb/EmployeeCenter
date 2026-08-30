@@ -215,6 +215,72 @@ public class DnsAuditAnalyzerTests
     }
 
     [TestMethod]
+    public void AuditsExternalDnsProviderWithPublicDualStackResults()
+    {
+        var service = RegisteredService("api.tencent.test", dnsProviderName: "Tencent");
+        var report = Analyze(
+            records:
+            [
+                Record("api.tencent.test", "A", "192.0.2.10", proxied: false),
+                Record("api.tencent.test", "AAAA", "2001:db8::10", proxied: false)
+            ],
+            services: [service],
+            servers: [RegisteredServer("192.0.2.10", ipv6Address: "2001:db8::10")],
+            publiclyAuditedDomains: ["api.tencent.test"]);
+
+        Assert.IsEmpty(report.Issues);
+    }
+
+    [TestMethod]
+    public void AppliesAddressFamilyChecksToExternalDnsProvider()
+    {
+        var report = Analyze(
+            records: [Record("v4.tencent.test", "A", "192.0.2.10", proxied: false)],
+            services: [RegisteredService("v4.tencent.test", dnsProviderName: "Tencent")],
+            servers: [RegisteredServer("192.0.2.10")],
+            publiclyAuditedDomains: ["v4.tencent.test"]);
+
+        Assert.IsTrue(report.Issues.Any(issue =>
+            issue.Type == DnsAuditIssueType.AddressFamilyMismatch &&
+            issue.Domain == "v4.tencent.test"));
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.ServiceOutsideAuditedZone));
+    }
+
+    [TestMethod]
+    public void ReportsMissingDnsAfterSuccessfulExternalLookup()
+    {
+        var report = Analyze(
+            records: [],
+            services: [RegisteredService("missing.tencent.test", dnsProviderName: "Tencent")],
+            servers: [],
+            publiclyAuditedDomains: ["missing.tencent.test"]);
+
+        Assert.IsTrue(report.Issues.Any(issue =>
+            issue.Type == DnsAuditIssueType.MissingDns &&
+            issue.Severity == DnsAuditSeverity.Critical));
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.ServiceOutsideAuditedZone));
+    }
+
+    [TestMethod]
+    public void DistinguishesExternalDnsFailureFromMissingRecord()
+    {
+        var report = Analyze(
+            records: [],
+            services: [RegisteredService("timeout.tencent.test", dnsProviderName: "Tencent")],
+            servers: [],
+            publicDnsLookupFailures: new Dictionary<string, string>
+            {
+                ["timeout.tencent.test"] = "The public DNS lookup timed out after 10 seconds."
+            });
+
+        Assert.IsTrue(report.Issues.Any(issue =>
+            issue.Type == DnsAuditIssueType.PublicDnsLookupFailed &&
+            issue.Severity == DnsAuditSeverity.Warning));
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.MissingDns));
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.ServiceOutsideAuditedZone));
+    }
+
+    [TestMethod]
     public void FindsRunningServiceWithoutServerAssignment()
     {
         var report = Analyze(
@@ -265,7 +331,9 @@ public class DnsAuditAnalyzerTests
         IReadOnlyCollection<Service> services,
         IReadOnlyCollection<Server> servers,
         IReadOnlyDictionary<string, IReadOnlyCollection<string>>? resolvedCnames = null,
-        IReadOnlyCollection<string>? publiclyResolvableDomains = null)
+        IReadOnlyCollection<string>? publiclyResolvableDomains = null,
+        IReadOnlyCollection<string>? publiclyAuditedDomains = null,
+        IReadOnlyDictionary<string, string>? publicDnsLookupFailures = null)
     {
         return DnsAuditAnalyzer.Analyze(new DnsAuditInput(
             ["example.com"],
@@ -274,7 +342,9 @@ public class DnsAuditAnalyzerTests
             services,
             servers,
             resolvedCnames ?? new Dictionary<string, IReadOnlyCollection<string>>(),
-            publiclyResolvableDomains));
+            publiclyResolvableDomains,
+            publiclyAuditedDomains,
+            publicDnsLookupFailures));
     }
 
     private static DnsAuditRecord Record(string name, string type, string content, bool proxied)
@@ -296,7 +366,8 @@ public class DnsAuditAnalyzerTests
         int? serverId = 1,
         ServiceStatus status = ServiceStatus.Running,
         bool isViaFrps = false,
-        int? frpsServerId = null)
+        int? frpsServerId = null,
+        string? dnsProviderName = null)
     {
         return new Service
         {
@@ -306,7 +377,8 @@ public class DnsAuditAnalyzerTests
             ServerId = serverId,
             IsViaFrps = isViaFrps,
             FrpsServerId = frpsServerId,
-            Status = status
+            Status = status,
+            DnsProvider = dnsProviderName == null ? null : new DnsProvider { Name = dnsProviderName }
         };
     }
 

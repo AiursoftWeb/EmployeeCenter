@@ -74,12 +74,35 @@ public sealed class CloudflareDnsAuditService(
             .AsNoTracking()
             .ToListAsync(cancellationToken);
 
+        // Cloudflare's API remains the source of truth for zones managed by
+        // Cloudflare because public DNS deliberately hides orange-cloud origins.
+        // For every registered service outside those zones, query public DNS and
+        // feed the observed effective A/AAAA addresses into the same analyzer.
+        var zoneNames = zones
+            .Select(zone => DnsAuditAnalyzer.NormalizeDomain(zone.Name))
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var publicDnsResolutions = await ResolveDomainOutcomesAsync(
+            services
+                .Select(service => DnsAuditAnalyzer.NormalizeDomain(service.Domain))
+                .Where(domain => domain.Length > 0 && !BelongsToAnyZone(domain, zoneNames)),
+            cancellationToken);
+        foreach (var (domain, resolution) in publicDnsResolutions.Where(pair => pair.Value.Completed))
+        {
+            totalRecordCount += resolution.Addresses.Count;
+            auditRecords.AddRange(resolution.Addresses.Select(address => new DnsAuditRecord
+            {
+                Id = $"public-dns:{domain}:{address}",
+                ZoneName = "Public DNS",
+                Type = IPAddress.Parse(address).AddressFamily == AddressFamily.InterNetwork ? "A" : "AAAA",
+                Name = domain,
+                Content = address,
+                Proxied = false
+            }));
+        }
+
         var resolvedCnameAddresses = await ResolveDnsOnlyCnamesAsync(auditRecords, cancellationToken);
         var recordNames = auditRecords
             .Select(record => DnsAuditAnalyzer.NormalizeDomain(record.Name))
-            .ToHashSet(StringComparer.OrdinalIgnoreCase);
-        var zoneNames = zones
-            .Select(zone => DnsAuditAnalyzer.NormalizeDomain(zone.Name))
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
         var publiclyResolvableManagedDomains = await ResolveDomainsAsync(
             services
@@ -96,7 +119,17 @@ public sealed class CloudflareDnsAuditService(
             services,
             servers,
             resolvedCnameAddresses,
-            publiclyResolvableManagedDomains.Keys.ToList()));
+            publiclyResolvableManagedDomains.Keys.ToList(),
+            publicDnsResolutions
+                .Where(pair => pair.Value.Completed)
+                .Select(pair => pair.Key)
+                .ToList(),
+            publicDnsResolutions
+                .Where(pair => !pair.Value.Completed)
+                .ToDictionary(
+                    pair => pair.Key,
+                    pair => pair.Value.Failure ?? "The public DNS query failed.",
+                    StringComparer.OrdinalIgnoreCase)));
     }
 
     private async Task<IReadOnlyDictionary<string, IReadOnlyCollection<string>>> ResolveDnsOnlyCnamesAsync(
@@ -115,33 +148,63 @@ public sealed class CloudflareDnsAuditService(
         IEnumerable<string> sourceDomains,
         CancellationToken cancellationToken)
     {
+        var outcomes = await ResolveDomainOutcomesAsync(sourceDomains, cancellationToken);
+        return outcomes
+            .Where(pair => pair.Value.Completed && pair.Value.Addresses.Count > 0)
+            .ToDictionary(
+                pair => pair.Key,
+                pair => pair.Value.Addresses,
+                StringComparer.OrdinalIgnoreCase);
+    }
+
+    private async Task<IReadOnlyDictionary<string, DnsResolutionResult>> ResolveDomainOutcomesAsync(
+        IEnumerable<string> sourceDomains,
+        CancellationToken cancellationToken)
+    {
         var domains = sourceDomains
             .Select(DnsAuditAnalyzer.NormalizeDomain)
             .Where(domain => domain.Length > 0 && !domain.StartsWith("*.", StringComparison.Ordinal))
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToList();
-        var result = new ConcurrentDictionary<string, IReadOnlyCollection<string>>(StringComparer.OrdinalIgnoreCase);
+        var result = new ConcurrentDictionary<string, DnsResolutionResult>(StringComparer.OrdinalIgnoreCase);
 
         await Parallel.ForEachAsync(
             domains,
             new ParallelOptions { MaxDegreeOfParallelism = 8, CancellationToken = cancellationToken },
             async (domain, token) =>
             {
+                using var lookupTimeout = CancellationTokenSource.CreateLinkedTokenSource(token);
+                lookupTimeout.CancelAfter(TimeSpan.FromSeconds(10));
                 try
                 {
-                    var addresses = await Dns.GetHostAddressesAsync(domain, token);
-                    result[domain] = addresses.Select(address => address.ToString()).Distinct().ToList();
+                    var addresses = await Dns.GetHostAddressesAsync(domain, lookupTimeout.Token);
+                    result[domain] = new DnsResolutionResult(
+                        Completed: true,
+                        Addresses: addresses.Select(address => address.ToString()).Distinct().ToList(),
+                        Failure: null);
                 }
-                catch (Exception ex) when (ex is SocketException or OperationCanceledException && !cancellationToken.IsCancellationRequested)
+                catch (SocketException ex) when (ex.SocketErrorCode is SocketError.HostNotFound or SocketError.NoData)
+                {
+                    // An authoritative negative answer is a successful audit result:
+                    // the registered hostname currently has no public address record.
+                    result[domain] = new DnsResolutionResult(true, [], null);
+                }
+                catch (OperationCanceledException ex) when (!token.IsCancellationRequested)
+                {
+                    logger.LogWarning(ex, "Public DNS lookup for '{Domain}' timed out during DNS audit", domain);
+                    result[domain] = new DnsResolutionResult(false, [], "The public DNS lookup timed out after 10 seconds.");
+                }
+                catch (SocketException ex)
                 {
                     logger.LogWarning(ex, "Could not resolve hostname '{Domain}' during DNS audit", domain);
-                    result[domain] = [];
+                    result[domain] = new DnsResolutionResult(
+                        false,
+                        [],
+                        $"The public DNS resolver returned {ex.SocketErrorCode}: {ex.Message}");
                 }
             });
 
-        return result
-            .Where(pair => pair.Value.Count > 0)
-            .ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.OrdinalIgnoreCase);
+        return result.ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.OrdinalIgnoreCase);
     }
 
     private static bool BelongsToAnyZone(string domain, IReadOnlySet<string> zones)
@@ -226,6 +289,11 @@ public sealed class CloudflareDnsAuditService(
         public required string Content { get; init; }
         public bool? Proxied { get; init; }
     }
+
+    private sealed record DnsResolutionResult(
+        bool Completed,
+        IReadOnlyCollection<string> Addresses,
+        string? Failure);
 }
 
 public sealed class CloudflareDnsAuditException : Exception

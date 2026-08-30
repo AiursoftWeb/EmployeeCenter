@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div>
         <h1 class="h3 mb-1">@Localizer["DNS Audit"]</h1>
-        <p class="text-muted mb-0">@Localizer["Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations."]</p>
+        <p class="text-muted mb-0">@Localizer["Compare the EmployeeCenter service registry with Cloudflare API data and public DNS observations from every provider."]</p>
     </div>
     <div class="d-flex align-items-center gap-3">
         <div class="text-end text-muted small">
@@ -60,7 +60,7 @@ else if (Model.Report != null)
     <div class="row g-3 mb-3">
         <div class="col-sm-6 col-lg-4 col-xl-2">
             <div class="card h-100"><div class="card-body">
-                <div class="text-muted">@Localizer["Zones"]</div>
+                <div class="text-muted">@Localizer["Cloudflare zones"]</div>
                 <div class="display-6">@report.ZoneCount</div>
             </div></div>
         </div>

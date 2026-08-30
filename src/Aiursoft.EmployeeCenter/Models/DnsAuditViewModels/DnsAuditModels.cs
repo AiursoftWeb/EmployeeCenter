@@ -20,7 +20,8 @@ public enum DnsAuditIssueType
     MissingServerAssignment = 13,
     WildcardDnsRecord = 14,
     ManagedDnsOutsideRecordApi = 15,
-    MissingFrpsServerAssignment = 16
+    MissingFrpsServerAssignment = 16,
+    PublicDnsLookupFailed = 17
 }
 
 public enum DnsAuditSeverity
@@ -57,6 +58,7 @@ public sealed class DnsAuditIssue
         DnsAuditIssueType.WildcardDnsRecord => "Wildcard DNS record is forbidden",
         DnsAuditIssueType.ManagedDnsOutsideRecordApi => "Cloudflare-managed DNS target",
         DnsAuditIssueType.MissingFrpsServerAssignment => "Missing FRPS server assignment",
+        DnsAuditIssueType.PublicDnsLookupFailed => "Public DNS lookup failed",
         _ => Type.ToString()
     };
 }
@@ -91,7 +93,9 @@ public sealed class DnsAuditIndexViewModel : UiStackLayoutViewModel
 }
 
 /// <summary>
-/// A normalized, provider-neutral snapshot of a Cloudflare DNS record.
+/// A normalized, provider-neutral DNS observation. Cloudflare-managed records
+/// come from its API so orange-cloud origins remain visible; external-provider
+/// observations come from effective public A/AAAA resolution.
 /// All record types are retained so policy checks (for example, forbidding
 /// wildcard records) cannot be bypassed with a non-address record type.
 /// Only A, AAAA, and CNAME records participate in address reconciliation.
@@ -113,4 +117,6 @@ public sealed record DnsAuditInput(
     IReadOnlyCollection<Service> Services,
     IReadOnlyCollection<Server> Servers,
     IReadOnlyDictionary<string, IReadOnlyCollection<string>> ResolvedCnameAddresses,
-    IReadOnlyCollection<string>? PubliclyResolvableDomains = null);
+    IReadOnlyCollection<string>? PubliclyResolvableDomains = null,
+    IReadOnlyCollection<string>? PubliclyAuditedDomains = null,
+    IReadOnlyDictionary<string, string>? PublicDnsLookupFailures = null);

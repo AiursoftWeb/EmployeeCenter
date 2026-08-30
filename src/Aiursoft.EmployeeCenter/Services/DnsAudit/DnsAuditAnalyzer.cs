@@ -49,6 +49,15 @@ public static partial class DnsAuditAnalyzer
             .Select(NormalizeDomain)
             .Where(domain => domain.Length > 0)
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var publiclyAuditedDomains = (input.PubliclyAuditedDomains ?? [])
+            .Select(NormalizeDomain)
+            .Where(domain => domain.Length > 0)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var publicDnsLookupFailures = (input.PublicDnsLookupFailures ?? new Dictionary<string, string>())
+            .ToDictionary(
+                pair => NormalizeDomain(pair.Key),
+                pair => pair.Value,
+                StringComparer.OrdinalIgnoreCase);
 
         var issues = new List<DnsAuditIssue>();
 
@@ -97,29 +106,61 @@ public static partial class DnsAuditAnalyzer
             });
         }
 
-        // 2. A service inside an audited Cloudflare zone has no service DNS record.
+        // 2. Every registered service must have observable DNS. Cloudflare zones
+        // are reconciled from the API; all other providers are audited through
+        // public recursive DNS results supplied by the collector.
         foreach (var (domain, registeredServices) in servicesByDomain)
         {
-            if (!BelongsToAnyZone(domain, zones))
+            var belongsToCloudflareZone = BelongsToAnyZone(domain, zones);
+            if (recordsByName.ContainsKey(domain))
             {
-                foreach (var service in registeredServices)
-                {
-                    issues.Add(new DnsAuditIssue
-                    {
-                        Type = DnsAuditIssueType.ServiceOutsideAuditedZone,
-                        Severity = DnsAuditSeverity.Warning,
-                        Domain = domain,
-                        ServiceId = service.Id,
-                        Details = service.DnsProvider == null
-                            ? "This service is outside every Cloudflare zone visible to the audit token. Its DNS state cannot be audited."
-                            : $"This service uses DNS provider '{service.DnsProvider.Name}' and is outside every Cloudflare zone visible to the audit token. Its DNS state cannot be audited."
-                    });
-                }
                 continue;
             }
 
-            if (recordsByName.ContainsKey(domain))
+            if (!belongsToCloudflareZone)
             {
+                foreach (var service in registeredServices)
+                {
+                    if (publicDnsLookupFailures.TryGetValue(domain, out var failure))
+                    {
+                        issues.Add(new DnsAuditIssue
+                        {
+                            Type = DnsAuditIssueType.PublicDnsLookupFailed,
+                            Severity = DnsAuditSeverity.Warning,
+                            Domain = domain,
+                            ServiceId = service.Id,
+                            Details = $"The service uses DNS provider '{service.DnsProvider?.Name ?? "an external provider"}', but its public DNS could not be queried reliably. {failure}"
+                        });
+                    }
+                    else if (publiclyAuditedDomains.Contains(domain))
+                    {
+                        issues.Add(new DnsAuditIssue
+                        {
+                            Type = DnsAuditIssueType.MissingDns,
+                            Severity = service.Status == Entities.ServiceStatus.Running
+                                ? DnsAuditSeverity.Critical
+                                : DnsAuditSeverity.Warning,
+                            Domain = domain,
+                            ServiceId = service.Id,
+                            Details = $"The registered service is {service.Status}, but public DNS returned no IPv4 or IPv6 address through provider '{service.DnsProvider?.Name ?? "external DNS"}'."
+                        });
+                    }
+                    else
+                    {
+                        // Compatibility fallback for analyzer callers that have not
+                        // supplied a public-DNS collection result.
+                        issues.Add(new DnsAuditIssue
+                        {
+                            Type = DnsAuditIssueType.ServiceOutsideAuditedZone,
+                            Severity = DnsAuditSeverity.Warning,
+                            Domain = domain,
+                            ServiceId = service.Id,
+                            Details = service.DnsProvider == null
+                                ? "This service is outside every Cloudflare zone and no public DNS audit result was supplied."
+                                : $"This service uses DNS provider '{service.DnsProvider.Name}', but no public DNS audit result was supplied."
+                        });
+                    }
+                }
                 continue;
             }
 
@@ -237,7 +278,7 @@ public static partial class DnsAuditAnalyzer
             }
         }
 
-        // 4. Every origin address published through Cloudflare must belong to a registered server.
+        // 4. Every observed origin address must belong to a registered server.
         var knownServerAddresses = ExtractKnownServerAddresses(input.Servers);
         foreach (var (domain, addresses) in effectiveAddressesByDomain)
         {
@@ -260,7 +301,7 @@ public static partial class DnsAuditAnalyzer
             });
         }
 
-        // Compare fields that EmployeeCenter explicitly declares with Cloudflare's observed state.
+        // Compare fields that EmployeeCenter explicitly declares with observed DNS state.
         foreach (var (domain, registeredServices) in servicesByDomain)
         {
             if (!recordsByName.TryGetValue(domain, out var domainRecords))
@@ -300,7 +341,8 @@ public static partial class DnsAuditAnalyzer
                     });
                 }
 
-                if (service.IsCloudflareProxied != isActuallyProxied)
+                if (BelongsToAnyZone(domain, zones) &&
+                    service.IsCloudflareProxied != isActuallyProxied)
                 {
                     issues.Add(new DnsAuditIssue
                     {
@@ -320,7 +362,7 @@ public static partial class DnsAuditAnalyzer
                         Severity = DnsAuditSeverity.Warning,
                         Domain = domain,
                         ServiceId = service.Id,
-                        Details = "The service is registered as Offline, but Cloudflare still publishes a service DNS record."
+                        Details = "The service is registered as Offline, but DNS still publishes an address for it."
                     });
                 }
 
