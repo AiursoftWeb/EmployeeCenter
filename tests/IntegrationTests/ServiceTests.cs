@@ -12,7 +12,7 @@ public class ServiceTests : TestBase
 
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadAsStringAsync();
-        Assert.DoesNotContain("/DnsAudit", content, StringComparison.OrdinalIgnoreCase);
+        Assert.DoesNotContain("/ServiceAudit", content, StringComparison.OrdinalIgnoreCase);
     }
 
     [TestMethod]
@@ -48,6 +48,7 @@ public class ServiceTests : TestBase
         StringAssert.Contains(content, "Frankfurt");
         StringAssert.Contains(content, "Cloudflare");
         StringAssert.Contains(content, "/DomainAliases");
+        StringAssert.Contains(content, "/ServiceAudit");
 
         var listResponse = await Http.GetAsync("/Services/List");
         listResponse.EnsureSuccessStatusCode();

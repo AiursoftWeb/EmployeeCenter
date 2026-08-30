@@ -111,6 +111,11 @@ public class Startup : IWebStartup
             {
                 AllowAutoRedirect = false
             });
+        services.AddHttpClient("ServiceAvailabilityAudit")
+            .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                AllowAutoRedirect = false
+            });
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job queue
@@ -144,7 +149,10 @@ public class Startup : IWebStartup
         services.RegisterScheduledTask(registration: exportJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromSeconds(35));
 
         var dnsAuditJob = services.RegisterBackgroundJob<Services.BackgroundJobs.DnsAuditJob>();
-        services.RegisterScheduledTask(registration: dnsAuditJob, period: TimeSpan.FromMinutes(20), startDelay: TimeSpan.Zero);
+        services.RegisterScheduledTask(
+            registration: dnsAuditJob,
+            period: TimeSpan.FromHours(3),
+            startDelay: EntryExtends.IsInUnitTests() ? TimeSpan.FromDays(1) : TimeSpan.Zero);
 
         services.AddHttpClient();
 

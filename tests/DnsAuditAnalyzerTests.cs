@@ -399,6 +399,48 @@ public class DnsAuditAnalyzerTests
             issue.Severity == DnsAuditSeverity.Critical));
     }
 
+    [TestMethod]
+    public void UnavailableRunningServiceIsCriticalEvenWhenDnsIsCloudflareManaged()
+    {
+        var service = RegisteredService("git.example.com", proxied: true);
+        var report = Analyze(
+            records: [],
+            services: [service],
+            servers: [RegisteredServer("192.0.2.10")],
+            publiclyResolvableDomains: ["git.example.com"],
+            serviceAvailabilityResults: new Dictionary<int, ServiceAvailabilityResult>
+            {
+                [service.Id] = new(false, 522, "The public endpoint responded with HTTP 522.")
+            });
+
+        var issue = report.Issues.Single(item => item.Type == DnsAuditIssueType.ServiceUnavailable);
+        Assert.AreEqual(DnsAuditSeverity.Critical, issue.Severity);
+        Assert.AreEqual(service.Id, issue.ServiceId);
+        Assert.AreEqual(1, report.AvailabilityCheckedCount);
+        Assert.AreEqual(0, report.AvailabilityHealthyCount);
+        Assert.IsTrue(report.Issues.Any(item =>
+            item.Type == DnsAuditIssueType.ManagedDnsOutsideRecordApi &&
+            item.Severity == DnsAuditSeverity.Info));
+    }
+
+    [TestMethod]
+    public void HealthyAvailabilityResultAddsNoFindingAndUpdatesCoverage()
+    {
+        var service = RegisteredService("healthy.example.com", proxied: true);
+        var report = Analyze(
+            records: [Record("healthy.example.com", "A", "192.0.2.10", proxied: true)],
+            services: [service],
+            servers: [RegisteredServer("192.0.2.10")],
+            serviceAvailabilityResults: new Dictionary<int, ServiceAvailabilityResult>
+            {
+                [service.Id] = new(true, 403, "The public endpoint responded with HTTP 403.")
+            });
+
+        Assert.IsFalse(report.Issues.Any(item => item.Type == DnsAuditIssueType.ServiceUnavailable));
+        Assert.AreEqual(1, report.AvailabilityCheckedCount);
+        Assert.AreEqual(1, report.AvailabilityHealthyCount);
+    }
+
     private static DnsAuditReport Analyze(
         IReadOnlyCollection<DnsAuditRecord> records,
         IReadOnlyCollection<Service> services,
@@ -408,7 +450,8 @@ public class DnsAuditAnalyzerTests
         IReadOnlyCollection<string>? publiclyAuditedDomains = null,
         IReadOnlyDictionary<string, string>? publicDnsLookupFailures = null,
         IReadOnlyCollection<DomainAlias>? domainAliases = null,
-        IReadOnlyDictionary<string, DomainAliasRedirectResult>? aliasRedirectResults = null)
+        IReadOnlyDictionary<string, DomainAliasRedirectResult>? aliasRedirectResults = null,
+        IReadOnlyDictionary<int, ServiceAvailabilityResult>? serviceAvailabilityResults = null)
     {
         return DnsAuditAnalyzer.Analyze(new DnsAuditInput(
             ["example.com"],
@@ -421,7 +464,8 @@ public class DnsAuditAnalyzerTests
             publiclyAuditedDomains,
             publicDnsLookupFailures,
             domainAliases,
-            aliasRedirectResults));
+            aliasRedirectResults,
+            serviceAvailabilityResults));
     }
 
     private static DnsAuditRecord Record(string name, string type, string content, bool proxied)

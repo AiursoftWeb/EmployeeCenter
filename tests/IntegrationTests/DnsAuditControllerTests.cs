@@ -26,7 +26,7 @@ public class DnsAuditControllerTests : TestBase
     {
         await RegisterAndLoginAsync();
 
-        var response = await Http.GetAsync("/DnsAudit/Index");
+        var response = await Http.GetAsync("/ServiceAudit");
 
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
         Assert.Contains("/Error/Code403", response.Headers.Location?.OriginalString ?? string.Empty);
@@ -38,12 +38,23 @@ public class DnsAuditControllerTests : TestBase
         await LoginAsAdmin();
         GetService<DnsAuditSnapshotCache>().SetNotConfigured(DateTime.UtcNow);
 
-        var response = await Http.GetAsync("/DnsAudit/Index");
+        var response = await Http.GetAsync("/ServiceAudit");
 
         response.EnsureSuccessStatusCode();
         var html = await response.Content.ReadAsStringAsync();
-        Assert.Contains("DNS Audit", html);
+        Assert.Contains("Service Audit", html);
         Assert.Contains("Cloudflare API token is not configured", html);
+    }
+
+    [TestMethod]
+    public async Task LegacyDnsAuditRouteRedirectsToServiceAudit()
+    {
+        await LoginAsAdmin();
+
+        var response = await Http.GetAsync("/DnsAudit/Index");
+
+        Assert.AreEqual(HttpStatusCode.MovedPermanently, response.StatusCode);
+        Assert.Contains("/ServiceAudit", response.Headers.Location?.OriginalString ?? string.Empty);
     }
 
     [TestMethod]
@@ -67,12 +78,12 @@ public class DnsAuditControllerTests : TestBase
             ]
         }, DateTime.UtcNow);
 
-        var response = await Http.GetAsync("/DnsAudit/Index");
+        var response = await Http.GetAsync("/ServiceAudit");
 
         response.EnsureSuccessStatusCode();
         var html = await response.Content.ReadAsStringAsync();
         Assert.Contains("cached-audit.example.com", html);
-        Assert.Contains("Automatically refreshed every 20 minutes", html);
+        Assert.Contains("Automatically refreshed every 3 hours", html);
     }
 
     [TestMethod]
@@ -105,7 +116,7 @@ public class DnsAuditControllerTests : TestBase
             ]
         }, DateTime.UtcNow);
 
-        var auditResponse = await Http.GetAsync("/DnsAudit/Index");
+        var auditResponse = await Http.GetAsync("/ServiceAudit");
         auditResponse.EnsureSuccessStatusCode();
         Assert.Contains("Register as alias", await auditResponse.Content.ReadAsStringAsync());
 
@@ -260,12 +271,12 @@ public class DnsAuditControllerTests : TestBase
         var initialCount = queue.GetAllTasks().Count(task => task.ServiceType == typeof(DnsAuditJob));
 
         var response = await PostForm(
-            "/DnsAudit/Refresh",
+            "/ServiceAudit/Refresh",
             new Dictionary<string, string>(),
-            tokenUrl: "/DnsAudit/Index");
+            tokenUrl: "/ServiceAudit");
 
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
-        Assert.Contains("/DnsAudit", response.Headers.Location?.OriginalString ?? string.Empty);
+        Assert.Contains("/ServiceAudit", response.Headers.Location?.OriginalString ?? string.Empty);
         await Task.Delay(100);
         var auditTasks = queue.GetAllTasks()
             .Where(task => task.ServiceType == typeof(DnsAuditJob))

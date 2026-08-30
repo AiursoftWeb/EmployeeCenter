@@ -22,7 +22,8 @@ public enum DnsAuditIssueType
     ManagedDnsOutsideRecordApi = 15,
     MissingFrpsServerAssignment = 16,
     PublicDnsLookupFailed = 17,
-    DomainAliasRedirectMismatch = 18
+    DomainAliasRedirectMismatch = 18,
+    ServiceUnavailable = 19
 }
 
 public enum DnsAuditSeverity
@@ -54,7 +55,7 @@ public sealed class DnsAuditIssue
         DnsAuditIssueType.DanglingCname => "Dangling or cyclic CNAME",
         DnsAuditIssueType.MixedProxyStatus => "Mixed proxy status",
         DnsAuditIssueType.DuplicateServiceRegistration => "Duplicate service registration",
-        DnsAuditIssueType.ServiceOutsideAuditedZone => "DNS audit coverage gap",
+        DnsAuditIssueType.ServiceOutsideAuditedZone => "Service audit coverage gap",
         DnsAuditIssueType.UnverifiableDnsTarget => "Unverifiable DNS target",
         DnsAuditIssueType.MissingServerAssignment => "Missing server assignment",
         DnsAuditIssueType.WildcardDnsRecord => "Wildcard DNS record is forbidden",
@@ -62,6 +63,7 @@ public sealed class DnsAuditIssue
         DnsAuditIssueType.MissingFrpsServerAssignment => "Missing FRPS server assignment",
         DnsAuditIssueType.PublicDnsLookupFailed => "Public DNS lookup failed",
         DnsAuditIssueType.DomainAliasRedirectMismatch => "Domain alias redirect mismatch",
+        DnsAuditIssueType.ServiceUnavailable => "Running service is unavailable",
         _ => Type.ToString()
     };
 }
@@ -72,6 +74,8 @@ public sealed class DnsAuditReport
     public int ZoneCount { get; init; }
     public int RecordCount { get; init; }
     public int AuditedHostnameCount { get; init; }
+    public int AvailabilityCheckedCount { get; init; }
+    public int AvailabilityHealthyCount { get; init; }
     public required IReadOnlyList<DnsAuditIssue> Issues { get; init; }
 
     public int CriticalCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Critical);
@@ -84,7 +88,7 @@ public sealed class DnsAuditIndexViewModel : UiStackLayoutViewModel
 {
     public DnsAuditIndexViewModel()
     {
-        PageTitle = "DNS Audit";
+        PageTitle = "Service Audit";
     }
 
     public bool IsInitialized { get; init; }
@@ -124,10 +128,16 @@ public sealed record DnsAuditInput(
     IReadOnlyCollection<string>? PubliclyAuditedDomains = null,
     IReadOnlyDictionary<string, string>? PublicDnsLookupFailures = null,
     IReadOnlyCollection<DomainAlias>? DomainAliases = null,
-    IReadOnlyDictionary<string, DomainAliasRedirectResult>? DomainAliasRedirectResults = null);
+    IReadOnlyDictionary<string, DomainAliasRedirectResult>? DomainAliasRedirectResults = null,
+    IReadOnlyDictionary<int, ServiceAvailabilityResult>? ServiceAvailabilityResults = null);
 
 public sealed record DomainAliasRedirectResult(
     bool IsMatch,
     int? StatusCode,
     string? ActualTargetUrl,
+    string Details);
+
+public sealed record ServiceAvailabilityResult(
+    bool IsHealthy,
+    int? StatusCode,
     string Details);

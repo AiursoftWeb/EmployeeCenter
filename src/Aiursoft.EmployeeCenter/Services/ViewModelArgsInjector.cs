@@ -270,7 +270,8 @@ public class ViewModelArgsInjector(
     
         _ = localizer["Move Contract"];
     
-        _ = localizer["DNS Audit"];
+        _ = localizer["Service Audit"];
+        _ = localizer["Audit Services"];
     
         _ = localizer["Services Dashboard"];
     }

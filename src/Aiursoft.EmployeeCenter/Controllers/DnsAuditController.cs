@@ -16,6 +16,8 @@ public sealed class DnsAuditController(
     DnsAuditSnapshotCache snapshotCache,
     BackgroundJobRegistry jobRegistry) : Controller
 {
+    [HttpGet("/ServiceAudit", Name = "ServiceAuditIndex")]
+    [HttpGet("/ServiceAudit/Index")]
     public IActionResult Index()
     {
         var snapshot = snapshotCache.Current;
@@ -30,11 +32,26 @@ public sealed class DnsAuditController(
         });
     }
 
-    [HttpPost]
+    [HttpPost("/ServiceAudit/Refresh", Name = "ServiceAuditRefresh")]
     [ValidateAntiForgeryToken]
     public IActionResult Refresh()
     {
         jobRegistry.TriggerNow(nameof(DnsAuditJob));
-        return RedirectToAction(nameof(Index));
+        return RedirectToRoute("ServiceAuditIndex");
+    }
+
+    [HttpGet("/DnsAudit")]
+    [HttpGet("/DnsAudit/Index")]
+    public IActionResult LegacyIndex()
+    {
+        return RedirectToRoutePermanent("ServiceAuditIndex");
+    }
+
+    [HttpPost("/DnsAudit/Refresh")]
+    [ValidateAntiForgeryToken]
+    public IActionResult LegacyRefresh()
+    {
+        jobRegistry.TriggerNow(nameof(DnsAuditJob));
+        return RedirectToRoute("ServiceAuditIndex");
     }
 }

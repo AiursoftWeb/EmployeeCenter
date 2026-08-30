@@ -73,6 +73,26 @@ public static partial class DnsAuditAnalyzer
 
         var issues = new List<DnsAuditIssue>();
 
+        var availabilityResults = input.ServiceAvailabilityResults ??
+                                  new Dictionary<int, ServiceAvailabilityResult>();
+        var servicesById = input.Services.ToDictionary(service => service.Id);
+        foreach (var (serviceId, result) in availabilityResults.Where(pair => !pair.Value.IsHealthy))
+        {
+            if (!servicesById.TryGetValue(serviceId, out var service))
+            {
+                continue;
+            }
+
+            issues.Add(new DnsAuditIssue
+            {
+                Type = DnsAuditIssueType.ServiceUnavailable,
+                Severity = DnsAuditSeverity.Critical,
+                Domain = NormalizeDomain(service.Domain),
+                ServiceId = service.Id,
+                Details = result.Details
+            });
+        }
+
         // Wildcards make it possible to publish hostnames without registering
         // each service explicitly, defeating the purpose of the service registry.
         foreach (var wildcardGroup in input.Records
@@ -218,8 +238,8 @@ public static partial class DnsAuditAnalyzer
                             Domain = domain,
                             ServiceId = service.Id,
                             Details = service.DnsProvider == null
-                                ? "This service is outside every Cloudflare zone and no public DNS audit result was supplied."
-                                : $"This service uses DNS provider '{service.DnsProvider.Name}', but no public DNS audit result was supplied."
+                                ? "This service is outside every Cloudflare zone and no public DNS observation was supplied."
+                                : $"This service uses DNS provider '{service.DnsProvider.Name}', but no public DNS observation was supplied."
                         });
                     }
                 }
@@ -458,6 +478,8 @@ public static partial class DnsAuditAnalyzer
             ZoneCount = zones.Count,
             RecordCount = input.TotalRecordCount,
             AuditedHostnameCount = recordsByName.Count,
+            AvailabilityCheckedCount = availabilityResults.Count,
+            AvailabilityHealthyCount = availabilityResults.Count(pair => pair.Value.IsHealthy),
             Issues = issues
                 .OrderByDescending(issue => issue.Severity)
                 .ThenBy(issue => issue.Type)

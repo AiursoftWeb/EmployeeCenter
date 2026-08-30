@@ -85,14 +85,14 @@
                             {
                                 var blockingFindings = Model.DnsAuditCriticalCount.GetValueOrDefault() + Model.DnsAuditErrorCount.GetValueOrDefault() + Model.DnsAuditWarningCount.GetValueOrDefault();
                                 <h3 class="mb-2">@Model.OperationalPercentage.Value.ToString("0.#")%</h3>
-                                <p class="mb-2">@Localizer["DNS Audit Health"]</p>
+                                <p class="mb-2">@Localizer["Service Audit Health"]</p>
                                 <span class="badge @(blockingFindings == 0 ? "badge-subtle-success" : "badge-subtle-warning") me-2">@Model.OperationalHealthySubjectCount/@Model.OperationalSubjectCount @Localizer["healthy subjects"]</span>
                                 <span class="text-muted">@blockingFindings @Localizer["blocking findings"]</span>
                             }
                             else
                             {
                                 <h3 class="mb-2">—</h3>
-                                <p class="mb-2">@Localizer["DNS Audit Health"]</p>
+                                <p class="mb-2">@Localizer["Service Audit Health"]</p>
                                 <span class="badge badge-subtle-secondary">@Localizer["Audit pending"]</span>
                             }
                         </div>
@@ -234,7 +234,7 @@
             </div>
             @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanAuditDns))
             {
-                <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-sm btn-outline-info">@Localizer["View DNS Audit"]</a>
+                <a asp-route="ServiceAuditIndex" class="btn btn-sm btn-outline-info">@Localizer["View Service Audit"]</a>
             }
         </div>
         <div class="card-body">

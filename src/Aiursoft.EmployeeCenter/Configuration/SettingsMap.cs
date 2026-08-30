@@ -148,7 +148,7 @@ public class SettingsMap
         {
             Key = CloudflareApiToken,
             Name = Localizer["Cloudflare API Token"],
-            Description = Localizer["A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones."],
+            Description = Localizer["A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones."],
             Type = SettingType.Secret,
             DefaultValue = ""
         },

@@ -14,7 +14,7 @@
         {
             <div class="alert alert-info">
                 <h5 class="alert-heading">@Localizer["No alias candidates are available"]</h5>
-                <p>@Localizer["Run a DNS audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases."]</p>
+                <p>@Localizer["Run a service audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases."]</p>
                 <form asp-action="RefreshAudit" method="post">
                     <button type="submit" class="btn btn-primary"><i class="align-middle me-1" data-lucide="refresh-cw"></i>@Localizer["Audit Now"]</button>
                 </form>

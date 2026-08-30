@@ -118,6 +118,7 @@ public sealed class CloudflareDnsAuditService(
                                  !recordNames.Contains(domain)),
             cancellationToken);
         var aliasRedirectResults = await AuditDomainAliasRedirectsAsync(domainAliases, cancellationToken);
+        var serviceAvailabilityResults = await AuditServiceAvailabilityAsync(services, cancellationToken);
 
         return DnsAuditAnalyzer.Analyze(new DnsAuditInput(
             zones.Select(zone => zone.Name).ToList(),
@@ -138,7 +139,158 @@ public sealed class CloudflareDnsAuditService(
                     pair => pair.Value.Failure ?? "The public DNS query failed.",
                     StringComparer.OrdinalIgnoreCase),
             domainAliases,
-            aliasRedirectResults));
+            aliasRedirectResults,
+            serviceAvailabilityResults));
+    }
+
+    private async Task<IReadOnlyDictionary<int, ServiceAvailabilityResult>> AuditServiceAvailabilityAsync(
+        IReadOnlyCollection<Service> services,
+        CancellationToken cancellationToken)
+    {
+        var candidates = services
+            .Where(service => service.Status == ServiceStatus.Running)
+            .Select(service => (Service: service, Scheme: GetHttpScheme(service.Protocols)))
+            .Where(candidate => candidate.Scheme != null)
+            .ToList();
+        var results = new ConcurrentDictionary<int, ServiceAvailabilityResult>();
+        var client = httpClientFactory.CreateClient("ServiceAvailabilityAudit");
+
+        await Parallel.ForEachAsync(
+            candidates,
+            new ParallelOptions { MaxDegreeOfParallelism = 8, CancellationToken = cancellationToken },
+            async (candidate, token) =>
+            {
+                var service = candidate.Service;
+                var domain = DnsAuditAnalyzer.NormalizeDomain(service.Domain);
+                if (domain.Length == 0 || domain.StartsWith("*.", StringComparison.Ordinal))
+                {
+                    results[service.Id] = new ServiceAvailabilityResult(
+                        false,
+                        null,
+                        "The registered service hostname is invalid.");
+                    return;
+                }
+
+                var publicEndpointCheck = await ResolvePublicEndpointAsync(domain, token);
+                if (!publicEndpointCheck.IsAllowed)
+                {
+                    results[service.Id] = new ServiceAvailabilityResult(
+                        false,
+                        null,
+                        publicEndpointCheck.Details);
+                    return;
+                }
+
+                var uri = new UriBuilder(candidate.Scheme!, domain) { Path = "/" }.Uri;
+                using var request = new HttpRequestMessage(HttpMethod.Get, uri);
+                request.Headers.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-ServiceAudit/1.0");
+                request.Headers.Accept.ParseAdd("text/html,application/json;q=0.9,*/*;q=0.1");
+                using var timeout = CancellationTokenSource.CreateLinkedTokenSource(token);
+                timeout.CancelAfter(TimeSpan.FromSeconds(10));
+                try
+                {
+                    using var response = await client.SendAsync(
+                        request,
+                        HttpCompletionOption.ResponseHeadersRead,
+                        timeout.Token);
+                    results[service.Id] = ServiceAvailabilityEvaluator.Evaluate(response.StatusCode);
+                }
+                catch (OperationCanceledException) when (!token.IsCancellationRequested)
+                {
+                    results[service.Id] = new ServiceAvailabilityResult(
+                        false,
+                        null,
+                        "The public endpoint timed out after 10 seconds.");
+                }
+                catch (HttpRequestException ex)
+                {
+                    logger.LogWarning(ex, "Service availability audit for '{Domain}' failed", domain);
+                    results[service.Id] = new ServiceAvailabilityResult(
+                        false,
+                        null,
+                        $"The public endpoint request failed: {ex.Message}");
+                }
+            });
+
+        return results.ToDictionary(pair => pair.Key, pair => pair.Value);
+    }
+
+    private static string? GetHttpScheme(string? protocols)
+    {
+        if (string.IsNullOrWhiteSpace(protocols))
+        {
+            return null;
+        }
+
+        if (protocols.Contains("HTTPS", StringComparison.OrdinalIgnoreCase))
+        {
+            return Uri.UriSchemeHttps;
+        }
+
+        return protocols.Contains("HTTP", StringComparison.OrdinalIgnoreCase)
+            ? Uri.UriSchemeHttp
+            : null;
+    }
+
+    private static async Task<(bool IsAllowed, string Details)> ResolvePublicEndpointAsync(
+        string domain,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var addresses = await Dns.GetHostAddressesAsync(domain, cancellationToken);
+            if (addresses.Length == 0)
+            {
+                return (false, "The public endpoint hostname returned no IPv4 or IPv6 address.");
+            }
+
+            var nonPublicAddresses = addresses.Where(address => !IsPublicAddress(address)).ToList();
+            return nonPublicAddresses.Count == 0
+                ? (true, string.Empty)
+                : (false, $"The hostname resolves to non-public address(es): {string.Join(", ", nonPublicAddresses)}. The availability probe was blocked to prevent server-side request forgery.");
+        }
+        catch (SocketException ex)
+        {
+            return (false, $"The public endpoint hostname could not be resolved: {ex.Message}");
+        }
+    }
+
+    private static bool IsPublicAddress(IPAddress address)
+    {
+        if (address.IsIPv4MappedToIPv6)
+        {
+            address = address.MapToIPv4();
+        }
+
+        if (IPAddress.IsLoopback(address) || address.Equals(IPAddress.Any) || address.Equals(IPAddress.IPv6Any))
+        {
+            return false;
+        }
+
+        var bytes = address.GetAddressBytes();
+        if (address.AddressFamily == AddressFamily.InterNetwork)
+        {
+            return bytes[0] switch
+            {
+                0 or 10 or 127 => false,
+                100 when bytes[1] is >= 64 and <= 127 => false,
+                169 when bytes[1] == 254 => false,
+                172 when bytes[1] is >= 16 and <= 31 => false,
+                192 when bytes[1] == 168 => false,
+                >= 224 => false,
+                _ => true
+            };
+        }
+
+        if (address.AddressFamily != AddressFamily.InterNetworkV6)
+        {
+            return false;
+        }
+
+        return !address.IsIPv6LinkLocal &&
+               !address.IsIPv6Multicast &&
+               !address.IsIPv6SiteLocal &&
+               (bytes[0] & 0xfe) != 0xfc;
     }
 
     private async Task<IReadOnlyDictionary<string, DomainAliasRedirectResult>> AuditDomainAliasRedirectsAsync(
@@ -264,12 +416,12 @@ public sealed class CloudflareDnsAuditService(
                 }
                 catch (OperationCanceledException ex) when (!token.IsCancellationRequested)
                 {
-                    logger.LogWarning(ex, "Public DNS lookup for '{Domain}' timed out during DNS audit", domain);
+                    logger.LogWarning(ex, "Public DNS lookup for '{Domain}' timed out during service audit", domain);
                     result[domain] = new DnsResolutionResult(false, [], "The public DNS lookup timed out after 10 seconds.");
                 }
                 catch (SocketException ex)
                 {
-                    logger.LogWarning(ex, "Could not resolve hostname '{Domain}' during DNS audit", domain);
+                    logger.LogWarning(ex, "Could not resolve hostname '{Domain}' during service audit", domain);
                     result[domain] = new DnsResolutionResult(
                         false,
                         [],

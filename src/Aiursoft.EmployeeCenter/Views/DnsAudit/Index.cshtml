@@ -9,12 +9,12 @@
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div>
-        <h1 class="h3 mb-1">@Localizer["DNS Audit"]</h1>
-        <p class="text-muted mb-0">@Localizer["Compare the EmployeeCenter service registry with Cloudflare API data and public DNS observations from every provider."]</p>
+        <h1 class="h3 mb-1">@Localizer["Service Audit"]</h1>
+        <p class="text-muted mb-0">@Localizer["Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability."]</p>
     </div>
     <div class="d-flex align-items-center gap-3">
         <div class="text-end text-muted small">
-            <div><i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Automatically refreshed every 20 minutes"]</div>
+            <div><i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Automatically refreshed every 3 hours"]</div>
             @if (Model.LastSuccessfulAt.HasValue)
             {
                 <div>@Localizer["Last successful audit"] @Model.LastSuccessfulAt.Value.ToString("u")</div>
@@ -28,7 +28,7 @@
                     @Localizer["Manage aliases"]
                 </a>
             }
-            <form asp-action="Refresh" method="post">
+            <form asp-route="ServiceAuditRefresh" method="post">
                 <button type="submit" class="btn btn-primary text-nowrap rounded-start-0">
                     <i class="align-middle me-1" data-lucide="refresh-cw"></i>
                     @Localizer["Audit now"]
@@ -41,7 +41,7 @@
 @if (!Model.IsInitialized)
 {
     <div class="alert alert-info">
-        <h5 class="alert-heading">@Localizer["DNS audit is starting"]</h5>
+        <h5 class="alert-heading">@Localizer["Service audit is starting"]</h5>
         <p class="mb-0">@Localizer["The first background audit has not completed yet. This page will read its result from the in-memory cache."]</p>
     </div>
 }
@@ -77,13 +77,14 @@ else if (Model.Report != null)
             <div class="card h-100"><div class="card-body">
                 <div class="text-muted">@Localizer["Cloudflare zones"]</div>
                 <div class="display-6">@report.ZoneCount</div>
+                <small class="text-muted">@report.RecordCount @Localizer["DNS records"] · @report.AuditedHostnameCount @Localizer["hostnames"]</small>
             </div></div>
         </div>
         <div class="col-sm-6 col-lg-4 col-xl-2">
             <div class="card h-100"><div class="card-body">
-                <div class="text-muted">@Localizer["DNS records"]</div>
-                <div class="display-6">@report.RecordCount</div>
-                <small class="text-muted">@report.AuditedHostnameCount @Localizer["service hostnames audited"]</small>
+                <div class="text-muted">@Localizer["Live availability"]</div>
+                <div class="display-6">@report.AvailabilityHealthyCount/@report.AvailabilityCheckedCount</div>
+                <small class="text-muted">@Localizer["running HTTP(S) endpoints healthy"]</small>
             </div></div>
         </div>
         <div class="col-sm-6 col-lg-4 col-xl-2">
@@ -116,7 +117,7 @@ else if (Model.Report != null)
     {
         <div class="alert alert-success">
             <i class="align-middle" data-lucide="check-circle"></i>
-            @Localizer["No DNS audit issues were found."]
+            @Localizer["No service audit issues were found."]
         </div>
     }
     else

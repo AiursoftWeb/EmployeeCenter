@@ -8,14 +8,14 @@ public sealed class DnsAuditJob(
     DnsAuditSnapshotCache snapshotCache,
     ILogger<DnsAuditJob> logger) : IBackgroundJob
 {
-    public string Name => "DNS Audit";
-    public string Description => "Refreshes the cached Cloudflare DNS audit snapshot every 20 minutes.";
+    public string Name => "Service Audit";
+    public string Description => "Refreshes the cached service registry, DNS, and availability audit every three hours.";
 
     public async Task ExecuteAsync()
     {
         if (!snapshotCache.TryBeginRefresh())
         {
-            logger.LogInformation("DNS audit refresh is already running; skipping the overlapping trigger");
+            logger.LogInformation("Service audit refresh is already running; skipping the overlapping trigger");
             return;
         }
 
@@ -25,14 +25,16 @@ public sealed class DnsAuditJob(
             if (!await auditService.IsConfiguredAsync())
             {
                 snapshotCache.SetNotConfigured(attemptedAt);
-                logger.LogInformation("DNS audit skipped because the Cloudflare API token is not configured");
+                logger.LogInformation("Service audit skipped because the Cloudflare API token is not configured");
                 return;
             }
 
             var report = await auditService.AuditAsync();
             snapshotCache.SetSuccess(report, attemptedAt);
             logger.LogInformation(
-                "DNS audit cache refreshed: {Critical} critical, {Errors} errors, {Warnings} warnings, {Info} info",
+                "Service audit cache refreshed: {AvailabilityHealthy}/{AvailabilityChecked} public endpoints healthy, {Critical} critical, {Errors} errors, {Warnings} warnings, {Info} info",
+                report.AvailabilityHealthyCount,
+                report.AvailabilityCheckedCount,
                 report.CriticalCount,
                 report.ErrorCount,
                 report.WarningCount,
@@ -40,18 +42,18 @@ public sealed class DnsAuditJob(
         }
         catch (CloudflareDnsAuditException ex)
         {
-            logger.LogWarning(ex, "Cloudflare DNS audit failed");
+            logger.LogWarning(ex, "Cloudflare portion of the service audit failed");
             snapshotCache.SetFailure(ex.Message, attemptedAt);
         }
         catch (HttpRequestException ex)
         {
-            logger.LogWarning(ex, "Cloudflare DNS audit could not reach the API");
+            logger.LogWarning(ex, "Service audit could not reach the Cloudflare API");
             snapshotCache.SetFailure("Cloudflare API could not be reached. The last successful audit remains available.", attemptedAt);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Unexpected DNS audit failure");
-            snapshotCache.SetFailure("The DNS audit failed unexpectedly. The last successful audit remains available.", attemptedAt);
+            logger.LogError(ex, "Unexpected service audit failure");
+            snapshotCache.SetFailure("The service audit failed unexpectedly. The last successful audit remains available.", attemptedAt);
         }
         finally
         {
