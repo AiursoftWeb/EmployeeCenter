@@ -90,6 +90,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Alias de domaine</value>
+  </data>
   <data name="Edge Routed" xml:space="preserve">
     <value>Routage via Edge</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>IP du serveur</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Santé de l&apos;audit de service</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>Répartition des services par emplacement du serveur.</value>
   </data>
@@ -221,6 +227,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>Voir l&apos;audit DNS</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Voir l&apos;audit de service</value>
   </data>
 
 </root>

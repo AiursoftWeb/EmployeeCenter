@@ -90,6 +90,9 @@
   <data name="Domain" xml:space="preserve">
     <value>โดเมน</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>ชื่อโดเมนแทน</value>
+  </data>
   <data name="Edge Routed" xml:space="preserve">
     <value>เส้นทางที่จัดการโดย Edge</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>IP เซิร์ฟเวอร์</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>สุขภาพการตรวจสอบบริการ</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>การวางตำแหน่งบริการตามตำแหน่งของเซิร์ฟเวอร์</value>
   </data>
@@ -221,6 +227,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>ดูการตรวจสอบ DNS</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>ดูการตรวจสอบบริการ</value>
   </data>
 
 </root>

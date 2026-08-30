@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="Alias hostname" xml:space="preserve">
+    <value>ชื่อโฮสต์เอเลียส</value>
+  </data>
+  <data name="Audit Now" xml:space="preserve">
+    <value>ตรวจสอบทันที</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>รอการตรวจสอบ</value>
+  </data>
+  <data name="Audit status" xml:space="preserve">
+    <value>สถานะการตรวจสอบ</value>
+  </data>
+  <data name="Available DNS candidates" xml:space="preserve">
+    <value>ผู้สมัคร DNS ที่พร้อมใช้งาน</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>รอการตรวจสอบ</value>
+  </data>
+  <data name="Create alias" xml:space="preserve">
+    <value>สร้าง_ALIAS</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>วิกฤต</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="Delete this domain alias?" xml:space="preserve">
+    <value>ลบชื่อโดเมนสำรองนี้หรือไม่?</value>
+  </data>
+  <data name="Domain Alias Registry" xml:space="preserve">
+    <value>ทะเบียนชื่อโดเมน Alias</value>
+  </data>
+  <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
+    <value>ชื่อโดเมนต้นทางแต่ละชื่อต้องส่งกลับการเปลี่ยนเส้นทางแบบ hop แรกที่ตรงกับ URL ปลายทางอย่างแม่นยำ</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="Exact target URL" xml:space="preserve">
+    <value>URL เป้าหมายที่ตรงกันทุกประการ</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>สุขภาพดี</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>การตรวจสอบล่าสุดที่สำเร็จ</value>
+  </data>
+  <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
+    <value>จัดการชื่อโดเมนแบบเดิมและตรวจสอบให้แน่ใจว่าการเปลี่ยนเส้นทางทุกครั้งไปยังปลายทางที่ลงทะเบียนไว้ตามปกติ</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>ชื่อエイリアสที่จัดการ</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>ต้องดำเนินการ</value>
+  </data>
+  <data name="New Alias" xml:space="preserve">
+    <value>สร้างชื่อ Alias ใหม่</value>
+  </data>
+  <data name="No domain aliases have been registered." xml:space="preserve">
+    <value>ไม่มีโดเมนเอเลียสที่ลงทะเบียนอยู่</value>
+  </data>
+  <data name="No unregistered DNS hostnames are currently available." xml:space="preserve">
+    <value>ปัจจุบันไม่มีชื่อโฮสต์ DNS ที่ยังไม่ได้รับการลงทะเบียนอยู่</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>รอดำเนินการ</value>
+  </data>
+  <data name="Redirect Governance" xml:space="preserve">
+    <value>การควบคุมการเปลี่ยนเส้นทาง</value>
+  </data>
+  <data name="Registered Aliases" xml:space="preserve">
+    <value>ชื่อแทนที่ลงทะเบียนแล้ว</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>แดชบอร์ดบริการ</value>
+  </data>
+  <data name="Target service" xml:space="preserve">
+    <value>บริการเป้าหมาย</value>
+  </data>
+  <data name="Total aliases" xml:space="preserve">
+    <value>นามแฝงทั้งหมด</value>
+  </data>
+  <data name="Updated at" xml:space="preserve">
+    <value>อัปเดตเมื่อ</value>
+  </data>
+
+</root>

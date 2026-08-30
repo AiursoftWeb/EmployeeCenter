@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Change the exact destination expected by every service audit." xml:space="preserve">
+    <value>เปลี่ยนปลายทางที่ถูกต้องตามที่การตรวจสอบบริการทุกตัวคาดหวัง</value>
+  </data>
+  <data name="Edit domain alias" xml:space="preserve">
+    <value>แก้ไขชื่อโดเมน alias</value>
+  </data>
+  <data name="Save and audit now" xml:space="preserve">
+    <value>บันทึกและตรวจสอบทันที</value>
+  </data>
+  <data name="The audit requires the first redirect Location header to match this URL exactly." xml:space="preserve">
+    <value>การตรวจสอบ (audit) ต้องการให้ค่าใน Header Location ของการเปลี่ยนเส้นทาง (redirect) ครั้งแรกตรงกับ URL นี้พอดี</value>
+  </data>
+
+</root>

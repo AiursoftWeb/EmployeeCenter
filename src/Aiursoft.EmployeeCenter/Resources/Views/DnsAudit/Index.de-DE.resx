@@ -30,14 +30,23 @@
   <data name="Audit now" xml:space="preserve">
     <value>Jetzt auditieren</value>
   </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>Prüfen Sie das Diensteverzeichnis, die DNS-Konfiguration, die Serverzuordnung, Aliase und die live HTTP-Verfügbarkeit.</value>
+  </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>Automatisch alle 20 Minuten aktualisiert</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>Automatisch alle 3 Stunden aktualisiert</value>
   </data>
   <data name="Check" xml:space="preserve">
     <value>Prüfung</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Cloudflare-API-Token ist nicht konfiguriert</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Cloudflare-Zonen</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Vergleichen Sie das EmployeeCenter-Dienstregister mit den schreibgeschützten Cloudflare-DNS-Beobachtungen.</value>
@@ -60,6 +69,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>Alias bearbeiten</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>Dienst bearbeiten</value>
   </data>
@@ -75,6 +87,9 @@
   <data name="Generated at" xml:space="preserve">
     <value>Erstellt am</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>Hostnamen</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
@@ -84,11 +99,32 @@
   <data name="Latest refresh failed" xml:space="preserve">
     <value>Die letzte Aktualisierung ist fehlgeschlagen</value>
   </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>Live-Verfügbarkeit</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>Aliasse verwalten</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Es wurden keine DNS-Audit-Probleme gefunden.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>Es wurden keine Probleme im Service-Audit festgestellt.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>Als Alias registrieren</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Audit ausführen</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>laufende HTTP(S)-Endpunkte gesund</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Dienst-Prüfung</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>Service-Audit wird gestartet</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>geprüfte Dienst-Hostnamen</value>
