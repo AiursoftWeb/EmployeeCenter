@@ -11,6 +11,13 @@
             <a asp-action="List" class="btn btn-primary shadow-sm ms-1">
                 <i class="align-middle" data-lucide="list"></i> @Localizer["View Detailed Service Table"]
             </a>
+            @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices) &&
+                 User.HasClaim(AppPermissions.Type, AppPermissionNames.CanAuditDns))
+            {
+                <a asp-controller="DomainAliases" asp-action="Index" class="btn btn-outline-info shadow-sm ms-1">
+                    <i class="align-middle" data-lucide="waypoints"></i> @Localizer["Domain Aliases"]
+                </a>
+            }
             @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
             {
                 <a asp-action="Create" class="btn btn-outline-primary shadow-sm ms-1">

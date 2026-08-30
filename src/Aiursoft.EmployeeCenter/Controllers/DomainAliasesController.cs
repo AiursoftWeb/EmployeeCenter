@@ -22,20 +22,38 @@ public sealed class DomainAliasesController(
 {
     public async Task<IActionResult> Index()
     {
+        var aliases = await context.DomainAliases
+            .AsNoTracking()
+            .Include(alias => alias.TargetService)
+            .OrderBy(alias => alias.Domain)
+            .ToListAsync();
+        var snapshot = snapshotCache.Current;
+        var failedAliasIds = snapshot.Report?.Issues
+            .Where(issue => issue.Type == DnsAuditIssueType.DomainAliasRedirectMismatch)
+            .Select(issue => issue.DomainAliasId)
+            .OfType<int>()
+            .ToHashSet() ?? [];
+        var auditedAliases = snapshot.LastSuccessfulAt.HasValue
+            ? aliases.Where(alias => alias.UpdatedAt <= snapshot.LastSuccessfulAt.Value).ToList()
+            : [];
+
         return this.StackView(new DomainAliasIndexViewModel
         {
-            DomainAliases = await context.DomainAliases
-                .AsNoTracking()
-                .Include(alias => alias.TargetService)
-                .OrderBy(alias => alias.Domain)
-                .ToListAsync()
+            DomainAliases = aliases,
+            AvailableSourceDomains = await LoadAvailableSourceDomainsAsync(),
+            HealthyAliasCount = auditedAliases.Count(alias => !failedAliasIds.Contains(alias.Id)),
+            UnhealthyAliasCount = auditedAliases.Count(alias => failedAliasIds.Contains(alias.Id)),
+            PendingAliasCount = aliases.Count - auditedAliases.Count,
+            UnhealthyAliasIds = failedAliasIds,
+            LastSuccessfulAuditAt = snapshot.LastSuccessfulAt
         });
     }
 
-    public async Task<IActionResult> Create(string sourceDomain)
+    public async Task<IActionResult> Create(string? sourceDomain = null)
     {
-        var domain = DnsAuditAnalyzer.NormalizeDomain(sourceDomain);
-        if (!IsCurrentUnknownDnsFinding(domain))
+        var availableDomains = await LoadAvailableSourceDomainsAsync();
+        var domain = DnsAuditAnalyzer.NormalizeDomain(sourceDomain ?? string.Empty);
+        if (domain.Length > 0 && !availableDomains.Contains(domain, StringComparer.OrdinalIgnoreCase))
         {
             return BadRequest("A domain alias can only be registered from a current Unknown DNS finding.");
         }
@@ -43,7 +61,8 @@ public sealed class DomainAliasesController(
         return this.StackView(new CreateDomainAliasViewModel
         {
             Domain = domain,
-            AllServices = await LoadServicesAsync()
+            AllServices = await LoadServicesAsync(),
+            AvailableSourceDomains = availableDomains
         });
     }
 
@@ -52,7 +71,8 @@ public sealed class DomainAliasesController(
     public async Task<IActionResult> Create(CreateDomainAliasViewModel model)
     {
         var domain = DnsAuditAnalyzer.NormalizeDomain(model.Domain);
-        if (!IsCurrentUnknownDnsFinding(domain))
+        var availableDomains = await LoadAvailableSourceDomainsAsync();
+        if (!availableDomains.Contains(domain, StringComparer.OrdinalIgnoreCase))
         {
             ModelState.AddModelError(nameof(model.Domain),
                 "This hostname is no longer a current Unknown DNS finding. Run the audit again before registering it.");
@@ -77,6 +97,7 @@ public sealed class DomainAliasesController(
         {
             model.Domain = domain;
             model.AllServices = await LoadServicesAsync();
+            model.AvailableSourceDomains = availableDomains;
             return this.StackView(model);
         }
 
@@ -91,7 +112,7 @@ public sealed class DomainAliasesController(
         });
         await context.SaveChangesAsync();
         TriggerAudit();
-        return RedirectToAction("Index", "DnsAudit");
+        return RedirectToAction(nameof(Index));
     }
 
     public async Task<IActionResult> Edit(int id)
@@ -158,11 +179,34 @@ public sealed class DomainAliasesController(
         return RedirectToAction(nameof(Index));
     }
 
-    private bool IsCurrentUnknownDnsFinding(string domain)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult RefreshAudit()
     {
-        return snapshotCache.Current.Report?.Issues.Any(issue =>
-            issue.Type == DnsAuditIssueType.UnknownDns &&
-            DnsAuditAnalyzer.NormalizeDomain(issue.Domain) == domain) == true;
+        TriggerAudit();
+        return RedirectToAction(nameof(Index));
+    }
+
+    private async Task<List<string>> LoadAvailableSourceDomainsAsync()
+    {
+        var registeredDomains = (await context.Services
+                .AsNoTracking()
+                .Select(service => service.Domain)
+                .ToListAsync())
+            .Concat(await context.DomainAliases
+                .AsNoTracking()
+                .Select(alias => alias.Domain)
+                .ToListAsync())
+            .Select(DnsAuditAnalyzer.NormalizeDomain)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        return snapshotCache.Current.Report?.Issues
+            .Where(issue => issue.Type == DnsAuditIssueType.UnknownDns)
+            .Select(issue => DnsAuditAnalyzer.NormalizeDomain(issue.Domain))
+            .Where(domain => domain.Length > 0 && !registeredDomains.Contains(domain))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderBy(domain => domain)
+            .ToList() ?? [];
     }
 
     private void ValidateTarget(DomainAliasFormViewModel model, string sourceDomain, Service? targetService)

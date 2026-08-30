@@ -47,6 +47,7 @@ public class ServiceTests : TestBase
         StringAssert.Contains(content, "dashboard-server");
         StringAssert.Contains(content, "Frankfurt");
         StringAssert.Contains(content, "Cloudflare");
+        StringAssert.Contains(content, "/DomainAliases");
 
         var listResponse = await Http.GetAsync("/Services/List");
         listResponse.EnsureSuccessStatusCode();

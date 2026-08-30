@@ -1,52 +1,180 @@
 @model Aiursoft.EmployeeCenter.Models.DnsAuditViewModels.DomainAliasIndexViewModel
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <div>
-        <h1 class="h3 mb-1">@Localizer["Domain aliases"]</h1>
-        <p class="text-muted mb-0">@Localizer["Registered hostnames that must redirect to an exact service URL."]</p>
+<div class="container-fluid p-0">
+    <div class="row mb-2 mb-xl-3 align-items-center">
+        <div class="col-auto d-none d-sm-block">
+            <h3 class="mb-1">@Localizer["Domain Alias Registry"]</h3>
+            <p class="text-muted mb-0">@Localizer["Manage legacy hostnames and verify that every redirect reaches its exact registered destination."]</p>
+        </div>
+        <div class="col-auto ms-auto text-end mt-n1">
+            <a asp-controller="Services" asp-action="Index" class="btn btn-outline-secondary shadow-sm ms-1">
+                <i class="align-middle" data-lucide="layout-dashboard"></i> @Localizer["Services Dashboard"]
+            </a>
+            <form asp-action="RefreshAudit" method="post" class="d-inline">
+                <button type="submit" class="btn btn-outline-primary shadow-sm ms-1">
+                    <i class="align-middle" data-lucide="refresh-cw"></i> @Localizer["Audit Now"]
+                </button>
+            </form>
+            @if (Model.AvailableSourceDomains.Count > 0)
+            {
+                <a asp-action="Create" class="btn btn-primary shadow-sm ms-1">
+                    <i class="align-middle" data-lucide="plus"></i> @Localizer["New Alias"]
+                </a>
+            }
+            else
+            {
+                <button type="button" class="btn btn-primary shadow-sm ms-1" disabled title="@Localizer["No unregistered DNS hostnames are currently available."]">
+                    <i class="align-middle" data-lucide="plus"></i> @Localizer["New Alias"]
+                </button>
+            }
+        </div>
     </div>
-    <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-outline-primary">
-        <i class="align-middle me-1" data-lucide="shield-check"></i> @Localizer["Back to DNS Audit"]
-    </a>
+
+    <div class="card border-0 overflow-hidden alias-dashboard-hero mb-4">
+        <div class="card-body p-4 position-relative">
+            <div class="row align-items-center position-relative alias-dashboard-hero-content">
+                <div class="col-lg-8">
+                    <div class="text-uppercase small fw-semibold opacity-75 mb-2">@Localizer["Redirect Governance"]</div>
+                    <h1 class="display-6 fw-bold mb-2">@Model.DomainAliases.Count @Localizer["managed aliases"]</h1>
+                    <p class="lead mb-0 opacity-75">
+                        @Model.HealthyAliasCount @Localizer["healthy"] ·
+                        @Model.UnhealthyAliasCount @Localizer["need attention"] ·
+                        @Model.PendingAliasCount @Localizer["awaiting audit"]
+                    </p>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0 text-lg-end">
+                    @if (Model.LastSuccessfulAuditAt.HasValue)
+                    {
+                        <div class="small text-uppercase opacity-75">@Localizer["Last successful audit"]</div>
+                        <div class="h5 mb-0">@Model.LastSuccessfulAuditAt.Value.ToString("u")</div>
+                    }
+                    else
+                    {
+                        <div class="h5 mb-0">@Localizer["Audit pending"]</div>
+                    }
+                </div>
+            </div>
+            <i class="alias-dashboard-watermark" data-lucide="waypoints"></i>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-xl-3 d-flex">
+            <div class="card flex-fill"><div class="card-body py-4 d-flex align-items-center justify-content-between">
+                <div><h3 class="mb-1">@Model.DomainAliases.Count</h3><span class="text-muted">@Localizer["Total aliases"]</span></div>
+                <div class="stat"><i class="align-middle text-primary" data-lucide="split"></i></div>
+            </div></div>
+        </div>
+        <div class="col-6 col-xl-3 d-flex">
+            <div class="card flex-fill"><div class="card-body py-4 d-flex align-items-center justify-content-between">
+                <div><h3 class="mb-1 text-success">@Model.HealthyAliasCount</h3><span class="text-muted">@Localizer["Healthy"]</span></div>
+                <div class="stat"><i class="align-middle text-success" data-lucide="circle-check-big"></i></div>
+            </div></div>
+        </div>
+        <div class="col-6 col-xl-3 d-flex">
+            <div class="card flex-fill"><div class="card-body py-4 d-flex align-items-center justify-content-between">
+                <div><h3 class="mb-1 @(Model.UnhealthyAliasCount > 0 ? "text-danger" : "text-success")">@Model.UnhealthyAliasCount</h3><span class="text-muted">@Localizer["Need attention"]</span></div>
+                <div class="stat"><i class="align-middle @(Model.UnhealthyAliasCount > 0 ? "text-danger" : "text-success")" data-lucide="triangle-alert"></i></div>
+            </div></div>
+        </div>
+        <div class="col-6 col-xl-3 d-flex">
+            <div class="card flex-fill"><div class="card-body py-4 d-flex align-items-center justify-content-between">
+                <div><h3 class="mb-1 text-info">@Model.AvailableSourceDomains.Count</h3><span class="text-muted">@Localizer["Available DNS candidates"]</span></div>
+                <div class="stat"><i class="align-middle text-info" data-lucide="scan-search"></i></div>
+            </div></div>
+        </div>
+    </div>
+
+    @if (Model.AvailableSourceDomains.Count > 0)
+    {
+        <div class="alert alert-info d-flex align-items-center justify-content-between">
+            <div>
+                <i class="align-middle me-2" data-lucide="info"></i>
+                @Localizer["There are {0} audited DNS hostnames ready to be registered as aliases.", Model.AvailableSourceDomains.Count]
+            </div>
+            <a asp-action="Create" class="btn btn-sm btn-info text-white">@Localizer["Create alias"]</a>
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="route"></i> @Localizer["Registered Aliases"]</h5>
+            <div class="text-muted small">@Localizer["Each source hostname must return a first-hop redirect that exactly matches its target URL."]</div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Alias hostname"]</th>
+                    <th>@Localizer["Target service"]</th>
+                    <th>@Localizer["Exact target URL"]</th>
+                    <th>@Localizer["Audit status"]</th>
+                    <th>@Localizer["Updated at"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var alias in Model.DomainAliases)
+                {
+                    var isPending = !Model.LastSuccessfulAuditAt.HasValue || alias.UpdatedAt > Model.LastSuccessfulAuditAt.Value;
+                    var isUnhealthy = Model.UnhealthyAliasIds.Contains(alias.Id);
+                    <tr>
+                        <td><a href="https://@alias.Domain/" target="_blank" rel="noopener noreferrer"><code>@alias.Domain</code></a></td>
+                        <td>@alias.TargetService?.Domain</td>
+                        <td><a href="@alias.TargetUrl" target="_blank" rel="noopener noreferrer"><code>@alias.TargetUrl</code></a></td>
+                        <td>
+                            @if (isPending)
+                            {
+                                <span class="badge badge-subtle-secondary"><i class="align-middle me-1" data-lucide="clock-3"></i>@Localizer["Pending"]</span>
+                            }
+                            else if (isUnhealthy)
+                            {
+                                <span class="badge badge-subtle-danger"><i class="align-middle me-1" data-lucide="circle-x"></i>@Localizer["Critical"]</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-subtle-success"><i class="align-middle me-1" data-lucide="circle-check"></i>@Localizer["Healthy"]</span>
+                            }
+                        </td>
+                        <td>@alias.UpdatedAt.ToString("u")</td>
+                        <td class="text-end text-nowrap">
+                            <a asp-action="Edit" asp-route-id="@alias.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                            </a>
+                            <form asp-action="Delete" asp-route-id="@alias.Id" method="post" class="d-inline" onsubmit="return confirm('@Localizer["Delete this domain alias?"]');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                @if (Model.DomainAliases.Count == 0)
+                {
+                    <tr><td colspan="6" class="text-center text-muted py-5">
+                        <i class="d-block mx-auto mb-2" data-lucide="split"></i>
+                        @Localizer["No domain aliases have been registered."]
+                    </td></tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
-<div class="card">
-    <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead>
-            <tr>
-                <th>@Localizer["Alias hostname"]</th>
-                <th>@Localizer["Target service"]</th>
-                <th>@Localizer["Exact target URL"]</th>
-                <th>@Localizer["Updated at"]</th>
-                <th class="text-end">@Localizer["Actions"]</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var alias in Model.DomainAliases)
-            {
-                <tr>
-                    <td><code>@alias.Domain</code></td>
-                    <td>@alias.TargetService?.Domain</td>
-                    <td><a href="@alias.TargetUrl" target="_blank" rel="noopener noreferrer"><code>@alias.TargetUrl</code></a></td>
-                    <td>@alias.UpdatedAt.ToString("u")</td>
-                    <td class="text-end text-nowrap">
-                        <a asp-action="Edit" asp-route-id="@alias.Id" class="btn btn-sm btn-outline-primary">
-                            <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
-                        </a>
-                        <form asp-action="Delete" asp-route-id="@alias.Id" method="post" class="d-inline" onsubmit="return confirm('@Localizer["Delete this domain alias?"]');">
-                            <button type="submit" class="btn btn-sm btn-outline-danger">
-                                <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            }
-            @if (Model.DomainAliases.Count == 0)
-            {
-                <tr><td colspan="5" class="text-center text-muted py-4">@Localizer["No domain aliases have been registered."]</td></tr>
-            }
-            </tbody>
-        </table>
-    </div>
-</div>
+<style>
+    .alias-dashboard-hero {
+        color: #fff;
+        background: linear-gradient(125deg, #3f2b96 0%, #5f5ad8 50%, #2f9f9f 100%);
+        box-shadow: 0 1rem 2.5rem rgba(63, 43, 150, .2);
+    }
+    .alias-dashboard-hero-content { z-index: 2; }
+    .alias-dashboard-watermark {
+        position: absolute;
+        width: 13rem;
+        height: 13rem;
+        right: -2rem;
+        bottom: -5rem;
+        opacity: .12;
+    }
+</style>

@@ -117,10 +117,10 @@ public class DnsAuditControllerTests : TestBase
                 ["TargetServiceId"] = targetService.Id.ToString(),
                 ["TargetUrl"] = "https://avigame.anduinlab.com/"
             },
-            tokenUrl: "/DomainAliases/Create?sourceDomain=avigame.aiursoft.com");
+            tokenUrl: "/DomainAliases/Create");
 
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
-        Assert.Contains("/DnsAudit", response.Headers.Location?.OriginalString ?? string.Empty);
+        Assert.Contains("/DomainAliases", response.Headers.Location?.OriginalString ?? string.Empty);
         db.ChangeTracker.Clear();
         var alias = await db.DomainAliases
             .Include(item => item.TargetService)
@@ -128,6 +128,77 @@ public class DnsAuditControllerTests : TestBase
         Assert.AreEqual("avigame.aiursoft.com", alias.Domain);
         Assert.AreEqual("https://avigame.anduinlab.com/", alias.TargetUrl);
         Assert.AreEqual(targetService.Id, alias.TargetServiceId);
+    }
+
+    [TestMethod]
+    public async Task AdminCanManageAliasesFromCentralDashboard()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        var targetService = new Service { Domain = "dashboard-target.example.com" };
+        db.DomainAliases.Add(new DomainAlias
+        {
+            Domain = "legacy-dashboard.example.com",
+            TargetService = targetService,
+            TargetUrl = "https://dashboard-target.example.com/"
+        });
+        await db.SaveChangesAsync();
+        GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport
+        {
+            ZoneCount = 1,
+            RecordCount = 2,
+            AuditedHostnameCount = 2,
+            Issues =
+            [
+                new DnsAuditIssue
+                {
+                    Type = DnsAuditIssueType.UnknownDns,
+                    Severity = DnsAuditSeverity.Error,
+                    Domain = "new-dashboard-alias.example.com",
+                    Details = "Unknown DNS"
+                }
+            ]
+        }, DateTime.UtcNow.AddMinutes(1));
+
+        var response = await Http.GetAsync("/DomainAliases/Index");
+
+        response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.Contains("Domain Alias Registry", html);
+        Assert.Contains("legacy-dashboard.example.com", html);
+        Assert.Contains("Available DNS candidates", html);
+        Assert.Contains("/DomainAliases/Create", html);
+        Assert.Contains("/DomainAliases/Delete", html);
+        Assert.Contains("Healthy", html);
+    }
+
+    [TestMethod]
+    public async Task CentralCreatePageListsCurrentUnknownDnsFindings()
+    {
+        await LoginAsAdmin();
+        GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport
+        {
+            ZoneCount = 1,
+            RecordCount = 1,
+            AuditedHostnameCount = 1,
+            Issues =
+            [
+                new DnsAuditIssue
+                {
+                    Type = DnsAuditIssueType.UnknownDns,
+                    Severity = DnsAuditSeverity.Error,
+                    Domain = "selectable-alias.example.com",
+                    Details = "Unknown DNS"
+                }
+            ]
+        }, DateTime.UtcNow);
+
+        var response = await Http.GetAsync("/DomainAliases/Create");
+
+        response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.Contains("selectable-alias.example.com", html);
+        Assert.Contains("Select audited DNS hostname", html);
     }
 
     [TestMethod]
@@ -201,6 +272,26 @@ public class DnsAuditControllerTests : TestBase
             .ToList();
         Assert.IsGreaterThan(initialCount, auditTasks.Count);
         Assert.IsTrue(auditTasks.Any(task => task.TriggerSource == TaskTriggerSource.Manual));
+    }
+
+    [TestMethod]
+    public async Task AdminCanQueueAuditFromAliasDashboard()
+    {
+        await LoginAsAdmin();
+        var queue = GetService<ServiceTaskQueue>();
+        var initialCount = queue.GetAllTasks().Count(task => task.ServiceType == typeof(DnsAuditJob));
+
+        var response = await PostForm(
+            "/DomainAliases/RefreshAudit",
+            new Dictionary<string, string>(),
+            tokenUrl: "/DomainAliases/Index");
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        Assert.Contains("/DomainAliases", response.Headers.Location?.OriginalString ?? string.Empty);
+        await Task.Delay(100);
+        Assert.IsGreaterThan(
+            initialCount,
+            queue.GetAllTasks().Count(task => task.ServiceType == typeof(DnsAuditJob)));
     }
 
     [TestMethod]

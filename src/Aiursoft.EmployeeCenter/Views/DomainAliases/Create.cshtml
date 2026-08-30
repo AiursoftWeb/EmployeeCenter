@@ -5,19 +5,37 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div>
                 <h1 class="h3 mb-1">@Localizer["Register domain alias"]</h1>
-                <p class="text-muted mb-0">@Localizer["Turn this Unknown DNS finding into a managed redirect entry point."]</p>
+                <p class="text-muted mb-0">@Localizer["Choose an audited, unregistered DNS hostname and connect it to an existing service."]</p>
             </div>
-            <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-outline-secondary">@Localizer["Cancel"]</a>
+            <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Cancel"]</a>
         </div>
 
+        @if (Model.AvailableSourceDomains.Count == 0)
+        {
+            <div class="alert alert-info">
+                <h5 class="alert-heading">@Localizer["No alias candidates are available"]</h5>
+                <p>@Localizer["Run a DNS audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases."]</p>
+                <form asp-action="RefreshAudit" method="post">
+                    <button type="submit" class="btn btn-primary"><i class="align-middle me-1" data-lucide="refresh-cw"></i>@Localizer["Audit Now"]</button>
+                </form>
+            </div>
+        }
+        else
+        {
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="card">
                 <div class="card-body">
                     <div class="mb-3">
                         <label asp-for="Domain" class="form-label"></label>
-                        <input asp-for="Domain" class="form-control" readonly />
-                        <div class="form-text">@Localizer["The source hostname comes from the current Cloudflare audit finding."]</div>
+                        <select asp-for="Domain" class="form-select">
+                            <option value="">-- @Localizer["Select audited DNS hostname"] --</option>
+                            @foreach (var domain in Model.AvailableSourceDomains)
+                            {
+                                <option value="@domain">@domain</option>
+                            }
+                        </select>
+                        <div class="form-text">@Localizer["Only current Unknown DNS findings can become aliases."]</div>
                         <span asp-validation-for="Domain" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
@@ -45,6 +63,7 @@
                 </div>
             </div>
         </form>
+        }
     </div>
 </div>
 

@@ -45,6 +45,8 @@ public sealed class CreateDomainAliasViewModel : DomainAliasFormViewModel
     {
         PageTitle = "Register domain alias";
     }
+
+    public IReadOnlyList<string> AvailableSourceDomains { get; set; } = [];
 }
 
 public sealed class EditDomainAliasViewModel : DomainAliasFormViewModel
@@ -66,4 +68,16 @@ public sealed class DomainAliasIndexViewModel : UiStackLayoutViewModel
     }
 
     public required IReadOnlyList<DomainAlias> DomainAliases { get; init; }
+
+    public required IReadOnlyList<string> AvailableSourceDomains { get; init; }
+
+    public int HealthyAliasCount { get; init; }
+
+    public int UnhealthyAliasCount { get; init; }
+
+    public int PendingAliasCount { get; init; }
+
+    public required IReadOnlySet<int> UnhealthyAliasIds { get; init; }
+
+    public DateTime? LastSuccessfulAuditAt { get; init; }
 }
