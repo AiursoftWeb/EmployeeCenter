@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>نظرة عامة على توفر الخدمات، ومواقعها، وتغطية البنية التحتية.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>إجراءات</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>الخوادم النشطة</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>جميع الخدمات</value>
@@ -27,11 +33,29 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>هل أنت متأكد أنك تريد حذف هذا الخدمة؟</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>مُسندة</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>الفئة المستهدفة ونطاق توجيه محفظة الخدمات.</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>بانتظار التدقيق</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>تكامل Authentik</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>التوافر</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>نتائج حرجة</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>انقر على شريط أو اسم خادم لفحص خدماته.</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +66,9 @@
   <data name="Create New Service" xml:space="preserve">
     <value>إنشاء خدمة جديدة</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>الحالة الحالية لكل خدمة مسجّلة.</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
   </data>
@@ -51,14 +78,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Audit Health" xml:space="preserve">
+    <value>صحة تدقيق DNS</value>
+  </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>توزيع DNS</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>تسجيل مزود DNS</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>المجال</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>موجّهة عبر الحافة</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>تحرير</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>التوزيع الجغرافي</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>المواضيع السليمة</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>مدى اكتمال وصف كتالوج الخدمات للبنية التحتية والحوكمة.</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>سجل البنية التحتية</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>متصل</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>حالة دورة الحياة</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>الرابط</value>
@@ -66,8 +120,20 @@
   <data name="Location" xml:space="preserve">
     <value>الموقع</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>المواقع</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>إدارة مزودي DNS</value>
+  </data>
+  <data name="Manage Servers" xml:space="preserve">
+    <value>إدارة الخوادم</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>خدمة جديدة</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>لا توجد خدمات مُسندة إلى الخوادم بعد.</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>لا توجد خدمات متوفرة.</value>
@@ -78,6 +144,12 @@
   <data name="Online" xml:space="preserve">
     <value>مُتصل</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>تشغيلي</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>المالك</value>
   </data>
@@ -87,14 +159,29 @@
   <data name="Purpose" xml:space="preserve">
     <value>الغرض</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>الخدمات المسجلة</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>الخدمات المسجّلة مجمّعة حسب مزوّد DNS.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>جودة السجل</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>جاري التشغيل</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>ذاتي</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>الخدمات المطورة ذاتيًا</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>الخادم</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>تعيين الخادم</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>تفاصيل الخادم</value>
@@ -102,8 +189,23 @@
   <data name="Server IP" xml:space="preserve">
     <value>IP الخادم</value>
   </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>توزيع الخدمات حسب موقع الخادم.</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>غرض الخدمة</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>سجل الخدمات</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>الخدمات</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>الخدمات حسب الخادم</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>لوحة خدمات</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>الحالة</value>
@@ -113,6 +215,12 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>عبر Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>عرض جدول الخدمات المفصل</value>
+  </data>
+  <data name="View DNS Audit" xml:space="preserve">
+    <value>عرض تدقيق DNS</value>
   </data>
 
 </root>
