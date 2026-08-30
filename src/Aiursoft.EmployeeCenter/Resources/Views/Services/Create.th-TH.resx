@@ -48,11 +48,17 @@
   <data name="Reload" xml:space="preserve">
     <value>รีโหลด</value>
   </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>จำเป็นเมื่อเปิดใช้งาน Via FRPS</value>
+  </data>
   <data name="Save Service" xml:space="preserve">
     <value>บันทึกบริการ</value>
   </data>
   <data name="Select DNS Provider" xml:space="preserve">
     <value>เลือกผู้ให้บริการ DNS</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>เลือกเซิร์ฟเวอร์ FRPS</value>
   </data>
   <data name="Select Location" xml:space="preserve">
     <value>เลือกตำแหน่ง</value>

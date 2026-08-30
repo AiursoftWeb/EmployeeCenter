@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>서비스 가용성, 배치 및 인프라 커버리지에 대한 고수준 개요입니다.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>작업</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>활성 서버</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>모든 서비스</value>
@@ -27,11 +33,29 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>이 서비스를 삭제하시겠습니까?</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>배정됨</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>서비스 포트폴리오의 대상 및 라우팅 범위</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>감사 대기 중</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Authentik 통합</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>가용성</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>차단 항목</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>막대나 서버 이름을 클릭하여 해당 서비스를 확인하세요.</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +66,9 @@
   <data name="Create New Service" xml:space="preserve">
     <value>새 서비스 생성</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>등록된 모든 서비스의 현재 상태</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>삭제</value>
   </data>
@@ -51,14 +78,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Audit Health" xml:space="preserve">
+    <value>DNS 감사 상태</value>
+  </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>DNS 분포</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>DNS 제공자 등록</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>도메인</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>엣지 라우팅</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>수정</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>지리적 분포</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>정상 대상</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>서비스 카탈로그가 인프라 및 거버넌스를 얼마나 완전하게 기술하는지</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>인프라 등록부</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>온라인 여부</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>라이프사이클 상태</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>링크</value>
@@ -66,8 +120,20 @@
   <data name="Location" xml:space="preserve">
     <value>위치</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>위치</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>DNS 공급업체 관리</value>
+  </data>
+  <data name="Manage Servers" xml:space="preserve">
+    <value>서버 관리</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>새 서비스</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>아직 서버에 할당된 서비스가 없습니다.</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>서비스를 찾을 수 없습니다.</value>
@@ -78,6 +144,12 @@
   <data name="Online" xml:space="preserve">
     <value>온라인</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>정상 가동</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>기타</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>소유자</value>
   </data>
@@ -87,14 +159,29 @@
   <data name="Purpose" xml:space="preserve">
     <value>목적</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>등록된 서비스</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>DNS 제공업체별로 그룹화된 등록된 서비스.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>레지스트리 품질</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>실행 중</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>자체</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>자체 개발 서비스</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>서버</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>서버 할당</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>서버 세부 정보</value>
@@ -102,8 +189,23 @@
   <data name="Server IP" xml:space="preserve">
     <value>서버 IP</value>
   </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>서버 위치에 따른 서비스 배치</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>서비스 목적</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>서비스 레지스트리</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>서비스</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>서버별 서비스</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>서비스 대시보드</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>상태</value>
@@ -113,6 +215,12 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Via Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>상세 서비스 테이블 보기</value>
+  </data>
+  <data name="View DNS Audit" xml:space="preserve">
+    <value>DNS 감사 보기</value>
   </data>
 
 </root>

@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>服务可用性、部署位置及基础设施覆盖情况的高层视图。</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>操作</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>活动服务器</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>所有服务</value>
@@ -27,14 +33,32 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>确定要删除此服务吗？</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>已分配</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>服务组合的受众和路由范围。</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>审计待定</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
+  </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Authentik 集成</value>
   </data>
   <data name="Availability" xml:space="preserve">
     <value>可用性</value>
   </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>阻断性问题</value>
+  </data>
   <data name="Both" xml:space="preserve">
     <value>对国内和全球服务</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>点击条形图或服务器名称以查看其服务。</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -45,6 +69,9 @@
   <data name="Create New Service" xml:space="preserve">
     <value>创建新服务</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>每个已注册服务的当前状态。</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>删除</value>
   </data>
@@ -54,17 +81,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Audit Health" xml:space="preserve">
+    <value>DNS 审计健康度</value>
+  </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>DNS 分布</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>DNS 提供商注册</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>域名</value>
   </data>
   <data name="Domestic" xml:space="preserve">
     <value>对国内服务</value>
   </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>边缘路由</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>编辑</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>地理分布</value>
+  </data>
   <data name="Global" xml:space="preserve">
     <value>对全球服务</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>健康主题</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>服务目录对基础设施和治理的完整描述程度。</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>基础设施注册表</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>内部开发使用</value>
@@ -72,14 +123,29 @@
   <data name="InternalAndPartners" xml:space="preserve">
     <value>内部开发和合作伙伴使用</value>
   </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>生命周期状态</value>
+  </data>
   <data name="Link" xml:space="preserve">
     <value>链接</value>
   </data>
   <data name="Location" xml:space="preserve">
     <value>位置</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>位置</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>管理 DNS 服务商</value>
+  </data>
+  <data name="Manage Servers" xml:space="preserve">
+    <value>管理服务器</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>新建服务</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>目前尚未将任何服务分配到服务器。</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>未找到服务。</value>
@@ -90,6 +156,12 @@
   <data name="Online" xml:space="preserve">
     <value>在线</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>运行中</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>所有者</value>
   </data>
@@ -99,14 +171,29 @@
   <data name="Purpose" xml:space="preserve">
     <value>用途</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>已注册服务</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>按 DNS 提供商分组的已注册服务。</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>注册表质量</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>运营中</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>自研</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>自研服务</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>服务器</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>服务器分配</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>服务器详情</value>
@@ -114,8 +201,23 @@
   <data name="Server IP" xml:space="preserve">
     <value>服务器IP</value>
   </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>按服务器位置划分的服务分布。</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>服务用途</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>服务注册表</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>服务</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>按服务器划分的服务</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>服务仪表板</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>状态</value>
@@ -125,6 +227,12 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Via Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>查看详细服务表</value>
+  </data>
+  <data name="View DNS Audit" xml:space="preserve">
+    <value>查看 DNS 审计</value>
   </data>
 
 </root>

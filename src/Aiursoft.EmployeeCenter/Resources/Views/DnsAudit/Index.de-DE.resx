@@ -27,6 +27,12 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Audit fehlgeschlagen</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Jetzt auditieren</value>
+  </data>
+  <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
+    <value>Automatisch alle 20 Minuten aktualisiert</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Prüfung</value>
   </data>
@@ -44,6 +50,9 @@
   </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS-Audit</value>
+  </data>
+  <data name="DNS audit is starting" xml:space="preserve">
+    <value>DNS-Audit wird gestartet</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS-Einträge</value>
@@ -69,6 +78,12 @@
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Letztes erfolgreiches Audit</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Die letzte Aktualisierung ist fehlgeschlagen</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Es wurden keine DNS-Audit-Probleme gefunden.</value>
   </data>
@@ -80,6 +95,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Schweregrad</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>Die erste Hintergrundprüfung ist noch nicht abgeschlossen. Diese Seite liest das Ergebnis aus dem Arbeitsspeicher-Cache.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Die letzte erfolgreiche, zwischengespeicherte Prüfung wird unten angezeigt.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warnung</value>

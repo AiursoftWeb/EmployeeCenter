@@ -48,11 +48,17 @@
   <data name="Reload" xml:space="preserve">
     <value>새로고침</value>
   </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>Via FRPS가 활성화된 경우 필수입니다.</value>
+  </data>
   <data name="Save Service" xml:space="preserve">
     <value>서비스 저장</value>
   </data>
   <data name="Select DNS Provider" xml:space="preserve">
     <value>DNS 제공업체 선택</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>FRPS 서버 선택</value>
   </data>
   <data name="Select Location" xml:space="preserve">
     <value>위치 선택</value>

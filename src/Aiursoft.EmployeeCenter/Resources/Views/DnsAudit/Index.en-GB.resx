@@ -27,6 +27,12 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Audit failed</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Audit now</value>
+  </data>
+  <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
+    <value>Automatically refreshed every 20 minutes</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Check</value>
   </data>
@@ -44,6 +50,9 @@
   </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS Audit</value>
+  </data>
+  <data name="DNS audit is starting" xml:space="preserve">
+    <value>DNS audit is starting</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS records</value>
@@ -69,6 +78,12 @@
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Last successful audit</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Latest refresh failed</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>No DNS audit issues were found.</value>
   </data>
@@ -80,6 +95,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Severity</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>The first background audit has not completed yet. This page will read its result from the in-memory cache.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>The last successful cached audit is shown below.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>

@@ -27,6 +27,12 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Kiểm toán thất bại</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Kiểm toán ngay</value>
+  </data>
+  <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
+    <value>Tự động làm mới mỗi 20 phút</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Kiểm tra</value>
   </data>
@@ -44,6 +50,9 @@
   </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>Kiểm toán DNS</value>
+  </data>
+  <data name="DNS audit is starting" xml:space="preserve">
+    <value>Đang khởi động kiểm toán DNS</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>Bản ghi DNS</value>
@@ -69,6 +78,12 @@
   <data name="Info" xml:space="preserve">
     <value>Thông tin</value>
   </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Kiểm toán thành công gần nhất</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Lượt làm mới gần đây thất bại</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Không tìm thấy vấn đề kiểm toán DNS nào.</value>
   </data>
@@ -80,6 +95,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Mức độ nghiêm trọng</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>Đợt kiểm tra nền đầu tiên vẫn chưa hoàn tất. Trang này sẽ đọc kết quả từ bộ nhớ đệm trong bộ nhớ.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Kết quả kiểm tra thành công gần nhất trong bộ nhớ đệm được hiển thị bên dưới.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Cảnh báo</value>
