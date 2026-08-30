@@ -21,6 +21,9 @@
       <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
     <value>Um token de API da Cloudflare somente leitura usado pela Auditoria de DNS. Conceda DNS Settings:Read para todas as contas e DNS:Read para todas as zonas.</value>
   </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Um token de API do Cloudflare somente leitura usado pela Auditoria de Serviço. Conceda DNS Settings:Read para todas as contas e DNS:Read para todas as zonas.</value>
+  </data>
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Prompt do Sistema do Assistente de IA</value>
   </data>

@@ -120,6 +120,9 @@
   <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
     <value>อนุญาตให้เรียกใช้การตรวจสอบ Cloudflare DNS แบบอ่านอย่างเดียว และดูผลลัพธ์ที่ได้</value>
   </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>อนุญาตให้ดำเนินการตรวจสอบบริการแบบอ่านอย่างเดียวและดูผลลัพธ์ที่ได้</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>อนุญาตให้ลบบทบาทออกอย่างถาวร</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="Audit DNS" xml:space="preserve">
     <value>ตรวจสอบ DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>การตรวจสอบบริการ</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>แชทกับ AI</value>

@@ -90,6 +90,9 @@
   <data name="Domain" xml:space="preserve">
     <value>網域</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>域名別名</value>
+  </data>
   <data name="Edge Routed" xml:space="preserve">
     <value>邊緣路由</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>伺服器 IP</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>服務稽核健康狀態</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>按伺服器位置劃分嘅服務部署。</value>
   </data>
@@ -221,6 +227,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>檢視 DNS 稽核</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>檢視服務稽核</value>
   </data>
 
 </root>

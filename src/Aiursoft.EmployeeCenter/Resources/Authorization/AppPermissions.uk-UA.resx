@@ -120,6 +120,9 @@
   <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
     <value>Дозволяє запускати аудиторську перевірку DNS Cloudflare в режимі лише читання та переглядати її результати.</value>
   </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Дозволяє запускати читання-ревізію служб та переглядати її результати.</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>Дозволяє остаточне видалення ролей.</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="Audit DNS" xml:space="preserve">
     <value>Аудит DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Аудит сервісів</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Чат із ШІ</value>

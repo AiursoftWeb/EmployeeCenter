@@ -120,6 +120,9 @@
   <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
     <value>Cloudflare DNS के केवल-पठन ऑडिट को चलाने और उसके निष्कर्ष देखने की अनुमति देता है।</value>
   </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>पढ़ने-के-मात्र सेवा ऑडिट को चलाए और उसके निष्कर्ष देखें।</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>भूमिकाओं को स्थायी रूप से हटाने की अनुमति देता है।</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="Audit DNS" xml:space="preserve">
     <value>DNS ऑडिट</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>ऑडिट सेवाएं</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>AI से चैट करें</value>

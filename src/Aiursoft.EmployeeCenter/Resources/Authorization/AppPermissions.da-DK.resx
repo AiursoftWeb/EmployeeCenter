@@ -120,6 +120,9 @@
   <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
     <value>Giver mulighed for at køre den læsebeskyttede Cloudflare DNS-audit og se dens resultater.</value>
   </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Giver tilladelse til at køre den læsebeskyttede serviceaudit og se dets resultater.</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>Tillader den permanente sletning af roller.</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="Audit DNS" xml:space="preserve">
     <value>Kontrollér DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Revider tjenester</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Chat med AI</value>
