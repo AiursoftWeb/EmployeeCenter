@@ -75,43 +75,55 @@ public class BackgroundJobsTests : TestBase
     {
         // 直接从服务容器获取ServiceTaskQueue实例
         var queue = Server!.Services.GetRequiredService<ServiceTaskQueue>();
+        const string queueName = "Test Queue";
+        var blockerStarted = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var releaseBlocker = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var jobCompleted = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
 
-        // Step 1: wait for immediate startup jobs (such as DNS Audit) to drain,
-        // then verify that the queue has no leftover work.
-        for (var attempt = 0; attempt < 100 &&
-             (queue.GetPendingTasks().Any() || queue.GetProcessingTasks().Any()); attempt++)
-        {
-            await Task.Delay(50);
-        }
-        var initialPending = queue.GetPendingTasks().Count();
-        var initialProcessing = queue.GetProcessingTasks().Count();
-        Assert.AreEqual(0, initialPending);
-        Assert.AreEqual(0, initialProcessing);
+        // Step 1: 只验证本测试使用的队列，避免受应用启动时合法入队的定时任务影响
+        Assert.IsFalse(queue.GetPendingTasks().Any(task => task.QueueName == queueName));
+        Assert.IsFalse(queue.GetProcessingTasks().Any(task => task.QueueName == queueName));
+
+        // 用同名阻塞任务占住 worker，以便确定性地观察下一个任务的 pending 状态
+        queue.QueueWithDependency<ILogger<BackgroundJobsTests>>(
+            queueName: queueName,
+            taskName: "Blocking setup job",
+            task: async _ =>
+            {
+                blockerStarted.SetResult();
+                await releaseBlocker.Task;
+            });
+        await blockerStarted.Task.WaitAsync(TimeSpan.FromSeconds(5));
 
         // Step 2: 添加一个简单的任务到队列
-        var jobCompleted = false;
         queue.QueueWithDependency<ILogger<BackgroundJobsTests>>(
-            queueName: "Test Queue",
+            queueName: queueName,
             taskName: "Test Job 1",
             task: async (_) =>
             {
                 await Task.Delay(100); // 短暂延迟
-                jobCompleted = true;
+                jobCompleted.SetResult();
             });
 
-        // Step 3: 验证任务已加入待处理队列
-        var pendingTasks = queue.GetPendingTasks().ToList();
-        Assert.HasCount(1, pendingTasks);
-        Assert.AreEqual("Test Queue", pendingTasks[0].QueueName);
-        Assert.AreEqual("Test Job 1", pendingTasks[0].TaskName);
+        try
+        {
+            // Step 3: 验证任务已加入待处理队列
+            var pendingTasks = queue.GetPendingTasks()
+                .Where(task => task.QueueName == queueName && task.TaskName == "Test Job 1")
+                .ToList();
+            Assert.HasCount(1, pendingTasks);
+        }
+        finally
+        {
+            releaseBlocker.TrySetResult();
+        }
 
         // Step 4: 等待任务执行完成
-        await Task.Delay(2000); // 给worker足够时间处理
+        await jobCompleted.Task.WaitAsync(TimeSpan.FromSeconds(5));
 
         // Step 5: 验证任务已完成
-        Assert.IsTrue(jobCompleted);
         var recentTasks = queue.GetRecentCompletedTasks(TimeSpan.FromMinutes(1)).ToList();
-        Assert.IsTrue(recentTasks.Any(t => t.TaskName == "Test Job 1"));
+        Assert.IsTrue(recentTasks.Any(t => t.QueueName == queueName && t.TaskName == "Test Job 1"));
     }
 
     [TestMethod]
