@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Alias hostname" xml:space="preserve">
+    <value>エイリアスホスト名</value>
+  </data>
+  <data name="Audit Now" xml:space="preserve">
+    <value>今すぐ監査</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>監査保留中</value>
+  </data>
+  <data name="Audit status" xml:space="preserve">
+    <value>監査ステータス</value>
+  </data>
+  <data name="Available DNS candidates" xml:space="preserve">
+    <value>利用可能なDNS候補</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>監査待ち</value>
+  </data>
+  <data name="Create alias" xml:space="preserve">
+    <value>エイリアスを作成</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>重大</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Delete this domain alias?" xml:space="preserve">
+    <value>このドメインエイリアスを削除しますか？</value>
+  </data>
+  <data name="Domain Alias Registry" xml:space="preserve">
+    <value>ドメインエイリアスレジストリ</value>
+  </data>
+  <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
+    <value>各ソースホスト名は、ターゲットURLと完全に一致する初回ホップのリダイレクトを返す必要があります。</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Exact target URL" xml:space="preserve">
+    <value>正確なターゲットURL</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>健全</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>最終監査成功日時</value>
+  </data>
+  <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
+    <value>レガシーのホスト名を管理し、すべてのリダイレクトが正確に登録された宛先に到達するか確認します。</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>管理対象エイリアス</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>要注意</value>
+  </data>
+  <data name="New Alias" xml:space="preserve">
+    <value>新しいエイリアス</value>
+  </data>
+  <data name="No domain aliases have been registered." xml:space="preserve">
+    <value>ドメインエイリアスが登録されていません。</value>
+  </data>
+  <data name="No unregistered DNS hostnames are currently available." xml:space="preserve">
+    <value>現在、未登録のDNSホスト名は利用できません。</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>保留中</value>
+  </data>
+  <data name="Redirect Governance" xml:space="preserve">
+    <value>リダイレクト管理</value>
+  </data>
+  <data name="Registered Aliases" xml:space="preserve">
+    <value>登録済みエイリアス</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>サービス ダッシュボード</value>
+  </data>
+  <data name="Target service" xml:space="preserve">
+    <value>ターゲットサービス</value>
+  </data>
+  <data name="Total aliases" xml:space="preserve">
+    <value>合計エイリアス</value>
+  </data>
+  <data name="Updated at" xml:space="preserve">
+    <value>更新日時</value>
+  </data>
+
+</root>

@@ -21,6 +21,9 @@
       <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
     <value>DNS Denetimi tarafından kullanılan salt okunur bir Cloudflare API belirteci. Tüm hesaplar için DNS Ayarları:Okuma ve tüm bölgeler için DNS:Okuma yetkisini verin.</value>
   </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Service Audit tarafından kullanılan salt okunur bir Cloudflare API belirteci. Tüm hesaplar için DNS Settings:Read ve tüm bölgeler için DNS:Read izinlerini verin.</value>
+  </data>
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Yapay Zeka Asistanı Sistem İstemi</value>
   </data>

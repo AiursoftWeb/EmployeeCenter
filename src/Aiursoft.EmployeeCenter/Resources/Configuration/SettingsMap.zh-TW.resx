@@ -21,6 +21,9 @@
       <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
     <value>供 DNS Audit 使用的唯讀 Cloudflare API 權杖。請為所有帳號授予 DNS Settings:Read 權限，並為所有區域授予 DNS:Read 權限。</value>
   </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>用於服務稽核（Service Audit）的唯讀 Cloudflare API 權杖。請為所有帳戶授予 DNS Settings:Read 權限，並為所有區域授予 DNS:Read 權限。</value>
+  </data>
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>AI 助理系統提示</value>
   </data>

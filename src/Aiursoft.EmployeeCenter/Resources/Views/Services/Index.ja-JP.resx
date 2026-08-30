@@ -90,6 +90,9 @@
   <data name="Domain" xml:space="preserve">
     <value>ドメイン</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>ドメインエイリアス</value>
+  </data>
   <data name="Edge Routed" xml:space="preserve">
     <value>エッジ経由</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>サーバーIP</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>サービス監査の健全性</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>サーバーの所在地に基づくサービスの配置。</value>
   </data>
@@ -221,6 +227,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>DNS監査を表示</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>サービス監査を表示</value>
   </data>
 
 </root>

@@ -21,6 +21,9 @@
       <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
     <value>Μονά-αναγνώσιμη διακριτική τιμή API της Cloudflare που χρησιμοποιείται από το DNS Audit. Χωρίστε τα δικαιώματα DNS Settings:Read για όλους τους λογαριασμούς και DNS:Read για όλες τις ζώνες.</value>
   </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Μονοδιαβάσιμο token API Cloudflare που χρησιμοποιείται από το Service Audit. Εξουσιοδοτήστε DNS Settings:Read για όλους τους λογαριασμούς και DNS:Read για όλες τις ζώνες.</value>
+  </data>
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Πρόγραμμα Συστήματος Βοηθού AI</value>
   </data>

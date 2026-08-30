@@ -30,14 +30,23 @@
   <data name="Audit now" xml:space="preserve">
     <value>立即稽核</value>
   </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>審計服務註冊表、DNS 設定、伺服器擁有權、別名及即時 HTTP 可用性。</value>
+  </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>每20分鐘自動刷新</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>每 3 小時自動刷新</value>
   </data>
   <data name="Check" xml:space="preserve">
     <value>檢查</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Cloudflare API 令牌尚未設定</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Cloudflare 區域</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>將 EmployeeCenter 服務註冊表與唯讀的 Cloudflare DNS 觀察結果進行比較。</value>
@@ -60,6 +69,9 @@
   <data name="Domain" xml:space="preserve">
     <value>網域名稱</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>編輯別名</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>編輯服務</value>
   </data>
@@ -75,6 +87,9 @@
   <data name="Generated at" xml:space="preserve">
     <value>產生時間</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>主機名稱</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>資訊</value>
   </data>
@@ -84,11 +99,32 @@
   <data name="Latest refresh failed" xml:space="preserve">
     <value>最新刷新失敗</value>
   </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>即時可用性</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>管理別名</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>未發現任何 DNS 稽核問題。</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>未發現任何服務審計問題。</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>註冊為別名</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>執行審計</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>運作中的 HTTP(S) 端點健康</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>服務審計</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>服務審計正在啟動</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>已審計的服務主機名稱</value>
