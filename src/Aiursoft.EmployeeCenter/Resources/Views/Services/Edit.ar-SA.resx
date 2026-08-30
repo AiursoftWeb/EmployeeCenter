@@ -48,11 +48,17 @@
   <data name="Reload" xml:space="preserve">
     <value>إعادة التحميل</value>
   </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>مطلوب عند تمكين &quot;Via FRPS&quot;.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>حفظ التغييرات</value>
   </data>
   <data name="Select DNS Provider" xml:space="preserve">
     <value>اختر مزود DNS</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>اختر خادم FRPS</value>
   </data>
   <data name="Select Location" xml:space="preserve">
     <value>اختر الموقع</value>

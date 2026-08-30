@@ -27,6 +27,12 @@
   <data name="Audit failed" xml:space="preserve">
     <value>A auditoria falhou</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Auditar agora</value>
+  </data>
+  <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
+    <value>Atualizado automaticamente a cada 20 minutos</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Verificação</value>
   </data>
@@ -44,6 +50,9 @@
   </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>Auditoria DNS</value>
+  </data>
+  <data name="DNS audit is starting" xml:space="preserve">
+    <value>A auditoria DNS está a iniciar</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>registos DNS</value>
@@ -69,6 +78,12 @@
   <data name="Info" xml:space="preserve">
     <value>Informação</value>
   </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Última auditoria bem-sucedida</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>A última atualização falhou</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Não foram encontrados problemas na auditoria de DNS.</value>
   </data>
@@ -80,6 +95,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Gravidade</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>A primeira auditoria em segundo plano ainda não foi concluída. Esta página irá ler o seu resultado a partir da cache em memória.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>A última auditoria em cache bem-sucedida está apresentada abaixo.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Aviso</value>
