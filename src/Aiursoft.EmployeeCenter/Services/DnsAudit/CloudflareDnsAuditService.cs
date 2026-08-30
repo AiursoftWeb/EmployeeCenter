@@ -70,6 +70,10 @@ public sealed class CloudflareDnsAuditService(
             .Include(service => service.FrpsServer)
             .Include(service => service.DnsProvider)
             .ToListAsync(cancellationToken);
+        var domainAliases = await dbContext.DomainAliases
+            .AsNoTracking()
+            .Include(alias => alias.TargetService)
+            .ToListAsync(cancellationToken);
         var servers = await dbContext.Servers
             .AsNoTracking()
             .ToListAsync(cancellationToken);
@@ -84,6 +88,7 @@ public sealed class CloudflareDnsAuditService(
         var publicDnsResolutions = await ResolveDomainOutcomesAsync(
             services
                 .Select(service => DnsAuditAnalyzer.NormalizeDomain(service.Domain))
+                .Concat(domainAliases.Select(alias => DnsAuditAnalyzer.NormalizeDomain(alias.Domain)))
                 .Where(domain => domain.Length > 0 && !BelongsToAnyZone(domain, zoneNames)),
             cancellationToken);
         foreach (var (domain, resolution) in publicDnsResolutions.Where(pair => pair.Value.Completed))
@@ -107,10 +112,12 @@ public sealed class CloudflareDnsAuditService(
         var publiclyResolvableManagedDomains = await ResolveDomainsAsync(
             services
                 .Select(service => DnsAuditAnalyzer.NormalizeDomain(service.Domain))
+                .Concat(domainAliases.Select(alias => DnsAuditAnalyzer.NormalizeDomain(alias.Domain)))
                 .Where(domain => domain.Length > 0 &&
                                  BelongsToAnyZone(domain, zoneNames) &&
                                  !recordNames.Contains(domain)),
             cancellationToken);
+        var aliasRedirectResults = await AuditDomainAliasRedirectsAsync(domainAliases, cancellationToken);
 
         return DnsAuditAnalyzer.Analyze(new DnsAuditInput(
             zones.Select(zone => zone.Name).ToList(),
@@ -129,7 +136,73 @@ public sealed class CloudflareDnsAuditService(
                 .ToDictionary(
                     pair => pair.Key,
                     pair => pair.Value.Failure ?? "The public DNS query failed.",
-                    StringComparer.OrdinalIgnoreCase)));
+                    StringComparer.OrdinalIgnoreCase),
+            domainAliases,
+            aliasRedirectResults));
+    }
+
+    private async Task<IReadOnlyDictionary<string, DomainAliasRedirectResult>> AuditDomainAliasRedirectsAsync(
+        IReadOnlyCollection<DomainAlias> aliases,
+        CancellationToken cancellationToken)
+    {
+        var results = new ConcurrentDictionary<string, DomainAliasRedirectResult>(StringComparer.OrdinalIgnoreCase);
+        var client = httpClientFactory.CreateClient("DnsAliasAudit");
+
+        await Parallel.ForEachAsync(
+            aliases,
+            new ParallelOptions { MaxDegreeOfParallelism = 8, CancellationToken = cancellationToken },
+            async (alias, token) =>
+            {
+                var domain = DnsAuditAnalyzer.NormalizeDomain(alias.Domain);
+                if (domain.Length == 0 || domain.StartsWith("*.", StringComparison.Ordinal))
+                {
+                    results[domain] = new DomainAliasRedirectResult(
+                        false,
+                        null,
+                        null,
+                        "The registered alias hostname is invalid.");
+                    return;
+                }
+
+                var sourceUri = new UriBuilder(Uri.UriSchemeHttps, domain) { Path = "/" }.Uri;
+                using var request = new HttpRequestMessage(HttpMethod.Get, sourceUri);
+                request.Headers.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-DnsAliasAudit/1.0");
+                request.Headers.Accept.ParseAdd("text/html,application/xhtml+xml;q=0.9,*/*;q=0.1");
+                using var timeout = CancellationTokenSource.CreateLinkedTokenSource(token);
+                timeout.CancelAfter(TimeSpan.FromSeconds(10));
+                try
+                {
+                    using var response = await client.SendAsync(
+                        request,
+                        HttpCompletionOption.ResponseHeadersRead,
+                        timeout.Token);
+                    results[domain] = DomainAliasRedirectEvaluator.Evaluate(
+                        sourceUri,
+                        alias.TargetUrl,
+                        response.StatusCode,
+                        response.Headers.Location);
+                }
+                catch (OperationCanceledException ex) when (!token.IsCancellationRequested)
+                {
+                    logger.LogWarning(ex, "Domain alias HTTP audit for '{Domain}' timed out", domain);
+                    results[domain] = new DomainAliasRedirectResult(
+                        false,
+                        null,
+                        null,
+                        "The alias could not be verified because its HTTPS request timed out after 10 seconds.");
+                }
+                catch (HttpRequestException ex)
+                {
+                    logger.LogWarning(ex, "Domain alias HTTP audit for '{Domain}' failed", domain);
+                    results[domain] = new DomainAliasRedirectResult(
+                        false,
+                        null,
+                        null,
+                        $"The alias HTTPS request failed: {ex.Message}");
+                }
+            });
+
+        return results.ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.OrdinalIgnoreCase);
     }
 
     private async Task<IReadOnlyDictionary<string, IReadOnlyCollection<string>>> ResolveDnsOnlyCnamesAsync(

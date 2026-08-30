@@ -1,0 +1,61 @@
+@model Aiursoft.EmployeeCenter.Models.DnsAuditViewModels.CreateDomainAliasViewModel
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h1 class="h3 mb-1">@Localizer["Register domain alias"]</h1>
+                <p class="text-muted mb-0">@Localizer["Turn this Unknown DNS finding into a managed redirect entry point."]</p>
+            </div>
+            <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-outline-secondary">@Localizer["Cancel"]</a>
+        </div>
+
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label asp-for="Domain" class="form-label"></label>
+                        <input asp-for="Domain" class="form-control" readonly />
+                        <div class="form-text">@Localizer["The source hostname comes from the current Cloudflare audit finding."]</div>
+                        <span asp-validation-for="Domain" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="TargetServiceId" class="form-label"></label>
+                        <select asp-for="TargetServiceId" class="form-select" id="target-service">
+                            <option value="">-- @Localizer["Select target service"] --</option>
+                            @foreach (var service in Model.AllServices)
+                            {
+                                <option value="@service.Id" data-target-url="https://@Aiursoft.EmployeeCenter.Services.DnsAudit.DnsAuditAnalyzer.NormalizeDomain(service.Domain)/">@service.Domain</option>
+                            }
+                        </select>
+                        <span asp-validation-for="TargetServiceId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="TargetUrl" class="form-label"></label>
+                        <input asp-for="TargetUrl" class="form-control" type="url" placeholder="https://target.example.com/" />
+                        <div class="form-text">@Localizer["The audit requires the first redirect Location header to match this URL exactly."]</div>
+                        <span asp-validation-for="TargetUrl" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-success">
+                        <i class="align-middle me-1" data-lucide="split"></i> @Localizer["Register alias and audit now"]
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        document.getElementById('target-service')?.addEventListener('change', event => {
+            const option = event.target.selectedOptions[0];
+            const target = document.getElementById('TargetUrl');
+            if (option?.dataset.targetUrl && target) {
+                target.value = option.dataset.targetUrl;
+            }
+        });
+    </script>
+}

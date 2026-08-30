@@ -299,6 +299,11 @@ public class ServicesController(
             return BadRequest("Cannot delete a service that is linked by another service.");
         }
 
+        if (await context.DomainAliases.AnyAsync(alias => alias.TargetServiceId == id))
+        {
+            return BadRequest("Cannot delete a service that is targeted by a domain alias.");
+        }
+
         context.Services.Remove(service);
         await context.SaveChangesAsync();
         return RedirectToAction(nameof(List));

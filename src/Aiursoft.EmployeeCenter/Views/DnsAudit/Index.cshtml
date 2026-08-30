@@ -1,5 +1,11 @@
 @using Aiursoft.EmployeeCenter.Models.DnsAuditViewModels
+@using Aiursoft.EmployeeCenter.Authorization
+@using Microsoft.AspNetCore.Authorization
 @model DnsAuditIndexViewModel
+@inject IAuthorizationService AuthorizationService
+@{
+    var canManageDomainAliases = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageServices)).Succeeded;
+}
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <div>
@@ -14,12 +20,21 @@
                 <div>@Localizer["Last successful audit"] @Model.LastSuccessfulAt.Value.ToString("u")</div>
             }
         </div>
-        <form asp-action="Refresh" method="post">
-            <button type="submit" class="btn btn-primary text-nowrap">
-                <i class="align-middle me-1" data-lucide="refresh-cw"></i>
-                @Localizer["Audit now"]
-            </button>
-        </form>
+        <div class="btn-group">
+            @if (canManageDomainAliases)
+            {
+                <a asp-controller="DomainAliases" asp-action="Index" class="btn btn-outline-primary text-nowrap">
+                    <i class="align-middle me-1" data-lucide="waypoints"></i>
+                    @Localizer["Manage aliases"]
+                </a>
+            }
+            <form asp-action="Refresh" method="post">
+                <button type="submit" class="btn btn-primary text-nowrap rounded-start-0">
+                    <i class="align-middle me-1" data-lucide="refresh-cw"></i>
+                    @Localizer["Audit now"]
+                </button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -148,7 +163,19 @@ else if (Model.Report != null)
                             <td><code>@issue.Domain</code></td>
                             <td>@issue.Details</td>
                             <td class="text-end">
-                                @if (issue.ServiceId.HasValue)
+                                @if (issue.Type == DnsAuditIssueType.UnknownDns && canManageDomainAliases)
+                                {
+                                    <a asp-controller="DomainAliases" asp-action="Create" asp-route-sourceDomain="@issue.Domain" class="btn btn-sm btn-outline-success text-nowrap">
+                                        <i class="align-middle" data-lucide="split"></i> @Localizer["Register as alias"]
+                                    </a>
+                                }
+                                else if (issue.DomainAliasId.HasValue && canManageDomainAliases)
+                                {
+                                    <a asp-controller="DomainAliases" asp-action="Edit" asp-route-id="@issue.DomainAliasId" class="btn btn-sm btn-outline-danger text-nowrap">
+                                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit alias"]
+                                    </a>
+                                }
+                                else if (issue.ServiceId.HasValue)
                                 {
                                     <a asp-controller="Services" asp-action="Edit" asp-route-id="@issue.ServiceId" class="btn btn-sm btn-outline-primary">
                                         <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit service"]

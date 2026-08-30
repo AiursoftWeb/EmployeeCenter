@@ -21,7 +21,8 @@ public enum DnsAuditIssueType
     WildcardDnsRecord = 14,
     ManagedDnsOutsideRecordApi = 15,
     MissingFrpsServerAssignment = 16,
-    PublicDnsLookupFailed = 17
+    PublicDnsLookupFailed = 17,
+    DomainAliasRedirectMismatch = 18
 }
 
 public enum DnsAuditSeverity
@@ -39,6 +40,7 @@ public sealed class DnsAuditIssue
     public required string Domain { get; init; }
     public required string Details { get; init; }
     public int? ServiceId { get; init; }
+    public int? DomainAliasId { get; init; }
 
     public string CheckName => Type switch
     {
@@ -59,6 +61,7 @@ public sealed class DnsAuditIssue
         DnsAuditIssueType.ManagedDnsOutsideRecordApi => "Cloudflare-managed DNS target",
         DnsAuditIssueType.MissingFrpsServerAssignment => "Missing FRPS server assignment",
         DnsAuditIssueType.PublicDnsLookupFailed => "Public DNS lookup failed",
+        DnsAuditIssueType.DomainAliasRedirectMismatch => "Domain alias redirect mismatch",
         _ => Type.ToString()
     };
 }
@@ -119,4 +122,12 @@ public sealed record DnsAuditInput(
     IReadOnlyDictionary<string, IReadOnlyCollection<string>> ResolvedCnameAddresses,
     IReadOnlyCollection<string>? PubliclyResolvableDomains = null,
     IReadOnlyCollection<string>? PubliclyAuditedDomains = null,
-    IReadOnlyDictionary<string, string>? PublicDnsLookupFailures = null);
+    IReadOnlyDictionary<string, string>? PublicDnsLookupFailures = null,
+    IReadOnlyCollection<DomainAlias>? DomainAliases = null,
+    IReadOnlyDictionary<string, DomainAliasRedirectResult>? DomainAliasRedirectResults = null);
+
+public sealed record DomainAliasRedirectResult(
+    bool IsMatch,
+    int? StatusCode,
+    string? ActualTargetUrl,
+    string Details);

@@ -63,6 +63,9 @@
   <data name="Edit service" xml:space="preserve">
     <value>编辑服务</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>编辑别名</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>错误</value>
   </data>
@@ -77,6 +80,15 @@
   </data>
   <data name="Info" xml:space="preserve">
     <value>信息</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>管理域名别名</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>登记为别名</value>
+  </data>
+  <data name="Domain alias redirect mismatch" xml:space="preserve">
+    <value>域名别名跳转不匹配</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>上次成功审计</value>

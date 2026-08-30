@@ -326,6 +326,79 @@ public class DnsAuditAnalyzerTests
             issue.Severity == DnsAuditSeverity.Info));
     }
 
+    [TestMethod]
+    public void RegisteredHealthyAliasIsNotReportedAsUnknownDns()
+    {
+        var targetService = RegisteredService("target.example.com", proxied: true);
+        var alias = RegisteredAlias("alias.example.com", targetService, "https://target.example.com/");
+        var report = Analyze(
+            records:
+            [
+                Record("target.example.com", "A", "192.0.2.10", proxied: true),
+                Record("alias.example.com", "A", "192.0.2.10", proxied: true)
+            ],
+            services: [targetService],
+            servers: [RegisteredServer("192.0.2.10")],
+            domainAliases: [alias],
+            aliasRedirectResults: new Dictionary<string, DomainAliasRedirectResult>
+            {
+                ["alias.example.com"] = new(true, 301, "https://target.example.com/", "Exact redirect")
+            });
+
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.UnknownDns));
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.DomainAliasRedirectMismatch));
+    }
+
+    [TestMethod]
+    public void RegisteredAliasWithWrongRedirectIsCritical()
+    {
+        var targetService = RegisteredService("target.example.com", proxied: true);
+        var alias = RegisteredAlias("alias.example.com", targetService, "https://target.example.com/");
+        var report = Analyze(
+            records:
+            [
+                Record("target.example.com", "A", "192.0.2.10", proxied: true),
+                Record("alias.example.com", "A", "192.0.2.10", proxied: true)
+            ],
+            services: [targetService],
+            servers: [RegisteredServer("192.0.2.10")],
+            domainAliases: [alias],
+            aliasRedirectResults: new Dictionary<string, DomainAliasRedirectResult>
+            {
+                ["alias.example.com"] = new(
+                    false,
+                    302,
+                    "https://wrong.example.com/",
+                    "The redirect target is wrong.")
+            });
+
+        var issue = report.Issues.Single(item => item.Type == DnsAuditIssueType.DomainAliasRedirectMismatch);
+        Assert.AreEqual(DnsAuditSeverity.Critical, issue.Severity);
+        Assert.AreEqual(alias.Id, issue.DomainAliasId);
+        Assert.Contains("wrong", issue.Details);
+        Assert.IsFalse(report.Issues.Any(item => item.Type == DnsAuditIssueType.UnknownDns));
+    }
+
+    [TestMethod]
+    public void RegisteredAliasWithoutHttpObservationIsCritical()
+    {
+        var targetService = RegisteredService("target.example.com", proxied: true);
+        var alias = RegisteredAlias("alias.example.com", targetService, "https://target.example.com/");
+        var report = Analyze(
+            records:
+            [
+                Record("target.example.com", "A", "192.0.2.10", proxied: true),
+                Record("alias.example.com", "A", "192.0.2.10", proxied: true)
+            ],
+            services: [targetService],
+            servers: [RegisteredServer("192.0.2.10")],
+            domainAliases: [alias]);
+
+        Assert.IsTrue(report.Issues.Any(issue =>
+            issue.Type == DnsAuditIssueType.DomainAliasRedirectMismatch &&
+            issue.Severity == DnsAuditSeverity.Critical));
+    }
+
     private static DnsAuditReport Analyze(
         IReadOnlyCollection<DnsAuditRecord> records,
         IReadOnlyCollection<Service> services,
@@ -333,7 +406,9 @@ public class DnsAuditAnalyzerTests
         IReadOnlyDictionary<string, IReadOnlyCollection<string>>? resolvedCnames = null,
         IReadOnlyCollection<string>? publiclyResolvableDomains = null,
         IReadOnlyCollection<string>? publiclyAuditedDomains = null,
-        IReadOnlyDictionary<string, string>? publicDnsLookupFailures = null)
+        IReadOnlyDictionary<string, string>? publicDnsLookupFailures = null,
+        IReadOnlyCollection<DomainAlias>? domainAliases = null,
+        IReadOnlyDictionary<string, DomainAliasRedirectResult>? aliasRedirectResults = null)
     {
         return DnsAuditAnalyzer.Analyze(new DnsAuditInput(
             ["example.com"],
@@ -344,7 +419,9 @@ public class DnsAuditAnalyzerTests
             resolvedCnames ?? new Dictionary<string, IReadOnlyCollection<string>>(),
             publiclyResolvableDomains,
             publiclyAuditedDomains,
-            publicDnsLookupFailures));
+            publicDnsLookupFailures,
+            domainAliases,
+            aliasRedirectResults));
     }
 
     private static DnsAuditRecord Record(string name, string type, string content, bool proxied)
@@ -389,6 +466,18 @@ public class DnsAuditAnalyzerTests
             Id = id,
             ServerIp = addresses,
             Ipv6Address = ipv6Address
+        };
+    }
+
+    private static DomainAlias RegisteredAlias(string domain, Service targetService, string targetUrl)
+    {
+        return new DomainAlias
+        {
+            Id = Random.Shared.Next(1, int.MaxValue),
+            Domain = domain,
+            TargetServiceId = targetService.Id,
+            TargetService = targetService,
+            TargetUrl = targetUrl
         };
     }
 }

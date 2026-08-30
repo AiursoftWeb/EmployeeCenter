@@ -1037,6 +1037,43 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.ToTable("DnsProviders");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.DomainAlias", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Domain")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("TargetServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TargetUrl")
+                        .IsRequired()
+                        .HasMaxLength(2048)
+                        .HasColumnType("varchar(2048)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Domain")
+                        .IsUnique();
+
+                    b.HasIndex("TargetServiceId");
+
+                    b.ToTable("DomainAliases");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.FinanceAccount", b =>
                 {
                     b.Property<int>("Id")
@@ -2898,6 +2935,17 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Navigation("CompanyEntity");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.DomainAlias", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Service", "TargetService")
+                        .WithMany("DomainAliases")
+                        .HasForeignKey("TargetServiceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("TargetService");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.FinanceAccount", b =>
                 {
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.CompanyEntity", "CompanyEntity")
@@ -3481,6 +3529,11 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Navigation("FrpsServices");
 
                     b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Service", b =>
+                {
+                    b.Navigation("DomainAliases");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.SignalQuestion", b =>

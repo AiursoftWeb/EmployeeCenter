@@ -61,6 +61,9 @@ public class Service
     [MaxLength(1000)]
     public string? Remark { get; set; }
 
+    [JsonIgnore]
+    public List<DomainAlias> DomainAliases { get; set; } = new();
+
     public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;

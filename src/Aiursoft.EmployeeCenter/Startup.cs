@@ -106,6 +106,11 @@ public class Startup : IWebStartup
             var agentConfig = configuration.GetSection("AppSettings:Agent").Get<AgentSettings>();
             client.Timeout = TimeSpan.FromSeconds(agentConfig?.MeetingMinutesTimeoutSeconds ?? 600);
         });
+        services.AddHttpClient("DnsAliasAudit")
+            .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                AllowAutoRedirect = false
+            });
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job queue

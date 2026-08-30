@@ -124,6 +124,29 @@ public class ServiceTests : TestBase
     }
 
     [TestMethod]
+    public async Task ServiceTargetedByDomainAliasCannotBeDeleted()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        var target = new Service { Domain = "target-for-alias.example.com" };
+        db.DomainAliases.Add(new DomainAlias
+        {
+            Domain = "alias-for-target.example.com",
+            TargetService = target,
+            TargetUrl = "https://target-for-alias.example.com/"
+        });
+        await db.SaveChangesAsync();
+
+        var response = await PostForm(
+            $"/Services/Delete/{target.Id}",
+            new Dictionary<string, string>(),
+            tokenUrl: "/Services/List");
+
+        Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.IsNotNull(await db.Services.FindAsync(target.Id));
+    }
+
+    [TestMethod]
     public async Task ServiceListWarnsAboutMissingFrpsAssignmentWithoutShowingFrpsName()
     {
         await LoginAsAdmin();

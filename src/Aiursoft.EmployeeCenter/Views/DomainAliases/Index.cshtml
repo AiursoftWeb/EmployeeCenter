@@ -1,0 +1,52 @@
+@model Aiursoft.EmployeeCenter.Models.DnsAuditViewModels.DomainAliasIndexViewModel
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="h3 mb-1">@Localizer["Domain aliases"]</h1>
+        <p class="text-muted mb-0">@Localizer["Registered hostnames that must redirect to an exact service URL."]</p>
+    </div>
+    <a asp-controller="DnsAudit" asp-action="Index" class="btn btn-outline-primary">
+        <i class="align-middle me-1" data-lucide="shield-check"></i> @Localizer["Back to DNS Audit"]
+    </a>
+</div>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["Alias hostname"]</th>
+                <th>@Localizer["Target service"]</th>
+                <th>@Localizer["Exact target URL"]</th>
+                <th>@Localizer["Updated at"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var alias in Model.DomainAliases)
+            {
+                <tr>
+                    <td><code>@alias.Domain</code></td>
+                    <td>@alias.TargetService?.Domain</td>
+                    <td><a href="@alias.TargetUrl" target="_blank" rel="noopener noreferrer"><code>@alias.TargetUrl</code></a></td>
+                    <td>@alias.UpdatedAt.ToString("u")</td>
+                    <td class="text-end text-nowrap">
+                        <a asp-action="Edit" asp-route-id="@alias.Id" class="btn btn-sm btn-outline-primary">
+                            <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                        </a>
+                        <form asp-action="Delete" asp-route-id="@alias.Id" method="post" class="d-inline" onsubmit="return confirm('@Localizer["Delete this domain alias?"]');">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            @if (Model.DomainAliases.Count == 0)
+            {
+                <tr><td colspan="5" class="text-center text-muted py-4">@Localizer["No domain aliases have been registered."]</td></tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -40,6 +40,18 @@ public static partial class DnsAuditAnalyzer
             .GroupBy(item => item.Domain, StringComparer.OrdinalIgnoreCase)
             .ToDictionary(group => group.Key, group => group.Select(item => item.Service).ToList(), StringComparer.OrdinalIgnoreCase);
 
+        var aliasesByDomain = (input.DomainAliases ?? [])
+            .Select(alias => (Alias: alias, Domain: NormalizeDomain(alias.Domain)))
+            .Where(item => item.Domain.Length > 0)
+            .GroupBy(item => item.Domain, StringComparer.OrdinalIgnoreCase)
+            .ToDictionary(group => group.Key, group => group.Select(item => item.Alias).ToList(), StringComparer.OrdinalIgnoreCase);
+        var aliasRedirectResults = (input.DomainAliasRedirectResults ??
+                                    new Dictionary<string, DomainAliasRedirectResult>())
+            .ToDictionary(
+                pair => NormalizeDomain(pair.Key),
+                pair => pair.Value,
+                StringComparer.OrdinalIgnoreCase);
+
         var resolvedCnameAddresses = input.ResolvedCnameAddresses
             .ToDictionary(
                 pair => NormalizeDomain(pair.Key),
@@ -95,7 +107,8 @@ public static partial class DnsAuditAnalyzer
         }
 
         // 1. Cloudflare exposes a service hostname that is absent from the company registry.
-        foreach (var domain in recordsByName.Keys.Where(domain => !servicesByDomain.ContainsKey(domain)))
+        foreach (var domain in recordsByName.Keys.Where(domain =>
+                     !servicesByDomain.ContainsKey(domain) && !aliasesByDomain.ContainsKey(domain)))
         {
             issues.Add(new DnsAuditIssue
             {
@@ -104,6 +117,55 @@ public static partial class DnsAuditAnalyzer
                 Domain = domain,
                 Details = "Cloudflare has an A, AAAA, or CNAME record for this hostname, but EmployeeCenter has no matching service registration."
             });
+        }
+
+        // A registered alias is a managed DNS entry point, not another service.
+        // Its first HTTP response must redirect to the exact registered target.
+        foreach (var (domain, aliases) in aliasesByDomain)
+        {
+            if (servicesByDomain.ContainsKey(domain))
+            {
+                foreach (var alias in aliases)
+                {
+                    issues.Add(new DnsAuditIssue
+                    {
+                        Type = DnsAuditIssueType.DomainAliasRedirectMismatch,
+                        Severity = DnsAuditSeverity.Critical,
+                        Domain = domain,
+                        DomainAliasId = alias.Id,
+                        Details = "This hostname is registered as both a service and a domain alias. Keep exactly one source of truth."
+                    });
+                }
+                continue;
+            }
+
+            foreach (var alias in aliases)
+            {
+                if (!aliasRedirectResults.TryGetValue(domain, out var redirectResult))
+                {
+                    issues.Add(new DnsAuditIssue
+                    {
+                        Type = DnsAuditIssueType.DomainAliasRedirectMismatch,
+                        Severity = DnsAuditSeverity.Critical,
+                        Domain = domain,
+                        DomainAliasId = alias.Id,
+                        Details = $"The redirect could not be verified. Expected exactly '{alias.TargetUrl}'."
+                    });
+                    continue;
+                }
+
+                if (!redirectResult.IsMatch)
+                {
+                    issues.Add(new DnsAuditIssue
+                    {
+                        Type = DnsAuditIssueType.DomainAliasRedirectMismatch,
+                        Severity = DnsAuditSeverity.Critical,
+                        Domain = domain,
+                        DomainAliasId = alias.Id,
+                        Details = redirectResult.Details
+                    });
+                }
+            }
         }
 
         // 2. Every registered service must have observable DNS. Cloudflare zones

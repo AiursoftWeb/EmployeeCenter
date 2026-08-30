@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Register domain alias" xml:space="preserve"><value>登记域名别名</value></data>
+  <data name="Turn this Unknown DNS finding into a managed redirect entry point." xml:space="preserve"><value>把这条未知 DNS 记录登记为受管理的跳转入口。</value></data>
+  <data name="Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="The source hostname comes from the current Cloudflare audit finding." xml:space="preserve"><value>源主机名来自当前 Cloudflare 审计结果。</value></data>
+  <data name="Select target service" xml:space="preserve"><value>选择目标服务</value></data>
+  <data name="The audit requires the first redirect Location header to match this URL exactly." xml:space="preserve"><value>审计要求第一跳 Location 响应头与此 URL 完全一致。</value></data>
+  <data name="Register alias and audit now" xml:space="preserve"><value>登记别名并立即审计</value></data>
+</root>

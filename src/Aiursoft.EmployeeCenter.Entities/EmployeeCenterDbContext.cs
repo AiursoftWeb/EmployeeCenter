@@ -209,6 +209,11 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     public DbSet<Service> Services => Set<Service>();
 
     /// <summary>
+    /// Tracks public hostnames that intentionally redirect to a registered service.
+    /// </summary>
+    public DbSet<DomainAlias> DomainAliases => Set<DomainAlias>();
+
+    /// <summary>
     /// Stores contact information and details for company customers or external partners.
     /// </summary>
     public DbSet<CustomerRelationship> CustomerRelationships => Set<CustomerRelationship>();
@@ -365,6 +370,15 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
         builder.Entity<BlueprintFolder>()
             .HasIndex(f => new { f.ParentFolderId, f.Name })
             .IsUnique();
+
+        builder.Entity<DomainAlias>(entity =>
+        {
+            entity.HasIndex(alias => alias.Domain).IsUnique();
+            entity.HasOne(alias => alias.TargetService)
+                .WithMany(service => service.DomainAliases)
+                .HasForeignKey(alias => alias.TargetServiceId)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
     }
 
     public virtual Task MigrateAsync(CancellationToken cancellationToken) =>
