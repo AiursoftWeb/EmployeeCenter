@@ -396,30 +396,54 @@ public class LeaveTests
         // 2. Initialize Allocation (Visit Index)
         await _http.GetAsync("/Leave/Index");
 
-        // 3. Find an upcoming Saturday in August (to avoid any public holidays)
-        var targetSaturday = DateTime.UtcNow.Date;
-        while (targetSaturday.DayOfWeek != DayOfWeek.Saturday || targetSaturday.Month != 8)
+        // 3. Find a Saturday whose surrounding Friday-to-Sunday range is inside the current year.
+        // Near the end of December, use the previous Saturday so the request remains valid.
+        var today = DateTime.UtcNow.Date;
+        var targetSaturday = today;
+        while (targetSaturday.DayOfWeek != DayOfWeek.Saturday)
         {
             targetSaturday = targetSaturday.AddDays(1);
         }
-        
-        // Let's test a 3-day leave from Friday to Sunday enveloping the target Saturday.
+
+        if (targetSaturday.AddDays(1).Year != today.Year)
+        {
+            targetSaturday = today;
+            while (targetSaturday.DayOfWeek != DayOfWeek.Saturday)
+            {
+                targetSaturday = targetSaturday.AddDays(-1);
+            }
+        }
+
+        // Test a 3-day leave from Friday to Sunday around the target Saturday.
         var startDate = targetSaturday.AddDays(-1);
         var endDate = targetSaturday.AddDays(1);
 
         // Normal calculation: Friday + Saturday + Sunday = 1 Working day (Friday only)
         // With Adjustment (Saturday = WorkDay): Friday + Saturday + Sunday = 2 Working days
 
-        // Apply Adjustment
+        // Apply adjustments for the whole range so the result is independent of the external holiday API.
         using (var scope = _server!.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-            db.AdjustedHolidays.Add(new AdjustedHoliday
-            {
-                Date = targetSaturday,
-                Type = HolidayType.WorkDay,
-                Reason = "Compensatory work day"
-            });
+            db.AdjustedHolidays.AddRange(
+                new AdjustedHoliday
+                {
+                    Date = startDate,
+                    Type = HolidayType.WorkDay,
+                    Reason = "Regular work day for deterministic leave calculation"
+                },
+                new AdjustedHoliday
+                {
+                    Date = targetSaturday,
+                    Type = HolidayType.WorkDay,
+                    Reason = "Compensatory work day"
+                },
+                new AdjustedHoliday
+                {
+                    Date = endDate,
+                    Type = HolidayType.RestDay,
+                    Reason = "Weekend rest day for deterministic leave calculation"
+                });
             await db.SaveChangesAsync();
         }
 
@@ -433,7 +457,7 @@ public class LeaveTests
             { "Reason", "Vacation over adjusted weekend" },
             { "__RequestVerificationToken", applyToken }
         });
-        
+
         var applyResponse = await _http.PostAsync("/Leave/Apply", applyContent);
         Assert.AreEqual(HttpStatusCode.Found, applyResponse.StatusCode);
 
