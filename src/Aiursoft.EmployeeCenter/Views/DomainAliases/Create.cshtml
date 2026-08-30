@@ -67,14 +67,12 @@
     </div>
 </div>
 
-@section scripts {
-    <script>
-        document.getElementById('target-service')?.addEventListener('change', event => {
-            const option = event.target.selectedOptions[0];
-            const target = document.getElementById('TargetUrl');
-            if (option?.dataset.targetUrl && target) {
-                target.value = option.dataset.targetUrl;
-            }
-        });
-    </script>
-}
+<script>
+    document.getElementById('target-service')?.addEventListener('change', event => {
+        const option = event.target.selectedOptions[0];
+        const target = document.getElementById('TargetUrl');
+        if (option?.dataset.targetUrl && target) {
+            target.value = option.dataset.targetUrl;
+        }
+    });
+</script>

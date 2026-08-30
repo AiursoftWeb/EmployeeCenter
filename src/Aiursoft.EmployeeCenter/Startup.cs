@@ -106,16 +106,19 @@ public class Startup : IWebStartup
             var agentConfig = configuration.GetSection("AppSettings:Agent").Get<AgentSettings>();
             client.Timeout = TimeSpan.FromSeconds(agentConfig?.MeetingMinutesTimeoutSeconds ?? 600);
         });
+        services.AddHttpClient("PublicDnsResolver", client =>
+        {
+            client.Timeout = TimeSpan.FromSeconds(6);
+            client.DefaultRequestHeaders.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-PublicDnsResolver/1.0");
+        }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+        {
+            AllowAutoRedirect = false
+        });
+        services.AddSingleton<Services.DnsAudit.PublicDnsResolver>();
         services.AddHttpClient("DnsAliasAudit")
-            .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-            {
-                AllowAutoRedirect = false
-            });
+            .ConfigurePrimaryHttpMessageHandler(serviceProvider => CreatePublicAuditHandler(serviceProvider));
         services.AddHttpClient("ServiceAvailabilityAudit")
-            .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-            {
-                AllowAutoRedirect = false
-            });
+            .ConfigurePrimaryHttpMessageHandler(serviceProvider => CreatePublicAuditHandler(serviceProvider));
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job queue
@@ -178,6 +181,17 @@ public class Startup : IWebStartup
             .AddApplicationPart(typeof(UiStackLayoutViewModel).Assembly)
             .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
             .AddDataAnnotationsLocalization();
+    }
+
+    private static SocketsHttpHandler CreatePublicAuditHandler(IServiceProvider serviceProvider)
+    {
+        var resolver = serviceProvider.GetRequiredService<Services.DnsAudit.PublicDnsResolver>();
+        return new SocketsHttpHandler
+        {
+            AllowAutoRedirect = false,
+            PooledConnectionLifetime = TimeSpan.FromMinutes(5),
+            ConnectCallback = resolver.ConnectAsync
+        };
     }
 
     public void Configure(WebApplication app)

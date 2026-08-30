@@ -171,16 +171,6 @@ public sealed class CloudflareDnsAuditService(
                     return;
                 }
 
-                var publicEndpointCheck = await ResolvePublicEndpointAsync(domain, token);
-                if (!publicEndpointCheck.IsAllowed)
-                {
-                    results[service.Id] = new ServiceAvailabilityResult(
-                        false,
-                        null,
-                        publicEndpointCheck.Details);
-                    return;
-                }
-
                 var uri = new UriBuilder(candidate.Scheme!, domain) { Path = "/" }.Uri;
                 using var request = new HttpRequestMessage(HttpMethod.Get, uri);
                 request.Headers.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-ServiceAudit/1.0");
@@ -230,67 +220,6 @@ public sealed class CloudflareDnsAuditService(
         return protocols.Contains("HTTP", StringComparison.OrdinalIgnoreCase)
             ? Uri.UriSchemeHttp
             : null;
-    }
-
-    private static async Task<(bool IsAllowed, string Details)> ResolvePublicEndpointAsync(
-        string domain,
-        CancellationToken cancellationToken)
-    {
-        try
-        {
-            var addresses = await Dns.GetHostAddressesAsync(domain, cancellationToken);
-            if (addresses.Length == 0)
-            {
-                return (false, "The public endpoint hostname returned no IPv4 or IPv6 address.");
-            }
-
-            var nonPublicAddresses = addresses.Where(address => !IsPublicAddress(address)).ToList();
-            return nonPublicAddresses.Count == 0
-                ? (true, string.Empty)
-                : (false, $"The hostname resolves to non-public address(es): {string.Join(", ", nonPublicAddresses)}. The availability probe was blocked to prevent server-side request forgery.");
-        }
-        catch (SocketException ex)
-        {
-            return (false, $"The public endpoint hostname could not be resolved: {ex.Message}");
-        }
-    }
-
-    private static bool IsPublicAddress(IPAddress address)
-    {
-        if (address.IsIPv4MappedToIPv6)
-        {
-            address = address.MapToIPv4();
-        }
-
-        if (IPAddress.IsLoopback(address) || address.Equals(IPAddress.Any) || address.Equals(IPAddress.IPv6Any))
-        {
-            return false;
-        }
-
-        var bytes = address.GetAddressBytes();
-        if (address.AddressFamily == AddressFamily.InterNetwork)
-        {
-            return bytes[0] switch
-            {
-                0 or 10 or 127 => false,
-                100 when bytes[1] is >= 64 and <= 127 => false,
-                169 when bytes[1] == 254 => false,
-                172 when bytes[1] is >= 16 and <= 31 => false,
-                192 when bytes[1] == 168 => false,
-                >= 224 => false,
-                _ => true
-            };
-        }
-
-        if (address.AddressFamily != AddressFamily.InterNetworkV6)
-        {
-            return false;
-        }
-
-        return !address.IsIPv6LinkLocal &&
-               !address.IsIPv6Multicast &&
-               !address.IsIPv6SiteLocal &&
-               (bytes[0] & 0xfe) != 0xfc;
     }
 
     private async Task<IReadOnlyDictionary<string, DomainAliasRedirectResult>> AuditDomainAliasRedirectsAsync(
