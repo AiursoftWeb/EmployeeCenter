@@ -27,11 +27,23 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Audit eșuat</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Audit acum</value>
+  </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>Audită registru de servicii, configurația DNS, proprietatea serverelor, aliasurile și disponibilitatea HTTP live.</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>Actualizat automat la fiecare 3 ore</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Verificare</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Token-ul API Cloudflare nu este configurat</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Zone Cloudflare</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Comparați registrul de servicii EmployeeCenter cu observațiile DNS Cloudflare în mod de doar-citire.</value>
@@ -51,6 +63,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Domeniu</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>Modifică alias</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>Editează serviciul</value>
   </data>
@@ -66,20 +81,56 @@
   <data name="Generated at" xml:space="preserve">
     <value>Generat la</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>nume de gazdă</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Informații</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Ultima auditare reușită</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Ultima actualizare a eșuat</value>
+  </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>Disponibilitate live</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>Gestionează alias-urile</value>
   </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Nu s-au găsit probleme în auditul DNS.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>Nu au fost găsite probleme de audit al serviciului.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>Înregistrare ca alias</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Rulează auditul</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>puncte de acces HTTP(S) active sănătoase</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Audit de servicii</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>Auditul serviciului este în curs de pornire</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>nume de gazdă ale serviciilor auditate</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Gravitate</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>Prima auditare în fundal nu s-a finalizat încă. Această pagină va citi rezultatul din memoria cache.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Ultima verificare reușită din memoria cache este afișată mai jos.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Avertisment</value>

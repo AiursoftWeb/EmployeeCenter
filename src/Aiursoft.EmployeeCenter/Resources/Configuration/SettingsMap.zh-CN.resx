@@ -21,6 +21,9 @@
       <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
     <value>用于 DNS 审计的只读 Cloudflare API 令牌。请为所有账户授予 DNS 设置:读取 权限，并为所有区域授予 DNS:读取 权限。</value>
   </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>用于服务审计的只读 Cloudflare API 令牌。请为所有账户授予 DNS Settings:Read 权限，并为所有区域授予 DNS:Read 权限。</value>
+  </data>
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>AI 助手系统提示</value>
   </data>

@@ -30,14 +30,23 @@
   <data name="Audit now" xml:space="preserve">
     <value>أجرِ التدقيق الآن</value>
   </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>تدقيق سجل الخدمات، وإعدادات DNS، وملكية الخوادم، والرموز المستعارة، وتوفر HTTP المباشر.</value>
+  </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>يتم التحديث تلقائيًا كل 20 دقيقة</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>تُحدَّث تلقائيًا كل 3 ساعات</value>
   </data>
   <data name="Check" xml:space="preserve">
     <value>الفحص</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>لم يتم تكوين رمز API الخاص بـ Cloudflare</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>مناطق Cloudflare</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>قارن سجل خدمة EmployeeCenter بملاحظات Cloudflare DNS للقراءة فقط.</value>
@@ -60,6 +69,9 @@
   <data name="Domain" xml:space="preserve">
     <value>النطاق</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>تعديل الاسم المستعار</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>تعديل الخدمة</value>
   </data>
@@ -75,6 +87,9 @@
   <data name="Generated at" xml:space="preserve">
     <value>تم الإنشاء في</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>أسماء المضيفين</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>معلومات</value>
   </data>
@@ -84,11 +99,32 @@
   <data name="Latest refresh failed" xml:space="preserve">
     <value>فشل التحديث الأخير</value>
   </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>التوفر المباشر</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>إدارة المستعرات</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>لم يتم العثور على أي مشاكل في تدقيق DNS.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>لم يتم العثور على أي مشاكل في تدقيق الخدمة.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>تسجيل كـاسم مستعار</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>تنفيذ التدقيق</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>نقاط نهاية HTTP(S) العاملة السليمة</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>تدقيق الخدمة</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>بدء تدقيق الخدمة</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>أسماء مضيفات الخدمة التي تم تدقيقها</value>

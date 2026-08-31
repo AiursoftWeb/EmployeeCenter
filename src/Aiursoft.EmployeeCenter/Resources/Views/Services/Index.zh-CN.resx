@@ -93,6 +93,9 @@
   <data name="Domain" xml:space="preserve">
     <value>域名</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>域名别名</value>
+  </data>
   <data name="Domestic" xml:space="preserve">
     <value>对国内服务</value>
   </data>
@@ -201,6 +204,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>服务器IP</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>服务审计健康度</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>按服务器位置划分的服务分布。</value>
   </data>
@@ -233,6 +239,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>查看 DNS 审计</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>查看服务审计</value>
   </data>
 
 </root>

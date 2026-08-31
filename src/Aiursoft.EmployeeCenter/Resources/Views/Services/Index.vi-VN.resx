@@ -90,6 +90,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Miền</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Biệt danh miền</value>
+  </data>
   <data name="Edge Routed" xml:space="preserve">
     <value>Định tuyến Edge</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>IP Máy chủ</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Tình trạng kiểm toán dịch vụ</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>Phân bố dịch vụ theo vị trí máy chủ.</value>
   </data>
@@ -221,6 +227,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>Xem Kiểm Toán DNS</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Xem kiểm tra dịch vụ</value>
   </data>
 
 </root>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Audit Now" xml:space="preserve">
+    <value>立即稽核</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
+    <value>選擇一個已稽核但未註冊的 DNS 主機名稱，並將其連結至現有的服務。</value>
+  </data>
+  <data name="No alias candidates are available" xml:space="preserve">
+    <value>沒有可用的別名候選項目</value>
+  </data>
+  <data name="Only current Unknown DNS findings can become aliases." xml:space="preserve">
+    <value>僅有目前狀態為 Unknown 的 DNS 偵測結果可成為別名。</value>
+  </data>
+  <data name="Register alias and audit now" xml:space="preserve">
+    <value>註冊別名並立即稽核</value>
+  </data>
+  <data name="Register domain alias" xml:space="preserve">
+    <value>註冊網域名別名</value>
+  </data>
+  <data name="Run a service audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases." xml:space="preserve">
+    <value>請先執行服務稽核。新的別名只能從已稽核且尚未註冊為服務或別名的 DNS 主機名稱建立。</value>
+  </data>
+  <data name="Select audited DNS hostname" xml:space="preserve">
+    <value>選擇已稽核的 DNS 主機名稱</value>
+  </data>
+  <data name="Select target service" xml:space="preserve">
+    <value>選擇目標服務</value>
+  </data>
+  <data name="The audit requires the first redirect Location header to match this URL exactly." xml:space="preserve">
+    <value>稽核要求第一個重定向的 Location 標頭必須與此 URL 完全相符。</value>
+  </data>
+
+</root>

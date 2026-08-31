@@ -48,11 +48,17 @@
   <data name="Reload" xml:space="preserve">
     <value>Оновити</value>
   </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>Обов&apos;язково, якщо увімкнено режим через FRPS.</value>
+  </data>
   <data name="Save Service" xml:space="preserve">
     <value>Зберегти послугу</value>
   </data>
   <data name="Select DNS Provider" xml:space="preserve">
     <value>Вибрати постачальника DNS</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>Оберіть FRPS-сервер</value>
   </data>
   <data name="Select Location" xml:space="preserve">
     <value>Вибрати розташування</value>

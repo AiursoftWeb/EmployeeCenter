@@ -1,19 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <root>
-  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
-  <resheader name="version"><value>2.0</value></resheader>
-  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="Domain aliases" xml:space="preserve"><value>域名别名</value></data>
-  <data name="Registered hostnames that must redirect to an exact service URL." xml:space="preserve"><value>必须跳转到精确服务地址的已登记主机名。</value></data>
-  <data name="Back to DNS Audit" xml:space="preserve"><value>返回 DNS 审计</value></data>
-  <data name="Alias hostname" xml:space="preserve"><value>别名主机名</value></data>
-  <data name="Target service" xml:space="preserve"><value>目标服务</value></data>
-  <data name="Exact target URL" xml:space="preserve"><value>精确目标 URL</value></data>
-  <data name="Updated at" xml:space="preserve"><value>更新时间</value></data>
-  <data name="Actions" xml:space="preserve"><value>操作</value></data>
-  <data name="Edit" xml:space="preserve"><value>编辑</value></data>
-  <data name="Delete" xml:space="preserve"><value>删除</value></data>
-  <data name="Delete this domain alias?" xml:space="preserve"><value>确定删除这个域名别名吗？</value></data>
-  <data name="No domain aliases have been registered." xml:space="preserve"><value>尚未登记任何域名别名。</value></data>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Alias hostname" xml:space="preserve">
+    <value>别名主机名</value>
+  </data>
+  <data name="Audit Now" xml:space="preserve">
+    <value>立即审计</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>审计待处理</value>
+  </data>
+  <data name="Audit status" xml:space="preserve">
+    <value>审核状态</value>
+  </data>
+  <data name="Available DNS candidates" xml:space="preserve">
+    <value>可用的 DNS 候选项</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>待审计</value>
+  </data>
+  <data name="Back to DNS Audit" xml:space="preserve">
+    <value>返回 DNS 审计</value>
+  </data>
+  <data name="Create alias" xml:space="preserve">
+    <value>创建别名</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>严重</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Delete this domain alias?" xml:space="preserve">
+    <value>确定删除这个域名别名吗？</value>
+  </data>
+  <data name="Domain Alias Registry" xml:space="preserve">
+    <value>域名别名注册表</value>
+  </data>
+  <data name="Domain aliases" xml:space="preserve">
+    <value>域名别名</value>
+  </data>
+  <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
+    <value>每个源主机名必须返回一个与其目标 URL 完全匹配的首跳重定向。</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Exact target URL" xml:space="preserve">
+    <value>精确目标 URL</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>健康</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>最近一次成功审计</value>
+  </data>
+  <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
+    <value>管理遗留主机名，并确保每个重定向都准确到达其已注册的目的地。</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>已管理的别名</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>需关注</value>
+  </data>
+  <data name="New Alias" xml:space="preserve">
+    <value>新建别名</value>
+  </data>
+  <data name="No domain aliases have been registered." xml:space="preserve">
+    <value>尚未登记任何域名别名。</value>
+  </data>
+  <data name="No unregistered DNS hostnames are currently available." xml:space="preserve">
+    <value>当前没有可用的未注册 DNS 主机名。</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>待定</value>
+  </data>
+  <data name="Redirect Governance" xml:space="preserve">
+    <value>重定向治理</value>
+  </data>
+  <data name="Registered Aliases" xml:space="preserve">
+    <value>已注册的别名</value>
+  </data>
+  <data name="Registered hostnames that must redirect to an exact service URL." xml:space="preserve">
+    <value>必须跳转到精确服务地址的已登记主机名。</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>服务仪表板</value>
+  </data>
+  <data name="Target service" xml:space="preserve">
+    <value>目标服务</value>
+  </data>
+  <data name="Total aliases" xml:space="preserve">
+    <value>别名总数</value>
+  </data>
+  <data name="Updated at" xml:space="preserve">
+    <value>更新时间</value>
+  </data>
+
 </root>

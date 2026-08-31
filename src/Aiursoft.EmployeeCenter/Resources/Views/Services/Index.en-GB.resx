@@ -93,6 +93,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Domain Aliases</value>
+  </data>
   <data name="Domestic" xml:space="preserve">
     <value>Domestic</value>
   </data>
@@ -201,6 +204,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>Server IP</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Service Audit Health</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>Service placement by server location.</value>
   </data>
@@ -233,6 +239,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>View DNS Audit</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>View Service Audit</value>
   </data>
 
 </root>

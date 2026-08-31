@@ -90,6 +90,9 @@
   <data name="Domain" xml:space="preserve">
     <value>도메인</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>도메인 별칭</value>
+  </data>
   <data name="Edge Routed" xml:space="preserve">
     <value>엣지 라우팅</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>서버 IP</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>서비스 감사 상태</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>서버 위치에 따른 서비스 배치</value>
   </data>
@@ -221,6 +227,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>DNS 감사 보기</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>서비스 감사 보기</value>
   </data>
 
 </root>

@@ -30,14 +30,23 @@
   <data name="Audit now" xml:space="preserve">
     <value>ตรวจสอบทันที</value>
   </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>ตรวจสอบทะเบียนบริการ การตั้งค่า DNS ความเป็นเจ้าของเซิร์ฟเวอร์ อลิเอซ และสถานะความพร้อมใช้งาน HTTP แบบเรียลไทม์</value>
+  </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>อัปเดตอัตโนมัติทุก 20 นาที</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>อัปเดตโดยอัตโนมัติทุก 3 ชั่วโมง</value>
   </data>
   <data name="Check" xml:space="preserve">
     <value>การตรวจสอบ</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>ไม่ได้กำหนดค่า Cloudflare API token</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>โซนของ Cloudflare</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>เปรียบเทียบทะเบียนบริการของ EmployeeCenter กับข้อมูล DNS ของ Cloudflare แบบอ่านอย่างเดียว</value>
@@ -60,6 +69,9 @@
   <data name="Domain" xml:space="preserve">
     <value>โดเมน</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>แก้ไข alias</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>แก้ไขบริการ</value>
   </data>
@@ -75,6 +87,9 @@
   <data name="Generated at" xml:space="preserve">
     <value>สร้างเมื่อ</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>ชื่อโฮสต์</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>ข้อมูล</value>
   </data>
@@ -84,11 +99,32 @@
   <data name="Latest refresh failed" xml:space="preserve">
     <value>การรีเฟรชล่าสุดล้มเหลว</value>
   </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>ความพร้อมใช้งานแบบเรียลไทม์</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>จัดการชื่อแทน</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>ไม่พบปัญหาการตรวจสอบ DNS</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>ไม่พบปัญหาในการตรวจสอบบริการ</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>ลงทะเบียนเป็นชื่อเล่น</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>ดำเนินการตรวจสอบ</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>เอนด์พอยต์ HTTP(S) ที่ทำงานอยู่มีสุขภาพดี</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>การตรวจสอบบริการ</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>การตรวจสอบบริการกำลังเริ่มต้น</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>ชื่อโฮสต์บริการที่ตรวจสอบแล้ว</value>

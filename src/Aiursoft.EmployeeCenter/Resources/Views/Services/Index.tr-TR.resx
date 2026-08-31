@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>Hizmet kullanılabilirliği, yerleşimi ve altyapı kapsamasının üst düzey görünümü.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Eylemler</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Aktif Sunucular</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>Tüm Hizmetler</value>
@@ -27,11 +33,29 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Bu hizmeti silmek istediğinizden emin misiniz?</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>atanmış</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>Hizmet portföyünün hedef kitlesi ve yönlendirme kapsamı.</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Denetim beklemede</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Authentik entegrasyonu</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>Mevcut Olma</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>engelleyici bulgular</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>Hizmetlerini denetlemek için bir çubuğa veya sunucu adına tıklayın.</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +66,9 @@
   <data name="Create New Service" xml:space="preserve">
     <value>Yeni Hizmet Oluştur</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>Kayıtlı her hizmetin güncel durumu.</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Sil</value>
   </data>
@@ -51,14 +78,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>DNS Dağılımı</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>DNS sağlayıcı kaydı</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>Alan Adı</value>
+  </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Alan Adı Takma Adları</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>Uç Rotalı</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Düzenle</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>Coğrafi Dağılım</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>sağlıklı konular</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>Hizmet kataloğunun altyapıyı ve yönetişimi ne ölçüde eksiksiz tanımladığı.</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>Altyapı Kaydı</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>Çevrimiçi</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>Yaşam Döngüsü Durumu</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Bağlantı</value>
@@ -66,8 +120,20 @@
   <data name="Location" xml:space="preserve">
     <value>Konum</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>Konumlar</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>DNS Sağlayıcılarını Yönet</value>
+  </data>
+  <data name="Manage Servers" xml:space="preserve">
+    <value>Sunucuları Yönet</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>Yeni Servis</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>Henüz hiçbir hizmet sunuculara atanmadı.</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>Hiç hizmet bulunamadı.</value>
@@ -78,6 +144,12 @@
   <data name="Online" xml:space="preserve">
     <value>Çevrimiçi</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>Faaliyet Halinde</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Diğer</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>Sahip</value>
   </data>
@@ -87,14 +159,29 @@
   <data name="Purpose" xml:space="preserve">
     <value>Amaç</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>kayıtlı hizmetler</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>Kayıtlı hizmetler, DNS sağlayıcısına göre gruplandırılmıştır.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>Kayıt Defteri Kalitesi</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Çalışıyor</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>Kendi</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>Kendi geliştirdiğimiz hizmetler</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>Sunucu</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Sunucu ataması</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>Sunucu Detayları</value>
@@ -102,8 +189,26 @@
   <data name="Server IP" xml:space="preserve">
     <value>Sunucu IP</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Hizmet Denetimi Sağlığı</value>
+  </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Sunucunun konumuna göre hizmet yerleşimi.</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>Hizmet Amacı</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>Hizmet Kaydı</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Hizmetler</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Sunucuya Göre Hizmetler</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Hizmetler Paneli</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Durum</value>
@@ -113,6 +218,12 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Via Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>Detaylı Hizmet Tablosunu Görüntüle</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Hizmet Denetimini Görüntüle</value>
   </data>
 
 </root>

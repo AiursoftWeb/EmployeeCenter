@@ -30,14 +30,23 @@
   <data name="Audit now" xml:space="preserve">
     <value>今すぐ監査</value>
   </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>サービスレジストリ、DNS設定、サーバーの所有権、エイリアス、およびHTTPの稼働状況を監査します。</value>
+  </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>20分ごとに自動更新されます</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>3時間ごとに自動更新されます</value>
   </data>
   <data name="Check" xml:space="preserve">
     <value>チェック</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Cloudflare APIトークンが設定されていません</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Cloudflareゾーン</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>EmployeeCenterのサービスレジストリを読み取り専用のCloudflare DNS観測結果と比較します。</value>
@@ -60,6 +69,9 @@
   <data name="Domain" xml:space="preserve">
     <value>ドメイン</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>エイリアスを編集</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>サービスの編集</value>
   </data>
@@ -75,6 +87,9 @@
   <data name="Generated at" xml:space="preserve">
     <value>生成日時</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>ホスト名</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>情報</value>
   </data>
@@ -84,11 +99,32 @@
   <data name="Latest refresh failed" xml:space="preserve">
     <value>最新のリフレッシュに失敗しました</value>
   </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>ライブ利用可能率</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>エイリアスを管理</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>DNS監査の問題は見つかりませんでした。</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>サービス監査の問題は見つかりませんでした。</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>エイリアスとして登録</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>監査を実行</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>稼働中の HTTP(S) エンドポイントが正常</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>サービス監査</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>サービス監査を開始しています</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>監査対象のサービスホスト名</value>

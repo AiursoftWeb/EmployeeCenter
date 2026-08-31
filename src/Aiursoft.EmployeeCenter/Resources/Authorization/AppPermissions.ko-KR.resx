@@ -120,6 +120,9 @@
   <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
     <value>읽기 전용 Cloudflare DNS 감사 실행 및 결과 확인 권한</value>
   </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>읽기 전용 서비스 감사 실행 및 감사 결과 확인을 허용합니다.</value>
+  </data>
   <data name="Allows the permanent deletion of roles." xml:space="preserve">
     <value>역할을 영구적으로 삭제할 수 있습니다.</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="Audit DNS" xml:space="preserve">
     <value>DNS 감사</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>서비스 감사</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>AI 와 채팅</value>

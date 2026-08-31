@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Are you sure you want to delete this service?" xml:space="preserve">
+    <value>Ви впевнені, що хочете видалити цей сервіс?</value>
+  </data>
+  <data name="Authentik" xml:space="preserve">
+    <value>Authentik</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Доступність</value>
+  </data>
+  <data name="Back to Servers" xml:space="preserve">
+    <value>Повернутися до серверів</value>
+  </data>
+  <data name="Cloudflare Proxied" xml:space="preserve">
+    <value>Проксі Cloudflare</value>
+  </data>
+  <data name="Create New Service" xml:space="preserve">
+    <value>Створити нову службу</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Панель керування</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Developing" xml:space="preserve">
+    <value>Розробка</value>
+  </data>
+  <data name="DNS" xml:space="preserve">
+    <value>DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Домен</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Розташування</value>
+  </data>
+  <data name="Manage DNS Providers" xml:space="preserve">
+    <value>Керувати DNS-провайдерами</value>
+  </data>
+  <data name="No services found." xml:space="preserve">
+    <value>Служби не знайдено.</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>Офлайн</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Власник</value>
+  </data>
+  <data name="Please associate an FRPS server." xml:space="preserve">
+    <value>Будь ласка, пов&apos;яжіть сервер FRPS.</value>
+  </data>
+  <data name="Protocols" xml:space="preserve">
+    <value>Протоколи</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Призначення</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>Працює</value>
+  </data>
+  <data name="Self" xml:space="preserve">
+    <value>Сам</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>Сервер</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Сервіси</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Стан</value>
+  </data>
+  <data name="Testing" xml:space="preserve">
+    <value>Тестування</value>
+  </data>
+  <data name="Via Frps" xml:space="preserve">
+    <value>Через Frps</value>
+  </data>
+
+</root>
