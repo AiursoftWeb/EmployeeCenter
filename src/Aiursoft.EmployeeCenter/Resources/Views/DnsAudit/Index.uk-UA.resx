@@ -27,11 +27,23 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Аудит не вдалося</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Провести аудит зараз</value>
+  </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>Аудит реєстру сервісів, конфігурації DNS, власності серверів, псевдонімів та доступності HTTP у реальному часі.</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>Автоматично оновлюється кожні 3 години</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Перевірка</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Токен API Cloudflare не налаштовано</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Зони Cloudflare</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Порівняйте реєстр сервісів EmployeeCenter із читаннями спостережень DNS Cloudflare.</value>
@@ -51,6 +63,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Домен</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>Редагувати псевдонім</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>Редагувати сервіс</value>
   </data>
@@ -66,20 +81,56 @@
   <data name="Generated at" xml:space="preserve">
     <value>Згенеровано о</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>імені хостів</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Інформація</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Останній успішний аудит</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Не вдалося виконати останнє оновлення</value>
+  </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>Працездатність у реальному часі</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>Керувати псевдонімами</value>
   </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Проблем з аудитом DNS не виявлено.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>Проблем із аудиту служб не виявлено.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>Зареєструвати як псевдонім</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Запустити аудит</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>працюючі HTTP(S) кінцеві точки, що працюють коректно</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Аудит служб</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>Аудит служби запускається</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>ім&apos;я служби перевірено</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Важливість</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>Перший фоновий аудит ще не завершено. Ця сторінка буде читати його результат із кешу в оперативній пам&apos;яті.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Нижче показано останній успішний кешований аудит.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Попередження</value>

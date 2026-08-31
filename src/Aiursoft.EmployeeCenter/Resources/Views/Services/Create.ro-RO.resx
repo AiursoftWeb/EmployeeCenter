@@ -48,11 +48,17 @@
   <data name="Reload" xml:space="preserve">
     <value>Reîncarcă</value>
   </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>Obligatoriu când Via FRPS este activat.</value>
+  </data>
   <data name="Save Service" xml:space="preserve">
     <value>Salvează Serviciul</value>
   </data>
   <data name="Select DNS Provider" xml:space="preserve">
     <value>Select Provider DNS</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>Selectați serverul FRPS</value>
   </data>
   <data name="Select Location" xml:space="preserve">
     <value>Select Location</value>

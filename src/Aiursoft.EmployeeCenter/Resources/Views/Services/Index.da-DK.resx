@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>Et overblik over service tilgængelighed, placering og infrastruktur dækning.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Handling</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Aktive servere</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>Alle tjenester</value>
@@ -27,11 +33,29 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Er du sikker på, at du vil slette denne service?</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>tildelt</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>Målgruppe og ruttingsområde for serviceporteføljen.</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Revision pågår</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Authentik-integration</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>Tilgængelighed</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>blokerende fund</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>Klik på en bjælke eller servernavn for at undersøge dets tjenester.</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +66,9 @@
   <data name="Create New Service" xml:space="preserve">
     <value>Opret ny service</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>Aktuel status for hver registreret service.</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Slet</value>
   </data>
@@ -51,14 +78,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>DNS-fordeling</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>DNS-udbyder-registrering</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>Domæne</value>
+  </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Domænealiaser</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>Edge-routet</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Rediger</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>Geografisk fordeling</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>sunde emner</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>Hvor udførligt servicekataloget beskriver infrastruktur og governance.</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>Infrastrukturregister</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>Er online</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>Livscyklusstatus</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Link</value>
@@ -66,8 +120,20 @@
   <data name="Location" xml:space="preserve">
     <value>Placering</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>Placeringer</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>Håndtér DNS-udbydere</value>
+  </data>
+  <data name="Manage Servers" xml:space="preserve">
+    <value>Administrér servere</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>Ny service</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>Der er endnu ikke tildelt nogen tjenester til servere.</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>Ingen tjenester fundet.</value>
@@ -78,6 +144,12 @@
   <data name="Online" xml:space="preserve">
     <value>Online</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>Driftende</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Andre</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>Ejer</value>
   </data>
@@ -87,14 +159,29 @@
   <data name="Purpose" xml:space="preserve">
     <value>Formål</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>registrerede tjenester</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>Registrerede tjenester grupperet efter DNS-leverandør.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>Registreringskvalitet</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Kører</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>Eget</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>Selvudviklede tjenester</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>Server</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Servertilordning</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>Serverdetaljer</value>
@@ -102,8 +189,26 @@
   <data name="Server IP" xml:space="preserve">
     <value>Server-IP</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Serviceaudit Sundhed</value>
+  </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Tjenesternes placering efter serverplacering.</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>Services formål</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>Serviceregister</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Tjenester</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Tjenester pr. server</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Services-dashboard</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
@@ -113,6 +218,12 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Via Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>Vis detaljeret servicetabel</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Vis serviceaudit</value>
   </data>
 
 </root>

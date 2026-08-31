@@ -27,11 +27,23 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Auditfejlet</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Kør kontrol nu</value>
+  </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>Revider tjenesteregisteret, DNS-konfiguration, serverejerskab, alias&apos;er og live HTTP-tilgængelighed.</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>Opdateres automatisk hvert 3. time</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Tjek</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Cloudflare API-token er ikke konfigureret</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Cloudflare-zoner</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Sammenlign EmployeeCenter-tjenesteregistret med læsebeskyttede Cloudflare DNS-observationer.</value>
@@ -51,6 +63,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Domæne</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>Rediger alias</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>Rediger service</value>
   </data>
@@ -66,20 +81,56 @@
   <data name="Generated at" xml:space="preserve">
     <value>Genereret kl.</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>værtnavne</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Seneste vellykkede audit</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Seneste opdatering fejlede</value>
+  </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>Live tilgængelighed</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>Administrér alias&apos;er</value>
   </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Der blev ikke fundet nogen DNS-audit-problemer.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>Der blev ikke fundet problemer med servicesikkerheden.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>Registrér som alias</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Kør revision</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>aktive HTTP(S)-endepunkter sunde</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Serviceaudit</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>Serviceaudit starter</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>serviceværtnavne revideret</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Alvør</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>Den første baggrundsaudit er ikke færdig endnu. Denne side vil læse resultatet fra den in-memory cache.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Den seneste vellykkede cachede revision vises nedenfor.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Advarsel</value>
