@@ -101,11 +101,12 @@ public sealed class DomainAliasesController(
             return this.StackView(model);
         }
 
-        DomainAliasRedirectEvaluator.TryNormalizeTargetUrl(model.TargetUrl, out var normalizedTargetUrl, out _);
+        var normalizedTargetUrl = NormalizeTargetUrl(model);
         context.DomainAliases.Add(new DomainAlias
         {
             Domain = domain,
             TargetServiceId = model.TargetServiceId,
+            Type = model.Type,
             TargetUrl = normalizedTargetUrl,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
@@ -128,6 +129,7 @@ public sealed class DomainAliasesController(
             Id = alias.Id,
             Domain = alias.Domain,
             TargetServiceId = alias.TargetServiceId,
+            Type = alias.Type,
             TargetUrl = alias.TargetUrl,
             AllServices = await LoadServicesAsync()
         });
@@ -154,8 +156,9 @@ public sealed class DomainAliasesController(
             return this.StackView(model);
         }
 
-        DomainAliasRedirectEvaluator.TryNormalizeTargetUrl(model.TargetUrl, out var normalizedTargetUrl, out _);
+        var normalizedTargetUrl = NormalizeTargetUrl(model);
         alias.TargetServiceId = model.TargetServiceId;
+        alias.Type = model.Type;
         alias.TargetUrl = normalizedTargetUrl;
         alias.UpdatedAt = DateTime.UtcNow;
         await context.SaveChangesAsync();
@@ -217,23 +220,42 @@ public sealed class DomainAliasesController(
             return;
         }
 
-        if (!DomainAliasRedirectEvaluator.TryNormalizeTargetUrl(model.TargetUrl, out var normalizedTargetUrl, out _))
+        var serviceHost = DnsAuditAnalyzer.NormalizeDomain(targetService.Domain);
+        if (sourceDomain.Equals(serviceHost, StringComparison.OrdinalIgnoreCase))
+        {
+            ModelState.AddModelError(nameof(model.TargetServiceId), "A domain alias cannot target itself.");
+            return;
+        }
+
+        if (model.Type == DomainAliasType.Cname)
+        {
+            return;
+        }
+
+        if (model.Type != DomainAliasType.HttpRedirect ||
+            !DomainAliasRedirectEvaluator.TryNormalizeTargetUrl(model.TargetUrl, out var normalizedTargetUrl, out _))
         {
             return;
         }
 
         var targetHost = DnsAuditAnalyzer.NormalizeDomain(normalizedTargetUrl);
-        var serviceHost = DnsAuditAnalyzer.NormalizeDomain(targetService.Domain);
         if (!targetHost.Equals(serviceHost, StringComparison.OrdinalIgnoreCase))
         {
             ModelState.AddModelError(nameof(model.TargetUrl),
                 $"The target URL hostname must match the selected service '{serviceHost}'.");
         }
 
-        if (sourceDomain.Equals(targetHost, StringComparison.OrdinalIgnoreCase))
+    }
+
+    private static string? NormalizeTargetUrl(DomainAliasFormViewModel model)
+    {
+        if (model.Type != DomainAliasType.HttpRedirect)
         {
-            ModelState.AddModelError(nameof(model.TargetUrl), "A domain alias cannot redirect to itself.");
+            return null;
         }
+
+        DomainAliasRedirectEvaluator.TryNormalizeTargetUrl(model.TargetUrl, out var normalizedTargetUrl, out _);
+        return normalizedTargetUrl;
     }
 
     private Task<List<Service>> LoadServicesAsync() => context.Services

@@ -39,6 +39,15 @@
                         <span asp-validation-for="Domain" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
+                        <label asp-for="Type" class="form-label"></label>
+                        <select asp-for="Type" class="form-select">
+                            <option value="0">@Localizer["HTTP redirect"]</option>
+                            <option value="1">@Localizer["DNS CNAME"]</option>
+                        </select>
+                        <div class="form-text">@Localizer["HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname."]</div>
+                        <span asp-validation-for="Type" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
                         <label asp-for="TargetServiceId" class="form-label"></label>
                         <select asp-for="TargetServiceId" class="form-select" id="target-service">
                             <option value="">-- @Localizer["Select target service"] --</option>
@@ -49,7 +58,7 @@
                         </select>
                         <span asp-validation-for="TargetServiceId" class="text-danger"></span>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" id="target-url-group">
                         <label asp-for="TargetUrl" class="form-label"></label>
                         <input asp-for="TargetUrl" class="form-control" type="url" placeholder="https://target.example.com/" />
                         <div class="form-text">@Localizer["The audit requires the first redirect Location header to match this URL exactly."]</div>
@@ -68,11 +77,35 @@
 </div>
 
 <script>
-    document.getElementById('target-service')?.addEventListener('change', event => {
+    const aliasType = document.getElementById('Type');
+    const targetService = document.getElementById('target-service');
+    const targetUrl = document.getElementById('TargetUrl');
+    const targetUrlGroup = document.getElementById('target-url-group');
+
+    function updateTargetUrl() {
+        const option = targetService?.selectedOptions[0];
+        if (aliasType?.value === '0' && option?.dataset.targetUrl && targetUrl) {
+            targetUrl.value = option.dataset.targetUrl;
+        }
+    }
+
+    function updateAliasType() {
+        const isCname = aliasType?.value === '1';
+        targetUrlGroup?.classList.toggle('d-none', isCname);
+        if (targetUrl) {
+            targetUrl.disabled = isCname;
+        }
+        if (!isCname && !targetUrl?.value) {
+            updateTargetUrl();
+        }
+    }
+
+    targetService?.addEventListener('change', event => {
         const option = event.target.selectedOptions[0];
-        const target = document.getElementById('TargetUrl');
-        if (option?.dataset.targetUrl && target) {
-            target.value = option.dataset.targetUrl;
+        if (aliasType?.value === '0' && option?.dataset.targetUrl && targetUrl) {
+            targetUrl.value = option.dataset.targetUrl;
         }
     });
+    aliasType?.addEventListener('change', updateAliasType);
+    updateAliasType();
 </script>

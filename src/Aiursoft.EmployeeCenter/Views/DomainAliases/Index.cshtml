@@ -4,7 +4,7 @@
     <div class="row mb-2 mb-xl-3 align-items-center">
         <div class="col-auto d-none d-sm-block">
             <h3 class="mb-1">@Localizer["Domain Alias Registry"]</h3>
-            <p class="text-muted mb-0">@Localizer["Manage legacy hostnames and verify that every redirect reaches its exact registered destination."]</p>
+            <p class="text-muted mb-0">@Localizer["Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets."]</p>
         </div>
         <div class="col-auto ms-auto text-end mt-n1">
             <a asp-controller="Services" asp-action="Index" class="btn btn-outline-secondary shadow-sm ms-1">
@@ -34,7 +34,7 @@
         <div class="card-body p-4 position-relative">
             <div class="row align-items-center position-relative alias-dashboard-hero-content">
                 <div class="col-lg-8">
-                    <div class="text-uppercase small fw-semibold opacity-75 mb-2">@Localizer["Redirect Governance"]</div>
+                    <div class="text-uppercase small fw-semibold opacity-75 mb-2">@Localizer["Alias Governance"]</div>
                     <h1 class="display-6 fw-bold mb-2">@Model.DomainAliases.Count @Localizer["managed aliases"]</h1>
                     <p class="lead mb-0 opacity-75">
                         @Model.HealthyAliasCount @Localizer["healthy"] ·
@@ -99,15 +99,16 @@
     <div class="card">
         <div class="card-header">
             <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="route"></i> @Localizer["Registered Aliases"]</h5>
-            <div class="text-muted small">@Localizer["Each source hostname must return a first-hop redirect that exactly matches its target URL."]</div>
+            <div class="text-muted small">@Localizer["Each source hostname must match its registered HTTP redirect or DNS CNAME target."]</div>
         </div>
         <div class="table-responsive">
             <table class="table table-hover mb-0">
                 <thead>
                 <tr>
                     <th>@Localizer["Alias hostname"]</th>
+                    <th>@Localizer["Alias type"]</th>
                     <th>@Localizer["Target service"]</th>
-                    <th>@Localizer["Exact target URL"]</th>
+                    <th>@Localizer["Expected target"]</th>
                     <th>@Localizer["Audit status"]</th>
                     <th>@Localizer["Updated at"]</th>
                     <th class="text-end">@Localizer["Actions"]</th>
@@ -119,9 +120,37 @@
                     var isPending = !Model.LastSuccessfulAuditAt.HasValue || alias.UpdatedAt > Model.LastSuccessfulAuditAt.Value;
                     var isUnhealthy = Model.UnhealthyAliasIds.Contains(alias.Id);
                     <tr>
-                        <td><a href="https://@alias.Domain/" target="_blank" rel="noopener noreferrer"><code>@alias.Domain</code></a></td>
+                        <td>
+                            @if (alias.Type == DomainAliasType.HttpRedirect)
+                            {
+                                <a href="https://@alias.Domain/" target="_blank" rel="noopener noreferrer"><code>@alias.Domain</code></a>
+                            }
+                            else
+                            {
+                                <code>@alias.Domain</code>
+                            }
+                        </td>
+                        <td>
+                            @if (alias.Type == DomainAliasType.Cname)
+                            {
+                                <span class="badge badge-subtle-info">@Localizer["DNS CNAME"]</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-subtle-primary">@Localizer["HTTP redirect"]</span>
+                            }
+                        </td>
                         <td>@alias.TargetService?.Domain</td>
-                        <td><a href="@alias.TargetUrl" target="_blank" rel="noopener noreferrer"><code>@alias.TargetUrl</code></a></td>
+                        <td>
+                            @if (alias.Type == DomainAliasType.Cname)
+                            {
+                                <code>@alias.TargetService?.Domain</code>
+                            }
+                            else
+                            {
+                                <a href="@alias.TargetUrl" target="_blank" rel="noopener noreferrer"><code>@alias.TargetUrl</code></a>
+                            }
+                        </td>
                         <td>
                             @if (isPending)
                             {
@@ -151,7 +180,7 @@
                 }
                 @if (Model.DomainAliases.Count == 0)
                 {
-                    <tr><td colspan="6" class="text-center text-muted py-5">
+                    <tr><td colspan="7" class="text-center text-muted py-5">
                         <i class="d-block mx-auto mb-2" data-lucide="split"></i>
                         @Localizer["No domain aliases have been registered."]
                     </td></tr>

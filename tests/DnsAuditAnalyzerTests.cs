@@ -438,6 +438,54 @@ public class DnsAuditAnalyzerTests
     }
 
     [TestMethod]
+    public void RegisteredCnameAliasPointingToTargetServiceIsHealthy()
+    {
+        var targetService = RegisteredService("mail.example.com");
+        var alias = RegisteredAlias(
+            "autoconfig.example.com",
+            targetService,
+            targetUrl: null,
+            type: DomainAliasType.Cname);
+        var report = Analyze(
+            records:
+            [
+                Record("mail.example.com", "A", "192.0.2.10", proxied: false),
+                Record("autoconfig.example.com", "CNAME", "mail.example.com", proxied: false)
+            ],
+            services: [targetService],
+            servers: [RegisteredServer("192.0.2.10")],
+            domainAliases: [alias]);
+
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.UnknownDns));
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.DomainAliasRedirectMismatch));
+    }
+
+    [TestMethod]
+    public void RegisteredCnameAliasPointingElsewhereIsCritical()
+    {
+        var targetService = RegisteredService("mail.example.com");
+        var alias = RegisteredAlias(
+            "autodiscover.example.com",
+            targetService,
+            targetUrl: null,
+            type: DomainAliasType.Cname);
+        var report = Analyze(
+            records:
+            [
+                Record("mail.example.com", "A", "192.0.2.10", proxied: false),
+                Record("autodiscover.example.com", "CNAME", "wrong.example.com", proxied: false)
+            ],
+            services: [targetService],
+            servers: [RegisteredServer("192.0.2.10")],
+            domainAliases: [alias]);
+
+        var issue = report.Issues.Single(item => item.Type == DnsAuditIssueType.DomainAliasRedirectMismatch);
+        Assert.AreEqual(DnsAuditSeverity.Critical, issue.Severity);
+        Assert.AreEqual(alias.Id, issue.DomainAliasId);
+        Assert.Contains("wrong.example.com", issue.Details);
+    }
+
+    [TestMethod]
     public void UnavailableRunningServiceIsCriticalEvenWhenDnsIsCloudflareManaged()
     {
         var service = RegisteredService("git.example.com", proxied: true);
@@ -551,7 +599,11 @@ public class DnsAuditAnalyzerTests
         };
     }
 
-    private static DomainAlias RegisteredAlias(string domain, Service targetService, string targetUrl)
+    private static DomainAlias RegisteredAlias(
+        string domain,
+        Service targetService,
+        string? targetUrl,
+        DomainAliasType type = DomainAliasType.HttpRedirect)
     {
         return new DomainAlias
         {
@@ -559,6 +611,7 @@ public class DnsAuditAnalyzerTests
             Domain = domain,
             TargetServiceId = targetService.Id,
             TargetService = targetService,
+            Type = type,
             TargetUrl = targetUrl
         };
     }

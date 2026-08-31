@@ -374,6 +374,8 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
         builder.Entity<DomainAlias>(entity =>
         {
             entity.HasIndex(alias => alias.Domain).IsUnique();
+            entity.Property(alias => alias.Type)
+                .HasDefaultValue(DomainAliasType.HttpRedirect);
             entity.HasOne(alias => alias.TargetService)
                 .WithMany(service => service.DomainAliases)
                 .HasForeignKey(alias => alias.TargetServiceId)

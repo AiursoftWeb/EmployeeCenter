@@ -214,7 +214,7 @@ public sealed class CloudflareDnsAuditService(
         var client = httpClientFactory.CreateClient("DnsAliasAudit");
 
         await Parallel.ForEachAsync(
-            aliases,
+            aliases.Where(alias => alias.Type == DomainAliasType.HttpRedirect),
             new ParallelOptions { MaxDegreeOfParallelism = 8, CancellationToken = cancellationToken },
             async (alias, token) =>
             {
@@ -243,7 +243,7 @@ public sealed class CloudflareDnsAuditService(
                         timeout.Token);
                     results[domain] = DomainAliasRedirectEvaluator.Evaluate(
                         sourceUri,
-                        alias.TargetUrl,
+                        alias.TargetUrl ?? string.Empty,
                         response.StatusCode,
                         response.Headers.Location);
                 }

@@ -117,5 +117,26 @@
   <data name="Updated at" xml:space="preserve">
     <value>更新时间</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>别名治理</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>别名类型</value>
+  </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>预期目标</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 重定向</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>管理遗留主机名，并验证其 HTTP 重定向或 DNS CNAME 目标。</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>每个源主机名都必须匹配已登记的 HTTP 重定向或 DNS CNAME 目标。</value>
+  </data>
 
 </root>

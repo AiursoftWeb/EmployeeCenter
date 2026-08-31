@@ -62,7 +62,7 @@ public sealed class DnsAuditIssue
         DnsAuditIssueType.ManagedDnsOutsideRecordApi => "Cloudflare-managed DNS target",
         DnsAuditIssueType.MissingFrpsServerAssignment => "Missing FRPS server assignment",
         DnsAuditIssueType.PublicDnsLookupFailed => "Public DNS lookup failed",
-        DnsAuditIssueType.DomainAliasRedirectMismatch => "Domain alias redirect mismatch",
+        DnsAuditIssueType.DomainAliasRedirectMismatch => "Domain alias verification mismatch",
         DnsAuditIssueType.ServiceUnavailable => "Running service is unavailable",
         _ => Type.ToString()
     };

@@ -140,7 +140,8 @@ public static partial class DnsAuditAnalyzer
         }
 
         // A registered alias is a managed DNS entry point, not another service.
-        // Its first HTTP response must redirect to the exact registered target.
+        // HTTP aliases must redirect exactly; CNAME aliases must point directly
+        // to the selected target service hostname.
         foreach (var (domain, aliases) in aliasesByDomain)
         {
             if (servicesByDomain.ContainsKey(domain))
@@ -161,6 +162,51 @@ public static partial class DnsAuditAnalyzer
 
             foreach (var alias in aliases)
             {
+                if (alias.Type == Entities.DomainAliasType.Cname)
+                {
+                    var expectedTarget = NormalizeDomain(alias.TargetService?.Domain ?? string.Empty);
+                    var actualTargets = recordsByName.TryGetValue(domain, out var aliasRecords)
+                        ? aliasRecords
+                            .Where(record => record.Type.Equals("CNAME", StringComparison.OrdinalIgnoreCase))
+                            .Select(record => NormalizeDomain(record.Content))
+                            .Where(target => target.Length > 0)
+                            .Distinct(StringComparer.OrdinalIgnoreCase)
+                            .OrderBy(target => target)
+                            .ToList()
+                        : [];
+                    if (expectedTarget.Length == 0 || actualTargets.Count != 1 ||
+                        !actualTargets[0].Equals(expectedTarget, StringComparison.OrdinalIgnoreCase))
+                    {
+                        var actual = actualTargets.Count == 0
+                            ? "no CNAME record"
+                            : string.Join(", ", actualTargets.Select(target => $"'{target}'"));
+                        issues.Add(new DnsAuditIssue
+                        {
+                            Type = DnsAuditIssueType.DomainAliasRedirectMismatch,
+                            Severity = DnsAuditSeverity.Critical,
+                            Domain = domain,
+                            DomainAliasId = alias.Id,
+                            Details = expectedTarget.Length == 0
+                                ? "The CNAME alias has no valid target service hostname."
+                                : $"The alias must have exactly one CNAME to '{expectedTarget}', but Cloudflare reports {actual}."
+                        });
+                    }
+                    continue;
+                }
+
+                if (alias.Type != Entities.DomainAliasType.HttpRedirect)
+                {
+                    issues.Add(new DnsAuditIssue
+                    {
+                        Type = DnsAuditIssueType.DomainAliasRedirectMismatch,
+                        Severity = DnsAuditSeverity.Critical,
+                        Domain = domain,
+                        DomainAliasId = alias.Id,
+                        Details = $"The alias uses unsupported verification type '{alias.Type}'."
+                    });
+                    continue;
+                }
+
                 if (!aliasRedirectResults.TryGetValue(domain, out var redirectResult))
                 {
                     issues.Add(new DnsAuditIssue
@@ -169,7 +215,7 @@ public static partial class DnsAuditAnalyzer
                         Severity = DnsAuditSeverity.Critical,
                         Domain = domain,
                         DomainAliasId = alias.Id,
-                        Details = $"The redirect could not be verified. Expected exactly '{alias.TargetUrl}'."
+                        Details = $"The HTTP redirect could not be verified. Expected exactly '{alias.TargetUrl}'."
                     });
                     continue;
                 }

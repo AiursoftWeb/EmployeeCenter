@@ -137,7 +137,56 @@ public class DnsAuditControllerTests : TestBase
             .Include(item => item.TargetService)
             .SingleAsync(item => item.Domain == "avigame.aiursoft.com");
         Assert.AreEqual("avigame.aiursoft.com", alias.Domain);
+        Assert.AreEqual(DomainAliasType.HttpRedirect, alias.Type);
         Assert.AreEqual("https://avigame.anduinlab.com/", alias.TargetUrl);
+        Assert.AreEqual(targetService.Id, alias.TargetServiceId);
+    }
+
+    [TestMethod]
+    public async Task UnknownDnsFindingCanBeRegisteredAsCnameAliasWithoutTargetUrl()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        var targetService = new Service
+        {
+            Domain = "mail.aiursoft.com",
+            Status = ServiceStatus.Running
+        };
+        db.Services.Add(targetService);
+        await db.SaveChangesAsync();
+
+        GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport
+        {
+            ZoneCount = 1,
+            RecordCount = 1,
+            AuditedHostnameCount = 1,
+            Issues =
+            [
+                new DnsAuditIssue
+                {
+                    Type = DnsAuditIssueType.UnknownDns,
+                    Severity = DnsAuditSeverity.Error,
+                    Domain = "autoconfig.aiursoft.com",
+                    Details = "Unknown DNS"
+                }
+            ]
+        }, DateTime.UtcNow);
+
+        var response = await PostForm(
+            "/DomainAliases/Create",
+            new Dictionary<string, string>
+            {
+                ["Domain"] = "autoconfig.aiursoft.com",
+                ["TargetServiceId"] = targetService.Id.ToString(),
+                ["Type"] = ((int)DomainAliasType.Cname).ToString()
+            },
+            tokenUrl: "/DomainAliases/Create?sourceDomain=autoconfig.aiursoft.com");
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        db.ChangeTracker.Clear();
+        var alias = await db.DomainAliases.SingleAsync(item => item.Domain == "autoconfig.aiursoft.com");
+        Assert.AreEqual(DomainAliasType.Cname, alias.Type);
+        Assert.IsNull(alias.TargetUrl);
         Assert.AreEqual(targetService.Id, alias.TargetServiceId);
     }
 

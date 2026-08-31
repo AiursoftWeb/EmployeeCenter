@@ -4,6 +4,12 @@ using Newtonsoft.Json;
 
 namespace Aiursoft.EmployeeCenter.Entities;
 
+public enum DomainAliasType
+{
+    HttpRedirect = 0,
+    Cname = 1
+}
+
 public class DomainAlias
 {
     [Key]
@@ -19,9 +25,10 @@ public class DomainAlias
     [ForeignKey(nameof(TargetServiceId))]
     public Service? TargetService { get; set; }
 
-    [Required]
+    public DomainAliasType Type { get; set; } = DomainAliasType.HttpRedirect;
+
     [MaxLength(2048)]
-    public required string TargetUrl { get; set; }
+    public string? TargetUrl { get; set; }
 
     public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 

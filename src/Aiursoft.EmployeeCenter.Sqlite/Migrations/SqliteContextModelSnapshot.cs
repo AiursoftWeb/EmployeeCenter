@@ -1014,9 +1014,13 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("TargetUrl")
-                        .IsRequired()
                         .HasMaxLength(2048)
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Type")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(0);
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");

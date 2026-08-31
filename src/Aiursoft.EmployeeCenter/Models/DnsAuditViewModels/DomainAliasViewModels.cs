@@ -16,10 +16,12 @@ public class DomainAliasFormViewModel : UiStackLayoutViewModel, IValidatableObje
     [Display(Name = "Target service")]
     public int TargetServiceId { get; set; }
 
-    [Required(ErrorMessage = "The {0} is required.")]
+    [Display(Name = "Alias type")]
+    public DomainAliasType Type { get; set; } = DomainAliasType.HttpRedirect;
+
     [MaxLength(2048, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Exact target URL")]
-    public string TargetUrl { get; set; } = string.Empty;
+    public string? TargetUrl { get; set; }
 
     public List<Service> AllServices { get; set; } = new();
 
@@ -32,7 +34,13 @@ public class DomainAliasFormViewModel : UiStackLayoutViewModel, IValidatableObje
             yield return new ValidationResult("Enter a valid non-wildcard hostname.", [nameof(Domain)]);
         }
 
-        if (!DomainAliasRedirectEvaluator.TryNormalizeTargetUrl(TargetUrl, out _, out var error))
+        if (!Enum.IsDefined(Type))
+        {
+            yield return new ValidationResult("Select a supported alias type.", [nameof(Type)]);
+        }
+
+        if (Type == DomainAliasType.HttpRedirect &&
+            !DomainAliasRedirectEvaluator.TryNormalizeTargetUrl(TargetUrl, out _, out var error))
         {
             yield return new ValidationResult(error, [nameof(TargetUrl)]);
         }

@@ -57,5 +57,14 @@
   <data name="Turn this Unknown DNS finding into a managed redirect entry point." xml:space="preserve">
     <value>把这条未知 DNS 记录登记为受管理的跳转入口。</value>
   </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 重定向</value>
+  </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP 别名验证精确的重定向 URL；CNAME 别名验证 DNS 是否直接指向所选服务的主机名。</value>
+  </data>
 
 </root>
