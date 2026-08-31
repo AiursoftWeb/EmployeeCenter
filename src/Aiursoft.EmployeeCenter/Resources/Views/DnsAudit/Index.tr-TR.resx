@@ -27,11 +27,23 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Denetim başarısız oldu</value>
   </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Şimdi denetle</value>
+  </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>Hizmet kayıtlarını, DNS yapılandırmasını, sunucu sahipliğini, takma adları ve canlı HTTP erişilebilirliğini denetleyin.</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>Her 3 saatte bir otomatik olarak yenilenir</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Kontrol</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Cloudflare API belirteci yapılandırılmamış</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Cloudflare bölgeleri</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>EmployeeCenter hizmet kayıt defterini, salt okunur Cloudflare DNS gözlemleriyle karşılaştırın.</value>
@@ -51,6 +63,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Alan Adı</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>Alias düzenle</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>Hizmeti düzenle</value>
   </data>
@@ -66,20 +81,56 @@
   <data name="Generated at" xml:space="preserve">
     <value>Oluşturulma zamanı</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>ana bilgisayar adları</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Bilgi</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Son başarılı denetim</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Son yenileme başarısız oldu</value>
+  </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>Canlı kullanılabilirlik</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>Takma adları yönet</value>
   </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Hiçbir DNS denetim sorunu bulunamadı.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>Hiçbir hizmet denetimi sorunu bulunamadı.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>Takma ad olarak kaydet</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Denetimi Çalıştır</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>çalışan HTTP(S) uç noktaları sağlıklı</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Hizmet Denetimi</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>Hizmet denetimi başlıyor</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>denetlenen hizmet ana makine adları</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Önem Düzeyi</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>İlk arka plan denetimi henüz tamamlanmadı. Bu sayfa sonucunu bellek içi önbellekten okuyacaktır.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Aşağıda son başarılı önbelleğe alınmış denetim gösterilmektedir.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Uyarı</value>

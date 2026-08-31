@@ -48,11 +48,17 @@
   <data name="Reload" xml:space="preserve">
     <value>Yeniden Yükle</value>
   </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>FRPS üzerinden yapıldığında zorunludur.</value>
+  </data>
   <data name="Save Service" xml:space="preserve">
     <value>Hizmeti Kaydet</value>
   </data>
   <data name="Select DNS Provider" xml:space="preserve">
     <value>DNS Sağlayıcısı Seçin</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>FRPS Sunucusunu Seç</value>
   </data>
   <data name="Select Location" xml:space="preserve">
     <value>Konumu Seç</value>

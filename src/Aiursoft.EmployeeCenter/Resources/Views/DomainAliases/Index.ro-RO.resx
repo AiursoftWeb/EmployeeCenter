@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+  <data name="Alias hostname" xml:space="preserve">
+    <value>Nume de gazdă al aliasului</value>
+  </data>
+  <data name="Audit Now" xml:space="preserve">
+    <value>Auditează acum</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Audit în așteptare</value>
+  </data>
+  <data name="Audit status" xml:space="preserve">
+    <value>Starea auditului</value>
+  </data>
+  <data name="Available DNS candidates" xml:space="preserve">
+    <value>Candidați DNS disponibili</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>în așteptarea auditului</value>
+  </data>
+  <data name="Create alias" xml:space="preserve">
+    <value>Creează alias</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Critic</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Ștergere</value>
+  </data>
+  <data name="Delete this domain alias?" xml:space="preserve">
+    <value>Doriți să ștergeți acest alias de domeniu?</value>
+  </data>
+  <data name="Domain Alias Registry" xml:space="preserve">
+    <value>Registrul aliasurilor de domeniu</value>
+  </data>
+  <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
+    <value>Fiecare nume de gazdă sursă trebuie să returneze o redirecție de primă săritură care să corespundă exact cu URL-ul țintă.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editează</value>
+  </data>
+  <data name="Exact target URL" xml:space="preserve">
+    <value>URL exact de destinație</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>sănătoase</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Ultima auditare reușită</value>
+  </data>
+  <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
+    <value>Gestiona numele de gazdă moștenite și verifică că fiecare redirecționare ajunge la destinația înregistrată exact.</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>alias-uri gestionate</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>ne cer atenție</value>
+  </data>
+  <data name="New Alias" xml:space="preserve">
+    <value>Alias nou</value>
+  </data>
+  <data name="No domain aliases have been registered." xml:space="preserve">
+    <value>Nu s-au înregistrat alias-uri de domeniu.</value>
+  </data>
+  <data name="No unregistered DNS hostnames are currently available." xml:space="preserve">
+    <value>Nu există în prezent nume de gazdă DNS neînregistrate disponibile.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>În așteptare</value>
+  </data>
+  <data name="Redirect Governance" xml:space="preserve">
+    <value>Gestionarea redirecțiilor</value>
+  </data>
+  <data name="Registered Aliases" xml:space="preserve">
+    <value>Alias-uri înregistrate</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Panou de servicii</value>
+  </data>
+  <data name="Target service" xml:space="preserve">
+    <value>Serviciu țintă</value>
+  </data>
+  <data name="Total aliases" xml:space="preserve">
+    <value>Totalitate aliasuri</value>
+  </data>
+  <data name="Updated at" xml:space="preserve">
+    <value>Actualizat la</value>
+  </data>
+
+</root>
