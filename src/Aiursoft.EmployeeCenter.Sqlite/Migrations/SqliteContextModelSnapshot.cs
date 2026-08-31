@@ -1969,6 +1969,11 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Property<int?>("FrpsServerId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsAvailabilityAuditEnabled")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(true);
+
                     b.Property<bool>("IsCloudflareProxied")
                         .HasColumnType("INTEGER");
 

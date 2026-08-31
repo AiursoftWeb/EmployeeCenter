@@ -148,9 +148,10 @@ public sealed class CloudflareDnsAuditService(
         CancellationToken cancellationToken)
     {
         var candidates = services
-            .Where(service => service.Status == ServiceStatus.Running)
-            .Select(service => (Service: service, Scheme: GetHttpScheme(service.Protocols)))
-            .Where(candidate => candidate.Scheme != null)
+            .Where(ServiceAvailabilityEvaluator.ShouldAudit)
+            .Select(service => (
+                Service: service,
+                Scheme: ServiceAvailabilityEvaluator.GetHttpScheme(service.Protocols)!))
             .ToList();
         var results = new ConcurrentDictionary<int, ServiceAvailabilityResult>();
         var client = httpClientFactory.CreateClient("ServiceAvailabilityAudit");
@@ -203,23 +204,6 @@ public sealed class CloudflareDnsAuditService(
             });
 
         return results.ToDictionary(pair => pair.Key, pair => pair.Value);
-    }
-
-    private static string? GetHttpScheme(string? protocols)
-    {
-        if (string.IsNullOrWhiteSpace(protocols))
-        {
-            return null;
-        }
-
-        if (protocols.Contains("HTTPS", StringComparison.OrdinalIgnoreCase))
-        {
-            return Uri.UriSchemeHttps;
-        }
-
-        return protocols.Contains("HTTP", StringComparison.OrdinalIgnoreCase)
-            ? Uri.UriSchemeHttp
-            : null;
     }
 
     private async Task<IReadOnlyDictionary<string, DomainAliasRedirectResult>> AuditDomainAliasRedirectsAsync(

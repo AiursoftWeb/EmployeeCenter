@@ -198,6 +198,7 @@ public class ServicesController(
                 DnsProviderId = model.DnsProviderId,
                 IsViaFrps = model.IsViaFrps,
                 IsCloudflareProxied = model.IsCloudflareProxied,
+                IsAvailabilityAuditEnabled = model.IsAvailabilityAuditEnabled,
                 Status = model.Status,
                 Purpose = model.Purpose,
                 AuthentikIntegrated = model.AuthentikIntegrated,
@@ -236,6 +237,7 @@ public class ServicesController(
             DnsProviderId = service.DnsProviderId,
             IsViaFrps = service.IsViaFrps,
             IsCloudflareProxied = service.IsCloudflareProxied,
+            IsAvailabilityAuditEnabled = service.IsAvailabilityAuditEnabled,
             Status = service.Status,
             Purpose = service.Purpose,
             AuthentikIntegrated = service.AuthentikIntegrated,
@@ -267,6 +269,7 @@ public class ServicesController(
             service.DnsProviderId = model.DnsProviderId;
             service.IsViaFrps = model.IsViaFrps;
             service.IsCloudflareProxied = model.IsCloudflareProxied;
+            service.IsAvailabilityAuditEnabled = model.IsAvailabilityAuditEnabled;
             service.Status = model.Status;
             service.Purpose = model.Purpose;
             service.AuthentikIntegrated = model.AuthentikIntegrated;

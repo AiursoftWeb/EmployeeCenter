@@ -379,6 +379,10 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
                 .HasForeignKey(alias => alias.TargetServiceId)
                 .OnDelete(DeleteBehavior.Restrict);
         });
+
+        builder.Entity<Service>()
+            .Property(service => service.IsAvailabilityAuditEnabled)
+            .HasDefaultValue(true);
     }
 
     public virtual Task MigrateAsync(CancellationToken cancellationToken) =>

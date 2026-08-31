@@ -78,6 +78,7 @@ public class ServiceTests : TestBase
         var service = await db.Services.FirstOrDefaultAsync(s => s.Domain == "test-service.com");
         Assert.IsNotNull(service);
         Assert.AreEqual(ServiceStatus.Running, service.Status);
+        Assert.IsTrue(service.IsAvailabilityAuditEnabled);
     }
 
     [TestMethod]
@@ -123,6 +124,38 @@ public class ServiceTests : TestBase
         Assert.AreEqual(runningServer.Id, service.ServerId);
         Assert.AreEqual(frpsServer.Id, service.FrpsServerId);
         Assert.IsTrue(service.IsViaFrps);
+    }
+
+    [TestMethod]
+    public async Task ServiceAvailabilityAuditCanBeDisabled()
+    {
+        await LoginAsAdmin();
+
+        var db = GetService<EmployeeCenterDbContext>();
+        var service = new Service
+        {
+            Domain = "restricted-service.example.com",
+            Protocols = "HTTPS",
+            Status = ServiceStatus.Running
+        };
+        db.Services.Add(service);
+        await db.SaveChangesAsync();
+
+        var response = await PostForm($"/Services/Edit/{service.Id}", new Dictionary<string, string>
+        {
+            { "Id", service.Id.ToString() },
+            { "Domain", service.Domain },
+            { "Protocols", service.Protocols },
+            { "Status", ((int)service.Status).ToString() },
+            { "Purpose", ((int)service.Purpose).ToString() },
+            { "IsAvailabilityAuditEnabled", "false" }
+        });
+
+        Assert.AreEqual(HttpStatusCode.Redirect, response.StatusCode);
+        db.ChangeTracker.Clear();
+        var updated = await db.Services.FindAsync(service.Id);
+        Assert.IsNotNull(updated);
+        Assert.IsFalse(updated.IsAvailabilityAuditEnabled);
     }
 
     [TestMethod]

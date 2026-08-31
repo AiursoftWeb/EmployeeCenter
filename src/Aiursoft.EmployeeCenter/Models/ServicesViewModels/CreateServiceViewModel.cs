@@ -41,6 +41,9 @@ public class CreateServiceViewModel : UiStackLayoutViewModel, IValidatableObject
     [Display(Name = "Cloudflare Proxied")]
     public bool IsCloudflareProxied { get; set; }
 
+    [Display(Name = "Enable Availability Audit")]
+    public bool IsAvailabilityAuditEnabled { get; set; } = true;
+
     [Display(Name = "Status")]
     public ServiceStatus Status { get; set; }
 

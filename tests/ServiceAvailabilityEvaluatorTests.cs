@@ -6,6 +6,33 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class ServiceAvailabilityEvaluatorTests
 {
     [TestMethod]
+    public void RunningHttpServiceIsAuditedByDefault()
+    {
+        var service = new Service
+        {
+            Domain = "public.example.com",
+            Protocols = "HTTPS",
+            Status = ServiceStatus.Running
+        };
+
+        Assert.IsTrue(ServiceAvailabilityEvaluator.ShouldAudit(service));
+    }
+
+    [TestMethod]
+    public void ExplicitlyDisabledServiceIsNotAvailabilityAudited()
+    {
+        var service = new Service
+        {
+            Domain = "restricted.example.com",
+            Protocols = "HTTPS",
+            Status = ServiceStatus.Running,
+            IsAvailabilityAuditEnabled = false
+        };
+
+        Assert.IsFalse(ServiceAvailabilityEvaluator.ShouldAudit(service));
+    }
+
+    [TestMethod]
     [DataRow(HttpStatusCode.OK)]
     [DataRow(HttpStatusCode.Found)]
     [DataRow(HttpStatusCode.Unauthorized)]
