@@ -152,14 +152,52 @@ public class DnsAuditAnalyzerTests
     }
 
     [TestMethod]
-    public void FindsCloudflareProxyStatusDrift()
+    public void FindsUnexpectedOrangeCloudAsError()
     {
         var report = Analyze(
             records: [Record("proxy.example.com", "A", "192.0.2.10", proxied: true)],
             services: [RegisteredService("proxy.example.com", proxied: false)],
             servers: [RegisteredServer("192.0.2.10")]);
 
-        Assert.IsTrue(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.ProxyStatusMismatch));
+        var issue = report.Issues.Single(issue => issue.Type == DnsAuditIssueType.ProxyStatusMismatch);
+        Assert.AreEqual(DnsAuditSeverity.Error, issue.Severity);
+        StringAssert.Contains(issue.Details, "expects gray-cloud (DNS only)");
+        StringAssert.Contains(issue.Details, "orange-cloud (proxied)");
+    }
+
+    [TestMethod]
+    public void FindsUnexpectedGrayCloudAsError()
+    {
+        var report = Analyze(
+            records:
+            [
+                Record("direct.example.com", "A", "192.0.2.10", proxied: false),
+                Record("direct.example.com", "AAAA", "2001:db8::10", proxied: false)
+            ],
+            services: [RegisteredService("direct.example.com", proxied: true)],
+            servers: [RegisteredServer("192.0.2.10", ipv6Address: "2001:db8::10")]);
+
+        var issue = report.Issues.Single(issue => issue.Type == DnsAuditIssueType.ProxyStatusMismatch);
+        Assert.AreEqual(DnsAuditSeverity.Error, issue.Severity);
+        StringAssert.Contains(issue.Details, "expects orange-cloud (proxied)");
+        StringAssert.Contains(issue.Details, "gray-cloud (DNS only)");
+    }
+
+    [TestMethod]
+    public void FindsMixedProxyModesAsError()
+    {
+        var report = Analyze(
+            records:
+            [
+                Record("mixed.example.com", "A", "192.0.2.10", proxied: true),
+                Record("mixed.example.com", "AAAA", "2001:db8::10", proxied: false)
+            ],
+            services: [RegisteredService("mixed.example.com", proxied: true)],
+            servers: [RegisteredServer("192.0.2.10", ipv6Address: "2001:db8::10")]);
+
+        var issue = report.Issues.Single(issue => issue.Type == DnsAuditIssueType.MixedProxyStatus);
+        Assert.AreEqual(DnsAuditSeverity.Error, issue.Severity);
+        StringAssert.Contains(issue.Details, "mix Cloudflare orange-cloud and DNS-only modes");
     }
 
     [TestMethod]

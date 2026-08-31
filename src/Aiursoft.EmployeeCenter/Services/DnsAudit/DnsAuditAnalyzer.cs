@@ -306,10 +306,11 @@ public static partial class DnsAuditAnalyzer
                 issues.Add(new DnsAuditIssue
                 {
                     Type = DnsAuditIssueType.MixedProxyStatus,
-                    Severity = DnsAuditSeverity.Warning,
+                    Severity = DnsAuditSeverity.Error,
                     Domain = domain,
                     ServiceId = servicesByDomain.GetValueOrDefault(domain)?.FirstOrDefault()?.Id,
-                    Details = "Records for this hostname mix Cloudflare-proxied and DNS-only modes."
+                    Details = "Records for this hostname mix Cloudflare orange-cloud and DNS-only modes. " +
+                              "Use one proxy mode consistently for every A, AAAA, and CNAME record on the hostname."
                 });
             }
         }
@@ -429,10 +430,11 @@ public static partial class DnsAuditAnalyzer
                     issues.Add(new DnsAuditIssue
                     {
                         Type = DnsAuditIssueType.ProxyStatusMismatch,
-                        Severity = DnsAuditSeverity.Warning,
+                        Severity = DnsAuditSeverity.Error,
                         Domain = domain,
                         ServiceId = service.Id,
-                        Details = $"EmployeeCenter expects Cloudflare proxied = {service.IsCloudflareProxied}, but Cloudflare reports {isActuallyProxied}."
+                        Details = $"EmployeeCenter expects {DescribeProxyMode(service.IsCloudflareProxied)}, " +
+                                  $"but Cloudflare is configured as {DescribeProxyMode(isActuallyProxied)}."
                     });
                 }
 
@@ -615,4 +617,9 @@ public static partial class DnsAuditAnalyzer
     private static partial Regex AddressSeparatorRegex();
 
     private sealed record NormalizedRecord(string Type, string Name, string Content, bool Proxied);
+
+    private static string DescribeProxyMode(bool proxied)
+    {
+        return proxied ? "orange-cloud (proxied)" : "gray-cloud (DNS only)";
+    }
 }
