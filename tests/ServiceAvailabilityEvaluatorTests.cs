@@ -1,4 +1,5 @@
 using Aiursoft.EmployeeCenter.Services.DnsAudit;
+using Aiursoft.EmployeeCenter.Models.DnsAuditViewModels;
 
 namespace Aiursoft.EmployeeCenter.Tests;
 
@@ -58,5 +59,73 @@ public class ServiceAvailabilityEvaluatorTests
 
         Assert.IsFalse(result.IsHealthy);
         Assert.AreEqual((int)statusCode, result.StatusCode);
+    }
+
+    [TestMethod]
+    public async Task AvailabilityRetryStopsAfterFirstHealthyAttempt()
+    {
+        var attempts = 0;
+        var delays = 0;
+
+        var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+            _ =>
+            {
+                attempts++;
+                return Task.FromResult(new ServiceAvailabilityResult(true, 200, "Healthy."));
+            },
+            (_, _) =>
+            {
+                delays++;
+                return Task.CompletedTask;
+            });
+
+        Assert.IsTrue(result.IsHealthy);
+        Assert.AreEqual(1, attempts);
+        Assert.AreEqual(0, delays);
+    }
+
+    [TestMethod]
+    public async Task AvailabilityRetryAcceptsAHealthyRetry()
+    {
+        var attempts = 0;
+
+        var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+            _ =>
+            {
+                attempts++;
+                return Task.FromResult(attempts == 3
+                    ? new ServiceAvailabilityResult(true, 200, "Healthy.")
+                    : new ServiceAvailabilityResult(false, null, "Timed out."));
+            },
+            (_, _) => Task.CompletedTask);
+
+        Assert.IsTrue(result.IsHealthy);
+        Assert.AreEqual(3, attempts);
+        StringAssert.Contains(result.Details, "Succeeded on attempt 3 of 3");
+    }
+
+    [TestMethod]
+    public async Task AvailabilityRetryRequiresThreeFailuresBeforeReportingFailure()
+    {
+        var attempts = 0;
+        var delays = 0;
+
+        var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+            _ =>
+            {
+                attempts++;
+                return Task.FromResult(new ServiceAvailabilityResult(false, 503, "HTTP 503."));
+            },
+            (_, _) =>
+            {
+                delays++;
+                return Task.CompletedTask;
+            });
+
+        Assert.IsFalse(result.IsHealthy);
+        Assert.AreEqual(3, attempts);
+        Assert.AreEqual(2, delays);
+        StringAssert.Contains(result.Details, "All 3 availability attempts failed");
+        StringAssert.Contains(result.Details, "HTTP 503");
     }
 }
