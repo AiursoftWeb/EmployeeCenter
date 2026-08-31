@@ -90,6 +90,9 @@
   <data name="Domain" xml:space="preserve">
     <value>المجال</value>
   </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>أسماء النطاقات المستعارة</value>
+  </data>
   <data name="Edge Routed" xml:space="preserve">
     <value>موجّهة عبر الحافة</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="Server IP" xml:space="preserve">
     <value>IP الخادم</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>صحة تدقيق الخدمة</value>
+  </data>
   <data name="Service placement by server location." xml:space="preserve">
     <value>توزيع الخدمات حسب موقع الخادم.</value>
   </data>
@@ -221,6 +227,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>عرض تدقيق DNS</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>عرض تدقيق الخدمة</value>
   </data>
 
 </root>

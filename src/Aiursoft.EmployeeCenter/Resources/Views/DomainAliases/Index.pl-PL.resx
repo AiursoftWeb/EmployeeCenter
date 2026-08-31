@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Akcje</value>
+  </data>
+  <data name="Alias hostname" xml:space="preserve">
+    <value>Nazwa hosta aliasu</value>
+  </data>
+  <data name="Audit Now" xml:space="preserve">
+    <value>Przeprowadź audyt</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Audyt oczekuje</value>
+  </data>
+  <data name="Audit status" xml:space="preserve">
+    <value>Status audytu</value>
+  </data>
+  <data name="Available DNS candidates" xml:space="preserve">
+    <value>Dostępni kandydaci DNS</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>oczekujące na audyt</value>
+  </data>
+  <data name="Create alias" xml:space="preserve">
+    <value>Utwórz alias</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Krytyczny</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Delete this domain alias?" xml:space="preserve">
+    <value>Usunąć ten alias domeny?</value>
+  </data>
+  <data name="Domain Alias Registry" xml:space="preserve">
+    <value>Rejestr aliasów domen</value>
+  </data>
+  <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
+    <value>Każdy nazwany identyfikator źródłowy musi zwracać przekierowanie pierwszego skoku, które dokładnie odpowiada jego docelowemu adresowi URL.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Exact target URL" xml:space="preserve">
+    <value>Dokładny docelowy adres URL</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>zdrowych</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Ostatni udany audyt</value>
+  </data>
+  <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
+    <value>Zarządzaj starszymi nazwami hostów i upewnij się, że każde przekierowanie dociera do dokładnie zarejestrowanego miejsca docelowego.</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>zarządzane aliasy</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>wymagają uwagi</value>
+  </data>
+  <data name="New Alias" xml:space="preserve">
+    <value>Nowy alias</value>
+  </data>
+  <data name="No domain aliases have been registered." xml:space="preserve">
+    <value>Nie zarejestrowano żadnych aliasów domen.</value>
+  </data>
+  <data name="No unregistered DNS hostnames are currently available." xml:space="preserve">
+    <value>Brak obecnie dostępnych niezarejestrowanych nazw hostów DNS.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Oczekujące</value>
+  </data>
+  <data name="Redirect Governance" xml:space="preserve">
+    <value>Zarządzanie przekierowaniami</value>
+  </data>
+  <data name="Registered Aliases" xml:space="preserve">
+    <value>Zarejestrowane aliasy</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Pulpit usług</value>
+  </data>
+  <data name="Target service" xml:space="preserve">
+    <value>Usługa docelowa</value>
+  </data>
+  <data name="Total aliases" xml:space="preserve">
+    <value>Łączna liczba aliasów</value>
+  </data>
+  <data name="Updated at" xml:space="preserve">
+    <value>Zaktualizowano</value>
+  </data>
+
+</root>

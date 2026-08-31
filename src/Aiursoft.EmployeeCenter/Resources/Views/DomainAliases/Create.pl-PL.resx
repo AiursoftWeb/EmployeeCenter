@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Audit Now" xml:space="preserve">
+    <value>Przeprowadź audyt teraz</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
+    <value>Wybierz zweryfikowaną, niezarejestrowaną nazwę hosta DNS i powiąż ją z istniejącą usługą.</value>
+  </data>
+  <data name="No alias candidates are available" xml:space="preserve">
+    <value>Brak dostępnych kandydatów na alias</value>
+  </data>
+  <data name="Only current Unknown DNS findings can become aliases." xml:space="preserve">
+    <value>Tylko bieżące nieznane wyniki DNS mogą stać się aliasami.</value>
+  </data>
+  <data name="Register alias and audit now" xml:space="preserve">
+    <value>Zarejestruj alias i przeprowadź audyt teraz</value>
+  </data>
+  <data name="Register domain alias" xml:space="preserve">
+    <value>Zarejestruj alias domeny</value>
+  </data>
+  <data name="Run a service audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases." xml:space="preserve">
+    <value>Najpierw wykonaj audyt usługi. Nowe aliasy mogą być tworzone wyłącznie na podstawie zweryfikowanych nazw hostów DNS, które nie są już zarejestrowane jako usługi ani aliasy.</value>
+  </data>
+  <data name="Select audited DNS hostname" xml:space="preserve">
+    <value>Wybierz audytowany host DNS</value>
+  </data>
+  <data name="Select target service" xml:space="preserve">
+    <value>Wybierz docelową usługę</value>
+  </data>
+  <data name="The audit requires the first redirect Location header to match this URL exactly." xml:space="preserve">
+    <value>Audyt wymaga, aby nagłówek Location pierwszego przekierowania dokładnie odpowiadał temu adresowi URL.</value>
+  </data>
+
+</root>

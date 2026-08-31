@@ -30,14 +30,23 @@
   <data name="Audit now" xml:space="preserve">
     <value>Auditera nu</value>
   </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>Granska tjänsteregistret, DNS-konfigurationen, serverägande, alias och live-HTTP-tillgänglighet.</value>
+  </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>Uppdateras automatiskt var 20:e minut</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>Uppdateras automatiskt var 3:e timme</value>
   </data>
   <data name="Check" xml:space="preserve">
     <value>Kontroll</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Cloudflare API-token är inte konfigurerad</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Cloudflare-zoner</value>
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Jämför EmployeeCenter-tjänsteregistret med skrivskyddade observationer från Cloudflare DNS.</value>
@@ -60,6 +69,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Domän</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>Redigera alias</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>Redigera tjänst</value>
   </data>
@@ -75,6 +87,9 @@
   <data name="Generated at" xml:space="preserve">
     <value>Genererad vid</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>värdnamn</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
@@ -84,11 +99,32 @@
   <data name="Latest refresh failed" xml:space="preserve">
     <value>Senaste uppdateringen misslyckades</value>
   </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>Tillgänglighet i realtid</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>Hantera alias</value>
+  </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Inga DNS-audditeringsproblem hittades.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>Inga problem hittades vid servicegranskningen.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>Registrera som alias</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Kör revision</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>körande HTTP(S)-ändpunkter är friska</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Tjänsteaudit</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>Servicegranskning påbörjas</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>tjänstvärdnamn granskade</value>
