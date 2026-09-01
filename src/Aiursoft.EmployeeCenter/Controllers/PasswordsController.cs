@@ -19,6 +19,7 @@ public class PasswordsController(
     RoleManager<IdentityRole> roleManager,
     IAuthorizationService authorizationService,
     StorageService storageService,
+    PasswordSecretService passwordSecretService,
     ILogger<PasswordsController> logger,
     EmployeeCenterDbContext context)
     : Controller
@@ -96,7 +97,7 @@ public class PasswordsController(
             {
                 Title = model.Title!,
                 Account = model.Account,
-                Secret = model.Secret!,
+                Secret = passwordSecretService.ProtectPlaintext(model.Secret!),
                 Note = model.Note,
                 FilePath = model.FilePath,
                 CreatorId = user!.Id
@@ -121,6 +122,8 @@ public class PasswordsController(
 
         if (permission == null) return Unauthorized();
 
+        password.Secret = passwordSecretService.UnprotectStoredValue(password.Secret);
+
         return this.StackView(new DetailsViewModel
         {
             Password = password,
@@ -143,7 +146,7 @@ public class PasswordsController(
             Id = password.Id,
             Title = password.Title,
             Account = password.Account,
-            Secret = password.Secret,
+            Secret = passwordSecretService.UnprotectStoredValue(password.Secret),
             Note = password.Note,
             FilePath = password.FilePath
         });
@@ -200,7 +203,7 @@ public class PasswordsController(
 
             password.Title = model.Title!;
             password.Account = model.Account;
-            password.Secret = model.Secret!;
+            password.Secret = passwordSecretService.ProtectPlaintext(model.Secret!);
             password.Note = model.Note;
             password.FilePath = model.FilePath;
 

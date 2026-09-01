@@ -19,7 +19,9 @@ public class Password
     [MaxLength(100)]
     public string? Account { get; set; }
 
-    [MaxLength(100)]
+    // Data Protection ciphertext is longer than the original plaintext (which is
+    // still limited to 100 characters by the create/edit view models).
+    [MaxLength(2000)]
     public required string Secret { get; set; }
 
     /// <summary>

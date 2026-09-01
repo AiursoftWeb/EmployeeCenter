@@ -58,6 +58,11 @@ public static class ProgramExtends
         var settingsService = services.GetRequiredService<GlobalSettingsService>();
         await settingsService.SeedSettingsAsync();
 
+        // This is an idempotent one-time data migration. On the first deployment it
+        // protects legacy plaintext vault entries; later starts only perform a cheap check.
+        var passwordSecretService = services.GetRequiredService<PasswordSecretService>();
+        await passwordSecretService.MigrateLegacySecretsAsync();
+
         var shouldSeed = await ShouldSeedAsync(db);
         if (!shouldSeed)
         {

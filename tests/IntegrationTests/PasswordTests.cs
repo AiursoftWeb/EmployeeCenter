@@ -1,4 +1,5 @@
 using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Aiursoft.EmployeeCenter.Services;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -143,6 +144,8 @@ public class PasswordTests
         {
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
             var p = await db.Passwords.FirstAsync(p => p.Title == passwordTitle);
+            Assert.AreNotEqual(passwordSecret, p.Secret);
+            StringAssert.StartsWith(p.Secret, "protected:v1:");
             passwordId = p.Id;
         }
 
@@ -239,7 +242,38 @@ public class PasswordTests
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
             var p = await db.Passwords.FindAsync(passwordId);
             Assert.AreEqual(newTitle, p!.Title);
+            Assert.AreNotEqual("NewSecret123!", p.Secret);
+            StringAssert.StartsWith(p.Secret, "protected:v1:");
         }
+    }
+
+    [TestMethod]
+    public async Task LegacyPlaintextSecretsAreMigratedExactlyOnce()
+    {
+        const string legacySecret = "legacy-plaintext-secret";
+
+        using var scope = _server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var admin = await db.Users.FirstAsync(user => user.UserName == "admin");
+        var password = new Password
+        {
+            Title = "Legacy password",
+            Secret = legacySecret,
+            CreatorId = admin.Id
+        };
+        db.Passwords.Add(password);
+        await db.SaveChangesAsync();
+
+        var secretService = scope.ServiceProvider.GetRequiredService<PasswordSecretService>();
+        Assert.AreEqual(1, await secretService.MigrateLegacySecretsAsync());
+
+        var protectedValue = password.Secret;
+        Assert.AreNotEqual(legacySecret, protectedValue);
+        StringAssert.StartsWith(protectedValue, "protected:v1:");
+        Assert.AreEqual(legacySecret, secretService.UnprotectStoredValue(protectedValue));
+
+        Assert.AreEqual(0, await secretService.MigrateLegacySecretsAsync());
+        Assert.AreEqual(protectedValue, password.Secret);
     }
 
     [TestMethod]

@@ -1540,7 +1540,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
 
                     b.Property<string>("Secret")
                         .IsRequired()
-                        .HasMaxLength(100)
+                        .HasMaxLength(2000)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
