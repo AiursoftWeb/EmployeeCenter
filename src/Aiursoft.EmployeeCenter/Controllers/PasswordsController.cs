@@ -98,7 +98,7 @@ public class PasswordsController(
                 Title = model.Title!,
                 Account = model.Account,
                 Secret = passwordSecretService.ProtectPlaintext(model.Secret!),
-                Note = model.Note,
+                Note = passwordSecretService.ProtectNote(model.Note),
                 FilePath = model.FilePath,
                 CreatorId = user!.Id
             };
@@ -123,6 +123,7 @@ public class PasswordsController(
         if (permission == null) return Unauthorized();
 
         password.Secret = passwordSecretService.UnprotectStoredValue(password.Secret);
+        password.Note = passwordSecretService.UnprotectStoredNote(password.Note);
 
         return this.StackView(new DetailsViewModel
         {
@@ -147,7 +148,7 @@ public class PasswordsController(
             Title = password.Title,
             Account = password.Account,
             Secret = passwordSecretService.UnprotectStoredValue(password.Secret),
-            Note = password.Note,
+            Note = passwordSecretService.UnprotectStoredNote(password.Note),
             FilePath = password.FilePath
         });
     }
@@ -204,7 +205,7 @@ public class PasswordsController(
             password.Title = model.Title!;
             password.Account = model.Account;
             password.Secret = passwordSecretService.ProtectPlaintext(model.Secret!);
-            password.Note = model.Note;
+            password.Note = passwordSecretService.ProtectNote(model.Note);
             password.FilePath = model.FilePath;
 
             await context.SaveChangesAsync();

@@ -1535,7 +1535,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Note")
-                        .HasMaxLength(1000)
+                        .HasMaxLength(8000)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Secret")

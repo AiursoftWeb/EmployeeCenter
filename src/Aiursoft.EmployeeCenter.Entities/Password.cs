@@ -28,7 +28,9 @@ public class Password
     /// Note for this password.
     /// If null, it means no note was provided.
     /// </summary>
-    [MaxLength(1000)]
+    // Data Protection ciphertext is longer than the original plaintext (which is
+    // still limited to 1000 characters by the create/edit view models).
+    [MaxLength(8000)]
     public string? Note { get; set; }
 
     [MaxLength(500)]

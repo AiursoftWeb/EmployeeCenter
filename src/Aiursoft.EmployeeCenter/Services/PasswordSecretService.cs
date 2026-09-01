@@ -12,8 +12,10 @@ public sealed class PasswordSecretService(
     ILogger<PasswordSecretService> logger) : IScopedDependency
 {
     internal const string ProtectedValuePrefix = "protected:v1:";
-    private readonly IDataProtector _protector =
+    private readonly IDataProtector _secretProtector =
         dataProtectionProvider.CreateProtector("EmployeeCenter/PasswordVault/Secrets/v1");
+    private readonly IDataProtector _noteProtector =
+        dataProtectionProvider.CreateProtector("EmployeeCenter/PasswordVault/Notes/v1");
 
     /// <summary>
     /// Protects plaintext submitted by a user. This method deliberately does not
@@ -23,8 +25,11 @@ public sealed class PasswordSecretService(
     public string ProtectPlaintext(string plaintext)
     {
         ArgumentException.ThrowIfNullOrEmpty(plaintext);
-        return ProtectedValuePrefix + _protector.Protect(plaintext);
+        return ProtectedValuePrefix + _secretProtector.Protect(plaintext);
     }
+
+    public string? ProtectNote(string? plaintext) =>
+        plaintext == null ? null : ProtectedValuePrefix + _noteProtector.Protect(plaintext);
 
     public string UnprotectStoredValue(string storedValue)
     {
@@ -37,13 +42,33 @@ public sealed class PasswordSecretService(
 
         try
         {
-            return _protector.Unprotect(storedValue[ProtectedValuePrefix.Length..]);
+            return _secretProtector.Unprotect(storedValue[ProtectedValuePrefix.Length..]);
         }
         catch (CryptographicException ex)
         {
             logger.LogCritical(ex, "Could not decrypt a password-vault secret");
             throw new InvalidOperationException(
                 "A password-vault secret could not be decrypted with the current Data Protection key ring.", ex);
+        }
+    }
+
+    public string? UnprotectStoredNote(string? storedValue)
+    {
+        if (storedValue == null || !IsProtected(storedValue))
+        {
+            // Backward compatibility while an older database is being migrated.
+            return storedValue;
+        }
+
+        try
+        {
+            return _noteProtector.Unprotect(storedValue[ProtectedValuePrefix.Length..]);
+        }
+        catch (CryptographicException ex)
+        {
+            logger.LogCritical(ex, "Could not decrypt a password-vault note");
+            throw new InvalidOperationException(
+                "A password-vault note could not be decrypted with the current Data Protection key ring.", ex);
         }
     }
 
@@ -54,25 +79,39 @@ public sealed class PasswordSecretService(
     public async Task<int> MigrateLegacySecretsAsync(CancellationToken cancellationToken = default)
     {
         var legacyPasswords = await dbContext.Passwords
-            .Where(password => !password.Secret.StartsWith(ProtectedValuePrefix))
+            .Where(password =>
+                !password.Secret.StartsWith(ProtectedValuePrefix) ||
+                (password.Note != null && !password.Note.StartsWith(ProtectedValuePrefix)))
             .ToListAsync(cancellationToken);
 
         if (legacyPasswords.Count == 0)
         {
-            logger.LogInformation("Password-vault secret migration is already complete");
+            logger.LogInformation("Password-vault value migration is already complete");
             return 0;
         }
 
+        var protectedValueCount = 0;
         foreach (var password in legacyPasswords)
         {
-            password.Secret = ProtectPlaintext(password.Secret);
+            if (!IsProtected(password.Secret))
+            {
+                password.Secret = ProtectPlaintext(password.Secret);
+                protectedValueCount++;
+            }
+
+            if (password.Note != null && !IsProtected(password.Note))
+            {
+                password.Note = ProtectNote(password.Note);
+                protectedValueCount++;
+            }
         }
 
         await dbContext.SaveChangesAsync(cancellationToken);
         logger.LogInformation(
-            "Protected {PasswordCount} legacy password-vault secrets",
+            "Protected {ValueCount} legacy password-vault values across {PasswordCount} records",
+            protectedValueCount,
             legacyPasswords.Count);
-        return legacyPasswords.Count;
+        return protectedValueCount;
     }
 
     private static bool IsProtected(string storedValue) =>
