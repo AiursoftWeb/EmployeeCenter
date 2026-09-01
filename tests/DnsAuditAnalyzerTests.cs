@@ -54,6 +54,57 @@ public class DnsAuditAnalyzerTests
     }
 
     [TestMethod]
+    [DataRow(ServicePurpose.Global, true)]
+    [DataRow(ServicePurpose.Domestic, true)]
+    [DataRow(ServicePurpose.Both, true)]
+    [DataRow(ServicePurpose.Internal, false)]
+    [DataRow(ServicePurpose.InternalAndPartners, false)]
+    public void AppliesAddressFamilyChecksAccordingToServicePurpose(
+        ServicePurpose purpose,
+        bool expectsMismatch)
+    {
+        var domain = $"{purpose.ToString().ToLowerInvariant()}.example.com";
+        var report = Analyze(
+            records: [Record(domain, "A", "192.0.2.10", proxied: false)],
+            services: [RegisteredService(domain, purpose: purpose)],
+            servers: [RegisteredServer("192.0.2.10")]);
+
+        Assert.AreEqual(
+            expectsMismatch,
+            report.Issues.Any(issue => issue.Type == DnsAuditIssueType.AddressFamilyMismatch));
+    }
+
+    [TestMethod]
+    [DataRow(ServicePurpose.Global, true)]
+    [DataRow(ServicePurpose.Internal, false)]
+    public void DomainAliasInheritsTargetServiceAddressFamilyPolicy(
+        ServicePurpose targetPurpose,
+        bool expectsMismatch)
+    {
+        var targetService = RegisteredService("target.example.com", proxied: true, purpose: targetPurpose);
+        var alias = RegisteredAlias(
+            "alias.example.com",
+            targetService,
+            targetUrl: null,
+            type: DomainAliasType.Cname);
+        var report = Analyze(
+            records:
+            [
+                Record("target.example.com", "A", "192.0.2.10", proxied: true),
+                Record("alias.example.com", "CNAME", "target.example.com", proxied: false)
+            ],
+            services: [targetService],
+            servers: [RegisteredServer("192.0.2.10")],
+            domainAliases: [alias]);
+
+        Assert.AreEqual(
+            expectsMismatch,
+            report.Issues.Any(issue =>
+                issue.Type == DnsAuditIssueType.AddressFamilyMismatch &&
+                issue.Domain == "alias.example.com"));
+    }
+
+    [TestMethod]
     public void AllowsProxiedIpv4OriginWithoutIpv6Origin()
     {
         var report = Analyze(
@@ -574,7 +625,8 @@ public class DnsAuditAnalyzerTests
         ServiceStatus status = ServiceStatus.Running,
         bool isViaFrps = false,
         int? frpsServerId = null,
-        string? dnsProviderName = null)
+        string? dnsProviderName = null,
+        ServicePurpose purpose = ServicePurpose.Global)
     {
         return new Service
         {
@@ -585,6 +637,7 @@ public class DnsAuditAnalyzerTests
             IsViaFrps = isViaFrps,
             FrpsServerId = frpsServerId,
             Status = status,
+            Purpose = purpose,
             DnsProvider = dnsProviderName == null ? null : new DnsProvider { Name = dnsProviderName }
         };
     }

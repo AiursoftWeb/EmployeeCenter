@@ -361,10 +361,26 @@ public static partial class DnsAuditAnalyzer
             }
         }
 
-        // 3. DNS-only hostnames must be reachable by both IPv4-only and IPv6-only clients.
+        // 3. Public DNS-only services must be reachable by both IPv4-only and IPv6-only clients.
+        // Internal services may intentionally be restricted to a fixed address family. Domain aliases
+        // inherit this policy from their target service.
         foreach (var (domain, domainRecords) in recordsByName)
         {
             if (domainRecords.Any(record => record.Proxied))
+            {
+                continue;
+            }
+
+            var requiresDualStackAudit = servicesByDomain.TryGetValue(domain, out var registeredServices) &&
+                                         registeredServices.Any(RequiresDualStackAudit);
+            if (!requiresDualStackAudit && aliasesByDomain.TryGetValue(domain, out var registeredAliases))
+            {
+                requiresDualStackAudit = registeredAliases
+                    .Where(alias => alias.TargetService != null)
+                    .Select(alias => alias.TargetService!)
+                    .Any(RequiresDualStackAudit);
+            }
+            if (!requiresDualStackAudit)
             {
                 continue;
             }
@@ -574,6 +590,13 @@ public static partial class DnsAuditAnalyzer
         return zones.Any(zone =>
             domain.Equals(zone, StringComparison.OrdinalIgnoreCase) ||
             domain.EndsWith($".{zone}", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static bool RequiresDualStackAudit(Entities.Service service)
+    {
+        return service.Purpose is Entities.ServicePurpose.Global or
+            Entities.ServicePurpose.Domestic or
+            Entities.ServicePurpose.Both;
     }
 
     private static HashSet<string> ResolveEffectiveAddresses(
