@@ -164,11 +164,19 @@ public class LeaveTests
         // 2. Initialize Allocation (Visit Index)
         await _http.GetAsync("/Leave/Index");
 
-        // 3. Apply for FUTURE leave (30 days from now)
+        // 3. Apply for FUTURE leave (30 days from now).
+        // Mark the selected date as a work day so the test remains deterministic around public holidays.
         var thirtyDaysFromNow = DateTime.UtcNow.Date.AddDays(30);
-        while (thirtyDaysFromNow.DayOfWeek == DayOfWeek.Saturday || thirtyDaysFromNow.DayOfWeek == DayOfWeek.Sunday)
+        using (var scope = _server!.Services.CreateScope())
         {
-            thirtyDaysFromNow = thirtyDaysFromNow.AddDays(1);
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            db.AdjustedHolidays.Add(new AdjustedHoliday
+            {
+                Date = thirtyDaysFromNow,
+                Type = HolidayType.WorkDay,
+                Reason = "Deterministic work day for leave withdrawal test"
+            });
+            await db.SaveChangesAsync();
         }
 
         var applyToken = await GetAntiCsrfToken("/Leave/Apply");
@@ -176,7 +184,7 @@ public class LeaveTests
         {
             { "LeaveType", "AnnualLeave" },
             { "StartDate", thirtyDaysFromNow.ToString("yyyy-MM-dd") },
-            { "EndDate", thirtyDaysFromNow.AddDays(3).ToString("yyyy-MM-dd") },
+            { "EndDate", thirtyDaysFromNow.ToString("yyyy-MM-dd") },
             { "Reason", "Vacation" },
             { "__RequestVerificationToken", applyToken }
         });
