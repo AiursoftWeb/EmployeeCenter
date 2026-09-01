@@ -157,41 +157,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" asp-for="IsViaFrps">
-                                <label class="form-check-label" asp-for="IsViaFrps"></label>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" asp-for="IsCloudflareProxied">
-                                <label class="form-check-label" asp-for="IsCloudflareProxied"></label>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" asp-for="AuthentikIntegrated">
-                                <label class="form-check-label" asp-for="AuthentikIntegrated"></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" asp-for="IsSelfDeveloped">
-                                <label class="form-check-label" asp-for="IsSelfDeveloped"></label>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" asp-for="IsAvailabilityAuditEnabled">
-                                <label class="form-check-label" asp-for="IsAvailabilityAuditEnabled"></label>
-                            </div>
-                        </div>
-                    </div>
+                    <partial name="_ServiceFeatureToggles" model="Model" />
 
                     <div class="mb-3">
                         <label asp-for="Remark" class="form-label"></label>

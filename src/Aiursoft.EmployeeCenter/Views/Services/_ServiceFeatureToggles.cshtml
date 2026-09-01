@@ -1,0 +1,49 @@
+@model Aiursoft.EmployeeCenter.Models.ServicesViewModels.CreateServiceViewModel
+
+<div class="row g-3 mb-3">
+    <div class="col-12 col-sm-6 col-lg-4 col-xl">
+        <div class="d-flex align-items-center gap-3 border rounded bg-body-tertiary p-3 h-100">
+            <i class="flex-shrink-0 text-primary" data-lucide="network"></i>
+            <label class="form-check-label flex-grow-1" asp-for="IsViaFrps"></label>
+            <div class="form-check form-switch m-0 flex-shrink-0">
+                <input class="form-check-input" type="checkbox" asp-for="IsViaFrps">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 col-xl">
+        <div class="d-flex align-items-center gap-3 border rounded bg-body-tertiary p-3 h-100">
+            <i class="flex-shrink-0 text-primary" data-lucide="cloud"></i>
+            <label class="form-check-label flex-grow-1" asp-for="IsCloudflareProxied"></label>
+            <div class="form-check form-switch m-0 flex-shrink-0">
+                <input class="form-check-input" type="checkbox" asp-for="IsCloudflareProxied">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 col-xl">
+        <div class="d-flex align-items-center gap-3 border rounded bg-body-tertiary p-3 h-100">
+            <i class="flex-shrink-0 text-primary" data-lucide="shield-check"></i>
+            <label class="form-check-label flex-grow-1" asp-for="AuthentikIntegrated"></label>
+            <div class="form-check form-switch m-0 flex-shrink-0">
+                <input class="form-check-input" type="checkbox" asp-for="AuthentikIntegrated">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 col-xl">
+        <div class="d-flex align-items-center gap-3 border rounded bg-body-tertiary p-3 h-100">
+            <i class="flex-shrink-0 text-primary" data-lucide="code-2"></i>
+            <label class="form-check-label flex-grow-1" asp-for="IsSelfDeveloped"></label>
+            <div class="form-check form-switch m-0 flex-shrink-0">
+                <input class="form-check-input" type="checkbox" asp-for="IsSelfDeveloped">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 col-xl">
+        <div class="d-flex align-items-center gap-3 border rounded bg-body-tertiary p-3 h-100">
+            <i class="flex-shrink-0 text-primary" data-lucide="activity"></i>
+            <label class="form-check-label flex-grow-1" asp-for="IsAvailabilityAuditEnabled"></label>
+            <div class="form-check form-switch m-0 flex-shrink-0">
+                <input class="form-check-input" type="checkbox" asp-for="IsAvailabilityAuditEnabled">
+            </div>
+        </div>
+    </div>
+</div>
