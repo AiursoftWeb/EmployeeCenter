@@ -1,5 +1,10 @@
 @using Aiursoft.EmployeeCenter.Authorization
 @model Aiursoft.EmployeeCenter.Models.ServicesViewModels.ServicesDashboardViewModel
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@{
+    var canManageInfrastructure = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageInfrastructure)).Succeeded;
+    var canViewAudit = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanViewServiceAudit)).Succeeded;
+}
 
 <div class="container-fluid p-0">
     <div class="row mb-2 mb-xl-3 align-items-center">
@@ -11,15 +16,14 @@
             <a asp-action="List" class="btn btn-primary shadow-sm ms-1">
                 <i class="align-middle" data-lucide="list"></i> @Localizer["View Detailed Service Table"]
             </a>
-            @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices) &&
-                 User.HasClaim(AppPermissions.Type, AppPermissionNames.CanAuditDns))
+            <a asp-controller="DomainAliases" asp-action="Index" class="btn btn-outline-info shadow-sm ms-1">
+                <i class="align-middle" data-lucide="waypoints"></i> @Localizer["Domain Aliases"]
+            </a>
+            @if (canManageInfrastructure)
             {
-                <a asp-controller="DomainAliases" asp-action="Index" class="btn btn-outline-info shadow-sm ms-1">
-                    <i class="align-middle" data-lucide="waypoints"></i> @Localizer["Domain Aliases"]
+                <a asp-action="DataQuality" class="btn btn-outline-warning shadow-sm ms-1">
+                    <i class="align-middle" data-lucide="scan-search"></i> @Localizer["Data Quality"]
                 </a>
-            }
-            @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
-            {
                 <a asp-action="Create" class="btn btn-outline-primary shadow-sm ms-1">
                     <i class="align-middle" data-lucide="plus"></i> @Localizer["New Service"]
                 </a>
@@ -42,7 +46,12 @@
                 <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="d-flex justify-content-lg-end">
                         <div class="service-dashboard-score text-center">
-                            @if (Model.OperationalPercentage.HasValue)
+                            @if (!Model.CanViewAudit)
+                            {
+                                <div class="display-5 fw-bold">—</div>
+                                <div class="small text-uppercase opacity-75">@Localizer["Audit access required"]</div>
+                            }
+                            else if (Model.OperationalPercentage.HasValue)
                             {
                                 <div class="display-5 fw-bold">@Model.OperationalPercentage.Value.ToString("0.#")%</div>
                                 <div class="small text-uppercase opacity-75">@Localizer["Operational"]</div>
@@ -81,7 +90,13 @@
                 <div class="card-body py-4">
                     <div class="d-flex align-items-start">
                         <div class="flex-grow-1">
-                            @if (Model.OperationalPercentage.HasValue)
+                            @if (!Model.CanViewAudit)
+                            {
+                                <h3 class="mb-2">—</h3>
+                                <p class="mb-2">@Localizer["Service Audit Health"]</p>
+                                <span class="badge badge-subtle-secondary">@Localizer["Restricted"]</span>
+                            }
+                            else if (Model.OperationalPercentage.HasValue)
                             {
                                 var blockingFindings = Model.DnsAuditCriticalCount.GetValueOrDefault() + Model.DnsAuditErrorCount.GetValueOrDefault() + Model.DnsAuditWarningCount.GetValueOrDefault();
                                 <h3 class="mb-2">@Model.OperationalPercentage.Value.ToString("0.#")%</h3>
@@ -141,7 +156,7 @@
                         <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="bar-chart-3"></i> @Localizer["Services by Server"]</h5>
                         <div class="text-muted small">@Localizer["Click a bar or server name to inspect its services."]</div>
                     </div>
-                    <a asp-controller="Servers" asp-action="Index" class="btn btn-sm btn-outline-primary">@Localizer["Manage Servers"]</a>
+                    <a asp-controller="Servers" asp-action="Index" class="btn btn-sm btn-outline-primary">@Localizer["View Servers"]</a>
                 </div>
                 <div class="card-body">
                     @if (Model.ServerDistribution.Any())
@@ -232,7 +247,7 @@
                 <h5 class="card-title mb-1"><i class="align-middle me-1" data-lucide="badge-check"></i> @Localizer["Registry Quality"]</h5>
                 <div class="text-muted small">@Localizer["How completely the service catalog describes infrastructure and governance."]</div>
             </div>
-            @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanAuditDns))
+            @if (canViewAudit)
             {
                 <a asp-route="ServiceAuditIndex" class="btn btn-sm btn-outline-info">@Localizer["View Service Audit"]</a>
             }

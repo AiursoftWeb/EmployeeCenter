@@ -13,14 +13,19 @@ public class CreateServiceViewModel : UiStackLayoutViewModel, IValidatableObject
 
     [Required(ErrorMessage = "The {0} is required.")]
     [MaxLength(255, ErrorMessage = "The {0} cannot exceed {1} characters.")]
-    [Display(Name = "Domain")]
-    public string Domain { get; set; } = string.Empty;
+    [Display(Name = "Service name")]
+    public string Name { get; set; } = string.Empty;
 
-    [Display(Name = "Owner")]
-    public int? OwnerId { get; set; }
+    [Required(ErrorMessage = "The {0} is required.")]
+    [MaxLength(255, ErrorMessage = "The {0} cannot exceed {1} characters.")]
+    [Display(Name = "Primary domain")]
+    public string PrimaryDomain { get; set; } = string.Empty;
 
-    [Display(Name = "Cross-Entity Link")]
-    public int? CrossEntityLinkId { get; set; }
+    [Display(Name = "Company entity")]
+    public int? CompanyEntityId { get; set; }
+
+    [Display(Name = "Alternative service")]
+    public int? AlternativeServiceId { get; set; }
 
     [MaxLength(100, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Protocols")]
@@ -83,6 +88,13 @@ public class CreateServiceViewModel : UiStackLayoutViewModel, IValidatableObject
         {
             yield return new ValidationResult(
                 "The FRPS server is required when the service uses FRPS.",
+                [nameof(FrpsServerId)]);
+        }
+
+        if (ServerId.HasValue && ServerId == FrpsServerId)
+        {
+            yield return new ValidationResult(
+                "The running server and FRPS server must be different.",
                 [nameof(FrpsServerId)]);
         }
     }

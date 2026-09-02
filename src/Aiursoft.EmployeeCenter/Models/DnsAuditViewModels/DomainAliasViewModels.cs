@@ -77,6 +77,8 @@ public sealed class DomainAliasIndexViewModel : UiStackLayoutViewModel
 
     public required IReadOnlyList<DomainAlias> DomainAliases { get; init; }
 
+    public bool CanViewAudit { get; init; }
+
     public required IReadOnlyList<string> AvailableSourceDomains { get; init; }
 
     public int HealthyAliasCount { get; init; }

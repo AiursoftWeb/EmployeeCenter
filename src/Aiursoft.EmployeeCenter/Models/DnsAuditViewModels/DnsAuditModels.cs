@@ -77,12 +77,21 @@ public sealed class DnsAuditReport
     public int AvailabilityCheckedCount { get; init; }
     public int AvailabilityHealthyCount { get; init; }
     public required IReadOnlyList<DnsAuditIssue> Issues { get; init; }
+    public IReadOnlyList<ServiceAuditObservationResult> Observations { get; init; } = [];
 
     public int CriticalCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Critical);
     public int ErrorCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Error);
     public int WarningCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Warning);
     public int InfoCount => Issues.Count(issue => issue.Severity == DnsAuditSeverity.Info);
 }
+
+public sealed record ServiceAuditObservationResult(
+    int ServiceId,
+    string Domain,
+    ObservedServiceHealth Health,
+    int? StatusCode,
+    string Details,
+    DateTime ObservedAt);
 
 public sealed class DnsAuditIndexViewModel : UiStackLayoutViewModel
 {
@@ -97,6 +106,7 @@ public sealed class DnsAuditIndexViewModel : UiStackLayoutViewModel
     public DnsAuditReport? Report { get; init; }
     public DateTime? LastAttemptedAt { get; init; }
     public DateTime? LastSuccessfulAt { get; init; }
+    public IReadOnlyList<ServiceAuditRun> RecentRuns { get; init; } = [];
 }
 
 /// <summary>

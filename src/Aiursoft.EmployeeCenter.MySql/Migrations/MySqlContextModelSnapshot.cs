@@ -1032,7 +1032,14 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique();
 
                     b.ToTable("DnsProviders");
                 });
@@ -1227,6 +1234,49 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.HasIndex("IncidentId");
 
                     b.ToTable("IncidentComments");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.InfrastructureChangeLog", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
+                    b.Property<string>("ActorUserId")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("AfterJson")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("BeforeJson")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("ResourceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ResourceType")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedAt");
+
+                    b.HasIndex("ResourceType", "ResourceId", "CreatedAt");
+
+                    b.ToTable("InfrastructureChangeLogs");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.IntangibleAsset", b =>
@@ -1814,7 +1864,14 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique();
 
                     b.ToTable("Providers");
                 });
@@ -1975,6 +2032,11 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<int?>("CompanyEntityId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ConcurrencyToken")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar(36)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
@@ -1990,19 +2052,36 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<bool>("IsRegistryValidated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(false);
+
                     b.Property<int?>("LocationId")
                         .HasColumnType("int");
 
-                    b.Property<string>("OwnerId")
+                    b.Property<string>("NormalizedHostname")
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
                     b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("RetiredAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("RetiredByUserId")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
                     b.Property<string>("ServerIp")
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
+
+                    b.Property<string>("TechnicalOwnerId")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("OwnerId");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
@@ -2013,11 +2092,17 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("NormalizedHostname")
+                        .IsUnique();
 
                     b.HasIndex("ProviderId");
 
-                    b.ToTable("Servers");
+                    b.HasIndex("TechnicalOwnerId");
+
+                    b.ToTable("Servers", t =>
+                        {
+                            t.HasCheckConstraint("CK_Servers_ValidatedIdentifier", "IsRegistryValidated = 0 OR NULLIF(TRIM(Hostname), '') IS NOT NULL OR NULLIF(TRIM(ServerIp), '') IS NOT NULL OR NULLIF(TRIM(Ipv6Address), '') IS NOT NULL");
+                        });
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Service", b =>
@@ -2028,22 +2113,27 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("AlternativeServiceId")
+                        .HasColumnType("int")
+                        .HasColumnName("CrossEntityLinkId");
+
                     b.Property<bool>("AuthentikIntegrated")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("CompanyEntityId")
+                        .HasColumnType("int")
+                        .HasColumnName("OwnerId");
+
+                    b.Property<string>("ConcurrencyToken")
+                        .IsConcurrencyToken()
+                        .HasMaxLength(36)
+                        .HasColumnType("varchar(36)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int?>("CrossEntityLinkId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("DnsProviderId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Domain")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
 
                     b.Property<int?>("FrpsServerId")
                         .HasColumnType("int");
@@ -2056,14 +2146,30 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<bool>("IsCloudflareProxied")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<bool>("IsRegistryValidated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(false);
+
                     b.Property<bool>("IsSelfDeveloped")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsViaFrps")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("OwnerId")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("NormalizedPrimaryDomain")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("PrimaryDomain")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("Domain");
 
                     b.Property<string>("Protocols")
                         .HasMaxLength(100)
@@ -2076,6 +2182,13 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("varchar(1000)");
 
+                    b.Property<DateTime?>("RetiredAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("RetiredByUserId")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
                     b.Property<int?>("ServerId")
                         .HasColumnType("int");
 
@@ -2087,17 +2200,177 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CrossEntityLinkId");
+                    b.HasIndex("AlternativeServiceId");
+
+                    b.HasIndex("CompanyEntityId");
 
                     b.HasIndex("DnsProviderId");
 
                     b.HasIndex("FrpsServerId");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("NormalizedPrimaryDomain")
+                        .IsUnique();
 
                     b.HasIndex("ServerId");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", t =>
+                        {
+                            t.HasCheckConstraint("CK_Services_NoSelfAlternative", "IsRegistryValidated = 0 OR CrossEntityLinkId IS NULL OR CrossEntityLinkId <> Id");
+
+                            t.HasCheckConstraint("CK_Services_ValidatedFrps", "IsRegistryValidated = 0 OR IsViaFrps = 0 OR (ServerId IS NOT NULL AND FrpsServerId IS NOT NULL AND ServerId <> FrpsServerId)");
+                        });
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ServiceAuditIssue", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("varchar(2000)");
+
+                    b.Property<string>("Domain")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int?>("DomainAliasId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ObservedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long>("ServiceAuditRunId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Severity")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceId");
+
+                    b.HasIndex("ServiceAuditRunId", "Severity");
+
+                    b.ToTable("ServiceAuditIssues");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ServiceAuditObservation", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Details")
+                        .HasMaxLength(2000)
+                        .HasColumnType("varchar(2000)");
+
+                    b.Property<string>("Domain")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("Health")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ObservedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long>("ServiceAuditRunId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StatusCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceAuditRunId", "ServiceId");
+
+                    b.ToTable("ServiceAuditObservations");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ServiceAuditRun", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int>("AuditedHostnameCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AvailabilityCheckedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AvailabilityHealthyCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("CriticalCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ErrorCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ErrorMessage")
+                        .HasMaxLength(2000)
+                        .HasColumnType("varchar(2000)");
+
+                    b.Property<int>("InfoCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RecordCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RequestedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("RequestedByUserId")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<DateTime?>("StartedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WarningCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ZoneCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompletedAt");
+
+                    b.HasIndex("Status", "RequestedAt");
+
+                    b.ToTable("ServiceAuditRuns");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.SignalQuestion", b =>
@@ -3201,28 +3474,32 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .WithMany()
                         .HasForeignKey("LocationId");
 
-                    b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId");
-
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.Provider", "Provider")
                         .WithMany("Servers")
                         .HasForeignKey("ProviderId");
+
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.User", "TechnicalOwner")
+                        .WithMany()
+                        .HasForeignKey("TechnicalOwnerId");
 
                     b.Navigation("CompanyEntity");
 
                     b.Navigation("Location");
 
-                    b.Navigation("Owner");
-
                     b.Navigation("Provider");
+
+                    b.Navigation("TechnicalOwner");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Service", b =>
                 {
-                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Service", "CrossEntityLink")
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.Service", "AlternativeService")
                         .WithMany()
-                        .HasForeignKey("CrossEntityLinkId");
+                        .HasForeignKey("AlternativeServiceId");
+
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.CompanyEntity", "CompanyEntity")
+                        .WithMany()
+                        .HasForeignKey("CompanyEntityId");
 
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.DnsProvider", "DnsProvider")
                         .WithMany("Services")
@@ -3232,23 +3509,41 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .WithMany("FrpsServices")
                         .HasForeignKey("FrpsServerId");
 
-                    b.HasOne("Aiursoft.EmployeeCenter.Entities.CompanyEntity", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId");
-
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.Server", "Server")
                         .WithMany("Services")
                         .HasForeignKey("ServerId");
 
-                    b.Navigation("CrossEntityLink");
+                    b.Navigation("AlternativeService");
+
+                    b.Navigation("CompanyEntity");
 
                     b.Navigation("DnsProvider");
 
                     b.Navigation("FrpsServer");
 
-                    b.Navigation("Owner");
-
                     b.Navigation("Server");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ServiceAuditIssue", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.ServiceAuditRun", "ServiceAuditRun")
+                        .WithMany("Issues")
+                        .HasForeignKey("ServiceAuditRunId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ServiceAuditRun");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ServiceAuditObservation", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.ServiceAuditRun", "ServiceAuditRun")
+                        .WithMany("Observations")
+                        .HasForeignKey("ServiceAuditRunId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ServiceAuditRun");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.SignalQuestionResponse", b =>
@@ -3543,6 +3838,13 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Service", b =>
                 {
                     b.Navigation("DomainAliases");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ServiceAuditRun", b =>
+                {
+                    b.Navigation("Issues");
+
+                    b.Navigation("Observations");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.SignalQuestion", b =>

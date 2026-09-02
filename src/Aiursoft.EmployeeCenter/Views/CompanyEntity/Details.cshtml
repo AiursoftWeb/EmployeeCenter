@@ -351,35 +351,38 @@
 
             @if (Model.Entity.CreateLedger)
             {
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">@Localizer["Associated Servers"]</h6>
+                @if (Model.CanViewInfrastructure)
+                {
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">@Localizer["Associated Servers"]</h6>
+                        </div>
+                        <div class="card-body">
+                            @if (Model.Servers.Any())
+                            {
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var server in Model.Servers)
+                                    {
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>@server.Hostname</strong>
+                                                <br/>
+                                                <small class="text-muted">@string.Join(" · ", new[] { server.ServerIp, server.Ipv6Address }.Where(address => !string.IsNullOrWhiteSpace(address)))</small>
+                                            </div>
+                                            <a asp-controller="Servers" asp-action="Index" class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p class="text-muted mb-0">@Localizer["No servers associated."]</p>
+                            }
+                        </div>
                     </div>
-                    <div class="card-body">
-                        @if (Model.Servers.Any())
-                        {
-                            <ul class="list-group list-group-flush">
-                                @foreach (var server in Model.Servers)
-                                {
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <strong>@server.Hostname</strong>
-                                            <br/>
-                                            <small class="text-muted">@string.Join(" · ", new[] { server.ServerIp, server.Ipv6Address }.Where(address => !string.IsNullOrWhiteSpace(address)))</small>
-                                        </div>
-                                        <a asp-controller="Servers" asp-action="Edit" asp-route-id="@server.Id" class="btn btn-sm btn-outline-primary">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                        }
-                        else
-                        {
-                            <p class="text-muted mb-0">@Localizer["No servers associated."]</p>
-                        }
-                    </div>
-                </div>
+                }
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">

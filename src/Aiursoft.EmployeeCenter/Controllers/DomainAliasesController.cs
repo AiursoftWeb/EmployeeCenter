@@ -7,19 +7,24 @@ using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 using Aiursoft.EmployeeCenter.Services.DnsAudit;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.EmployeeCenter.Controllers;
 
-[Authorize(Policy = AppPermissionNames.CanAuditDns)]
-[Authorize(Policy = AppPermissionNames.CanManageServices)]
+[Authorize]
 [LimitPerMin]
 public sealed class DomainAliasesController(
     EmployeeCenterDbContext context,
     DnsAuditSnapshotCache snapshotCache,
+    ServiceAuditStore auditStore,
+    IAuthorizationService authorizationService,
+    InfrastructureChangeLogService changeLog,
+    UserManager<User> userManager,
     BackgroundJobRegistry jobRegistry) : Controller
 {
+    [Authorize(Policy = AppPermissionNames.CanViewInfrastructure)]
     public async Task<IActionResult> Index()
     {
         var aliases = await context.DomainAliases
@@ -27,7 +32,12 @@ public sealed class DomainAliasesController(
             .Include(alias => alias.TargetService)
             .OrderBy(alias => alias.Domain)
             .ToListAsync();
-        var snapshot = snapshotCache.Current;
+        var canViewAudit = (await authorizationService.AuthorizeAsync(
+            User,
+            AppPermissionNames.CanViewServiceAudit)).Succeeded;
+        var snapshot = canViewAudit
+            ? await auditStore.LoadSnapshotAsync(snapshotCache.Current)
+            : new DnsAuditSnapshot();
         var failedAliasIds = snapshot.Report?.Issues
             .Where(issue => issue.Type == DnsAuditIssueType.DomainAliasRedirectMismatch)
             .Select(issue => issue.DomainAliasId)
@@ -40,7 +50,8 @@ public sealed class DomainAliasesController(
         return this.StackView(new DomainAliasIndexViewModel
         {
             DomainAliases = aliases,
-            AvailableSourceDomains = await LoadAvailableSourceDomainsAsync(),
+            CanViewAudit = canViewAudit,
+            AvailableSourceDomains = canViewAudit ? await LoadAvailableSourceDomainsAsync() : [],
             HealthyAliasCount = auditedAliases.Count(alias => !failedAliasIds.Contains(alias.Id)),
             UnhealthyAliasCount = auditedAliases.Count(alias => failedAliasIds.Contains(alias.Id)),
             PendingAliasCount = aliases.Count - auditedAliases.Count,
@@ -49,6 +60,8 @@ public sealed class DomainAliasesController(
         });
     }
 
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
+    [Authorize(Policy = AppPermissionNames.CanViewServiceAudit)]
     public async Task<IActionResult> Create(string? sourceDomain = null)
     {
         var availableDomains = await LoadAvailableSourceDomainsAsync();
@@ -68,6 +81,8 @@ public sealed class DomainAliasesController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
+    [Authorize(Policy = AppPermissionNames.CanViewServiceAudit)]
     public async Task<IActionResult> Create(CreateDomainAliasViewModel model)
     {
         var domain = DnsAuditAnalyzer.NormalizeDomain(model.Domain);
@@ -80,7 +95,7 @@ public sealed class DomainAliasesController(
 
         var targetService = await context.Services
             .AsNoTracking()
-            .FirstOrDefaultAsync(service => service.Id == model.TargetServiceId);
+            .FirstOrDefaultAsync(service => service.Id == model.TargetServiceId && service.RetiredAt == null);
         ValidateTarget(model, domain, targetService);
 
         if (await context.DomainAliases.AnyAsync(alias => alias.Domain == domain))
@@ -88,7 +103,7 @@ public sealed class DomainAliasesController(
             ModelState.AddModelError(nameof(model.Domain), "This hostname is already registered as a domain alias.");
         }
 
-        if (await context.Services.AnyAsync(service => service.Domain == domain))
+        if (await context.Services.AnyAsync(service => service.PrimaryDomain == domain))
         {
             ModelState.AddModelError(nameof(model.Domain), "This hostname is already registered as a service.");
         }
@@ -102,7 +117,7 @@ public sealed class DomainAliasesController(
         }
 
         var normalizedTargetUrl = NormalizeTargetUrl(model);
-        context.DomainAliases.Add(new DomainAlias
+        var alias = new DomainAlias
         {
             Domain = domain,
             TargetServiceId = model.TargetServiceId,
@@ -110,12 +125,24 @@ public sealed class DomainAliasesController(
             TargetUrl = normalizedTargetUrl,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
-        });
+        };
+        await using var transaction = context.Database.IsRelational()
+            ? await context.Database.BeginTransactionAsync()
+            : null;
+        context.DomainAliases.Add(alias);
         await context.SaveChangesAsync();
+        changeLog.Add(nameof(DomainAlias), alias.Id, "Created", null,
+            Snapshot(alias), userManager.GetUserId(User));
+        await context.SaveChangesAsync();
+        if (transaction != null)
+        {
+            await transaction.CommitAsync();
+        }
         TriggerAudit();
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Edit(int id)
     {
         var alias = await context.DomainAliases.FindAsync(id);
@@ -137,6 +164,7 @@ public sealed class DomainAliasesController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Edit(EditDomainAliasViewModel model)
     {
         var alias = await context.DomainAliases.FindAsync(model.Id);
@@ -148,7 +176,7 @@ public sealed class DomainAliasesController(
         model.Domain = alias.Domain;
         var targetService = await context.Services
             .AsNoTracking()
-            .FirstOrDefaultAsync(service => service.Id == model.TargetServiceId);
+            .FirstOrDefaultAsync(service => service.Id == model.TargetServiceId && service.RetiredAt == null);
         ValidateTarget(model, alias.Domain, targetService);
         if (!ModelState.IsValid)
         {
@@ -157,10 +185,13 @@ public sealed class DomainAliasesController(
         }
 
         var normalizedTargetUrl = NormalizeTargetUrl(model);
+        var before = Snapshot(alias);
         alias.TargetServiceId = model.TargetServiceId;
         alias.Type = model.Type;
         alias.TargetUrl = normalizedTargetUrl;
         alias.UpdatedAt = DateTime.UtcNow;
+        changeLog.Add(nameof(DomainAlias), alias.Id, "Updated", before,
+            Snapshot(alias), userManager.GetUserId(User));
         await context.SaveChangesAsync();
         TriggerAudit();
         return RedirectToAction(nameof(Index));
@@ -168,6 +199,7 @@ public sealed class DomainAliasesController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Delete(int id)
     {
         var alias = await context.DomainAliases.FindAsync(id);
@@ -176,6 +208,8 @@ public sealed class DomainAliasesController(
             return NotFound();
         }
 
+        changeLog.Add(nameof(DomainAlias), alias.Id, "Deleted", Snapshot(alias), null,
+            userManager.GetUserId(User));
         context.DomainAliases.Remove(alias);
         await context.SaveChangesAsync();
         TriggerAudit();
@@ -184,8 +218,10 @@ public sealed class DomainAliasesController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult RefreshAudit()
+    [Authorize(Policy = AppPermissionNames.CanRunServiceAudit)]
+    public async Task<IActionResult> RefreshAudit()
     {
+        await auditStore.QueueAsync(userManager.GetUserId(User));
         TriggerAudit();
         return RedirectToAction(nameof(Index));
     }
@@ -194,7 +230,7 @@ public sealed class DomainAliasesController(
     {
         var registeredDomains = (await context.Services
                 .AsNoTracking()
-                .Select(service => service.Domain)
+                .Select(service => service.PrimaryDomain)
                 .ToListAsync())
             .Concat(await context.DomainAliases
                 .AsNoTracking()
@@ -203,7 +239,8 @@ public sealed class DomainAliasesController(
             .Select(DnsAuditAnalyzer.NormalizeDomain)
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-        return snapshotCache.Current.Report?.Issues
+        var snapshot = await auditStore.LoadSnapshotAsync(snapshotCache.Current);
+        return snapshot.Report?.Issues
             .Where(issue => issue.Type == DnsAuditIssueType.UnknownDns)
             .Select(issue => DnsAuditAnalyzer.NormalizeDomain(issue.Domain))
             .Where(domain => domain.Length > 0 && !registeredDomains.Contains(domain))
@@ -220,7 +257,7 @@ public sealed class DomainAliasesController(
             return;
         }
 
-        var serviceHost = DnsAuditAnalyzer.NormalizeDomain(targetService.Domain);
+        var serviceHost = DnsAuditAnalyzer.NormalizeDomain(targetService.PrimaryDomain);
         if (sourceDomain.Equals(serviceHost, StringComparison.OrdinalIgnoreCase))
         {
             ModelState.AddModelError(nameof(model.TargetServiceId), "A domain alias cannot target itself.");
@@ -260,8 +297,18 @@ public sealed class DomainAliasesController(
 
     private Task<List<Service>> LoadServicesAsync() => context.Services
         .AsNoTracking()
-        .OrderBy(service => service.Domain)
+        .Where(service => service.RetiredAt == null)
+        .OrderBy(service => service.PrimaryDomain)
         .ToListAsync();
 
     private void TriggerAudit() => jobRegistry.TriggerNow(nameof(DnsAuditJob));
+
+    private static object Snapshot(DomainAlias alias) => new
+    {
+        alias.Domain,
+        alias.TargetServiceId,
+        alias.Type,
+        alias.TargetUrl,
+        alias.UpdatedAt
+    };
 }

@@ -1,6 +1,9 @@
 @model Aiursoft.EmployeeCenter.Models.ServersViewModels.IndexServerViewModel
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
+@using Aiursoft.EmployeeCenter.Authorization
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
 @{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageInfrastructure)).Succeeded;
 }
 
 <div class="row mb-2 mb-xl-3">
@@ -9,9 +12,15 @@
     </div>
 
     <div class="col-auto ms-auto text-end">
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Server"]
+        <a asp-action="Index" asp-route-includeRetired="@(!Model.IncludeRetired)" class="btn btn-outline-secondary">
+            @(Model.IncludeRetired ? Localizer["Hide retired"] : Localizer["Show retired"])
         </a>
+        @if (canManage)
+        {
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Server"]
+            </a>
+        }
     </div>
 </div>
 
@@ -53,6 +62,10 @@
                         <tr>
                             <td>
                                 <code>@s.Hostname</code>
+                                @if (s.RetiredAt.HasValue)
+                                {
+                                    <span class="badge bg-secondary ms-1">@Localizer["Retired"]</span>
+                                }
                             </td>
                             <td>
                                 @s.ServerIp
@@ -75,11 +88,11 @@
                                 @(s.CompanyEntity?.CompanyName ?? "-")
                             </td>
                             <td class="align-middle">
-                                @if (s.Owner != null)
+                                @if (s.TechnicalOwner != null)
                                 {
-                                    <a asp-controller="Users" asp-action="Details" asp-route-id="@s.OwnerId" class="text-body d-flex align-items-center">
-                                        <img src="@Storage.RelativePathToInternetUrl(s.Owner.AvatarRelativePath)" class="avatar img-fluid rounded me-1" alt="@s.Owner.DisplayName" style="width: 20px; height: 20px;" />
-                                        @s.Owner.DisplayName
+                                    <a asp-controller="Users" asp-action="Details" asp-route-id="@s.TechnicalOwnerId" class="text-body d-flex align-items-center">
+                                        <img src="@Storage.RelativePathToInternetUrl(s.TechnicalOwner.AvatarRelativePath)" class="avatar img-fluid rounded me-1" alt="@s.TechnicalOwner.DisplayName" style="width: 20px; height: 20px;" />
+                                        @s.TechnicalOwner.DisplayName
                                     </a>
                                 }
                                 else
@@ -101,14 +114,18 @@
                                 }
                             </td>
                             <td class="text-end">
-                                <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-outline-primary">
-                                    <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
-                                </a>
-                                <form asp-action="Delete" asp-route-id="@s.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-confirm', 'Are you sure?'));">
-                                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                                        <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                                    </button>
-                                </form>
+                                @if (canManage && !s.RetiredAt.HasValue)
+                                {
+                                    <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-outline-primary">
+                                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                    </a>
+                                    <form asp-action="Delete" asp-route-id="@s.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-confirm', 'Are you sure?'));">
+                                        <input type="hidden" name="concurrencyToken" value="@s.ConcurrencyToken" />
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            <i class="align-middle" data-lucide="archive"></i> @Localizer["Retire"]
+                                        </button>
+                                    </form>
+                                }
                             </td>
                         </tr>
                     }

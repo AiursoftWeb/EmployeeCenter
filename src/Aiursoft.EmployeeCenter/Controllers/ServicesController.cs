@@ -1,11 +1,14 @@
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.ServicesViewModels;
+using Aiursoft.EmployeeCenter.Models.InfrastructureViewModels;
+using Aiursoft.EmployeeCenter.Models.DnsAuditViewModels;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.DnsAudit;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +21,11 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class ServicesController(
     EmployeeCenterDbContext context,
     DnsAuditSnapshotCache dnsAuditSnapshotCache,
+    ServiceAuditStore auditStore,
+    IAuthorizationService authorizationService,
+    InfrastructureChangeLogService changeLog,
+    InfrastructureDataQualityService dataQualityService,
+    UserManager<User> userManager,
     IStringLocalizer<ServicesController> localizer)
     : Controller
 {
@@ -29,6 +37,7 @@ public class ServicesController(
         CascadedLinksOrder = 2,
         LinkText = "Services",
         LinkOrder = 2)]
+    [Authorize(Policy = AppPermissionNames.CanViewInfrastructure)]
     public async Task<IActionResult> Index(int? serverId = null)
     {
         if (serverId.HasValue)
@@ -38,6 +47,7 @@ public class ServicesController(
 
         var services = await context.Services
             .AsNoTracking()
+            .Where(service => service.RetiredAt == null)
             .Include(service => service.Server)
             .ThenInclude(server => server!.Location)
             .Include(service => service.DnsProvider)
@@ -45,8 +55,13 @@ public class ServicesController(
 
         var assignedServices = services.Count(service => service.ServerId.HasValue);
         var dnsAssignedServices = services.Count(service => service.DnsProviderId.HasValue);
-        var auditSnapshot = dnsAuditSnapshotCache.Current;
-        var auditHealth = auditSnapshot.Report == null
+        var canViewAudit = (await authorizationService.AuthorizeAsync(
+            User,
+            AppPermissionNames.CanViewServiceAudit)).Succeeded;
+        var auditSnapshot = canViewAudit
+            ? await auditStore.LoadSnapshotAsync(dnsAuditSnapshotCache.Current)
+            : null;
+        var auditHealth = auditSnapshot?.Report == null
             ? null
             : DnsAuditHealthCalculator.Calculate(
                 services.Select(service => service.Id).ToHashSet(),
@@ -83,13 +98,14 @@ public class ServicesController(
                 .Select(service => service.Server!.LocationId)
                 .Distinct()
                 .Count(),
+            CanViewAudit = canViewAudit,
             OperationalPercentage = auditHealth?.Percentage,
             OperationalHealthySubjectCount = auditHealth?.HealthySubjectCount,
             OperationalSubjectCount = auditHealth?.TotalSubjectCount,
-            DnsAuditCriticalCount = auditSnapshot.Report?.CriticalCount,
-            DnsAuditErrorCount = auditSnapshot.Report?.ErrorCount,
-            DnsAuditWarningCount = auditSnapshot.Report?.WarningCount,
-            DnsAuditGeneratedAt = auditSnapshot.LastSuccessfulAt,
+            DnsAuditCriticalCount = auditSnapshot?.Report?.CriticalCount,
+            DnsAuditErrorCount = auditSnapshot?.Report?.ErrorCount,
+            DnsAuditWarningCount = auditSnapshot?.Report?.WarningCount,
+            DnsAuditGeneratedAt = auditSnapshot?.LastSuccessfulAt,
             DnsProviderPercentage = services.Count == 0
                 ? 0
                 : Math.Round(dnsAssignedServices * 100.0 / services.Count, 1),
@@ -110,7 +126,8 @@ public class ServicesController(
         });
     }
 
-    public async Task<IActionResult> List(int? serverId = null)
+    [Authorize(Policy = AppPermissionNames.CanViewInfrastructure)]
+    public async Task<IActionResult> List(int? serverId = null, bool includeRetired = false)
     {
         Server? filteredServer = null;
         if (serverId.HasValue)
@@ -125,13 +142,17 @@ public class ServicesController(
         }
 
         var servicesQuery = context.Services
-            .Include(s => s.Owner)
-            .Include(s => s.CrossEntityLink)
+            .Include(s => s.CompanyEntity)
+            .Include(s => s.AlternativeService)
             .Include(s => s.DnsProvider)
             .Include(s => s.Server)
             .ThenInclude(s => s!.Location)
             .Include(s => s.FrpsServer)
             .AsQueryable();
+        if (!includeRetired)
+        {
+            servicesQuery = servicesQuery.Where(service => service.RetiredAt == null);
+        }
         if (serverId.HasValue)
         {
             servicesQuery = servicesQuery.Where(service =>
@@ -139,13 +160,26 @@ public class ServicesController(
         }
 
         var services = await servicesQuery
-            .OrderBy(s => s.Domain)
+            .OrderBy(s => s.PrimaryDomain)
             .ToListAsync();
+        var canViewAudit = (await authorizationService.AuthorizeAsync(
+            User,
+            AppPermissionNames.CanViewServiceAudit)).Succeeded;
+        var observations = canViewAudit
+            ? (await auditStore.LoadSnapshotAsync(dnsAuditSnapshotCache.Current)).Report?.Observations
+                .Where(observation => observation.ServiceId > 0)
+                .GroupBy(observation => observation.ServiceId)
+                .ToDictionary(group => group.Key, group => group.OrderByDescending(item => item.ObservedAt).First())
+              ?? new Dictionary<int, ServiceAuditObservationResult>()
+            : new Dictionary<int, ServiceAuditObservationResult>();
 
         return this.StackView(new IndexViewModel
         {
             Services = services,
             FilteredServer = filteredServer,
+            CanViewAudit = canViewAudit,
+            IncludeRetired = includeRetired,
+            LatestObservations = observations,
             PageTitle = filteredServer == null
                 ? localizer["Services"]
                 : localizer["Services associated with {0}", filteredServer.Hostname ?? filteredServer.ServerIp ?? filteredServer.Id.ToString()]
@@ -168,30 +202,45 @@ public class ServicesController(
             .ToList();
     }
 
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
+    public async Task<IActionResult> DataQuality()
+    {
+        return this.StackView(new InfrastructureDataQualityViewModel
+        {
+            Issues = await dataQualityService.ScanAsync(),
+            GeneratedAt = DateTime.UtcNow,
+            PageTitle = localizer["Infrastructure data quality"]
+        });
+    }
+
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Create()
     {
         return this.StackView(new CreateServiceViewModel
         {
             AllOwners = await context.CompanyEntities.ToListAsync(),
             AllDnsProviders = await context.DnsProviders.ToListAsync(),
-            AllServices = await context.Services.ToListAsync(),
-            AllServers = await context.Servers.ToListAsync()
+            AllServices = await context.Services.Where(service => service.RetiredAt == null).ToListAsync(),
+            AllServers = await context.Servers.Where(server => server.RetiredAt == null).ToListAsync()
         });
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Create(CreateServiceViewModel model)
     {
+        var normalizedDomain = await ValidateServiceModelAsync(model, null);
         if (ModelState.IsValid)
         {
+            var now = DateTime.UtcNow;
             var service = new Service
             {
-                Domain = model.Domain,
-                OwnerId = model.OwnerId,
-                CrossEntityLinkId = model.CrossEntityLinkId,
+                Name = model.Name.Trim(),
+                PrimaryDomain = normalizedDomain!,
+                NormalizedPrimaryDomain = normalizedDomain,
+                CompanyEntityId = model.CompanyEntityId,
+                AlternativeServiceId = model.AlternativeServiceId,
                 Protocols = model.Protocols,
                 ServerId = model.ServerId,
                 FrpsServerId = model.IsViaFrps ? model.FrpsServerId : null,
@@ -204,33 +253,49 @@ public class ServicesController(
                 AuthentikIntegrated = model.AuthentikIntegrated,
                 IsSelfDeveloped = model.IsSelfDeveloped,
                 Remark = model.Remark,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                IsRegistryValidated = true,
+                ConcurrencyToken = Guid.NewGuid().ToString(),
+                CreatedAt = now,
+                UpdatedAt = now
             };
+            await using var transaction = context.Database.IsRelational()
+                ? await context.Database.BeginTransactionAsync()
+                : null;
             context.Services.Add(service);
             await context.SaveChangesAsync();
+            changeLog.Add(
+                nameof(Service),
+                service.Id,
+                "Created",
+                null,
+                InfrastructureChangeLogService.Snapshot(service),
+                userManager.GetUserId(User));
+            await context.SaveChangesAsync();
+            if (transaction != null)
+            {
+                await transaction.CommitAsync();
+            }
             return RedirectToAction(nameof(List));
         }
 
-        model.AllOwners = await context.CompanyEntities.ToListAsync();
-        model.AllDnsProviders = await context.DnsProviders.ToListAsync();
-        model.AllServices = await context.Services.ToListAsync();
-        model.AllServers = await context.Servers.ToListAsync();
+        await PopulateServiceOptionsAsync(model);
         return this.StackView(model);
     }
 
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Edit(int id)
     {
         var service = await context.Services.FindAsync(id);
         if (service == null) return NotFound();
+        if (service.RetiredAt.HasValue) return BadRequest("A retired service cannot be edited.");
 
         return this.StackView(new EditServiceViewModel
         {
             Id = service.Id,
-            Domain = service.Domain,
-            OwnerId = service.OwnerId,
-            CrossEntityLinkId = service.CrossEntityLinkId,
+            Name = service.Name ?? service.PrimaryDomain,
+            PrimaryDomain = service.PrimaryDomain,
+            CompanyEntityId = service.CompanyEntityId,
+            AlternativeServiceId = service.AlternativeServiceId,
             Protocols = service.Protocols,
             ServerId = service.ServerId,
             FrpsServerId = service.FrpsServerId,
@@ -243,26 +308,35 @@ public class ServicesController(
             AuthentikIntegrated = service.AuthentikIntegrated,
             IsSelfDeveloped = service.IsSelfDeveloped,
             Remark = service.Remark,
+            ConcurrencyToken = service.ConcurrencyToken,
             AllOwners = await context.CompanyEntities.ToListAsync(),
             AllDnsProviders = await context.DnsProviders.ToListAsync(),
-            AllServices = await context.Services.Where(s => s.Id != id).ToListAsync(),
-            AllServers = await context.Servers.ToListAsync()
+            AllServices = await context.Services
+                .Where(s => s.Id != id && s.RetiredAt == null)
+                .ToListAsync(),
+            AllServers = await context.Servers.Where(server => server.RetiredAt == null).ToListAsync()
         });
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Edit(EditServiceViewModel model)
     {
         var service = await context.Services.FindAsync(model.Id);
         if (service == null) return NotFound();
+        if (service.RetiredAt.HasValue) return BadRequest("A retired service cannot be edited.");
 
+        var normalizedDomain = await ValidateServiceModelAsync(model, model.Id);
         if (ModelState.IsValid)
         {
-            service.Domain = model.Domain;
-            service.OwnerId = model.OwnerId;
-            service.CrossEntityLinkId = model.CrossEntityLinkId;
+            var before = InfrastructureChangeLogService.Snapshot(service);
+            context.Entry(service).Property(item => item.ConcurrencyToken).OriginalValue = model.ConcurrencyToken;
+            service.Name = model.Name.Trim();
+            service.PrimaryDomain = normalizedDomain!;
+            service.NormalizedPrimaryDomain = normalizedDomain;
+            service.CompanyEntityId = model.CompanyEntityId;
+            service.AlternativeServiceId = model.AlternativeServiceId;
             service.Protocols = model.Protocols;
             service.ServerId = model.ServerId;
             service.FrpsServerId = model.IsViaFrps ? model.FrpsServerId : null;
@@ -275,44 +349,68 @@ public class ServicesController(
             service.AuthentikIntegrated = model.AuthentikIntegrated;
             service.IsSelfDeveloped = model.IsSelfDeveloped;
             service.Remark = model.Remark;
+            service.IsRegistryValidated = true;
+            service.ConcurrencyToken = Guid.NewGuid().ToString();
             service.UpdatedAt = DateTime.UtcNow;
 
-            await context.SaveChangesAsync();
-            return RedirectToAction(nameof(List));
+            changeLog.Add(
+                nameof(Service),
+                service.Id,
+                "Updated",
+                before,
+                InfrastructureChangeLogService.Snapshot(service),
+                userManager.GetUserId(User));
+            try
+            {
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(List));
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                ModelState.AddModelError(string.Empty,
+                    "This service was changed by another user. Reload the page and apply your changes again.");
+            }
         }
 
-        model.AllOwners = await context.CompanyEntities.ToListAsync();
-        model.AllDnsProviders = await context.DnsProviders.ToListAsync();
-        model.AllServices = await context.Services.Where(s => s.Id != model.Id).ToListAsync();
-        model.AllServers = await context.Servers.ToListAsync();
+        await PopulateServiceOptionsAsync(model, model.Id);
         return this.StackView(model);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
-    public async Task<IActionResult> Delete(int id)
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
+    public async Task<IActionResult> Delete(int id, string? concurrencyToken)
     {
         var service = await context.Services.FindAsync(id);
         if (service == null) return NotFound();
+        if (service.RetiredAt.HasValue) return RedirectToAction(nameof(List));
 
-        // Check if any service links to this one
-        if (await context.Services.AnyAsync(s => s.CrossEntityLinkId == id))
+        var before = InfrastructureChangeLogService.Snapshot(service);
+        context.Entry(service).Property(item => item.ConcurrencyToken).OriginalValue = concurrencyToken;
+        service.Status = ServiceStatus.Retired;
+        service.RetiredAt = DateTime.UtcNow;
+        service.RetiredByUserId = userManager.GetUserId(User);
+        service.ConcurrencyToken = Guid.NewGuid().ToString();
+        service.UpdatedAt = DateTime.UtcNow;
+        changeLog.Add(
+            nameof(Service),
+            service.Id,
+            "Retired",
+            before,
+            InfrastructureChangeLogService.Snapshot(service),
+            userManager.GetUserId(User));
+        try
         {
-            return BadRequest("Cannot delete a service that is linked by another service.");
+            await context.SaveChangesAsync();
         }
-
-        if (await context.DomainAliases.AnyAsync(alias => alias.TargetServiceId == id))
+        catch (DbUpdateConcurrencyException)
         {
-            return BadRequest("Cannot delete a service that is targeted by a domain alias.");
+            return Conflict("This service changed before it could be retired. Reload and try again.");
         }
-
-        context.Services.Remove(service);
-        await context.SaveChangesAsync();
         return RedirectToAction(nameof(List));
     }
 
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> DnsProviders()
     {
         return this.StackView(new ManageDnsProvidersViewModel
@@ -323,24 +421,62 @@ public class ServicesController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> CreateDnsProvider(ManageDnsProvidersViewModel model)
     {
+        if (!ModelState.IsValid)
+        {
+            model.DnsProviders = await context.DnsProviders.OrderBy(provider => provider.Name).ToListAsync();
+            return this.StackView(model, nameof(DnsProviders));
+        }
+
         if (!string.IsNullOrWhiteSpace(model.NewName))
         {
-            context.DnsProviders.Add(new DnsProvider
+            var normalizedName = InfrastructureValueNormalizer.NormalizeName(model.NewName);
+            if (normalizedName.Length > 100)
             {
-                Name = model.NewName,
+                ModelState.AddModelError(nameof(model.NewName),
+                    "The normalized DNS provider name cannot exceed 100 characters.");
+                model.DnsProviders = await context.DnsProviders.OrderBy(provider => provider.Name).ToListAsync();
+                return this.StackView(model, nameof(DnsProviders));
+            }
+            var duplicate = (await context.DnsProviders
+                    .Select(provider => new { provider.Name, provider.NormalizedName })
+                    .ToListAsync())
+                .Any(provider => provider.NormalizedName == normalizedName ||
+                                 InfrastructureValueNormalizer.NormalizeName(provider.Name) == normalizedName);
+            if (duplicate)
+            {
+                ModelState.AddModelError(nameof(model.NewName), "A DNS provider with this name already exists.");
+                model.DnsProviders = await context.DnsProviders.OrderBy(provider => provider.Name).ToListAsync();
+                return this.StackView(model, nameof(DnsProviders));
+            }
+
+            var provider = new DnsProvider
+            {
+                Name = model.NewName.Trim(),
+                NormalizedName = normalizedName,
                 Description = model.NewDescription
-            });
+            };
+            await using var transaction = context.Database.IsRelational()
+                ? await context.Database.BeginTransactionAsync()
+                : null;
+            context.DnsProviders.Add(provider);
             await context.SaveChangesAsync();
+            changeLog.Add(nameof(DnsProvider), provider.Id, "Created", null,
+                new { provider.Name, provider.Description }, userManager.GetUserId(User));
+            await context.SaveChangesAsync();
+            if (transaction != null)
+            {
+                await transaction.CommitAsync();
+            }
         }
         return RedirectToAction(nameof(DnsProviders));
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> DeleteDnsProvider(int id)
     {
         var provider = await context.DnsProviders
@@ -354,12 +490,14 @@ public class ServicesController(
             return BadRequest("Cannot delete a DNS provider that is being used by services.");
         }
 
+        changeLog.Add(nameof(DnsProvider), provider.Id, "Deleted",
+            new { provider.Name, provider.Description }, null, userManager.GetUserId(User));
         context.DnsProviders.Remove(provider);
         await context.SaveChangesAsync();
         return RedirectToAction(nameof(DnsProviders));
     }
 
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Providers()
     {
         return this.StackView(new ManageProvidersViewModel
@@ -370,23 +508,61 @@ public class ServicesController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> CreateProvider(ManageProvidersViewModel model)
     {
+        if (!ModelState.IsValid)
+        {
+            model.Providers = await context.Providers.OrderBy(provider => provider.Name).ToListAsync();
+            return this.StackView(model, nameof(Providers));
+        }
+
         if (!string.IsNullOrWhiteSpace(model.NewName))
         {
-            context.Providers.Add(new Provider
+            var normalizedName = InfrastructureValueNormalizer.NormalizeName(model.NewName);
+            if (normalizedName.Length > 100)
             {
-                Name = model.NewName
-            });
+                ModelState.AddModelError(nameof(model.NewName),
+                    "The normalized provider name cannot exceed 100 characters.");
+                model.Providers = await context.Providers.OrderBy(provider => provider.Name).ToListAsync();
+                return this.StackView(model, nameof(Providers));
+            }
+            var duplicate = (await context.Providers
+                    .Select(provider => new { provider.Name, provider.NormalizedName })
+                    .ToListAsync())
+                .Any(provider => provider.NormalizedName == normalizedName ||
+                                 InfrastructureValueNormalizer.NormalizeName(provider.Name) == normalizedName);
+            if (duplicate)
+            {
+                ModelState.AddModelError(nameof(model.NewName), "A provider with this name already exists.");
+                model.Providers = await context.Providers.OrderBy(provider => provider.Name).ToListAsync();
+                return this.StackView(model, nameof(Providers));
+            }
+
+            var provider = new Provider
+            {
+                Name = model.NewName.Trim(),
+                NormalizedName = normalizedName
+            };
+            await using var transaction = context.Database.IsRelational()
+                ? await context.Database.BeginTransactionAsync()
+                : null;
+            context.Providers.Add(provider);
             await context.SaveChangesAsync();
+            changeLog.Add(nameof(Provider), provider.Id, "Created", null,
+                new { provider.Name }, userManager.GetUserId(User));
+            await context.SaveChangesAsync();
+            if (transaction != null)
+            {
+                await transaction.CommitAsync();
+            }
         }
         return RedirectToAction(nameof(Providers));
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManageServices)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> DeleteProvider(int id)
     {
         var provider = await context.Providers
@@ -400,12 +576,15 @@ public class ServicesController(
             return BadRequest("Cannot delete a provider that is being used by servers.");
         }
 
+        changeLog.Add(nameof(Provider), provider.Id, "Deleted",
+            new { provider.Name }, null, userManager.GetUserId(User));
         context.Providers.Remove(provider);
         await context.SaveChangesAsync();
         return RedirectToAction(nameof(Providers));
     }
 
     [HttpGet]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> GetProviders()
     {
         var providers = await context.Providers
@@ -415,15 +594,18 @@ public class ServicesController(
     }
 
     [HttpGet]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> GetServers()
     {
         var servers = await context.Servers
+            .Where(server => server.RetiredAt == null)
             .OrderBy(s => s.Hostname)
             .ToListAsync();
         return Json(servers.Select(s => new { s.Id, s.Hostname }));
     }
 
     [HttpGet]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> GetDnsProviders()
     {
         var providers = await context.DnsProviders
@@ -433,15 +615,18 @@ public class ServicesController(
     }
 
     [HttpGet]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> GetServices()
     {
         var services = await context.Services
-            .OrderBy(s => s.Domain)
+            .Where(service => service.RetiredAt == null)
+            .OrderBy(s => s.PrimaryDomain)
             .ToListAsync();
-        return Json(services.Select(s => new { s.Id, s.Domain }));
+        return Json(services.Select(s => new { s.Id, s.PrimaryDomain }));
     }
 
     [HttpGet]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> GetLocations()
     {
         var locations = await context.Locations
@@ -451,11 +636,123 @@ public class ServicesController(
     }
 
     [HttpGet]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> GetCompanyEntities()
     {
         var entities = await context.CompanyEntities
             .OrderBy(e => e.CompanyName)
             .ToListAsync();
         return Json(entities.Select(e => new { e.Id, e.CompanyName }));
+    }
+
+    private async Task<string?> ValidateServiceModelAsync(CreateServiceViewModel model, int? serviceId)
+    {
+        string? normalizedDomain = null;
+        try
+        {
+            normalizedDomain = InfrastructureValueNormalizer.NormalizeDomain(model.PrimaryDomain);
+            model.PrimaryDomain = normalizedDomain;
+        }
+        catch (FormatException exception)
+        {
+            ModelState.AddModelError(nameof(model.PrimaryDomain), exception.Message);
+        }
+
+        if (normalizedDomain != null)
+        {
+            var existingDomains = await context.Services
+                .Where(service => !serviceId.HasValue || service.Id != serviceId.Value)
+                .Select(service => new { service.Id, service.PrimaryDomain, service.NormalizedPrimaryDomain })
+                .ToListAsync();
+            if (existingDomains.Any(service =>
+                    service.NormalizedPrimaryDomain == normalizedDomain ||
+                    TryNormalizeDomain(service.PrimaryDomain) == normalizedDomain))
+            {
+                ModelState.AddModelError(nameof(model.PrimaryDomain),
+                    "Another service already uses this primary domain.");
+            }
+        }
+
+        if (model.AlternativeServiceId.HasValue)
+        {
+            var targetExists = await context.Services.AnyAsync(service =>
+                service.Id == model.AlternativeServiceId.Value && service.RetiredAt == null);
+            if (!targetExists)
+            {
+                ModelState.AddModelError(nameof(model.AlternativeServiceId),
+                    "The selected alternative service does not exist or is retired.");
+            }
+            else if (serviceId.HasValue &&
+                     await WouldCreateAlternativeCycleAsync(serviceId.Value, model.AlternativeServiceId.Value))
+            {
+                ModelState.AddModelError(nameof(model.AlternativeServiceId),
+                    "An alternative service cannot reference itself or create a cycle.");
+            }
+        }
+
+        if (model.ServerId.HasValue && !await context.Servers.AnyAsync(server =>
+                server.Id == model.ServerId.Value && server.RetiredAt == null))
+        {
+            ModelState.AddModelError(nameof(model.ServerId),
+                "The selected running server does not exist or is retired.");
+        }
+
+        if (model.IsViaFrps && model.FrpsServerId.HasValue &&
+            !await context.Servers.AnyAsync(server =>
+                server.Id == model.FrpsServerId.Value && server.RetiredAt == null))
+        {
+            ModelState.AddModelError(nameof(model.FrpsServerId),
+                "The selected FRPS server does not exist or is retired.");
+        }
+
+        return normalizedDomain;
+    }
+
+    private async Task<bool> WouldCreateAlternativeCycleAsync(int serviceId, int alternativeServiceId)
+    {
+        var links = await context.Services
+            .AsNoTracking()
+            .Select(service => new { service.Id, service.AlternativeServiceId })
+            .ToDictionaryAsync(service => service.Id, service => service.AlternativeServiceId);
+        var visited = new HashSet<int>();
+        int? current = alternativeServiceId;
+        while (current.HasValue && visited.Add(current.Value))
+        {
+            if (current.Value == serviceId)
+            {
+                return true;
+            }
+
+            current = links.GetValueOrDefault(current.Value);
+        }
+
+        return current.HasValue;
+    }
+
+    private async Task PopulateServiceOptionsAsync(CreateServiceViewModel model, int? excludedServiceId = null)
+    {
+        model.AllOwners = await context.CompanyEntities.OrderBy(entity => entity.CompanyName).ToListAsync();
+        model.AllDnsProviders = await context.DnsProviders.OrderBy(provider => provider.Name).ToListAsync();
+        model.AllServices = await context.Services
+            .Where(service => service.RetiredAt == null &&
+                              (!excludedServiceId.HasValue || service.Id != excludedServiceId.Value))
+            .OrderBy(service => service.PrimaryDomain)
+            .ToListAsync();
+        model.AllServers = await context.Servers
+            .Where(server => server.RetiredAt == null)
+            .OrderBy(server => server.Hostname)
+            .ToListAsync();
+    }
+
+    private static string? TryNormalizeDomain(string domain)
+    {
+        try
+        {
+            return InfrastructureValueNormalizer.NormalizeDomain(domain);
+        }
+        catch (FormatException)
+        {
+            return null;
+        }
     }
 }

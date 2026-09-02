@@ -1,4 +1,9 @@
 @model Aiursoft.EmployeeCenter.Models.DnsAuditViewModels.CreateDomainAliasViewModel
+@using Aiursoft.EmployeeCenter.Authorization
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@{
+    var canRunAudit = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanRunServiceAudit)).Succeeded;
+}
 
 <div class="row justify-content-center">
     <div class="col-lg-8">
@@ -15,9 +20,12 @@
             <div class="alert alert-info">
                 <h5 class="alert-heading">@Localizer["No alias candidates are available"]</h5>
                 <p>@Localizer["Run a service audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases."]</p>
-                <form asp-action="RefreshAudit" method="post">
-                    <button type="submit" class="btn btn-primary"><i class="align-middle me-1" data-lucide="refresh-cw"></i>@Localizer["Audit Now"]</button>
-                </form>
+                @if (canRunAudit)
+                {
+                    <form asp-action="RefreshAudit" method="post">
+                        <button type="submit" class="btn btn-primary"><i class="align-middle me-1" data-lucide="refresh-cw"></i>@Localizer["Audit Now"]</button>
+                    </form>
+                }
             </div>
         }
         else
@@ -53,7 +61,7 @@
                             <option value="">-- @Localizer["Select target service"] --</option>
                             @foreach (var service in Model.AllServices)
                             {
-                                <option value="@service.Id" data-target-url="https://@Aiursoft.EmployeeCenter.Services.DnsAudit.DnsAuditAnalyzer.NormalizeDomain(service.Domain)/">@service.Domain</option>
+                                <option value="@service.Id" data-target-url="https://@Aiursoft.EmployeeCenter.Services.DnsAudit.DnsAuditAnalyzer.NormalizeDomain(service.PrimaryDomain)/">@service.PrimaryDomain</option>
                             }
                         </select>
                         <span asp-validation-for="TargetServiceId" class="text-danger"></span>

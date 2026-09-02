@@ -11,7 +11,7 @@ public class ServiceAvailabilityEvaluatorTests
     {
         var service = new Service
         {
-            Domain = "public.example.com",
+            PrimaryDomain = "public.example.com",
             Protocols = "HTTPS",
             Status = ServiceStatus.Running
         };
@@ -24,7 +24,7 @@ public class ServiceAvailabilityEvaluatorTests
     {
         var service = new Service
         {
-            Domain = "restricted.example.com",
+            PrimaryDomain = "restricted.example.com",
             Protocols = "HTTPS",
             Status = ServiceStatus.Running,
             IsAvailabilityAuditEnabled = false

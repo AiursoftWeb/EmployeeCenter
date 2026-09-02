@@ -73,6 +73,13 @@ public static class AppPermissionNames
     public const string CanManageFeedback = nameof(CanManageFeedback);
 
     // Service Management
+    public const string CanViewInfrastructure = nameof(CanViewInfrastructure);
+    public const string CanManageInfrastructure = nameof(CanManageInfrastructure);
+    public const string CanViewServiceAudit = nameof(CanViewServiceAudit);
+    public const string CanRunServiceAudit = nameof(CanRunServiceAudit);
+
+    // Legacy service permissions. Kept so existing role claims remain recognizable during
+    // the transition. New endpoints deliberately use the clearer permissions above.
     public const string CanManageServices = nameof(CanManageServices);
     public const string CanAuditDns = nameof(CanAuditDns);
 

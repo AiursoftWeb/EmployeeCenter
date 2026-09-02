@@ -13,6 +13,9 @@ public class Provider
     [MaxLength(100)]
     public required string Name { get; set; }
 
+    [MaxLength(100)]
+    public string? NormalizedName { get; set; }
+
     [JsonIgnore]
     [InverseProperty(nameof(Server.Provider))]
     public IEnumerable<Server> Servers { get; init; } = new List<Server>();

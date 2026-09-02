@@ -1,5 +1,6 @@
 using Aiursoft.Canon.TaskQueue;
 using Aiursoft.EmployeeCenter.Configuration;
+using Aiursoft.EmployeeCenter.InMemory;
 using Aiursoft.EmployeeCenter.Models.DnsAuditViewModels;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
@@ -10,6 +11,22 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class DnsAuditControllerTests : TestBase
 {
+    [TestMethod]
+    public async Task AuditQueueCoalescesPendingRequests()
+    {
+        await using var db = new InMemoryContext(
+            new DbContextOptionsBuilder<InMemoryContext>()
+                .UseInMemoryDatabase($"audit-queue-{Guid.NewGuid():N}")
+                .Options);
+        var store = new ServiceAuditStore(db);
+
+        var first = await store.QueueAsync("first-user");
+        var second = await store.QueueAsync("second-user");
+
+        Assert.AreEqual(first, second);
+        Assert.AreEqual(1, await db.ServiceAuditRuns.CountAsync(run => run.Id == first));
+    }
+
     [TestMethod]
     public async Task DomainAliasManagementRequiresDnsAuditAndServiceManagementPermissions()
     {
@@ -93,7 +110,7 @@ public class DnsAuditControllerTests : TestBase
         var db = GetService<EmployeeCenterDbContext>();
         var targetService = new Service
         {
-            Domain = "avigame.anduinlab.com",
+            PrimaryDomain = "avigame.anduinlab.com",
             Status = ServiceStatus.Running
         };
         db.Services.Add(targetService);
@@ -149,7 +166,7 @@ public class DnsAuditControllerTests : TestBase
         var db = GetService<EmployeeCenterDbContext>();
         var targetService = new Service
         {
-            Domain = "mail.aiursoft.com",
+            PrimaryDomain = "mail.aiursoft.com",
             Status = ServiceStatus.Running
         };
         db.Services.Add(targetService);
@@ -195,7 +212,7 @@ public class DnsAuditControllerTests : TestBase
     {
         await LoginAsAdmin();
         var db = GetService<EmployeeCenterDbContext>();
-        var targetService = new Service { Domain = "dashboard-target.example.com" };
+        var targetService = new Service { PrimaryDomain = "dashboard-target.example.com" };
         db.DomainAliases.Add(new DomainAlias
         {
             Domain = "legacy-dashboard.example.com",
@@ -266,7 +283,7 @@ public class DnsAuditControllerTests : TestBase
     {
         await LoginAsAdmin();
         var db = GetService<EmployeeCenterDbContext>();
-        var targetService = new Service { Domain = "target.example.com" };
+        var targetService = new Service { PrimaryDomain = "target.example.com" };
         db.Services.Add(targetService);
         await db.SaveChangesAsync();
         GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport

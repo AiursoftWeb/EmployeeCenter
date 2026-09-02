@@ -12,6 +12,9 @@ public class DnsProvider
     [MaxLength(100)]
     public required string Name { get; set; }
 
+    [MaxLength(100)]
+    public string? NormalizedName { get; set; }
+
     [MaxLength(200)]
     public string? Description { get; set; }
 

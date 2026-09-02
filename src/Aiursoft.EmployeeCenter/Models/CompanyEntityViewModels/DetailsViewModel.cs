@@ -17,6 +17,8 @@ public class DetailsViewModel : UiStackLayoutViewModel
     [Display(Name = "Servers")]
     public IEnumerable<Server> Servers { get; set; } = new List<Server>();
 
+    public bool CanViewInfrastructure { get; set; }
+
     [Display(Name = "Intangible Assets")]
     public IEnumerable<IntangibleAsset> IntangibleAssets { get; set; } = new List<IntangibleAsset>();
 

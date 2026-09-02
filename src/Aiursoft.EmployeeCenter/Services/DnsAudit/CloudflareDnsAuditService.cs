@@ -66,6 +66,7 @@ public sealed class CloudflareDnsAuditService(
 
         var services = await dbContext.Services
             .AsNoTracking()
+            .Where(service => service.RetiredAt == null)
             .Include(service => service.Server)
             .Include(service => service.FrpsServer)
             .Include(service => service.DnsProvider)
@@ -76,6 +77,7 @@ public sealed class CloudflareDnsAuditService(
             .ToListAsync(cancellationToken);
         var servers = await dbContext.Servers
             .AsNoTracking()
+            .Where(server => server.RetiredAt == null)
             .ToListAsync(cancellationToken);
 
         // Cloudflare's API remains the source of truth for zones managed by
@@ -87,7 +89,7 @@ public sealed class CloudflareDnsAuditService(
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
         var publicDnsResolutions = await ResolveDomainOutcomesAsync(
             services
-                .Select(service => DnsAuditAnalyzer.NormalizeDomain(service.Domain))
+                .Select(service => DnsAuditAnalyzer.NormalizeDomain(service.PrimaryDomain))
                 .Concat(domainAliases.Select(alias => DnsAuditAnalyzer.NormalizeDomain(alias.Domain)))
                 .Where(domain => domain.Length > 0 && !BelongsToAnyZone(domain, zoneNames)),
             cancellationToken);
@@ -111,7 +113,7 @@ public sealed class CloudflareDnsAuditService(
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
         var publiclyResolvableManagedDomains = await ResolveDomainsAsync(
             services
-                .Select(service => DnsAuditAnalyzer.NormalizeDomain(service.Domain))
+                .Select(service => DnsAuditAnalyzer.NormalizeDomain(service.PrimaryDomain))
                 .Concat(domainAliases.Select(alias => DnsAuditAnalyzer.NormalizeDomain(alias.Domain)))
                 .Where(domain => domain.Length > 0 &&
                                  BelongsToAnyZone(domain, zoneNames) &&
@@ -162,7 +164,7 @@ public sealed class CloudflareDnsAuditService(
             async (candidate, token) =>
             {
                 var service = candidate.Service;
-                var domain = DnsAuditAnalyzer.NormalizeDomain(service.Domain);
+                var domain = DnsAuditAnalyzer.NormalizeDomain(service.PrimaryDomain);
                 if (domain.Length == 0 || domain.StartsWith("*.", StringComparison.Ordinal))
                 {
                     results[service.Id] = new ServiceAvailabilityResult(

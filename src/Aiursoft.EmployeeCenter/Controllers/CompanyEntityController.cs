@@ -19,6 +19,7 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class CompanyEntityController(
     EmployeeCenterDbContext dbContext,
     StorageService storageService,
+    IAuthorizationService authorizationService,
     UserManager<User> userManager) : Controller
 {
     [HttpGet]
@@ -73,10 +74,15 @@ public class CompanyEntityController(
             return NotFound();
         }
 
-        var servers = await dbContext.Servers
-            .Where(s => s.CompanyEntityId == id)
-            .OrderBy(s => s.Hostname)
-            .ToListAsync();
+        var canViewInfrastructure = (await authorizationService.AuthorizeAsync(
+            User,
+            AppPermissionNames.CanViewInfrastructure)).Succeeded;
+        var servers = canViewInfrastructure
+            ? await dbContext.Servers
+                .Where(s => s.CompanyEntityId == id)
+                .OrderBy(s => s.Hostname)
+                .ToListAsync()
+            : [];
 
         var intangibleAssets = await dbContext.IntangibleAssets
             .Where(a => a.CompanyEntityId == id)
@@ -92,6 +98,7 @@ public class CompanyEntityController(
         {
             Entity = entity,
             Servers = servers,
+            CanViewInfrastructure = canViewInfrastructure,
             IntangibleAssets = intangibleAssets,
             SignedEmployees = signedEmployees
         };
@@ -369,16 +376,21 @@ public class CompanyEntityController(
         var financeAccounts = await dbContext.FinanceAccounts.Where(f => f.CompanyEntityId == id).ToListAsync();
         var collectionChannelsAsPayer = await dbContext.CollectionChannels.Where(c => c.PayerId == id).ToListAsync();
         var collectionChannelsAsPayee = await dbContext.CollectionChannels.Where(c => c.PayeeId == id).ToListAsync();
+        var servers = await dbContext.Servers.Where(s => s.CompanyEntityId == id).ToListAsync();
+        var services = await dbContext.Services.Where(s => s.CompanyEntityId == id).ToListAsync();
 
-        if (financeAccounts.Any() || collectionChannelsAsPayer.Any() || collectionChannelsAsPayee.Any())
+        if (financeAccounts.Any() || collectionChannelsAsPayer.Any() || collectionChannelsAsPayee.Any() ||
+            servers.Any() || services.Any())
         {
             var dependencies = new List<string>();
             if (financeAccounts.Any()) dependencies.Add($"{financeAccounts.Count} finance accounts (Ledger)");
             if (collectionChannelsAsPayer.Any()) dependencies.Add($"{collectionChannelsAsPayer.Count} collection channels as payer");
             if (collectionChannelsAsPayee.Any()) dependencies.Add($"{collectionChannelsAsPayee.Count} collection channels as payee");
+            if (servers.Any()) dependencies.Add($"{servers.Count} servers (Infrastructure)");
+            if (services.Any()) dependencies.Add($"{services.Count} services (Infrastructure)");
 
             ModelState.AddModelError(string.Empty, $"Cannot delete this company entity because it is referenced by: {string.Join(", ", dependencies)}. Please delete or reassign these references first.");
-            
+
             var entities = await dbContext.CompanyEntities
                 .OrderByDescending(t => t.CreationTime)
                 .ToListAsync();
@@ -390,9 +402,6 @@ public class CompanyEntityController(
         }
 
         // Handle optional dependencies (Set null)
-        var servers = await dbContext.Servers.Where(s => s.CompanyEntityId == id).ToListAsync();
-        foreach (var server in servers) server.CompanyEntityId = null;
-
         var assets = await dbContext.Assets.Where(a => a.CompanyEntityId == id).ToListAsync();
         foreach (var asset in assets) asset.CompanyEntityId = null;
 
@@ -404,9 +413,6 @@ public class CompanyEntityController(
 
         var users = await dbContext.Users.Where(u => u.SigningEntityId == id).ToListAsync();
         foreach (var u in users) u.SigningEntityId = null;
-
-        var services = await dbContext.Services.Where(s => s.OwnerId == id).ToListAsync();
-        foreach (var s in services) s.OwnerId = null;
 
         // Handle logs (Recursive delete)
         var logs = await dbContext.CompanyEntityLogs.Where(l => l.CompanyEntityId == id).ToListAsync();

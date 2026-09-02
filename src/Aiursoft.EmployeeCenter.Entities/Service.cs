@@ -9,21 +9,30 @@ public class Service
     [Key]
     public int Id { get; set; }
 
+    [MaxLength(255)]
+    public string? Name { get; set; }
+
     [Required]
     [MaxLength(255)]
-    public required string Domain { get; set; }
+    [Column("Domain")]
+    public required string PrimaryDomain { get; set; }
 
-    public int? OwnerId { get; set; }
+    [MaxLength(255)]
+    public string? NormalizedPrimaryDomain { get; set; }
+
+    [Column("OwnerId")]
+    public int? CompanyEntityId { get; set; }
 
     [JsonIgnore]
-    [ForeignKey(nameof(OwnerId))]
-    public CompanyEntity? Owner { get; set; }
+    [ForeignKey(nameof(CompanyEntityId))]
+    public CompanyEntity? CompanyEntity { get; set; }
 
-    public int? CrossEntityLinkId { get; set; }
+    [Column("CrossEntityLinkId")]
+    public int? AlternativeServiceId { get; set; }
 
     [JsonIgnore]
-    [ForeignKey(nameof(CrossEntityLinkId))]
-    public Service? CrossEntityLink { get; set; }
+    [ForeignKey(nameof(AlternativeServiceId))]
+    public Service? AlternativeService { get; set; }
 
     [MaxLength(100)]
     public string? Protocols { get; set; } // e.g., HTTPS, TCP, UDP
@@ -65,6 +74,21 @@ public class Service
 
     [JsonIgnore]
     public List<DomainAlias> DomainAliases { get; set; } = new();
+
+    /// <summary>
+    /// False for rows created before the infrastructure registry validation migration.
+    /// Such rows remain readable until an administrator reviews and saves them.
+    /// </summary>
+    public bool IsRegistryValidated { get; set; }
+
+    [MaxLength(36)]
+    [ConcurrencyCheck]
+    public string? ConcurrencyToken { get; set; }
+
+    public DateTime? RetiredAt { get; set; }
+
+    [MaxLength(255)]
+    public string? RetiredByUserId { get; set; }
 
     public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 

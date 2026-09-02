@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
+using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.DnsAuditViewModels;
 
 namespace Aiursoft.EmployeeCenter.Services.DnsAudit;
@@ -35,7 +36,7 @@ public static partial class DnsAuditAnalyzer
             .ToDictionary(group => group.Key, group => group.ToList(), StringComparer.OrdinalIgnoreCase);
 
         var servicesByDomain = input.Services
-            .Select(service => (Service: service, Domain: NormalizeDomain(service.Domain)))
+            .Select(service => (Service: service, Domain: NormalizeDomain(service.PrimaryDomain)))
             .Where(item => item.Domain.Length > 0)
             .GroupBy(item => item.Domain, StringComparer.OrdinalIgnoreCase)
             .ToDictionary(group => group.Key, group => group.Select(item => item.Service).ToList(), StringComparer.OrdinalIgnoreCase);
@@ -87,7 +88,7 @@ public static partial class DnsAuditAnalyzer
             {
                 Type = DnsAuditIssueType.ServiceUnavailable,
                 Severity = DnsAuditSeverity.Critical,
-                Domain = NormalizeDomain(service.Domain),
+                Domain = NormalizeDomain(service.PrimaryDomain),
                 ServiceId = service.Id,
                 Details = result.Details
             });
@@ -164,7 +165,7 @@ public static partial class DnsAuditAnalyzer
             {
                 if (alias.Type == Entities.DomainAliasType.Cname)
                 {
-                    var expectedTarget = NormalizeDomain(alias.TargetService?.Domain ?? string.Empty);
+                    var expectedTarget = NormalizeDomain(alias.TargetService?.PrimaryDomain ?? string.Empty);
                     var actualTargets = recordsByName.TryGetValue(domain, out var aliasRecords)
                         ? aliasRecords
                             .Where(record => record.Type.Equals("CNAME", StringComparison.OrdinalIgnoreCase))
@@ -544,6 +545,20 @@ public static partial class DnsAuditAnalyzer
             AuditedHostnameCount = recordsByName.Count,
             AvailabilityCheckedCount = availabilityResults.Count,
             AvailabilityHealthyCount = availabilityResults.Count(pair => pair.Value.IsHealthy),
+            Observations = input.Services
+                .Where(service => availabilityResults.ContainsKey(service.Id))
+                .Select(service =>
+                {
+                    var result = availabilityResults[service.Id];
+                    return new ServiceAuditObservationResult(
+                        service.Id,
+                        NormalizeDomain(service.PrimaryDomain),
+                        result.IsHealthy ? ObservedServiceHealth.Healthy : ObservedServiceHealth.Unavailable,
+                        result.StatusCode,
+                        result.Details,
+                        DateTime.UtcNow);
+                })
+                .ToList(),
             Issues = issues
                 .OrderByDescending(issue => issue.Severity)
                 .ThenBy(issue => issue.Type)

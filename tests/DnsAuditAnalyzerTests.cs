@@ -631,7 +631,7 @@ public class DnsAuditAnalyzerTests
         return new Service
         {
             Id = Random.Shared.Next(1, int.MaxValue),
-            Domain = domain,
+            PrimaryDomain = domain,
             IsCloudflareProxied = proxied,
             ServerId = serverId,
             IsViaFrps = isViaFrps,

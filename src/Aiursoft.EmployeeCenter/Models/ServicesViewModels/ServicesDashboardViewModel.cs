@@ -18,6 +18,7 @@ public class ServicesDashboardViewModel : UiStackLayoutViewModel
     public int SelfDevelopedServices { get; set; }
     public int ActiveServerCount { get; set; }
     public int ActiveLocationCount { get; set; }
+    public bool CanViewAudit { get; set; }
     public double? OperationalPercentage { get; set; }
     public int? OperationalHealthySubjectCount { get; set; }
     public int? OperationalSubjectCount { get; set; }

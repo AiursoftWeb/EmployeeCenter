@@ -144,4 +144,62 @@ public class MigrationTests
         Assert.HasCount(2, sharedPaths);
         Assert.IsTrue(sharedPaths.All(path => path == "audio/shared-legacy.mp3"));
     }
+
+    [TestMethod]
+    public async Task InfrastructureRegistryMigrationPreservesDirtyLegacyRows()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:");
+        await connection.OpenAsync();
+
+        var options = new DbContextOptionsBuilder<SqliteContext>()
+            .UseSqlite(connection)
+            .Options;
+        await using var context = new SqliteContext(options);
+        var migrator = context.Database.GetService<IMigrator>();
+        await migrator.MigrateAsync("20260901181117_EncryptPasswordVaultNotes");
+
+        var now = DateTime.UtcNow;
+        await context.Database.ExecuteSqlInterpolatedAsync($"""
+            INSERT INTO Services
+                (AuthentikIntegrated, CreatedAt, Domain, IsCloudflareProxied, IsSelfDeveloped,
+                 IsViaFrps, IsAvailabilityAuditEnabled, Purpose, Status, UpdatedAt)
+            VALUES
+                (0, {now}, 'Example.com.', 0, 0, 0, 1, 1, 4, {now}),
+                (0, {now}, 'example.com', 0, 0, 0, 1, 1, 1, {now})
+            """);
+        await context.Database.ExecuteSqlInterpolatedAsync($"""
+            INSERT INTO Servers (CreatedAt, UpdatedAt) VALUES ({now}, {now})
+            """);
+
+        await migrator.MigrateAsync("20260901231224_InfrastructureRegistryValidatedConstraints");
+        context.ChangeTracker.Clear();
+
+        var services = await context.Services.OrderBy(service => service.Id).ToListAsync();
+        Assert.HasCount(2, services);
+        Assert.AreEqual("Example.com.", services[0].PrimaryDomain);
+        Assert.IsNull(services[0].NormalizedPrimaryDomain);
+        Assert.IsFalse(services[0].IsRegistryValidated);
+        Assert.AreEqual("example.com", services[1].PrimaryDomain);
+        Assert.IsNull(services[1].NormalizedPrimaryDomain);
+        Assert.IsFalse(services[1].IsRegistryValidated);
+
+        var server = await context.Servers.SingleAsync();
+        Assert.IsNull(server.Hostname);
+        Assert.IsNull(server.NormalizedHostname);
+        Assert.IsFalse(server.IsRegistryValidated);
+        Assert.AreEqual(0, await context.ServiceAuditRuns.CountAsync());
+        Assert.AreEqual(0, await context.InfrastructureChangeLogs.CountAsync());
+
+        context.Servers.Add(new Server { IsRegistryValidated = true });
+        await Assert.ThrowsAsync<DbUpdateException>(() => context.SaveChangesAsync());
+        context.ChangeTracker.Clear();
+
+        context.Services.Add(new Service
+        {
+            PrimaryDomain = "invalid-new-frps.example.com",
+            IsRegistryValidated = true,
+            IsViaFrps = true
+        });
+        await Assert.ThrowsAsync<DbUpdateException>(() => context.SaveChangesAsync());
+    }
 }

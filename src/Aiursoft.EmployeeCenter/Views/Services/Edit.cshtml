@@ -6,59 +6,66 @@
     <div class="col-md-8">
         <form asp-action="Edit">
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ConcurrencyToken" />
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">@Localizer["Basic Information"]</h5>
                 </div>
                 <div class="card-body">
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-                    
+
                     <div class="mb-3">
-                        <label asp-for="Domain" class="form-label"></label>
-                        <input asp-for="Domain" class="form-control" placeholder="@Localizer["e.g. example.com"]" />
-                        <span asp-validation-for="Domain" class="text-danger"></span>
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="PrimaryDomain" class="form-label"></label>
+                        <input asp-for="PrimaryDomain" class="form-control" placeholder="@Localizer["e.g. example.com"]" />
+                        <span asp-validation-for="PrimaryDomain" class="text-danger"></span>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label asp-for="OwnerId" class="form-label"></label>
+                            <label asp-for="CompanyEntityId" class="form-label"></label>
                             <div class="input-group">
-                                <select asp-for="OwnerId" class="form-select" asp-items="@(new SelectList(Model.AllOwners, "Id", "CompanyName"))">
+                                <select asp-for="CompanyEntityId" class="form-select" asp-items="@(new SelectList(Model.AllOwners, "Id", "CompanyName"))">
                                     <option value="">-- @Localizer["Select Owner"] --</option>
                                 </select>
                                 <a asp-controller="CompanyEntity" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
                                     <i class="align-middle" data-lucide="plus-circle"></i>
                                 </a>
-                                <button type="button" class="btn btn-outline-secondary reload-dropdown" 
-                                        data-url="@Url.Action("GetCompanyEntities")" 
-                                        data-target="OwnerId" 
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetCompanyEntities")"
+                                        data-target="CompanyEntityId"
                                         data-placeholder="@Localizer["Select Owner"]"
                                         data-name-key="CompanyName"
                                         title="@Localizer["Reload"]">
                                     <i class="align-middle" data-lucide="rotate-cw"></i>
                                 </button>
                             </div>
-                            <span asp-validation-for="OwnerId" class="text-danger"></span>
+                            <span asp-validation-for="CompanyEntityId" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label asp-for="CrossEntityLinkId" class="form-label"></label>
+                            <label asp-for="AlternativeServiceId" class="form-label"></label>
                             <div class="input-group">
-                                <select asp-for="CrossEntityLinkId" class="form-select" asp-items="@(new SelectList(Model.AllServices, "Id", "Domain"))">
+                                <select asp-for="AlternativeServiceId" class="form-select" asp-items="@(new SelectList(Model.AllServices, "Id", "PrimaryDomain"))">
                                     <option value="">-- @Localizer["None"] --</option>
                                 </select>
                                 <a asp-controller="Services" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
                                     <i class="align-middle" data-lucide="plus-circle"></i>
                                 </a>
-                                <button type="button" class="btn btn-outline-secondary reload-dropdown" 
-                                        data-url="@Url.Action("GetServices")" 
-                                        data-target="CrossEntityLinkId" 
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetServices")"
+                                        data-target="AlternativeServiceId"
                                         data-placeholder="@Localizer["None"]"
-                                        data-name-key="Domain"
+                                        data-name-key="PrimaryDomain"
                                         title="@Localizer["Reload"]">
                                     <i class="align-middle" data-lucide="rotate-cw"></i>
                                 </button>
                             </div>
-                            <span asp-validation-for="CrossEntityLinkId" class="text-danger"></span>
+                            <span asp-validation-for="AlternativeServiceId" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -80,9 +87,9 @@
                                 <a asp-controller="Servers" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
                                     <i class="align-middle" data-lucide="plus-circle"></i>
                                 </a>
-                                <button type="button" class="btn btn-outline-secondary reload-dropdown" 
-                                        data-url="@Url.Action("GetServers")" 
-                                        data-target="ServerId" 
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetServers")"
+                                        data-target="ServerId"
                                         data-placeholder="@Localizer["Select Server"]"
                                         data-name-key="HostName"
                                         title="@Localizer["Reload"]">
@@ -123,9 +130,9 @@
                             <a asp-controller="Services" asp-action="DnsProviders" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
                                 <i class="align-middle" data-lucide="plus-circle"></i>
                             </a>
-                            <button type="button" class="btn btn-outline-secondary reload-dropdown" 
-                                    data-url="@Url.Action("GetDnsProviders")" 
-                                    data-target="DnsProviderId" 
+                            <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                    data-url="@Url.Action("GetDnsProviders")"
+                                    data-target="DnsProviderId"
                                     data-placeholder="@Localizer["Select DNS Provider"]"
                                     title="@Localizer["Reload"]">
                                 <i class="align-middle" data-lucide="rotate-cw"></i>
@@ -172,7 +179,7 @@
             </div>
         </form>
     </div>
-    
+
     <div class="col-md-4">
         <div class="card">
             <div class="card-header">

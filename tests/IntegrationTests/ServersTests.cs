@@ -24,10 +24,10 @@ public class ServersTests : TestBase
         await db.SaveChangesAsync();
 
         db.Services.AddRange(
-            new Service { Domain = "running.example.com", ServerId = server.Id },
-            new Service { Domain = "frps.example.com", ServerId = otherServer.Id, IsViaFrps = true, FrpsServerId = server.Id },
-            new Service { Domain = "both.example.com", ServerId = server.Id, IsViaFrps = true, FrpsServerId = server.Id },
-            new Service { Domain = "unrelated.example.com", ServerId = otherServer.Id });
+            new Service { PrimaryDomain = "running.example.com", ServerId = server.Id },
+            new Service { PrimaryDomain = "frps.example.com", ServerId = otherServer.Id, IsViaFrps = true, FrpsServerId = server.Id },
+            new Service { PrimaryDomain = "both.example.com", ServerId = server.Id, IsViaFrps = true, FrpsServerId = server.Id },
+            new Service { PrimaryDomain = "unrelated.example.com", ServerId = otherServer.Id });
         await db.SaveChangesAsync();
 
         var indexResponse = await Http.GetAsync("/Servers/Index");
@@ -93,6 +93,7 @@ public class ServersTests : TestBase
             { "Hostname", "test-server-01-updated" },
             { "ServerIp", "192.168.1.101" },
             { "Ipv6Address", "2001:db8::101" },
+            { "ConcurrencyToken", server.ConcurrencyToken! },
             { "CompanyEntityId", company.Id.ToString() }
         });
 
@@ -105,12 +106,44 @@ public class ServersTests : TestBase
         Assert.AreEqual(company.Id, server.CompanyEntityId);
 
         // Delete
-        var deleteResponse = await PostForm($"/Servers/Delete/{server.Id}", new Dictionary<string, string>());
+        var deleteResponse = await PostForm($"/Servers/Delete/{server.Id}", new Dictionary<string, string>
+        {
+            ["concurrencyToken"] = server.ConcurrencyToken!
+        });
         Assert.AreEqual(HttpStatusCode.Redirect, deleteResponse.StatusCode);
 
         db = GetService<EmployeeCenterDbContext>();
         db.ChangeTracker.Clear();
-        var deletedServer = await db.Servers.FindAsync(server.Id);
-        Assert.IsNull(deletedServer);
+        var retiredServer = await db.Servers.FindAsync(server.Id);
+        Assert.IsNotNull(retiredServer);
+        Assert.IsNotNull(retiredServer.RetiredAt);
+    }
+
+    [TestMethod]
+    public async Task ActiveServicePreventsServerRetirement()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        var server = new Server
+        {
+            Hostname = "in-use-server",
+            ConcurrencyToken = Guid.NewGuid().ToString()
+        };
+        db.Services.Add(new Service
+        {
+            Name = "Active service",
+            PrimaryDomain = "active-on-server.example.com",
+            Server = server
+        });
+        await db.SaveChangesAsync();
+
+        var response = await PostForm($"/Servers/Delete/{server.Id}", new Dictionary<string, string>
+        {
+            ["concurrencyToken"] = server.ConcurrencyToken
+        });
+
+        Assert.AreEqual(HttpStatusCode.Conflict, response.StatusCode);
+        db.ChangeTracker.Clear();
+        Assert.IsNull((await db.Servers.FindAsync(server.Id))?.RetiredAt);
     }
 }

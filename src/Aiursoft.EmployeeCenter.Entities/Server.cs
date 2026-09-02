@@ -28,11 +28,15 @@ public class Server
     public string? Hostname { get; set; }
 
     [MaxLength(255)]
-    public string? OwnerId { get; set; }
+    public string? NormalizedHostname { get; set; }
+
+    [MaxLength(255)]
+    [Column("OwnerId")]
+    public string? TechnicalOwnerId { get; set; }
 
     [JsonIgnore]
-    [ForeignKey(nameof(OwnerId))]
-    public User? Owner { get; set; }
+    [ForeignKey(nameof(TechnicalOwnerId))]
+    public User? TechnicalOwner { get; set; }
 
     public int? ProviderId { get; set; }
 
@@ -53,6 +57,17 @@ public class Server
     [JsonIgnore]
     [InverseProperty(nameof(Service.FrpsServer))]
     public IEnumerable<Service> FrpsServices { get; init; } = new List<Service>();
+
+    public bool IsRegistryValidated { get; set; }
+
+    [MaxLength(36)]
+    [ConcurrencyCheck]
+    public string? ConcurrencyToken { get; set; }
+
+    public DateTime? RetiredAt { get; set; }
+
+    [MaxLength(255)]
+    public string? RetiredByUserId { get; set; }
 
     public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 

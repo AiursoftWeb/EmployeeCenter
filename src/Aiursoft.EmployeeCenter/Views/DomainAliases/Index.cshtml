@@ -1,4 +1,10 @@
 @model Aiursoft.EmployeeCenter.Models.DnsAuditViewModels.DomainAliasIndexViewModel
+@using Aiursoft.EmployeeCenter.Authorization
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageInfrastructure)).Succeeded;
+    var canRunAudit = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanRunServiceAudit)).Succeeded;
+}
 
 <div class="container-fluid p-0">
     <div class="row mb-2 mb-xl-3 align-items-center">
@@ -10,18 +16,21 @@
             <a asp-controller="Services" asp-action="Index" class="btn btn-outline-secondary shadow-sm ms-1">
                 <i class="align-middle" data-lucide="layout-dashboard"></i> @Localizer["Services Dashboard"]
             </a>
-            <form asp-action="RefreshAudit" method="post" class="d-inline">
-                <button type="submit" class="btn btn-outline-primary shadow-sm ms-1">
-                    <i class="align-middle" data-lucide="refresh-cw"></i> @Localizer["Audit Now"]
-                </button>
-            </form>
-            @if (Model.AvailableSourceDomains.Count > 0)
+            @if (canRunAudit)
+            {
+                <form asp-action="RefreshAudit" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-outline-primary shadow-sm ms-1">
+                        <i class="align-middle" data-lucide="refresh-cw"></i> @Localizer["Audit Now"]
+                    </button>
+                </form>
+            }
+            @if (canManage && Model.CanViewAudit && Model.AvailableSourceDomains.Count > 0)
             {
                 <a asp-action="Create" class="btn btn-primary shadow-sm ms-1">
                     <i class="align-middle" data-lucide="plus"></i> @Localizer["New Alias"]
                 </a>
             }
-            else
+            else if (canManage && Model.CanViewAudit)
             {
                 <button type="button" class="btn btn-primary shadow-sm ms-1" disabled title="@Localizer["No unregistered DNS hostnames are currently available."]">
                     <i class="align-middle" data-lucide="plus"></i> @Localizer["New Alias"]
@@ -36,19 +45,26 @@
                 <div class="col-lg-8">
                     <div class="text-uppercase small fw-semibold opacity-75 mb-2">@Localizer["Alias Governance"]</div>
                     <h1 class="display-6 fw-bold mb-2">@Model.DomainAliases.Count @Localizer["managed aliases"]</h1>
-                    <p class="lead mb-0 opacity-75">
-                        @Model.HealthyAliasCount @Localizer["healthy"] ·
-                        @Model.UnhealthyAliasCount @Localizer["need attention"] ·
-                        @Model.PendingAliasCount @Localizer["awaiting audit"]
-                    </p>
+                    @if (Model.CanViewAudit)
+                    {
+                        <p class="lead mb-0 opacity-75">
+                            @Model.HealthyAliasCount @Localizer["healthy"] ·
+                            @Model.UnhealthyAliasCount @Localizer["need attention"] ·
+                            @Model.PendingAliasCount @Localizer["awaiting audit"]
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="lead mb-0 opacity-75">@Localizer["Audit status requires the service-audit view permission."]</p>
+                    }
                 </div>
                 <div class="col-lg-4 mt-4 mt-lg-0 text-lg-end">
-                    @if (Model.LastSuccessfulAuditAt.HasValue)
+                    @if (Model.CanViewAudit && Model.LastSuccessfulAuditAt.HasValue)
                     {
                         <div class="small text-uppercase opacity-75">@Localizer["Last successful audit"]</div>
                         <div class="h5 mb-0">@Model.LastSuccessfulAuditAt.Value.ToString("u")</div>
                     }
-                    else
+                    else if (Model.CanViewAudit)
                     {
                         <div class="h5 mb-0">@Localizer["Audit pending"]</div>
                     }
@@ -59,6 +75,8 @@
     </div>
 
     <div class="row">
+        @if (Model.CanViewAudit)
+        {
         <div class="col-6 col-xl-3 d-flex">
             <div class="card flex-fill"><div class="card-body py-4 d-flex align-items-center justify-content-between">
                 <div><h3 class="mb-1">@Model.DomainAliases.Count</h3><span class="text-muted">@Localizer["Total aliases"]</span></div>
@@ -83,9 +101,10 @@
                 <div class="stat"><i class="align-middle text-info" data-lucide="scan-search"></i></div>
             </div></div>
         </div>
+        }
     </div>
 
-    @if (Model.AvailableSourceDomains.Count > 0)
+    @if (canManage && Model.CanViewAudit && Model.AvailableSourceDomains.Count > 0)
     {
         <div class="alert alert-info d-flex align-items-center justify-content-between">
             <div>
@@ -140,11 +159,11 @@
                                 <span class="badge badge-subtle-primary">@Localizer["HTTP redirect"]</span>
                             }
                         </td>
-                        <td>@alias.TargetService?.Domain</td>
+                        <td>@alias.TargetService?.PrimaryDomain</td>
                         <td>
                             @if (alias.Type == DomainAliasType.Cname)
                             {
-                                <code>@alias.TargetService?.Domain</code>
+                                <code>@alias.TargetService?.PrimaryDomain</code>
                             }
                             else
                             {
@@ -152,7 +171,11 @@
                             }
                         </td>
                         <td>
-                            @if (isPending)
+                            @if (!Model.CanViewAudit)
+                            {
+                                <span class="text-muted">@Localizer["Restricted"]</span>
+                            }
+                            else if (isPending)
                             {
                                 <span class="badge badge-subtle-secondary"><i class="align-middle me-1" data-lucide="clock-3"></i>@Localizer["Pending"]</span>
                             }
@@ -167,14 +190,17 @@
                         </td>
                         <td>@alias.UpdatedAt.ToString("u")</td>
                         <td class="text-end text-nowrap">
-                            <a asp-action="Edit" asp-route-id="@alias.Id" class="btn btn-sm btn-outline-primary">
-                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
-                            </a>
-                            <form asp-action="Delete" asp-route-id="@alias.Id" method="post" class="d-inline" onsubmit="return confirm('@Localizer["Delete this domain alias?"]');">
-                                <button type="submit" class="btn btn-sm btn-outline-danger">
-                                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                                </button>
-                            </form>
+                            @if (canManage)
+                            {
+                                <a asp-action="Edit" asp-route-id="@alias.Id" class="btn btn-sm btn-outline-primary">
+                                    <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                </a>
+                                <form asp-action="Delete" asp-route-id="@alias.Id" method="post" class="d-inline" onsubmit="return confirm('@Localizer["Delete this domain alias?"]');">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                    </button>
+                                </form>
+                            }
                         </td>
                     </tr>
                 }

@@ -6,13 +6,14 @@
     <div class="col-md-8">
         <form asp-action="Edit">
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ConcurrencyToken" />
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">@Localizer["Basic Information"]</h5>
                 </div>
                 <div class="card-body">
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-                    
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label asp-for="Hostname" class="form-label"></label>
@@ -41,9 +42,9 @@
                                 <a asp-controller="Assets" asp-action="Locations" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
                                     <i class="align-middle" data-lucide="plus-circle"></i>
                                 </a>
-                                <button type="button" class="btn btn-outline-secondary reload-dropdown" 
-                                        data-url="@Url.Action("GetLocations")" 
-                                        data-target="LocationId" 
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetLocations")"
+                                        data-target="LocationId"
                                         data-placeholder="@Localizer["Select Location"]"
                                         title="@Localizer["Reload"]">
                                     <i class="align-middle" data-lucide="rotate-cw"></i>
@@ -60,9 +61,9 @@
                                 <a asp-controller="Services" asp-action="Providers" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
                                     <i class="align-middle" data-lucide="plus-circle"></i>
                                 </a>
-                                <button type="button" class="btn btn-outline-secondary reload-dropdown" 
-                                        data-url="@Url.Action("GetProviders")" 
-                                        data-target="ProviderId" 
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetProviders")"
+                                        data-target="ProviderId"
                                         data-placeholder="@Localizer["Select Provider"]"
                                         title="@Localizer["Reload"]">
                                     <i class="align-middle" data-lucide="rotate-cw"></i>
@@ -81,9 +82,9 @@
                             <a asp-controller="CompanyEntity" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
                                 <i class="align-middle" data-lucide="plus-circle"></i>
                             </a>
-                            <button type="button" class="btn btn-outline-secondary reload-dropdown" 
-                                    data-url="@Url.Action("GetCompanyEntities")" 
-                                    data-target="CompanyEntityId" 
+                            <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                    data-url="@Url.Action("GetCompanyEntities")"
+                                    data-target="CompanyEntityId"
                                     data-placeholder="@Localizer["Select Company Entity"]"
                                     title="@Localizer["Reload"]">
                                 <i class="align-middle" data-lucide="rotate-cw"></i>
@@ -93,24 +94,24 @@
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="OwnerId" class="form-label"></label>
+                        <label asp-for="TechnicalOwnerId" class="form-label"></label>
                         <div class="input-group">
-                            <select asp-for="OwnerId" class="form-select" asp-items="@(new SelectList(Model.AllOwners, "Id", "DisplayName"))">
+                            <select asp-for="TechnicalOwnerId" class="form-select" asp-items="@(new SelectList(Model.AllOwners, "Id", "DisplayName"))">
                                 <option value="">-- @Localizer["Select Owner"] --</option>
                             </select>
                             <a asp-controller="Users" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
                                 <i class="align-middle" data-lucide="plus-circle"></i>
                             </a>
-                            <button type="button" class="btn btn-outline-secondary reload-dropdown" 
-                                    data-url="@Url.Action("GetUsers")" 
-                                    data-target="OwnerId" 
+                            <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                    data-url="@Url.Action("GetUsers")"
+                                    data-target="TechnicalOwnerId"
                                     data-placeholder="@Localizer["Select Owner"]"
                                     data-name-key="DisplayName"
                                     title="@Localizer["Reload"]">
                                 <i class="align-middle" data-lucide="rotate-cw"></i>
                             </button>
                         </div>
-                        <span asp-validation-for="OwnerId" class="text-danger"></span>
+                        <span asp-validation-for="TechnicalOwnerId" class="text-danger"></span>
                     </div>
 
                     <div class="mb-3">

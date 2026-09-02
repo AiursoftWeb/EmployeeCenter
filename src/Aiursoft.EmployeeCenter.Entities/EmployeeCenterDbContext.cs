@@ -214,6 +214,20 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     public DbSet<DomainAlias> DomainAliases => Set<DomainAlias>();
 
     /// <summary>
+    /// Durable service audit executions and their summaries.
+    /// </summary>
+    public DbSet<ServiceAuditRun> ServiceAuditRuns => Set<ServiceAuditRun>();
+
+    public DbSet<ServiceAuditIssue> ServiceAuditIssues => Set<ServiceAuditIssue>();
+
+    public DbSet<ServiceAuditObservation> ServiceAuditObservations => Set<ServiceAuditObservation>();
+
+    /// <summary>
+    /// Append-only history for infrastructure registry mutations.
+    /// </summary>
+    public DbSet<InfrastructureChangeLog> InfrastructureChangeLogs => Set<InfrastructureChangeLog>();
+
+    /// <summary>
     /// Stores contact information and details for company customers or external partners.
     /// </summary>
     public DbSet<CustomerRelationship> CustomerRelationships => Set<CustomerRelationship>();
@@ -382,9 +396,94 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
                 .OnDelete(DeleteBehavior.Restrict);
         });
 
-        builder.Entity<Service>()
-            .Property(service => service.IsAvailabilityAuditEnabled)
-            .HasDefaultValue(true);
+        builder.Entity<Service>(entity =>
+        {
+            entity.ToTable(table =>
+            {
+                table.HasCheckConstraint(
+                    "CK_Services_ValidatedFrps",
+                    "IsRegistryValidated = 0 OR IsViaFrps = 0 OR " +
+                    "(ServerId IS NOT NULL AND FrpsServerId IS NOT NULL AND ServerId <> FrpsServerId)");
+                table.HasCheckConstraint(
+                    "CK_Services_NoSelfAlternative",
+                    "IsRegistryValidated = 0 OR CrossEntityLinkId IS NULL OR CrossEntityLinkId <> Id");
+            });
+            entity.Property(service => service.IsAvailabilityAuditEnabled)
+                .HasDefaultValue(true);
+            entity.Property(service => service.IsRegistryValidated)
+                .HasDefaultValue(false);
+            entity.Property(service => service.ConcurrencyToken)
+                .IsConcurrencyToken();
+            entity.HasIndex(service => service.NormalizedPrimaryDomain)
+                .IsUnique();
+            entity.HasOne(service => service.CompanyEntity)
+                .WithMany()
+                .HasForeignKey(service => service.CompanyEntityId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(service => service.AlternativeService)
+                .WithMany()
+                .HasForeignKey(service => service.AlternativeServiceId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        });
+
+        builder.Entity<Server>(entity =>
+        {
+            entity.ToTable(table => table.HasCheckConstraint(
+                "CK_Servers_ValidatedIdentifier",
+                "IsRegistryValidated = 0 OR " +
+                "NULLIF(TRIM(Hostname), '') IS NOT NULL OR " +
+                "NULLIF(TRIM(ServerIp), '') IS NOT NULL OR " +
+                "NULLIF(TRIM(Ipv6Address), '') IS NOT NULL"));
+            entity.Property(server => server.IsRegistryValidated)
+                .HasDefaultValue(false);
+            entity.Property(server => server.ConcurrencyToken)
+                .IsConcurrencyToken();
+            entity.HasIndex(server => server.NormalizedHostname)
+                .IsUnique();
+            entity.HasOne(server => server.TechnicalOwner)
+                .WithMany()
+                .HasForeignKey(server => server.TechnicalOwnerId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        });
+
+        builder.Entity<Provider>()
+            .HasIndex(provider => provider.NormalizedName)
+            .IsUnique();
+
+        builder.Entity<DnsProvider>()
+            .HasIndex(provider => provider.NormalizedName)
+            .IsUnique();
+
+        builder.Entity<ServiceAuditRun>(entity =>
+        {
+            entity.HasIndex(run => new { run.Status, run.RequestedAt });
+            entity.HasIndex(run => run.CompletedAt);
+        });
+
+        builder.Entity<ServiceAuditIssue>(entity =>
+        {
+            entity.HasOne(issue => issue.ServiceAuditRun)
+                .WithMany(run => run.Issues)
+                .HasForeignKey(issue => issue.ServiceAuditRunId)
+                .OnDelete(DeleteBehavior.Cascade);
+            entity.HasIndex(issue => new { issue.ServiceAuditRunId, issue.Severity });
+            entity.HasIndex(issue => issue.ServiceId);
+        });
+
+        builder.Entity<ServiceAuditObservation>(entity =>
+        {
+            entity.HasOne(observation => observation.ServiceAuditRun)
+                .WithMany(run => run.Observations)
+                .HasForeignKey(observation => observation.ServiceAuditRunId)
+                .OnDelete(DeleteBehavior.Cascade);
+            entity.HasIndex(observation => new { observation.ServiceAuditRunId, observation.ServiceId });
+        });
+
+        builder.Entity<InfrastructureChangeLog>(entity =>
+        {
+            entity.HasIndex(log => new { log.ResourceType, log.ResourceId, log.CreatedAt });
+            entity.HasIndex(log => log.CreatedAt);
+        });
     }
 
     public virtual Task MigrateAsync(CancellationToken cancellationToken) =>

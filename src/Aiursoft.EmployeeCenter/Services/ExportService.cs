@@ -514,8 +514,8 @@ public class ExportService(
 
         foreach (var service in services)
         {
-            var fileName = SanitizeFileName(service.Domain) + ".md";
-            var content = ObjectToMarkdown(service, $"Service: {service.Domain}");
+            var fileName = SanitizeFileName(service.PrimaryDomain) + ".md";
+            var content = ObjectToMarkdown(service, $"Service: {service.PrimaryDomain}");
             await File.WriteAllTextAsync(Path.Combine(dir, fileName), content);
         }
     }

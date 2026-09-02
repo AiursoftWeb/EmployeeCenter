@@ -16,4 +16,6 @@ public class IndexServerViewModel : UiStackLayoutViewModel
 
     public IReadOnlyDictionary<int, int> AssociatedServiceCounts { get; set; } =
         new Dictionary<int, int>();
+
+    public bool IncludeRetired { get; set; }
 }

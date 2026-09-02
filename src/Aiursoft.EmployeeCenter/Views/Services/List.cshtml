@@ -1,6 +1,8 @@
 @using Aiursoft.EmployeeCenter.Authorization
 @model Aiursoft.EmployeeCenter.Models.ServicesViewModels.IndexViewModel
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
 @{
+    var canManageInfrastructure = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageInfrastructure)).Succeeded;
 }
 
 <div class="row mb-2 mb-xl-3">
@@ -16,10 +18,13 @@
     </div>
 
     <div class="col-auto ms-auto text-end">
+        <a asp-action="List" asp-route-serverId="@Model.FilteredServer?.Id" asp-route-includeRetired="@(!Model.IncludeRetired)" class="btn btn-outline-secondary me-2">
+            @(Model.IncludeRetired ? Localizer["Hide retired"] : Localizer["Show retired"])
+        </a>
         <a asp-action="Index" class="btn btn-outline-secondary me-2">
             <i class="align-middle" data-lucide="layout-dashboard"></i> @Localizer["Dashboard"]
         </a>
-        @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
+        @if (canManageInfrastructure)
         {
             @if (Model.FilteredServer != null)
             {
@@ -61,8 +66,8 @@
             <table class="table table-hover mb-0" id="servicesTable">
                 <thead>
                     <tr>
-                        <th>@Localizer["Domain"]</th>
-                        <th>@Localizer["Availability"]</th>
+                        <th>@Localizer["Service"]</th>
+                        <th>@Localizer["Primary domain"]</th>
                         <th>@Localizer["Owner"]</th>
                         <th>@Localizer["Protocols"]</th>
                         <th>@Localizer["Location"]</th>
@@ -72,9 +77,10 @@
                         <th>@Localizer["Self"]</th>
                         <th>@Localizer["Authentik"]</th>
                         <th>@Localizer["Cloudflare Proxied"]</th>
-                        <th>@Localizer["Availability Audit"]</th>
+                        <th>@Localizer["Audit enabled"]</th>
+                        <th>@Localizer["Observed health"]</th>
                         <th>@Localizer["Via Frps"]</th>
-                        <th>@Localizer["Status"]</th>
+                        <th>@Localizer["Lifecycle status"]</th>
                         <th class="text-end">@Localizer["Actions"]</th>
                     </tr>
                 </thead>
@@ -83,21 +89,25 @@
                     {
                         <tr>
                             <td>
-                                <code>@s.Domain</code>
+                                @(s.Name ?? "-")
+                                @if (s.RetiredAt.HasValue)
+                                {
+                                    <span class="badge bg-secondary ms-1">@Localizer["Retired"]</span>
+                                }
                             </td>
                             <td>
+                                <code>@s.PrimaryDomain</code>
                                 @if (s.Protocols?.Trim().StartsWith("HTTP", StringComparison.OrdinalIgnoreCase) == true)
                                 {
                                     var protocol = s.Protocols.Contains("HTTPS", StringComparison.OrdinalIgnoreCase) ? "https" : "http";
-                                    var url = $"{protocol}://{s.Domain}";
-                                    var encodedUrl = Uri.EscapeDataString(url);
-                                    <a href="@url" target="_blank">
-                                        <img src="https://img.shields.io/website?url=@encodedUrl" alt="Status" />
+                                    var url = $"{protocol}://{s.PrimaryDomain}";
+                                    <a href="@url" target="_blank" rel="noopener noreferrer" class="ms-1" title="@Localizer["Open service"]">
+                                        <i class="align-middle" data-lucide="external-link"></i>
                                     </a>
                                 }
                             </td>
                             <td>
-                                @(s.Owner?.CompanyName ?? "-")
+                                @(s.CompanyEntity?.CompanyName ?? "-")
                             </td>
                             <td>
                                 @(s.Protocols ?? "-")
@@ -164,6 +174,28 @@
                                     <i class="text-muted align-middle" data-lucide="circle-off"></i>
                                 }
                             </td>
+                            <td>
+                                @if (!Model.CanViewAudit)
+                                {
+                                    <span class="text-muted">@Localizer["Restricted"]</span>
+                                }
+                                else if (Model.LatestObservations.TryGetValue(s.Id, out var observation))
+                                {
+                                    var healthClass = observation.Health == ObservedServiceHealth.Healthy ? "success" :
+                                        observation.Health == ObservedServiceHealth.Degraded ? "warning" : "danger";
+                                    <span class="badge bg-@healthClass" title="@observation.Details">
+                                        @Localizer[observation.Health.ToString()]
+                                        @if (observation.StatusCode.HasValue)
+                                        {
+                                            <span>HTTP @observation.StatusCode</span>
+                                        }
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@Localizer["Not observed"]</span>
+                                }
+                            </td>
                             <td data-order="@(s.IsViaFrps ? (s.FrpsServerId.HasValue ? 2 : 1) : 0)">
                                 @if (s.IsViaFrps && s.FrpsServerId.HasValue)
                                 {
@@ -196,18 +228,22 @@
                                     case ServiceStatus.Offline:
                                         <span class="badge bg-danger">@Localizer["Offline"]</span>
                                         break;
+                                    case ServiceStatus.Retired:
+                                        <span class="badge bg-secondary">@Localizer["Retired"]</span>
+                                        break;
                                 }
                             </td>
                             <td class="text-end">
 
-                                @if (User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageServices))
+                                @if (canManageInfrastructure && !s.RetiredAt.HasValue)
                                 {
                                     <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-outline-primary">
                                         <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
                                     </a>
-                                    <form asp-action="Delete" asp-route-id="@s.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('confirm-delete-service', '@Localizer["Are you sure you want to delete this service?"]'));">
+                                    <form asp-action="Delete" asp-route-id="@s.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('confirm-retire-service', '@Localizer["Are you sure you want to retire this service?"]'));">
+                                        <input type="hidden" name="concurrencyToken" value="@s.ConcurrencyToken" />
                                         <button type="submit" class="btn btn-sm btn-outline-danger">
-                                            <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                            <i class="align-middle" data-lucide="archive"></i> @Localizer["Retire"]
                                         </button>
                                     </form>
                                 }
@@ -221,7 +257,7 @@
 </div>
 
 <div id="loc-data" hidden>
-    <span data-key="confirm-delete-service">@Localizer["Are you sure you want to delete this service?"]</span>
+    <span data-key="confirm-retire-service">@Localizer["Are you sure you want to retire this service?"]</span>
 </div>
 
 @* ReSharper disable once Razor.SectionNotResolved *@

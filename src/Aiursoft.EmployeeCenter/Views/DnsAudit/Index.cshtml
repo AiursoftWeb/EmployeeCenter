@@ -4,7 +4,9 @@
 @model DnsAuditIndexViewModel
 @inject IAuthorizationService AuthorizationService
 @{
-    var canManageDomainAliases = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageServices)).Succeeded;
+    var canManageDomainAliases = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageInfrastructure)).Succeeded;
+    var canViewInfrastructure = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanViewInfrastructure)).Succeeded;
+    var canRunAudit = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanRunServiceAudit)).Succeeded;
 }
 
 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -21,19 +23,22 @@
             }
         </div>
         <div class="btn-group">
-            @if (canManageDomainAliases)
+            @if (canManageDomainAliases && canViewInfrastructure)
             {
                 <a asp-controller="DomainAliases" asp-action="Index" class="btn btn-outline-primary text-nowrap">
                     <i class="align-middle me-1" data-lucide="waypoints"></i>
                     @Localizer["Manage aliases"]
                 </a>
             }
-            <form asp-route="ServiceAuditRefresh" method="post">
-                <button type="submit" class="btn btn-primary text-nowrap rounded-start-0">
-                    <i class="align-middle me-1" data-lucide="refresh-cw"></i>
-                    @Localizer["Audit now"]
-                </button>
-            </form>
+            @if (canRunAudit)
+            {
+                <form asp-route="ServiceAuditRefresh" method="post">
+                    <button type="submit" class="btn btn-primary text-nowrap rounded-start-0">
+                        <i class="align-middle me-1" data-lucide="refresh-cw"></i>
+                        @Localizer["Audit now"]
+                    </button>
+                </form>
+            }
         </div>
     </div>
 </div>
@@ -42,7 +47,7 @@
 {
     <div class="alert alert-info">
         <h5 class="alert-heading">@Localizer["Service audit is starting"]</h5>
-        <p class="mb-0">@Localizer["The first background audit has not completed yet. This page will read its result from the in-memory cache."]</p>
+        <p class="mb-0">@Localizer["The first background audit has not completed yet. Results will be stored in the database when it finishes."]</p>
     </div>
 }
 else if (!Model.IsConfigured)
@@ -176,7 +181,7 @@ else if (Model.Report != null)
                                         <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit alias"]
                                     </a>
                                 }
-                                else if (issue.ServiceId.HasValue)
+                                else if (issue.ServiceId.HasValue && canManageDomainAliases)
                                 {
                                     <a asp-controller="Services" asp-action="Edit" asp-route-id="@issue.ServiceId" class="btn btn-sm btn-outline-primary">
                                         <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit service"]
@@ -190,6 +195,42 @@ else if (Model.Report != null)
             </div>
         </div>
     }
+}
+
+@if (Model.RecentRuns.Count > 0)
+{
+    <div class="card mt-3">
+        <div class="card-header">
+            <h5 class="card-title mb-0">@Localizer["Audit history"]</h5>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Requested"]</th>
+                    <th>@Localizer["Completed"]</th>
+                    <th>@Localizer["Status"]</th>
+                    <th>@Localizer["Audited hostnames"]</th>
+                    <th>@Localizer["Issues"]</th>
+                    <th>@Localizer["Requested by"]</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var run in Model.RecentRuns)
+                {
+                    <tr>
+                        <td>@run.RequestedAt.ToString("u")</td>
+                        <td>@(run.CompletedAt?.ToString("u") ?? "-")</td>
+                        <td>@Localizer[run.Status.ToString()]</td>
+                        <td>@run.AuditedHostnameCount</td>
+                        <td>@(run.CriticalCount + run.ErrorCount + run.WarningCount + run.InfoCount)</td>
+                        <td><code>@(run.RequestedByUserId ?? "scheduled")</code></td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
 }
 
 @* ReSharper disable once Razor.SectionNotResolved *@

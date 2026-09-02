@@ -10,9 +10,8 @@ public class ServiceTests : TestBase
 
         var response = await Http.GetAsync("/Services/Index");
 
-        response.EnsureSuccessStatusCode();
-        var content = await response.Content.ReadAsStringAsync();
-        Assert.DoesNotContain("/ServiceAudit", content, StringComparison.OrdinalIgnoreCase);
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        Assert.Contains("/Error/Code403", response.Headers.Location?.OriginalString ?? string.Empty);
     }
 
     [TestMethod]
@@ -31,7 +30,7 @@ public class ServiceTests : TestBase
         };
         db.Services.Add(new Service
         {
-            Domain = "dashboard.example.com",
+            PrimaryDomain = "dashboard.example.com",
             Server = server,
             DnsProvider = dnsProvider,
             Status = ServiceStatus.Running,
@@ -66,7 +65,8 @@ public class ServiceTests : TestBase
 
         var postResponse = await PostForm("/Services/Create", new Dictionary<string, string>
         {
-            { "Domain", "test-service.com" },
+            { "Name", "Test Service" },
+            { "PrimaryDomain", "test-service.com" },
             { "Status", "1" },
             { "Purpose", "1" },
             { "IsSelfDeveloped", "false" }
@@ -75,10 +75,102 @@ public class ServiceTests : TestBase
         Assert.AreEqual(HttpStatusCode.Redirect, postResponse.StatusCode);
 
         var db = GetService<EmployeeCenterDbContext>();
-        var service = await db.Services.FirstOrDefaultAsync(s => s.Domain == "test-service.com");
+        var service = await db.Services.FirstOrDefaultAsync(s => s.PrimaryDomain == "test-service.com");
         Assert.IsNotNull(service);
         Assert.AreEqual(ServiceStatus.Running, service.Status);
         Assert.IsTrue(service.IsAvailabilityAuditEnabled);
+    }
+
+    [TestMethod]
+    public async Task ServiceCreateNormalizesIdnAndRejectsLegacyDuplicate()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        db.Services.Add(new Service { PrimaryDomain = "EXAMPLE.com." });
+        await db.SaveChangesAsync();
+
+        var duplicate = await PostForm("/Services/Create", new Dictionary<string, string>
+        {
+            ["Name"] = "Duplicate",
+            ["PrimaryDomain"] = "example.com",
+            ["Status"] = "1",
+            ["Purpose"] = "1"
+        });
+        Assert.AreEqual(HttpStatusCode.OK, duplicate.StatusCode);
+        Assert.AreEqual(1, await db.Services.CountAsync(service =>
+            service.PrimaryDomain == "EXAMPLE.com." || service.PrimaryDomain == "example.com"));
+
+        var normalized = await PostForm("/Services/Create", new Dictionary<string, string>
+        {
+            ["Name"] = "IDN service",
+            ["PrimaryDomain"] = "BÜCHER.Example.",
+            ["Status"] = "1",
+            ["Purpose"] = "1"
+        });
+        Assert.AreEqual(HttpStatusCode.Found, normalized.StatusCode);
+        db.ChangeTracker.Clear();
+        var service = await db.Services.SingleAsync(item => item.Name == "IDN service");
+        Assert.AreEqual("xn--bcher-kva.example", service.PrimaryDomain);
+        Assert.AreEqual(service.PrimaryDomain, service.NormalizedPrimaryDomain);
+        Assert.IsTrue(service.IsRegistryValidated);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(service.ConcurrencyToken));
+    }
+
+    [TestMethod]
+    public async Task StaleServiceEditIsRejectedAndChangeIsLogged()
+    {
+        await LoginAsAdmin();
+        var create = await PostForm("/Services/Create", new Dictionary<string, string>
+        {
+            ["Name"] = "Concurrent service",
+            ["PrimaryDomain"] = "concurrent.example.com",
+            ["Status"] = "1",
+            ["Purpose"] = "1"
+        });
+        Assert.AreEqual(HttpStatusCode.Found, create.StatusCode);
+
+        var db = GetService<EmployeeCenterDbContext>();
+        var service = await db.Services.SingleAsync(item => item.PrimaryDomain == "concurrent.example.com");
+        var staleToken = service.ConcurrencyToken;
+        service.Name = "Changed elsewhere";
+        service.ConcurrencyToken = Guid.NewGuid().ToString();
+        await db.SaveChangesAsync();
+
+        var staleEdit = await PostForm($"/Services/Edit/{service.Id}", new Dictionary<string, string>
+        {
+            ["Id"] = service.Id.ToString(),
+            ["Name"] = "Overwrite attempt",
+            ["PrimaryDomain"] = service.PrimaryDomain,
+            ["ConcurrencyToken"] = staleToken!,
+            ["Status"] = "1",
+            ["Purpose"] = "1"
+        });
+        Assert.AreEqual(HttpStatusCode.OK, staleEdit.StatusCode);
+        Assert.Contains("changed by another user", await staleEdit.Content.ReadAsStringAsync());
+        db.ChangeTracker.Clear();
+        Assert.AreEqual("Changed elsewhere", (await db.Services.FindAsync(service.Id))?.Name);
+        Assert.IsTrue(await db.InfrastructureChangeLogs.AnyAsync(log =>
+            log.ResourceType == nameof(Service) && log.ResourceId == service.Id && log.Action == "Created"));
+    }
+
+    [TestMethod]
+    public async Task DataQualityReportFindsLegacyRegistryProblems()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        db.Services.AddRange(
+            new Service { PrimaryDomain = "Duplicate.example.com." },
+            new Service { PrimaryDomain = "duplicate.example.com", IsViaFrps = true });
+        db.Servers.Add(new Server());
+        await db.SaveChangesAsync();
+
+        var response = await Http.GetAsync("/Services/DataQuality");
+        response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.Contains("DuplicatePrimaryDomain", html);
+        Assert.Contains("InvalidFrpsAssignment", html);
+        Assert.Contains("MissingIdentifier", html);
+        Assert.Contains("LegacyRow", html);
     }
 
     [TestMethod]
@@ -99,18 +191,20 @@ public class ServiceTests : TestBase
 
         var invalidResponse = await PostForm("/Services/Create", new Dictionary<string, string>
         {
-            { "Domain", "invalid-frps-service.com" },
+            { "Name", "Invalid FRPS Service" },
+            { "PrimaryDomain", "invalid-frps-service.com" },
             { "Status", "1" },
             { "Purpose", "1" },
             { "IsViaFrps", "true" },
             { "ServerId", runningServer.Id.ToString() }
         });
         Assert.AreEqual(HttpStatusCode.OK, invalidResponse.StatusCode);
-        Assert.IsNull(await db.Services.FirstOrDefaultAsync(service => service.Domain == "invalid-frps-service.com"));
+        Assert.IsNull(await db.Services.FirstOrDefaultAsync(service => service.PrimaryDomain == "invalid-frps-service.com"));
 
         var validResponse = await PostForm("/Services/Create", new Dictionary<string, string>
         {
-            { "Domain", "valid-frps-service.com" },
+            { "Name", "Valid FRPS Service" },
+            { "PrimaryDomain", "valid-frps-service.com" },
             { "Status", "1" },
             { "Purpose", "1" },
             { "IsViaFrps", "true" },
@@ -120,10 +214,38 @@ public class ServiceTests : TestBase
         Assert.AreEqual(HttpStatusCode.Redirect, validResponse.StatusCode);
 
         db.ChangeTracker.Clear();
-        var service = await db.Services.SingleAsync(item => item.Domain == "valid-frps-service.com");
+        var service = await db.Services.SingleAsync(item => item.PrimaryDomain == "valid-frps-service.com");
         Assert.AreEqual(runningServer.Id, service.ServerId);
         Assert.AreEqual(frpsServer.Id, service.FrpsServerId);
         Assert.IsTrue(service.IsViaFrps);
+    }
+
+    [TestMethod]
+    public async Task ServiceCannotReferenceRetiredServerThroughForgedPost()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        var retiredServer = new Server
+        {
+            Hostname = "retired-for-service",
+            RetiredAt = DateTime.UtcNow
+        };
+        db.Servers.Add(retiredServer);
+        await db.SaveChangesAsync();
+
+        var response = await PostForm("/Services/Create", new Dictionary<string, string>
+        {
+            ["Name"] = "Forged assignment",
+            ["PrimaryDomain"] = "forged-retired-server.example.com",
+            ["ServerId"] = retiredServer.Id.ToString(),
+            ["Status"] = "1",
+            ["Purpose"] = "1"
+        });
+
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        Assert.Contains("does not exist or is retired", await response.Content.ReadAsStringAsync());
+        Assert.IsFalse(await db.Services.AnyAsync(service =>
+            service.PrimaryDomain == "forged-retired-server.example.com"));
     }
 
     [TestMethod]
@@ -134,7 +256,7 @@ public class ServiceTests : TestBase
         var db = GetService<EmployeeCenterDbContext>();
         var service = new Service
         {
-            Domain = "restricted-service.example.com",
+            PrimaryDomain = "restricted-service.example.com",
             Protocols = "HTTPS",
             Status = ServiceStatus.Running
         };
@@ -144,7 +266,8 @@ public class ServiceTests : TestBase
         var response = await PostForm($"/Services/Edit/{service.Id}", new Dictionary<string, string>
         {
             { "Id", service.Id.ToString() },
-            { "Domain", service.Domain },
+            { "Name", "Restricted Service" },
+            { "PrimaryDomain", service.PrimaryDomain },
             { "Protocols", service.Protocols },
             { "Status", ((int)service.Status).ToString() },
             { "Purpose", ((int)service.Purpose).ToString() },
@@ -159,11 +282,11 @@ public class ServiceTests : TestBase
     }
 
     [TestMethod]
-    public async Task ServiceTargetedByDomainAliasCannotBeDeleted()
+    public async Task ServiceTargetedByDomainAliasIsRetiredWithoutBreakingTheAlias()
     {
         await LoginAsAdmin();
         var db = GetService<EmployeeCenterDbContext>();
-        var target = new Service { Domain = "target-for-alias.example.com" };
+        var target = new Service { PrimaryDomain = "target-for-alias.example.com" };
         db.DomainAliases.Add(new DomainAlias
         {
             Domain = "alias-for-target.example.com",
@@ -174,11 +297,16 @@ public class ServiceTests : TestBase
 
         var response = await PostForm(
             $"/Services/Delete/{target.Id}",
-            new Dictionary<string, string>(),
+            new Dictionary<string, string> { ["concurrencyToken"] = string.Empty },
             tokenUrl: "/Services/List");
 
-        Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
-        Assert.IsNotNull(await db.Services.FindAsync(target.Id));
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        db.ChangeTracker.Clear();
+        var retired = await db.Services.FindAsync(target.Id);
+        Assert.IsNotNull(retired);
+        Assert.AreEqual(ServiceStatus.Retired, retired.Status);
+        Assert.IsNotNull(retired.RetiredAt);
+        Assert.IsTrue(await db.DomainAliases.AnyAsync(alias => alias.TargetServiceId == target.Id));
     }
 
     [TestMethod]
@@ -192,7 +320,7 @@ public class ServiceTests : TestBase
         db.Services.AddRange(
             new Service
             {
-                Domain = "valid-list-frps-service.example.com",
+                PrimaryDomain = "valid-list-frps-service.example.com",
                 Server = runningServer,
                 FrpsServer = frpsServer,
                 IsViaFrps = true,
@@ -200,7 +328,7 @@ public class ServiceTests : TestBase
             },
             new Service
             {
-                Domain = "missing-list-frps-service.example.com",
+                PrimaryDomain = "missing-list-frps-service.example.com",
                 Server = runningServer,
                 IsViaFrps = true,
                 Status = ServiceStatus.Running
