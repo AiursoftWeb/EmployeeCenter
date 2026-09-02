@@ -2218,8 +2218,6 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.ToTable("Services", t =>
                         {
-                            t.HasCheckConstraint("CK_Services_NoSelfAlternative", "IsRegistryValidated = 0 OR CrossEntityLinkId IS NULL OR CrossEntityLinkId <> Id");
-
                             t.HasCheckConstraint("CK_Services_ValidatedFrps", "IsRegistryValidated = 0 OR IsViaFrps = 0 OR (ServerId IS NOT NULL AND FrpsServerId IS NOT NULL AND ServerId <> FrpsServerId)");
                         });
                 });

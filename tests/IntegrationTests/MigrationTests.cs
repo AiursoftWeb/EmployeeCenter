@@ -36,6 +36,40 @@ public class MigrationTests
     }
 
     [TestMethod]
+    public void MySqlValidatedConstraintsOmitUnsupportedIdentityColumnCheck()
+    {
+        var options = new DbContextOptionsBuilder<MySqlContext>()
+            .UseMySql("Server=localhost;Database=test;Uid=root;Pwd=password;", new MySqlServerVersion(new Version(8, 0, 31)))
+            .Options;
+        using var context = new MySqlContext(options);
+        var migrator = context.Database.GetService<IMigrator>();
+
+        var script = migrator.GenerateScript(
+            "20260901223755_InfrastructureRegistryV2",
+            "20260901231252_InfrastructureRegistryValidatedConstraints");
+
+        Assert.DoesNotContain("CK_Services_NoSelfAlternative", script);
+        StringAssert.Contains(script, "CK_Services_ValidatedFrps");
+        StringAssert.Contains(script, "CK_Servers_ValidatedIdentifier");
+    }
+
+    [TestMethod]
+    public void SqliteRetainsSupportedSelfAlternativeCheck()
+    {
+        var options = new DbContextOptionsBuilder<SqliteContext>()
+            .UseSqlite("DataSource=:memory:")
+            .Options;
+        using var context = new SqliteContext(options);
+        var migrator = context.Database.GetService<IMigrator>();
+
+        var script = migrator.GenerateScript(
+            "20260901223744_InfrastructureRegistryV2",
+            "20260901231224_InfrastructureRegistryValidatedConstraints");
+
+        StringAssert.Contains(script, "CK_Services_NoSelfAlternative");
+    }
+
+    [TestMethod]
     public async Task RemovingAudioViewScopesPreservesAudioDataAndExplicitShares()
     {
         await using var connection = new SqliteConnection("DataSource=:memory:");
