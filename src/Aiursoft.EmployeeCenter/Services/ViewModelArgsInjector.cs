@@ -274,6 +274,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Audit Services"];
     
         _ = localizer["Services Dashboard"];
+    
+        _ = localizer["Infrastructure data quality"];
     }
 
     public void InjectSimple(
