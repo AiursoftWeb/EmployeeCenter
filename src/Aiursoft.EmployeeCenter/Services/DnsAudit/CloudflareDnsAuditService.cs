@@ -174,7 +174,7 @@ public sealed class CloudflareDnsAuditService(
                     return;
                 }
 
-                var uri = new UriBuilder(candidate.Scheme!, domain) { Path = "/" }.Uri;
+                var uri = new UriBuilder(candidate.Scheme, domain) { Path = "/" }.Uri;
                 var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
                     async attemptToken =>
                     {

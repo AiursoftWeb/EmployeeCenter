@@ -163,7 +163,7 @@ public static partial class DnsAuditAnalyzer
 
             foreach (var alias in aliases)
             {
-                if (alias.Type == Entities.DomainAliasType.Cname)
+                if (alias.Type == DomainAliasType.Cname)
                 {
                     var expectedTarget = NormalizeDomain(alias.TargetService?.PrimaryDomain ?? string.Empty);
                     var actualTargets = recordsByName.TryGetValue(domain, out var aliasRecords)
@@ -195,7 +195,7 @@ public static partial class DnsAuditAnalyzer
                     continue;
                 }
 
-                if (alias.Type != Entities.DomainAliasType.HttpRedirect)
+                if (alias.Type != DomainAliasType.HttpRedirect)
                 {
                     issues.Add(new DnsAuditIssue
                     {
@@ -266,7 +266,7 @@ public static partial class DnsAuditAnalyzer
                         issues.Add(new DnsAuditIssue
                         {
                             Type = DnsAuditIssueType.MissingDns,
-                            Severity = service.Status == Entities.ServiceStatus.Running
+                            Severity = service.Status == ServiceStatus.Running
                                 ? DnsAuditSeverity.Critical
                                 : DnsAuditSeverity.Warning,
                             Domain = domain,
@@ -311,7 +311,7 @@ public static partial class DnsAuditAnalyzer
                 issues.Add(new DnsAuditIssue
                 {
                     Type = DnsAuditIssueType.MissingDns,
-                    Severity = service.Status == Entities.ServiceStatus.Running
+                    Severity = service.Status == ServiceStatus.Running
                         ? DnsAuditSeverity.Critical
                         : DnsAuditSeverity.Warning,
                     Domain = domain,
@@ -462,7 +462,7 @@ public static partial class DnsAuditAnalyzer
 
             foreach (var service in registeredServices)
             {
-                if (service.Status == Entities.ServiceStatus.Running &&
+                if (service.Status == ServiceStatus.Running &&
                     !service.ServerId.HasValue)
                 {
                     issues.Add(new DnsAuditIssue
@@ -501,7 +501,7 @@ public static partial class DnsAuditAnalyzer
                     });
                 }
 
-                if (service.Status == Entities.ServiceStatus.Offline)
+                if (service.Status == ServiceStatus.Offline)
                 {
                     issues.Add(new DnsAuditIssue
                     {
@@ -607,11 +607,11 @@ public static partial class DnsAuditAnalyzer
             domain.EndsWith($".{zone}", StringComparison.OrdinalIgnoreCase));
     }
 
-    private static bool RequiresDualStackAudit(Entities.Service service)
+    private static bool RequiresDualStackAudit(Service service)
     {
-        return service.Purpose is Entities.ServicePurpose.Global or
-            Entities.ServicePurpose.Domestic or
-            Entities.ServicePurpose.Both;
+        return service.Purpose is ServicePurpose.Global or
+            ServicePurpose.Domestic or
+            ServicePurpose.Both;
     }
 
     private static HashSet<string> ResolveEffectiveAddresses(
@@ -662,7 +662,7 @@ public static partial class DnsAuditAnalyzer
         return addresses;
     }
 
-    private static Dictionary<string, HashSet<int>> ExtractKnownServerAddresses(IEnumerable<Entities.Server> servers)
+    private static Dictionary<string, HashSet<int>> ExtractKnownServerAddresses(IEnumerable<Server> servers)
     {
         var addresses = new Dictionary<string, HashSet<int>>(StringComparer.OrdinalIgnoreCase);
         foreach (var server in servers)
