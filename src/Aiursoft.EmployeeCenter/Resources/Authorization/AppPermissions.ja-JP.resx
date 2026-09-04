@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>サービスおよびDNSプロバイダーの作成、更新、削除を許可します。デフォルトでは、すべてのユーザーがサービスを閲覧できます。</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>サーバー、サービス、プロバイダー、DNSプロバイダー、ドメインエイリアスの作成、更新、廃棄、およびメンテナンスを許可します。</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>すべてのユーザーの給与明細の発行と管理を許可します。</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>会社のIT資産（カテゴリ、モデル、個別アイテムを含む）の管理を許可します。また、従業員への資産の割り当ておよび回収も許可します。</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>サービスのDNSおよび可用性監査を手動でトリガーできます。</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>ロール名とその割り当てられた権限の変更を許可します。</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>会議の文字起こしを表示したり、任意の録音の文字起こしを聴いたり読んだりできます。</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>サービスのヘルスサマリー、観測結果、および詳細な監査結果の閲覧を許可します。</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>システムレベルの情報と設定の表示を許可します。</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>任意のユーザーのレポートライン（マネージャー、部下、同僚を含む）を閲覧できます。</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>サーバーおよびサービスのレジストリ、デプロイ関係、インフラストラクチャ参照データの閲覧を許可します。</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>任意のユーザーのSSHキーを表示、編集、削除できます。</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>監査サービス</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>監査サービス（レガシー）</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>AI とチャット</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>アプリケーションインスタンスの再起動を許可します。可用性の中断を引き起こす可能性がありますが、すべての設定とキャッシュは再読み込みされます。</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>移行のためのレガシー権限として保持されています。引き続きアクセスが必要なロールには「インフラ管理」を割り当ててください。</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>移行のために保持されているレガシー権限です。適切な権限として「サービスの監査を表示」および「サービスの監査を実行」を割り当ててください。</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>任意のパスワード管理</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>グローバル設定の管理</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>インフラストラクチャの管理</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>休暇管理</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>サービスの管理</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>サービス管理（レガシー）</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>SSHキーの管理</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>このアプリを再起動</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>サービス監査の実行</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>フィードバックを送信</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>契約履歴を表示</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>インフラストラクチャの表示</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>会議のトランスクリプトを表示</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>報告ラインを表示</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>サービス監査の表示</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>システムコンテキストの表示</value>

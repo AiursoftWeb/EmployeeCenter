@@ -18,11 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Authentik Integrated" xml:space="preserve">
+      <data name="Alternative service" xml:space="preserve">
+    <value>Alternativ tjänst</value>
+  </data>
+  <data name="Authentik Integrated" xml:space="preserve">
     <value>Authentik Integrerat</value>
   </data>
   <data name="Cloudflare Proxied" xml:space="preserve">
     <value>Cloudflare Proxied</value>
+  </data>
+  <data name="Company entity" xml:space="preserve">
+    <value>Bolagsentitet</value>
   </data>
   <data name="Cross-Entity Link" xml:space="preserve">
     <value>Korsentitetslänk</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Domän</value>
+  </data>
+  <data name="Enable Availability Audit" xml:space="preserve">
+    <value>Aktivera tillgänglighetsrevision</value>
   </data>
   <data name="FRPS Server" xml:space="preserve">
     <value>FRPS-server</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Ägare</value>
+  </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>Primärdomän</value>
   </data>
   <data name="Protocols" xml:space="preserve">
     <value>Protokoll</value>
@@ -65,6 +77,9 @@
   </data>
   <data name="Server IP" xml:space="preserve">
     <value>Server-IP</value>
+  </data>
+  <data name="Service name" xml:space="preserve">
+    <value>Tjänstenamn</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>

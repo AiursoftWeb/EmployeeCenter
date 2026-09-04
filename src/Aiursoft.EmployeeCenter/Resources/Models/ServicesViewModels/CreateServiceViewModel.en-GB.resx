@@ -18,11 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Authentik Integrated" xml:space="preserve">
+      <data name="Alternative service" xml:space="preserve">
+    <value>Alternative service</value>
+  </data>
+  <data name="Authentik Integrated" xml:space="preserve">
     <value>Authentik Integrated</value>
   </data>
   <data name="Cloudflare Proxied" xml:space="preserve">
     <value>Cloudflare Proxied</value>
+  </data>
+  <data name="Company entity" xml:space="preserve">
+    <value>Company entity</value>
   </data>
   <data name="Cross-Entity Link" xml:space="preserve">
     <value>Cross-Entity Link</value>
@@ -51,6 +57,9 @@
   <data name="Owner" xml:space="preserve">
     <value>Owner</value>
   </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>Primary domain</value>
+  </data>
   <data name="Protocols" xml:space="preserve">
     <value>Protocols</value>
   </data>
@@ -68,6 +77,9 @@
   </data>
   <data name="Server IP" xml:space="preserve">
     <value>Server IP</value>
+  </data>
+  <data name="Service name" xml:space="preserve">
+    <value>Service name</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
