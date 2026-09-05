@@ -27,6 +27,15 @@
   <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
     <value>选择一个已审计且未注册的 DNS 主机名，并将其关联到现有服务。</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP 别名验证精确的重定向 URL；CNAME 别名验证 DNS 是否直接指向所选服务的主机名。</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 重定向</value>
+  </data>
   <data name="No alias candidates are available" xml:space="preserve">
     <value>没有可用的别名候选项</value>
   </data>
@@ -56,15 +65,6 @@
   </data>
   <data name="Turn this Unknown DNS finding into a managed redirect entry point." xml:space="preserve">
     <value>把这条未知 DNS 记录登记为受管理的跳转入口。</value>
-  </data>
-  <data name="HTTP redirect" xml:space="preserve">
-    <value>HTTP 重定向</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
-  </data>
-  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
-    <value>HTTP 别名验证精确的重定向 URL；CNAME 别名验证 DNS 是否直接指向所选服务的主机名。</value>
   </data>
 
 </root>

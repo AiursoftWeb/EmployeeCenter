@@ -27,23 +27,23 @@
   <data name="Change the exact destination expected by every service audit." xml:space="preserve">
     <value>修改所有服务审计所期望的精确目标地址。</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Edit domain alias" xml:space="preserve">
     <value>编辑域名别名</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP 别名验证精确的重定向 URL；CNAME 别名验证 DNS 是否直接指向所选服务的主机名。</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 重定向</value>
   </data>
   <data name="Save and audit now" xml:space="preserve">
     <value>保存并立即审计</value>
   </data>
   <data name="The audit requires the first redirect Location header to match this URL exactly." xml:space="preserve">
     <value>审计要求第一跳 Location 响应头与此 URL 完全一致。</value>
-  </data>
-  <data name="HTTP redirect" xml:space="preserve">
-    <value>HTTP 重定向</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
-  </data>
-  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
-    <value>HTTP 别名验证精确的重定向 URL；CNAME 别名验证 DNS 是否直接指向所选服务的主机名。</value>
   </data>
 
 </root>

@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>审计失败</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>审计历史</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>立即审计</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>审计服务注册表、DNS 配置、服务器所有权、别名以及实时 HTTP 可用性。</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>已审计的主机名</value>
   </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>每 20 分钟自动刷新</value>
@@ -50,6 +56,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>将 EmployeeCenter 服务注册表与只读的 Cloudflare DNS 观察结果进行比较。</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>已完成</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>严重</value>
@@ -99,6 +108,9 @@
   <data name="Info" xml:space="preserve">
     <value>信息</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>问题</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>上次成功审计</value>
   </data>
@@ -120,6 +132,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>登记为别名</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>请求时间</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>请求人</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>执行审计</value>
   </data>
@@ -137,6 +155,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>严重程度</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>首次后台审计尚未完成。完成后，结果将存储到数据库中。</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>首次后台审计尚未完成。此页面将从内存缓存中读取其结果。</value>

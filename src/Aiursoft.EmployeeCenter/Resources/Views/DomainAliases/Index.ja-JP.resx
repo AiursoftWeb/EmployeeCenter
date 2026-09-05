@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>エイリアスガバナンス</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>エイリアスホスト名</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>エイリアスの種類</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>今すぐ監査</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>監査ステータス</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>監査ステータスには、サービス監査の表示権限が必要です。</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>利用可能なDNS候補</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>このドメインエイリアスを削除しますか？</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>ドメインエイリアスレジストリ</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>各ソースホスト名は、登録されたHTTPリダイレクトまたはDNS CNAMEターゲットと一致する必要があります。</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>各ソースホスト名は、ターゲットURLと完全に一致する初回ホップのリダイレクトを返す必要があります。</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>正確なターゲットURL</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>期待されるターゲット</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>健全</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTPリダイレクト</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>最終監査成功日時</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>レガシーのホスト名を管理し、すべてのリダイレクトが正確に登録された宛先に到達するか確認します。</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>レガシーのホスト名を管理し、そのHTTPリダイレクトまたはDNS CNAMEターゲットを確認します。</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>管理対象エイリアス</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>登録済みエイリアス</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>制限あり</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>サービス ダッシュボード</value>

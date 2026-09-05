@@ -27,6 +27,15 @@
   <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
     <value>選擇一個已稽核但未註冊的 DNS 主機名稱，並將其連結至現有的服務。</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP 別名會驗證精確的重定向 URL。CNAME 別名會驗證 DNS 是否直接指向所選定的服務主機名稱。</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 重定向</value>
+  </data>
   <data name="No alias candidates are available" xml:space="preserve">
     <value>沒有可用的別名候選項目</value>
   </data>

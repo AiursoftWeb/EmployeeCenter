@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>別名管理</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>別名主機名</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>別名類型</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>立即審計</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>稽核狀態</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>稽核狀態需要 service-audit 檢視權限。</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>可用 DNS 候選</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>要刪除此網域名稱別名嗎？</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>域名別名登記</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>每個來源主機名稱必須與其已註冊的 HTTP 重定向或 DNS CNAME 目標相符。</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>每個來源主機名稱必須回傳一個與其目標 URL 完全相符的首跳重定向。</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>精確目標網址</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>預期目標</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>正常</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 重定向</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>最近一次成功稽核</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>管理舊域名，並確保每個轉發都能準確到達已註冊的目的地。</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>管理舊有主機名稱，並核實其 HTTP 重定向或 DNS CNAME 目標。</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>受管理的別名</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>已註冊別名</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>受限</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>服務儀表板</value>
