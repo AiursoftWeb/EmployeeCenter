@@ -39,6 +39,9 @@
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>서비스 포트폴리오의 대상 및 라우팅 범위</value>
   </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>감사 접근 권한이 필요합니다</value>
+  </data>
   <data name="Audit pending" xml:space="preserve">
     <value>감사 대기 중</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="Current state of every registered service." xml:space="preserve">
     <value>등록된 모든 서비스의 현재 상태</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>데이터 품질</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>삭제</value>
@@ -171,6 +177,9 @@
   <data name="Registry Quality" xml:space="preserve">
     <value>레지스트리 품질</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>제한됨</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>실행 중</value>
   </data>
@@ -227,6 +236,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>DNS 감사 보기</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>서버 보기</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>서비스 감사 보기</value>

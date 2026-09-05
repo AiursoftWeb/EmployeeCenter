@@ -24,6 +24,12 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>이 서비스를 삭제하시겠습니까?</value>
   </data>
+  <data name="Are you sure you want to retire this service?" xml:space="preserve">
+    <value>이 서비스를 은퇴하시겠습니까?</value>
+  </data>
+  <data name="Audit enabled" xml:space="preserve">
+    <value>감사 활성화</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
@@ -57,6 +63,9 @@
   <data name="Edit" xml:space="preserve">
     <value>수정</value>
   </data>
+  <data name="Lifecycle status" xml:space="preserve">
+    <value>라이프사이클 상태</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>위치</value>
   </data>
@@ -66,8 +75,17 @@
   <data name="No services found." xml:space="preserve">
     <value>서비스를 찾을 수 없습니다.</value>
   </data>
+  <data name="Not observed" xml:space="preserve">
+    <value>관측되지 않음</value>
+  </data>
+  <data name="Observed health" xml:space="preserve">
+    <value>관측된 상태</value>
+  </data>
   <data name="Offline" xml:space="preserve">
     <value>오프라인</value>
+  </data>
+  <data name="Open service" xml:space="preserve">
+    <value>서비스 열기</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>소유자</value>
@@ -75,11 +93,23 @@
   <data name="Please associate an FRPS server." xml:space="preserve">
     <value>FRPS 서버를 연결하세요.</value>
   </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>기본 도메인</value>
+  </data>
   <data name="Protocols" xml:space="preserve">
     <value>프로토콜</value>
   </data>
   <data name="Purpose" xml:space="preserve">
     <value>용도</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>제한됨</value>
+  </data>
+  <data name="Retire" xml:space="preserve">
+    <value>폐기</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>해지됨</value>
   </data>
   <data name="Running" xml:space="preserve">
     <value>실행 중</value>
@@ -89,6 +119,9 @@
   </data>
   <data name="Server" xml:space="preserve">
     <value>서버</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>서비스</value>
   </data>
   <data name="Services" xml:space="preserve">
     <value>서비스</value>

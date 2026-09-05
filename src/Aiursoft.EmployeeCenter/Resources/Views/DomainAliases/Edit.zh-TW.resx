@@ -24,8 +24,17 @@
   <data name="Change the exact destination expected by every service audit." xml:space="preserve">
     <value>變更每個服務稽核所預期的精確目的地。</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Edit domain alias" xml:space="preserve">
     <value>編輯網域別名</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP 別名會驗證精確的重定向 URL。CNAME 別名會驗證 DNS 是否直接指向所選定的服務主機名稱。</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 重新導向</value>
   </data>
   <data name="Save and audit now" xml:space="preserve">
     <value>儲存並立即稽核</value>

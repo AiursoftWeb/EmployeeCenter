@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>監査に失敗しました</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>監査履歴</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>今すぐ監査</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>サービスレジストリ、DNS設定、サーバーの所有権、エイリアス、およびHTTPの稼働状況を監査します。</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>監査対象ホスト名</value>
   </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>20分ごとに自動更新されます</value>
@@ -50,6 +56,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>EmployeeCenterのサービスレジストリを読み取り専用のCloudflare DNS観測結果と比較します。</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>完了</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>重大</value>
@@ -93,6 +102,9 @@
   <data name="Info" xml:space="preserve">
     <value>情報</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>問題</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>最終成功監査</value>
   </data>
@@ -114,6 +126,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>エイリアスとして登録</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>リクエスト日時</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>リクエスト者</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>監査を実行</value>
   </data>
@@ -131,6 +149,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>深刻度</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>最初のバックグラウンド監査はまだ完了していません。完了すると、結果はデータベースに保存されます。</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>最初のバックグラウンド監査がまだ完了していません。このページは、インメモリキャッシュからその結果を読み取ります。</value>

@@ -24,8 +24,17 @@
   <data name="Change the exact destination expected by every service audit." xml:space="preserve">
     <value>すべてのサービス監査が期待する正確な宛先を変更します。</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Edit domain alias" xml:space="preserve">
     <value>ドメインエイリアスの編集</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTPエイリアスは、正確なリダイレクトURLを検証します。CNAMEエイリアスは、DNSが選択されたサービスのホスト名に直接指していることを検証します。</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTPリダイレクト</value>
   </data>
   <data name="Save and audit now" xml:space="preserve">
     <value>保存して監査を実行</value>

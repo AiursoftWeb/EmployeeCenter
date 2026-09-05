@@ -39,6 +39,9 @@
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>Đối tượng và phạm vi định tuyến của danh mục dịch vụ.</value>
   </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>Cần quyền truy cập kiểm toán</value>
+  </data>
   <data name="Audit pending" xml:space="preserve">
     <value>Chờ kiểm toán</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="Current state of every registered service." xml:space="preserve">
     <value>Trạng thái hiện tại của mọi dịch vụ đã đăng ký.</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Chất lượng dữ liệu</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Xóa</value>
@@ -171,6 +177,9 @@
   <data name="Registry Quality" xml:space="preserve">
     <value>Chất lượng Sổ đăng ký</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Bị hạn chế</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Đang chạy</value>
   </data>
@@ -227,6 +236,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>Xem Kiểm Toán DNS</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>Xem Máy Chủ</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>Xem kiểm tra dịch vụ</value>

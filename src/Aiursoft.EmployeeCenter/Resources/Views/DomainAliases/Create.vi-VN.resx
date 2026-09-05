@@ -27,6 +27,15 @@
   <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
     <value>Chọn một tên máy chủ DNS đã được kiểm tra và chưa đăng ký, rồi kết nối tên đó với một dịch vụ hiện có.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>Biến thể HTTP xác minh một URL chuyển hướng chính xác. Biến thể CNAME xác minh rằng DNS trỏ trực tiếp đến tên máy chủ dịch vụ đã chọn.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>Định hướng HTTP</value>
+  </data>
   <data name="No alias candidates are available" xml:space="preserve">
     <value>Không có ứng viên alias nào khả dụng</value>
   </data>

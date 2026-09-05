@@ -24,8 +24,17 @@
   <data name="Change the exact destination expected by every service audit." xml:space="preserve">
     <value>모든 서비스 감사에서 요구하는 정확한 대상 주소를 변경합니다.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Edit domain alias" xml:space="preserve">
     <value>도메인 별칭 편집</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP 별칭은 정확한 리디렉션 URL을 확인합니다. CNAME 별칭은 DNS가 선택된 서비스 호스트 이름으로 직접 가리키는지 확인합니다.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 리다이렉트</value>
   </data>
   <data name="Save and audit now" xml:space="preserve">
     <value>저장 및 감사 실행</value>

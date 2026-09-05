@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>작업</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>별칭 관리</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>별칭 호스트 이름</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>별칭 유형</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>지금 점검</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>감사 상태</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>감사 상태 확인에는 서비스 감사 보기 권한이 필요합니다.</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>사용 가능한 DNS 후보</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>이 도메인 별명을 삭제하시겠습니까?</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>도메인 별칭 등록소</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>각 소스 호스트 이름은 등록된 HTTP 리다이렉트 또는 DNS CNAME 대상과 일치해야 합니다.</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>각 소스 호스트 이름은 대상 URL과 정확히 일치하는 1회 리다이렉트를 반환해야 합니다.</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>정확한 대상 URL</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>기대 대상</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>정상</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 리다이렉트</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>마지막 성공한 감사</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>레거시 호스트 이름을 관리하고 모든 리디렉션이 정확히 등록된 대상에 도달하는지 확인하세요.</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>레거시 호스트 이름을 관리하고 HTTP 리디렉션 또는 DNS CNAME 대상이 올바른지 확인하세요.</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>관리 중인 별칭</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>등록된 별칭</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>제한됨</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>서비스 대시보드</value>

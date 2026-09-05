@@ -27,6 +27,15 @@
   <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
     <value>감사된 미등록 DNS 호스트 이름을 선택하고 기존 서비스에 연결하세요.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP 별칭은 정확한 리다이렉트 URL을 확인합니다. CNAME 별칭은 DNS가 선택된 서비스 호스트 이름으로 직접 가리키는지 확인합니다.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP 리디렉션</value>
+  </data>
   <data name="No alias candidates are available" xml:space="preserve">
     <value>가용한 별칭 후보가 없습니다</value>
   </data>
