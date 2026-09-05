@@ -24,8 +24,17 @@
   <data name="Change the exact destination expected by every service audit." xml:space="preserve">
     <value>Измените точный целевой адрес, ожидаемый каждым аудитом службы.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Edit domain alias" xml:space="preserve">
     <value>Редактировать псевдоним домена</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP-псевдонимы проверяют точный URL перенаправления. CNAME-псевдонимы проверяют, что DNS указывает непосредственно на выбранный имя узла службы.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP-редирект</value>
   </data>
   <data name="Save and audit now" xml:space="preserve">
     <value>Сохранить и проверить сейчас</value>

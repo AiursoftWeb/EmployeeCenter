@@ -39,6 +39,9 @@
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>Public cible et périmètre de routage du portefeuille de services.</value>
   </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>Accès à l&apos;audit requis</value>
+  </data>
   <data name="Audit pending" xml:space="preserve">
     <value>Audit en attente</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="Current state of every registered service." xml:space="preserve">
     <value>État actuel de chaque service enregistré.</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Qualité des données</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
@@ -171,6 +177,9 @@
   <data name="Registry Quality" xml:space="preserve">
     <value>Qualité de l&apos;annuaire</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restreint</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>En cours d&apos;exécution</value>
   </data>
@@ -227,6 +236,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>Voir l&apos;audit DNS</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>Voir les serveurs</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>Voir l&apos;audit de service</value>

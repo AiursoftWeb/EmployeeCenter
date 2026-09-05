@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Kiểm toán thất bại</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>Lịch sử kiểm toán</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>Kiểm toán ngay</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>Kiểm toán sổ đăng ký dịch vụ, cấu hình DNS, quyền sở hữu máy chủ, tên alias và khả năng khả dụng HTTP trực tiếp.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Tên miền được kiểm toán</value>
   </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>Tự động làm mới mỗi 20 phút</value>
@@ -50,6 +56,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>So sánh sổ đăng ký dịch vụ EmployeeCenter với các quan sát DNS Cloudflare chỉ đọc.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Hoàn thành</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Nghiêm trọng</value>
@@ -93,6 +102,9 @@
   <data name="Info" xml:space="preserve">
     <value>Thông tin</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Vấn đề</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Kiểm toán thành công gần nhất</value>
   </data>
@@ -114,6 +126,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>Đăng ký dưới dạng alias</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Đã yêu cầu</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>Người yêu cầu</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Chạy kiểm toán</value>
   </data>
@@ -131,6 +149,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Mức độ nghiêm trọng</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>Kiểm toán nền tảng đầu tiên chưa hoàn tất. Kết quả sẽ được lưu trữ trong cơ sở dữ liệu khi hoàn thành.</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>Đợt kiểm tra nền đầu tiên vẫn chưa hoàn tất. Trang này sẽ đọc kết quả từ bộ nhớ đệm trong bộ nhớ.</value>

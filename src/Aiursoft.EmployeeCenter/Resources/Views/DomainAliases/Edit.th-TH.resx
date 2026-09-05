@@ -24,8 +24,17 @@
   <data name="Change the exact destination expected by every service audit." xml:space="preserve">
     <value>เปลี่ยนปลายทางที่ถูกต้องตามที่การตรวจสอบบริการทุกตัวคาดหวัง</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Edit domain alias" xml:space="preserve">
     <value>แก้ไขชื่อโดเมน alias</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>エイリアส HTTP จะตรวจสอบ URL รีไดเรกต์ที่ระบุไว้เป็นเอกฉันท์ ส่วนエイリアส CNAME จะตรวจสอบว่า DNS ชี้ไปยังชื่อโฮสต์ของบริการที่เลือกโดยตรง</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>การเปลี่ยนเส้นทาง HTTP</value>
   </data>
   <data name="Save and audit now" xml:space="preserve">
     <value>บันทึกและตรวจสอบทันที</value>

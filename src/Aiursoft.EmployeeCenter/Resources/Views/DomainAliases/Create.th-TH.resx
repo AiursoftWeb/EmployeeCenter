@@ -27,6 +27,15 @@
   <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
     <value>เลือกชื่อโฮสต์ DNS ที่ผ่านการตรวจสอบและยังไม่ได้จดทะเบียน แล้วเชื่อมต่อเข้ากับบริการที่มีอยู่</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP aliases ยืนยัน URL ที่ถูกเปลี่ยนเส้นทางอย่างแม่นยำ CNAME aliases ยืนยันว่า DNS ชี้ไปยังชื่อโฮสต์ของบริการที่เลือกโดยตรง</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>การเปลี่ยนเส้นทาง HTTP</value>
+  </data>
   <data name="No alias candidates are available" xml:space="preserve">
     <value>ไม่มีตัวเลือก alias ให้ใช้</value>
   </data>

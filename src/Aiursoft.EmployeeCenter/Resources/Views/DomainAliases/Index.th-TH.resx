@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>การกำกับดูแลชื่อเล่น</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>ชื่อโฮสต์เอเลียส</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>ประเภท Alias</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>ตรวจสอบทันที</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>สถานะการตรวจสอบ</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>สถานะการตรวจสอบต้องได้รับสิทธิ์การดูการตรวจสอบบริการ</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>ผู้สมัคร DNS ที่พร้อมใช้งาน</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>ลบชื่อโดเมนสำรองนี้หรือไม่?</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>ทะเบียนชื่อโดเมน Alias</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>ชื่อโฮสต์ต้นทางแต่ละชื่อต้องตรงกับเป้าหมายการเปลี่ยนเส้นทาง HTTP หรือเป้าหมาย DNS CNAME ที่จดทะเบียนไว้</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>ชื่อโดเมนต้นทางแต่ละชื่อต้องส่งกลับการเปลี่ยนเส้นทางแบบ hop แรกที่ตรงกับ URL ปลายทางอย่างแม่นยำ</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>URL เป้าหมายที่ตรงกันทุกประการ</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>เป้าหมายที่คาดหวัง</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>สุขภาพดี</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>การเปลี่ยนเส้นทาง HTTP</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>การตรวจสอบล่าสุดที่สำเร็จ</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>จัดการชื่อโดเมนแบบเดิมและตรวจสอบให้แน่ใจว่าการเปลี่ยนเส้นทางทุกครั้งไปยังปลายทางที่ลงทะเบียนไว้ตามปกติ</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>จัดการชื่อโฮสต์แบบเดิมและตรวจสอบการเปลี่ยนเส้นทาง HTTP หรือเป้าหมาย CNAME ของ DNS</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>ชื่อエイリアสที่จัดการ</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>ชื่อแทนที่ลงทะเบียนแล้ว</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>จำกัด</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>แดชบอร์ดบริการ</value>
