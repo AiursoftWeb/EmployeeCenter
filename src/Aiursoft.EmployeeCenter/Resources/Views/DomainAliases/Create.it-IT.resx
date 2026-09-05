@@ -27,6 +27,15 @@
   <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
     <value>Scegli un nome host DNS verificato e non registrato e collegalo a un servizio esistente.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>Gli alias HTTP verificano un URL di reindirizzamento preciso. Gli alias CNAME verificano che il DNS punti direttamente al nome host del servizio selezionato.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>Reindirizzamento HTTP</value>
+  </data>
   <data name="No alias candidates are available" xml:space="preserve">
     <value>Nessun candidato per alias disponibile</value>
   </data>

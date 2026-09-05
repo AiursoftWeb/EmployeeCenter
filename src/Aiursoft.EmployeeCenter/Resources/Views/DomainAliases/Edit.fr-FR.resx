@@ -24,8 +24,17 @@
   <data name="Change the exact destination expected by every service audit." xml:space="preserve">
     <value>Modifiez la destination exacte attendue par chaque audit de service.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Edit domain alias" xml:space="preserve">
     <value>Modifier l&apos;alias de domaine</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>Les alias HTTP vérifient une URL de redirection précise. Les alias CNAME vérifient que le DNS pointe directement vers le nom d&apos;hôte du service sélectionné.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>Redirection HTTP</value>
   </data>
   <data name="Save and audit now" xml:space="preserve">
     <value>Enregistrer et auditer maintenant</value>

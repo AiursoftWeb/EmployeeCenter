@@ -39,6 +39,9 @@
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>กลุ่มเป้าหมายและขอบเขตการกำหนดเส้นทางของพอร์ตโฟลิโอเซอร์วิส</value>
   </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>ต้องมีการเข้าถึงการตรวจสอบ</value>
+  </data>
   <data name="Audit pending" xml:space="preserve">
     <value>การตรวจสอบยังไม่เสร็จสิ้น</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="Current state of every registered service." xml:space="preserve">
     <value>สถานะปัจจุบันของบริการที่ลงทะเบียนไว้ทั้งหมด</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>คุณภาพข้อมูล</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>ลบ</value>
@@ -171,6 +177,9 @@
   <data name="Registry Quality" xml:space="preserve">
     <value>คุณภาพของ Registry</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>จำกัด</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>กำลังทำงาน</value>
   </data>
@@ -227,6 +236,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>ดูการตรวจสอบ DNS</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>ดูเซิร์ฟเวอร์</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>ดูการตรวจสอบบริการ</value>

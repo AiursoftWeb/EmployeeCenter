@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>การตรวจสอบไม่สำเร็จ</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>ประวัติการตรวจสอบ</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>ตรวจสอบทันที</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>ตรวจสอบทะเบียนบริการ การตั้งค่า DNS ความเป็นเจ้าของเซิร์ฟเวอร์ อลิเอซ และสถานะความพร้อมใช้งาน HTTP แบบเรียลไทม์</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>ชื่อโฮสต์ที่ตรวจสอบ</value>
   </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>อัปเดตอัตโนมัติทุก 20 นาที</value>
@@ -50,6 +56,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>เปรียบเทียบทะเบียนบริการของ EmployeeCenter กับข้อมูล DNS ของ Cloudflare แบบอ่านอย่างเดียว</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>เสร็จสิ้น</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>วิกฤต</value>
@@ -93,6 +102,9 @@
   <data name="Info" xml:space="preserve">
     <value>ข้อมูล</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>ปัญหา</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>การตรวจสอบล่าสุดที่สำเร็จ</value>
   </data>
@@ -114,6 +126,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>ลงทะเบียนเป็นชื่อเล่น</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>คำขอ</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>ผู้ขอ</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>ดำเนินการตรวจสอบ</value>
   </data>
@@ -131,6 +149,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>ระดับความรุนแรง</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>การตรวจสอบเบื้องหลังครั้งแรกยังไม่เสร็จสมบูรณ์ ผลลัพธ์จะถูกเก็บไว้ในฐานข้อมูลเมื่อเสร็จสิ้น</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>การตรวจสอบเบื้องหลังครั้งแรกยังไม่เสร็จสิ้น หน้านี้จะอ่านผลลัพธ์จากแคชในหน่วยความจำ</value>

@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>Gouvernance des alias</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>Nom d&apos;hôte d&apos;alias</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>Type d&apos;alias</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>Auditer maintenant</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>Statut de l&apos;audit</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>L&apos;état de l&apos;audit nécessite l&apos;autorisation de visualisation de l&apos;audit de service.</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Candidats DNS disponibles</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Supprimer cet alias de domaine ?</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Registre des alias de domaine</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>Chaque nom d&apos;hôte source doit correspondre à sa redirection HTTP enregistrée ou à sa cible CNAME DNS.</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>Chaque nom d&apos;hôte source doit renvoyer une redirection de premier saut qui correspond exactement à son URL cible.</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>URL cible exacte</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>Cible attendue</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>sains</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>redirection HTTP</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Dernier audit réussi</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>Gérez les noms d’hôte hérités et vérifiez que chaque redirection atteint exactement sa destination enregistrée.</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>Gérez les noms d&apos;hôte hérités et vérifiez leurs redirections HTTP ou cibles DNS CNAME.</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>alias gérés</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>Alias enregistrés</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restreint</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>Tableau de bord des services</value>

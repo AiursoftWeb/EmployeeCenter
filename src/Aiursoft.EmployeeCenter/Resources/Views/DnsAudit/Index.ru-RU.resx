@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Аудит не выполнен</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>История аудита</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>Проверить сейчас</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>Аудит реестра служб, конфигурации DNS, владения серверами, псевдонимов и доступности HTTP в реальном времени.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Проверенные имена узлов</value>
   </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>Автоматически обновляется каждые 20 минут</value>
@@ -50,6 +56,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Сравните реестр сервисов EmployeeCenter с доступными только для чтения данными DNS Cloudflare.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Завершено</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Критические</value>
@@ -93,6 +102,9 @@
   <data name="Info" xml:space="preserve">
     <value>Информация</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Проблемы</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Последняя успешная проверка</value>
   </data>
@@ -114,6 +126,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>Зарегистрировать как алиас</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Запрошено</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>Запрошено</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Запустить аудит</value>
   </data>
@@ -131,6 +149,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Критичность</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>Первый фоновый аудит ещё не завершён. Результаты будут сохранены в базе данных после его завершения.</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>Первая фоновая аудитория ещё не завершена. Эта страница будет читать её результат из кэша в оперативной памяти.</value>

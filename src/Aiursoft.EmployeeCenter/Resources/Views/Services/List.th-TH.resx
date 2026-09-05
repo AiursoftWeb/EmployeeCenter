@@ -24,6 +24,12 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการลบบริการนี้?</value>
   </data>
+  <data name="Are you sure you want to retire this service?" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการหยุดให้บริการนี้?</value>
+  </data>
+  <data name="Audit enabled" xml:space="preserve">
+    <value>เปิดใช้งานการตรวจสอบ</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
@@ -57,6 +63,9 @@
   <data name="Edit" xml:space="preserve">
     <value>แก้ไข</value>
   </data>
+  <data name="Lifecycle status" xml:space="preserve">
+    <value>สถานะวงจรชีวิต</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>ตำแหน่ง</value>
   </data>
@@ -66,8 +75,17 @@
   <data name="No services found." xml:space="preserve">
     <value>ไม่พบบริการ</value>
   </data>
+  <data name="Not observed" xml:space="preserve">
+    <value>ยังไม่มีการตรวจสอบ</value>
+  </data>
+  <data name="Observed health" xml:space="preserve">
+    <value>สุขภาพที่สังเกตได้</value>
+  </data>
   <data name="Offline" xml:space="preserve">
     <value>ออฟไลน์</value>
+  </data>
+  <data name="Open service" xml:space="preserve">
+    <value>เปิดใช้งานบริการ</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>ผู้ดูแล</value>
@@ -75,11 +93,23 @@
   <data name="Please associate an FRPS server." xml:space="preserve">
     <value>กรุณาเชื่อมโยงเซิร์ฟเวอร์ FRPS</value>
   </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>โดเมนหลัก</value>
+  </data>
   <data name="Protocols" xml:space="preserve">
     <value>โปรโตคอล</value>
   </data>
   <data name="Purpose" xml:space="preserve">
     <value>วัตถุประสงค์</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>ถูกจำกัด</value>
+  </data>
+  <data name="Retire" xml:space="preserve">
+    <value>เลิกใช้</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>เลิกใช้งานแล้ว</value>
   </data>
   <data name="Running" xml:space="preserve">
     <value>กำลังทำงาน</value>
@@ -89,6 +119,9 @@
   </data>
   <data name="Server" xml:space="preserve">
     <value>เซิร์ฟเวอร์</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>บริการ</value>
   </data>
   <data name="Services" xml:space="preserve">
     <value>บริการ</value>

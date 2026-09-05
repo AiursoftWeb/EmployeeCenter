@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Échec de l&apos;audit</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>Historique d&apos;audit</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>Auditer maintenant</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>Auditez le registre des services, la configuration DNS, la propriété des serveurs, les alias et la disponibilité HTTP en direct.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Noms d&apos;hônite audités</value>
   </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>Actualisation automatique toutes les 20 minutes</value>
@@ -50,6 +56,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Comparez le registre de services EmployeeCenter avec les observations DNS en lecture seule de Cloudflare.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Terminé</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Critique</value>
@@ -93,6 +102,9 @@
   <data name="Info" xml:space="preserve">
     <value>Infos</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Problèmes</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Dernier audit réussi</value>
   </data>
@@ -114,6 +126,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>Enregistrer en tant qu&apos;alias</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Demandé</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>Demandé par</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Lancer l&apos;audit</value>
   </data>
@@ -131,6 +149,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Gravité</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>La première inspection en arrière-plan n&apos;est pas encore terminée. Les résultats seront enregistrés dans la base de données lorsqu&apos;elle sera achevée.</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>La première inspection en arrière-plan n&apos;est pas encore terminée. Cette page lira son résultat depuis le cache en mémoire.</value>
