@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>Åtgärder</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>Aliasstyrning</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>Aliasvärdname</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>Aliastyp</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>Granska nu</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>Granskningsstatus</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>Auditeringsstatus kräver behörigheten för visning av serviceaudit.</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Tillgängliga DNS-kandidater</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Vill du ta bort det här domänaliaset?</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Domänaliasregister</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>Varje källvärdnamn måste matcha sitt registrerade HTTP-omdirigering eller DNS CNAME-mål.</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>Varje källvärdnamn måste returnera en omdirigering på första hoppet som exakt matchar dess måladress.</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>Exakt målt URL</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>Förväntat mål</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>friska</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP-omdirigering</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Senaste lyckade revision</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>Hantera äldre värdnamn och verifiera att varje omdirigering når sin exakt registrerade destination.</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>Hantera äldre värdnamn och verifiera deras HTTP-omdirigeringar eller DNS CNAME-mål.</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>hanterade alias</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>Registrerade alias</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Begränsad</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>Tjänstepanel</value>

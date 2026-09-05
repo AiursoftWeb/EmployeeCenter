@@ -24,6 +24,12 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Weet u zeker dat u deze service wilt verwijderen?</value>
   </data>
+  <data name="Are you sure you want to retire this service?" xml:space="preserve">
+    <value>Weet u zeker dat u deze service wilt stopzetten?</value>
+  </data>
+  <data name="Audit enabled" xml:space="preserve">
+    <value>Audit ingeschakeld</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
@@ -57,6 +63,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Bewerken</value>
   </data>
+  <data name="Lifecycle status" xml:space="preserve">
+    <value>Levenscyclusstatus</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Locatie</value>
   </data>
@@ -66,8 +75,17 @@
   <data name="No services found." xml:space="preserve">
     <value>Geen services gevonden.</value>
   </data>
+  <data name="Not observed" xml:space="preserve">
+    <value>Niet waargenomen</value>
+  </data>
+  <data name="Observed health" xml:space="preserve">
+    <value>Geadviseerde gezondheid</value>
+  </data>
   <data name="Offline" xml:space="preserve">
     <value>Offline</value>
+  </data>
+  <data name="Open service" xml:space="preserve">
+    <value>Service openen</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Eigenaar</value>
@@ -75,11 +93,23 @@
   <data name="Please associate an FRPS server." xml:space="preserve">
     <value>Koppel een FRPS-server.</value>
   </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>Hoofd domein</value>
+  </data>
   <data name="Protocols" xml:space="preserve">
     <value>Protocol</value>
   </data>
   <data name="Purpose" xml:space="preserve">
     <value>Doel</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Beperkt</value>
+  </data>
+  <data name="Retire" xml:space="preserve">
+    <value>Pensioen</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Gepensioneerd</value>
   </data>
   <data name="Running" xml:space="preserve">
     <value>Actief</value>
@@ -89,6 +119,9 @@
   </data>
   <data name="Server" xml:space="preserve">
     <value>Server</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Service</value>
   </data>
   <data name="Services" xml:space="preserve">
     <value>Diensten</value>

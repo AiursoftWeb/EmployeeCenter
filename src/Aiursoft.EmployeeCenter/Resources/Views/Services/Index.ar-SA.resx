@@ -39,6 +39,9 @@
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>الفئة المستهدفة ونطاق توجيه محفظة الخدمات.</value>
   </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>يتطلب الوصول إلى التدقيق</value>
+  </data>
   <data name="Audit pending" xml:space="preserve">
     <value>بانتظار التدقيق</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="Current state of every registered service." xml:space="preserve">
     <value>الحالة الحالية لكل خدمة مسجّلة.</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>جودة البيانات</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
@@ -171,6 +177,9 @@
   <data name="Registry Quality" xml:space="preserve">
     <value>جودة السجل</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>مقيد</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>جاري التشغيل</value>
   </data>
@@ -227,6 +236,9 @@
   </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>عرض تدقيق DNS</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>عرض الخوادم</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>عرض تدقيق الخدمة</value>
