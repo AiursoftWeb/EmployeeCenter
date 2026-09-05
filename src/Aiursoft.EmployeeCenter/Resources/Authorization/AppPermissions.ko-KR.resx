@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>서비스 및 DNS 공급자 생성, 수정 및 삭제를 허용합니다. 기본적으로 모든 사용자가 서비스를 볼 수 있습니다.</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>서버, 서비스, 제공자, DNS 제공자, 도메인 별칭을 생성, 업데이트, 폐기 및 유지보수할 수 있습니다.</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>모든 사용자의 급여 명세서 발급 및 관리를 허용합니다.</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>회사의 IT 자산을 관리할 수 있으며, 카테고리, 모델 및 개별 항목을 포함합니다. 또한 자산을 직원에게 배정하거나 회수할 수 있습니다.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>서비스 DNS 및 가용성 감사를 수동으로 트리거할 수 있습니다.</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>역할 이름과 할당된 권한을 수정할 수 있습니다.</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>회의록을 görüntü하고 녹음 파일의 내용을 듣거나 읽을 수 있습니다.</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>서비스 상태 요약, 관찰 결과 및 상세 감사 결과를 볼 수 있습니다.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>시스템 수준 정보 및 설정을 볼 수 있습니다.</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>모든 사용자의 보고 체계(직속 상사, 부하직원, 동료 포함)를 조회할 수 있습니다.</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>서버 및 서비스 레지스트리, 배포 관계, 인프라 참조 데이터를 볼 수 있습니다.</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>모든 사용자의 SSH 키를 조회, 편집 및 삭제할 수 있습니다.</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>서비스 감사</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>서비스 감사 (레거시)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>AI 와 채팅</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>애플리케이션 인스턴스를 재시작할 수 있는 권한을 부여합니다. 가용성 중단을 초래할 수 있으나 모든 설정과 캐시가 다시 로드됩니다.</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>전환을 위해 유지되는 레거시 권한입니다. 여전히 액세스가 필요한 역할에는 &apos;인프라 관리&apos; 권한을 할당하세요.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>전환을 위해 유지되는 레거시 권한입니다. 상황에 따라 서비스 감사 보기 및 서비스 감사 실행 권한을 할당하세요.</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>모든 비밀번호 관리</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>글로벌 설정 관리</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>인프라 관리</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>휴가 관리</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>서비스 관리</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>서비스 관리 (레거시)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>SSH 키 관리</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>이 앱 재시작</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>서비스 감사 실행</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>피드백 제출</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>계약 이력 보기</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>인프라 보기</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>회의록 보기</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>보고선 보기</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>서비스 감사 보기</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>시스템 컨텍스트 보기</value>

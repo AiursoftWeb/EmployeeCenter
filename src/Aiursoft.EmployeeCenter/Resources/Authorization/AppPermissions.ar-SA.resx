@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>يُمكّن من إنشاء الخدمات وتحديثها وحذفها، وكذلك مزودي خدمة DNS. يمكن لكل مستخدم عرض الخدمات افتراضيًا.</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>يتيح إنشاء الخوادم والخدمات والمورّدين ومزوّدي DNS وأسماء النطاقات المستعارة، وتحديثها، وإحالتها للتقاعد، وصيانتها.</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>يسمح بإصدار وإدارة إيصالات الرواتب لجميع المستخدمين.</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>يُمكّن من إدارة أصول الشركة التقنية، بما في ذلك الفئات والنماذج والعناصر الفردية. كما يُمكّن من تعيين الأصول وإعادتها من/إلى الموظفين.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>يتيح تشغيل تدقيق DNS وتوفر الخدمة يدويًا.</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>يسمح بتعديل أسماء الأدوار والصلاحيات المخصصة لها.</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>يسمح بعرض نصوص الاجتماعات والاستماع إليها أو قراءة نصوص أي تسجيل.</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>يسمح بالاطلاع على ملخصات صحة الخدمة والملاحظات ونتائج التدقيق التفصيلية.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>يسمح بعرض معلومات وإعدادات على مستوى النظام.</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>يتيح عرض خط الإبلاغ لأي مستخدم، بما في ذلك مديرهم، مرؤوسيهم، وأقرانهم.</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>يتيح عرض سجل الخوادم والخدمات، وعلاقات النشر، وبيانات البنية التحتية المرجعية.</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>يسمح بعرض وتعديل وحذف مفاتيح SSH لأي مستخدم.</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>خدمات التدقيق</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>مراجعة الخدمات (إصدار قديم)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>الدردشة مع الذكاء الاصطناعي</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>يمنح الإذن بإعادة تشغيل نسخة التطبيق. قد يتسبب ذلك في انقطاعات في التوفر ولكن سيتم إعادة تحميل جميع الإعدادات والذاكرة المؤقتة.</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>تم الاحتفاظ بالصلاحية القديمة للفترة الانتقالية. قم بتعيين &quot;إدارة البنية التحتية&quot; للأدوار التي لا تزال بحاجة إلى الوصول.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>صلاحية قديمة تم الاحتفاظ بها للفترة الانتقالية. قم بتعيين &quot;عرض تدقيق الخدمة&quot; و&quot;تشغيل تدقيق الخدمة&quot; حسب الحاجة.</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>إدارة أي كلمة سر</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>إدارة الإعدادات العالمية</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>إدارة البنية التحتية</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>إدارة الإجازات</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>إدارة الخدمات</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>إدارة الخدمات (قديمة)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>إدارة مفاتيح SSH</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>إعادة تشغيل هذا التطبيق</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>تنفيذ تدقيق الخدمة</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>إرسال الملاحظات</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>عرض سجل العقود</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>عرض البنية التحتية</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>عرض محاضر الاجتماعات</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>عرض خط التقارير</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>عرض تدقيق الخدمة</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>عرض سياق النظام</value>

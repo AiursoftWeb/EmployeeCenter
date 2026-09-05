@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>อนุญาตให้สร้าง แก้ไข และลบบริการและผู้ให้บริการ DNS ทุกผู้ใช้สามารถดูบริการได้โดยค่าเริ่มต้น</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>อนุญาตให้สร้าง อัปเดต ยกเลิกการใช้งาน และบำรุงรักษาเซิร์ฟเวอร์ บริการ ผู้ให้บริการ ผู้ให้บริการ DNS และโดเมนเอเลียส</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>อนุญาตให้ออกและจัดการสลิปเงินเดือนสำหรับผู้ใช้ทั้งหมด</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>อนุญาตให้จัดการสินทรัพย์ไอทีของบริษัท รวมถึงหมวดหมู่ รุ่น และรายการสินทรัพย์แต่ละรายการ รวมถึงอนุญาตให้จัดสรรและคืนสินทรัพย์ให้กับพนักงาน</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>อนุญาตให้เรียกใช้การตรวจสอบ DNS และสถานะความพร้อมใช้งานของบริการด้วยตนเอง</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>อนุญาตให้แก้ไขชื่อบทบาทและสิทธิ์ที่กำหนดให้</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>อนุญาตให้ดูข้อความการประชุม และฟังหรืออ่านข้อความของบันทึกเสียงใด ๆ ได้</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>อนุญาตให้ดูสรุปสถานะสุขภาพของบริการ ข้อสังเกต และผลการตรวจสอบโดยละเอียด</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>อนุญาตให้ดูข้อมูลและการตั้งค่าระดับระบบ</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>อนุญาตให้ดูสายงานของผู้ใช้ทุกคน รวมถึงผู้บังคับบัญชา ผู้ใต้บังคับบัญชา และเพื่อนร่วมงาน</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>อนุญาตให้ดูรายการเซิร์ฟเวอร์และรายการบริการ ความสัมพันธ์ในการดีพลอย และข้อมูลอ้างอิงโครงสร้างพื้นฐาน</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>อนุญาตให้ดู แก้ไข และลบคีย์ SSH ของผู้ใช้ใดก็ได้</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>การตรวจสอบบริการ</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>ตรวจสอบบริการ (ระบบเดิม)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>แชทกับ AI</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>ให้สิทธิ์ในการรีสตาร์ทอินสแตนซ์แอปพลิเคชัน อาจทำให้เกิดการขัดจังหวะในการให้บริการ แต่การตั้งค่าและแคชทั้งหมดจะถูกโหลดใหม่</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>สิทธิ์แบบเดิมที่คงไว้เพื่อการเปลี่ยนผ่าน กำหนดสิทธิ์จัดการโครงสร้างพื้นฐาน (Manage Infrastructure) ให้กับบทบาทที่ยังต้องการการเข้าถึง</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>สิทธิ์แบบเดิมที่คงไว้เพื่อช่วงเปลี่ยนผ่าน มอบสิทธิ์ &quot;ดูการตรวจสอบบริการ&quot; และ &quot;ดำเนินการตรวจสอบบริการ&quot; ตามความเหมาะสม</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>จัดการรหัสผ่านใดๆ</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>จัดการตั้งค่าทั่วไป</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>จัดการโครงสร้างพื้นฐาน</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>จัดการการลา</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>จัดการบริการ</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>จัดการบริการ (แบบเดิม)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>จัดการคีย์ SSH</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>รีบูตแอปนี้</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>ดำเนินการตรวจสอบบริการ</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>ส่งความคิดเห็น</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>ดูประวัติสัญญา</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>ดูโครงสร้างพื้นฐาน</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>ดูเอกสารการประชุม</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>ดูสายรายงาน</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>ดูการตรวจสอบบริการ</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>ดูบริบทของระบบ</value>

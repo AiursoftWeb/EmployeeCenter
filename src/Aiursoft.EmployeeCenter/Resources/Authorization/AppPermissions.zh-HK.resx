@@ -81,6 +81,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>允許建立、更新及刪除服務及DNS供應商。所有用戶預設可檢視服務。</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>允許建立、更新、退役及維護伺服器、服務、供應商、DNS 供應商及網域名稱別名。</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>允許為所有用戶發出及管理薪金單。</value>
   </data>
@@ -98,6 +101,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>允許管理公司的資訊科技資產，包括分類、型號及單一項目。亦允許將資產分配或收回給/由員工。</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>允許手動觸發服務的 DNS 及可用性審計。</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>允許修改角色名稱及其分配的權限。</value>
@@ -156,6 +162,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>允許查看會議記錄，並聆聽或閱讀任何錄音的文字稿。</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>允許查看服務健康摘要、觀察記錄及詳細的審計結果。</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>容許檢視系統級別的資訊及設定。</value>
   </data>
@@ -180,6 +189,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>允許查看任何用戶的匯報線，包括其經理、下屬及同級同事。</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>允許檢視伺服器及服務登記冊、部署關係，以及基礎設施參考資料。</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>允許檢視、編輯及刪除任何用戶的 SSH 金鑰。</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>審計服務</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>審計服務（舊版）</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>與 AI 交談</value>
@@ -243,6 +258,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>授予重啟應用程式實例嘅權限。可能會導致服務中斷，但所有設定同快取將會重新載入。</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>保留此舊有權限以作過渡。請將「管理基礎設施」權限指派給仍需存取的角色。</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>為過渡期而保留的舊有權限。請視情況指派「檢視服務稽核」及「執行服務稽核」。</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>管理任何密碼</value>
   </data>
@@ -270,6 +291,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>管理全域設定</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>管理基礎設施</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>管理假期</value>
   </data>
@@ -290,6 +314,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>管理服務</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>管理服務（舊版）</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>管理 SSH 金鑰</value>
@@ -312,6 +339,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>重新啟動此應用程式</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>執行服務稽核</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>提交反饋</value>
   </data>
@@ -327,11 +357,17 @@
   <data name="View Collection Channels" xml:space="preserve">
     <value>查看收款渠道</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>檢視基礎設施</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>檢視會議文字紀錄</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>查看匯報線</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>檢視服務審計</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>檢視系統內容</value>

@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>Memungkinkan pembuatan, pembaruan, dan penghapusan layanan serta penyedia DNS. Setiap pengguna dapat melihat layanan secara default.</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, penghapusan, dan pemeliharaan server, layanan, penyedia, penyedia DNS, dan alias domain.</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>Memungkinkan penerbitan dan pengelolaan slip gaji untuk semua pengguna.</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Memungkinkan pengelolaan aset TI perusahaan, termasuk kategori, model, dan item individu. Juga memungkinkan penugasan dan pemulihan aset ke/dari karyawan.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Mengizinkan pemicuan manual audit DNS dan ketersediaan layanan.</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Memungkinkan modifikasi nama peran dan izin yang ditetapkan padanya.</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>Memungkinkan melihat transkrip rapat dan mendengarkan atau membaca transkrip dari rekaman apa pun.</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Memungkinkan melihat ringkasan kesehatan layanan, pengamatan, dan temuan audit terperinci.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Memungkinkan melihat informasi dan pengaturan tingkat sistem.</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>Memungkinkan melihat laporan garis dari setiap pengguna, termasuk manajer, bawahan, dan rekan sejawat mereka.</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Memungkinkan melihat registrasi server dan layanan, hubungan deployment, dan data referensi infrastruktur.</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>Memungkinkan melihat, mengedit, dan menghapus kunci SSH milik pengguna mana pun.</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>Audit Layanan</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Audit Layanan (Lega)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Obrolan dengan AI</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Memberikan izin untuk memulai ulang instance aplikasi. Dapat menyebabkan gangguan ketersediaan, tetapi semua pengaturan dan cache akan dimuat ulang.</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Izin lama dipertahankan untuk transisi. Tetapkan Kelola Infrastruktur ke peran yang masih memerlukan akses.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Izin lama dipertahankan untuk transisi. Tugaskan Tinjau Audit Layanan dan Jalankan Audit Layanan sesuai kebutuhan.</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Kelola Kata Sandi Apa Saja</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Kelola Pengaturan Global</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Kelola Infrastruktur</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>Kelola Cuti</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Kelola Layanan</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Kelola Layanan (Lama)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>Kelola Kunci SSH</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>Mulai Ulang Aplikasi Ini</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Jalankan Audit Layanan</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>Kirim Umpan Balik</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>Lihat Riwayat Kontrak</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Lihat Infrastruktur</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>Lihat Transkrip Rapat</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Lihat Laporan Baris</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Lihat Audit Layanan</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Lihat Konteks Sistem</value>

@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>Consente la creazione, l&apos;aggiornamento e l&apos;eliminazione di servizi e provider DNS. Tutti gli utenti possono visualizzare i servizi per impostazione predefinita.</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Consente di creare, aggiornare, dismettere e mantenere server, servizi, provider, provider DNS e alias di dominio.</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>Consente di emettere e gestire le buste paga per tutti gli utenti.</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Consente di gestire gli asset IT aziendali, inclusi categorie, modelli e singoli elementi. Consente inoltre di assegnare e recuperare asset da/ai dipendenti.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Consente di avviare manualmente l&apos;audit DNS e di disponibilità dei servizi.</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Consente la modifica dei nomi dei ruoli e dei permessi assegnati.</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>Consente di visualizzare i trascritti delle riunioni e di ascoltare o leggere i trascritti di qualsiasi registrazione.</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Consente la visualizzazione dei riepiloghi dello stato di salute dei servizi, delle osservazioni e dei risultati dettagliati delle audit.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Consente di visualizzare informazioni e impostazioni a livello di sistema.</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>Permette di visualizzare la linea di rapporto di qualsiasi utente, incluso il loro responsabile, i subordinati e i colleghi.</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Consente la visualizzazione del registro di server e servizi, delle relazioni di deployment e dei dati di riferimento dell&apos;infrastruttura.</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>Consente di visualizzare, modificare ed eliminare le chiavi SSH di qualsiasi utente.</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>Audit dei Servizi</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Audit dei Servizi (Legacy)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Chat con l&apos;IA</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Concede il permesso di riavviare l&apos;istanza dell&apos;applicazione. Potrebbe causare interruzioni della disponibilità, ma tutte le impostazioni e la cache verranno ricaricate.</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Permessa legacy conservata per la transizione. Assegna &quot;Gestisci infrastruttura&quot; ai ruoli che necessitano ancora di accesso.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Permesso legacy mantenuto per la transizione. Assegna Visualizza Audit del Servizio ed Esegui Audit del Servizio in base alle necessità.</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Gestisci Qualsiasi Password</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Gestisci Impostazioni Globali</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Gestisci infrastruttura</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>Gestisci Congedo</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Gestisci Servizi</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Gestisci Servizi (Legacy)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>Gestisci chiavi SSH</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>Riavvia Questa App</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Esegui Audit del Servizio</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>Invia Feedback</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>Visualizza la cronologia dei contratti</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Visualizza Infrastruttura</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>Visualizza trascrizioni delle riunioni</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Visualizza Riga Report</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Visualizza Audit del Servizio</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Visualizza Contesto di Sistema</value>

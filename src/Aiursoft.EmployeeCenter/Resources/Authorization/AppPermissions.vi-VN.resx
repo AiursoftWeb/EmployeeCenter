@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>Cho phép tạo, cập nhật và xóa các dịch vụ và nhà cung cấp DNS. Mọi người dùng đều có thể xem dịch vụ theo mặc định.</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật, ngừng sử dụng và bảo trì các máy chủ, dịch vụ, nhà cung cấp, nhà cung cấp DNS và alias tên miền.</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>Cho phép phát hành và quản lý phiếu lương cho tất cả người dùng.</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Cho phép quản lý các tài sản CNTT của công ty, bao gồm danh mục, mẫu mã và các đơn vị tài sản riêng lẻ. Cũng cho phép gán và thu hồi tài sản cho/từ nhân viên.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Cho phép kích hoạt thủ công kiểm toán DNS và khả năng hoạt động của dịch vụ.</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Cho phép sửa đổi tên vai trò và các quyền đã được gán.</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>Cho phép xem bản ghi cuộc họp và nghe hoặc đọc bản ghi của bất kỳ bản ghi âm nào.</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Cho phép xem bản tóm tắt sức khỏe dịch vụ, các quan sát và kết quả kiểm toán chi tiết.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Cho phép xem thông tin và cài đặt ở cấp hệ thống.</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>Cho phép xem tuyến báo cáo của bất kỳ người dùng nào, bao gồm quản lý, cấp dưới và đồng nghiệp của họ.</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Cho phép xem sổ đăng ký máy chủ và dịch vụ, các mối quan hệ triển khai và dữ liệu tham chiếu hạ tầng.</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>Cho phép xem, chỉnh sửa và xóa khóa SSH của bất kỳ người dùng nào.</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>Kiểm toán Dịch vụ</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Kiểm toán Dịch vụ (Cũ)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Trò chuyện với AI</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Cấp quyền khởi động lại phiên bản ứng dụng. Có thể gây ra gián đoạn về tính khả dụng nhưng tất cả cài đặt và bộ nhớ đệm sẽ được tải lại.</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Quyền kế thừa được giữ lại cho quá trình chuyển đổi. Gán Quản trị Hạ tầng cho các vai trò vẫn cần quyền truy cập.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Quyền kế thừa được giữ lại để chuyển đổi. Gán Xem Kiểm Thử Dịch Vụ và Chạy Kiểm Thử Dịch Vụ cho phù hợp.</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Quản lý Mật khẩu Bất kỳ</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Quản lý Cài đặt Toàn cầu</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Quản trị Hạ tầng</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>Quản lý nghỉ phép</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Quản lý Dịch vụ</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Quản lý Dịch vụ (Phiên bản cũ)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>Quản lý SSH Keys</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>Khởi Động Lại Ứng Dụng Này</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Chạy Kiểm toán Dịch vụ</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>Gửi phản hồi</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>Xem lịch sử hợp đồng</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Xem Hạ tầng</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>Xem bản ghi cuộc họp</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Xem Dòng Báo Cáo</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Xem Kiểm Toán Dịch Vụ</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Xem Ngữ cảnh Hệ thống</value>

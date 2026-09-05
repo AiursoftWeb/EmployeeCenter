@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>सेवाओं और डीएनएस प्रदाताओं के निर्माण, अद्यतन और हटाने की अनुमति देता है। डिफ़ॉल्ट रूप से, प्रत्येक उपयोगकर्ता सेवाओं को देख सकता है।</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>सर्वर, सेवाएँ, प्रदाता, DNS प्रदाता और डोमेन एलियास बनाना, अपडेट करना, सेवानिवृत्त करना और बनाए रखना की अनुमति देता है।</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>सभी उपयोगकर्ताओं के लिए पेरोल स्लिप जारी करने और प्रबंधित करने की अनुमति देता है।</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>कंपनी के आईटी संपत्तियों के प्रबंधन की अनुमति देता है, जिसमें शामिल हैं श्रेणियाँ, मॉडल और व्यक्तिगत आइटम। साथ ही कर्मचारियों को संपत्तियाँ आवंटित और पुनः प्राप्त करने की अनुमति देता है।</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>सेवा DNS और उपलब्धता ऑडिट को मैन्युअली ट्रिगर करने की अनुमति देता है।</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>रोल नामों और उनके सौंपे गए अनुमतियों में संशोधन की अनुमति देता है।</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>मीटिंग के प्रतिलेख देखने और किसी भी रिकॉर्डिंग के प्रतिलेख को सुनने या पढ़ने की अनुमति देता है।</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>सेवा स्वास्थ्य सारांश, अवलोकन और विस्तृत ऑडिट निष्कर्ष देखने की अनुमति देता है।</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>सिस्टम-स्तरीय जानकारी और सेटिंग्स देखने की अनुमति देता है।</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>किसी भी उपयोगकर्ता की रिपोर्ट लाइन देखने की अनुमति देता है, जिसमें उनके प्रबंधक, अधीनस्थ और सहकर्मी शामिल हैं।</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>सेवर और सेवा पंजीकरण, डिप्लॉयमेंट संबंधों और इंफ्रास्ट्रक्चर संदर्भ डेटा को देखने की अनुमति देता है।</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>किसी भी उपयोगकर्ता के SSH कुंजियों को देखने, संपादित करने और हटाने की अनुमति देता है।</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>ऑडिट सेवाएं</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>ऑडिट सेवाएँ (प्राचीन)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>AI से चैट करें</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>एप्लिकेशन इंस्टेंस को पुनरारंभ करने की अनुमति प्रदान करता है। इससे उपलब्धता में व्यवधान हो सकता है, लेकिन सभी सेटिंग्स और कैश पुनः लोड हो जाएंगे।</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>संक्रमण हेतु पुरानी अनुमति कायम रखी गई है। जो भूमिकाओं को अभी भी पहुँच चाहिए, उन पर Manage Infrastructure आवंटित करें।</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>संक्रमण हेतु पुरानी अनुमति बनाए रखी गई है। उचित स्थानों पर सेवा ऑडिट देखें और सेवा ऑडिट चलाएँ।</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>किसी भी पासवर्ड का प्रबंधन करें</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>ग्लोबल सेटिंग्स को प्रबंधित करें</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>इंफ्रास्ट्रक्चर प्रबंधन</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>छुट्टी प्रबंधित करें</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>सेवाओं का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>सेवाओं का प्रबंधन (लेगासी)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>SSH कुंजियाँ प्रबंधित करें</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>इस ऐप को पुनरारंभ करें</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>सेवा ऑडिट चलाएँ</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>फीडबैक जमा करें</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>कॉन्ट्रैक्ट इतिहास देखें</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>इंफ्रास्ट्रक्चर देखें</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>मीटिंग ट्रांसक्रिप्ट देखें</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>रिपोर्ट लाइन देखें</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>सेवा ऑडिट देखें</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>सिस्टम संदर्भ देखें</value>

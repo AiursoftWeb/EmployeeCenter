@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>Staats het aanmaken, bijwerken en verwijderen van services en DNS-leveranciers toe. Elke gebruiker kan services standaard bekijken.</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Staats het aanmaken, bijwerken, afstoten en onderhouden van servers, services, providers, DNS-providers en domein-aliases toe.</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>Staat het uitgeven en beheren van loonstroken voor alle gebruikers toe.</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Staat het beheren van de IT-assets van het bedrijf toe, inclusief categorieën, modellen en afzonderlijke items. Ook staat het toewijzen en terugvragen van assets aan/ van medewerkers toe.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Staat het handmatig uitvoeren van de DNS- en beschikbaarheidsaudit van de service toe.</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Staat aanpassing van rolnamen en hun toegewezen machtigingen toe.</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>Staart het bekijken van vergadertranscripties en het luisteren naar of lezen van transcripties van elke opname toe.</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Staats het weergeven van servicegezondheidssamenvattingen, observaties en gedetailleerde auditbevindingen toe.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Staat het bekijken van systeeminformatie en -instellingen toe.</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>Staat het bekijken van de rapportlijn van elke gebruiker toe, inclusief hun manager, ondergeschikten en collega&apos;s.</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Staat het weergeven van het server- en serviceregister, implementatierelaties en infrastructuurreferentiedata toe.</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>Staat het bekijken, bewerken en verwijderen van SSH-sleutels van elke gebruiker toe.</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>Diensten auditeren</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Auditdiensten (legacy)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Chat met AI</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Verleent toestemming om de applicatie-instantie opnieuw op te starten. Kan beschikbaarheidsonderbrekingen veroorzaken, maar alle instellingen en cache worden opnieuw geladen.</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Legacy-recht overgehouden voor overgang. Wijs Beheer Infrastructuur toe aan rollen die nog toegang nodig hebben.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Legacymachtiging behouden voor overgang. Wijs Bezoek Service Audit en Voer Service Audit toe zoals van toepassing.</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Elk wachtwoord beheren</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Algemene instellingen beheren</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Infrastructuur beheren</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>Verlof beheren</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Services beheren</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Diensten beheren (Legacy)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>SSH-sleutels beheren</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>Herstart deze app</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Serviceaudit uitvoeren</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>Feedback indienen</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>Contractgeschiedenis weergeven</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Infrastructuur bekijken</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>Vergadertranscripties bekijken</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Bekijk rapportlijn</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Serviceaudit weergeven</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Systeemcontext weergeven</value>

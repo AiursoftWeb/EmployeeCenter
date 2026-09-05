@@ -84,6 +84,9 @@
   <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
     <value>Permite crearea, actualizarea și ștergerea serviciilor și furnizorilor de DNS. Toți utilizatorii pot vizualiza serviciile implicit.</value>
   </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Permite crearea, actualizarea, retragerea și mentenerea serverelor, serviciilor, furnizorilor, furnizorilor DNS și a aliasurilor de domeniu.</value>
+  </data>
   <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
     <value>Permite emitirea și gestionarea fluturașilor de salariu pentru toți utilizatorii.</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Permite gestionarea activelor IT ale companiei, inclusiv categoriile, modelele și articolele individuale. Permite, de asemenea, atribuirea și recuperarea activelor de la/la angajați.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Permite declanșarea manuală a auditului DNS și al disponibilității serviciilor.</value>
   </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Permite modificarea numelor rolurilor și a permisiunilor atribuite acestora.</value>
@@ -159,6 +165,9 @@
   <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
     <value>Permite vizualizarea transcrierilor ședințelor și ascultarea sau citirea transcrierilor oricărei înregistrări.</value>
   </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Permite vizualizarea rezumatelor privind sănătatea serviciilor, observațiilor și constatărilor detaliate din audit.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Permite vizualizarea informațiilor și setărilor la nivel de sistem.</value>
   </data>
@@ -186,6 +195,9 @@
   <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
     <value>Permite vizualizarea liniei de raportare a oricărui utilizator, inclusiv a managerului, subordonaților și colegilor acestuia.</value>
   </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Permite vizualizarea registrului de servere și servicii, relațiilor de implementare și a datelor de referință ale infrastructurii.</value>
+  </data>
   <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
     <value>Permite vizualizarea, editarea și ștergerea cheilor SSH ale oricărui utilizator.</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Audit Services" xml:space="preserve">
     <value>Audit Servicii</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Audit Servicii (Moștenire)</value>
   </data>
   <data name="Chat with AI" xml:space="preserve">
     <value>Chat cu AI</value>
@@ -252,6 +267,12 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Acordă permisiunea de a reporni instanța aplicației. Poate cauza întreruperi de disponibilitate, dar toate setările și memoria cache vor fi reîncărcate.</value>
   </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Permisiune moștenită, păstrată pentru tranziție. Atribuiți Gestionare Infrastructură rolurilor care încă au nevoie de acces.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Permisiune de moștenire păstrată pentru tranziție. Atribuiți Vizualizare audit servicii și Rulare audit servicii după caz.</value>
+  </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Gestionează Orice Parolă</value>
   </data>
@@ -279,6 +300,9 @@
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Gestionează setările globale</value>
   </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Gestionea Infrastructurii</value>
+  </data>
   <data name="Manage Leave" xml:space="preserve">
     <value>Gestionează concediile</value>
   </data>
@@ -299,6 +323,9 @@
   </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Gestionează Serviciile</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Gestione servicii (Legacy)</value>
   </data>
   <data name="Manage SSH Keys" xml:space="preserve">
     <value>Gestionează chei SSH</value>
@@ -321,6 +348,9 @@
   <data name="Reboot This App" xml:space="preserve">
     <value>Repornește această aplicație</value>
   </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Rulează Auditul Serviciului</value>
+  </data>
   <data name="Submit Feedback" xml:space="preserve">
     <value>Trimite Feedback</value>
   </data>
@@ -339,11 +369,17 @@
   <data name="View Contract History" xml:space="preserve">
     <value>Vizualizează istoricul contractelor</value>
   </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Vizualizare Infrastructură</value>
+  </data>
   <data name="View Meeting Transcripts" xml:space="preserve">
     <value>Vizualizare transcrieri ședințe</value>
   </data>
   <data name="View Report Line" xml:space="preserve">
     <value>Vizualizează Linia de Raport</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Vizualizare auditul serviciilor</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Vizualizare Context Sistem</value>
