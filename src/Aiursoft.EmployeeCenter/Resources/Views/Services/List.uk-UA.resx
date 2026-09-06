@@ -24,6 +24,12 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Ви впевнені, що хочете видалити цей сервіс?</value>
   </data>
+  <data name="Are you sure you want to retire this service?" xml:space="preserve">
+    <value>Ви впевнені, що хочете вивести цю службу з експлуатації?</value>
+  </data>
+  <data name="Audit enabled" xml:space="preserve">
+    <value>Аудит увімкнено</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
@@ -57,6 +63,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Редагувати</value>
   </data>
+  <data name="Lifecycle status" xml:space="preserve">
+    <value>Статус життєвого циклу</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Розташування</value>
   </data>
@@ -66,8 +75,17 @@
   <data name="No services found." xml:space="preserve">
     <value>Служби не знайдено.</value>
   </data>
+  <data name="Not observed" xml:space="preserve">
+    <value>Не спостерігалось</value>
+  </data>
+  <data name="Observed health" xml:space="preserve">
+    <value>Спостережуваний стан</value>
+  </data>
   <data name="Offline" xml:space="preserve">
     <value>Офлайн</value>
+  </data>
+  <data name="Open service" xml:space="preserve">
+    <value>Відкрити сервіс</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Власник</value>
@@ -75,11 +93,23 @@
   <data name="Please associate an FRPS server." xml:space="preserve">
     <value>Будь ласка, пов&apos;яжіть сервер FRPS.</value>
   </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>Основний домен</value>
+  </data>
   <data name="Protocols" xml:space="preserve">
     <value>Протоколи</value>
   </data>
   <data name="Purpose" xml:space="preserve">
     <value>Призначення</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Обмежено</value>
+  </data>
+  <data name="Retire" xml:space="preserve">
+    <value>Вивести</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Виведений</value>
   </data>
   <data name="Running" xml:space="preserve">
     <value>Працює</value>
@@ -89,6 +119,9 @@
   </data>
   <data name="Server" xml:space="preserve">
     <value>Сервер</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Сервіс</value>
   </data>
   <data name="Services" xml:space="preserve">
     <value>Сервіси</value>

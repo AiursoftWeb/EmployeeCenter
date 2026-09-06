@@ -24,6 +24,12 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Sigur doriți să ștergeți acest serviciu?</value>
   </data>
+  <data name="Are you sure you want to retire this service?" xml:space="preserve">
+    <value>Sunteți sigur că doriți să retrageți acest serviciu?</value>
+  </data>
+  <data name="Audit enabled" xml:space="preserve">
+    <value>Audit activat</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
@@ -57,6 +63,9 @@
   <data name="Edit" xml:space="preserve">
     <value>Editează</value>
   </data>
+  <data name="Lifecycle status" xml:space="preserve">
+    <value>Starea ciclului de viață</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Locație</value>
   </data>
@@ -66,8 +75,17 @@
   <data name="No services found." xml:space="preserve">
     <value>Niciun serviciu găsit.</value>
   </data>
+  <data name="Not observed" xml:space="preserve">
+    <value>Neobservat</value>
+  </data>
+  <data name="Observed health" xml:space="preserve">
+    <value>Starea observată</value>
+  </data>
   <data name="Offline" xml:space="preserve">
     <value>Offline</value>
+  </data>
+  <data name="Open service" xml:space="preserve">
+    <value>Deschide serviciul</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Proprietar</value>
@@ -75,11 +93,23 @@
   <data name="Please associate an FRPS server." xml:space="preserve">
     <value>Vă rugăm să asociați un server FRPS.</value>
   </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>Domeniu primar</value>
+  </data>
   <data name="Protocols" xml:space="preserve">
     <value>Protocoale</value>
   </data>
   <data name="Purpose" xml:space="preserve">
     <value>Scop</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>RestRICT</value>
+  </data>
+  <data name="Retire" xml:space="preserve">
+    <value>Retrasare</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Retras</value>
   </data>
   <data name="Running" xml:space="preserve">
     <value>În funcțiune</value>
@@ -89,6 +119,9 @@
   </data>
   <data name="Server" xml:space="preserve">
     <value>Server</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Serviciu</value>
   </data>
   <data name="Services" xml:space="preserve">
     <value>Servicii</value>

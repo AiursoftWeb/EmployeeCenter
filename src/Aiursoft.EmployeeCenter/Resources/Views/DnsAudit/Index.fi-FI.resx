@@ -27,14 +27,35 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Tarkastus epäonnistui</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>Tarkastushistoria</value>
+  </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Tarkista nyt</value>
+  </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>Tarkista palvelurekisteri, DNS-asetukset, palvelimen omistus, aliakset ja reaaliaikainen HTTP-käytettävyys.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Tarkastetut isännimet</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>Päivitetään automaattisesti 3 tunnin välein</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Tarkistus</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Cloudflare API -tokenia ei ole määritetty</value>
   </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Cloudflare-alueet</value>
+  </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Vertaa EmployeeCenter-palvelurekisteriä luku- Cloudflare DNS-havaintoihin.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Suoritettu</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Kriittiset</value>
@@ -51,6 +72,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Alue</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>Muokkaa alias</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>Muokkaa palvelua</value>
   </data>
@@ -66,20 +90,68 @@
   <data name="Generated at" xml:space="preserve">
     <value>Luotu</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>isännimen</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Tiedot</value>
+  </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Ongelmat</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Viimeisin onnistunut tarkistus</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Uusin päivitys epäonnistui</value>
+  </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>Live-tila</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>Hallitse aliasseja</value>
   </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>DNS-tarkastuksessa ei löytynyt ongelmia.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>Palveluauditissa ei löytynyt ongelmia.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>Rekisteröi alias</value>
+  </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Pyydetty</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>Pyytöön tehnyt</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Suorita tarkastus</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>käytössä olevat HTTP(S)-päätepisteet kunnossa</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Palvelun tarkistus</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>Palvelutarkastus käynnistyy</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>palvelimen isännänimiä tarkistettu</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Vakavuus</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Tila</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>Ensimmäinen taustatilauudistus ei ole vielä valmis. Tulokset tallennetaan tietokantaan, kun se on valmis.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Viimeisin onnistunut välimuistissa oleva tilintarkastus näytetään alla.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Varoitus</value>

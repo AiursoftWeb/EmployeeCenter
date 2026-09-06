@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Denetim başarısız oldu</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>Denetim geçmişi</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>Şimdi denetle</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>Hizmet kayıtlarını, DNS yapılandırmasını, sunucu sahipliğini, takma adları ve canlı HTTP erişilebilirliğini denetleyin.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Denetlenen ana bilgisayar adları</value>
   </data>
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Her 3 saatte bir otomatik olarak yenilenir</value>
@@ -47,6 +53,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>EmployeeCenter hizmet kayıt defterini, salt okunur Cloudflare DNS gözlemleriyle karşılaştırın.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Tamamlandı</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Kritik</value>
@@ -87,6 +96,9 @@
   <data name="Info" xml:space="preserve">
     <value>Bilgi</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Sorunlar</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Son başarılı denetim</value>
   </data>
@@ -108,6 +120,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>Takma ad olarak kaydet</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>İstenen</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>İsteyen</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Denetimi Çalıştır</value>
   </data>
@@ -125,6 +143,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Önem Düzeyi</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>İlk arka plan denetimi henüz tamamlanmadı. Sonuçlar, denetim tamamlandığında veritabanında saklanacaktır.</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>İlk arka plan denetimi henüz tamamlanmadı. Bu sayfa sonucunu bellek içi önbellekten okuyacaktır.</value>

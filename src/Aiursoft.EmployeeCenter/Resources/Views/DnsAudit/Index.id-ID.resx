@@ -27,14 +27,35 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Audit gagal</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>Riwayat audit</value>
+  </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>Audit sekarang</value>
+  </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>Audit registri layanan, konfigurasi DNS, kepemilikan server, alias, dan ketersediaan HTTP langsung.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Nama inang diaudit</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>Diperbarui secara otomatis setiap 3 jam</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Pemeriksaan</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Token API Cloudflare belum dikonfigurasi</value>
   </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>zona Cloudflare</value>
+  </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Bandingkan registri layanan EmployeeCenter dengan pengamatan DNS Cloudflare hanya-baca.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Selesai</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Kritis</value>
@@ -51,6 +72,9 @@
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>Edit alias</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>Edit layanan</value>
   </data>
@@ -66,20 +90,68 @@
   <data name="Generated at" xml:space="preserve">
     <value>Dibuat pada</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>nama host</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
+  </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Masalah</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Audit terakhir yang berhasil</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>Pembaruan terakhir gagal</value>
+  </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>Ketersediaan Langsung</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>Kelola alias</value>
   </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>Tidak ditemukan masalah audit DNS.</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>Tidak ditemukan masalah audit layanan.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>Daftarkan sebagai alias</value>
+  </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Diminta</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>Diminta oleh</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Jalankan audit</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>endpoint HTTP(S) berjalan sehat</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Audit Layanan</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>Audit layanan sedang dimulai</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>nama domain layanan diaudit</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Keparahan</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>Audit latar belakang pertama belum selesai. Hasil akan disimpan di basis data setelah selesai.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>Audit cache terakhir yang berhasil ditampilkan di bawah ini.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Peringatan</value>

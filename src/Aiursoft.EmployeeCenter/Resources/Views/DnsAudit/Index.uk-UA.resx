@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Аудит не вдалося</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>Історія аудиту</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>Провести аудит зараз</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>Аудит реєстру сервісів, конфігурації DNS, власності серверів, псевдонімів та доступності HTTP у реальному часі.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Перевірені імена хостів</value>
   </data>
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Автоматично оновлюється кожні 3 години</value>
@@ -47,6 +53,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Порівняйте реєстр сервісів EmployeeCenter із читаннями спостережень DNS Cloudflare.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Завершено</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Критичні</value>
@@ -87,6 +96,9 @@
   <data name="Info" xml:space="preserve">
     <value>Інформація</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Проблеми</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Останній успішний аудит</value>
   </data>
@@ -108,6 +120,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>Зареєструвати як псевдонім</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Запитано</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>Запитав</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Запустити аудит</value>
   </data>
@@ -125,6 +143,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Важливість</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>Перший фоновий аудит ще не завершено. Результати зберігатимуться в базі даних після його завершення.</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>Перший фоновий аудит ще не завершено. Ця сторінка буде читати його результат із кешу в оперативній пам&apos;яті.</value>

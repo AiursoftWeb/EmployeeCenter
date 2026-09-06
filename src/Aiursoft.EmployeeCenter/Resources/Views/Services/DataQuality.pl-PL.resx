@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to dashboard" xml:space="preserve">
+    <value>Powrót do pulpitu</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="Findings" xml:space="preserve">
+    <value>Ustalenia</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>Jakość danych infrastruktury</value>
+  </data>
+  <data name="Legacy rows are not changed automatically. Review and save each row to opt it into normalized uniqueness and validation." xml:space="preserve">
+    <value>Niezaktualizowane wiersze nie są zmieniane automatycznie. Przeglądaj i zapisuj każdy wiersz, aby objąć go normalizowaną unikalnością i walidacją.</value>
+  </data>
+  <data name="No data-quality issues found." xml:space="preserve">
+    <value>Nie znaleziono problemów z jakością danych.</value>
+  </data>
+  <data name="Resource" xml:space="preserve">
+    <value>Zasób</value>
+  </data>
+  <data name="Rule" xml:space="preserve">
+    <value>Zasada</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Waga</value>
+  </data>
+
+</root>

@@ -27,6 +27,15 @@
   <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
     <value>Vælg et auditeret, uregistreret DNS-værtsnavn, og forbind det med en eksisterende tjeneste.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP-aliaser verificerer en præcis redirect-URL. CNAME-aliaser verificerer, at DNS peger direkte på den valgte services værtshavn.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP-redirect</value>
+  </data>
   <data name="No alias candidates are available" xml:space="preserve">
     <value>Der er ingen tilgængelige aliaskandidater</value>
   </data>

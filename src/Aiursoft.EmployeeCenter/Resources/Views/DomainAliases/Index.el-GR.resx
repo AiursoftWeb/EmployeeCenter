@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Ενέργειες</value>
+  </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>Διαχείριση ψευδωνύμων</value>
+  </data>
+  <data name="Alias hostname" xml:space="preserve">
+    <value>Όνομα υπολογιστή αλiadoύ</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>Τύπος alias</value>
+  </data>
+  <data name="Audit Now" xml:space="preserve">
+    <value>Έλεγχος Τώρα</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Ενδοσκόπηση εκκρεμής</value>
+  </data>
+  <data name="Audit status" xml:space="preserve">
+    <value>Κατάσταση ελέγχου</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>Η κατάσταση του ελέγχου απαιτεί τη διαδραστική άδεια προβολής ελέγχου υπηρεσιών.</value>
+  </data>
+  <data name="Available DNS candidates" xml:space="preserve">
+    <value>Διαθέσιμοι υποψήφιοι DNS</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>εκκρεμής έλεγχος</value>
+  </data>
+  <data name="Create alias" xml:space="preserve">
+    <value>Δημιουργία alias</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Κρίσιμο</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="Delete this domain alias?" xml:space="preserve">
+    <value>Να διαγραφεί αυτό το ψευδώνυμο τομέα;</value>
+  </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="Domain Alias Registry" xml:space="preserve">
+    <value>Εγγραφή Ψευδονυμών Δομένων</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>Κάθε όνομα κεντρικού υπολογιστή πηγής πρέπει να ταιριάζει με τον καταχωρημένο του στόχο ανακατεύθυνσης HTTP ή DNS CNAME.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Επεξεργασία</value>
+  </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>Αναμενόμενος προορισμός</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>υγιή</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP redirect</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Τελευταία επιτυχής επιθεώρηση</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>Διαχειριστείτε παλιά ονόματα κεντρικών υπολογιστών και επιβεβαιώστε τις ανακατευθύνσεις HTTP ή τους στόχους DNS CNAME τους.</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>διαχειριζόμενα alias</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>χρειάζονται προσοχή</value>
+  </data>
+  <data name="New Alias" xml:space="preserve">
+    <value>Νέο Ψευδώνυμο</value>
+  </data>
+  <data name="No domain aliases have been registered." xml:space="preserve">
+    <value>Δεν έχουν καταχωρηθεί ψευδώνυμα τομέα.</value>
+  </data>
+  <data name="No unregistered DNS hostnames are currently available." xml:space="preserve">
+    <value>Δεν υπάρχουν προς το παρόν διαθέσιμες μη καταχωρημένες ονόματα hosts DNS.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Εκκρεμής</value>
+  </data>
+  <data name="Registered Aliases" xml:space="preserve">
+    <value>Εγγεγραμμένα Aliases</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Περιορισμένο</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Πίνακας Υπηρεσιών</value>
+  </data>
+  <data name="Target service" xml:space="preserve">
+    <value>Σκοπός υπηρεσίας</value>
+  </data>
+  <data name="Total aliases" xml:space="preserve">
+    <value>Σύνολο ψευδωνύμων</value>
+  </data>
+  <data name="Updated at" xml:space="preserve">
+    <value>Ενημερώθηκε στις</value>
+  </data>
+
+</root>

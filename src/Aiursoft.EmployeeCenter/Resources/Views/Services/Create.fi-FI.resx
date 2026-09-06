@@ -33,6 +33,9 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>Domain tulee olla palvelun ensisijainen päätepiste.</value>
   </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>esim. Asiakaskeskus</value>
+  </data>
   <data name="e.g. example.com" xml:space="preserve">
     <value>esim. example.com</value>
   </data>
@@ -48,11 +51,17 @@
   <data name="Reload" xml:space="preserve">
     <value>Lataa uudelleen</value>
   </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>Vaaditaan, kun Via FRPS on käytössä.</value>
+  </data>
   <data name="Save Service" xml:space="preserve">
     <value>Tallenna palvelu</value>
   </data>
   <data name="Select DNS Provider" xml:space="preserve">
     <value>Valitse DNS-toimittaja</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>Valitse FRPS-palvelin</value>
   </data>
   <data name="Select Location" xml:space="preserve">
     <value>Valitse sijainti</value>

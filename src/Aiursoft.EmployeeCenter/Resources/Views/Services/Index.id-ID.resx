@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>Tampilan tingkat tinggi tentang ketersediaan layanan, penempatan, dan cakupan infrastruktur.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Tindakan</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Server Aktif</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>Semua Layanan</value>
@@ -27,11 +33,32 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Apakah Anda yakin ingin menghapus layanan ini?</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>ditugaskan</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>Audiens dan cakupan routing dari portofolio layanan.</value>
+  </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>Akses audit diperlukan</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Audit tertunda</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Integrasi Authentik</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>Ketersediaan</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>temuan penghambat</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>Klik bilah atau nama server untuk memeriksa layanannya.</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +69,12 @@
   <data name="Create New Service" xml:space="preserve">
     <value>Buat Layanan Baru</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>Kondisi saat ini dari setiap layanan yang terdaftar.</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Kualitas Data</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Hapus</value>
   </data>
@@ -51,14 +84,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>Distribusi DNS</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>Pendaftaran penyedia DNS</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
+  </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Alias Domain</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>Rute Tepi</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>Distribusi Geografis</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>subjek sehat</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>Sejauh mana katalog layanan menggambarkan infrastruktur dan tata kelola.</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>Daftar Infrastruktur</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>Online</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>Status Siklus Hidup</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Tautan</value>
@@ -66,8 +126,17 @@
   <data name="Location" xml:space="preserve">
     <value>Lokasi</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>Lokasi</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>Kelola Penyedia DNS</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>Layanan Baru</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>Belum ada layanan yang ditugaskan ke server.</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>Tidak ditemukan layanan.</value>
@@ -78,6 +147,12 @@
   <data name="Online" xml:space="preserve">
     <value>Online</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>Operasional</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Lainnya</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>Pemilik</value>
   </data>
@@ -87,14 +162,32 @@
   <data name="Purpose" xml:space="preserve">
     <value>Tujuan</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>layanan terdaftar</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>Layanan terdaftar yang dikelompokkan berdasarkan penyedia DNS.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>Kualitas Registri</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Terbatas</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Berjalan</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>Sendiri</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>Layanan yang dikembangkan sendiri</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>Server</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Penugasan server</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>Rincian Server</value>
@@ -102,8 +195,26 @@
   <data name="Server IP" xml:space="preserve">
     <value>IP Server</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Kesehatan Audit Layanan</value>
+  </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Penempatan layanan berdasarkan lokasi server.</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>Tujuan Layanan</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>Registrasi Layanan</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Layanan</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Layanan per Server</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Dasbor Layanan</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
@@ -113,6 +224,15 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Melalui Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>Lihat Tabel Layanan Rinci</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>Lihat Server</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Lihat Audit Layanan</value>
   </data>
 
 </root>

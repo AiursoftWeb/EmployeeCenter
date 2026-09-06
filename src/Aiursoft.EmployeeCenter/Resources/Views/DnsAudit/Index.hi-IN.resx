@@ -27,14 +27,35 @@
   <data name="Audit failed" xml:space="preserve">
     <value>ऑडिट विफल रहा</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>ऑडिट इतिहास</value>
+  </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>अभी ऑडिट करें</value>
+  </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>सर्विस रजिस्ट्री, DNS कॉन्फ़िगरेशन, सर्वर स्वामित्व, एलियास और लाइव HTTP उपलब्धता का ऑडिट करें।</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>ऑडिट किए गए होस्टनाम</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>हर 3 घंटों में स्वतः रीफ्रेश किया जाता है</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>जाँच</value>
   </data>
   <data name="Cloudflare API token is not configured" xml:space="preserve">
     <value>Cloudflare API टोकन कॉन्फ़िगर नहीं किया गया है</value>
   </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>क्लाउडफ्लेयर ज़ोन</value>
+  </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>EmployeeCenter सेवा पंजीकरण को Cloudflare के केवल-पठन DNS अवलोकनों के साथ तुलना करें।</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>पूर्ण</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>गंभीर</value>
@@ -51,6 +72,9 @@
   <data name="Domain" xml:space="preserve">
     <value>डोमेन</value>
   </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>एलियास संपादित करें</value>
+  </data>
   <data name="Edit service" xml:space="preserve">
     <value>सेवा संपादित करें</value>
   </data>
@@ -66,20 +90,68 @@
   <data name="Generated at" xml:space="preserve">
     <value>जनित समय</value>
   </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>होस्टनेम</value>
+  </data>
   <data name="Info" xml:space="preserve">
     <value>सूचना</value>
+  </data>
+  <data name="Issues" xml:space="preserve">
+    <value>समस्याएँ</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>अंतिम सफल ऑडिट</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>हालिया रीफ्रेश विफल रहा</value>
+  </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>लाइव उपलब्धता</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>एलियास प्रबंधित करें</value>
   </data>
   <data name="No DNS audit issues were found." xml:space="preserve">
     <value>कोई DNS ऑडिट समस्याएं नहीं मिलीं।</value>
   </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>कोई सेवा ऑडिट समस्याएं नहीं मिलीं।</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>एलियास के रूप में पंजीकृत करें</value>
+  </data>
+  <data name="Requested" xml:space="preserve">
+    <value>अनुरोधित</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>द्वारा अनुरोधित</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>ऑडिट चलाएँ</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>चालू HTTP(S) एंडपॉइंट स्वस्थ</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>सेवा ऑडिट</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>सेवा ऑडिट शुरू हो रही है</value>
   </data>
   <data name="service hostnames audited" xml:space="preserve">
     <value>ऑडिट किए गए सेवा होस्टनेम</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>गंभीरता</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>पहला बैकग्राउंड ऑडिट अभी पूरा नहीं हुआ है। परिणाम तब डेटाबेस में संग्रहीत होंगे जब यह पूरा हो जाएगा।</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>अंतिम सफल कैश्ड ऑडिट नीचे दिखाया गया है।</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>चेतावनी</value>

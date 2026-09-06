@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Audit eșuat</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>Istoric de audit</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>Audit acum</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>Audită registru de servicii, configurația DNS, proprietatea serverelor, aliasurile și disponibilitatea HTTP live.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Nume de gaz auditate</value>
   </data>
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Actualizat automat la fiecare 3 ore</value>
@@ -47,6 +53,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Comparați registrul de servicii EmployeeCenter cu observațiile DNS Cloudflare în mod de doar-citire.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Finalizat</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Critic</value>
@@ -87,6 +96,9 @@
   <data name="Info" xml:space="preserve">
     <value>Informații</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Probleme</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Ultima auditare reușită</value>
   </data>
@@ -108,6 +120,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>Înregistrare ca alias</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Solicitat</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>Solicitat de</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Rulează auditul</value>
   </data>
@@ -125,6 +143,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Gravitate</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stare</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>Prima auditare în fundal nu s-a finalizat încă. Rezultatele vor fi stocate în baza de date odată ce se va încheia.</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>Prima auditare în fundal nu s-a finalizat încă. Această pagină va citi rezultatul din memoria cache.</value>

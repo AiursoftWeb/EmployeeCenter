@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Change the exact destination expected by every service audit." xml:space="preserve">
+    <value>Ubah tujuan yang tepat yang diharapkan oleh setiap audit layanan.</value>
+  </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="Edit domain alias" xml:space="preserve">
+    <value>Edit alias domain</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>Alias HTTP memverifikasi URL redirect yang presisi. Alias CNAME memverifikasi bahwa DNS menunjuk langsung ke nama host layanan yang dipilih.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>pengalihan HTTP</value>
+  </data>
+  <data name="Save and audit now" xml:space="preserve">
+    <value>Simpan dan audit sekarang</value>
+  </data>
+  <data name="The audit requires the first redirect Location header to match this URL exactly." xml:space="preserve">
+    <value>Audit memerlukan header Location redirect pertama untuk cocok persis dengan URL ini.</value>
+  </data>
+
+</root>

@@ -24,8 +24,17 @@
   <data name="Change the exact destination expected by every service audit." xml:space="preserve">
     <value>Her hizmet denetiminin beklediği tam hedefi değiştirin.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Edit domain alias" xml:space="preserve">
     <value>Alan adı başakını düzenle</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP takma adları, doğru bir yönlendirme URL&apos;sini doğrular. CNAME takma adları, DNS&apos;in seçilen hizmet ana makine adına doğrudan işaret ettiğini doğrular.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP yönlendirmesi</value>
   </data>
   <data name="Save and audit now" xml:space="preserve">
     <value>Kaydet ve şimdi denetle</value>

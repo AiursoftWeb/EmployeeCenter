@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>Yleiskuva palvelun saatavuudesta, sijoituksesta ja infrastruktuurin kattavuudesta.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Toiminnot</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Aktiiviset palvelimet</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>Kaikki palvelut</value>
@@ -27,11 +33,32 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Oletko varma, että haluat poistaa tämän palvelun?</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>lisätty</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>Palveluportfolion kohderyhmä ja reitityksen laajuus.</value>
+  </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>Tarkastusvaltuudet vaaditaan</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Tarkastus odottaa</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Authentik-integraatio</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>Käytettävyys</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>estävät havainnot</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>Napsauta palkkia tai palvelimen nimeä tarkistaaksesi sen palvelut.</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +69,12 @@
   <data name="Create New Service" xml:space="preserve">
     <value>Luo uusi palvelu</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>Kaikkien rekisteröityjen palveluiden nykyinen tila.</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Tietojen laatu</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Poista</value>
   </data>
@@ -51,14 +84,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>DNS-jakauma</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>DNS-toimittajan rekisteröinti</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>Alue</value>
+  </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Domainin aliasit</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>Reititetty reunaan</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Muokkaa</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>Maantieteellinen jakautuminen</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>terveet kohteet</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>Kuinka kattavasti palvelukatalogi kuvaa infrastruktuuria ja hallintaa.</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>Infrastruktuurirekisteri</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>Onko verkossa</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>Elinkaaren tila</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Linkki</value>
@@ -66,8 +126,17 @@
   <data name="Location" xml:space="preserve">
     <value>Sijainti</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>Sijainnit</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>Hallitse DNS-toimittajia</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>Uusi palvelu</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>Palveluita ei ole vielä osoitettu palvelimille.</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>Palveluja ei löytynyt.</value>
@@ -78,6 +147,12 @@
   <data name="Online" xml:space="preserve">
     <value>Verkossa</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>Toiminnallinen</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Muut</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>Omistaja</value>
   </data>
@@ -87,14 +162,32 @@
   <data name="Purpose" xml:space="preserve">
     <value>Tarkoitus</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>rekisteröityjä palveluita</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>Rekisteröidyt palvelut ryhmitelty DNS-antajan mukaan.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>Rekisterin laatu</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Rajoitettu</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Käynnissä</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>Oma</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>Itse kehitetyt palvelut</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>Palvelin</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Palvelimen osoitus</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>Palvelimen tiedot</value>
@@ -102,8 +195,26 @@
   <data name="Server IP" xml:space="preserve">
     <value>Palvelimen IP</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Palvelun tarkastuksen tila</value>
+  </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Palvelujen sijoittuminen palvelimen sijainnin mukaan.</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>Palvelun käyttötarkoitus</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>Palvelurekisteri</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Palvelut</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Palvelut palvelimen mukaan</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Palvelujen kojelauta</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Tila</value>
@@ -113,6 +224,15 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Via Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>Näytä yksityiskohtainen palvelutaulukko</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>Näytä palvelimet</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Näytä palvelutarkastus</value>
   </data>
 
 </root>
