@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>Audit misslyckades</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>Auditlogg</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>Auditera nu</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>Granska tjänsteregistret, DNS-konfigurationen, serverägande, alias och live-HTTP-tillgänglighet.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>Reviderade värdnamn</value>
   </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>Uppdateras automatiskt var 20:e minut</value>
@@ -50,6 +56,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>Jämför EmployeeCenter-tjänsteregistret med skrivskyddade observationer från Cloudflare DNS.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Slutförd</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>Kritisk</value>
@@ -93,6 +102,9 @@
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>Problem</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Senast lyckad revision</value>
   </data>
@@ -114,6 +126,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>Registrera som alias</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>Begärdes</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>Begärdes av</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>Kör revision</value>
   </data>
@@ -131,6 +149,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Allvarlighetsgrad</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>Den första bakgrundsauditeringen är inte klar ännu. Resultaten lagras i databasen när den är färdig.</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>Den första bakgrundsskontrollen är inte klar än. Denna sida läser resultatet från det minnesbaserade cachen.</value>

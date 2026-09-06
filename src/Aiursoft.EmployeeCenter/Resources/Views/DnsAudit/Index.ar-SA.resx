@@ -27,11 +27,17 @@
   <data name="Audit failed" xml:space="preserve">
     <value>فشل التدقيق</value>
   </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>سجل التدقيق</value>
+  </data>
   <data name="Audit now" xml:space="preserve">
     <value>أجرِ التدقيق الآن</value>
   </data>
   <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
     <value>تدقيق سجل الخدمات، وإعدادات DNS، وملكية الخوادم، والرموز المستعارة، وتوفر HTTP المباشر.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>أسماء العُقد المُدقَّقة</value>
   </data>
   <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
     <value>يتم التحديث تلقائيًا كل 20 دقيقة</value>
@@ -50,6 +56,9 @@
   </data>
   <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
     <value>قارن سجل خدمة EmployeeCenter بملاحظات Cloudflare DNS للقراءة فقط.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>مكتمل</value>
   </data>
   <data name="Critical" xml:space="preserve">
     <value>حرج</value>
@@ -93,6 +102,9 @@
   <data name="Info" xml:space="preserve">
     <value>معلومات</value>
   </data>
+  <data name="Issues" xml:space="preserve">
+    <value>المشكلات</value>
+  </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>آخر تدقيق ناجح</value>
   </data>
@@ -114,6 +126,12 @@
   <data name="Register as alias" xml:space="preserve">
     <value>تسجيل كـاسم مستعار</value>
   </data>
+  <data name="Requested" xml:space="preserve">
+    <value>تم الطلب</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>بواسطة</value>
+  </data>
   <data name="Run audit" xml:space="preserve">
     <value>تنفيذ التدقيق</value>
   </data>
@@ -131,6 +149,12 @@
   </data>
   <data name="Severity" xml:space="preserve">
     <value>مستوى الخطورة</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>لم تكتمل المراجعة الخلفية الأولى بعد. سيتم حفظ النتائج في قاعدة البيانات عند اكتمالها.</value>
   </data>
   <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
     <value>لم يكتمل أول تدقيق في الخلفية بعد. سيقوم هذا الصفحة بقراءة نتيجته من ذاكرة التخزين المؤقت في الذاكرة.</value>

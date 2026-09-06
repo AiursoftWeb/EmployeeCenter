@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>إجراءات</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>إدارة العناوين البديلة</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>عنوان المضيف المستعار</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>نوع المستعار</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>التدقيق الآن</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>حالة التدقيق</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>يتطلب عرض حالة التدقيق إذن عرض التدقيق الخاص بالخدمة.</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>مرشحو DNS المتاحون</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>هل تريد حذف مستعار النطاق هذا؟</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>سجل مستعاري النطاق</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>يجب أن يطابق كل اسم مضيف مصدر هدف إعادة التوجيه HTTP المسجّل أو هدف CNAME الخاص بـ DNS.</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>يجب أن يعيد كل اسم مضيف مصدر إعادة توجيه من القفزة الأولى تتطابق تمامًا مع عنوان URL الخاص بها.</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>عنوان URL المستهدف الدقيق</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>الهدف المتوقع</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>سليمة</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>إعادة التوجيه عبر HTTP</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>آخر تدقيق ناجح</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>إدارة أسماء المضيفين القديمة والتحقق من وصول كل إعادة توجيه إلى وجهتها المسجّلة بالضبط.</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>إدارة أسماء النطاقات القديمة والتحقق من إعادة توجيهات HTTP أو أهداف CNAME في DNS.</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>حُلفاء مُدارون</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>الاستعارات المسجّلة</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>مقيّد</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>لوحة الخدمات</value>
