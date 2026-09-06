@@ -27,6 +27,9 @@
   <data name="Are you sure?" xml:space="preserve">
     <value>Oletko varma?</value>
   </data>
+  <data name="Associated Services" xml:space="preserve">
+    <value>Liitetyt palvelut</value>
+  </data>
   <data name="Company" xml:space="preserve">
     <value>Yritys</value>
   </data>
@@ -48,6 +51,12 @@
   <data name="IP Address" xml:space="preserve">
     <value>IP-osoite</value>
   </data>
+  <data name="IPv4 Address" xml:space="preserve">
+    <value>IPv4-osoite</value>
+  </data>
+  <data name="IPv6 Address" xml:space="preserve">
+    <value>IPv6-osoite</value>
+  </data>
   <data name="Link" xml:space="preserve">
     <value>Linkki</value>
   </data>
@@ -65,6 +74,12 @@
   </data>
   <data name="Provider" xml:space="preserve">
     <value>Tarjoaja</value>
+  </data>
+  <data name="Retire" xml:space="preserve">
+    <value>Poista käytöstä</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Eläkeellä</value>
   </data>
   <data name="Servers" xml:space="preserve">
     <value>Palvelimet</value>

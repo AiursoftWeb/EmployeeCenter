@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>İşlemler</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>Alias Yönetimi</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>Takma ad ana bilgisayar adı</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>Takma ad türü</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>Şimdi Denetle</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>Denetim durumu</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>Denetim durumu, service-audit görüntüleme iznini gerektirir.</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Kullanılabilir DNS adayları</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Bu alan adı takma adı silinsin mi?</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Alan Adı Takma Adı Kayıt Defteri</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>Her kaynak ana bilgisayar adı, kayıtlı HTTP yönlendirmesi veya DNS CNAME hedefiyle eşleşmelidir.</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>Her kaynak ana bilgisayar adı, hedef URL&apos;i ile tam olarak eşleşen bir birinci atlamalı yönlendirmeyi döndürmelidir.</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>Kesin hedef URL</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>Beklenen hedef</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>sağlıklı</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP yönlendirmesi</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Son başarılı denetim</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>Eski adlandırma adlarını yönetin ve her yönlendirmenin kayıtlı hedefine doğru ulaştığını doğrulayın.</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>Eski adlandırma adlarını yönetin ve HTTP yönlendirmelerini veya DNS CNAME hedeflerini doğrulayın.</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>yönetilen takma adlar</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>Kayıtlı Takma Adlar</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Kısıtlı</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>Hizmetler Paneli</value>

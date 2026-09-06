@@ -27,6 +27,15 @@
   <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
     <value>Denetlenmiş, kayıtlı olmayan bir DNS ana bilgisayar adını seçin ve bunu mevcut bir hizmete bağlayın.</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP takma adları kesin bir yönlendirme URL&apos;sini doğrular. CNAME takma adları, DNS&apos;in seçilen hizmet ana bilgisayar adına doğrudan işaret ettiğini doğrular.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP yönlendirmesi</value>
+  </data>
   <data name="No alias candidates are available" xml:space="preserve">
     <value>Alias adayı bulunamadı</value>
   </data>

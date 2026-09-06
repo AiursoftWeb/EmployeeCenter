@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>सेवा उपलब्धता, स्थापना और बुनियादी ढांचे की कवरेज का उच्च-स्तरीय दृश्य।</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>कार्रवाई</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>सक्रिय सर्वर</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>सभी सेवाएं</value>
@@ -27,11 +33,32 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>क्या आप वाकई इस सेवा को हटाना चाहते हैं?</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>निर्धारित</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>सेवा पोर्टफोलियो का दर्शक और राउटिंग दायरा।</value>
+  </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>ऑडिट पहुँच आवश्यक</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>समीक्षा लंबित</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Authentik समाकलन</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>उपलब्धता</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>अवरुद्ध निष्कर्ष</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>किसी बार या सर्वर के नाम पर क्लिक करें ताकि उसके सेवाओं की जांच की जा सके।</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +69,12 @@
   <data name="Create New Service" xml:space="preserve">
     <value>नया सेवा बनाएं</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>प्रत्येक पंजीकृत सेवा की वर्तमान स्थिति।</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>डेटा गुणवत्ता</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>हटाएँ</value>
   </data>
@@ -51,14 +84,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>DNS वितरण</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>DNS प्रदाता पंजीकरण</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>डोमेन</value>
+  </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>डोमेन एलियास</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>एज राउटेड</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>संपादित करें</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>भौगोलिक वितरण</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>स्वस्थ विषय</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>सेवा सूची के द्वारा अवसंरचना और शासन कितना पूर्णता से वर्णित होता है।</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>इन्फ्रास्ट्रक्चर रजिस्ट्री</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>ऑनलाइन है</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>जीवन चक्र स्थिति</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>लिंक</value>
@@ -66,8 +126,17 @@
   <data name="Location" xml:space="preserve">
     <value>स्थान</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>स्थान</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>DNS प्रदाताओं का प्रबंधन करें</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>नया सेवा</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>अभी तक किसी सर्वर को कोई सेवा नहीं सौंपी गई है।</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>कोई सेवाएं नहीं मिलीं।</value>
@@ -78,6 +147,12 @@
   <data name="Online" xml:space="preserve">
     <value>ऑनलाइन</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>संचालन में</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>अन्य</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>मालिक</value>
   </data>
@@ -87,14 +162,32 @@
   <data name="Purpose" xml:space="preserve">
     <value>उद्देश्य</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>पंजीकृत सेवाएँ</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>DNS प्रदायक के अनुसार समूहीकृत पंजीकृत सेवाएं।</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>रजिस्ट्री गुणवत्ता</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>प्रतिबंधित</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>चल रहा है</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>स्वयं</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>स्व-विकसित सेवाएँ</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>सर्वर</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>सर्वर असाइनमेंट</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>सर्वर विवरण</value>
@@ -102,8 +195,26 @@
   <data name="Server IP" xml:space="preserve">
     <value>सर्वर आईपी</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>सेवा ऑडिट स्वास्थ्य</value>
+  </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>सेवा की स्थिति सर्वर लोकेशन के अनुसार।</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>सेवा का उद्देश्य</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>सेवा पंजीकरण</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>सेवाएं</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>सेवर के अनुसार सेवाएं</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>सेवाएँ डैशबोर्ड</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>स्थिति</value>
@@ -113,6 +224,15 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Frps के माध्यम से</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>विस्तृत सेवा तालिका देखें</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>सर्वर देखें</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>सेवा ऑडिट देखें</value>
   </data>
 
 </root>

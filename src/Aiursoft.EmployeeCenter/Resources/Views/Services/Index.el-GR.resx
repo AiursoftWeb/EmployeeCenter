@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>Μια υψηλού επιπέδου εικόνα της διαθεσιμότητας, τοποθέτησης και κάλυψης υποδομής των υπηρεσιών.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Ενέργειες</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Ενεργοί Διακομιστές</value>
   </data>
   <data name="All Services" xml:space="preserve">
     <value>Όλες οι Υπηρεσίες</value>
@@ -27,11 +33,32 @@
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την υπηρεσία;</value>
   </data>
+  <data name="assigned" xml:space="preserve">
+    <value>ανατεθειμένες</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>Κοινό και εμβέλεια δρομολόγησης του χαρτοφυλακίου υπηρεσιών.</value>
+  </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>Απαιτείται πρόσβαση ελέγχου</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Επιθεώρηση εκκρεμής</value>
+  </data>
   <data name="Authentik" xml:space="preserve">
     <value>Authentik</value>
   </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Ενσωμάτωση Authentik</value>
+  </data>
   <data name="Availability" xml:space="preserve">
     <value>Διαθεσιμότητα</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>εμποδιστικά ευρήματα</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>Κάντε κλικ σε μια ράβδο ή σε ένα όνομα διακομιστή για να εξετάσετε τις υπηρεσίες του.</value>
   </data>
   <data name="Cloudflare" xml:space="preserve">
     <value>Cloudflare</value>
@@ -42,6 +69,12 @@
   <data name="Create New Service" xml:space="preserve">
     <value>Δημιουργία Νέας Υπηρεσίας</value>
   </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>Τρέχουσα κατάσταση κάθε εγγεγραμμένης υπηρεσίας.</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Ποιότητα Δεδομένων</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Διαγραφή</value>
   </data>
@@ -51,14 +84,41 @@
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>Κατανομή DNS</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>Εγγραφή προμηθευτή DNS</value>
+  </data>
   <data name="Domain" xml:space="preserve">
     <value>Πεδίο</value>
+  </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Ψευδώνυμα Domain</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>Ευκαμψία Ακρογωνιαίου Σημείου</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Επεξεργασία</value>
   </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>Γεωγραφική Κατανομή</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>υγιή υποκείμενα</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>Πόσο πλήρως ο κατάλογος υπηρεσιών περιγράφει την υποδομή και τη διακυβέρνηση.</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>Κατάλογος Υποδομής</value>
+  </data>
   <data name="Is Online" xml:space="preserve">
     <value>Είναι Σε Λειτουργία</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>Κατάσταση Κύκλου Ζωής</value>
   </data>
   <data name="Link" xml:space="preserve">
     <value>Σύνδεσμος</value>
@@ -66,8 +126,17 @@
   <data name="Location" xml:space="preserve">
     <value>Τοποθεσία</value>
   </data>
+  <data name="locations" xml:space="preserve">
+    <value>Θέσεις</value>
+  </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>Διαχείριση Παροχέων DNS</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>Νέος Υπηρεσία</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>Δεν έχουν αποδοθεί υπηρεσίες σε διακομιστές ακόμα.</value>
   </data>
   <data name="No services found." xml:space="preserve">
     <value>Δεν βρέθηκαν υπηρεσίες.</value>
@@ -78,6 +147,12 @@
   <data name="Online" xml:space="preserve">
     <value>Σύνδεση</value>
   </data>
+  <data name="Operational" xml:space="preserve">
+    <value>Λειτουργικό</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Άλλες</value>
+  </data>
   <data name="Owner" xml:space="preserve">
     <value>Κάτοχος</value>
   </data>
@@ -87,14 +162,32 @@
   <data name="Purpose" xml:space="preserve">
     <value>Σκοπός</value>
   </data>
+  <data name="registered services" xml:space="preserve">
+    <value>εγγεγραμμένες υπηρεσίες</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>Εγγεγραμμένες υπηρεσίες ομαδοποιημένες κατά πάροχο DNS.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>Ποιότητα Καταστήματος</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Περιορισμένο</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Εκτελείται</value>
   </data>
   <data name="Self" xml:space="preserve">
     <value>Εαυτό</value>
   </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>Υπηρεσίες εσωτερικής ανάπτυξης</value>
+  </data>
   <data name="Server" xml:space="preserve">
     <value>Εξυπηρετητής</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Ορισμός διακομιστή</value>
   </data>
   <data name="Server Details" xml:space="preserve">
     <value>Λεπτομέρειες Διακομιστή</value>
@@ -102,8 +195,26 @@
   <data name="Server IP" xml:space="preserve">
     <value>IP Διακομιστή</value>
   </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Υγεία Ελέγχου Υπηρεσιών</value>
+  </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Τοποθέτηση υπηρεσιών ανά τοποθεσία διακομιστή.</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>Σκοπός Υπηρεσίας</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>Κατάλογος Υπηρεσιών</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Υπηρεσίες</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Υπηρεσίες ανά Server</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Πίνακας Υπηρεσιών</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Κατάσταση</value>
@@ -113,6 +224,15 @@
   </data>
   <data name="Via Frps" xml:space="preserve">
     <value>Μέσω Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>Προβολή Λεπτομερούς Πίνακα Υπηρεσιών</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>Προβολή διακομιστών</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Προβολή Ελέγχου Υπηρεσιών</value>
   </data>
 
 </root>

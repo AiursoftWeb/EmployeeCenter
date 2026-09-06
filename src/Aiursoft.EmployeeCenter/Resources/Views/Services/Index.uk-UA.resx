@@ -39,6 +39,9 @@
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>Аудиторія та діапазон маршрутизації портфеля послуг.</value>
   </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>Потрібен доступ для аудиту</value>
+  </data>
   <data name="Audit pending" xml:space="preserve">
     <value>Очікування аудиту</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="Current state of every registered service." xml:space="preserve">
     <value>Поточний стан кожного зареєстрованого сервісу.</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Якість даних</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Видалити</value>
@@ -168,6 +174,9 @@
   <data name="Registry Quality" xml:space="preserve">
     <value>Якість реєстру</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Обмежено</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Працює</value>
   </data>
@@ -221,6 +230,9 @@
   </data>
   <data name="View Detailed Service Table" xml:space="preserve">
     <value>Переглянути детальну таблицю послуг</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>Переглянути сервери</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>Переглянути аудит служб</value>

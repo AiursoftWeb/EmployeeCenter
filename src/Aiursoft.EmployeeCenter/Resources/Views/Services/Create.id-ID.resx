@@ -33,6 +33,9 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>Domain harus menjadi titik masuk utama untuk layanan tersebut.</value>
   </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>mis. Customer Portal</value>
+  </data>
   <data name="e.g. example.com" xml:space="preserve">
     <value>misalnya example.com</value>
   </data>
@@ -48,11 +51,17 @@
   <data name="Reload" xml:space="preserve">
     <value>Muat Ulang</value>
   </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>Wajib diisi saat Via FRPS diaktifkan.</value>
+  </data>
   <data name="Save Service" xml:space="preserve">
     <value>Simpan Layanan</value>
   </data>
   <data name="Select DNS Provider" xml:space="preserve">
     <value>Pilih Penyedia DNS</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>Pilih Server FRPS</value>
   </data>
   <data name="Select Location" xml:space="preserve">
     <value>Pilih Lokasi</value>

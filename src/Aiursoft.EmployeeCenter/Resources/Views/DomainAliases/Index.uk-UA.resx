@@ -21,8 +21,14 @@
       <data name="Actions" xml:space="preserve">
     <value>Дії</value>
   </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>Керування псевдонімами</value>
+  </data>
   <data name="Alias hostname" xml:space="preserve">
     <value>Ім&apos;я хоста псевдоніма</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>Тип псевдоніма</value>
   </data>
   <data name="Audit Now" xml:space="preserve">
     <value>Аудит зараз</value>
@@ -32,6 +38,9 @@
   </data>
   <data name="Audit status" xml:space="preserve">
     <value>Статус аудиту</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>Статус аудиту вимагає дозволу на перегляд служби аудиту.</value>
   </data>
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Доступні кандидати DNS</value>
@@ -51,8 +60,14 @@
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Видалити цей псевдонім домену?</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Реєстр доменних псевдонімів</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>Кожен джерельний ім&apos;я хоста має збігатися з його зареєстрованим HTTP-переспрямкуванням або ціллю DNS CNAME.</value>
   </data>
   <data name="Each source hostname must return a first-hop redirect that exactly matches its target URL." xml:space="preserve">
     <value>Кожен джерельний хостнейм повинен повертати перше переспрямування, яке точно збігається з його цільовим URL.</value>
@@ -63,14 +78,23 @@
   <data name="Exact target URL" xml:space="preserve">
     <value>Точний цільовий URL</value>
   </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>Очікувана ціль</value>
+  </data>
   <data name="healthy" xml:space="preserve">
     <value>здорові</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP-перенаправлення</value>
   </data>
   <data name="Last successful audit" xml:space="preserve">
     <value>Останній успішний аудит</value>
   </data>
   <data name="Manage legacy hostnames and verify that every redirect reaches its exact registered destination." xml:space="preserve">
     <value>Керуйте застарілими іменами вузлів та переконайтеся, що кожен перенаправлення досягає свого точного зареєстрованого призначення.</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>Керуйте застарілими іменами вузлів та перевіряйте їхні HTTP-переадресації або DNS CNAME-цільові адреси.</value>
   </data>
   <data name="managed aliases" xml:space="preserve">
     <value>керувані псевдоніми</value>
@@ -95,6 +119,9 @@
   </data>
   <data name="Registered Aliases" xml:space="preserve">
     <value>Зареєстровані псевдоніми</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Обмежено</value>
   </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>Панель служб</value>
