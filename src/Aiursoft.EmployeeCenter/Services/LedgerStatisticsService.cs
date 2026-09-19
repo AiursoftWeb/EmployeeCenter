@@ -116,6 +116,9 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
                 // DateTime range comparisons in the same expression tree.
                 //
                 // AccountType filtering is done in-memory in Phase 3 for the same reason.
+                // Keep TransactionTime.Month out of the SQL projection too: Pomelo produces a
+                // MySqlComplexFunctionArgumentExpression that EF's SqlNullabilityProcessor
+                // cannot handle. Extract the month after materializing the rows instead.
                 //
                 // Query A: transactions where THIS entity owns the source account.
                 var sourceTx = await dbContext.Transactions
@@ -123,7 +126,7 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
                     .Where(t => t.TransactionTime >= yearStart && t.TransactionTime < yearEnd)
                     .Select(t => new YearTxRow
                     {
-                        Month = t.TransactionTime.Month,
+                        TransactionTime = t.TransactionTime,
                         SourceType = t.SourceAccount!.AccountType,
                         SourceEntityId = t.SourceAccount.CompanyEntityId,
                         DestType = t.DestinationAccount!.AccountType,
@@ -145,7 +148,7 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
                     .Where(t => t.TransactionTime >= yearStart && t.TransactionTime < yearEnd)
                     .Select(t => new YearTxRow
                     {
-                        Month = t.TransactionTime.Month,
+                        TransactionTime = t.TransactionTime,
                         SourceType = t.SourceAccount!.AccountType,
                         SourceEntityId = t.SourceAccount.CompanyEntityId,
                         DestType = t.DestinationAccount!.AccountType,
@@ -186,7 +189,7 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
                 continue;
             }
 
-            var monthTx = yearTransactions.Where(t => t.Month == m).ToList();
+            var monthTx = yearTransactions.Where(t => t.TransactionTime.Month == m).ToList();
 
             var assetDelta = 0m;
             var liabilityDelta = 0m;
@@ -386,7 +389,7 @@ public class MonthlyChartData
 /// </summary>
 internal class YearTxRow
 {
-    public int Month { get; init; }
+    public DateTime TransactionTime { get; init; }
     public FinanceAccountType SourceType { get; init; }
     public int SourceEntityId { get; init; }
     public FinanceAccountType DestType { get; init; }
