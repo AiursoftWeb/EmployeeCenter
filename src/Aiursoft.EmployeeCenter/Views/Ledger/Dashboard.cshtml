@@ -5,6 +5,10 @@
     var accountId = Model.FilteredAccount?.Id;
     var year = Model.Year;
     var month = Model.Month;
+    var showAssetLiabilityTrend = Model.Entity.Id == 1 && Model.FilteredAccount?.Id == 5 &&
+                                  Model.FilteredAccount.AccountType == FinanceAccountType.Asset &&
+                                  !Model.FilteredAccount.IsArchived &&
+                                  Model.FilteredAccount.Currency == Model.Entity.BaseCurrency;
 }
 
 <div class="container-fluid">
@@ -307,16 +311,16 @@
         </div>
     </div>
 
-    @* ── Asset & Liability Trend Chart (company-wide only) ── *@
-    @if (Model.FilteredAccount == null)
+    @* ── Selected asset account balance versus company-wide liabilities ── *@
+    @if (showAssetLiabilityTrend)
     {
         <div class="row">
             <div class="col-xl-12 col-lg-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">
-                            @Localizer["Assets & Liabilities Trend"] (@Model.Year)
-                            <small class="text-muted">— @Localizer["converted at current exchange rate"]</small>
+                            @Model.FilteredAccount!.AccountName (@Model.Year)
+                            <small class="text-muted">— @Model.Entity.BaseCurrency</small>
                         </h6>
                     </div>
                     <div class="card-body">
@@ -419,6 +423,7 @@
             var year = @year;
             var month = @(month.HasValue ? month.Value.ToString() : "null");
             var hasFilteredAccount = @(Model.FilteredAccount != null ? "true" : "false");
+            var showAssetLiabilityTrend = @(showAssetLiabilityTrend ? "true" : "false");
 
             var inflowLabel = hasFilteredAccount ? "@Localizer["Inflow"]" : "@Localizer["Revenue"]";
             var outflowLabel = hasFilteredAccount ? "@Localizer["Outflow"]" : "@Localizer["Expenses"]";
@@ -571,9 +576,9 @@
                 });
             });
 
-            // ── 3. Load Asset & Liability Trend (company-wide only) ──
-            if (!hasFilteredAccount) {
-                var assetApiUrl = '@Url.Action("DashboardAssetTrendApi", "Ledger")' + '?id=' + entityId + '&year=' + year;
+            // ── 3. Load bank balance, company-wide liabilities, and their difference ──
+            if (showAssetLiabilityTrend) {
+                var assetApiUrl = buildApiUrl('DashboardAssetTrendApi');
                 $.getJSON(assetApiUrl, function (data) {
                     var ctx2 = document.getElementById("assetTrendChart");
                     new Chart(ctx2, {
@@ -581,7 +586,7 @@
                         data: {
                             labels: data.Labels,
                             datasets: [{
-                                label: "@Localizer["Total Assets"]",
+                                label: "@Localizer["Bank Balance"]",
                                 lineTension: 0.3,
                                 backgroundColor: "rgba(28, 200, 138, 0.05)",
                                 borderColor: "rgba(28, 200, 138, 1)",
@@ -608,6 +613,20 @@
                                 pointHitRadius: 10,
                                 pointBorderWidth: 2,
                                 data: data.LiabilityData,
+                            }, {
+                                label: "@Localizer["Bank Balance Less Liabilities"]",
+                                lineTension: 0.3,
+                                backgroundColor: "rgba(78, 115, 223, 0.05)",
+                                borderColor: "rgba(78, 115, 223, 1)",
+                                pointRadius: 3,
+                                pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                                pointBorderColor: "rgba(78, 115, 223, 1)",
+                                pointHoverRadius: 3,
+                                pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                                pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                                pointHitRadius: 10,
+                                pointBorderWidth: 2,
+                                data: data.NetData,
                             }],
                         },
                         options: {

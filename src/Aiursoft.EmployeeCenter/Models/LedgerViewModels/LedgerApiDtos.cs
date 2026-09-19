@@ -81,6 +81,8 @@ public class AssetTrendResponse
     public string[] Labels { get; set; } = [];
     public decimal?[] AssetData { get; set; } = [];
     public decimal?[] LiabilityData { get; set; } = [];
+    /// <summary>AssetData minus LiabilityData; excludes future months where either series is null.</summary>
+    public decimal?[] NetData { get; set; } = [];
 }
 
 /// <summary>

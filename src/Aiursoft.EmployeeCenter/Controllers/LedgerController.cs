@@ -197,24 +197,36 @@ public class LedgerController(
     }
 
     /// <summary>
-    /// Returns monthly Total Assets and Total Liabilities trend data (company-wide, Balance Sheet view).
+    /// Returns monthly asset-account balance and company-wide liabilities for an account page.
+    /// Without an account filter, retains the company-wide response for existing API consumers.
     /// 13 data points: opening balance (Jan 1) + 12 month-end balances.
     /// </summary>
     [HttpGet]
-    public async Task<IActionResult> DashboardAssetTrendApi(int id, int? year)
+    public async Task<IActionResult> DashboardAssetTrendApi(int id, int? year, int? accountId)
     {
         var entity = await dbContext.CompanyEntities.FindAsync(id);
         if (entity == null || !entity.CreateLedger) return NotFound();
 
+        if (accountId.HasValue)
+        {
+            var account = await dbContext.FinanceAccounts.FindAsync(accountId.Value);
+            if (account == null || account.CompanyEntityId != id || account.IsArchived ||
+                account.AccountType != FinanceAccountType.Asset || account.Currency != entity.BaseCurrency)
+            {
+                return NotFound();
+            }
+        }
+
         year ??= DateTime.UtcNow.Year;
         var rates = await exchangeRateService.GetLatestExchangeRatesAsync(id, entity.BaseCurrency);
-        var trend = await statisticsService.GetMonthlyAssetTrendAsync(id, year.Value, rates);
+        var trend = await statisticsService.GetMonthlyAssetTrendAsync(id, year.Value, rates, accountId);
 
         return Json(new AssetTrendResponse
         {
             Labels = trend.Labels,
             AssetData = trend.AssetData,
             LiabilityData = trend.LiabilityData,
+            NetData = trend.AssetData.Zip(trend.LiabilityData, (asset, liability) => asset - liability).ToArray(),
         });
     }
 

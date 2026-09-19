@@ -87,13 +87,15 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
     // ────────────────────────────────────────────
 
     /// <summary>
-    /// Returns end-of-month Total Assets and Total Liabilities (13 points: Initial + 12 months),
-    /// converted to base currency via <paramref name="rates"/>.
+    /// Returns end-of-month assets and liabilities (13 points: Initial + 12 months),
+    /// converted to base currency via <paramref name="rates"/>. When
+    /// <paramref name="assetAccountId"/> is specified, only that asset account is
+    /// included in the asset series; the liability series remains company-wide.
     /// Uses sliding-window accumulation: opening balance via <see cref="LedgerBalanceService"/>,
     /// then adds monthly deltas computed from a single full-year transaction query.
     /// </summary>
     public async Task<AssetTrendData> GetMonthlyAssetTrendAsync(
-        int entityId, int year, Dictionary<string, decimal> rates)
+        int entityId, int year, Dictionary<string, decimal> rates, int? assetAccountId = null)
     {
         var yearStart = new DateTime(year, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         var yearEnd = yearStart.AddYears(1);
@@ -101,7 +103,8 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
         // Phase 1: Opening balances as of Jan 1
         var openingBalances = await balanceService.GetAccountBalancesAsync(entityId, yearStart);
         var openingAssets = openingBalances
-            .Where(a => a.Account.AccountType == FinanceAccountType.Asset)
+            .Where(a => a.Account.AccountType == FinanceAccountType.Asset &&
+                        (!assetAccountId.HasValue || a.Account.Id == assetAccountId.Value))
             .Sum(a => a.Balance * rates.GetValueOrDefault(a.Account.Currency, 1));
         var openingLiabilities = openingBalances
             .Where(a => a.Account.AccountType == FinanceAccountType.Liability)
@@ -127,6 +130,8 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
                     .Select(t => new YearTxRow
                     {
                         TransactionTime = t.TransactionTime,
+                        SourceAccountId = t.SourceAccountId,
+                        DestAccountId = t.DestinationAccountId,
                         SourceType = t.SourceAccount!.AccountType,
                         SourceEntityId = t.SourceAccount.CompanyEntityId,
                         DestType = t.DestinationAccount!.AccountType,
@@ -149,6 +154,8 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
                     .Select(t => new YearTxRow
                     {
                         TransactionTime = t.TransactionTime,
+                        SourceAccountId = t.SourceAccountId,
+                        DestAccountId = t.DestinationAccountId,
                         SourceType = t.SourceAccount!.AccountType,
                         SourceEntityId = t.SourceAccount.CompanyEntityId,
                         DestType = t.DestinationAccount!.AccountType,
@@ -201,9 +208,11 @@ public class LedgerStatisticsService(EmployeeCenterDbContext dbContext, LedgerBa
                 var sourceConverted = t.Amount * sourceRate;
 
                 // Asset: balance = dest inflows − source outflows (only when THIS entity owns the account)
-                if (t.DestType == FinanceAccountType.Asset && t.DestEntityId == entityId)
+                if (t.DestType == FinanceAccountType.Asset && t.DestEntityId == entityId &&
+                    (!assetAccountId.HasValue || t.DestAccountId == assetAccountId.Value))
                     assetDelta += destConverted;
-                if (t.SourceType == FinanceAccountType.Asset && t.SourceEntityId == entityId)
+                if (t.SourceType == FinanceAccountType.Asset && t.SourceEntityId == entityId &&
+                    (!assetAccountId.HasValue || t.SourceAccountId == assetAccountId.Value))
                     assetDelta -= sourceConverted;
 
                 // Liability: balance = source outflows − dest inflows (only when THIS entity owns the account)
@@ -390,6 +399,8 @@ public class MonthlyChartData
 internal class YearTxRow
 {
     public DateTime TransactionTime { get; init; }
+    public int SourceAccountId { get; init; }
+    public int DestAccountId { get; init; }
     public FinanceAccountType SourceType { get; init; }
     public int SourceEntityId { get; init; }
     public FinanceAccountType DestType { get; init; }
