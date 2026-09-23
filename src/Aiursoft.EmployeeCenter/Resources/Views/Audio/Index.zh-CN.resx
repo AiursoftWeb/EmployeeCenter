@@ -63,6 +63,9 @@
   <data name="Generating minutes" xml:space="preserve">
     <value>纪要生成中</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>媒体处理失败</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>会议录音</value>
   </data>
@@ -146,10 +149,6 @@
   </data>
   <data name="Waiting for transcript" xml:space="preserve">
     <value>等待转录</value>
-  </data>
-
-  <data name="Media processing failed" xml:space="preserve">
-    <value>媒体处理失败</value>
   </data>
 
 </root>

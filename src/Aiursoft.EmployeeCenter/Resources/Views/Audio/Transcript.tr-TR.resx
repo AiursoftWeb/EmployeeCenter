@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>Sesli Dosyayı İndir</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>Orijinal Dosyayı İndir</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Düzenle</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>Medya işleme başarısız oldu</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>Medya işleme işlemi yeniden kuyruğa alındı.</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>Konuşma metne çevirme ve toplantı notlarının başlayabilmesi için medya işlemenin başarılı olması gerekir.</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>Medya değiştirme başarısız oldu</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>ASR sıfırlanırsa mevcut transkript ve segment sonuçları silinecek, yeniden deneme sayacı sıfırlanacak ve yeni bir çevrimdışı görev oluşturulacaktır. Devam etmek istediğinize emin misiniz?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>Medya İşlemlemeyi Tekrar Dene</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>Toplantı Notlarını Tekrar Dene</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>Konuşma metne dönüştürme tamamlandıktan sonra toplantı özeti otomatik olarak başlatılacaktır.</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>Yüklenen orijinal dosya artık kullanılamıyor. Devam etmek için kaydı değiştirin.</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>Kayıt arka planda hazırlanıyor. Değiştirme sırasında mevcut kayıt kullanılabilir durumda kalmaya devam eder.</value>

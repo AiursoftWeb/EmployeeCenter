@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>オーディオをダウンロード</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>元のファイルをダウンロード</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>編集</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>メディアの処理に失敗しました</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>メディアの処理が再度キューに追加されました。</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>音声認識と議事録の開始前に、メディア処理が成功する必要があります。</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>メディアの置き換えに失敗しました</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>ASRのリセットにより、現在の文字起こしとセグメント結果が削除され、リトライカウンターがリセットされ、新しいオフラインタスクが作成されます。続行してもよろしいですか？</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>メディア処理を再試行</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>議事録を再試行</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>音声認識が完了すると、会議要約の生成が自動的に開始されます。</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>アップロードした元のファイルは利用できなくなりました。続行するには、録音を置き換えてください。</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>録音がバックグラウンドで準備中です。差し替えの間も、既存の録音は引き続き利用可能です。</value>

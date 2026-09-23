@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>Ladda ner ljud</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>Ladda ner originalfilen</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Redigera</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>Mediebehandling misslyckades</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>Mediabehandling har lagts i kö igen.</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>Mediabearbetningen måste lyckas innan tal-till-text och mötesprotokoll kan påbörjas.</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>Byt av media misslyckades</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>Att återställa ASR raderar det aktuella manuskriptet och segmentresultaten, återställer omprövningsräknaren och skapar en ny offlineuppgift. Är du säker på att du vill fortsätta?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>Försök med mediabearbetning igen</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>Försök igen med mötesprotokoll</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>Mötesöversikten startas automatiskt när tal-till-text är klart.</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>Den ursprungliga uppladdade filen är inte längre tillgänglig. Byt ut inspelningen för att fortsätta.</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>Inspisningen förbereds i bakgrunden. Den befintliga inspelningen förblir tillgänglig under bytet.</value>

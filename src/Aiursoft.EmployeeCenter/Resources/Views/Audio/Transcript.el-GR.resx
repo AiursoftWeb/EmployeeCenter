@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>Λήψη Ήχου</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>Λήψη αρχικού αρχείου</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Επεξεργασία</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>Απέτυχε η επεξεργασία μέσων</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>Η επεξεργασία μέσων έχει ξανατοποθετηθεί στην ουρά.</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>Η επεξεργασία μέσων πρέπει να ολοκληρωθεί επιτυχώς πριν ξεκινήσουν η μετατροφή ομιλίας σε κείμενο και η δημιουργία πρακτικών συνεδρίας.</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>Αποτυχία αντικατάστασης πολυμέσων</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>Η επαναφορά του ASR θα διαγράψει το τρέχον transcript και τα αποτελέσματα των τμημάτων, θα επαναφέρει τον μετρητή επανάληψης και θα δημιουργήσει ένα νέο εκτός σύνδεσης έργο. Είστε σίγουροι ότι θέλετε να συνεχίσετε;</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>Επανάληψη επεξεργασίας μέσων</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>Επανάληψη Πρακτικών Συνεδρίας</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>Η σύνοψη της συνάντησης θα ξεκινήσει αυτόματα αφού ολοκληρωθεί η μετατροπή ομιλίας σε κείμενο.</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>Το αρχικό ανεπιφόρτωτο αρχείο δεν είναι πλέον διαθέσιμο. Αντικαταστήστε την ηχογράφηση για να συνεχίσετε.</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>Η εγγραφή προετοιμάζεται στο παρασκήνιο. Η υπάρχουσα εγγραφή παραμένει διαθέσιμη κατά την αντικατάσταση.</value>

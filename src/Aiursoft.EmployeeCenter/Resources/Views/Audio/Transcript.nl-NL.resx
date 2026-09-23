@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>Audio downloaden</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>Origineel bestand downloaden</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Bewerken</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>Media-verwerking mislukt</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>Media-verwerking is opnieuw in de wachtrij geplaatst.</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>De mediabewerking moet geslaagd zijn voordat spraak-naar-tekst en vergadernotities kunnen beginnen.</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>Media vervanging mislukt</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>Bij het opnieuw instellen van ASR worden de huidige transcriptie en segmentresultaten verwijderd, wordt de opnieuw probeer-teller gereset en wordt een nieuwe offline-taak aangemaakt. Weet u zeker dat u wilt doorgaan?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>Opnieuw verwerken van media</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>Opnieuw proberen: notulen</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>De vergaderingssamenvatting wordt automatisch gestart nadat de spraak-naar-tekstconversie is voltooid.</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>Het oorspronkelijke geüploade bestand is niet langer beschikbaar. Vervang de opname om door te gaan.</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>De opname wordt op de achtergrond voorbereid. De bestaande opname blijft beschikbaar tijdens de vervanging.</value>

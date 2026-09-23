@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>Скачать аудио</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>Скачать исходный файл</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>Обработка медиа не удалась</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>Обработка медиафайлов снова добавлена в очередь.</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>Обработка медиа должна завершиться успешно, прежде чем можно будет начать распознавание речи и создание протокола встречи.</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>Не удалось заменить медиафайл</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>Сброс ASR удалит текущий транскрипт и результаты сегментации, сбросит счётчик повторов и создаст новую офлайн-задачу. Вы уверены, что хотите продолжить?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>Повторить обработку медиа</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>Повторить создание протокола</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>Сводка встречи будет начата автоматически после завершения распознавания речи.</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>Исходный загруженный файл больше недоступен. Замените запись, чтобы продолжить.</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>Запись готовится в фоновом режиме. Существующая запись остаётся доступной в процессе замены.</value>

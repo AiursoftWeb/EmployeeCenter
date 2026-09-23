@@ -63,6 +63,9 @@
   <data name="Generating minutes" xml:space="preserve">
     <value>Generating minutes</value>
   </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>Media processing failed</value>
+  </data>
   <data name="Meeting Recordings" xml:space="preserve">
     <value>Meeting Recordings</value>
   </data>
@@ -146,10 +149,6 @@
   </data>
   <data name="Waiting for transcript" xml:space="preserve">
     <value>Waiting for transcript</value>
-  </data>
-
-  <data name="Media processing failed" xml:space="preserve">
-    <value>Media processing failed</value>
   </data>
 
 </root>

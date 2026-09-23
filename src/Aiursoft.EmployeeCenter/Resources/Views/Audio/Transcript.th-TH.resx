@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>ดาวน์โหลดเสียง</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>ดาวน์โหลดไฟล์ต้นฉบับ</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>แก้ไข</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>การประมวลผลสื่อล้มเหลว</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>การประมวลผลสื่อได้ถูกเพิ่มเข้าในคิวอีกครั้ง</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>การประมวลผลสื่อต้องสำเร็จก่อนที่การแปลงเสียงเป็นข้อความและการสร้างบันทึกการประชุมจะเริ่มได้</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>การเปลี่ยนสื่อล้มเหลว</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>การรีเซ็ต ASR จะลบข้อความถอดความและผลลัพธ์ของเซกเมนต์ปัจจุบัน รีเซ็ตตัวนับการลองใหม่ และสร้างงานออฟไลน์ใหม่ คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>ลองประมวลผลสื่ออีกครั้ง</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>ลองสร้างบันทึกการประชุมอีกครั้ง</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>สรุปการประชุมจะเริ่มต้นอัตโนมัติเมื่อการแปลงเสียงเป็นข้อความเสร็จสมบูรณ์</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>ไฟล์ต้นฉบับที่อัปโหลดไว้ไม่พร้อมใช้งานอีกต่อไปแล้ว กรุณาเปลี่ยนการบันทึกเพื่อดำเนินการต่อ</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>การบันทึกกำลังถูกเตรียมไว้ในเบื้องหลัง การบันทึกที่มีอยู่เดิมยังคงใช้งานได้ระหว่างดำเนินการแทนที่</value>
