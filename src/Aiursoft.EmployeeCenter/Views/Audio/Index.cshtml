@@ -11,8 +11,8 @@
     var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
     var totalCount = Model.TotalAudioCount;
     var transcribedCount = Model.Audios.Count(a => a.HasTranscript);
-    var processingCount = Model.Audios.Count(a => !a.HasTranscript && a.Audio.AsrAttemptCount > 0);
-    var pendingCount = Model.Audios.Count(a => !a.HasTranscript && a.Audio.AsrAttemptCount == 0);
+    var processingCount = Model.Audios.Count(a => !a.HasTranscript && a.Audio.MediaStatus != AudioMediaStatus.Failed && a.Audio.AsrAttemptCount > 0);
+    var pendingCount = Model.Audios.Count(a => !a.HasTranscript && a.Audio.MediaStatus != AudioMediaStatus.Failed && a.Audio.AsrAttemptCount == 0);
 }
 
 <div class="row mb-2 mb-xl-3">
@@ -189,7 +189,11 @@
                         </td>
                         <td><label class="text-muted" data-utc-time="@item.Audio.CreateTime.ToHtmlDateTime()"></label></td>
                         <td>
-                            @if (item.HasTranscript)
+                            @if (item.Audio.MediaStatus == AudioMediaStatus.Failed)
+                            {
+                                <span class="badge bg-danger">@Localizer["Media processing failed"]</span>
+                            }
+                            else if (item.HasTranscript)
                             {
                                 <span class="badge bg-success">@Localizer["Transcribed"]</span>
                             }
@@ -207,7 +211,11 @@
                             }
                         </td>
                         <td>
-                            @if (!item.HasTranscript)
+                            @if (item.Audio.MediaStatus == AudioMediaStatus.Failed)
+                            {
+                                <span class="badge bg-danger">@Localizer["Media processing failed"]</span>
+                            }
+                            else if (!item.HasTranscript)
                             {
                                 <span class="badge bg-secondary">@Localizer["Waiting for transcript"]</span>
                             }

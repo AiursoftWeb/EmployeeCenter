@@ -129,7 +129,7 @@ public class AudioTests : TestBase
     }
 
     [TestMethod]
-    public async Task FailedInitialUploadIsDeletedAndCannotBeDownloaded()
+    public async Task FailedInitialUploadIsPreservedAndCanBeDownloadedOrRetried()
     {
         await LoginAsAdmin();
 
@@ -161,14 +161,82 @@ public class AudioTests : TestBase
         var audio = await verificationDb.Audios.SingleAsync(item => item.Name == audioName);
         Assert.AreEqual(AudioMediaStatus.Failed, audio.MediaStatus);
         Assert.AreEqual("The uploaded file could not be processed.", audio.MediaProcessingError);
-        Assert.IsFalse(File.Exists(physicalPath));
+        Assert.IsTrue(File.Exists(physicalPath));
 
         var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audio.Id}");
         transcriptResponse.EnsureSuccessStatusCode();
         var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
-        Assert.DoesNotContain(filePath, transcriptHtml);
-        Assert.DoesNotContain("Download Audio", transcriptHtml);
+        StringAssert.Contains(transcriptHtml, "Download Original File");
+        StringAssert.Contains(transcriptHtml, "Retry Media Processing");
+        Assert.DoesNotContain("Waiting to transcribe audio", transcriptHtml);
         Assert.DoesNotContain("ffprobe", transcriptHtml);
+
+        var downloadResponse = await Http.GetAsync($"/Audio/DownloadOriginal/{audio.Id}");
+        downloadResponse.EnsureSuccessStatusCode();
+        Assert.AreEqual("not media", await downloadResponse.Content.ReadAsStringAsync());
+        Assert.AreEqual("attachment", downloadResponse.Content.Headers.ContentDisposition?.DispositionType);
+
+        var retryResponse = await PostForm(
+            $"/Audio/RetryMedia/{audio.Id}",
+            new Dictionary<string, string>(),
+            $"/Audio/Transcript/{audio.Id}");
+        AssertRedirect(retryResponse, $"/Audio/Transcript/{audio.Id}");
+        await Task.Delay(TimeSpan.FromSeconds(2));
+        Assert.IsTrue(File.Exists(physicalPath));
+
+        var indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        var indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(indexHtml, "Media processing failed");
+
+        var deleteResponse = await PostForm(
+            $"/Audio/Delete/{audio.Id}",
+            new Dictionary<string, string>(),
+            "/Audio/Create");
+        AssertRedirect(deleteResponse, "/Audio");
+        Assert.IsFalse(File.Exists(physicalPath));
+    }
+
+    [TestMethod]
+    public async Task FailedLegacyUploadWithoutFileHasNoDownloadOrRetry()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var audio = new Audio
+            {
+                Name = "Legacy failed media",
+                FilePath = $"audio/missing-{Guid.NewGuid():N}.mp4",
+                OwnerId = admin.Id,
+                MediaStatus = AudioMediaStatus.Failed,
+                MediaProcessingError = "Media processing failed."
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcriptHtml, "The original uploaded file is no longer available.");
+        Assert.DoesNotContain("Download Original File", transcriptHtml);
+        Assert.DoesNotContain("Retry Media Processing", transcriptHtml);
+        Assert.AreEqual(HttpStatusCode.NotFound,
+            (await Http.GetAsync($"/Audio/DownloadOriginal/{audioId}")).StatusCode);
+
+        var retryResponse = await PostForm(
+            $"/Audio/RetryMedia/{audioId}",
+            new Dictionary<string, string>(),
+            "/Audio/Create");
+        AssertRedirect(retryResponse, $"/Audio/Transcript/{audioId}");
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.AreEqual(AudioMediaStatus.Failed, (await verificationDb.Audios.FindAsync(audioId))!.MediaStatus);
     }
 
     [TestMethod]

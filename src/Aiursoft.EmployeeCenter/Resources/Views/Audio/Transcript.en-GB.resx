@@ -250,4 +250,11 @@
     <value>Your browser does not support audio playback.</value>
   </data>
 
+  <data name="Download Original File" xml:space="preserve"><value>Download Original File</value></data>
+  <data name="Retry Media Processing" xml:space="preserve"><value>Retry Media Processing</value></data>
+  <data name="The original uploaded file is preserved for download and retry." xml:space="preserve"><value>The original uploaded file is preserved for download and retry.</value></data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve"><value>The original uploaded file is no longer available. Replace the recording to continue.</value></data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve"><value>Media processing must succeed before speech-to-text and meeting minutes can begin.</value></data>
+  <data name="Media processing has been queued again." xml:space="preserve"><value>Media processing has been queued again.</value></data>
+
 </root>

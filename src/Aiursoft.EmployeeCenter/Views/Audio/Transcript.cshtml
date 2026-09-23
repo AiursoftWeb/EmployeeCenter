@@ -10,8 +10,10 @@
 
 @{
     var hasTranscript = !string.IsNullOrEmpty(Model.PlainText);
-    var hasFailed = !hasTranscript &&
+    var mediaFailed = Model.Audio.MediaStatus == AudioMediaStatus.Failed;
+    var asrFailed = !hasTranscript &&
         (Model.Audio.AsrAttemptCount >= AsrSettings.Value.AsrMaxRetryCount || Model.Audio.AsrTerminalError != null);
+    var hasFailed = mediaFailed || asrFailed;
     var hasMeetingMinutes = !string.IsNullOrWhiteSpace(Model.MeetingMinutesMarkdown);
     var meetingMinutesFailed = hasTranscript && !hasMeetingMinutes && Model.MeetingMinutesAttemptCount >= AppSettings.Value.Agent.MeetingMinutesMaxRetryCount;
     var isTranscribing = !hasTranscript && !hasFailed && Model.Audio.AsrAttemptCount > 0;
@@ -38,6 +40,19 @@ else if (Model.Audio.MediaStatus == AudioMediaStatus.Failed)
         <div class="alert-message">
             <strong>@Localizer["Media processing failed"]</strong>
             <div class="mt-1">@Model.Audio.MediaProcessingError</div>
+            <div class="mt-1">@Localizer[Model.HasFailedMediaFile
+                ? "The original uploaded file is preserved for download and retry."
+                : "The original uploaded file is no longer available. Replace the recording to continue."]</div>
+            @if (Model.HasFailedMediaFile && Model.CanManageShares)
+            {
+                <form asp-action="RetryMedia" method="post" class="mt-2">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Audio.Id" />
+                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                        <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Retry Media Processing"]
+                    </button>
+                </form>
+            }
         </div>
     </div>
 }
@@ -64,6 +79,12 @@ else if (Model.Audio.MediaProcessingError != null)
         {
             <a href="@audioUrl" class="btn btn-light bg-white shadow-sm" target="_blank">
                 <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Download Audio"]
+            </a>
+        }
+        else if (Model.HasFailedMediaFile)
+        {
+            <a asp-action="DownloadOriginal" asp-route-id="@Model.Audio.Id" class="btn btn-light bg-white shadow-sm">
+                <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Download Original File"]
             </a>
         }
         @if (Model.Permission == SharePermission.Editable)
@@ -125,6 +146,22 @@ else if (Model.Audio.MediaProcessingError != null)
     </div>
 }
 
+@if (TempData["MediaRetryQueued"] is true)
+{
+    <div class="alert alert-success alert-outline-coloured" role="alert">
+        <div class="alert-icon"><i class="align-middle" data-lucide="check-circle"></i></div>
+        <div class="alert-message">@Localizer["Media processing has been queued again."]</div>
+    </div>
+}
+
+@if (TempData["MediaRetrySourceMissing"] is true)
+{
+    <div class="alert alert-warning alert-outline-coloured" role="alert">
+        <div class="alert-icon"><i class="align-middle" data-lucide="alert-triangle"></i></div>
+        <div class="alert-message">@Localizer["The original uploaded file is no longer available. Replace the recording to continue."]</div>
+    </div>
+}
+
 <div class="row">
     <div class="col-12 col-xl-8">
         <div class="w-100">
@@ -139,7 +176,7 @@ else if (Model.Audio.MediaProcessingError != null)
                     {
                         <span class="badge badge-subtle-success ms-auto"><i class="align-middle me-1" data-lucide="check"></i>@Localizer["Generated"]</span>
                     }
-                    else if (meetingMinutesFailed)
+                    else if (mediaFailed || meetingMinutesFailed)
                     {
                         <span class="badge badge-subtle-danger ms-auto"><i class="align-middle me-1" data-lucide="x-circle"></i>@Localizer["Failed"]</span>
                     }
@@ -180,7 +217,14 @@ else if (Model.Audio.MediaProcessingError != null)
                             </div>
                         </div>
                     }
-                    @if (hasMeetingMinutes)
+                    @if (mediaFailed)
+                    {
+                        <div class="alert alert-danger alert-outline-coloured mb-0" role="alert">
+                            <div class="alert-icon"><i class="align-middle me-1" data-lucide="x-circle"></i></div>
+                            <div class="alert-message">@Localizer["Media processing must succeed before speech-to-text and meeting minutes can begin."]</div>
+                        </div>
+                    }
+                    else if (hasMeetingMinutes)
                     {
                         <div class="markdown-content">@MarkdownDisplay.RenderMarkdown(Model.MeetingMinutesMarkdown)</div>
                     }
@@ -266,7 +310,12 @@ else if (Model.Audio.MediaProcessingError != null)
                             <i class="align-middle" data-lucide="@(hasFailed ? "x-circle" : "info")"></i>
                         </div>
                         <div class="alert-message">
-                            @if (hasFailed)
+                            @if (mediaFailed)
+                            {
+                                <strong>@Localizer["Media processing failed"]</strong>
+                                <div class="mt-1">@Localizer["Media processing must succeed before speech-to-text and meeting minutes can begin."]</div>
+                            }
+                            else if (asrFailed)
                             {
                                 <strong>@Localizer["Processing Failed"]</strong>
                                 <div class="mt-1">@Localizer["ASR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Audio.AsrAttemptCount]</div>

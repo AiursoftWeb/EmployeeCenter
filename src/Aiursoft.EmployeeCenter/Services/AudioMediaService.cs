@@ -162,15 +162,17 @@ public class AudioMediaService(
         {
             audio.PendingFilePath = null;
             audio.MediaStatus = AudioMediaStatus.Ready;
+            // The existing recording remains available; discard only the failed replacement.
+            fileCleanupService.QueueDeletion(sourcePath);
         }
         else
         {
             audio.MediaStatus = AudioMediaStatus.Failed;
+            // Keep the original upload so it can be inspected, downloaded, or retried.
         }
         audio.MediaProcessingError = error;
         audio.MediaProcessingToken = null;
         audio.MediaProcessingStartedTime = null;
-        fileCleanupService.QueueDeletion(sourcePath);
         if (convertedPath != null)
         {
             fileCleanupService.QueueDeletion(convertedPath);
@@ -185,9 +187,9 @@ public class AudioMediaService(
         {
             return "Media processing timed out.";
         }
-        if (exception.Message.Contains("does not contain a decodable audio stream", StringComparison.Ordinal))
+        if (exception.Message.Contains("does not contain a detectable audio track", StringComparison.Ordinal))
         {
-            return "The uploaded media does not contain a decodable audio stream.";
+            return "The uploaded media has no detectable audio track.";
         }
         if (exception.Message.StartsWith("Media extension ", StringComparison.Ordinal))
         {

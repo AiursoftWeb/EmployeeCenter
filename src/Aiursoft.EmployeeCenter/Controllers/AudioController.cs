@@ -410,8 +410,52 @@ public class AudioController(
             MeetingMinutesOutdated = asrResult != null &&
                                      asrResult.TranscriptRevision != asrResult.MeetingMinutesTranscriptRevision,
             CanManageShares = canManageShares,
+            HasFailedMediaFile = audio.MediaStatus == AudioMediaStatus.Failed &&
+                                 TryGetExistingAudioPath(audio.FilePath, out _),
             AccessContext = accessContext
         });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> DownloadOriginal(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null || !await CanViewAudioAsync(audio)) return NotFound();
+        if (audio.MediaStatus != AudioMediaStatus.Failed ||
+            !TryGetExistingAudioPath(audio.FilePath, out _)) return NotFound();
+
+        var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(audio.FilePath, "audio");
+        return PhysicalFile(physicalPath, "application/octet-stream", Path.GetFileName(audio.FilePath));
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RetryMedia(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanManageAudioAsync(audio)) return Unauthorized();
+        if (audio.MediaStatus != AudioMediaStatus.Failed) return RedirectToAction(nameof(Transcript), new { id });
+        if (!TryGetExistingAudioPath(audio.FilePath, out _))
+        {
+            TempData["MediaRetrySourceMissing"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
+
+        audio.MediaStatus = AudioMediaStatus.Uploaded;
+        audio.MediaProcessingError = null;
+        audio.MediaProcessingToken = Guid.NewGuid().ToString("N");
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
+        QueueMediaProcessing(id);
+        TempData["MediaRetryQueued"] = true;
+        return RedirectToAction(nameof(Transcript), new { id });
     }
 
     [HttpPost]

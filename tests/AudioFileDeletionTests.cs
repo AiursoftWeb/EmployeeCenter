@@ -11,7 +11,7 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class AudioFileDeletionTests
 {
     [TestMethod]
-    public async Task FailedInitialUploadCanBeDeletedWhileRecordIsRetained()
+    public async Task FailedInitialUploadIsPreservedUntilItsRecordIsDeleted()
     {
         await using var connection = new SqliteConnection("DataSource=:memory:");
         await connection.OpenAsync();
@@ -48,9 +48,14 @@ public class AudioFileDeletionTests
 
         try
         {
+            Assert.AreEqual(0, await service.CleanupQueuedAsync());
+            Assert.IsTrue(File.Exists(physicalPath));
+            Assert.IsTrue(await db.Audios.AnyAsync(audio => audio.FilePath == filePath));
+
+            db.Audios.Remove(await db.Audios.SingleAsync(audio => audio.FilePath == filePath));
+            await db.SaveChangesAsync();
             Assert.AreEqual(1, await service.CleanupQueuedAsync());
             Assert.IsFalse(File.Exists(physicalPath));
-            Assert.IsTrue(await db.Audios.AnyAsync(audio => audio.FilePath == filePath));
         }
         finally
         {

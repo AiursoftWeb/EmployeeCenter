@@ -250,4 +250,11 @@
     <value>您的浏览器不支持音频播放。</value>
   </data>
 
+  <data name="Download Original File" xml:space="preserve"><value>下载原始文件</value></data>
+  <data name="Retry Media Processing" xml:space="preserve"><value>重新处理媒体</value></data>
+  <data name="The original uploaded file is preserved for download and retry." xml:space="preserve"><value>原始上传文件已保留，可下载或重新处理。</value></data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve"><value>原始上传文件已不存在，请替换录音后继续。</value></data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve"><value>媒体处理成功后才能开始转录和生成会议纪要。</value></data>
+  <data name="Media processing has been queued again." xml:space="preserve"><value>媒体重新处理任务已排队。</value></data>
+
 </root>

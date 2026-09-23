@@ -95,7 +95,7 @@ public class AsrMediaProcessor(
         var payload = JsonConvert.DeserializeObject<FfprobePayload>(result.Output);
         if (payload == null || !payload.Streams.Any(stream => stream.CodecType == "audio"))
         {
-            throw new InvalidOperationException("Media does not contain a decodable audio stream.");
+            throw new InvalidOperationException("Media does not contain a detectable audio track.");
         }
         var duration = ParseMetadataDuration(payload.Format?.Duration);
         if (duration == null)
