@@ -30,6 +30,12 @@
   <data name="Assets &amp; Liabilities Trend" xml:space="preserve">
     <value>แนวโน้มสินทรัพย์และหนี้สิน</value>
   </data>
+  <data name="Bank Balance" xml:space="preserve">
+    <value>ยอดคงเหลือในธนาคาร</value>
+  </data>
+  <data name="Bank Balance Less Liabilities" xml:space="preserve">
+    <value>ยอดคงเหลือในธนาคารหักด้วยหนี้สิน</value>
+  </data>
   <data name="converted at current exchange rate" xml:space="preserve">
     <value>คิดเป็นอัตราแลกเปลี่ยนปัจจุบัน</value>
   </data>
