@@ -42,9 +42,6 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Назва бренду</value>
   </data>
-  <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
-    <value>Перевірте, чи проєкт дубльовано в цю організацію GitHub. Залиште порожнім, щоб вимкнути перевірку. Наприклад: aiursoftweb</value>
-  </data>
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API Token</value>
   </data>
@@ -54,29 +51,11 @@
   <data name="Force Project Association" xml:space="preserve">
     <value>Примусове призначення проекту</value>
   </data>
-  <data name="GitLab Ensure GitHub Org Mirrored" xml:space="preserve">
-    <value>GitLab Переконатися, що організацію GitHub віддзеркалено</value>
-  </data>
-  <data name="GitLab GitHub Token" xml:space="preserve">
-    <value>GitLab GitHub Token</value>
-  </data>
-  <data name="GitLab Organization URL" xml:space="preserve">
-    <value>URL організації GitLab</value>
-  </data>
-  <data name="GitLab Project Must Be Stared By" xml:space="preserve">
-    <value>Проект GitLab має бути відмічений як «Зірка»</value>
-  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Номер ICP</value>
   </data>
   <data name="Meeting Minutes System Prompt" xml:space="preserve">
     <value>Системний запит протоколу засідання</value>
-  </data>
-  <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
-    <value>Відображатимуться лише проекти, які цей користувач позначив зіркою. Залиште поле порожнім, щоб показати всі проекти. Наприклад, anduin</value>
-  </data>
-  <data name="Optional GitHub personal access token to increase API rate limits for mirroring checks." xml:space="preserve">
-    <value>Необхідний особистий токен доступу GitHub для збільшення лімітів API для перевірок дзеркалювання.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Логотип проекту</value>
@@ -113,9 +92,6 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL компанії або проекту. Наприклад, https://www.aiursoft.com</value>
-  </data>
-  <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
-    <value>URL організації GitLab для отримання проектів. Наприклад, https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
 </root>

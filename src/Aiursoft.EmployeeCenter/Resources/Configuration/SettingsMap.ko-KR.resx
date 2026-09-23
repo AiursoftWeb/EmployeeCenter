@@ -42,9 +42,6 @@
   <data name="Brand Name" xml:space="preserve">
     <value>브랜드 이름</value>
   </data>
-  <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
-    <value>프로젝트가 이 GitHub 조직으로 미러링되었는지 확인합니다. 검사를 비활성화하려면 비워 두세요. 예: aiursoftweb</value>
-  </data>
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API 토큰</value>
   </data>
@@ -54,29 +51,11 @@
   <data name="Force Project Association" xml:space="preserve">
     <value>프로젝트 연계 강제</value>
   </data>
-  <data name="GitLab Ensure GitHub Org Mirrored" xml:space="preserve">
-    <value>GitLab GitHub 조직이 미러링되었는지 확인</value>
-  </data>
-  <data name="GitLab GitHub Token" xml:space="preserve">
-    <value>GitLab GitHub 토큰</value>
-  </data>
-  <data name="GitLab Organization URL" xml:space="preserve">
-    <value>GitLab 조직 URL</value>
-  </data>
-  <data name="GitLab Project Must Be Stared By" xml:space="preserve">
-    <value>GitLab 프로젝트는 반드시 이 사용자에게 스타되어야 합니다</value>
-  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 번호</value>
   </data>
   <data name="Meeting Minutes System Prompt" xml:space="preserve">
     <value>회의록 시스템 프롬프트</value>
-  </data>
-  <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
-    <value>이 사용자가 별표를 친 프로젝트만 표시됩니다. 모든 프로젝트를 표시하려면 비워 두세요. 예: anduin</value>
-  </data>
-  <data name="Optional GitHub personal access token to increase API rate limits for mirroring checks." xml:space="preserve">
-    <value>API 속도 제한을 높이기 위한 선택적 GitHub 개인 액세스 토큰입니다.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>프로젝트 로고</value>
@@ -113,9 +92,6 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>회사 또는 프로젝트의 URL입니다. 예: https://www.aiursoft.com</value>
-  </data>
-  <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
-    <value>GitLab 조직의 URL로 프로젝트를 가져옵니다. 예: https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
 </root>

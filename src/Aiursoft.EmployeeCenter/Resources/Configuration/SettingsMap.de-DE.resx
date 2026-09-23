@@ -42,9 +42,6 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Markenname</value>
   </data>
-  <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
-    <value>Prüfen, ob das Projekt in diese GitHub-Organisation gespiegelt wurde. Leer lassen, um die Prüfung zu deaktivieren. Bsp. aiursoftweb</value>
-  </data>
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API-Token</value>
   </data>
@@ -54,29 +51,11 @@
   <data name="Force Project Association" xml:space="preserve">
     <value>Projektzuordnung erzwingen</value>
   </data>
-  <data name="GitLab Ensure GitHub Org Mirrored" xml:space="preserve">
-    <value>GitLab sicherstellen, dass GitHub-Organisation gespiegelt wird</value>
-  </data>
-  <data name="GitLab GitHub Token" xml:space="preserve">
-    <value>GitLab GitHub Token</value>
-  </data>
-  <data name="GitLab Organization URL" xml:space="preserve">
-    <value>GitLab-Organisations-URL</value>
-  </data>
-  <data name="GitLab Project Must Be Stared By" xml:space="preserve">
-    <value>GitLab-Projekt muss von diesem Benutzer gestarrt werden</value>
-  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-Nummer</value>
   </data>
   <data name="Meeting Minutes System Prompt" xml:space="preserve">
     <value>Systemanweisung für Meeting-Protokolle</value>
-  </data>
-  <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
-    <value>Nur Projekte, die von diesem Benutzer markiert wurden, werden angezeigt. Lassen Sie das Feld leer, um alle Projekte anzuzeigen. Bsp. anduin</value>
-  </data>
-  <data name="Optional GitHub personal access token to increase API rate limits for mirroring checks." xml:space="preserve">
-    <value>Optionales GitHub-Personal-Access-Token, um die API-Ratenlimits für Spiegelungsüberprüfungen zu erhöhen.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projekt-Logo</value>
@@ -113,9 +92,6 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Die URL des Unternehmens oder Projekts. Zum Beispiel https://www.aiursoft.com</value>
-  </data>
-  <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
-    <value>Die URL der GitLab-Organisation, von der Projekte abgerufen werden sollen. Z. B. https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
 </root>

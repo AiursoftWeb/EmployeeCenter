@@ -1,7 +1,6 @@
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
-using Aiursoft.EmployeeCenter.Services.GitLab;
 using Microsoft.Extensions.Options;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
@@ -118,6 +117,14 @@ public class ExportTests : TestBase
         var cloudflareSetting = await db.GlobalSettings.FindAsync(SettingsMap.CloudflareApiToken);
         Assert.IsNotNull(cloudflareSetting);
         cloudflareSetting.Value = cloudflareSecret;
+        const string retiredGitHubToken = "retired-github-token-must-never-be-exported";
+        var retiredSetting = await db.GlobalSettings.FindAsync("GitLab_GitHub_Token");
+        if (retiredSetting == null)
+        {
+            retiredSetting = new GlobalSetting { Key = "GitLab_GitHub_Token" };
+            db.GlobalSettings.Add(retiredSetting);
+        }
+        retiredSetting.Value = retiredGitHubToken;
 
         // 4. Setup Company Entity
         var company = new CompanyEntity
@@ -201,7 +208,6 @@ public class ExportTests : TestBase
             db,
             options,
             storageService,
-            scope.ServiceProvider.GetRequiredService<GitLabService>(),
             scope.ServiceProvider.GetRequiredService<ILogger<ExportService>>());
         await exportService.ExportAsync();
 
@@ -215,9 +221,8 @@ public class ExportTests : TestBase
         Assert.IsTrue(File.Exists(txAttachmentMd), $"Transaction attachment OCR MD not found at {txAttachmentMd}");
         Assert.AreEqual("Invoice OCR Content", await File.ReadAllTextAsync(txAttachmentMd));
 
-        // Verify Git Projects
-        var gitProjectsDir = Path.Combine(_testExportPath, "GitProjects");
-        Assert.IsTrue(Directory.Exists(gitProjectsDir), $"GitProjects directory not found at {gitProjectsDir}");
+        // GitLab repositories are no longer exported by Employee Center.
+        Assert.IsFalse(Directory.Exists(Path.Combine(_testExportPath, "GitProjects")));
 
         // Verify Blueprints
         var blueprintFile = Path.Combine(_testExportPath, "Blueprints", "Level1", "Level2", "Test Blueprint.md");
@@ -262,6 +267,16 @@ public class ExportTests : TestBase
         var settingsContent = await File.ReadAllTextAsync(settingsFile);
         Assert.IsTrue(settingsContent.Contains("ProjectName"));
         Assert.DoesNotContain(cloudflareSecret, settingsContent);
+        Assert.DoesNotContain(retiredGitHubToken, settingsContent);
+        Assert.DoesNotContain("GitLab_GitHub_Token", settingsContent);
         Assert.Contains("[REDACTED]", settingsContent);
+
+        // Existing GitLab backups must survive subsequent non-GitLab exports.
+        var legacyGitProjectsDir = Path.Combine(_testExportPath, "GitProjects");
+        Directory.CreateDirectory(legacyGitProjectsDir);
+        var legacyFile = Path.Combine(legacyGitProjectsDir, "existing-backup.txt");
+        await File.WriteAllTextAsync(legacyFile, "keep me");
+        await exportService.ExportAsync();
+        Assert.AreEqual("keep me", await File.ReadAllTextAsync(legacyFile));
     }
 }

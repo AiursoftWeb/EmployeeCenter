@@ -42,9 +42,6 @@
   <data name="Brand Name" xml:space="preserve">
     <value>اسم العلامة التجارية</value>
   </data>
-  <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
-    <value>تحقق مما إذا كان المشروع مُحاكيًا إلى منظمة GitHub هذه. اتركه فارغًا لتعطيل التحقق. مثال: aiursoftweb</value>
-  </data>
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>رمز Cloudflare API</value>
   </data>
@@ -54,29 +51,11 @@
   <data name="Force Project Association" xml:space="preserve">
     <value>إجبار الارتباط بالمشروع</value>
   </data>
-  <data name="GitLab Ensure GitHub Org Mirrored" xml:space="preserve">
-    <value>تأكد من انعكاس منظمة GitHub في GitLab</value>
-  </data>
-  <data name="GitLab GitHub Token" xml:space="preserve">
-    <value>رمز GitHub الخاص بـ GitLab</value>
-  </data>
-  <data name="GitLab Organization URL" xml:space="preserve">
-    <value>عنوان منظمة GitLab</value>
-  </data>
-  <data name="GitLab Project Must Be Stared By" xml:space="preserve">
-    <value>يجب أن يكون مشروع GitLab مُعجبًا بواسطة</value>
-  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>رقم ICP</value>
   </data>
   <data name="Meeting Minutes System Prompt" xml:space="preserve">
     <value>موجّه النظام لملخصات الاجتماعات</value>
-  </data>
-  <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
-    <value>سيتم عرض المشاريع فقط التي قمت بتعليقها (نجمة) لهذا المستخدم. اتركه فارغًا لعرض جميع المشاريع. مثال: anduin</value>
-  </data>
-  <data name="Optional GitHub personal access token to increase API rate limits for mirroring checks." xml:space="preserve">
-    <value>رمز وصول شخصي اختياري لـ GitHub لزيادة حدود معدل API لفحوصات المرآة.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>شعار المشروع</value>
@@ -113,9 +92,6 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>عنوان URL للشركة أو المشروع. مثال: https://www.aiursoft.com</value>
-  </data>
-  <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
-    <value>عنوان URL لمنظمة GitLab لاسترداد المشاريع منها. مثال: https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
 </root>

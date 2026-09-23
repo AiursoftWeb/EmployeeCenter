@@ -13,10 +13,6 @@ public class SettingsMap
     public const string AnnualLeavePerYear = "Annual_Leave_Per_Year";
     public const string DefaultPayrollCurrency = "Default_Payroll_Currency";
     public const string ForceProjectAssociation = "Force_Project_Association";
-    public const string GitLabOrganizationUrl = "GitLab_Organization_Url";
-    public const string GitLabProjectMustBeStaredBy = "GitLab_Project_Must_Be_Stared_By";
-    public const string GitLabEnsureGitHubOrgMirrored = "GitLab_Ensure_GitHub_Org_Mirrored";
-    public const string GitLabGitHubToken = "GitLab_GitHub_Token";
     public const string CloudflareApiToken = "Cloudflare_API_Token";
     public const string AiAssistantSystemPrompt = "Ai_Assistant_System_Prompt";
     public const string MeetingMinutesSystemPrompt = "Meeting_Minutes_System_Prompt";
@@ -111,38 +107,6 @@ public class SettingsMap
             Description = Localizer["Require employees to associate at least one project when submitting a weekly report."],
             Type = SettingType.Bool,
             DefaultValue = "False"
-        },
-        new GlobalSettingDefinition
-        {
-            Key = GitLabOrganizationUrl,
-            Name = Localizer["GitLab Organization URL"],
-            Description = Localizer["The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft"],
-            Type = SettingType.Text,
-            DefaultValue = ""
-        },
-        new GlobalSettingDefinition
-        {
-            Key = GitLabProjectMustBeStaredBy,
-            Name = Localizer["GitLab Project Must Be Stared By"],
-            Description = Localizer["Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin"],
-            Type = SettingType.Text,
-            DefaultValue = ""
-        },
-        new GlobalSettingDefinition
-        {
-            Key = GitLabEnsureGitHubOrgMirrored,
-            Name = Localizer["GitLab Ensure GitHub Org Mirrored"],
-            Description = Localizer["Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb"],
-            Type = SettingType.Text,
-            DefaultValue = ""
-        },
-        new GlobalSettingDefinition
-        {
-            Key = GitLabGitHubToken,
-            Name = Localizer["GitLab GitHub Token"],
-            Description = Localizer["Optional GitHub personal access token to increase API rate limits for mirroring checks."],
-            Type = SettingType.Secret,
-            DefaultValue = ""
         },
         new GlobalSettingDefinition
         {

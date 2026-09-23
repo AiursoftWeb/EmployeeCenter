@@ -310,31 +310,10 @@ public class PermissionTests
     }
 
     [TestMethod]
-    public async Task AuthenticatedUser_CanAccess_Projects()
+    public async Task RemovedGitLabProjectsRoute_ReturnsNotFound()
     {
-        // 1. Create a user
-        var uniqueId = Guid.NewGuid().ToString("N").Substring(0, 8);
-        var userName = $"user-proj-{uniqueId}";
-        var email = $"{userName}@aiursoft.com";
-        var password = "Test-Password-123";
-
-        // Register
-        await _http.GetAsync("/Account/LogOff");
-        var registerToken = await GetAntiCsrfToken("/Account/Register");
-        await _http.PostAsync("/Account/Register", new FormUrlEncodedContent(new Dictionary<string, string>
-        {
-            { "Email", email },
-            { "Password", password },
-            { "ConfirmPassword", password },
-            { "__RequestVerificationToken", registerToken }
-        }));
-
-        // Login
-        await LoginAs(email, password);
-
-        // 2. Regular user -> /Projects/Index -> OK
         var response = await _http.GetAsync("/Projects/Index");
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
     }
 
     [TestMethod]

@@ -42,9 +42,6 @@
   <data name="Brand Name" xml:space="preserve">
     <value>ブランド名</value>
   </data>
-  <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
-    <value>プロジェクトがこの GitHub 組織にミラーされているか確認します。チェックを無効にするには空欄にします。例：aiursoftweb</value>
-  </data>
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API トークン</value>
   </data>
@@ -54,29 +51,11 @@
   <data name="Force Project Association" xml:space="preserve">
     <value>プロジェクト連携の強制</value>
   </data>
-  <data name="GitLab Ensure GitHub Org Mirrored" xml:space="preserve">
-    <value>GitLab GitHub 組織のミラーを確認</value>
-  </data>
-  <data name="GitLab GitHub Token" xml:space="preserve">
-    <value>GitLab GitHub トークン</value>
-  </data>
-  <data name="GitLab Organization URL" xml:space="preserve">
-    <value>GitLab Organization URL</value>
-  </data>
-  <data name="GitLab Project Must Be Stared By" xml:space="preserve">
-    <value>GitLab プロジェクトは「Stared By」である必要があります</value>
-  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP番号</value>
   </data>
   <data name="Meeting Minutes System Prompt" xml:space="preserve">
     <value>議事録システムプロンプト</value>
-  </data>
-  <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
-    <value>このユーザーがスター付きにしたプロジェクトのみが表示されます。すべてのプロジェクトを表示するには空欄にしてください。例：andin</value>
-  </data>
-  <data name="Optional GitHub personal access token to increase API rate limits for mirroring checks." xml:space="preserve">
-    <value>GitHub 個人アクセストークン（オプション）は、ミラーリングチェックの API レート制限を引き上げるために使用されます。</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>プロジェクトロゴ</value>
@@ -113,9 +92,6 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>会社またはプロジェクトのURL。例: https://www.aiursoft.com</value>
-  </data>
-  <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
-    <value>GitLab 組織の URL。プロジェクトを取得するための URL です。例：https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
 </root>

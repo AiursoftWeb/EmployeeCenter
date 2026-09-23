@@ -42,9 +42,6 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Varenavn</value>
   </data>
-  <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
-    <value>Tjek om projektet er spejlet til denne GitHub-organisation. Efterlad tomt for at deaktivere tjek. F.eks. aiursoftweb</value>
-  </data>
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API Token</value>
   </data>
@@ -54,29 +51,11 @@
   <data name="Force Project Association" xml:space="preserve">
     <value>Tving projekttilknytning</value>
   </data>
-  <data name="GitLab Ensure GitHub Org Mirrored" xml:space="preserve">
-    <value>GitLab Sørg for, at GitHub-organisationen er spejlet</value>
-  </data>
-  <data name="GitLab GitHub Token" xml:space="preserve">
-    <value>GitLab GitHub-token</value>
-  </data>
-  <data name="GitLab Organization URL" xml:space="preserve">
-    <value>GitLab-organisations-URL</value>
-  </data>
-  <data name="GitLab Project Must Be Stared By" xml:space="preserve">
-    <value>GitLab-projekt skal være stjernemærket af</value>
-  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
   </data>
   <data name="Meeting Minutes System Prompt" xml:space="preserve">
     <value>Systemprompt til mødeprotokol</value>
-  </data>
-  <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
-    <value>Kun projekter, der er stjernemærket af denne bruger, vises. Lad feltet stå tomt for at vise alle projekter. F.eks. anduin</value>
-  </data>
-  <data name="Optional GitHub personal access token to increase API rate limits for mirroring checks." xml:space="preserve">
-    <value>Valgfrit GitHub personligt adgangstoken for at øge API-begrænsninger for spejlingskontrol.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projektlogo</value>
@@ -113,9 +92,6 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL for virksomheden eller projektet. F.eks. https://www.aiursoft.com</value>
-  </data>
-  <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
-    <value>URL&apos;en for GitLab-organisationen, hvor projekter hentes. F.eks. https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
 </root>

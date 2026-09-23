@@ -42,9 +42,6 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Nama Merek</value>
   </data>
-  <data name="Check if the project is mirrored to this GitHub organization. Leave empty to disable check. E.g. aiursoftweb" xml:space="preserve">
-    <value>Periksa apakah proyek tersebut di-mirror ke organisasi GitHub ini. Kosongkan untuk menonaktifkan pemeriksaan. Contoh: aiursoftweb</value>
-  </data>
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API Token</value>
   </data>
@@ -54,29 +51,11 @@
   <data name="Force Project Association" xml:space="preserve">
     <value>Paksa Asosiasi Proyek</value>
   </data>
-  <data name="GitLab Ensure GitHub Org Mirrored" xml:space="preserve">
-    <value>GitLab Pastikan Org GitHub Dicermin</value>
-  </data>
-  <data name="GitLab GitHub Token" xml:space="preserve">
-    <value>Token GitHub GitLab</value>
-  </data>
-  <data name="GitLab Organization URL" xml:space="preserve">
-    <value>URL Organisasi GitLab</value>
-  </data>
-  <data name="GitLab Project Must Be Stared By" xml:space="preserve">
-    <value>Proyek GitLab Harus Diberi Bintang Oleh</value>
-  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Nomor ICP</value>
   </data>
   <data name="Meeting Minutes System Prompt" xml:space="preserve">
     <value>Prompt Sistem Notulen Rapat</value>
-  </data>
-  <data name="Only projects starred by this user will be displayed. Leave empty to show all projects. E.g. anduin" xml:space="preserve">
-    <value>Hanya proyek yang dibintangi oleh pengguna ini yang akan ditampilkan. Kosongkan untuk menampilkan semua proyek. Mis. anduin</value>
-  </data>
-  <data name="Optional GitHub personal access token to increase API rate limits for mirroring checks." xml:space="preserve">
-    <value>Token akses pribadi GitHub opsional untuk meningkatkan batas laju API untuk pemeriksaan mirroring.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo Proyek</value>
@@ -113,9 +92,6 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL perusahaan atau proyek. Contoh: https://www.aiursoft.com</value>
-  </data>
-  <data name="The URL of the GitLab organization to fetch projects from. E.g. https://gitlab.aiursoft.com/aiursoft" xml:space="preserve">
-    <value>URL organisasi GitLab untuk mengambil proyek. Mis. https://gitlab.aiursoft.com/aiursoft</value>
   </data>
 
 </root>
