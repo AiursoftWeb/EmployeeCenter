@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>ऑडियो डाउनलोड करें</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>मूल फ़ाइल डाउनलोड करें</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>संपादित करें</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>मीडिया प्रोसेसिंग विफल</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>मीडिया प्रोसेसिंग को फिर से कतार में रखा गया है।</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>भाषण-से-पाठ और बैठक की मिनट्स शुरू होने से पहले मीडिया प्रोसेसिंग सफल होने अनिवार्य है।</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>मीडिया बदलाव विफल रहा</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>ASR को रीसेट करने से वर्तमान ट्रांसक्रिप्ट और सेगमेंट परिणाम हटा दिए जाएंगे, रीट्राई काउंटर रीसेट हो जाएगा, और एक नया ऑफलाइन टास्क बनाया जाएगा। क्या आप वाकई जारी रखना चाहते हैं?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>मीडिया प्रोसेसिंग दोहराएँ</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>मीटिंग मिनट्स पुनः प्रयास करें</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>वॉइस-टू-टेक्स्ट पूर्ण होने के बाद बैठक सारांश स्वतः प्रारंभ हो जाएगा।</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>मूल अपलोड किया गया फ़ाइल अब उपलब्ध नहीं है। जारी रखने के लिए रिकॉर्डिंग बदलें।</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>रिकॉर्डिंग बैकग्राउंड में तैयार की जा रही है। बदलाव के दौरान मौजूदा रिकॉर्डिंग उपलब्ध रहती है।</value>

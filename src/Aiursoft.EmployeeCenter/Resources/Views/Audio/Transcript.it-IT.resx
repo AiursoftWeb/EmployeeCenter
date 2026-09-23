@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>Scarica audio</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>Scarica file originale</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Modifica</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>Elaborazione dei media non riuscita</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>Elaborazione dei media è stata nuovamente messa in coda.</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>La elaborazione dei media deve riuscire prima che la conversione da voce a testo e i verbali della riunione possano iniziare.</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>Sostituzione dei media non riuscita</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>Il reimpostaggio di ASR eliminerà la trascrizione corrente e i risultati dei segmenti, azzererà il contatore di tentativi e creerà un nuovo task offline. Sei sicuro di voler continuare?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>Riprova elaborazione media</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>Riprova verbale riunione</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>Il riepilogo della riunione verrà avviato automaticamente al completamento della trascrizione vocale.</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>Il file caricato originale non è più disponibile. Sostituisci la registrazione per continuare.</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>La registrazione viene preparata in background. La registrazione esistente rimane disponibile durante la sostituzione.</value>

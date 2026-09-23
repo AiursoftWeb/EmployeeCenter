@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>Tải xuống Âm thanh</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>Tải xuống tệp gốc</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Chỉnh sửa</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>Xử lý phương tiện truyền thông thất bại</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>Việc xử lý phương tiện đã được đưa vào hàng đợi một lần nữa.</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>Việc xử lý phương tiện phải thành công trước khi chuyển giọng nói thành văn bản và tạo biên bản cuộc họp có thể bắt đầu.</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>Thay thế phương tiện truyền thông thất bại</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>Việc thiết lập lại ASR sẽ xóa bản ghi và kết quả phân đoạn hiện tại, đặt lại bộ đếm thử lại và tạo một tác vụ ngoại tuyến mới. Bạn có chắc chắn muốn tiếp tục không?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>Thử lại xử lý phương tiện</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>Thử lại Biên bản cuộc họp</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>Tóm tắt cuộc họp sẽ bắt đầu tự động sau khi chuyển giọng nói thành văn bản hoàn tất.</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>Tệp đã tải lên ban đầu không còn khả dụng. Hãy thay thế bản ghi để tiếp tục.</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>Bản ghi âm đang được chuẩn bị ở nền. Bản ghi âm hiện có vẫn khả dụng trong quá trình thay thế.</value>

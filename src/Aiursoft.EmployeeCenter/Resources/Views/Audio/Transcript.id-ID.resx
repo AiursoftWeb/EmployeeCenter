@@ -75,6 +75,9 @@
   <data name="Download Audio" xml:space="preserve">
     <value>Unduh Audio</value>
   </data>
+  <data name="Download Original File" xml:space="preserve">
+    <value>Unduh File Asli</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Sunting</value>
   </data>
@@ -110,6 +113,12 @@
   </data>
   <data name="Media processing failed" xml:space="preserve">
     <value>Pemrosesan media gagal</value>
+  </data>
+  <data name="Media processing has been queued again." xml:space="preserve">
+    <value>Pemrosesan media telah ditambahkan ke antrean lagi.</value>
+  </data>
+  <data name="Media processing must succeed before speech-to-text and meeting minutes can begin." xml:space="preserve">
+    <value>Pemrosesan media harus berhasil sebelum transkripsi ucapan-ke-teks dan notulensi rapat dapat dimulai.</value>
   </data>
   <data name="Media replacement failed" xml:space="preserve">
     <value>Ganti media gagal</value>
@@ -180,6 +189,9 @@
   <data name="Resetting ASR will delete the current transcript and segment results, reset the retry counter, and create a new offline task. Are you sure you want to continue?" xml:space="preserve">
     <value>Pengaturan ulang ASR akan menghapus transkrip dan hasil segmen saat ini, mengatur ulang penghitung percobaan ulang, dan membuat tugas offline baru. Apakah Anda yakin ingin melanjutkan?</value>
   </data>
+  <data name="Retry Media Processing" xml:space="preserve">
+    <value>Ulangi Pemrosesan Media</value>
+  </data>
   <data name="Retry Meeting Minutes" xml:space="preserve">
     <value>Ulangi Notulen Rapat</value>
   </data>
@@ -200,6 +212,9 @@
   </data>
   <data name="The meeting summary will start automatically after speech-to-text is complete." xml:space="preserve">
     <value>Ringkasan rapat akan dimulai secara otomatis setelah transkripsi ucapan selesai.</value>
+  </data>
+  <data name="The original uploaded file is no longer available. Replace the recording to continue." xml:space="preserve">
+    <value>File asli yang diunggah tidak lagi tersedia. Ganti rekaman untuk melanjutkan.</value>
   </data>
   <data name="The recording is being prepared in the background. The existing recording remains available during replacement." xml:space="preserve">
     <value>Rekaman sedang disiapkan di latar belakang. Rekaman yang sudah ada tetap tersedia selama penggantian.</value>
