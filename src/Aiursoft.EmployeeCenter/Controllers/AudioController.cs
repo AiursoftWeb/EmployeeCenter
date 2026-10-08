@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using System.Text;
 using Aiursoft.Canon.TaskQueue;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
@@ -337,6 +339,11 @@ public class AudioController(
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
 
+    private static string HashMeetingMinutes(string? minutes)
+    {
+        return Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(minutes ?? string.Empty)));
+    }
+
     public async Task<IActionResult> EditMeetingMinutes(int id)
     {
         var audio = await context.Audios.FindAsync(id);
@@ -349,6 +356,8 @@ public class AudioController(
         {
             Id = id,
             TranscriptRevision = result.TranscriptRevision,
+            TranscriptCreateTimeTicks = result.CreateTime.Ticks,
+            OriginalMeetingMinutesHash = HashMeetingMinutes(result.MeetingMinutesMarkdown),
             MeetingMinutesMarkdown = result.MeetingMinutesMarkdown ?? string.Empty
         });
     }
@@ -364,9 +373,15 @@ public class AudioController(
         var result = await context.AudioAsrResults.FindAsync(model.Id);
         if (result == null || string.IsNullOrWhiteSpace(result.PlainText)) return NotFound();
         if (!ModelState.IsValid) return this.StackView(model);
-        if (result.TranscriptRevision != model.TranscriptRevision)
+        if (result.TranscriptRevision != model.TranscriptRevision ||
+            result.CreateTime.Ticks != model.TranscriptCreateTimeTicks)
         {
             ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+            return this.StackView(model);
+        }
+        if (HashMeetingMinutes(result.MeetingMinutesMarkdown) != model.OriginalMeetingMinutesHash)
+        {
+            ModelState.AddModelError(string.Empty, "The meeting minutes were changed by another user. Reload the page and apply your changes again.");
             return this.StackView(model);
         }
 
