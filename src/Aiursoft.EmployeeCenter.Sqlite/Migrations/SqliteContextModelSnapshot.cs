@@ -307,6 +307,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("MeetingMinutesMarkdown")
+                        .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("MeetingMinutesTranscriptRevision")

@@ -12,6 +12,69 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 public class MeetingMinutesTests : TestBase
 {
     [TestMethod]
+    public async Task ExplicitRegenerationPreservesExistingMinutesUntilSuccessAndSkipsLaterEdits()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = new Audio { Name = "Regenerate imported minutes", FilePath = "audio/imported.mp3" };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            Audio = audio,
+            PlainText = "Transcript",
+            MeetingMinutesMarkdown = "Imported minutes"
+        };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+        var failedHandler = new StubHttpMessageHandler(_ =>
+            Task.FromResult(new HttpResponseMessage(HttpStatusCode.BadGateway)));
+        await CreateService(scope, db, failedHandler, maxRetries: 3)
+            .RegenerateAsync(audio.Id, result.TranscriptRevision, result.CreateTime, "Imported minutes");
+        Assert.AreEqual(1, failedHandler.CallCount);
+        Assert.AreEqual("Imported minutes", result.MeetingMinutesMarkdown);
+
+        var handler = new StubHttpMessageHandler(_ => Task.FromResult(JsonResponse("""{"answer":"Regenerated minutes"}""")));
+        var service = CreateService(scope, db, handler, maxRetries: 3);
+        await service.RegenerateAsync(audio.Id, result.TranscriptRevision, result.CreateTime, "Imported minutes");
+        Assert.AreEqual(1, handler.CallCount);
+        Assert.AreEqual("Regenerated minutes", result.MeetingMinutesMarkdown);
+
+        result.MeetingMinutesMarkdown = "Later manual edit";
+        await db.SaveChangesAsync();
+        await service.RegenerateAsync(audio.Id, result.TranscriptRevision, result.CreateTime, "Regenerated minutes");
+        Assert.AreEqual(1, handler.CallCount, "Queued regeneration must skip minutes edited after it was requested.");
+        Assert.AreEqual("Later manual edit", result.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
+    public async Task ServiceDoesNotOverwriteMinutesSavedDuringGeneration()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = new Audio { Name = "Manual import", FilePath = "audio/manual.mp3" };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult { AudioId = audio.Id, Audio = audio, PlainText = "Transcript" };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+        var handler = new StubHttpMessageHandler(async _ =>
+        {
+            using var editScope = Server.Services.CreateScope();
+            var editDb = editScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var edited = await editDb.AudioAsrResults.FindAsync(audio.Id);
+            edited!.MeetingMinutesMarkdown = "# Manually imported";
+            edited.MeetingMinutesTranscriptRevision = edited.TranscriptRevision;
+            await editDb.SaveChangesAsync();
+            return JsonResponse("""{"answer":"AI overwrite"}""");
+        });
+        await CreateService(scope, db, handler, maxRetries: 3).GenerateAsync(result);
+        await db.Entry(result).ReloadAsync();
+        Assert.AreEqual("# Manually imported", result.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
     public async Task ServicePersistsMinutesAndSendsProtectedPrompt()
     {
         using var scope = Server!.Services.CreateScope();

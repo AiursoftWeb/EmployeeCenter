@@ -25,28 +25,30 @@ public class MeetingMinutesService(
             replaceExisting: false);
     }
 
-    public async Task RegenerateAsync(int audioId, int transcriptRevision, DateTime transcriptCreateTime)
+    public async Task RegenerateAsync(int audioId, int transcriptRevision, DateTime transcriptCreateTime, string? minutesToReplace = null)
     {
         var asrResult = await dbContext.AudioAsrResults
             .Include(result => result.Audio)
             .FirstOrDefaultAsync(result => result.AudioId == audioId);
         if (asrResult == null) return;
 
-        await GenerateAsync(asrResult, transcriptRevision, transcriptCreateTime, replaceExisting: true);
+        await GenerateAsync(asrResult, transcriptRevision, transcriptCreateTime, replaceExisting: true, minutesToReplace);
     }
 
     private async Task GenerateAsync(
         AudioAsrResult asrResult,
         int transcriptRevision,
         DateTime transcriptCreateTime,
-        bool replaceExisting)
+        bool replaceExisting,
+        string? minutesToReplace = null)
     {
         if (string.IsNullOrWhiteSpace(asrResult.PlainText) ||
             asrResult.TranscriptRevision != transcriptRevision ||
             asrResult.CreateTime != transcriptCreateTime ||
             (!replaceExisting && !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown)) ||
             (replaceExisting && !string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown) &&
-             asrResult.MeetingMinutesTranscriptRevision == transcriptRevision) ||
+             asrResult.MeetingMinutesTranscriptRevision == transcriptRevision &&
+             asrResult.MeetingMinutesMarkdown != minutesToReplace) ||
             (!replaceExisting && asrResult.MeetingMinutesAttemptCount >= _agentSettings.MeetingMinutesMaxRetryCount))
         {
             return;
@@ -107,11 +109,12 @@ public class MeetingMinutesService(
             var currentTranscript = await dbContext.AudioAsrResults
                 .AsNoTracking()
                 .Where(item => item.AudioId == asrResult.AudioId)
-                .Select(item => new { item.TranscriptRevision, item.CreateTime })
+                .Select(item => new { item.TranscriptRevision, item.CreateTime, item.MeetingMinutesMarkdown })
                 .FirstOrDefaultAsync();
             if (currentTranscript == null ||
                 currentTranscript.TranscriptRevision != transcriptRevision ||
-                currentTranscript.CreateTime != transcriptCreateTime)
+                currentTranscript.CreateTime != transcriptCreateTime ||
+                currentTranscript.MeetingMinutesMarkdown != asrResult.MeetingMinutesMarkdown)
             {
                 logger.LogInformation(
                     "Discarded meeting minutes for audio {AudioId} because its transcript changed during generation.",

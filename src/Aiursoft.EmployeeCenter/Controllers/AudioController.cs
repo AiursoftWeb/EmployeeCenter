@@ -337,6 +337,53 @@ public class AudioController(
         return RedirectToAction(nameof(Transcript), new { id = audio.Id });
     }
 
+    public async Task<IActionResult> EditMeetingMinutes(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        var result = await context.AudioAsrResults.FindAsync(id);
+        if (result == null || string.IsNullOrWhiteSpace(result.PlainText)) return NotFound();
+        return this.StackView(new EditMeetingMinutesViewModel
+        {
+            Id = id,
+            TranscriptRevision = result.TranscriptRevision,
+            MeetingMinutesMarkdown = result.MeetingMinutesMarkdown ?? string.Empty
+        });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> EditMeetingMinutes(EditMeetingMinutesViewModel model)
+    {
+        var audio = await context.Audios.FindAsync(model.Id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        var result = await context.AudioAsrResults.FindAsync(model.Id);
+        if (result == null || string.IsNullOrWhiteSpace(result.PlainText)) return NotFound();
+        if (!ModelState.IsValid) return this.StackView(model);
+        if (result.TranscriptRevision != model.TranscriptRevision)
+        {
+            ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+            return this.StackView(model);
+        }
+
+        result.MeetingMinutesMarkdown = model.MeetingMinutesMarkdown.Trim();
+        result.MeetingMinutesTranscriptRevision = result.TranscriptRevision;
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            ModelState.AddModelError(string.Empty, "The transcript or meeting minutes changed while saving. Reload the page and apply your changes again.");
+            return this.StackView(model);
+        }
+        return RedirectToAction(nameof(Transcript), new { id = model.Id });
+    }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> RegenerateMeetingMinutes(int id)
@@ -348,15 +395,11 @@ public class AudioController(
         var asrResult = await context.AudioAsrResults
             .FirstOrDefaultAsync(result => result.AudioId == id);
         if (asrResult == null || string.IsNullOrWhiteSpace(asrResult.PlainText)) return NotFound();
-        if (!string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown) &&
-            asrResult.TranscriptRevision == asrResult.MeetingMinutesTranscriptRevision)
-        {
-            return RedirectToAction(nameof(Transcript), new { id });
-        }
         TempData["MeetingMinutesRegenerationQueued"] = meetingMinutesQueueService.QueueRetry(
             id,
             asrResult.TranscriptRevision,
-            asrResult.CreateTime);
+            asrResult.CreateTime,
+            asrResult.MeetingMinutesMarkdown);
         return RedirectToAction(nameof(Transcript), new { id });
     }
 

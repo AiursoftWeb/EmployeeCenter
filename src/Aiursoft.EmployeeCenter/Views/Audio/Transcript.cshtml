@@ -186,6 +186,19 @@ else if (Model.Audio.MediaProcessingError != null)
                             <i class="align-middle me-1" data-lucide="loader"></i>@Localizer[hasTranscript ? "Generating meeting summary" : "Waiting for speech-to-text"]
                         </span>
                     }
+                    @if (hasTranscript && Model.Permission == SharePermission.Editable)
+                    {
+                        <a asp-action="EditMeetingMinutes" asp-route-id="@Model.Audio.Id" class="btn btn-sm btn-outline-primary ms-2">
+                            <i class="align-middle me-1" data-lucide="edit"></i> @Localizer["Edit Meeting Minutes"]
+                        </a>
+                        @if (hasMeetingMinutes && !Model.MeetingMinutesOutdated)
+                        {
+                            <form asp-action="RegenerateMeetingMinutes" method="post" class="ms-2" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
+                                <input type="hidden" name="id" value="@Model.Audio.Id" />
+                                <button type="submit" class="btn btn-sm btn-outline-warning">@Localizer["Regenerate Meeting Minutes"]</button>
+                            </form>
+                        }
+                    }
                     @if (hasMeetingMinutes)
                     {
                         <button id="copy-meeting-minutes" class="btn btn-sm btn-outline-secondary ms-2" type="button" onclick="copyMeetingMinutes(this)" title="@Localizer["Copy to clipboard"]">
