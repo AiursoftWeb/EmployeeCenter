@@ -610,7 +610,7 @@ public class AudioController(
             return BadRequest("Transcript is empty or still processing.");
         }
 
-        var fileBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        var fileBytes = Encoding.UTF8.GetBytes(plainText);
         var fileName = $"{audio.Name}.txt";
         return File(fileBytes, "text/plain", fileName);
     }
@@ -628,7 +628,7 @@ public class AudioController(
             return Content(string.Empty, "text/plain");
         }
 
-        return Content(plainText, "text/plain", System.Text.Encoding.UTF8);
+        return Content(plainText, "text/plain", Encoding.UTF8);
     }
 
     public async Task<IActionResult> ManageShares(int id)
