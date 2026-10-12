@@ -1,0 +1,117 @@
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.OcrPreviewViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Preview"] - @Model.Contract.Name</h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to List"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="plain-text-tab" data-bs-toggle="tab" href="#plain-text" role="tab">@Localizer["Plain Text"]</a>
+            </li>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" id="json-result-tab" data-bs-toggle="tab" href="#json-result" role="tab">@Localizer["Raw JSON"]</a>
+                </li>
+            }
+            <li class="nav-item">
+                <a class="nav-link" id="collection-channels-tab" data-bs-toggle="tab" href="#collection-channels" role="tab">@Localizer["Collection Channels"]</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="plain-text" role="tabpanel">
+                @if (string.IsNullOrEmpty(Model.PlainText))
+                {
+                    <div class="alert alert-info">@Localizer["No preview text available for this contract."]</div>
+                }
+                else
+                {
+                    <pre class="bg-light p-3 border rounded" style="white-space: pre-wrap;">@Model.PlainText</pre>
+                }
+            </div>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <div class="tab-pane fade" id="json-result" role="tabpanel">
+                    @if (string.IsNullOrEmpty(Model.JsonResult))
+                    {
+                        <div class="alert alert-info">@Localizer["No raw JSON data available."]</div>
+                    }
+                    else
+                    {
+                        <pre class="bg-light p-3 border rounded"><code>@Model.JsonResult</code></pre>
+                    }
+                </div>
+            }
+            <div class="tab-pane fade" id="collection-channels" role="tabpanel">
+                <div class="d-flex justify-content-between mb-3">
+                    <h5 class="card-title">@Localizer["Related Collection Channels"]</h5>
+                    <a asp-controller="CollectionChannels" asp-action="Create" asp-route-contractId="@Model.Contract.Id" class="btn btn-sm btn-primary">
+                        <i class="align-middle" data-lucide="plus-circle"></i> @Localizer["Create channel from this contract"]
+                    </a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                        <tr>
+                            <th>@Localizer["Payer"]</th>
+                            <th>@Localizer["Payee"]</th>
+                            <th>@Localizer["Amount"]</th>
+                            <th>@Localizer["Method"]</th>
+                            <th>@Localizer["Status"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model.Contract.CollectionChannels)
+                        {
+                            <tr>
+                                <td>@(item.Payer?.CompanyName ?? Localizer["N/A"].Value)</td>
+                                <td>@(item.Payee?.CompanyName ?? Localizer["N/A"].Value)</td>
+                                <td>@((item.ReferenceAmount / 100.0).ToString("N2")) @item.Currency</td>
+                                <td>@item.PaymentMethod</td>
+                                <td>
+                                    @switch (item.Status)
+                                    {
+                                        case CollectionChannelStatus.Active:
+                                            <span class="badge bg-success">@Localizer["Active"]</span>
+                                            break;
+                                        case CollectionChannelStatus.Paused:
+                                            <span class="badge bg-warning">@Localizer["Paused"]</span>
+                                            break;
+                                        case CollectionChannelStatus.Terminated:
+                                            <span class="badge bg-danger">@Localizer["Terminated"]</span>
+                                            break;
+                                    }
+                                </td>
+                                <td class="text-end">
+                                    <a asp-controller="CollectionChannels" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                                        <i class="align-middle" data-lucide="eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        @if (!Model.Contract.CollectionChannels.Any())
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center">@Localizer["No related collection channels found."]</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

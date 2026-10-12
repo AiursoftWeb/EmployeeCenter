@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Token API Cloudflare hanya-baca yang digunakan oleh DNS Audit. Berikan izin DNS Settings:Read untuk semua akun dan DNS:Read untuk semua zona.</value>
+  </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Token API Cloudflare hanya-baca yang digunakan oleh Service Audit. Berikan izin DNS Settings:Read untuk semua akun dan DNS:Read untuk semua zona.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
+    <value>Perintah Sistem Asisten AI</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Izinkan Pengguna Mengatur Nama Panggilan</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Izinkan pengguna menyesuaikan nama panggilan mereka di halaman manajemen profil.</value>
+  </data>
+  <data name="Annual Leave Per Year" xml:space="preserve">
+    <value>Cuti Tahunan Per Tahun</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>URL Rumah Merek</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Nama Merek</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API Token</value>
+  </data>
+  <data name="Default Payroll Currency" xml:space="preserve">
+    <value>Mata Uang Gaji Default</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>Paksa Asosiasi Proyek</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>Nomor ICP</value>
+  </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Prompt Sistem Notulen Rapat</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Logo Proyek</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Nama Proyek</value>
+  </data>
+  <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
+    <value>Haruskan karyawan mengaitkan setidaknya satu proyek saat mengirim laporan mingguan.</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Nama merek perusahaan atau proyek. Contoh: Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>Mata uang default yang digunakan saat mengeluarkan penggajian baru.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Nomor izin ICP untuk pengguna daratan Tiongkok. Biarkan kosong untuk menyembunyikan.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Logo proyek yang ditampilkan di navbar dan footer. Mendukung jpg, png, svg.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Nama proyek yang ditampilkan di antarmuka pengguna.</value>
+  </data>
+  <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
+    <value>Jumlah hari cuti tahunan berbayar yang dialokasikan kepada setiap karyawan setiap tahun.</value>
+  </data>
+  <data name="The system prompt for the AI assistant." xml:space="preserve">
+    <value>Pesan sistem untuk asisten AI.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Prompt sistem yang digunakan untuk menghasilkan notulen rapat dari transkrip.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL perusahaan atau proyek. Contoh: https://www.aiursoft.com</value>
+  </data>
+
+</root>

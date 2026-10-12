@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>有効</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>本当にいいですか？</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>アンケート作成</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>作成日</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>非アクティブ</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>フィードバックの管理</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>質問の管理</value>
+  </data>
+  <data name="No questionnaires created yet." xml:space="preserve">
+    <value>まだアンケートは作成されていません。</value>
+  </data>
+  <data name="Questionnaires" xml:space="preserve">
+    <value>アンケート</value>
+  </data>
+  <data name="Questions" xml:space="preserve">
+    <value>質問</value>
+  </data>
+  <data name="Responses" xml:space="preserve">
+    <value>応答</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+
+</root>

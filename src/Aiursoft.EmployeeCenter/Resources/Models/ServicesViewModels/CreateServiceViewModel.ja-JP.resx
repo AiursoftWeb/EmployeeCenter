@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Alternative service" xml:space="preserve">
+    <value>代替サービス</value>
+  </data>
+  <data name="Authentik Integrated" xml:space="preserve">
+    <value>Authentik統合済み</value>
+  </data>
+  <data name="Cloudflare Proxied" xml:space="preserve">
+    <value>Cloudflare プロキシ済み</value>
+  </data>
+  <data name="Company entity" xml:space="preserve">
+    <value>法人エンティティ</value>
+  </data>
+  <data name="Cross-Entity Link" xml:space="preserve">
+    <value>クロスエンティティリンク</value>
+  </data>
+  <data name="DNS Provider" xml:space="preserve">
+    <value>DNSプロバイダ</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>ドメイン</value>
+  </data>
+  <data name="Enable Availability Audit" xml:space="preserve">
+    <value>可用性監査を有効にする</value>
+  </data>
+  <data name="FRPS Server" xml:space="preserve">
+    <value>FRPSサーバー</value>
+  </data>
+  <data name="Is Online" xml:space="preserve">
+    <value>オンラインかどうか</value>
+  </data>
+  <data name="Is Self Developed" xml:space="preserve">
+    <value>自己開発かどうか</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>場所</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>所有者</value>
+  </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>プライマリドメイン</value>
+  </data>
+  <data name="Protocols" xml:space="preserve">
+    <value>プロトコル</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>目的</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>サーバー</value>
+  </data>
+  <data name="Server (Asset)" xml:space="preserve">
+    <value>サーバー (アセット)</value>
+  </data>
+  <data name="Server IP" xml:space="preserve">
+    <value>サーバー IP</value>
+  </data>
+  <data name="Service name" xml:space="preserve">
+    <value>サービス名</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} は {1} 文字を超えることはできません。</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} は必須です。</value>
+  </data>
+  <data name="Via FRPS" xml:space="preserve">
+    <value>FRPS経由</value>
+  </data>
+
+</root>

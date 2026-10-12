@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>प्राप्त</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>राशि</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>अर्जी दे रहे हैं</value>
+  </data>
+  <data name="Are you sure you want to delete this draft?" xml:space="preserve">
+    <value>क्या आप सुनिश्चित हैं कि आप इस मसौदे को हटाना चाहते हैं?</value>
+  </data>
+  <data name="Are you sure you want to revoke this application?" xml:space="preserve">
+    <value>क्या आप वास्तव में इस आवेदन को रद्द करना चाहते हैं?</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>श्रेणी</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>हटाएं</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>डाउनलोड</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>मसौदा</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>संपादित करें</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>व्यय समय</value>
+  </data>
+  <data name="Manage and track your expense reimbursement requests." xml:space="preserve">
+    <value>अपनी खर्च वापसी की मांगों का प्रबंधन करें और उन पर निगरानी रखें।</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>मेरी प्रतिपूर्ति</value>
+  </data>
+  <data name="New Request" xml:space="preserve">
+    <value>नया अनुरोध</value>
+  </data>
+  <data name="No reimbursement records found." xml:space="preserve">
+    <value>कोई रिपोर्ट नहीं मिली।</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>उद्देश्य</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>रिम्बर्स किया गया</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>अस्वीकृत</value>
+  </data>
+  <data name="Revoke" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>रद्द किया गया</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+
+</root>

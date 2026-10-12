@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- Select Category --" xml:space="preserve">
+    <value>-- Seleziona categoria --</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="Meals (餐饮费)" xml:space="preserve">
+    <value>Pasto (spese per pasti)</value>
+  </data>
+  <data name="New Reimbursement Request" xml:space="preserve">
+    <value>Nuova richiesta di rimborso</value>
+  </data>
+  <data name="Others (其他)" xml:space="preserve">
+    <value>Altri (Altri)</value>
+  </data>
+  <data name="Paste supporting email content or other context here..." xml:space="preserve">
+    <value>Incolla qui il contenuto della e-mail di supporto o altri contesti...</value>
+  </data>
+  <data name="Procurement (采购费)" xml:space="preserve">
+    <value>Acquisizioni (spese di acquisto)</value>
+  </data>
+  <data name="Save as Draft" xml:space="preserve">
+    <value>Salva come bozza</value>
+  </data>
+  <data name="Submit Request" xml:space="preserve">
+    <value>Invia richiesta</value>
+  </data>
+  <data name="Transport (交通费)" xml:space="preserve">
+    <value>Trasporti (spese di trasporto)</value>
+  </data>
+  <data name="Travel (差旅费)" xml:space="preserve">
+    <value>Viaggi (spese di viaggio)</value>
+  </data>
+  <data name="What was this expense for?" xml:space="preserve">
+    <value>Per quale motivo è stato sostenuto questa spesa?</value>
+  </data>
+
+</root>

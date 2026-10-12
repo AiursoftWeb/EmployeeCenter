@@ -1,0 +1,150 @@
+@using Aiursoft.EmployeeCenter.Authorization
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@using Microsoft.AspNetCore.Authorization
+@model Aiursoft.EmployeeCenter.Models.PasswordsViewModels.DetailsViewModel
+@inject IAuthorizationService AuthorizationService
+@inject StorageService StorageService
+
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <h3>@Localizer["Password Details"]</h3>
+                <p class="text-muted">@Model.Password.Title</p>
+            </div>
+            <div class="btn-group">
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back"]
+                </a>
+                @if (Model.Permission == SharePermission.Editable)
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.Password.Id" class="btn btn-outline-primary">
+                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                    </a>
+                }
+                @{
+                    var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                    var isOwner = Model.Password.CreatorId == userId;
+                    var canManageAny = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyPassword)).Succeeded;
+                }
+                @if (isOwner || canManageAny)
+                {
+                    <a asp-action="ManageShares" asp-route-id="@Model.Password.Id" class="btn btn-outline-info">
+                        <i class="align-middle" data-lucide="share-2"></i> @Localizer["Manage Shares"]
+                    </a>
+                    <form asp-action="Delete" asp-route-id="@Model.Password.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('confirm-delete-password', '@Localizer["Are you sure you want to delete this password?"]'))">
+                        <button type="submit" class="btn btn-outline-danger">
+                            <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                        </button>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label text-muted">@Localizer["Account / Username"]</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="@Model.Password.Account" readonly id="account-input" />
+                        <button class="btn btn-outline-secondary copy-btn" type="button" data-target="account-input">
+                            <i class="align-middle" data-lucide="copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-muted">@Localizer["Password / Secret"]</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" value="@Model.Password.Secret" readonly id="secret-input" />
+                        <button class="btn btn-outline-secondary" type="button" onclick="var input = document.getElementById('secret-input'); if(input.type === 'password') { input.type = 'text'; this.innerHTML = '<i class=\'align-middle\' data-lucide=\'eye-off\'></i>'; lucide.createIcons(); } else { input.type = 'password'; this.innerHTML = '<i class=\'align-middle\' data-lucide=\'eye\'></i>'; lucide.createIcons(); }">
+                            <i class="align-middle" data-lucide="eye"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary copy-btn" type="button" data-target="secret-input">
+                            <i class="align-middle" data-lucide="copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-muted">@Localizer["Note"]</label>
+                    <div class="p-3 bg-light rounded" style="white-space: pre-wrap;">@(string.IsNullOrWhiteSpace(Model.Password.Note) ? Localizer["No notes."] : Model.Password.Note)</div>
+                </div>
+                @if (!string.IsNullOrWhiteSpace(Model.Password.FilePath))
+                {
+                    <div class="mb-3">
+                        <label class="form-label text-muted">@Localizer["Attachment"]</label>
+                        <div>
+                            <a href="@StorageService.RelativePathToInternetUrl(Model.Password.FilePath, isVault: true)" class="btn btn-outline-primary" target="_blank">
+                                <i class="align-middle" data-lucide="download"></i> @Localizer["Download Attachment"]
+                            </a>
+                        </div>
+                    </div>
+                }
+                <hr />
+                <div class="small text-muted">
+                                            <p class="mb-1">@Localizer["Created by"]: <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.Password.CreatorId" class="text-body">@Model.Password.Creator!.DisplayName</a></p>                    <p class="mb-0">@Localizer["Created on"]: <label class="text-muted" data-utc-time="@Model.Password.CreationTime.ToHtmlDateTime()"></label></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loc-data" hidden>
+    <span data-key="confirm-delete-password">@Localizer["Are you sure you want to delete this password?"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+    <script>
+        function copyToClipboard(text, btn) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function() {
+                    updateButton(btn);
+                }, function(err) {
+                    console.error('Could not copy text: ', err);
+                });
+            } else {
+                // Fallback for older browsers or non-secure context
+                let textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-9999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    updateButton(btn);
+                } catch (err) {
+                    console.error('Unable to copy', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        function updateButton(btn) {
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="align-middle" data-lucide="check"></i>';
+            lucide.createIcons();
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                lucide.createIcons();
+            }, 2000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyBtns = document.querySelectorAll('.copy-btn');
+            copyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetId = this.dataset.target;
+                    const input = document.getElementById(targetId);
+                    copyToClipboard(input.value, this);
+                });
+            });
+        });
+    </script>
+}

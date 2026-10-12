@@ -1,0 +1,420 @@
+@model Aiursoft.EmployeeCenter.Models.WeeklyReportViewModels.IndexViewModel
+
+<div class="container-fluid p-0">
+    <div class="row">
+        <!-- Left 8: Reports List -->
+        <div class="col-lg-8">
+            @if (Model.CanCreate || Model.CanManageAnyoneWeeklyReport)
+            {
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">@Localizer["New Weekly Report"]</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.CriticalMissingReports)
+                        {
+                            <div class="alert alert-danger d-flex align-items-center mb-3">
+                                <i class="align-middle me-2" data-lucide="alert-octagon"></i>
+                                <div>
+                                    <strong>@Localizer["CRITICAL: Missing Reports"]</strong>
+                                    <span class="d-block small">@Localizer["You have missed ALL weekly reports in the last 4 weeks! This is a serious issue. Please submit them immediately!"]</span>
+                                </div>
+                            </div>
+                        }
+                        else if (Model.HasRecentMissingReports)
+                        {
+                            <div class="alert alert-warning mb-3" role="alert">
+                                <div class="alert-icon">
+                                    <i class="align-middle" data-lucide="alert-triangle"></i>
+                                </div>
+                                <div class="alert-message">
+                                    <strong>@Localizer["Missing Reports"]</strong>
+                                    <span class="d-block small">@Localizer["You have missed submitting some weekly reports in the last 4 weeks. Please catch up!"]</span>
+                                </div>
+                            </div>
+                        }
+
+                        <form asp-action="Create" method="post">
+                            <div class="mb-3">
+                                <textarea name="content" class="form-control" rows="4" placeholder="@Localizer["What have you done this week? (Markdown supported)"]" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">@Localizer["Select Week"]</label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                                <select name="weekStartDate" class="form-select">
+                                    @foreach (var week in Model.AvailableWeeks.OrderByDescending(w => w.Key))
+                                    {
+                                        <option value="@week.Key.ToString("yyyy-MM-dd")">@week.Value</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">@Localizer["Project Associations"]</label>
+                                @if(Model.ForceProjectAssociation)
+                                {
+                                    <span class="badge bg-danger">@Localizer["Required"]</span>
+                                }
+                                <div id="project-list" class="mb-2"></div>
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <select class="form-select" id="new-project-select">
+                                            <option value="">@Localizer["Select Project..."]</option>
+                                            @foreach (var project in Model.ApprovedProjects)
+                                            {
+                                                <option value="@project.Id">@project.Title</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="number" class="form-control" id="new-project-hours" placeholder="@Localizer["Hours"]" min="1" style="width: 100px;">
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" class="btn btn-secondary" id="add-project-btn">
+                                            <i class="align-middle" data-lucide="plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="flex-grow-1 me-3">
+                                    @if (Model.CanManageAnyoneWeeklyReport)
+                                    {
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text"><i data-lucide="user"></i></span>
+                                            <select name="onBehalfOf" class="form-select">
+                                                <option value="">@Localizer["Post as myself"]</option>
+                                                @foreach (var user in Model.AllUsers)
+                                                {
+                                                    <option value="@user.Id">@Localizer["On behalf of"] @user.DisplayName</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    }
+                                </div>
+                                <button type="submit" class="btn btn-primary px-4">
+                                    <i class="align-middle me-1" data-lucide="send"></i> @Localizer["Post Report"]
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            }
+
+            @if (Model.FilterUser != null)
+            {
+                <div class="alert alert-info mb-4 shadow-sm" role="alert">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="alert-icon me-3">
+                                <i class="align-middle" data-lucide="filter"></i>
+                            </div>
+                            <div class="alert-message">
+                                @Localizer["Showing weekly reports from"]: <strong><a asp-controller="Users" asp-action="Details" asp-route-id="@Model.FilterUser.Id" class="text-body">@Model.FilterUser.DisplayName</a></strong>
+                            </div>
+                        </div>
+                        <a asp-action="Index" asp-route-userId="" class="btn btn-sm btn-outline-info">@Localizer["Show All"]</a>
+                    </div>
+                </div>
+            }
+
+            <div id="reports-container">
+                <partial name="_ReportCards" model="Model.Reports" />
+            </div>
+
+            <div id="loading-trigger" class="text-center py-4 @(Model.Reports.Count < 10 ? "d-none" : "")">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">@Localizer["Loading..."]</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right 4: Sidebar -->
+        <div class="col-lg-4">
+            <div class="sticky-top" style="top: 1rem; z-index: 1020;">
+                <!-- Current Week Status -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header d-flex align-items-center">
+                        <i class="align-middle me-2 text-primary" data-lucide="calendar-check"></i>
+                        <h5 class="card-title mb-0">@Localizer["Submission Status"]</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.CriticalMissingReports)
+                        {
+                            <div class="d-flex align-items-center text-danger">
+                                <i class="align-middle me-2" data-lucide="alert-octagon"></i>
+                                <strong>@Localizer["Extremely Dangerous!"]</strong>
+                            </div>
+                            <div class="mt-2 small text-danger">
+                                @Localizer["You haven't submitted any reports in the last 4 weeks!"]
+                            </div>
+                        }
+                        else if (Model.HasRecentMissingReports)
+                        {
+                            <div class="d-flex align-items-center text-warning">
+                                <i class="align-middle me-2" data-lucide="alert-circle"></i>
+                                <strong>@Localizer["Incomplete Submission"]</strong>
+                            </div>
+                            <div class="mt-2 small text-warning">
+                                @Localizer["You have {0} missing report(s) in the last 4 weeks.", Model.MissingWeeksCount]
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="d-flex align-items-center text-success">
+                                <i class="align-middle me-2" data-lucide="check-circle"></i>
+                                <strong>@Localizer["Everything is up to date!"]</strong>
+                            </div>
+                            <div class="mt-2 small text-success">
+                                @Localizer["Your reports for the last 4 weeks are all submitted."]
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Notepad -->
+                <div class="card shadow-sm">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <i class="align-middle me-2 text-primary" data-lucide="sticky-note"></i>
+                            <h5 class="card-title mb-0">@Localizer["Notepad"]</h5>
+                        </div>
+                        <span id="save-status" class="badge bg-success d-none">@Localizer["Saved"]</span>
+                        <span id="saving-status" class="spinner-border spinner-border-sm text-primary d-none" role="status"></span>
+                    </div>
+                    <div class="card-body p-0">
+                        <textarea id="notepad-area" class="form-control border-0" rows="12" 
+                                  placeholder="@Localizer["Jot down your thoughts here... (Auto-saved)"]"
+                                  style="resize: none; border-radius: 0 0 0.25rem 0.25rem;">@Model.NotepadContent</textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-4 text-muted small px-2">
+                    <p><i class="align-middle me-1" data-lucide="info"></i> @Localizer["Reports are ordered by time. Scroll down to see older reports."]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Infinite Scroll logic
+        const container = document.getElementById('reports-container');
+        const trigger = document.getElementById('loading-trigger');
+        let isLoading = false;
+        let noMoreData = @(Model.Reports.Count < 10 ? "true" : "false");
+        const filterUserId = '@Model.FilterUserId';
+
+        const loadMore = async () => {
+            if (isLoading || noMoreData) return;
+            isLoading = true;
+            trigger.classList.remove('d-none');
+
+            const lastCard = container.querySelector('.weekly-report-card:last-child');
+            if (!lastCard) return;
+
+            const beforeCreate = lastCard.getAttribute('data-create-time');
+            const beforeWeek = lastCard.getAttribute('data-week-start-date');
+            try {
+                const response = await fetch(`/WeeklyReport/LoadMore?beforeCreate=${encodeURIComponent(beforeCreate)}&beforeWeek=${encodeURIComponent(beforeWeek)}&userId=${filterUserId}`);
+                if (response.ok) {
+                    const html = await response.text();
+                    if (html.trim() === '') {
+                        noMoreData = true;
+                        trigger.classList.add('d-none');
+                    } else {
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = html;
+                        const newCards = tempDiv.children;
+                        const count = newCards.length;
+                        
+                        while (newCards.length > 0) {
+                            container.appendChild(newCards[0]);
+                        }
+                        
+                        if (count < 10) {
+                            noMoreData = true;
+                            trigger.classList.add('d-none');
+                        }
+                        
+                        // Initialize icons for new content if using lucide
+                        if (window.lucide) {
+                            lucide.createIcons();
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading more reports:', error);
+            } finally {
+                isLoading = false;
+                if (!noMoreData) {
+                    // Check if we need to load more immediately (e.g. on very large screens)
+                    checkScroll();
+                }
+            }
+        };
+
+        const checkScroll = () => {
+            const scrollBottom = window.innerHeight + window.pageYOffset;
+            const threshold = document.documentElement.scrollHeight - 200;
+            if (scrollBottom >= threshold) {
+                loadMore();
+            }
+        };
+
+        window.addEventListener('scroll', checkScroll);
+        
+        const onBehalfOfSelect = document.querySelector('select[name="onBehalfOf"]');
+        const weekSelect = document.querySelector('select[name="weekStartDate"]');
+        
+        if (onBehalfOfSelect && weekSelect) {
+            onBehalfOfSelect.addEventListener('change', async function() {
+                const selectedUserId = this.value;
+                
+                try {
+                    const url = selectedUserId 
+                        ? `/WeeklyReport/GetAvailableWeeks?userId=${encodeURIComponent(selectedUserId)}`
+                        : '/WeeklyReport/GetAvailableWeeks';
+                    
+                    const response = await fetch(url);
+                    if (response.ok) {
+                        const weeks = await response.json();
+                        
+                        // Clear existing options
+                        weekSelect.innerHTML = '';
+                        
+                        // Add new options from the response
+                        // The response is a dictionary, need to iterate properly
+                        for (const [dateKey, label] of Object.entries(weeks)) {
+                            const option = document.createElement('option');
+                            option.value = dateKey;
+                            option.textContent = label;
+                            weekSelect.appendChild(option);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error loading available weeks:', error);
+                }
+            });
+        }
+        
+        // Notepad Auto-save logic
+        const notepad = document.getElementById('notepad-area');
+        const saveStatus = document.getElementById('save-status');
+        const savingStatus = document.getElementById('saving-status');
+        let timeout = null;
+
+        notepad.addEventListener('input', function() {
+            clearTimeout(timeout);
+            saveStatus.classList.add('d-none');
+            savingStatus.classList.remove('d-none');
+
+            timeout = setTimeout(async () => {
+                const content = notepad.value;
+                try {
+                    const response = await fetch('/WeeklyReport/UpdateNotepad', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                        },
+                        body: 'content=' + encodeURIComponent(content)
+                    });
+                    if (response.ok) {
+                        savingStatus.classList.add('d-none');
+                        saveStatus.classList.remove('d-none');
+                        setTimeout(() => saveStatus.classList.add('d-none'), 2000);
+                    }
+                } catch (error) {
+                    console.error('Error saving notepad:', error);
+                    savingStatus.classList.add('d-none');
+                }
+            }, 1000);
+        });
+
+        // Project Association Logic
+        const projectSelect = document.getElementById('new-project-select');
+        const projectHours = document.getElementById('new-project-hours');
+        const addProjectBtn = document.getElementById('add-project-btn');
+        const projectList = document.getElementById('project-list');
+        let projectIndex = 0;
+
+        if (addProjectBtn && projectSelect && projectHours && projectList) {
+            addProjectBtn.addEventListener('click', function() {
+                const projectId = projectSelect.value;
+                const projectText = projectSelect.options[projectSelect.selectedIndex].text;
+                const hours = projectHours.value;
+
+                if (!projectId || !hours || hours <= 0) {
+                    alert('Please select a project and enter valid hours.');
+                    return;
+                }
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'd-flex justify-content-between align-items-center mb-1 p-2 bg-light rounded border';
+                itemDiv.innerHTML = `
+                    <span class="fw-bold">${projectText} <span class="badge bg-secondary ms-2">${hours}h</span></span>
+                    <input type="hidden" name="Requirements[${projectIndex}].RequirementId" value="${projectId}">
+                    <input type="hidden" name="Requirements[${projectIndex}].Hours" value="${hours}">
+                    <button type="button" class="btn btn-sm btn-outline-danger remove-project-btn">
+                        <i data-lucide="trash-2"></i>
+                    </button>
+                `;
+                
+                projectList.appendChild(itemDiv);
+                
+                // Initialize icon
+                if (window.lucide) {
+                    lucide.createIcons({
+                        root: itemDiv
+                    });
+                }
+                
+                // Reset inputs
+                projectSelect.value = '';
+                projectHours.value = '';
+                
+                // Handle remove
+                itemDiv.querySelector('.remove-project-btn').addEventListener('click', function() {
+                    itemDiv.remove();
+                    reIndexProjects();
+                });
+
+                reIndexProjects();
+            });
+
+            function reIndexProjects() {
+                const items = projectList.children;
+                projectIndex = 0;
+                for (let i = 0; i < items.length; i++) {
+                    const idInput = items[i].querySelector('input[name*="RequirementId"]');
+                    const hoursInput = items[i].querySelector('input[name*="Hours"]');
+                    if (idInput && hoursInput) {
+                        idInput.name = `Requirements[${projectIndex}].RequirementId`;
+                        hoursInput.name = `Requirements[${projectIndex}].Hours`;
+                        projectIndex++;
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+<style>
+    .weekly-report-card {
+        transition: transform 0.2s;
+    }
+    .weekly-report-card:hover {
+        transform: translateY(-2px);
+    }
+    .markdown-body {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    #notepad-area:focus {
+        outline: none;
+        box-shadow: none;
+    }
+</style>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Rekening Bank</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Alamat Bank</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Nama Bank</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>Nama Penerima Manfaat</value>
+  </data>
+  <data name="Buyer" xml:space="preserve">
+    <value>Pembeli</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>Alamat Pembeli</value>
+  </data>
+  <data name="Buyer Attention" xml:space="preserve">
+    <value>Perhatian Pembeli</value>
+  </data>
+  <data name="Buyer CR No" xml:space="preserve">
+    <value>No. CR Pembeli</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>Nama Pembeli</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Nomor Kontrak</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Mata Uang</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Tanggal</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>Nomor Faktur</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>Jenis Faktur</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>Faktur Proforma / Pernyataan Tagihan</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>Kwitansi / Faktur Pembayaran</value>
+  </data>
+  <data name="Seller" xml:space="preserve">
+    <value>Penjual</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>Alamat Penjual</value>
+  </data>
+  <data name="Seller Code" xml:space="preserve">
+    <value>Kode Penjual</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>Kontak Penjual</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>Nama Penjual</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Kode SWIFT</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} diperlukan.</value>
+  </data>
+
+</root>

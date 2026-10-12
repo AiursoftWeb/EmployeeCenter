@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Administrative Fines" xml:space="preserve">
+    <value>Phạt hành chính</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Số tài khoản ngân hàng</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Tên ngân hàng</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Lương cơ bản</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>Nội dung (Markdown)</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Tiền tệ</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>Chuyên cần</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>Quỹ nhà ở (Công ty)</value>
+  </data>
+  <data name="Housing Fund (Personal)" xml:space="preserve">
+    <value>Quỹ Nhà Ở (Cá nhân)</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>Lương công việc</value>
+  </data>
+  <data name="Late/Early" xml:space="preserve">
+    <value>Đi muộn/Về sớm</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>Thai sản (Công ty)</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>Bảo hiểm Y tế (Công ty)</value>
+  </data>
+  <data name="Medical (Personal)" xml:space="preserve">
+    <value>Bảo hiểm Y tế (Cá nhân)</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>Phụ cấp khác</value>
+  </data>
+  <data name="Overtime" xml:space="preserve">
+    <value>Làm thêm giờ</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>Lương hưu (Công ty)</value>
+  </data>
+  <data name="Pension (Personal)" xml:space="preserve">
+    <value>Lương hưu (Cá nhân)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>Thưởng hiệu suất</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>Thuế thu nhập cá nhân</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Nghỉ phép ốm</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>Khấu trừ bổ sung đặc biệt</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Tháng mục tiêu</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} không được vượt quá {1} ký tự.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} là bắt buộc.</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Tổng Số Tiền</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>Bảo hiểm thất nghiệp (Công ty)</value>
+  </data>
+  <data name="Unemployment (Personal)" xml:space="preserve">
+    <value>Bảo hiểm thất nghiệp (Cá nhân)</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>Tai nạn lao động (Công ty)</value>
+  </data>
+
+</root>

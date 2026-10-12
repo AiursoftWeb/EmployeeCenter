@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add New Asset" xml:space="preserve">
+    <value>新增資產</value>
+  </data>
+  <data name="Already Reimbursed" xml:space="preserve">
+    <value>已報銷</value>
+  </data>
+  <data name="Asset Tag must be unique. It&apos;s recommended to follow a consistent naming convention like ASM-YYYY-NNN." xml:space="preserve">
+    <value>資產標籤必須唯一。建議遵循一致的命名規則，例如 ASM-YYYY-NNN。</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>基本資訊</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="e.g. ASM-2024-001" xml:space="preserve">
+    <value>例如 ASM-2024-001</value>
+  </data>
+  <data name="Financial Information" xml:space="preserve">
+    <value>財務資訊</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>未指派</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>重新載入</value>
+  </data>
+  <data name="Save Asset" xml:space="preserve">
+    <value>儲存資產</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>選擇實體</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>選擇位置</value>
+  </data>
+  <data name="Select Model" xml:space="preserve">
+    <value>選擇型號</value>
+  </data>
+  <data name="Select Vendor" xml:space="preserve">
+    <value>選擇供應商</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="Upload the invoice to keep financial records traceable." xml:space="preserve">
+    <value>上傳發票以確保財務紀錄可追蹤。</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>事件記錄時間為協調世界時！</value>
+  </data>
+
+</root>

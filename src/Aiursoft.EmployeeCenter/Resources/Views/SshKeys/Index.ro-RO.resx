@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+  <data name="Add New Key" xml:space="preserve">
+    <value>Adaugă Cheie Nouă</value>
+  </data>
+  <data name="Back to Settings" xml:space="preserve">
+    <value>Înapoi la Setări</value>
+  </data>
+  <data name="Back to User Info" xml:space="preserve">
+    <value>Înapoi la Informațiile Utilizatorului</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Confirmă Ștergerea</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Data creării</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Șterge</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editează</value>
+  </data>
+  <data name="Manage your public SSH keys for server access." xml:space="preserve">
+    <value>Gestionați-vă cheile SSH publice pentru accesul la server.</value>
+  </data>
+  <data name="Manage your SSH Key" xml:space="preserve">
+    <value>Gestionează cheia ta SSH</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+  <data name="No SSH keys found." xml:space="preserve">
+    <value>Nu au fost găsite chei SSH.</value>
+  </data>
+  <data name="Public Key" xml:space="preserve">
+    <value>Cheie Publică</value>
+  </data>
+  <data name="Public SSH Keys" xml:space="preserve">
+    <value>Chei SSH Publice</value>
+  </data>
+  <data name="SSH Keys for" xml:space="preserve">
+    <value>Chei SSH pentru</value>
+  </data>
+
+</root>

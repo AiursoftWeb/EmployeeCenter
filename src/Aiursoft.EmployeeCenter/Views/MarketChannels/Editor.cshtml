@@ -1,0 +1,72 @@
+@model Aiursoft.EmployeeCenter.Models.MarketChannelsViewModels.EditorViewModel
+@{
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@(Model.IsNew ? Localizer["Create Market Channel"] : Localizer["Edit Market Channel"])</h3>
+    </div>
+</div>
+
+<form asp-action="@(Model.IsNew ? "Create" : "Edit")" method="post">
+    @if (!Model.IsNew)
+    {
+        <input type="hidden" asp-for="Id" />
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h5 class="card-title mb-0">@Localizer["Basic Information"]</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ManagerId" class="form-label"></label>
+                    <select asp-for="ManagerId" class="form-select">
+                        <option value="">@Localizer["-- Select Manager --"]</option>
+                        @if (Model.Users != null)
+                        {
+                            @foreach (var user in Model.Users)
+                            {
+                                <option value="@user.Id">@user.DisplayName (@user.UserName)</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="ManagerId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label asp-for="TargetAudience" class="form-label"></label>
+                    <input asp-for="TargetAudience" class="form-control" />
+                    <span asp-validation-for="TargetAudience" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h5 class="card-title mb-0">@Localizer["Remarks"]</h5>
+        </div>
+        <div class="card-body">
+            <div class="mb-0">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="10" placeholder="@Localizer["Markdown supported..."]"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <a asp-action="Manage" class="btn btn-secondary shadow-sm">@Localizer["Cancel"]</a>
+        <button type="submit" class="btn btn-primary shadow-sm">
+            <i class="align-middle" data-lucide="save"></i> @Localizer["Save"]
+        </button>
+    </div>
+</form>

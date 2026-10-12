@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Number" xml:space="preserve">
+    <value>رقم الحساب</value>
+  </data>
+  <data name="Add Item" xml:space="preserve">
+    <value>إضافة عنصر</value>
+  </data>
+  <data name="Attn / Contact" xml:space="preserve">
+    <value>ملاحظة / جهة الاتصال</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>عنوان البنك</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>اسم البنك</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>اسم المستفيد</value>
+  </data>
+  <data name="Bill From (Seller)" xml:space="preserve">
+    <value>الفاتورة من (البائع)</value>
+  </data>
+  <data name="Bill To (Buyer)" xml:space="preserve">
+    <value>فاتورة إلى (العميل)</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>عنوان المشتري</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>اسم المشتري</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>رقم العقد</value>
+  </data>
+  <data name="CR No / Entity Code" xml:space="preserve">
+    <value>الرقم الضريبي / رمز الكيان</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>العملة</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاريخ</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="Invoice Meta" xml:space="preserve">
+    <value>بيانات الفاتورة</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>رقم الفاتورة</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>نوع الفاتورة</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>إصدار الفاتورة</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>البنود</value>
+  </data>
+  <data name="Payment Instructions" xml:space="preserve">
+    <value>تعليمات الدفع</value>
+  </data>
+  <data name="Preview &amp; Generate HTML" xml:space="preserve">
+    <value>معاينة وإنشاء HTML</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>فاتورة احتسابية / بيان احتسابي</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>الكمية</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>إيصال / فاتورة مدفوعة</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>عنوان البائع</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>اتصال البائع</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>اسم البائع</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>كود SWIFT</value>
+  </data>
+  <data name="Tax Amount" xml:space="preserve">
+    <value>مبلغ الضريبة</value>
+  </data>
+  <data name="Unit Price" xml:space="preserve">
+    <value>السعر الوحدوي</value>
+  </data>
+
+</root>

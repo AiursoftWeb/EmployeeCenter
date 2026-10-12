@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Add new asset" xml:space="preserve">
+    <value>자산 추가</value>
+  </data>
+  <data name="All Assets" xml:space="preserve">
+    <value>모든 자산</value>
+  </data>
+  <data name="Are you sure you want to return asset" xml:space="preserve">
+    <value>확실하게 자산을 반납하시겠습니까?</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>자산 카테고리</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>자산 모델</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>자산 태그</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>할당</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>배정자</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Confirm Return" xml:space="preserve">
+    <value>확인 반환</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>상세 정보</value>
+  </data>
+  <data name="Download Invoice" xml:space="preserve">
+    <value>인보이스 다운로드</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>수정</value>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>기관</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>미사용</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>사용 중</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>송장</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>위치</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>위치</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>분실됨</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>정비 중</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>자산 관리</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>모델</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>없음</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>승인 대기</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>사유</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>폐기됨</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>반환</value>
+  </data>
+  <data name="Return Asset" xml:space="preserve">
+    <value>자산 반납</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="to stock?" xml:space="preserve">
+    <value>창고로 반납하시겠습니까?</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>공급업체</value>
+  </data>
+
+</root>

@@ -1,0 +1,139 @@
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@model Aiursoft.EmployeeCenter.Models.PayrollViewModels.ManageViewModel
+@inject StorageService StorageService
+<style>
+    .clickable-row {
+        cursor: pointer;
+    }
+</style>
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Manage Payrolls"]</h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="align-middle" data-lucide="plus-circle"></i> @Localizer["Issue new payroll"]
+        </a>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["Export Payrolls"]</h5>
+        <h6 class="card-subtitle text-muted">@Localizer["Export payroll history to Excel (CSV)."]</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Export" method="get" class="row row-cols-lg-auto g-3 align-items-center">
+            <div class="col-12">
+                <label class="visually-hidden" for="userId">@Localizer["User"]</label>
+                <select class="form-select" id="userId" name="userId">
+                    <option value="">@Localizer["All Users"]</option>
+                    @foreach (var user in Model.AllUsers)
+                    {
+                        <option value="@user.Id">@user.DisplayName</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label class="visually-hidden" for="year">@Localizer["Year"]</label>
+                <select class="form-select" id="year" name="year">
+                    <option value="">@Localizer["All History"]</option>
+                    @for (int i = DateTime.UtcNow.Year; i >= 2020; i--)
+                    {
+                        var year = i;
+                        <option value="@year">@year</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-secondary">
+                    <i class="align-middle" data-lucide="download"></i> @Localizer["Export"]
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["All Payrolls"]</h5>
+        <h6 class="card-subtitle text-muted">@Localizer["A list of all issued payroll records in the system."]</h6>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0" id="payrollTable">
+            <thead>
+            <tr>
+                <th>@Localizer["User"]</th>
+                <th>@Localizer["Target Month"]</th>
+                <th>@Localizer["Total Amount"]</th>
+                <th>@Localizer["Created Time"]</th>
+                <th class="text-end" data-orderable="false">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Payrolls)
+            {
+                <tr class="clickable-row" data-href="@Url.Action("Details", new { id = item.Id })">
+                                                    <td data-order="@item.Owner.DisplayName">
+                                                        <a asp-controller="Users" asp-action="Details" asp-route-id="@item.OwnerId" class="text-body d-flex align-items-center">
+                                                            <img src="@StorageService.RelativePathToInternetUrl(item.Owner.AvatarRelativePath)?w=72&square=true" alt="@item.Owner.DisplayName" class="rounded-circle" width="36" height="36" />
+                                                            <span class="ms-2">@item.Owner.DisplayName</span>
+                                                        </a>
+                                                    </td>                    <td>@item.TargetMonth.ToString("yyyy-MM")</td>
+                    <td data-order="@item.TotalAmount">
+                        @{
+                            var culture = item.Currency switch
+                            {
+                                "CNY" => "zh-CN",
+                                "JPY" => "ja-JP",
+                                "HKD" => "zh-HK",
+                                _ => "en-US"
+                            };
+                        }
+                        @item.TotalAmount.ToString("C", System.Globalization.CultureInfo.GetCultureInfo(culture))
+                    </td>
+                    <td data-order="@item.CreationTime.Ticks">
+                        <label class="text-muted" data-utc-time="@item.CreationTime.ToHtmlDateTime()"></label>
+                    </td>
+                    <td class="text-end">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">
+                            <i class="align-middle" data-lucide="edit"></i> @Localizer["Edit"]
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                            <i class="align-middle" data-lucide="eye"></i> @Localizer["Details"]
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#payrollTable').DataTable({
+                "destroy": true,
+                "responsive": true,
+                "paging": true,
+                "pageLength": 25,
+                "searching": true,
+                "info": false,
+                "order": [[3, "desc"]]
+            });
+
+            $('#payrollTable tbody').on('click', 'tr.clickable-row', function (event) {
+                const target = $(event.target);
+                if (!target.closest('a, button').length) {
+                    window.location.href = $(this).data('href');
+                }
+            });
+        });
+    </script>
+}

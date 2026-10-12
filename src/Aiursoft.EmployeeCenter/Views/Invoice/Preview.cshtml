@@ -1,0 +1,435 @@
+@model Aiursoft.EmployeeCenter.Models.InvoiceViewModels.CreateViewModel
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@(Model.Type == Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt ? "Receipt" : "Proforma Invoice") - @Model.SellerName</title>
+    <style>
+        /* 页面基础设置 - 适配 A4 (紧凑版) */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            background-color: #eee;
+            margin: 0;
+            padding: 20px;
+            -webkit-print-color-adjust: exact;
+        }
+
+        .container {
+            width: 210mm;
+            padding: 15mm;
+            margin: 0 auto;
+            background: white;
+            box-sizing: border-box;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* 打印样式优化 */
+        @@media print {
+            body { margin: 0; padding: 0; background-color: white;}
+            .container {
+                width: 100%;
+                margin: 0;
+                padding: 15mm;
+                border: none;
+                box-shadow: none;
+                height: auto;
+            }
+            @@page { margin: 0; }
+            .no-print { display: none; }
+        }
+
+        .no-print {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-primary { color: #fff; background-color: #007bff; border-color: #007bff; }
+
+        /* 头部设计 (紧凑) */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .company-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .company-details {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.3;
+            max-width: 420px;
+        }
+
+        .invoice-title {
+            text-align: right;
+        }
+
+        .invoice-title h1 {
+            font-size: 30px;
+            color: #2c3e50;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .invoice-meta {
+            margin-top: 8px;
+            font-size: 13px;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        /* 买卖双方信息 (紧凑) */
+        .addresses {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .address-box {
+            width: 48%;
+        }
+
+        .address-box h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #7f8c8d;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .address-content {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .address-content strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 3px;
+            color: #000;
+        }
+
+        /* 表格设计 (紧凑) */
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .invoice-table th {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-weight: bold;
+            text-align: left;
+            padding: 8px 10px;
+            border-bottom: 2px solid #ddd;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .invoice-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+            vertical-align: top;
+        }
+
+        .invoice-table td.qty, .invoice-table td.total, .invoice-table td.price {
+            text-align: right;
+        }
+
+        /* 总计区域 (紧凑) */
+        .total-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 25px;
+        }
+
+        .total-box {
+            width: 280px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 13px;
+        }
+
+        .total-row.final {
+            border-top: 2px solid #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 8px;
+            padding: 10px 0;
+            color: #2c3e50;
+        }
+
+        /* 银行信息 & 备注 & 页脚 (紧凑) */
+        .footer-wrapper {
+             display: flex;
+             flex-direction: column;
+        }
+
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            flex-grow: 1;
+        }
+
+        .banking-info {
+            width: 58%;
+            font-size: 11px;
+            line-height: 1.4;
+            background-color: #fdfdfd;
+            padding: 10px 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        .banking-info h4 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .banking-table td {
+             padding: 2px 0;
+        }
+
+        .signature-section {
+            width: 35%;
+            text-align: center;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .stamp-box {
+            height: 80px;
+            border-bottom: 1px solid #000;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .stamp-placeholder {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #e0e0e0;
+            font-size: 10px;
+        }
+
+        .signature-text {
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .page-bottom-info {
+            text-align: center;
+            font-size: 10px;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="no-print">
+    <button onclick="window.print()" class="btn btn-primary">Print / Save as PDF</button>
+    <a href="javascript:history.back()" class="btn" style="background: #6c757d; color: white;">Back to Edit</a>
+</div>
+
+<div class="container">
+    <div class="header">
+        <div>
+            <div class="company-name">@Model.SellerName</div>
+            <div class="company-details">
+                @Html.Raw(Model.SellerAddress.Replace("\n", "<br>"))
+            </div>
+        </div>
+        <div class="invoice-title">
+            <h1>@(Model.Type == Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt ? "RECEIPT" : "PROFORMA INVOICE")</h1>
+            <div class="invoice-meta">
+                <span><strong>@(Model.Type == Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt ? "Receipt No" : "Invoice No"):</strong> @Model.InvoiceNo</span><br>
+                <span><strong>Date:</strong> @Model.Date.ToString("MMMM dd, yyyy")</span><br>
+                @if (!string.IsNullOrEmpty(Model.ContractNo))
+                {
+                    <span><strong>Contract No:</strong> @Model.ContractNo</span>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="addresses">
+        <div class="address-box">
+            <h3>Bill From (Seller)</h3>
+            <div class="address-content">
+                <strong>@Model.SellerName</strong>
+                @Html.Raw(Model.SellerAddress.Replace("\n", "<br>"))
+                @if (!string.IsNullOrEmpty(Model.SellerContact))
+                {
+                    <br><span>Contact: @Model.SellerContact</span>
+                }
+            </div>
+        </div>
+        <div class="address-box">
+            <h3>Bill To (Buyer)</h3>
+            <div class="address-content">
+                <strong>@Model.BuyerName</strong>
+                @Html.Raw(Model.BuyerAddress.Replace("\n", "<br>"))
+                @if (!string.IsNullOrEmpty(Model.BuyerCRNo))
+                {
+                    <br><span>CR No: @Model.BuyerCRNo</span>
+                }
+                @if (!string.IsNullOrEmpty(Model.BuyerAttn))
+                {
+                    <br><span>Attn: @Model.BuyerAttn</span>
+                }
+            </div>
+        </div>
+    </div>
+
+    <table class="invoice-table">
+        <thead>
+            <tr>
+                <th style="width: 50%;">Description</th>
+                <th class="qty" style="width: 15%;">Quantity</th>
+                <th class="price" style="width: 15%;">Unit Price</th>
+                <th class="total" style="width: 20%;">Amount (@Model.Currency)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(item.Description.Replace("\n", "<br>"))
+                    </td>
+                    <td class="qty">@item.Quantity.ToString("N0")</td>
+                    <td class="price">@item.UnitPrice.ToString("N2")</td>
+                    <td class="total">@((item.Quantity * item.UnitPrice).ToString("N2"))</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="total-section">
+        <div class="total-box">
+            <div class="total-row">
+                <span>Subtotal:</span>
+                <span>@Model.Currency @Model.Subtotal.ToString("N2")</span>
+            </div>
+            <div class="total-row">
+                <span>Tax:</span>
+                <span>@Model.Currency @Model.Tax.ToString("N2")</span>
+            </div>
+            <div class="total-row final">
+                <span>@(Model.Type == Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt ? "Total Paid" : "Total Due"):</span>
+                <span>@Model.Currency @Model.TotalDue.ToString("N2")</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-wrapper">
+        <div class="footer-section">
+            <div class="banking-info">
+                <h4>@(Model.Type == Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt ? "PAYMENT DETAILS" : "PAYMENT INSTRUCTIONS (BANK TRANSFER ONLY)")</h4>
+                <table class="banking-table" style="width: 100%; font-size: 11px; border: none;">
+                    <tr>
+                        <td style="width: 110px; color: #666;">Beneficiary Name:</td>
+                        <td><strong>@Model.BeneficiaryName</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="color: #666;">Bank Name:</td>
+                        <td><strong>@Model.BankName</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="color: #666;">Account Number:</td>
+                        <td><strong>@Model.BankAccount</strong></td>
+                    </tr>
+                    @if (!string.IsNullOrEmpty(Model.SwiftCode))
+                    {
+                        <tr>
+                            <td style="color: #666;">SWIFT Code:</td>
+                            <td><strong>@Model.SwiftCode</strong></td>
+                        </tr>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.BankAddress))
+                    {
+                        <tr>
+                            <td style="color: #666; vertical-align: top;">Bank Address:</td>
+                            <td>@Model.BankAddress</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td style="color: #666;">Reference:</td>
+                        <td>@Model.InvoiceNo</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="signature-section">
+                <div class="stamp-box">
+                    <div class="stamp-placeholder">[ Place Company Stamp Here ]</div>
+                </div>
+                <div class="signature-text">
+                    Authorized Signature<br>
+                    <strong>@Model.SellerName</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-bottom-info">
+            @Model.SellerName | Code: @Model.SellerCode (Generated by Aiursoft Employee Center)
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

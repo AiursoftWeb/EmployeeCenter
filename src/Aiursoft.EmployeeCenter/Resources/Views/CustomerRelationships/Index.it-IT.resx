@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Azioni</value>
+  </data>
+  <data name="All Customer Relationships" xml:space="preserve">
+    <value>Tutte le relazioni con i clienti</value>
+  </data>
+  <data name="Company Entity" xml:space="preserve">
+    <value>Entità Aziendale</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>Relazioni con i clienti</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Dettagli</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Job Title" xml:space="preserve">
+    <value>Titolo del ruolo</value>
+  </data>
+  <data name="Last Updated" xml:space="preserve">
+    <value>Ultimo aggiornamento</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>N/D</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="No customer relationships found." xml:space="preserve">
+    <value>Nessuna relazione con il cliente trovata.</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefono</value>
+  </data>
+
+</root>

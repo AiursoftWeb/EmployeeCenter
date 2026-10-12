@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>すべての部署</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>年次有給休暇</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>申請者</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>承認された申請</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>申請が却下されました</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>承認センター</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>承認履歴</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>承認</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>承認済み</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>今月の承認済み</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>承認者</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>会社全体の承認を待機中</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>ご審査をお待ちしています</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>現在休暇中</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>日数</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>決定</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>誤って却下した場合：</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>従業員がキャンセルを希望する場合：</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>重要: 承認の決定は最終的です</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>マイチーム</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>承認履歴はありません。</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>保留中の申請はございません。</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>承認または却下したLeave申請は元に戻せません。行動を取る前に十分に確認してください。</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>保留中の承認</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>保留中の承認</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>期間</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>理由</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>却下</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>却下</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>今月の却下</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>承認済み</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>病気休暇</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>提出済み</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>休暇中のチーム</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>従業員は新しい申請書を提出しなければなりません。</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>申請者は開始前に自身の申請を取り下げることができます。</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>〜から〜まで</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>種類</value>
+  </data>
+
+</root>

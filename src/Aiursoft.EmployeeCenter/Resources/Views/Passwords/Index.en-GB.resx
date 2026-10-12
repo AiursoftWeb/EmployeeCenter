@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Click here to create one." xml:space="preserve">
+    <value>Click here to create one.</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Create new</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editable</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>It&apos;s empty here!</value>
+  </data>
+  <data name="Manage and view shared account passwords." xml:space="preserve">
+    <value>Manage and view shared account passwords.</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Manage Shares</value>
+  </data>
+  <data name="My Passwords" xml:space="preserve">
+    <value>My Passwords</value>
+  </data>
+  <data name="No passwords created yet." xml:space="preserve">
+    <value>No passwords created yet.</value>
+  </data>
+  <data name="No passwords have been shared with you yet." xml:space="preserve">
+    <value>No passwords have been shared with you yet.</value>
+  </data>
+  <data name="No passwords shared with you." xml:space="preserve">
+    <value>No passwords shared with you.</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Passwords Management</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Permission</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Read Only</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Shared with Me</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="You have not created any passwords yet." xml:space="preserve">
+    <value>You have not created any passwords yet.</value>
+  </data>
+
+</root>

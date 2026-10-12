@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Are you sure you want to reject asset" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir rejeter l&apos;actif</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Étiquette d&apos;actif</value>
+  </data>
+  <data name="Assets assigned to me" xml:space="preserve">
+    <value>Actifs affectés à moi</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Confirm Receipt" xml:space="preserve">
+    <value>Confirmer la réception</value>
+  </data>
+  <data name="Confirm Reject" xml:space="preserve">
+    <value>Confirmer le rejet</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>En cours d&apos;utilisation</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>C&apos;est vide ici !</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Emplacement</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Modèle</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Mes ressources</value>
+  </data>
+  <data name="No assets assigned to you yet." xml:space="preserve">
+    <value>Aucun actif attribué à vous pour le moment.</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>En attente d&apos;acceptation</value>
+  </data>
+  <data name="Please explain why you are rejecting this asset (e.g. damaged, wrong model)..." xml:space="preserve">
+    <value>Veuillez expliquer pourquoi vous rejetez cet élément (par exemple : endommagé, mauvais modèle)...</value>
+  </data>
+  <data name="Reason for rejection" xml:space="preserve">
+    <value>Motif du rejet</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Refuser</value>
+  </data>
+  <data name="Reject Asset Receipt" xml:space="preserve">
+    <value>Rejeter la réception de l&apos;actif</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>Aucun actif ne vous a encore été attribué. Si vous avez besoin d&apos;équipement, veuillez contacter le service RH ou le service informatique.</value>
+  </data>
+
+</root>

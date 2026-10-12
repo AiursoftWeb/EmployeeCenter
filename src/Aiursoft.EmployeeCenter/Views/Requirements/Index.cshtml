@@ -1,0 +1,108 @@
+@using System.Security.Claims
+@using Aiursoft.EmployeeCenter.Authorization
+@model Aiursoft.EmployeeCenter.Models.RequirementViewModels.IndexViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
+@{
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer[Model.PageTitle ?? "Project Requirements"]</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <a asp-action="Create" class="btn btn-primary shadow-sm">
+            <i class="align-middle" data-lucide="plus"></i> @Localizer["Submit New Requirement"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Requirements"]</h5>
+    </div>
+    @if (!Model.Requirements.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    @Localizer["No requirements found."]
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Title"]</th>
+                    <th>@Localizer["Submitter"]</th>
+                    <th>@Localizer["Status"]</th>
+                    <th>@Localizer["Creation Time"]</th>
+                    <th>@Localizer["Last Updated"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var req in Model.Requirements)
+                {
+                    <tr>
+                        <td>
+                            @req.Title
+                        </td>
+                        <td class="align-middle">
+                            @if (req.Submitter != null)
+                            {
+                                <a asp-controller="Users" asp-action="Details" asp-route-id="@req.SubmitterId" class="text-body d-flex align-items-center">
+                                    <img src="@StorageService.RelativePathToInternetUrl(req.Submitter.AvatarRelativePath)?w=30&square=true" class="avatar img-fluid rounded me-1" alt="@req.Submitter.DisplayName" />
+                                    @req.Submitter.DisplayName
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["Unknown"]</span>
+                            }
+                        </td>
+                        <td>
+                            @{
+                                var badgeClass = req.Status switch
+                                {
+                                    RequirementStatus.Approved => "bg-success",
+                                    RequirementStatus.Rejected => "bg-danger",
+                                    RequirementStatus.RequestChanges => "bg-warning",
+                                    _ => "bg-info"
+                                };
+                            }
+                            <span class="badge @badgeClass">@Localizer[req.Status.ToString()]</span>
+                        </td>
+                        <td>
+                            <label class="text-muted" data-utc-time="@req.CreationTime.ToHtmlDateTime()"></label>
+                        </td>
+                        <td>
+                             <label class="text-muted" data-utc-time="@req.UpdateTime.ToHtmlDateTime()"></label>
+                        </td>
+                        <td class="text-end text-nowrap">
+                            <a asp-action="View" asp-route-id="@req.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="eye"></i> @Localizer["View"]
+                            </a>
+                            @{
+                                var canApprove = User.HasClaim(AppPermissions.Type, AppPermissionNames.CanApproveProjectRequirements);
+                                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                                var isCreator = req.SubmitterId == userId;
+                                var canEdit = canApprove || (isCreator && req.Status != RequirementStatus.Approved);
+                            }
+                            @if (canEdit)
+                            {
+                                <a asp-action="Edit" asp-route-id="@req.Id" class="btn btn-sm btn-outline-warning">
+                                    <i class="align-middle" data-lucide="edit"></i> @Localizer["Edit"]
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

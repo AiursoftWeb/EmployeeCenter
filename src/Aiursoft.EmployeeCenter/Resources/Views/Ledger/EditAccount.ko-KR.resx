@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>계정 이름</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>계정 유형</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>회계 논리는 &apos;풀 모델&apos;을 따릅니다: 자금이 하나의 풀(원천)에서 다른 풀(대상)로 흐릅니다. 이 다섯 가지 요소를 이해하는 것이 복식 부기의 핵심입니다.</value>
+  </data>
+  <data name="Archived" xml:space="preserve">
+    <value>보관됨</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>자산</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>은행 예금, 회수 가능한 계정(타인이 당신에게 빚진 금액), 서버/노트북</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>이사에게 대출받기</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>대출받기 = 증가; 대출 상환 = 감소</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>현금 보유액 또는 현금으로 전환할 수 있는 자산</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>비용 발생</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>통화</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>회사가 미래에 갚아야 할 빚들</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>정의:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>방향:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>이사자금 (회사에 빌려준 금액), 미결제 청구서, 신용카드 부채</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>계정 편집</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>자본</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>예시:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>비용</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>출처(From)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>수입</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>부채</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>논리</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>수익</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>제품을 판매하거나 서비스를 제공하여 벌어들인 수익. 이는 이익을 증가시킨다.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>은행에서 자금이 흐르며 빚을 상환한다</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>은행에서 지출로 자금이 흐릅니다</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>돈이 부채에서 은행 계좌로 흐릅니다.</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>자본에서 은행 계좌로 자금이 흐릅니다</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>수익으로 발생한 금액이 은행 계좌로 들어옴</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>돈이 들어오면 증가; 돈이 나가면 감소</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>회사 운영을 유지하기 위해 지출된 금액. 이는 이익을 감소시킨다.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>서버 비용 지불</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>빠른 요약 카드</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>이사에게 대출 상환</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>매출 수익, 서비스 수수료, 이자 수익</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>저장</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>시나리오</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>소프트웨어 판매</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>서버 호스팅 비용, 은행 수수료, 급여</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>주식 자본 (초기 투자), 잔여 수익 (누적 이익).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>주주 투자</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>주주 자본 증가/이익 = 증가; 주주 자본 감소/손실 = 감소</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>대시보드에 표시</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>회사의 순자산. 공식: 자산 - 부채 = 자본</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>타인에게 빚진 것들</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>소유한 자산</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>목적지</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>회계 요소 이해하기</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>진정으로 당신에게 속하는 가치</value>
+  </data>
+
+</root>

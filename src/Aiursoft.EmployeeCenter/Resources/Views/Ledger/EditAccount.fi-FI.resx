@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Tilin nimi</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Tilin tyyppi</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>Talouslogiikka noudattaa &apos;Patterimallia&apos;: rahat virtaavat yhdestä patterista (lähteestä) toiseen patteriin (kohde). Näiden viiden elementin ymmärtäminen on keskeistä kaksinkertaiseen kirjanpitoon.</value>
+  </data>
+  <data name="Archived" xml:space="preserve">
+    <value>Arkistoitu</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Väline</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Pankkitalletukset, vastaavat (rahastot, jotka muut ovat velkaa), palvelimet/laptopit.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Veloitus pääjohtajalta</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Välitöntä rahaa = Kasvu; Rahoituksen palauttaminen = Vähennys.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Peruuta</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Käteistä käytössä tai tavaroita, jotka voidaan muuttaa käteiseksi.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Kustannukset nostettu</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuutta</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Velat, jotka yrityksen on maksettava tulevaisuudessa.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Määritelmä:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Suunta:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Toimitusjohtajan lainat (rahansiirto, jonka olet tehnyt yrityksellesi), Maksamattomat laskutukset, Luottokorttisaldo.</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Muokkaa tiliä</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Omaisuus</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Esimerkkejä:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Kulut</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Lähde (Lähde)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Tulo</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Velka</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Logiikka</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Tulosta ansaittu</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Tulot tuotteiden myynnistä tai palveluiden tarjoamisesta. Kasvattaa voittoa.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Rahat virtaavat pankista velkavähennykseen</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Rahat virtaavat pankista menoihin</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Rahat virtaavat velasta pankkitilille</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Rahat virtaavat osuudesta pankkitilille</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Tulot tuotettu tulokseksi pankkiin</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Rahaa sisään = Kasvu; Rahaa ulos = Vähennys.</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Rahaa käytetään yrityksen toiminnan ylläpitämiseen. Vähentää voittoa.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Palvelimien maksaminen</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Nopea muistio</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Pääomakorvaus</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Myyntituotot, palvelumaksut, korkotuotot</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Tallenna</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Tapaus</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Ohjelmistomyynti</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Palvelimien isäntyyden maksut, Pankkikulut, Palkat</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Osakkeen pääoma (alkuinvestointi), pidennetty tulokset (kertynyt voitto).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Osakkeenomistajan sijoitus</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Osakkeenomistajan sijoitus/tulos = Kasvu; Osakkeenomistajan nosto/tappio = Vähennys.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Näytä työkalupalkissa</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Yrityksen oma pääoma. Kaava: Vastike - Velka = Omistusoikeus.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Asioita, joita olet velkaa muille</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Asiat, joita omistat</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>Kohde (Destination)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Tilinpäätöselementtien ymmärtäminen</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Arvo, joka kuuluu sinulle todella</value>
+  </data>
+
+</root>

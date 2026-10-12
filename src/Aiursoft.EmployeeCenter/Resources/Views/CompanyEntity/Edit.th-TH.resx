@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>ข้อมูลเพิ่มเติม (แผ่นดินใหญ่/ฮ่องกง)</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>แก้ไขหน่วยงานบริษัท</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>รายละเอียดหน่วยงาน</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>บันทึกการเปลี่ยนแปลง</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>เวลาบันทึกเหตุการณ์คือเวลาสากลประสานกัน!</value>
+  </data>
+
+</root>

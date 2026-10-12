@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="Are you sure you want to reject asset" xml:space="preserve">
+    <value>Вы действительно хотите отклонить актив?</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Тег актива</value>
+  </data>
+  <data name="Assets assigned to me" xml:space="preserve">
+    <value>Активы, назначенные мне</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Confirm Receipt" xml:space="preserve">
+    <value>Подтвердить получение</value>
+  </data>
+  <data name="Confirm Reject" xml:space="preserve">
+    <value>Подтвердить отказ</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>В использовании</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Здесь пусто!</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Местоположение</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Модель</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Мои активы</value>
+  </data>
+  <data name="No assets assigned to you yet." xml:space="preserve">
+    <value>Нет активов, назначенных вам ещё.</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Ожидает подтверждения</value>
+  </data>
+  <data name="Please explain why you are rejecting this asset (e.g. damaged, wrong model)..." xml:space="preserve">
+    <value>Пожалуйста, объясните, почему вы отклоняете этот актив (например, поврежден, неверная модель)...</value>
+  </data>
+  <data name="Reason for rejection" xml:space="preserve">
+    <value>Причина отказа</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Отклонить</value>
+  </data>
+  <data name="Reject Asset Receipt" xml:space="preserve">
+    <value>Отклонить получение актива</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>Пока вам не назначено никаких активов. Если вам необходимо оборудование, пожалуйста, обратитесь в отдел кадров или в IT-отдел.</value>
+  </data>
+
+</root>

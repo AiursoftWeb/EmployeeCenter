@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>有効</value>
+  </data>
+  <data name="Add New" xml:space="preserve">
+    <value>新規追加</value>
+  </data>
+  <data name="All Intangible Assets" xml:space="preserve">
+    <value>すべての無形資産</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>申請中</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>割り当てる</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>担当者</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>エンティティに所属</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>有効期限</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>無形資産の管理</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>該当なし</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>失効</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>実行中</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>仕入れ先</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>一時停止中</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>種類</value>
+  </data>
+
+</root>

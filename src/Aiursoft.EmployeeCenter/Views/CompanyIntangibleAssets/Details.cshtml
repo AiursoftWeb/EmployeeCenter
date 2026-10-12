@@ -1,0 +1,150 @@
+@using Aiursoft.EmployeeCenter.Services
+@model Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels.DetailsViewModel
+@inject AssetFileService AssetFiles
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Company Intangible Asset Details"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["General Information"]</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">@Localizer["Name"]</dt>
+                    <dd class="col-sm-8">@Model.Asset.Name</dd>
+
+                    <dt class="col-sm-4">@Localizer["Type"]</dt>
+                    <dd class="col-sm-8">@Model.Asset.Type</dd>
+
+                    <dt class="col-sm-4">@Localizer["Status"]</dt>
+                    <dd class="col-sm-8">@Model.Asset.Status</dd>
+
+                    <dt class="col-sm-4">@Localizer["Supplier"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.Supplier ?? "-")</dd>
+
+                    <dt class="col-sm-4">@Localizer["Belongs to Entity"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.CompanyEntity?.CompanyName ?? "-")</dd>
+                    
+                    <dt class="col-sm-4">@Localizer["Description"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.Description ?? "-")</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="card">
+             <div class="card-header">
+                <h5 class="card-title">@Localizer["Access Information"]</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">@Localizer["Management URL"]</dt>
+                    <dd class="col-sm-8">
+                        @if (!string.IsNullOrEmpty(Model.Asset.ManagementUrl))
+                        {
+                            <a href="@Model.Asset.ManagementUrl" target="_blank">@Model.Asset.ManagementUrl</a>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-4">@Localizer["Account"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.Account ?? "-")</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Filing & Registration"]</h5>
+            </div>
+            <div class="card-body">
+                 <dl class="row">
+                    <dt class="col-sm-4">@Localizer["Filing Number"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.FilingNumber ?? "-")</dd>
+
+                    <dt class="col-sm-4">@Localizer["Filing Subject"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.FilingSubject ?? "-")</dd>
+
+                    <dt class="col-sm-4">@Localizer["Query Method"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.FilingQueryMethod ?? "-")</dd>
+
+                    <dt class="col-sm-4">@Localizer["Registration Date"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.RegistrationDate?.ToString("yyyy-MM-dd") ?? "-")</dd>
+
+                    <dt class="col-sm-4">@Localizer["Expiration Date"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.ExpirationDate?.ToString("yyyy-MM-dd") ?? "-")</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Financial & Assignment"]</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">@Localizer["Purchase Price"]</dt>
+                    <dd class="col-sm-8">@(Model.Asset.PurchasePrice?.ToString("N2") ?? "-") @Model.Asset.Currency</dd>
+
+                    <dt class="col-sm-4">@Localizer["Trademark Image"]</dt>
+                    <dd class="col-sm-8">
+                        @if (!string.IsNullOrEmpty(Model.Asset.TrademarkImageUrl))
+                        {
+                            <a href="@AssetFiles.GetInternetUrl(Model.Asset.TrademarkImageUrl)" target="_blank">@Localizer["View Trademark Image"]</a>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-4">@Localizer["Invoice"]</dt>
+                    <dd class="col-sm-8">
+                         @if (!string.IsNullOrEmpty(Model.Asset.InvoiceFileUrl))
+                        {
+                            <a href="@AssetFiles.GetInternetUrl(Model.Asset.InvoiceFileUrl)" target="_blank">@Localizer["View Invoice"]</a>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-4">@Localizer["Registration Certificate"]</dt>
+                    <dd class="col-sm-8">
+                        @if (!string.IsNullOrEmpty(Model.Asset.RegistrationCertificateUrl))
+                        {
+                            <a href="@AssetFiles.GetInternetUrl(Model.Asset.RegistrationCertificateUrl)" target="_blank">@Localizer["View Certificate"]</a>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-4">@Localizer["Assignee"]</dt>
+                    <dd class="col-sm-8">
+                        @if (Model.Asset.Assignee != null)
+                        {
+                            @Model.Asset.Assignee.DisplayName
+                        }
+                        else
+                        {
+                            <span>@Localizer["Not Assigned"]</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

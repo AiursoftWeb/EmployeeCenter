@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A high-level view of service availability, placement, and infrastructure coverage." xml:space="preserve">
+    <value>A high-level view of service availability, placement, and infrastructure coverage.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Active Servers</value>
+  </data>
+  <data name="All Services" xml:space="preserve">
+    <value>All Services</value>
+  </data>
+  <data name="Are you sure you want to delete this service?" xml:space="preserve">
+    <value>Are you sure you want to delete this service?</value>
+  </data>
+  <data name="assigned" xml:space="preserve">
+    <value>assigned</value>
+  </data>
+  <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
+    <value>Audience and routing scope of the service portfolio.</value>
+  </data>
+  <data name="Audit access required" xml:space="preserve">
+    <value>Audit access required</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Audit pending</value>
+  </data>
+  <data name="Authentik" xml:space="preserve">
+    <value>Authentik</value>
+  </data>
+  <data name="Authentik integration" xml:space="preserve">
+    <value>Authentik integration</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Availability</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>blocking findings</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>Both Global and Domestic</value>
+  </data>
+  <data name="Click a bar or server name to inspect its services." xml:space="preserve">
+    <value>Click a bar or server name to inspect its services.</value>
+  </data>
+  <data name="Cloudflare" xml:space="preserve">
+    <value>Cloudflare</value>
+  </data>
+  <data name="Cloudflare Proxied" xml:space="preserve">
+    <value>Cloudflare Proxied</value>
+  </data>
+  <data name="Create New Service" xml:space="preserve">
+    <value>Create New Service</value>
+  </data>
+  <data name="Current state of every registered service." xml:space="preserve">
+    <value>Current state of every registered service.</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Data Quality</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Developing" xml:space="preserve">
+    <value>Developing</value>
+  </data>
+  <data name="DNS" xml:space="preserve">
+    <value>DNS</value>
+  </data>
+  <data name="DNS Audit Health" xml:space="preserve">
+    <value>DNS Audit Health</value>
+  </data>
+  <data name="DNS Distribution" xml:space="preserve">
+    <value>DNS Distribution</value>
+  </data>
+  <data name="DNS provider registration" xml:space="preserve">
+    <value>DNS provider registration</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domain</value>
+  </data>
+  <data name="Domain Aliases" xml:space="preserve">
+    <value>Domain Aliases</value>
+  </data>
+  <data name="Domestic" xml:space="preserve">
+    <value>Domestic</value>
+  </data>
+  <data name="Edge Routed" xml:space="preserve">
+    <value>Edge Routed</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Geographic Distribution" xml:space="preserve">
+    <value>Geographic Distribution</value>
+  </data>
+  <data name="Global" xml:space="preserve">
+    <value>Global</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>healthy subjects</value>
+  </data>
+  <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
+    <value>How completely the service catalog describes infrastructure and governance.</value>
+  </data>
+  <data name="Infrastructure Registry" xml:space="preserve">
+    <value>Infrastructure Registry</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Internal</value>
+  </data>
+  <data name="InternalAndPartners" xml:space="preserve">
+    <value>Internal and Partners</value>
+  </data>
+  <data name="Lifecycle Status" xml:space="preserve">
+    <value>Lifecycle Status</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="locations" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="Manage DNS Providers" xml:space="preserve">
+    <value>Manage DNS Providers</value>
+  </data>
+  <data name="Manage Servers" xml:space="preserve">
+    <value>Manage Servers</value>
+  </data>
+  <data name="New Service" xml:space="preserve">
+    <value>New Service</value>
+  </data>
+  <data name="No services are assigned to servers yet." xml:space="preserve">
+    <value>No services are assigned to servers yet.</value>
+  </data>
+  <data name="No services found." xml:space="preserve">
+    <value>No services found.</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Operational" xml:space="preserve">
+    <value>Operational</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="Protocols" xml:space="preserve">
+    <value>Protocols</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Purpose</value>
+  </data>
+  <data name="registered services" xml:space="preserve">
+    <value>registered services</value>
+  </data>
+  <data name="Registered services grouped by DNS provider." xml:space="preserve">
+    <value>Registered services grouped by DNS provider.</value>
+  </data>
+  <data name="Registry Quality" xml:space="preserve">
+    <value>Registry Quality</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Self" xml:space="preserve">
+    <value>Self</value>
+  </data>
+  <data name="Self-developed services" xml:space="preserve">
+    <value>Self-developed services</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Server assignment</value>
+  </data>
+  <data name="Server Details" xml:space="preserve">
+    <value>Server Details</value>
+  </data>
+  <data name="Server IP" xml:space="preserve">
+    <value>Server IP</value>
+  </data>
+  <data name="Service Audit Health" xml:space="preserve">
+    <value>Service Audit Health</value>
+  </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Service placement by server location.</value>
+  </data>
+  <data name="Service Purpose" xml:space="preserve">
+    <value>Service Purpose</value>
+  </data>
+  <data name="Service Registry" xml:space="preserve">
+    <value>Service Registry</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Services by Server</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Services Dashboard</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Testing" xml:space="preserve">
+    <value>Testing</value>
+  </data>
+  <data name="Via Frps" xml:space="preserve">
+    <value>Via Frps</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>View Detailed Service Table</value>
+  </data>
+  <data name="View DNS Audit" xml:space="preserve">
+    <value>View DNS Audit</value>
+  </data>
+  <data name="View Servers" xml:space="preserve">
+    <value>View Servers</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>View Service Audit</value>
+  </data>
+
+</root>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledge" xml:space="preserve">
+    <value>स्वीकार करें</value>
+  </data>
+  <data name="Acknowledged At" xml:space="preserve">
+    <value>स्वीकृत किया गया</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>राशि</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>विस्तार</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>डाउनलोड करें</value>
+  </data>
+  <data name="No acknowledged requests waiting for payment." xml:space="preserve">
+    <value>किसी भी स्वीकृत अनुरोध का भुगतान के लिए प्रतीक्षा नहीं है।</value>
+  </data>
+  <data name="No pending requests." xml:space="preserve">
+    <value>कोई लंबित अनुरोध नहीं हैं।</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>प्रक्रिया</value>
+  </data>
+  <data name="Processed At" xml:space="preserve">
+    <value>प्रोसेस किया गया</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>उद्देश्य</value>
+  </data>
+  <data name="Recent History (Last 100)" xml:space="preserve">
+    <value>हालिया इतिहास (पिछले 100)</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>रिंबर्स</value>
+  </data>
+  <data name="Reimbursement Approval Center" xml:space="preserve">
+    <value>पुनर्भुगतान अनुमोदन केंद्र</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>अस्वीकृत</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>समीक्षा</value>
+  </data>
+  <data name="Review and process reimbursement requests from employees." xml:space="preserve">
+    <value>कर्मचारियों से प्रत्यायोजन अनुरोधों की समीक्षा करें और उनका संसाधन करें।</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>समीक्षा किया गया</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>रद्द</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>समर्पित किया गया</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>प्रेषक</value>
+  </data>
+
+</root>

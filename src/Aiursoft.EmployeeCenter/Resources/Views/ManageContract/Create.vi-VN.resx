@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Cancel" xml:space="preserve">
+    <value>Hủy bỏ</value>
+  </data>
+  <data name="Contract Details" xml:space="preserve">
+    <value>Chi tiết hợp đồng</value>
+  </data>
+  <data name="Contract File" xml:space="preserve">
+    <value>Tệp hợp đồng</value>
+  </data>
+  <data name="Contract Name" xml:space="preserve">
+    <value>Tên hợp đồng</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Tạo hợp đồng</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>Tạo hợp đồng mới</value>
+  </data>
+  <data name="e.g. 2024 Labor Contract" xml:space="preserve">
+    <value>ví dụ: Hợp đồng lao động 2024</value>
+  </data>
+  <data name="Public Contract (Everyone can see)" xml:space="preserve">
+    <value>Hợp đồng công khai (Mọi người đều có thể xem)</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>Chọn người dùng</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Upload the scanned contract file (PDF or Image)." xml:space="preserve">
+    <value>Tải lên tệp hợp đồng đã quét (PDF hoặc hình ảnh).</value>
+  </data>
+
+</root>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Team Calendar" xml:space="preserve">
+    <value>เกี่ยวกับปฏิทินทีม</value>
+  </data>
+  <data name="Annual" xml:space="preserve">
+    <value>Annual</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>ได้รับการอนุมัติ</value>
+  </data>
+  <data name="Blue - Approved future leave" xml:space="preserve">
+    <value>น้ำเงิน - วันลาที่ได้รับการอนุมัติในอนาคต</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>ล้าง</value>
+  </data>
+  <data name="Close Search" xml:space="preserve">
+    <value>ปิดการค้นหา</value>
+  </data>
+  <data name="Currently on Leave" xml:space="preserve">
+    <value>อยู่ระหว่างการลา</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>วัน</value>
+  </data>
+  <data name="Days label" xml:space="preserve">
+    <value>วัน</value>
+  </data>
+  <data name="Green - Leave period has finished" xml:space="preserve">
+    <value>สีเขียว - ช่วงวันลาได้สิ้นสุดลง</value>
+  </data>
+  <data name="Leave History: {0}" xml:space="preserve">
+    <value>Leave History: {0}</value>
+  </data>
+  <data name="Leave Schedule" xml:space="preserve">
+    <value>ตารางการลา</value>
+  </data>
+  <data name="No leave records found for this user in the specified range." xml:space="preserve">
+    <value>ไม่พบบันทึกการลาสำหรับผู้ใช้นี้ในช่วงที่ระบุ</value>
+  </data>
+  <data name="No team members found." xml:space="preserve">
+    <value>ไม่พบสมาชิกทีม</value>
+  </data>
+  <data name="No upcoming or past leave records." xml:space="preserve">
+    <value>ไม่มีบันทึกการลาที่กำลังจะมาหรือในอดีต</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>ไม่พบผู้ใช้</value>
+  </data>
+  <data name="Not Yet Started" xml:space="preserve">
+    <value>ยังไม่เริ่ม</value>
+  </data>
+  <data name="Only approved leave applications are displayed here." xml:space="preserve">
+    <value>แสดงเฉพาะคำขอลาที่ได้รับการอนุมัติเท่านั้นที่นี่</value>
+  </data>
+  <data name="Overview of leave schedules for your manager, reports, and colleagues." xml:space="preserve">
+    <value>ภาพรวมของตารางการลาของผู้จัดการ ทีมงานใต้บังคับบัญชา และเพื่อนร่วมงานของคุณ</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>รอดำเนินการ</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>ช่วงเวลา</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>เหตุผล</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>ปฏิเสธแล้ว</value>
+  </data>
+  <data name="Relation" xml:space="preserve">
+    <value>ความสัมพันธ์</value>
+  </data>
+  <data name="Returned" xml:space="preserve">
+    <value>กลับมาแล้ว</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>ผู้ตรวจสอบ</value>
+  </data>
+  <data name="Search Any Employee" xml:space="preserve">
+    <value>ค้นหาพนักงานใดก็ได้</value>
+  </data>
+  <data name="Search for any employee to view their full leave history for the past and future 365 days." xml:space="preserve">
+    <value>ค้นหาพนักงานใดก็ได้เพื่อดูประวัติการลาทั้งหมดย้อนหลังและล่วงหน้า 365 วัน</value>
+  </data>
+  <data name="Sick" xml:space="preserve">
+    <value>Sick</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Status Legend" xml:space="preserve">
+    <value>สัญลักษณ์สถานะ</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>ระบบ</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>ปฏิทินทีม</value>
+  </data>
+  <data name="Team Member" xml:space="preserve">
+    <value>สมาชิกทีม</value>
+  </data>
+  <data name="Team Members&apos; Leave Status" xml:space="preserve">
+    <value>สถานะการลาของสมาชิกทีม</value>
+  </data>
+  <data name="This calendar helps you stay informed about your team&apos;s availability to facilitate work handovers and planning." xml:space="preserve">
+    <value>ปฏิทินนี้ช่วยให้คุณทราบสถานะการพร้อมปฏิบัติงานของทีมเพื่ออำนวยความสะดวกในการส่งมอบงานและการวางแผน</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+  <data name="Type 3+ characters to search for an employee..." xml:space="preserve">
+    <value>พิมพ์ตัวอักษร 3 ตัวขึ้นไปเพื่อค้นหาพนักงาน...</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>ถูกถอนการขอ</value>
+  </data>
+  <data name="Yellow - Employee is currently away" xml:space="preserve">
+    <value>สีเหลือง - พนักงานกำลังลาออก</value>
+  </data>
+
+</root>

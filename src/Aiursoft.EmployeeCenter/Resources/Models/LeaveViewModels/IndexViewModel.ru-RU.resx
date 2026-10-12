@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Annual Leave Allocation" xml:space="preserve">
+    <value>Выделение ежегодного отпуска</value>
+  </data>
+  <data name="Annual Leave Per Year Policy" xml:space="preserve">
+    <value>Политика ежегодного отпуска</value>
+  </data>
+  <data name="Can Apply Leave" xml:space="preserve">
+    <value>Можно подать заявку на отпуск</value>
+  </data>
+  <data name="Carried Over Annual Leave" xml:space="preserve">
+    <value>Перенесенный ежегодный отпуск</value>
+  </data>
+  <data name="Current Year" xml:space="preserve">
+    <value>Текущий год</value>
+  </data>
+  <data name="Days Until Next Leave" xml:space="preserve">
+    <value>Дней до следующего отпуска</value>
+  </data>
+  <data name="Has Upcoming Leave Within 14 Days" xml:space="preserve">
+    <value>Есть предстоящий отпуск в течение 14 дней</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>История отпусков</value>
+  </data>
+  <data name="Next Upcoming Leave" xml:space="preserve">
+    <value>Следующий предстоящий отпуск</value>
+  </data>
+  <data name="Pending Count" xml:space="preserve">
+    <value>Количество ожидающих заявок</value>
+  </data>
+  <data name="Remaining Annual Leave" xml:space="preserve">
+    <value>Оставшийся ежегодный отпуск</value>
+  </data>
+  <data name="Remaining Sick Leave" xml:space="preserve">
+    <value>Оставшийся отпуск по болезни</value>
+  </data>
+  <data name="Sick Leave Allocation" xml:space="preserve">
+    <value>Выделение больничных дней</value>
+  </data>
+
+</root>

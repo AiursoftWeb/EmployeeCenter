@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Number" xml:space="preserve">
+    <value>계좌번호</value>
+  </data>
+  <data name="Add Item" xml:space="preserve">
+    <value>항목 추가</value>
+  </data>
+  <data name="Attn / Contact" xml:space="preserve">
+    <value>담당자 / 연락처</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>은행 주소</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>은행 이름</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>수혜자 이름</value>
+  </data>
+  <data name="Bill From (Seller)" xml:space="preserve">
+    <value>발행자 (판매자)</value>
+  </data>
+  <data name="Bill To (Buyer)" xml:space="preserve">
+    <value>구매자에게 청구 (Buyer)</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>구매자 주소</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>구매자 이름</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>계약 번호</value>
+  </data>
+  <data name="CR No / Entity Code" xml:space="preserve">
+    <value>사업자등록번호 / 법인 코드</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>화폐</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>발행일</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>설명</value>
+  </data>
+  <data name="Invoice Meta" xml:space="preserve">
+    <value>송장 메타</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>송장 번호</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>송장 유형</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>발행하기</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>항목</value>
+  </data>
+  <data name="Payment Instructions" xml:space="preserve">
+    <value>지급 안내</value>
+  </data>
+  <data name="Preview &amp; Generate HTML" xml:space="preserve">
+    <value>미리 보기 및 HTML 생성</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>예상 청구서 / 청구 내역서</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>수량</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>수령증 / 입금 완료 청구서</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>판매자 주소</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>판매자 연락처</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>판매자 이름</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT 코드</value>
+  </data>
+  <data name="Tax Amount" xml:space="preserve">
+    <value>세금 금액</value>
+  </data>
+  <data name="Unit Price" xml:space="preserve">
+    <value>단가</value>
+  </data>
+
+</root>

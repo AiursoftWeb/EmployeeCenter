@@ -1,0 +1,43 @@
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.EditFolderViewModel
+
+<h1 class="h3 mb-3">@Localizer["Edit Folder"]</h1>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <form asp-action="EditFolder" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Folder Details"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">@Localizer["Folder Name"]</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ParentFolderId" class="form-label">@Localizer["Parent Folder"]</label>
+                        <select asp-for="ParentFolderId" class="form-select">
+                            <option value="">@Localizer["(Root)"]</option>
+                            @foreach (var folder in (IEnumerable<SelectListItem>)ViewData["Folders"]!)
+                            {
+                                <option value="@folder.Value" selected="@(folder.Selected ? "selected" : null)">@folder.Text</option>
+                            }
+                        </select>
+                        <span asp-validation-for="ParentFolderId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="align-middle me-2" data-lucide="save"></i> @Localizer["Save Changes"]
+                    </button>
+                    <a asp-action="Index" asp-route-id="@Model.ParentFolderId" class="btn btn-light">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

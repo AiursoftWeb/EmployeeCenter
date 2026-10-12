@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>บัญชีธนาคาร</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>ชื่อบัญชีธนาคาร</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>ที่อยู่ธนาคาร</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>รหัสธนาคาร</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>ชื่อธนาคาร</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>สกุลเงินพื้นฐาน</value>
+  </data>
+  <data name="Business License / BR Scan" xml:space="preserve">
+    <value>ใบอนุญาตประกอบการ / สแกน BR</value>
+  </data>
+  <data name="Business Registration (BR / Business License)" xml:space="preserve">
+    <value>การจดทะเบียนธุรกิจ (BR / ใบอนุญาตประกอบธุรกิจ)</value>
+  </data>
+  <data name="CI Number (HK)" xml:space="preserve">
+    <value>เลขที่ CI (ฮ่องกง)</value>
+  </data>
+  <data name="Company Logo" xml:space="preserve">
+    <value>โลโก้บริษัท</value>
+  </data>
+  <data name="Company Name (Chinese)" xml:space="preserve">
+    <value>ชื่อบริษัท (จีน)</value>
+  </data>
+  <data name="Company Name (English)" xml:space="preserve">
+    <value>ชื่อบริษัท (ภาษาอังกฤษ)</value>
+  </data>
+  <data name="Company Seal" xml:space="preserve">
+    <value>ตราประทับบริษัท</value>
+  </data>
+  <data name="Company Secretary (HK)" xml:space="preserve">
+    <value>ผู้อำนวยการบริษัท (ฮ่องกง)</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>ประเภทบริษัท</value>
+  </data>
+  <data name="Create corresponding ledger" xml:space="preserve">
+    <value>สร้างบัญชีสมุดบัญชีที่เกี่ยวข้อง</value>
+  </data>
+  <data name="Entity Code (Social Credit Code / BR Number)" xml:space="preserve">
+    <value>รหัสหน่วยงาน (รหัสเครดิตสังคม / หมายเลข BR)</value>
+  </data>
+  <data name="Establishment Date" xml:space="preserve">
+    <value>วันที่จัดตั้ง</value>
+  </data>
+  <data name="Expiry Date (Business License / BR)" xml:space="preserve">
+    <value>วันหมดอายุ (ใบอนุญาตประกอบธุรกิจ / BR)</value>
+  </data>
+  <data name="Legal Representative / Director" xml:space="preserve">
+    <value>ผู้แทนทางกฎหมาย / ผู้จัดการ</value>
+  </data>
+  <data name="Legal Representative Legal Name" xml:space="preserve">
+    <value>ชื่อผู้แทนทางกฎหมาย</value>
+  </data>
+  <data name="Office Address" xml:space="preserve">
+    <value>ที่อยู่สำนักงาน</value>
+  </data>
+  <data name="Operation Status" xml:space="preserve">
+    <value>สถานะการดำเนินงาน</value>
+  </data>
+  <data name="Organization Certificate (CR / Org Code)" xml:space="preserve">
+    <value>ใบรับรององค์กร (CR / Org Code)</value>
+  </data>
+  <data name="Please upload a valid certificate file." xml:space="preserve">
+    <value>กรุณาอัปโหลดไฟล์ใบรับรองที่ถูกต้อง</value>
+  </data>
+  <data name="Please upload a valid license file." xml:space="preserve">
+    <value>กรุณาอัปโหลดไฟล์ใบอนุญาตที่ถูกต้อง</value>
+  </data>
+  <data name="Please upload a valid logo file." xml:space="preserve">
+    <value>กรุณาอัปโหลดไฟล์โลโก้ที่ถูกต้อง</value>
+  </data>
+  <data name="Please upload a valid seal file." xml:space="preserve">
+    <value>กรุณาอัปโหลดไฟล์ประทับตราที่ถูกต้อง</value>
+  </data>
+  <data name="Registered Address" xml:space="preserve">
+    <value>ที่อยู่จดทะเบียน</value>
+  </data>
+  <data name="Registered Capital (Mainland)" xml:space="preserve">
+    <value>ทุนจดทะเบียน (แผ่นดินใหญ่)</value>
+  </data>
+  <data name="SCR Location (HK)" xml:space="preserve">
+    <value>SCR Location (HK)</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>รหัส SWIFT</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} ไม่สามารถเกิน {1} ตัวอักษรได้</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} จำเป็นต้องกรอก</value>
+  </data>
+  <data name="Zip Code" xml:space="preserve">
+    <value>รหัสไปรษณีย์</value>
+  </data>
+
+</root>

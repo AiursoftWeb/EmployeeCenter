@@ -1,0 +1,25 @@
+@model Aiursoft.EmployeeCenter.Models.AudioViewModels.EditTranscriptViewModel
+
+<h1 class="h3 mb-3">@Localizer["Edit Transcript"]</h1>
+
+<form asp-action="EditTranscript" method="post">
+    <input asp-for="Id" type="hidden" />
+    <input asp-for="TranscriptRevision" type="hidden" />
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">@Localizer["Transcribed Text"]</h5>
+        </div>
+        <div class="card-body">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            <label asp-for="PlainText" class="form-label">@Localizer["Transcribed Text"]</label>
+            <textarea asp-for="PlainText" class="form-control font-monospace" rows="24"></textarea>
+            <span asp-validation-for="PlainText" class="text-danger"></span>
+        </div>
+        <div class="card-footer text-end">
+            <button type="submit" class="btn btn-primary">
+                <i class="align-middle me-2" data-lucide="check-circle"></i> @Localizer["Save"]
+            </button>
+            <a asp-action="Transcript" asp-route-id="@Model.Id" class="btn btn-light">@Localizer["Cancel"]</a>
+        </div>
+    </div>
+</form>

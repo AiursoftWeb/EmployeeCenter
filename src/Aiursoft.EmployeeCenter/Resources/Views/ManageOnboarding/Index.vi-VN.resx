@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="Are you sure you want to delete this task?" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn xóa tác vụ này không?</value>
+  </data>
+  <data name="Avatar" xml:space="preserve">
+    <value>Ảnh đại diện</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Đã hoàn thành</value>
+  </data>
+  <data name="Create New Task" xml:space="preserve">
+    <value>Tạo nhiệm vụ mới</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Nhân viên</value>
+  </data>
+  <data name="Employee Onboarding Progress" xml:space="preserve">
+    <value>Tiến độ Đào tạo Nhân viên</value>
+  </data>
+  <data name="Expected Duration" xml:space="preserve">
+    <value>Thời gian dự kiến</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Quản lý các nhiệm vụ đưa vào làm việc</value>
+  </data>
+  <data name="No onboarding tasks created yet." xml:space="preserve">
+    <value>Chưa có nhiệm vụ hướng dẫn nào được tạo cả.</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Thứ tự</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Tiến độ</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Nhiệm vụ</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+
+</root>

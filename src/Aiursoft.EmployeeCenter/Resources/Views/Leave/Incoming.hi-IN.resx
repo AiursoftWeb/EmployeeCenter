@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>कार्रवाई</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>सभी कंपनी</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>वार्षिक छुट्टी</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>आवेदक</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>आवेदनों को मंजूर किया गया</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>आवेदन अस्वीकृत</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>अनुमोदन केंद्र</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>अनुमोदन इतिहास</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>अनुमोदित करें</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>अनुमोदित</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>इस महीने अनुमोदित</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>अनुमोदक</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>कंपनी भर में समीक्षा के लिए प्रतीक्षा कर रहा है</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>आपकी समीक्षा की प्रतीक्षा में</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>वर्तमान में अनुपस्थित</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>निर्णय</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>गलती से अस्वीकृत कर दिए जाने पर:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>यदि कर्मचारी रद्द करना चाहता है:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>महत्वपूर्ण: अनुमोदन निर्णय अंतिम हैं</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>मेरी टीम</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>अनुमोदन इतिहास नहीं है।</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>प्रतीक्षा कर रहे आवेदन नहीं हैं।</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>जब आप एक छुट्टी के आवेदन को अनुमोदित या अस्वीकृत करते हैं, तो निर्णय वापस नहीं लिया जा सकता है। कार्रवाई करने से पहले सावधानी से समीक्षा करें।</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>प्रतीक्षा में मंजूरी</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>लंबित अनुमोदन</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>अवधि</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>कारण</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>अस्वीकृत करें</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>अस्वीकृत</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>इस महीने अस्वीकृत</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>समीक्षित</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>बीमारी का छुट्टी</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>दाखिल किया गया</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>टीम छुट्टी पर</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>कर्मचारी को एक नई आवेदन दाखिल करना होगा।</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>वे इसकी शुरुआत से पहले अपना अप्लाई कर सकते हैं।</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>से</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+
+</root>

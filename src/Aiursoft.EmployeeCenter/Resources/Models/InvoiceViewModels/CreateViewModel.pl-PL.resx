@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Konto bankowe</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Adres banku</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Nazwa banku</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>Nazwa beneficjenta</value>
+  </data>
+  <data name="Buyer" xml:space="preserve">
+    <value>Nabywca</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>Adres klienta</value>
+  </data>
+  <data name="Buyer Attention" xml:space="preserve">
+    <value>Uwaga do kupującego</value>
+  </data>
+  <data name="Buyer CR No" xml:space="preserve">
+    <value>Numer CR nabywcy</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>Nazwa nabywcy</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Numer umowy</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Waluta</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>Numer faktury</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>Typ faktury</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>Faktura proforma / Potwierdzenie rozliczeniowe</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>Paragon / Faktura zapłacona</value>
+  </data>
+  <data name="Seller" xml:space="preserve">
+    <value>Sprzedający</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>Adres Sprzedawcy</value>
+  </data>
+  <data name="Seller Code" xml:space="preserve">
+    <value>Kod sprzedawcy</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>Kontakt sprzedającego</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>Nazwa sprzedawcy</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Kod SWIFT</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Pole {0} jest wymagane.</value>
+  </data>
+
+</root>

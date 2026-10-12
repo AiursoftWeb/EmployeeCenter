@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>Åtkomst nekad</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Konton</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Åtgärder</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>Lägg till SSH-nyckel</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>Ytterligare information (fastland/ HK)</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adress</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Administratör</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Administrativa uppgifter</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI-assistent</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Aiursoft Anställdcentrum</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft Mall</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>Anonym</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>Sök ledighet</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Godkännandecentrum</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Godkännandehistorik</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Godkänn</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Godkänt</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>Godkända projekt</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Resurser</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Aktivtmodeller</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Aktier</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Tilldela</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Tilldela tillgång</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Ljud</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Auditering av tjänster</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>Bakgrundsjobb</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Felaktig begäran</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Bankuppgifter</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Grundläggande information</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>Bluprint</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>Planer</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Företagslicens</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Karriär</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>Certifikat över anställning</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>Arbetsintyg</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>Intäktsbevis</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Skriv ut certifikat</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>Byt avatar</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>Ändra bankuppgifter</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>Ändra lösenord</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>Ändra profil</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>CI-nummer</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>Klicka för att logga in</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>Insamlingskanaler</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Kommentarer</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>Företagsentiteter</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>Företagsentitetens detaljer</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>Företagsentitet Information</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>Konsultation om företagsinformation</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>Företags immateriella tillgångar</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Företagsnamn</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>Företags offentliga avtal</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Företagstyp</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Bekräfta radering</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>Detaljer om avtalsfinansiering</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>Kontraktfinansstatistik</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Kontrakt</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Skapa</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Skapa konto</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Skapa tillgång</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>Skapa företagsentitet</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Skapa ny</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>Skapa ny mapp för Blueprint</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>Skapa ny avtal</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Skapa ny mapp</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Skapa påbörjandeuppgift</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>Skapa lösenord</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>Skapa promotion</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>Skapa fråga</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>Skapa enkät</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>Skapa roll</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Skapa server</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Skapa tjänst</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Skapa transaktion</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Skapa användare</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>Kundrelationer</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>Kundrelationer</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Instrumentbräda</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>Ta bort roll</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>Ta bort användare</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Utveckling</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Katalog</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS-granskning</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Ladda ner / Visa</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Redigera</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Redigera konto</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Redigera tillgång</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>Redigera blueprinf</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>Redigera blueprint-mapp</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>Redigera företagsentitet</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>Redigera kontrakt</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>Redigera kundrelation</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Redigera mapp</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Redigera mötesinspelning</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>Redigera påbörjningsuppgift</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>Redigera lösenord</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Redigera löneutbetalning</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Redigera fråga</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Redigera enkät</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>Redigera krav</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>Redigera roll</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Redigera server</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Redigera tjänst</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Redigera SSH-nyckel</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Redigera transaktion</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Redigera transkription</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>Redigera användare</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>Redigera veckorapport</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Redigerare</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>Anställdcentrum</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>Anställningssignalering</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Engelsk namn</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>Entitetslista</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Entitetskod</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Entitetsdetaljer</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fel</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Verksamhet</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Utgångsdatum</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Funktioner</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>Fyll i enkäten</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finans</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>Globala inställningar</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Semesterjusteringar</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Hem</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Bilder &amp; Filer</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>Importera avtal från zip</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>Inkommande ledighet</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Indexserver</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>Infrastrukturdatakvalitet</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Internt serverfel</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>Utställ faktura</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>Utställ löneutbetalning</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT-aktier</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>Ledighet</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>Ledighetshantering</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>Juridisk</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>Rättsskyddad rep</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Rättsrepresentant / Styrelsemedlem</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Platser</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Låst ut</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Logga in</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>Logga in för att få tillgång till alla funktioner.</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logotyp</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>Hantera profil</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Hantera</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Hantera tillgångar</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Hantera ljuddelningar</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Hantera mallar</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Hantera kategorier</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>Hantera företagsentiteter</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Hantera avtal</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>Hantera kundrelationer</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Hantera DNS-leverantörer</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Hantera feedback</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Hantera immateriella tillgångar</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>Hantera IT-aktier</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Hantera konto</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Hantera platser</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Hantera marknadskanaler</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Hantera modeller</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>Hantera påbörjande</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Hantera påbörjandeuppgifter</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>Hantera lösenordsdelar</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Hantera löner</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>Hantera utskrift</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Hantera leverantörer</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>Hantera frågor</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>Hantera krav</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Hantera delningar</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>Hantera uppgifter</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Hantera leverantörer</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>Markkanaler</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Mötesanteckningar</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Mötesprotokoll</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Mötesprotokoll</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Uppgifter</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>Flytta avtal</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Mina tillgångar</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>Mina avtal</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>Mina IT-aktier</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Mitt återstående ledighet</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>Mina löner</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Mina ersättningar</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>Min rapportlinje</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>Mina krav</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Sidan hittades inte</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR-resultat</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Officiell segel</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>Introduktion</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>Onboardingprocess</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>Lösenordsdetaljer</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Lösenord</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Lösenordshantering</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Löneuppgifter</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>Löner</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Väntande godkännande</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Behörighetsdetaljer</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Behörigheter</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Personligt</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Förhandsgranska</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Skriv ut</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>Skriv ut certifikat</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Profilinställningar</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>Projektbehov</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>Uppgraderingshistorik</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>Frågeformulärsvar</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Registrerat kapital</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrera</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>Återbetalning</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Avvisa</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Avvisad</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>Byt namn på mötesinspelning</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Svara</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>Svarar på</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Rapportlinje</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>Begär ändringar</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>Begär ändringar</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>Krav</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>Kravdetaljer</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Krav sparade framgångsrikt.</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>Kravtitel</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>Resurser</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>Svarsdetaljer</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Begränsad</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>Rollinformation</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roller</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Spara ändringar</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>SCR-plats</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Sekreterare</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Servrar</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Serviceaudit</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Tjänster</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Tjänstestyrelsepanel</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>Delad information</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>Delade lösenord</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Logga ut</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH-nycklar</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>Skicka kommentar</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Skicka till godkännande</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>Skicka ny krav</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>Skicka krav</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>Systeminformation</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Teamkalender</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Mall</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transaktioner</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Obehörig</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Ladda upp ljud</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Användardetaljer</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Användare</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Leverantörer</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>Visa ritningar</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>Visa avtal</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>Visa kundrelationer</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>Visa marknadskanaler</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>Veckorapport</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>Skriv en kommentar...</value>
+  </data>
+
+</root>

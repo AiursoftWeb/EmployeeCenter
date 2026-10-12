@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>การจ่ายจริง</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>เงินเดือนสุทธิ (Net)</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>ค่าปรับทางปกครอง</value>
+  </data>
+  <data name="Are you absolutely sure?" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าจะทำแบบนี้?</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>การเข้างาน &amp; การลงโทษ</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>กลับไปยังรายการ</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>บัญชีธนาคาร</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>ชื่อธนาคาร</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>เงินเดือนพื้นฐาน</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>โบนัสการมาทำงานครบ</value>
+  </data>
+  <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
+    <value>โดยการคลิกที่ &apos;ยืนยันและออก&apos;, คุณยืนยันว่าค่าทั้งหมดข้างต้นถูกต้องและสอดคล้องกับนโยบายของบริษัท</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>คำนวณตามชั่วโมงการทำงานล่วงเวลา</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>ภาษีเงินได้บุคคลธรรมดาที่คำนวณไว้ล่วงหน้า</value>
+  </data>
+  <data name="Calculation Formula Graph" xml:space="preserve">
+    <value>กราฟสูตรการคำนวณ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>หมวดหมู่</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>ต้นทุนของบริษัท</value>
+  </data>
+  <data name="Company Paid Insurances" xml:space="preserve">
+    <value>เบี้ยประกันที่บริษัทจ่าย</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>ตารางเงินเดือนตามข้อกำหนด</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>เนื้อหา (Markdown)</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>เงินเดือนพื้นฐานตามสัญญา</value>
+  </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>การยืนยันที่สำคัญจำเป็น</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>สกุลเงิน</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>สกุลเงิน:</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>การหัก</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>คำอธิบาย / สูตร</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>รายได้</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>การศึกษา, ที่อยู่อาศัย, เป็นต้น</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>พนักงาน:</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>หมายเลขบัญชีของพนักงาน</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>ธนาคารของพนักงาน</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>กรุณากรอกเป็นค่าลบ</value>
+  </data>
+  <data name="Enter payroll details in Markdown format..." xml:space="preserve">
+    <value>กรอกรายละเอียดเงินเดือนในรูปแบบ Markdown...</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>เงินพิเศษการเข้างานครบ</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>กองทุนสำรองเลี้ยงชีพ</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>กองทุนสำรองเลี้ยงชีพ (บริษัท)</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>ภาษีเงินได้</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>ประกันสังคม (ส่วนบุคคล)</value>
+  </data>
+  <data name="Issue New Payroll" xml:space="preserve">
+    <value>ออกใบแจ้งเงินเดือนใหม่</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>ออกเงินเดือน</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>รายการ</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>เงินเดือนตามตำแหน่งงาน</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>สาย / ลาออกก่อนเวลา</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>ค่าคลอดบุตร (บริษัท)</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>ค่าอาหาร, ค่าเดินทาง, ฯลฯ</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>ประกันสุขภาพ</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>ประกันสุขภาพ (บริษัท)</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>เดือน:</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>การประเมินผลงานรายเดือน</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>ไม่ ฉันขอตรวจสอบอีกครั้ง</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>หมายเหตุเพิ่มเติม (ถ้ามี)...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>เงินช่วยเหลืออื่น ๆ</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>ค่าล่วงเวลา</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>การกำหนดค่าการจ่ายเงินเดือน</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>รายละเอียดเงินเดือน</value>
+  </data>
+  <data name="Payroll issuance is irreversible! Once issued, you cannot delete or modify it. Please verify the following information:" xml:space="preserve">
+    <value>การออกใบแจ้งหนี้เงินเดือนไม่สามารถย้อนกลับได้! หลังจากออกแล้ว คุณไม่สามารถลบหรือแก้ไขได้ กรุณาตรวจสอบข้อมูลต่อไปนี้:</value>
+  </data>
+  <data name="Payroll issuance will be sent to the employee. Please verify the following information:" xml:space="preserve">
+    <value>การจ่ายเงินเดือนจะถูกส่งไปยังพนักงาน โปรดตรวจสอบข้อมูลต่อไปนี้:</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>เงินบำนาญ</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>เงินบำนาญ (บริษัท)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>โบนัสตามผลงาน</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>ภาษีเงินได้บุคคลธรรมดา</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>ประกันส่วนบุคคล</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>เงินเดือนตามตำแหน่ง</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>หมายเหตุ / เนื้อหา</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>เลือกผู้ใช้</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>ลาป่วย / ลากิจ</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>การหักเพิ่มเติมพิเศษ</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>เดือนเป้าหมาย</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>ข้อมูลภาษี</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>รายได้ที่ต้องเสียภาษี</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>ยอดรวมทั้งหมด</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>ต้นทุนรวมของบริษัท</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>รายได้รวม</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>เบี้ยประกันส่วนบุคคลรวม</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>การว่างงาน</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>ประกันว่างงาน (บริษัท)</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>ปกติ</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>มูลค่า</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>ประกันการประสบอันตรายหรือเจ็บป่วยเนื่องจากการทำงาน (บริษัท)</value>
+  </data>
+  <data name="Yes, Confirm and Issue!" xml:space="preserve">
+    <value>ใช่, ยืนยันและออก!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>เวลาบันทึกเหตุการณ์เป็นเวลาจักรวาลประสานงาน!</value>
+  </data>
+
+</root>

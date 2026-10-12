@@ -1,0 +1,31 @@
+@model Aiursoft.EmployeeCenter.Models.BlueprintViewModels.CreateFolderViewModel
+
+<h1 class="h3 mb-3">@Localizer["Create New Blueprint Folder"]</h1>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <form asp-action="CreateFolder" method="post">
+            <input type="hidden" asp-for="ParentFolderId" />
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Folder Details"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">@Localizer["Folder Name"]</label>
+                        <input asp-for="Name" class="form-control" placeholder="@Localizer["e.g. Frontend Architecture"]" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="align-middle me-2" data-lucide="check-circle"></i> @Localizer["Create Folder"]
+                    </button>
+                    <a asp-action="Manage" asp-route-id="@Model.ParentFolderId" class="btn btn-light">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+@model Aiursoft.EmployeeCenter.Models.LedgerViewModels.EditAccountViewModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@Localizer["Edit Account"]</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form asp-action="EditAccount" method="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="EntityId" />
+                <div class="form-group">
+                    <label asp-for="AccountName">@Localizer["Account Name"]</label>
+                    <input asp-for="AccountName" class="form-control" />
+                    <span asp-validation-for="AccountName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AccountType">@Localizer["Account Type"]</label>
+                    <select asp-for="AccountType" class="form-control" asp-items="Html.GetEnumSelectList<FinanceAccountType>()"></select>
+                    <span asp-validation-for="AccountType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Currency">@Localizer["Currency"]</label>
+                    <input asp-for="Currency" class="form-control" />
+                    <span asp-validation-for="Currency" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <input asp-for="ShowInDashboard" class="form-check-input" />
+                    <label asp-for="ShowInDashboard" class="form-check-label">@Localizer["Show in Dashboard"]</label>
+                </div>
+                <div class="form-group form-check">
+                    <input asp-for="IsArchived" class="form-check-input" />
+                    <label asp-for="IsArchived" class="form-check-label">@Localizer["Archived"]</label>
+                </div>
+                <button type="submit" class="btn btn-primary">@Localizer["Save"]</button>
+                <a asp-action="Accounts" asp-route-id="@Model.EntityId" class="btn btn-secondary">@Localizer["Cancel"]</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">@Localizer["Understanding Accounting Elements"]</h6>
+        </div>
+        <div class="card-body">
+            <p>@Localizer["Accounting logic follows a 'Pool Model': money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping."]</p>
+            
+            <h5 class="font-weight-bold">1. @Localizer["Asset"] — @Localizer["Things you own"]</h5>
+            <ul>
+                <li><strong>@Localizer["Definition:"]</strong> @Localizer["Cash on hand, or things that can be converted into cash."]</li>
+                <li><strong>@Localizer["Direction:"]</strong> @Localizer["Money in = Increase; Money out = Decrease."]</li>
+                <li><strong>@Localizer["Examples:"]</strong> @Localizer["Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops."]</li>
+            </ul>
+
+            <h5 class="font-weight-bold">2. @Localizer["Liability"] — @Localizer["Things you owe others"]</h5>
+            <ul>
+                <li><strong>@Localizer["Definition:"]</strong> @Localizer["Debts that the company must repay in the future."]</li>
+                <li><strong>@Localizer["Direction:"]</strong> @Localizer["Borrowing money = Increase; Repaying money = Decrease."]</li>
+                <li><strong>@Localizer["Examples:"]</strong> @Localizer["Director loans (money you lent to the company), Unpaid invoices, Credit card debt."]</li>
+            </ul>
+
+            <h5 class="font-weight-bold">3. @Localizer["Equity"] — @Localizer["Value that truly belongs to you"]</h5>
+            <ul>
+                <li><strong>@Localizer["Definition:"]</strong> @Localizer["The net worth of the company. Formula: Asset - Liability = Equity."]</li>
+                <li><strong>@Localizer["Direction:"]</strong> @Localizer["Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease."]</li>
+                <li><strong>@Localizer["Examples:"]</strong> @Localizer["Share Capital (initial investment), Retained Earnings (accumulated profit)."]</li>
+            </ul>
+
+            <h5 class="font-weight-bold">4. @Localizer["Income"] — @Localizer["Money earned"]</h5>
+            <ul>
+                <li><strong>@Localizer["Definition:"]</strong> @Localizer["Money earned by selling products or providing services. Increases profit."]</li>
+                <li><strong>@Localizer["Examples:"]</strong> @Localizer["Sales Revenue, Service Fees, Interest Income."]</li>
+            </ul>
+
+            <h5 class="font-weight-bold">5. @Localizer["Expense"] — @Localizer["Costs incurred"]</h5>
+            <ul>
+                <li><strong>@Localizer["Definition:"]</strong> @Localizer["Money spent to maintain company operations. Decreases profit."]</li>
+                <li><strong>@Localizer["Examples:"]</strong> @Localizer["Server hosting fees, Bank charges, Salaries."]</li>
+            </ul>
+
+            <hr />
+            <h5 class="font-weight-bold">@Localizer["Quick Cheat Sheet"]</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Scenario"]</th>
+                            <th>@Localizer["From (Source)"]</th>
+                            <th>@Localizer["To (Destination)"]</th>
+                            <th>@Localizer["Logic"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Localizer["Shareholder Investment"]</td>
+                            <td>@Localizer["Equity"]</td>
+                            <td>@Localizer["Asset"]</td>
+                            <td>@Localizer["Money flows from equity to bank account"]</td>
+                        </tr>
+                        <tr>
+                            <td>@Localizer["Borrowing from Director"]</td>
+                            <td>@Localizer["Liability"]</td>
+                            <td>@Localizer["Asset"]</td>
+                            <td>@Localizer["Money flows from debt to bank account"]</td>
+                        </tr>
+                        <tr>
+                            <td>@Localizer["Paying for Servers"]</td>
+                            <td>@Localizer["Asset"]</td>
+                            <td>@Localizer["Expense"]</td>
+                            <td>@Localizer["Money flows from bank to expenses"]</td>
+                        </tr>
+                        <tr>
+                            <td>@Localizer["Selling Software"]</td>
+                            <td>@Localizer["Income"]</td>
+                            <td>@Localizer["Asset"]</td>
+                            <td>@Localizer["Money generated as income into bank"]</td>
+                        </tr>
+                        <tr>
+                            <td>@Localizer["Repaying Director"]</td>
+                            <td>@Localizer["Asset"]</td>
+                            <td>@Localizer["Liability"]</td>
+                            <td>@Localizer["Money flows from bank to eliminate debt"]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

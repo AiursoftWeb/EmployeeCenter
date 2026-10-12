@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Controls the display sequence on the dashboard." xml:space="preserve">
+    <value>Panoda görüntülenme sırasını kontrol eder.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Oluştur</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Yeni Başlangıç Görevi Oluştur</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Expected Duration" xml:space="preserve">
+    <value>Beklenen Süre</value>
+  </data>
+  <data name="Gives employees an idea of how long the task might take." xml:space="preserve">
+    <value>İşe yeni başlayan çalışanlara görevin ne kadar sürebileceğine dair bir fikir verir.</value>
+  </data>
+  <data name="How to create an onboarding task?" xml:space="preserve">
+    <value>Yeni bir onboarding görevi nasıl oluşturulur?</value>
+  </data>
+  <data name="https://" xml:space="preserve">
+    <value>https://</value>
+  </data>
+  <data name="Markdown supported..." xml:space="preserve">
+    <value>Markdown desteklenir...</value>
+  </data>
+  <data name="Onboarding tasks are designed to guide new employees through their first days." xml:space="preserve">
+    <value>Yeni çalışanlar ilk günlerini başarıyla atlatmalarına yardımcı olmak için onboarding görevleri tasarlanmıştır.</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Sıra</value>
+  </data>
+  <data name="Start Link" xml:space="preserve">
+    <value>Başlat Bağlantısı</value>
+  </data>
+  <data name="The URL where the employee will be redirected when they click &apos;Start Task&apos;." xml:space="preserve">
+    <value>İşçinin &apos;Görevi Başlat&apos; butonuna tıkladığında yönlendirileceği URL.</value>
+  </data>
+  <data name="Use Markdown to provide detailed instructions or context." xml:space="preserve">
+    <value>Markdown kullanarak ayrıntılı talimatlar veya bağlam sağlayın.</value>
+  </data>
+
+</root>

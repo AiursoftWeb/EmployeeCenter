@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Applicant" xml:space="preserve">
+    <value>申请人</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>业务用途</value>
+  </data>
+  <data name="Download Watermarked PNG" xml:space="preserve">
+    <value>下载水印 PNG</value>
+  </data>
+  <data name="Generated At (UTC)" xml:space="preserve">
+    <value>生成时间（UTC）</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>我的下载记录</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>接收单位</value>
+  </data>
+  <data name="This qualification is disabled. Preview and download are unavailable until an administrator enables it." xml:space="preserve">
+    <value>该资质已停用，无法预览或下载，管理员重新启用后即可恢复使用。</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>追踪编号</value>
+  </data>
+  <data name="Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation." xml:space="preserve">
+    <value>对外发送前请核对用途和接收单位。水印辅助追溯，但不能阻止所有滥用，也不能保证经过任意图像处理后仍可检测。</value>
+  </data>
+  <data name="Watermarked Preview" xml:space="preserve">
+    <value>水印预览</value>
+  </data>
+  <data name="Watermarked qualification copy" xml:space="preserve">
+    <value>带水印的资质副本</value>
+  </data>
+</root>

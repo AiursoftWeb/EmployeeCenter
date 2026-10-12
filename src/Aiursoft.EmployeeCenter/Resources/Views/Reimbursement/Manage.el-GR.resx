@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledge" xml:space="preserve">
+    <value>Αναγνώριση</value>
+  </data>
+  <data name="Acknowledged At" xml:space="preserve">
+    <value>Αναγνωρισμένο στις</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Ποσό</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Λεπτομέρειες</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Λήψη</value>
+  </data>
+  <data name="No acknowledged requests waiting for payment." xml:space="preserve">
+    <value>Δεν υπάρχουν αναγνωρισμένες αιτήσεις σε αναμονή πληρωμής.</value>
+  </data>
+  <data name="No pending requests." xml:space="preserve">
+    <value>Δεν υπάρχουν εκκρεμείς αιτήσεις.</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>Επεξεργασία</value>
+  </data>
+  <data name="Processed At" xml:space="preserve">
+    <value>Ημερομηνία Επεξεργασίας</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Σκοπός</value>
+  </data>
+  <data name="Recent History (Last 100)" xml:space="preserve">
+    <value>Πρόσφατη Ιστορία (Τελευταία 100)</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>Επιστραφείσα</value>
+  </data>
+  <data name="Reimbursement Approval Center" xml:space="preserve">
+    <value>Κέντρο Έγκρισης Επιστροφής Δαπανών</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Απορριφθεί</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Ανασκόπηση</value>
+  </data>
+  <data name="Review and process reimbursement requests from employees." xml:space="preserve">
+    <value>Εξετάστε και επεξεργαστείτε αιτήσεις αποζημίωσης από τους υπαλλήλους.</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>Εξετάστηκε από</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>Ακυρώθηκε</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>Υποβλήθηκε στις</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>Υποβάλλων</value>
+  </data>
+
+</root>

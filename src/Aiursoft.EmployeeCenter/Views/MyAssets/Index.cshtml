@@ -1,0 +1,121 @@
+@model Aiursoft.EmployeeCenter.Models.MyAssetsViewModels.IndexViewModel
+
+<h1 class="h3 mb-3">@Localizer["My Assets"]</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Assets assigned to me"]</h5>
+    </div>
+    @if (!Model.Assets.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
+                    <p class="mb-0">
+                        @Localizer["There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department."]
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Asset Tag"]</th>
+                    <th>@Localizer["Model"]</th>
+                    <th>@Localizer["Status"]</th>
+                    <th>@Localizer["Location"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Assets)
+                {
+                    <tr>
+                        <td><a asp-action="Details" asp-route-id="@item.Id"><code>@item.AssetTag</code></a></td>
+                        <td><a asp-action="Details" asp-route-id="@item.Id">@item.Model.Brand @item.Model.ModelName</a></td>
+                        <td>
+                            @switch (item.Status)
+                            {
+                                case AssetStatus.PendingAccept:
+                                    <span class="badge bg-warning">@Localizer["Pending Accept"]</span>
+                                    break;
+                                case AssetStatus.InUse:
+                                    <span class="badge bg-success">@Localizer["In Use"]</span>
+                                    break;
+                                default:
+                                    <span class="badge bg-secondary">@item.Status</span>
+                                    break;
+                            }
+                        </td>
+                        <td>@(item.Location?.Name ?? Localizer["N/A"].Value)</td>
+                        <td class="text-end">
+                            @if (item.Status == AssetStatus.PendingAccept)
+                            {
+                                <form asp-action="Confirm" asp-route-id="@item.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-sm btn-success">
+                                        <i class="align-middle" data-lucide="check"></i> @Localizer["Confirm Receipt"]
+                                    </button>
+                                </form>
+                                <button type="button" class="btn btn-sm btn-danger reject-btn" data-id="@item.Id" data-tag="@item.AssetTag">
+                                    <i class="align-middle" data-lucide="x"></i> @Localizer["Reject"]
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<!-- Reject Modal -->
+<div class="modal fade" id="rejectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="Reject" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">@Localizer["Reject Asset Receipt"]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="rejectAssetId" />
+                    <p>@Localizer["Are you sure you want to reject asset"] <strong id="rejectAssetTag"></strong>?</p>
+                    <div class="mb-3">
+                        <label class="form-label">@Localizer["Reason for rejection"]</label>
+                        <textarea name="reason" class="form-control" rows="3" required placeholder="@Localizer["Please explain why you are rejecting this asset (e.g. damaged, wrong model)..."]"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                    <button type="submit" class="btn btn-danger">@Localizer["Confirm Reject"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rejectButtons = document.querySelectorAll(".reject-btn");
+            const rejectModal = new bootstrap.Modal(document.getElementById('rejectModal'));
+            const rejectAssetIdInput = document.getElementById('rejectAssetId');
+            const rejectAssetTagSpan = document.getElementById('rejectAssetTag');
+
+            rejectButtons.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    rejectAssetIdInput.value = this.dataset.id;
+                    rejectAssetTagSpan.textContent = this.dataset.tag;
+                    rejectModal.show();
+                });
+            });
+        });
+    </script>
+}

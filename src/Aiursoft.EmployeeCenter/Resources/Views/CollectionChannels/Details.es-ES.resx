@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="Actual" xml:space="preserve">
+    <value>Real</value>
+  </data>
+  <data name="Add record" xml:space="preserve">
+    <value>Añadir registro</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Cancelado</value>
+  </data>
+  <data name="Channel Info" xml:space="preserve">
+    <value>Información del canal</value>
+  </data>
+  <data name="Collection Channel Details" xml:space="preserve">
+    <value>Detalles del canal de cobro</value>
+  </data>
+  <data name="Collection Records" xml:space="preserve">
+    <value>Registros de Cobranza</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Contrato</value>
+  </data>
+  <data name="Due Date" xml:space="preserve">
+    <value>Fecha de vencimiento</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Edit Channel" xml:space="preserve">
+    <value>Editar canal</value>
+  </data>
+  <data name="Expected" xml:space="preserve">
+    <value>Esperado</value>
+  </data>
+  <data name="First Payment" xml:space="preserve">
+    <value>Primera Pagadora</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="No records found." xml:space="preserve">
+    <value>No se han encontrado registros.</value>
+  </data>
+  <data name="One-time" xml:space="preserve">
+    <value>Pago único</value>
+  </data>
+  <data name="Overdue" xml:space="preserve">
+    <value>Vencido</value>
+  </data>
+  <data name="Paid Date" xml:space="preserve">
+    <value>Fecha de pago</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Parcial</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Pausado</value>
+  </data>
+  <data name="Payee" xml:space="preserve">
+    <value>Beneficiario</value>
+  </data>
+  <data name="Payer" xml:space="preserve">
+    <value>Pagador</value>
+  </data>
+  <data name="Payment Method" xml:space="preserve">
+    <value>Método de pago</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pendiente</value>
+  </data>
+  <data name="Recurring" xml:space="preserve">
+    <value>Recurrente</value>
+  </data>
+  <data name="Reference Amount" xml:space="preserve">
+    <value>Importe de referencia</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Observaciones</value>
+  </data>
+  <data name="Settled" xml:space="preserve">
+    <value>Abonado</value>
+  </data>
+  <data name="Start Billing" xml:space="preserve">
+    <value>Inicio de facturación</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Terminated" xml:space="preserve">
+    <value>Terminado</value>
+  </data>
+
+</root>

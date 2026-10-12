@@ -1,0 +1,41 @@
+@model Aiursoft.EmployeeCenter.Models.LedgerViewModels.IndexViewModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@Localizer["Manage Ledger"]</h1>
+        <a asp-controller="CompanyEntity" asp-action="Create" class="btn btn-primary shadow-sm">
+            <i class="fas fa-plus fa-sm text-white-50"></i> @Localizer["Create New Entity"]
+        </a>
+    </div>
+
+    <div class="row">
+        @foreach (var entity in Model.Entities)
+        {
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    @entity.EntityCode
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@entity.CompanyName</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-university fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="mt-2">
+                            <a asp-controller="Ledger" asp-action="Dashboard" asp-route-id="@entity.Id" class="btn btn-primary btn-block">
+                                <i class="fas fa-tachometer-alt"></i> @Localizer["Open Ledger"]
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

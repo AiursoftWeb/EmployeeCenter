@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="CRITICAL: Missing Reports" xml:space="preserve">
+    <value>KRITISKT: Saknade rapporter</value>
+  </data>
+  <data name="Everything is up to date!" xml:space="preserve">
+    <value>Allt är uppdaterat!</value>
+  </data>
+  <data name="Extremely Dangerous!" xml:space="preserve">
+    <value>Extremt farligt!</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Timmar</value>
+  </data>
+  <data name="Incomplete Submission" xml:space="preserve">
+    <value>Oavslutad inlämning</value>
+  </data>
+  <data name="Jot down your thoughts here... (Auto-saved)" xml:space="preserve">
+    <value>Skriv ner dina tankar här... (Sparat automatiskt)</value>
+  </data>
+  <data name="Loading..." xml:space="preserve">
+    <value>Laddar...</value>
+  </data>
+  <data name="Missing Reports" xml:space="preserve">
+    <value>Saknade rapporter</value>
+  </data>
+  <data name="New Weekly Report" xml:space="preserve">
+    <value>Nytt veckorrapport</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Anteckningar</value>
+  </data>
+  <data name="On behalf of" xml:space="preserve">
+    <value>Åt uppdrag av</value>
+  </data>
+  <data name="Post as myself" xml:space="preserve">
+    <value>Publicera som mig själv</value>
+  </data>
+  <data name="Post Report" xml:space="preserve">
+    <value>Skicka rapport</value>
+  </data>
+  <data name="Project Associations" xml:space="preserve">
+    <value>Projektanslutningar</value>
+  </data>
+  <data name="Reports are ordered by time. Scroll down to see older reports." xml:space="preserve">
+    <value>Rapporter är sorterade i kronologisk ordning. Scrolla ner för att se äldre rapporter.</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Obligatoriskt</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Sparat</value>
+  </data>
+  <data name="Select Project..." xml:space="preserve">
+    <value>Välj projekt...</value>
+  </data>
+  <data name="Select Week" xml:space="preserve">
+    <value>Välj vecka</value>
+  </data>
+  <data name="Show All" xml:space="preserve">
+    <value>Visa alla</value>
+  </data>
+  <data name="Showing weekly reports from" xml:space="preserve">
+    <value>Visar veckorapporter från</value>
+  </data>
+  <data name="Submission Status" xml:space="preserve">
+    <value>Inlämningsstatus</value>
+  </data>
+  <data name="This week&apos;s report has been submitted!" xml:space="preserve">
+    <value>Denna veckas rapport har skickats in!</value>
+  </data>
+  <data name="What have you done this week? (Markdown supported)" xml:space="preserve">
+    <value>Vad har du gjort denna vecka? (Markdown stöds)</value>
+  </data>
+  <data name="You have missed ALL weekly reports in the last 4 weeks! This is a serious issue. Please submit them immediately!" xml:space="preserve">
+    <value>Du har missat ALLA veckorapporter under de senaste 4 veckorna! Detta är ett allvarligt problem. Skicka in dem omedelbart!</value>
+  </data>
+  <data name="You have missed submitting some weekly reports in the last 4 weeks. Please catch up!" xml:space="preserve">
+    <value>Du har missat att lämna in några veckorrapporter under de senaste 4 veckorna. Kom ikapp!</value>
+  </data>
+  <data name="You have missed submitting weekly reports in the last 4 weeks. Please catch up!" xml:space="preserve">
+    <value>Du har missat att lämna in veckorapporter under de senaste 4 veckorna. Vänligen efterlämna dem!</value>
+  </data>
+  <data name="You haven&apos;t submitted any reports in the last 4 weeks!" xml:space="preserve">
+    <value>Du har inte lämnat in några rapporter under de senaste 4 veckorna!</value>
+  </data>
+  <data name="You haven&apos;t submitted this week&apos;s report yet." xml:space="preserve">
+    <value>Du har inte skickat in denna veckans rapport ännu.</value>
+  </data>
+  <data name="Your reports for the last 4 weeks are all submitted." xml:space="preserve">
+    <value>Dina rapporter för de senaste 4 veckorna är alla inlämnade.</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Händelseloggningstid är koordinerad världstid!</value>
+  </data>
+
+</root>

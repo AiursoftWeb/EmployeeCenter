@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Globaal wachtwoord toevoegen</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Nieuwe rollen toevoegen</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Nieuwe gebruikers toevoegen</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Staat het toestaan om elke verlofaanvraag goed te keuren of af te wijzen, ongeacht de rapportagestructuur, en het bekijken van het verlofverleden van elke gebruiker.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Staat het goedkeuren of afwijzen van elke verlofaanvraag toe, ongeacht de rapporteringslijn.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Staat toe om terugbetalingsverzoeken van elke medewerker te goedkeuren, te bevestigen of te weigeren.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Staat goedkeuring, afwijzing of wijzigingen van projectvereisten toe. Iedereen kan vereisten indienen en hierop reageren.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Stelt in staat om rollen toe te wijzen of te verwijderen voor elke gebruiker.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Staats het maken en beheren van alle contracten voor het bedrijf toe.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Staats het maken en beheren van opstarttaak sjablonen voor nieuwe medewerkers toe.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Staat het maken van contracten voor het bedrijf toe. Elke gebruiker kan standaard openbare contracten bekijken.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Staats het maken van nieuwe contracten voor elke gebruiker toe.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Staat het aanmaken van nieuwe globale wachtwoorden toe die gedeeld kunnen worden met anderen.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Staats het maken van vragen, enquêtes en het bekijken van feedbackreacties toe.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Staats het maken, bewerken en verwijderen van wekelijkse rapporten namens een willekeurige andere gebruiker toe.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Staats het maken, bijwerken en verwijderen van sjablonen toe. Elke gebruiker kan standaard sjablonen bekijken.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Staat toe het maken, bijwerken en verwijderen van collectiekanalen en hun records.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Staats het maken, bijwerken en verwijderen van informatie over bedrijfseenheden toe.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Staat het toe om informatie over bedrijfseenheden te maken, bijwerken en verwijderen. Elke gebruiker kan standaard informatie over bedrijfseenheden bekijken.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Staat het maken, bijwerken en verwijderen van klantrelatie-informatie toe. Elke gebruiker kan standaard klantrelaties bekijken.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Staats het maken, bijwerken en verwijderen van marktkanaalinformatie toe. Elke gebruiker kan marktkanalen standaard bekijken.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Staats het aanmaken, bijwerken en verwijderen van services en DNS-leveranciers toe. Elke gebruiker kan services standaard bekijken.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Staats het aanmaken, bijwerken, afstoten en onderhouden van servers, services, providers, DNS-providers en domein-aliases toe.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Staat het uitgeven en beheren van loonstroken voor alle gebruikers toe.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Staat het beheren en verwijderen van elk globaal wachtwoord dat door een gebruiker is aangemaakt toe.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Staat het beheren van de financiële rekeningen van het bedrijf en het vastleggen van transacties toe.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Staat het beheren van de IT-activa en immateriële activa van het bedrijf (zoals domeinnamen, licenties), inclusief categorieën, modellen en individuele items toe. Ook staat het toewijzen en terugwinnen van activa aan/ van medewerkers toe.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Staat het beheren van de IT-activa van het bedrijf toe, inclusief categorieën, modellen en individuele items.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Staat het beheren van de IT-assets van het bedrijf toe, inclusief categorieën, modellen en afzonderlijke items. Ook staat het toewijzen en terugvragen van assets aan/ van medewerkers toe.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Staat het handmatig uitvoeren van de DNS- en beschikbaarheidsaudit van de service toe.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Staat aanpassing van rolnamen en hun toegewezen machtigingen toe.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Staat bewerking van gebruikersgegevens zoals e-mailadres en rollen toe, en kan ook gebruikerswachtwoorden opnieuw instellen.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Staat aanpassing van gebruikersgegevens zoals e-mailadres en rollen toe, en kan ook gebruikerswachtwoorden opnieuw instellen.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Staats het afdrukken van arbeids- en inkomstenverklaringen voor elke medewerker toe.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Staats het afdrukken van arbeids- en inkomstenbewijzen voor zichzelf toe.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Sta toe om de read-only Cloudflare DNS-audit uit te voeren en de bevindingen ervan te bekijken.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Sta het uitvoeren van de alleen-lezen serviceaudit en het bekijken van de bevindingen toe.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Staat het permanent verwijderen van rollen toe.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Staat het permanent verwijderen van gebruikersaccounts toe.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Staat de gebruiker toe om met de AI-assistent te chatten voor bedrijfsinformatie.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Staat de gebruiker toe om hun eigen wekelijkse rapporten te maken.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Staat de gebruiker toe om wekelijkse rapporten op te stellen namens een willekeurige andere gebruiker.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Staat de gebruiker toe om feedbackvragenlijsten in te vullen en te versturen.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Staat de gebruiker toe om vergoedingsaanvragen voor hun uitgaven in te dienen.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Staat het uploaden en verwijderen van vergaderopnames toe, en het opnieuw starten van spraak-naar-tekst-transcriptie.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Staats het bekijken van alle bedrijfscontracten, inclusief die die als privé zijn gemarkeerd.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Staats het bekijken van alle bedrijfscontracten, inclusief die die als privé zijn gemarkeerd. Iedereen kan standaard publieke contracten bekijken.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Staat het bekijken en bewerken van globale toepassingsinstellingen toe.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Staart het bekijken van vergadertranscripties en het luisteren naar of lezen van transcripties van elke opname toe.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Staats het weergeven van servicegezondheidssamenvattingen, observaties en gedetailleerde auditbevindingen toe.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Staat het bekijken van systeeminformatie en -instellingen toe.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Staat het bekijken van het dashboard voor achtergrondtaken en het beheren van taken toe.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Staats het bekijken van het contractverleden van elke gebruiker toe.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Staand het bekijken van de lijst met alle verzamelingkanalen en hun records.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Staat het bekijken van de lijst met alle machtigingen en hun toewijzingen aan rollen en gebruikers toe.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Staat het bekijken van de lijst met alle gebruikers toe.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Maakt het mogelijk de lijst met rollen en hun toegewezen machtigingen te bekijken.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Staat het toe om de actielogboeken van elke gebruiker te bekijken, inclusief de geschiedenis van hun bankkaartwijzigingen.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Staat het bekijken van de rapportlijn van elke gebruiker toe, inclusief hun manager, ondergeschikten en collega&apos;s.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Staat het weergeven van het server- en serviceregister, implementatierelaties en infrastructuurreferentiedata toe.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Staat het bekijken, bewerken en verwijderen van SSH-sleutels van elke gebruiker toe.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Goedkeuren van Elke Verlofverzoek</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Projectvereisten goedkeuren</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Reimbursement goedkeuren</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Rollen toewijzen aan gebruikers</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Audit DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Diensten auditeren</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Auditdiensten (legacy)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Chat met AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Maak en beheer bedrijfscontracten</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Bedrijfscontracten aanmaken</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Contract aanmaken</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Wekelijks verslag aanmaken</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Wekelijks verslag voor iedereen maken</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>Standaardmachtiging voor HR.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Rollen verwijderen</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Gebruikers verwijderen</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Gebruikersinformatie bewerken</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Rolinformatie bewerken</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Gebruikersinformatie bewerken</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Verleent toestemming om nieuwe rollen aan te maken.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Verleent toestemming om nieuwe gebruikersaccounts aan te maken.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Verleent toestemming om de applicatie-instantie opnieuw op te starten. Kan beschikbaarheidsonderbrekingen veroorzaken, maar alle instellingen en cache worden opnieuw geladen.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Legacy-recht overgehouden voor overgang. Wijs Beheer Infrastructuur toe aan rollen die nog toegang nodig hebben.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Legacymachtiging behouden voor overgang. Wijs Bezoek Service Audit en Voer Service Audit toe zoals van toepassing.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Elk wachtwoord beheren</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Een willekeurige wekelijkse rapportage beheren</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Assets beheren</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Blauwdrukken beheren</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Beheer inzamelingkanalen</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Bedrijfseenheden beheren</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Klantrelaties beheren</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Feedback beheren</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Algemene instellingen beheren</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Infrastructuur beheren</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Verlof beheren</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Ledger beheren</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Marktkanalen beheren</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Vergadertranscripties beheren</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Onboardingtaken beheren</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Loonadministratie beheren</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Services beheren</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Diensten beheren (Legacy)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>SSH-sleutels beheren</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Certificaten afdrukken</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Zelfcertificaten afdrukken</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Lees machtigingen</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Rollen lezen</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Gebruikers lezen</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Herstart deze app</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Serviceaudit uitvoeren</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Feedback indienen</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Indiening terugbetaling</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Bekijk elke bedrijfscontract, inclusief particuliere contracten</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Achtergrondtaken weergeven</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Verzamelkanalen bekijken</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Contractgeschiedenis weergeven</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Infrastructuur bekijken</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Vergadertranscripties bekijken</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Bekijk rapportlijn</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Serviceaudit weergeven</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Systeemcontext weergeven</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Bekijk gebruikersactielog</value>
+  </data>
+
+</root>

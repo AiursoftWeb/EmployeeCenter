@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Key" xml:space="preserve">
+    <value>Προσθήκη Κλειδιού</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>Προσθήκη Κλειδιού SSH</value>
+  </data>
+  <data name="Begins with &apos;ssh-rsa&apos;, &apos;ssh-ed25519&apos;, etc." xml:space="preserve">
+    <value>Ξεκινά με &apos;ssh-rsa&apos;, &apos;ssh-ed25519&apos;, κ.λπ.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>π.χ. Laptop Εργασίας</value>
+  </data>
+  <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
+    <value>Βεβαιωθείτε ότι επικολλάτε ολόκληρο το δημόσιο κλειδί, συμπεριλαμβανομένου του τύπου και τυχόν σχολίων.</value>
+  </data>
+  <data name="New SSH Key" xml:space="preserve">
+    <value>Νέο Κλειδί SSH</value>
+  </data>
+  <data name="Paste your public SSH key below." xml:space="preserve">
+    <value>Επικολλήστε το δημόσιο κλειδί SSH σας παρακάτω.</value>
+  </data>
+
+</root>

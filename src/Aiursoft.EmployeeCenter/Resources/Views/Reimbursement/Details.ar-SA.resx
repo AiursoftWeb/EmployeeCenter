@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>تم الاستلام</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>قيد التقديم</value>
+  </data>
+  <data name="Are you sure you want to reject this request?" xml:space="preserve">
+    <value>هل أنت متأكد من رغبتك في رفض هذا الطلب؟</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>العودة إلى القائمة</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>الفئة</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>تعليق</value>
+  </data>
+  <data name="Confirm &amp; Issued" xml:space="preserve">
+    <value>تأكيد وإصدار</value>
+  </data>
+  <data name="Confirm Reimbursement" xml:space="preserve">
+    <value>تأكيد استرداد المبلغ</value>
+  </data>
+  <data name="Confirm Rejection" xml:space="preserve">
+    <value>تأكيد الرفض</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>مسودة</value>
+  </data>
+  <data name="Electronic Invoice" xml:space="preserve">
+    <value>الفاتورة الإلكترونية</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>وقت المصروف</value>
+  </data>
+  <data name="Finalize" xml:space="preserve">
+    <value>إنهاء</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>معلومات عامة</value>
+  </data>
+  <data name="Invoice Preview" xml:space="preserve">
+    <value>معاينة الفاتورة</value>
+  </data>
+  <data name="Invoice Source Website (发票来源网站)" xml:space="preserve">
+    <value>مصدر الفاتورة (موقع الويب)</value>
+  </data>
+  <data name="Mark as Acknowledged (知道了)" xml:space="preserve">
+    <value>تحديد كـ &quot;تم الإحاطة&quot;</value>
+  </data>
+  <data name="No invoice attached." xml:space="preserve">
+    <value>لا توجد فاتورة مرفقة.</value>
+  </data>
+  <data name="Please leave a comment for the employee (e.g. transaction ID)." xml:space="preserve">
+    <value>يرجى ترك تعليق للموظف (مثل رقم المعاملة).</value>
+  </data>
+  <data name="Please provide a reason for the rejection." xml:space="preserve">
+    <value>يرجى تقديم سبب للرفض.</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>الغرض</value>
+  </data>
+  <data name="Really transferred via bank? (真的银行转账了吗？)" xml:space="preserve">
+    <value>هل تم التحويل عبر البنك بالفعل؟ (تم التحويل عبر البنك بالفعل؟)</value>
+  </data>
+  <data name="Reason / Comment" xml:space="preserve">
+    <value>السبب / التعليق</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>تم السداد</value>
+  </data>
+  <data name="Reimbursed (已经下发)" xml:space="preserve">
+    <value>تم استرداد المصروفات (تم التحويل)</value>
+  </data>
+  <data name="Reimbursement Details" xml:space="preserve">
+    <value>تفاصيل الاسترداد</value>
+  </data>
+  <data name="Reject (拒绝)" xml:space="preserve">
+    <value>رفض (رفض)</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>مرفوض</value>
+  </data>
+  <data name="Required..." xml:space="preserve">
+    <value>مطلوب...</value>
+  </data>
+  <data name="Reviewed At" xml:space="preserve">
+    <value>تاريخ المراجعة</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>المراجع</value>
+  </data>
+  <data name="Reviewer Comment" xml:space="preserve">
+    <value>تعليق المراجع</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>مُلغى</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>تاريخ الإيداع</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>مقدم الطلب</value>
+  </data>
+  <data name="Supporting Context / Email" xml:space="preserve">
+    <value>السياق الداعم / البريد الإلكتروني</value>
+  </data>
+  <data name="View/Download Invoice" xml:space="preserve">
+    <value>عرض/تحميل الفاتورة</value>
+  </data>
+
+</root>

@@ -1,0 +1,41 @@
+@model Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels.AssignViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Assign Intangible Asset"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Assign"] @Model.Name</h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="Assign" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="AssetId" />
+                    <input type="hidden" asp-for="Name" />
+
+                    <div class="mb-3">
+                        <label asp-for="AssigneeId" class="form-label">@Localizer["Assign to"]</label>
+                        <select asp-for="AssigneeId" class="form-select">
+                            <option value="">@Localizer["Select User..."]</option>
+                            @foreach (var user in Model.AllUsers)
+                            {
+                                <option value="@user.Id">@user.DisplayName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="AssigneeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">@Localizer["Assign"]</button>
+                        <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

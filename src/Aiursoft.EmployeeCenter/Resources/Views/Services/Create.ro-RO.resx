@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add New Service" xml:space="preserve">
+    <value>Adaugă Serviciu Nou</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Informații de bază</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="Cross-Entity Link is used to suggest local/international versions to users." xml:space="preserve">
+    <value>Linkul dintre entități este utilizat pentru a sugera versiuni locale/internationale utilizatorilor.</value>
+  </data>
+  <data name="Domain should be the primary entry point for the service." xml:space="preserve">
+    <value>Domeniul ar trebui să fie punctul de intrare principal pentru serviciu.</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>ex. Portal pentru clienți</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>e.g. example.com</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>de ex. HTTPS, TCP</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nou</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Nimic</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Reîncarcă</value>
+  </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>Obligatoriu când Via FRPS este activat.</value>
+  </data>
+  <data name="Save Service" xml:space="preserve">
+    <value>Salvează Serviciul</value>
+  </data>
+  <data name="Select DNS Provider" xml:space="preserve">
+    <value>Select Provider DNS</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>Selectați serverul FRPS</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>Select Location</value>
+  </data>
+  <data name="Select Owner" xml:space="preserve">
+    <value>Selectează proprietarul</value>
+  </data>
+  <data name="Select Server" xml:space="preserve">
+    <value>Select Server</value>
+  </data>
+  <data name="Select Server (Asset)" xml:space="preserve">
+    <value>Select Server (Asset)</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>Sfaturi</value>
+  </data>
+
+</root>

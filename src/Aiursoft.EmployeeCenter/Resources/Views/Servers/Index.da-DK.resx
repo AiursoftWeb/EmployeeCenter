@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Handlinger</value>
+  </data>
+  <data name="All Servers" xml:space="preserve">
+    <value>Alle servere</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Er du sikker?</value>
+  </data>
+  <data name="Associated Services" xml:space="preserve">
+    <value>Tilknyttede tjenester</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Virksomhed</value>
+  </data>
+  <data name="Create New Server" xml:space="preserve">
+    <value>Opret ny server</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Rediger</value>
+  </data>
+  <data name="Hostname" xml:space="preserve">
+    <value>Værtsnavn</value>
+  </data>
+  <data name="IP Address" xml:space="preserve">
+    <value>IP-adresse</value>
+  </data>
+  <data name="IPv4 Address" xml:space="preserve">
+    <value>IPv4-adresse</value>
+  </data>
+  <data name="IPv6 Address" xml:space="preserve">
+    <value>IPv6-adresse</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Placering</value>
+  </data>
+  <data name="No Owner" xml:space="preserve">
+    <value>Ingen ejer</value>
+  </data>
+  <data name="No servers found." xml:space="preserve">
+    <value>Ingen servere fundet.</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Ejer</value>
+  </data>
+  <data name="Provider" xml:space="preserve">
+    <value>Udbyder</value>
+  </data>
+  <data name="Retire" xml:space="preserve">
+    <value>Afskedig</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Afgået</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Servers</value>
+  </data>
+
+</root>

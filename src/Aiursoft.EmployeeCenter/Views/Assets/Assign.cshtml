@@ -1,0 +1,69 @@
+@model Aiursoft.EmployeeCenter.Models.AssetsViewModels.AssignAssetViewModel
+
+<h1 class="h3 mb-3">@Localizer["Assign Asset"]: <code>@Model.AssetTag</code> (@Model.ModelName)</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Assign">
+            <input type="hidden" asp-for="AssetId" />
+            <input type="hidden" asp-for="AssetTag" />
+            <input type="hidden" asp-for="ModelName" />
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Assignment Details"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="AssigneeId" class="form-label"></label>
+                        <div class="input-group">
+                            <select asp-for="AssigneeId" class="form-select" asp-items="@(new SelectList(Model.AllUsers, "Id", "DisplayName"))">
+                                <option value="">-- @Localizer["Select User"] --</option>
+                            </select>
+                            <a asp-controller="Users" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                <i class="align-middle" data-lucide="plus-circle"></i>
+                            </a>
+                            <button type="button" class="btn btn-outline-secondary reload-dropdown" 
+                                    data-url="@Url.Action("GetUsers")" 
+                                    data-target="AssigneeId" 
+                                    data-placeholder="@Localizer["Select User"]"
+                                    data-name-key="DisplayName"
+                                    title="@Localizer["Reload"]">
+                                <i class="align-middle" data-lucide="rotate-cw"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="AssigneeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Notes" class="form-label"></label>
+                        <textarea asp-for="Notes" class="form-control" rows="3" placeholder="@Localizer["Optional notes for this assignment..."]"></textarea>
+                        <span asp-validation-for="Notes" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-success">@Localizer["Assign Asset"]</button>
+                    <a asp-action="Index" class="btn btn-light">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Notice"]</h5>
+            </div>
+            <div class="card-body">
+                <p>@Localizer["When you assign an asset, the status will change to"] <span class="badge bg-warning">@Localizer["Pending Accept"]</span>.</p>
+                <p>@Localizer["The assigned employee will need to log in and confirm the receipt of the asset before it officially becomes"] <span class="badge bg-success">@Localizer["In Use"]</span>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_DropdownReload" />
+}

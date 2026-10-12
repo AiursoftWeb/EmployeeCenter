@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of all contract records in the system." xml:space="preserve">
+    <value>Eine Liste aller Vertragsaufzeichnungen im System.</value>
+  </data>
+  <data name="A list of folders and contracts in this location." xml:space="preserve">
+    <value>Eine Liste von Ordnern und Verträgen an diesem Ort.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Aktionen</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
+  <data name="All Contracts" xml:space="preserve">
+    <value>Alle Verträge</value>
+  </data>
+  <data name="Are you sure you want to delete this contract?" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie diesen Vertrag löschen möchten?</value>
+  </data>
+  <data name="Are you sure you want to delete this folder?" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie diesen Ordner löschen möchten?</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
+  <data name="Contents" xml:space="preserve">
+    <value>Inhalt</value>
+  </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Ordner erstellen</value>
+  </data>
+  <data name="Create new contract" xml:space="preserve">
+    <value>Neuen Vertrag erstellen</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Erstellungszeit</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Herunterladen</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finanzen</value>
+  </data>
+  <data name="Import Zip" xml:space="preserve">
+    <value>Zip-Datei importieren</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Ungültig</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Verträge verwalten</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Verschieben</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>In Ordner verschieben</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Pending Signature" xml:space="preserve">
+    <value>Ausstehende Unterschrift</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Vorschau</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Öffentlich</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Umbenennen</value>
+  </data>
+  <data name="Shared" xml:space="preserve">
+    <value>Freigegeben</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Sichtbarkeit</value>
+  </data>
+
+</root>

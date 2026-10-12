@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>조치</value>
+  </data>
+  <data name="Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token." xml:space="preserve">
+    <value>글로벌 설정 권한이 있는 관리자에게 읽기 전용 Cloudflare API 토큰을 설정하도록 요청하세요.</value>
+  </data>
+  <data name="Audit failed" xml:space="preserve">
+    <value>감사 실패</value>
+  </data>
+  <data name="Audit history" xml:space="preserve">
+    <value>감사 이력</value>
+  </data>
+  <data name="Audit now" xml:space="preserve">
+    <value>지금 감사</value>
+  </data>
+  <data name="Audit the service registry, DNS configuration, server ownership, aliases, and live HTTP availability." xml:space="preserve">
+    <value>서비스 레지스트리, DNS 구성, 서버 소유권, 별칭 및 실시간 HTTP 가용성을 감사하세요.</value>
+  </data>
+  <data name="Audited hostnames" xml:space="preserve">
+    <value>감사된 호스트 이름</value>
+  </data>
+  <data name="Automatically refreshed every 20 minutes" xml:space="preserve">
+    <value>20분마다 자동 새로고침됩니다</value>
+  </data>
+  <data name="Automatically refreshed every 3 hours" xml:space="preserve">
+    <value>3시간마다 자동으로 새로고침됩니다</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>검사 항목</value>
+  </data>
+  <data name="Cloudflare API token is not configured" xml:space="preserve">
+    <value>Cloudflare API 토큰이 구성되지 않았습니다</value>
+  </data>
+  <data name="Cloudflare zones" xml:space="preserve">
+    <value>Cloudflare 영역</value>
+  </data>
+  <data name="Compare the EmployeeCenter service registry with read-only Cloudflare DNS observations." xml:space="preserve">
+    <value>EmployeeCenter 서비스 레지스트리를 읽기 전용 Cloudflare DNS 관찰 데이터와 비교합니다.</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>완료됨</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>심각</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>세부 정보</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS 감사</value>
+  </data>
+  <data name="DNS audit is starting" xml:space="preserve">
+    <value>DNS 감사 시작 중</value>
+  </data>
+  <data name="DNS records" xml:space="preserve">
+    <value>DNS 레코드</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>도메인</value>
+  </data>
+  <data name="Edit alias" xml:space="preserve">
+    <value>별명 편집</value>
+  </data>
+  <data name="Edit service" xml:space="preserve">
+    <value>서비스 편집</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="Findings" xml:space="preserve">
+    <value>결과</value>
+  </data>
+  <data name="Generated at" xml:space="preserve">
+    <value>생성 시각</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>호스트명</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="Issues" xml:space="preserve">
+    <value>이슈</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>마지막 성공한 감사</value>
+  </data>
+  <data name="Latest refresh failed" xml:space="preserve">
+    <value>최근 새로고침 실패</value>
+  </data>
+  <data name="Live availability" xml:space="preserve">
+    <value>실시간 가용성</value>
+  </data>
+  <data name="Manage aliases" xml:space="preserve">
+    <value>별명 관리</value>
+  </data>
+  <data name="No DNS audit issues were found." xml:space="preserve">
+    <value>DNS 감사 문제가 발견되지 않았습니다.</value>
+  </data>
+  <data name="No service audit issues were found." xml:space="preserve">
+    <value>서비스 감사 문제가 발견되지 않았습니다.</value>
+  </data>
+  <data name="Register as alias" xml:space="preserve">
+    <value>별칭으로 등록</value>
+  </data>
+  <data name="Requested" xml:space="preserve">
+    <value>요청됨</value>
+  </data>
+  <data name="Requested by" xml:space="preserve">
+    <value>요청자</value>
+  </data>
+  <data name="Run audit" xml:space="preserve">
+    <value>감사 실행</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>정상 작동 중인 HTTP(S) 엔드포인트</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>서비스 감사</value>
+  </data>
+  <data name="Service audit is starting" xml:space="preserve">
+    <value>서비스 감사 시작 중</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>감사된 서비스 호스트 이름</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>심각도</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="The first background audit has not completed yet. Results will be stored in the database when it finishes." xml:space="preserve">
+    <value>첫 번째 백그라운드 감사는 아직 완료되지 않았습니다. 완료되면 결과가 데이터베이스에 저장됩니다.</value>
+  </data>
+  <data name="The first background audit has not completed yet. This page will read its result from the in-memory cache." xml:space="preserve">
+    <value>첫 번째 백그라운드 감사는 아직 완료되지 않았습니다. 이 페이지는 결과를 메모리 내 캐시에서 읽습니다.</value>
+  </data>
+  <data name="The last successful cached audit is shown below." xml:space="preserve">
+    <value>마지막으로 성공한 캐시된 감사 결과가 아래에 표시됩니다.</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>경고</value>
+  </data>
+  <data name="Warnings" xml:space="preserve">
+    <value>경고</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>존</value>
+  </data>
+
+</root>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Information" xml:space="preserve">
+    <value>Adgangsinformation</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Konto</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Tildeler</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>Tilhører enhed</value>
+  </data>
+  <data name="Company Intangible Asset Details" xml:space="preserve">
+    <value>Detaljer for virksomhedens immaterielle aktiver</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beskrivelse</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Udløbsdato</value>
+  </data>
+  <data name="Filing &amp; Registration" xml:space="preserve">
+    <value>Afgivelse &amp; Registrering</value>
+  </data>
+  <data name="Filing Number" xml:space="preserve">
+    <value>Sagsnummer</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Sagsfag</value>
+  </data>
+  <data name="Financial &amp; Assignment" xml:space="preserve">
+    <value>Økonomi &amp; Tildeling</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>Almindelig information</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Faktura</value>
+  </data>
+  <data name="Management URL" xml:space="preserve">
+    <value>Administrations-URL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>Ikke tilknyttet</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Købspris</value>
+  </data>
+  <data name="Query Method" xml:space="preserve">
+    <value>Søgemetode</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Registreringsbevis</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Registreringsdato</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Leverandør</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Varemærkebillede</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="View Certificate" xml:space="preserve">
+    <value>Vis certifikat</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>Vis faktura</value>
+  </data>
+  <data name="View Trademark Image" xml:space="preserve">
+    <value>Vis varemærkebillede</value>
+  </data>
+
+</root>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>เพิ่มรหัสผ่านทั่วโลก</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>เพิ่มบทบาทใหม่</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>เพิ่มผู้ใช้ใหม่</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>อนุญาตให้อนุมัติหรือปฏิเสธคำขอลาใดๆ ไม่ว่าจะอยู่ในสายรายงานหรือไม่ และสามารถดูประวัติการลาของผู้ใช้คนใดก็ได้</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>อนุญาตให้ตรวจสอบหรือปฏิเสธคำขอลาใดๆ โดยไม่คำนึงถึงลำดับการรายงาน</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>อนุญาตการอนุมัติ การยอมรับ หรือการปฏิเสธคำขอเงินชดเชยจากพนักงานทุกคน</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>อนุญาตให้อนุมัติ ปฏิเสธ หรือขอให้มีการเปลี่ยนแปลงข้อกำหนดโครงการ ทุกคนสามารถส่งข้อกำหนดและแสดงความคิดเห็นได้</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>อนุญาตให้กำหนดหรือลบบทบาทสำหรับผู้ใช้ใดๆ</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>อนุญาตให้สร้างและจัดการสัญญาทั้งหมดของบริษัท</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>อนุญาตให้สร้างและจัดการเทมเพลตงานบนบอร์ดสำหรับพนักงานใหม่</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>อนุญาตให้สร้างสัญญาสำหรับบริษัท ทุกผู้ใช้งานสามารถดูสัญญาที่เปิดเผยได้โดยค่าเริ่มต้น</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>อนุญาตให้สร้างสัญญาใหม่สำหรับผู้ใช้ทุกคน</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>อนุญาตให้สร้างรหัสผ่านสากลใหม่ที่สามารถแชร์กับผู้อื่นได้</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>อนุญาตให้สร้างคำถาม แบบสอบถาม และดูคำตอบจากแบบสอบถาม</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>อนุญาตให้สร้าง แก้ไข และลบรายงานรายสัปดาห์แทนผู้ใช้คนอื่นใดก็ได้</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>อนุญาตให้สร้าง แก้ไข และลบแบบร่างได้ ทุกผู้ใช้สามารถดูแบบร่างได้โดยค่าเริ่มต้น</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>อนุญาตให้สร้าง อัปเดต และลบช่องทางการเรียกเก็บเงินและบันทึกข้อมูลของพวกเขา</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>อนุญาตให้สร้าง แก้ไข และลบข้อมูลหน่วยงานของบริษัท</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>อนุญาตให้สร้าง แก้ไข และลบข้อมูลหน่วยงานบริษัท ทุกผู้ใช้สามารถดูข้อมูลหน่วยงานบริษัทได้โดยค่าเริ่มต้น</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>อนุญาตให้สร้าง แก้ไข และลบข้อมูลความสัมพันธ์กับลูกค้า ทุกผู้ใช้งานสามารถดูข้อมูลความสัมพันธ์กับลูกค้าได้โดยค่าเริ่มต้น</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>อนุญาตให้สร้าง แก้ไข และลบข้อมูลช่องทางการตลาด ทุกผู้ใช้สามารถดูช่องทางการตลาดได้โดยค่าเริ่มต้น</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>อนุญาตให้สร้าง แก้ไข และลบบริการและผู้ให้บริการ DNS ทุกผู้ใช้สามารถดูบริการได้โดยค่าเริ่มต้น</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>อนุญาตให้สร้าง อัปเดต ยกเลิกการใช้งาน และบำรุงรักษาเซิร์ฟเวอร์ บริการ ผู้ให้บริการ ผู้ให้บริการ DNS และโดเมนเอเลียส</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>อนุญาตให้ออกและจัดการสลิปเงินเดือนสำหรับผู้ใช้ทั้งหมด</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>อนุญาตให้จัดการและลบรหัสผ่านทั่วทั้งระบบใดๆ ที่ผู้ใช้ใดๆ สร้างขึ้น</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>อนุญาตให้จัดการบัญชีการเงินของบริษัทและบันทึกธุรกรรมต่างๆ</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>อนุญาตให้จัดการสินทรัพย์ด้านไอทีของบริษัทและสินทรัพย์ที่ไม่มีรูปธรรม (เช่น โดเมน เอกสารสิทธิ์การใช้งาน) รวมถึงหมวดหมู่ รุ่น และรายการสินทรัพย์แต่ละรายการ รวมถึงการมอบหมายและคืนสินทรัพย์ให้กับพนักงานหรือจากพนักงาน</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>อนุญาตให้จัดการสินทรัพย์ไอทีของบริษัท รวมถึงหมวดหมู่ รุ่น และรายการเฉพาะ</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>อนุญาตให้จัดการสินทรัพย์ไอทีของบริษัท รวมถึงหมวดหมู่ รุ่น และรายการสินทรัพย์แต่ละรายการ รวมถึงอนุญาตให้จัดสรรและคืนสินทรัพย์ให้กับพนักงาน</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>อนุญาตให้เรียกใช้การตรวจสอบ DNS และสถานะความพร้อมใช้งานของบริการด้วยตนเอง</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>อนุญาตให้แก้ไขชื่อบทบาทและสิทธิ์ที่กำหนดให้</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>อนุญาตให้แก้ไขข้อมูลผู้ใช้ เช่น อีเมลและบทบาท และสามารถรีเซ็ตรหัสผ่านของผู้ใช้ได้</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>อนุญาตให้แก้ไขรายละเอียดผู้ใช้ เช่น อีเมลและบทบาท และยังสามารถรีเซ็ตรหัสผ่านของผู้ใช้ได้</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>อนุญาตให้พิมพ์หนังสือรับรองการจ้างงานและรายได้สำหรับพนักงานทุกคน</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>อนุญาตให้พิมพ์หนังสือรับรองการจ้างงานและรายได้สำหรับตนเอง</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>อนุญาตให้เรียกใช้การตรวจสอบ Cloudflare DNS แบบอ่านอย่างเดียว และดูผลลัพธ์ที่ได้</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>อนุญาตให้ดำเนินการตรวจสอบบริการแบบอ่านอย่างเดียวและดูผลลัพธ์ที่ได้</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>อนุญาตให้ลบบทบาทออกอย่างถาวร</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>อนุญาตให้ลบบัญชีผู้ใช้อย่างถาวร</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>ช่วยให้ผู้ใช้สามารถแชทกับผู้ช่วย AI เพื่อขอข้อมูลของบริษัทได้</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>อนุญาตให้ผู้ใช้สร้างรายงานรายสัปดาห์ของตนเองได้</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>อนุญาตให้ผู้ใช้สร้างรายงานรายสัปดาห์แทนผู้ใช้คนอื่นใดก็ได้</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>อนุญาตให้ผู้ใช้กรอกและส่งแบบสอบถามความคิดเห็น</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>อนุญาตให้ผู้ใช้ยื่นคำขอชดเชยค่าใช้จ่ายของตนเอง</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>อนุญาตให้อัปโหลด ลบการบันทึกการประชุม และเรียกใช้งานการแปลงเสียงเป็นข้อความใหม่ได้</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>อนุญาตให้ดูสัญญาบริษัททั้งหมด รวมถึงสัญญาที่ระบุว่าเป็นส่วนตัว</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>อนุญาตให้ดูสัญญาบริษัททั้งหมด รวมถึงสัญญาที่ติดป้ายว่าเป็นส่วนตัว ทุกคนสามารถดูสัญญาสาธารณะได้โดยค่าเริ่มต้น</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>อนุญาตให้ดูและแก้ไขการตั้งค่าแอปพลิเคชันทั่วไป</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>อนุญาตให้ดูข้อความการประชุม และฟังหรืออ่านข้อความของบันทึกเสียงใด ๆ ได้</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>อนุญาตให้ดูสรุปสถานะสุขภาพของบริการ ข้อสังเกต และผลการตรวจสอบโดยละเอียด</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>อนุญาตให้ดูข้อมูลและการตั้งค่าระดับระบบ</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>อนุญาตให้ดูแดชบอร์ดงานพื้นหลังและจัดการงานต่างๆ</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>อนุญาตให้ดูประวัติสัญญาของผู้ใช้ทุกคน</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>อนุญาตให้ดูรายการช่องทางการเก็บหนี้ทั้งหมดและบันทึกข้อมูล</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>อนุญาตให้ดูรายการสิทธิ์ทั้งหมดและสิทธิ์ที่ถูกกำหนดให้กับบทบาทและผู้ใช้</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>อนุญาตให้ดูรายชื่อผู้ใช้ทั้งหมด</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>อนุญาตให้ดูรายการบทบาทและสิทธิ์ที่กำหนดให้</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>อนุญาตให้ดูบันทึกการดำเนินการของผู้ใช้ใดก็ได้ รวมถึงประวัติการเปลี่ยนแปลงบัตรธนาคาร</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>อนุญาตให้ดูสายงานของผู้ใช้ทุกคน รวมถึงผู้บังคับบัญชา ผู้ใต้บังคับบัญชา และเพื่อนร่วมงาน</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>อนุญาตให้ดูรายการเซิร์ฟเวอร์และรายการบริการ ความสัมพันธ์ในการดีพลอย และข้อมูลอ้างอิงโครงสร้างพื้นฐาน</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>อนุญาตให้ดู แก้ไข และลบคีย์ SSH ของผู้ใช้ใดก็ได้</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>อนุมัติการลาทุกกรณี</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>อนุมัติข้อกำหนดโครงการ</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>อนุมัติการชำระคืนเงิน</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>กำหนดบทบาทให้ผู้ใช้</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>ตรวจสอบ DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>การตรวจสอบบริการ</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>ตรวจสอบบริการ (ระบบเดิม)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>แชทกับ AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>สร้างและจัดการสัญญาของบริษัท</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>สร้างสัญญาบริษัท</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>สร้างสัญญา</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>สร้างรายงานรายสัปดาห์</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>สร้างรายงานรายสัปดาห์ให้ใครก็ได้</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>สิทธิ์เริ่มต้นสำหรับแผนกบุคคล</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>ลบบทบาท</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>ลบผู้ใช้</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>แก้ไขข้อมูลผู้ใช้</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>แก้ไขข้อมูลบทบาท</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>แก้ไขข้อมูลผู้ใช้</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>ให้สิทธิ์ในการสร้างบทบาทใหม่</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>ให้สิทธิ์ในการสร้างบัญชีผู้ใช้ใหม่</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>ให้สิทธิ์ในการรีสตาร์ทอินสแตนซ์แอปพลิเคชัน อาจทำให้เกิดการขัดจังหวะในการให้บริการ แต่การตั้งค่าและแคชทั้งหมดจะถูกโหลดใหม่</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>สิทธิ์แบบเดิมที่คงไว้เพื่อการเปลี่ยนผ่าน กำหนดสิทธิ์จัดการโครงสร้างพื้นฐาน (Manage Infrastructure) ให้กับบทบาทที่ยังต้องการการเข้าถึง</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>สิทธิ์แบบเดิมที่คงไว้เพื่อช่วงเปลี่ยนผ่าน มอบสิทธิ์ &quot;ดูการตรวจสอบบริการ&quot; และ &quot;ดำเนินการตรวจสอบบริการ&quot; ตามความเหมาะสม</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>จัดการรหัสผ่านใดๆ</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>จัดการรายงานรายสัปดาห์ของบุคคลใดก็ตาม</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>จัดการสินทรัพย์</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>จัดการแบบร่าง</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>จัดการช่องทางเรียกเก็บเงิน</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>จัดการหน่วยงานของบริษัท</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>จัดการความสัมพันธ์กับลูกค้า</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>จัดการความคิดเห็น</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>จัดการตั้งค่าทั่วไป</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>จัดการโครงสร้างพื้นฐาน</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>จัดการการลา</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>จัดการบัญชี</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>จัดการช่องทางการตลาด</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>จัดการบันทึกข้อความการประชุม</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>จัดการงานนำเข้าพนักงาน</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>จัดการเงินเดือน</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>จัดการบริการ</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>จัดการบริการ (แบบเดิม)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>จัดการคีย์ SSH</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>พิมพ์ใบรับรอง</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>พิมพ์ใบรับรองตัวเอง</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>ดูสิทธิ์การเข้าถึง</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>อ่านบทบาท</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>อ่านข้อมูลผู้ใช้</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>รีบูตแอปนี้</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>ดำเนินการตรวจสอบบริการ</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>ส่งความคิดเห็น</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>ยื่นคำขอเบิกจ่าย</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>ดูสัญญาบริษัทใดๆ รวมถึงที่เป็นความลับ</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>ดูงานพื้นหลัง</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>ดูช่องทางการเก็บเงิน</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>ดูประวัติสัญญา</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>ดูโครงสร้างพื้นฐาน</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>ดูเอกสารการประชุม</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>ดูสายรายงาน</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>ดูการตรวจสอบบริการ</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>ดูบริบทของระบบ</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>ดูบันทึกการดำเนินการของผู้ใช้</value>
+  </data>
+
+</root>

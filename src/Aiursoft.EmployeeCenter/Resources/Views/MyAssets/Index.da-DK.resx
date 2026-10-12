@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Handling</value>
+  </data>
+  <data name="Are you sure you want to reject asset" xml:space="preserve">
+    <value>Er du sikker på, at du vil afvise aktiveret?</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Aktivitetstegn</value>
+  </data>
+  <data name="Assets assigned to me" xml:space="preserve">
+    <value>Aktiver, der er tildelt mig</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="Confirm Receipt" xml:space="preserve">
+    <value>Bekræft modtagelse</value>
+  </data>
+  <data name="Confirm Reject" xml:space="preserve">
+    <value>Bekræft Afvis</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>I brug</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Det er tomt her!</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Placering</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Mine aktiver</value>
+  </data>
+  <data name="No assets assigned to you yet." xml:space="preserve">
+    <value>Ingen aktiver er tilknyttet dig endnu.</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Afventer accept</value>
+  </data>
+  <data name="Please explain why you are rejecting this asset (e.g. damaged, wrong model)..." xml:space="preserve">
+    <value>Angiv venligst, hvorfor du afviser denne aktiver (f.eks. beskadiget, forkert model)...</value>
+  </data>
+  <data name="Reason for rejection" xml:space="preserve">
+    <value>Årsag til afvisning</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Afvise</value>
+  </data>
+  <data name="Reject Asset Receipt" xml:space="preserve">
+    <value>Afvis ejendomsmodtagelse</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>Der er ikke tildelt nogen aktiver til dig endnu. Hvis du har brug for udstyr, skal du kontakte HR- eller IT-afdelingen.</value>
+  </data>
+
+</root>

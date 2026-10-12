@@ -1,0 +1,160 @@
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@using Aiursoft.EmployeeCenter.Authorization
+@using Microsoft.AspNetCore.Authorization
+@model Aiursoft.EmployeeCenter.Models.PromotionHistoryViewModels.IndexViewModel
+@inject StorageService StorageService
+@inject IAuthorizationService AuthorizationService
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3><strong>@Localizer["Promotion"]</strong> @Localizer["History"]</h3>
+    </div>
+
+    @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAndViewDetailsOfUsers)).Succeeded)
+    {
+        <div class="col-auto ms-auto text-end mt-n1">
+            <a asp-action="Create" class="btn btn-primary shadow-sm">
+                <i class="align-middle" data-lucide="plus"></i> @Localizer["Create Promotion"]
+            </a>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-12 d-flex">
+        <div class="card flex-fill">
+            <div class="card-body py-4">
+                <div class="d-flex align-items-start">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-2">@Model.TotalPromotionsThisYear</h3>
+                        <p class="mb-2">@Localizer["Total Company Promotions (YTD)"]</p>
+                    </div>
+                    <div class="d-inline-block ms-3">
+                        <div class="stat">
+                            <i class="align-middle" data-lucide="trending-up"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-12 d-flex">
+        <div class="card flex-fill">
+            <div class="card-body py-4">
+                <div class="d-flex align-items-start">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-2">@Model.MyPromotionCount</h3>
+                        <p class="mb-2">@Localizer["My Total Promotions"]</p>
+                    </div>
+                    <div class="d-inline-block ms-3">
+                        <div class="stat">
+                            <i class="align-middle" data-lucide="award"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-12 d-flex">
+        <div class="card flex-fill">
+            <div class="card-body py-4">
+                <div class="d-flex align-items-start">
+                    <div class="flex-grow-1">
+                        @if (Model.HasNeverBeenPromoted)
+                        {
+                            <h3 class="mb-2">@Model.TimeSinceLastPromotion.TotalDays.ToString("F0") @Localizer["Days"]</h3>
+                            <p class="mb-2">@Localizer["Days since joining (No promotions yet)"]</p>
+                        }
+                        else
+                        {
+                            <h3 class="mb-2">@Model.TimeSinceLastPromotion.TotalDays.ToString("F0") @Localizer["Days"]</h3>
+                            <p class="mb-2">@Localizer["Days since last promotion"]</p>
+                        }
+                    </div>
+                    <div class="d-inline-block ms-3">
+                        <div class="stat">
+                            <i class="align-middle" data-lucide="calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Recent Promotions"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["User"]</th>
+                                <th>@Localizer["Old Level"]</th>
+                                <th>@Localizer["New Level"]</th>
+                                <th>@Localizer["Time"]</th>
+                                <th>@Localizer["Promoter"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var history in Model.Histories)
+                            {
+                                <tr>
+                            <td data-order="@history.User?.DisplayName">
+                                @if (history.User != null)
+                                {
+                                    <a asp-controller="Users" asp-action="Details" asp-route-id="@history.UserId" class="text-body d-flex align-items-center">
+                                        <img src="@StorageService.RelativePathToInternetUrl(history.User?.AvatarRelativePath ?? Aiursoft.EmployeeCenter.Entities.User.DefaultAvatarPath)?w=40&h=40&square=true" class="rounded-circle me-2" width="32" height="32" alt="@history.User?.DisplayName">
+                                        <div class="fw-bold">@history.User?.DisplayName</div>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">@Localizer["Unknown User"]</span>
+                                }
+                            </td>
+                                    <td>
+                                        <span class="badge bg-secondary">@(history.OldJobLevel ?? "N/A")</span>
+                                        <div class="small text-muted">@(history.OldTitle ?? "N/A")</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-success">@(history.NewJobLevel ?? "N/A")</span>
+                                        <div class="small text-muted">@(history.NewTitle ?? "N/A")</div>
+                                    </td>
+                                    <td>
+                                        <label class="text-muted" data-utc-time="@history.ChangeTime.ToHtmlDateTime()"></label>
+                                    </td>
+                            <td>
+                                @if (history.Promoter != null)
+                                {
+                                    <a asp-controller="Users" asp-action="Details" asp-route-id="@history.PromoterId" class="text-body d-flex align-items-center">
+                                        <img src="@StorageService.RelativePathToInternetUrl(history.Promoter.AvatarRelativePath)?w=40&h=40&square=true" class="rounded-circle me-2" width="24" height="24" alt="@history.Promoter.DisplayName">
+                                        <span class="small">@history.Promoter.DisplayName</span>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted small">@Localizer["System"]</span>
+                                }
+                            </td>
+                                </tr>
+                            }
+                            @if (!Model.Histories.Any())
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-center py-4 text-muted">
+                                        @Localizer["No promotion history found."]
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

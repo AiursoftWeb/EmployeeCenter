@@ -1,0 +1,213 @@
+@model Aiursoft.EmployeeCenter.Models.AssetsViewModels.CreateAssetViewModel
+
+<h1 class="h3 mb-3">@Localizer["Add New Asset"]</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Basic Information"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="AssetTag" class="form-label"></label>
+                            <input asp-for="AssetTag" class="form-control" placeholder="@Localizer["e.g. ASM-2024-001"]" />
+                            <span asp-validation-for="AssetTag" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="SerialNumber" class="form-label"></label>
+                            <input asp-for="SerialNumber" class="form-control" />
+                            <span asp-validation-for="SerialNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="ModelId" class="form-label"></label>
+                            <div class="input-group">
+                                <select asp-for="ModelId" class="form-select" asp-items="@(new SelectList(Model.AllModels, "Id", "ModelName", null, "Category.Name"))">
+                                    <option value="">-- @Localizer["Select Model"] --</option>
+                                </select>
+                                <a asp-action="Models" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                    <i class="align-middle" data-lucide="plus-circle"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown" 
+                                        data-url="@Url.Action("GetModels")" 
+                                        data-target="ModelId" 
+                                        data-placeholder="@Localizer["Select Model"]"
+                                        data-group-by="CategoryName"
+                                        data-name-key="ModelName"
+                                        title="@Localizer["Reload"]">
+                                    <i class="align-middle" data-lucide="rotate-cw"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="ModelId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Status" class="form-label"></label>
+                            <select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<AssetStatus>()"></select>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="AssigneeId" class="form-label"></label>
+                        <div class="input-group">
+                            <select asp-for="AssigneeId" class="form-select" asp-items="@(new SelectList(Model.AllUsers, "Id", "DisplayName"))">
+                                <option value="">-- @Localizer["Not Assigned"] --</option>
+                            </select>
+                            <a asp-controller="Users" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                <i class="align-middle" data-lucide="plus-circle"></i>
+                            </a>
+                            <button type="button" class="btn btn-outline-secondary reload-dropdown" 
+                                    data-url="@Url.Action("GetUsers")" 
+                                    data-target="AssigneeId" 
+                                    data-placeholder="@Localizer["Not Assigned"]"
+                                    data-name-key="DisplayName"
+                                    title="@Localizer["Reload"]">
+                                <i class="align-middle" data-lucide="rotate-cw"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="AssigneeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="LocationId" class="form-label"></label>
+                        <div class="input-group">
+                            <select asp-for="LocationId" class="form-select" asp-items="@(new SelectList(Model.AllLocations, "Id", "Name"))">
+                                <option value="">-- @Localizer["Select Location"] --</option>
+                            </select>
+                            <a asp-action="Locations" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                <i class="align-middle" data-lucide="plus-circle"></i>
+                            </a>
+                            <button type="button" class="btn btn-outline-secondary reload-dropdown" 
+                                    data-url="@Url.Action("GetLocations")" 
+                                    data-target="LocationId" 
+                                    data-placeholder="@Localizer["Select Location"]"
+                                    title="@Localizer["Reload"]">
+                                <i class="align-middle" data-lucide="rotate-cw"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="LocationId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="CompanyEntityId" class="form-label"></label>
+                        <div class="input-group">
+                            <select asp-for="CompanyEntityId" class="form-select" asp-items="@(new SelectList(Model.AllCompanyEntities, "Id", "CompanyName"))">
+                                <option value="">-- @Localizer["Select Entity"] --</option>
+                            </select>
+                            <a asp-controller="CompanyEntity" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                <i class="align-middle" data-lucide="plus-circle"></i>
+                            </a>
+                            <button type="button" class="btn btn-outline-secondary reload-dropdown" 
+                                    data-url="@Url.Action("GetCompanyEntities")" 
+                                    data-target="CompanyEntityId" 
+                                    data-placeholder="@Localizer["Select Entity"]"
+                                    data-name-key="CompanyName"
+                                    title="@Localizer["Reload"]">
+                                <i class="align-middle" data-lucide="rotate-cw"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="CompanyEntityId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Financial Information"]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="PurchaseDate" class="form-label"></label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                            <input asp-for="PurchaseDate" class="form-control" type="date" />
+                            <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="PurchasePrice" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input asp-for="PurchasePrice" class="form-control" type="number" step="0.01" />
+                            </div>
+                            <span asp-validation-for="PurchasePrice" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="VendorId" class="form-label"></label>
+                            <div class="input-group">
+                                <select asp-for="VendorId" class="form-select" asp-items="@(new SelectList(Model.AllVendors, "Id", "Name"))">
+                                    <option value="">-- @Localizer["Select Vendor"] --</option>
+                                </select>
+                                <a asp-action="Vendors" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                    <i class="align-middle" data-lucide="plus-circle"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown" 
+                                        data-url="@Url.Action("GetVendors")" 
+                                        data-target="VendorId" 
+                                        data-placeholder="@Localizer["Select Vendor"]"
+                                        title="@Localizer["Reload"]">
+                                    <i class="align-middle" data-lucide="rotate-cw"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="VendorId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="WarrantyExpireDate" class="form-label"></label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                            <input asp-for="WarrantyExpireDate" class="form-control" type="date" />
+                            <span asp-validation-for="WarrantyExpireDate" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="InvoiceFileUrl" class="form-label"></label>
+                        <vc:file-upload asp-for="InvoiceFileUrl" subfolder="asset-invoices" is-vault="true" allowed-extensions="pdf jpg png" max-size-in-mb="10"></vc:file-upload>
+                        <span asp-validation-for="InvoiceFileUrl" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" asp-for="IsReimbursed">
+                            <label class="form-check-label" asp-for="IsReimbursed">@Localizer["Already Reimbursed"]</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">@Localizer["Save Asset"]</button>
+                    <a asp-action="Index" class="btn btn-light">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Tips"]</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">@Localizer["Asset Tag must be unique. It's recommended to follow a consistent naming convention like ASM-YYYY-NNN."]</p>
+                <p class="text-muted">@Localizer["Upload the invoice to keep financial records traceable."]</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+    <partial name="_DropdownReload" />
+}

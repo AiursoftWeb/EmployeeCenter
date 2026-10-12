@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Applicant" xml:space="preserve">
+    <value>申请人</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>业务用途</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>检测隐形水印</value>
+  </data>
+  <data name="Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked." xml:space="preserve">
+    <value>检测仅辅助追溯，不是滥用行为的证据。裁剪、缩放、截图和打印扫描可能破坏水印。没有检测结果不能说明图片没有水印。</value>
+  </data>
+  <data name="Generated At (UTC)" xml:space="preserve">
+    <value>生成时间（UTC）</value>
+  </data>
+  <data name="Image to Inspect" xml:space="preserve">
+    <value>待检测图片</value>
+  </data>
+  <data name="Inspect" xml:space="preserve">
+    <value>开始检测</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>资质 / 版本</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>接收单位</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>追踪编号</value>
+  </data>
+  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are processed locally and are not retained." xml:space="preserve">
+    <value>上传 PNG/JPEG 副本（不超过 20 MB），检测其中的隐形追踪编号。图片仅在本地处理，不保存检测原图。</value>
+  </data>
+</root>

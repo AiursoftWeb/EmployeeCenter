@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>प्रवेश अस्वीकृत</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>खातों</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>कार्रवाई</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>SSH कुंजी जोड़ें</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>अतिरिक्त जानकारी (मुख्यभूमि/हांगकांग)</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>पता</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>प्रशासक</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>प्रशासन</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>प्रशासनिक विवरण</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI Assistant</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Aiursoft कर्मचारी केंद्र</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft टेम्पलेट</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>अनाम</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>छुट्टी का आवेदन करें</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>अनुमोदन केंद्र</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>स्वीकृति इतिहास</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>मंजूर करें</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>अनुमोदित</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>मंजूर प्रोजेक्ट्स</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>संपत्ति श्रेणियाँ</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>संपत्ति मॉडल</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>संपत्ति</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>नियुक्त करें</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>संपत्ति सौंपें</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>ऑडियो</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>एडिट सर्विसेज</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>बैकग्राउंड जॉब्स</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>खराब अनुरोध</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>बैंक की जानकारी</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>मूल जानकारी</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>ब्लूप्रिंट</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>ब्लूप्रिंट्स</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>व्यापार लाइसेंस</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>करियर</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>नियुक्ति प्रमाणपत्र</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>नियोक्ता प्रमाणपत्र</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>आय का प्रमाणपत्र</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>प्रमाणपत्र प्रिंट</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>अवतार बदलें</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>बैंक जानकारी बदलें</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>पासवर्ड बदलें</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>प्रोफ़ाइल बदलें</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>चैट</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>सीआई नंबर</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>लॉगिन करने के लिए क्लिक करें</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>कोड</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>संग्रह चैनल</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>टिप्पणियाँ</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>कंपनी एंटिटीज़</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>कंपनी एंटिटी विवरण</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>कंपनी एंटिटी जानकारी</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>कंपनी सूचना परामर्श</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>कंपनी अभौतिक संपत्ति</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>कंपनी का नाम</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>कंपनी के सार्वजनिक अनुबंध</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>कंपनी प्रकार</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>हटाने की पुष्टि करें</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>संविदा वित्त विवरण</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>संविदा वित्त सांख्यिकी</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>समझौते</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>बनाएं</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>खाता बनाएं</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>संपत्ति बनाएं</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>कंपनी एंटिटी बनाएं</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>नया बनाएँ</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>नया ब्लूप्रिंट फोल्डर बनाएं</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>नया संविदा बनाएं</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>नया फ़ोल्डर बनाएं</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>ऑनबोर्डिंग कार्य बनाएँ</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>पासवर्ड बनाएं</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>प्रमोशन बनाएं</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>प्रश्न बनाएँ</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>प्रश्नावली बनाएं</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>भूमिका बनाएं</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>सर्वर बनाएं</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>सेवा बनाएं</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>लेनदेन बनाएं</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>उपयोगकर्ता बनाएं</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>ग्राहक संबंध</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>ग्राहक संबंध</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>डैशबोर्ड</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>रोल हटाएं</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>उपयोगकर्ता हटाएं</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>विकास</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>निर्देशिका</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>डीएनएस ऑडिट</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>डाउनलोड / देखें</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>संपादित करें</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>खाता संपादित करें</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>संपत्ति संपादित करें</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>ब्लूप्रिंट संपादित करें</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>ब्लूप्रिंट फ़ोल्डर संपादित करें</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>कंपनी एंटिटी संपादित करें</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>संविदा संपादित करें</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>ग्राहक संबंध संपादित करें</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>फ़ोल्डर संपादित करें</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>मीटिंग रिकॉर्डिंग संपादित करें</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>ऑनबोर्डिंग कार्य संपादित करें</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>पासवर्ड संपादित करें</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>पेरॉल संपादित करें</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>प्रश्न संपादित करें</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>प्रश्नावली संपादित करें</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>आवश्यकता संपादित करें</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>भूमिका संपादित करें</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>सर्वर संपादित करें</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>सेवा संपादित करें</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>SSH की संपादित करें</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>लेनदेन संपादित करें</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>ट्रांसक्रिप्ट संपादित करें</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>उपयोगकर्ता संपादित करें</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>साप्ताहिक रिपोर्ट संपादित करें</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>संपादक</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>कर्मचारी केंद्र</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>कर्मचारी सिग्नल</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>अंग्रेजी नाम</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>संस्थाओं की सूची</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>संस्था कोड</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>एंटिटी विवरण</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>त्रुटि</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>स्थापना</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>मुदत समाप्ति तिथि</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>विशेषताएँ</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>प्रश्नावली भरें</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>वित्त</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>सार्वभौम सेटिंग्स</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>छुट्टी समायोजन</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>होम</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>एचआर</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>चित्र और फाइलें</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>ज़िप से अनुबंध आयात करें</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>आने वाली छुट्टी</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>सूची</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>सूचक सर्वर</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>जानकारी</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>इंफ्रास्ट्रक्चर डेटा गुणवत्ता</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>आ interनल सर्वर त्रुटि</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>इनवॉइस जारी करें</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>पेरॉल जारी करें</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>आईटी संपत्ति</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>छुट्टी</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>छुट्टी प्रबंधन</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>कानूनी</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>कानूनी प्रतिनिधि</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>कानूनी प्रतिनिधि / निदेशक</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>स्थान</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>लॉकआउट</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>लॉगिन</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>सभी सुविधाओं तक पहुँच पाने के लिए लॉगिन करें।</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>लोगो</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>प्रोफ़ाइल बनाए रखें</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>प्रबंधित करें</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>संपत्ति प्रबंधित करें</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>ऑडियो शेयर प्रबंधित करें</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>ब्लूप्रिंट्स प्रबंधित करें</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>श्रेणियों का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>कंपनी एंटिटीज का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>संविदाओं का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>ग्राहक संबंधों का प्रबंधन</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>DNS प्रदाताओं का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>फीडबैक प्रबंधित करें</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>अप्रासंगिक संपत्तियों का प्रबंधन करें</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>प्रबंधित करें आईटी संपत्ति</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>लेजर व्यवस्थापन करें</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>स्थान प्रबंधित करें</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>बाजार चैनल प्रबंधित करें</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>मॉडल प्रबंधित करें</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>संबंधित आने का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>ऑनबोर्डिंग कार्यों का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>पासवर्ड साझाकरण प्रबंधित करें</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>पेरोल प्रबंधित करें</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>प्रिंटिंग प्रबंधित करें</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>प्रदाताओं को प्रबंधित करें</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>प्रश्न प्रबंधित करें</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>मानेज रिक्वायरमेंट्स</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>शेयर प्रबंधित करें</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>कार्यों का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>वेंडर्स प्रबंधित करें</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>बाजार चैनल</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>मीटिंग मिनट्स</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>सम्मेलन अखंडित पाठ</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>सम्मेलन प्रतिलिपियाँ</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>मिशन</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>चুক্তि स्थानांतरित करें</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>मेरी संपत्तियाँ</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>मेरे अनुबंध</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>मेरी आईटी संपत्ति</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>मेरा छुट्टी बैलेंस</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>मेरे वेतन विवरण</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>मेरी प्रतिपूर्ति</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>मेरी रिपोर्ट लाइन</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>मेरी आवश्यकताएँ</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>नहीं मिला</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR परिणाम</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>आधिकारिक निशान</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>ऑनबोर्डिंग</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>ऑनबोर्डिंग प्रक्रिया</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>पासवर्ड विवरण</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>पासवर्ड</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>पासवर्ड्स प्रबंधन</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>पेरॉल विवरण</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>वेतन सूची</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>अनुमोदन के लिए प्रतीक्षा</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>अनुमति विवरण</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>अनुमतियाँ</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>व्यक्तिगत</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>पूर्व-दृश्य</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>प्रिंट</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>प्रिंट प्रमाणपत्र</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>प्रोफ़ाइल</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>प्रोफ़ाइल सेटिंग्स</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>प्रोजेक्ट आवश्यकताएं</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>पदोन्नति इतिहास</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>प्रश्नावली प्रतिक्रियाएँ</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>पंजीकृत पूंजी</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>पंजीकरण करें</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>रिम्बर्समेंट</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>अस्वीकार करें</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>अस्वीकृत</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>समापत रिकॉर्डिंग का नाम बदलें</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>प्रतिक्रिया</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>के उत्तर में</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>रिपोर्ट लाइन</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>परिवर्तन के लिए अनुरोध करें</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>परिवर्तन के लिए अनुरोध</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>आवश्यकता</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>आवश्यकता विवरण</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>आवश्यकता सफलतापूर्वक सहेजी गई।</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>आवश्यकता शीर्षक</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>संसाधन</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>प्रतिक्रिया विवरण</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>सीमित</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>भूमिका विवरण</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>भूमिकाएँ</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>परिवर्तन सहेजें</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>SCR स्थान</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>सचिव</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>सर्वर्स</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>सेवा ऑडिट</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>सेवाएं</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>सेवाओं डैशबोर्ड</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>साझा जानकारी</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>साझा पासवर्ड</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>साइन आउट</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH कुंजियाँ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>टिप्पणी जमा करें</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>अनुमोदन के लिए जमा करें</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>नए आवश्यकता का उपलब्ध कराएं</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>आवश्यकता जमा करें</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>सिस्टम</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>सिस्टम जानकारी</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>टीम कैलेंडर</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>टेम्पलेट</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>लेनदेन</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>अनधिकृत</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>ऑडियो अपलोड करें</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>उपयोगकर्ता विवरण</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>उपयोगकर्ता</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>आपूर्तिकर्ता</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>ब्लूप्रिंट्स देखें</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>कॉन्ट्रैक्ट्स देखें</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>ग्राहक संबंध देखें</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>बाजार चैनल्स देखें</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>साप्ताहिक रिपोर्ट</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>टिप्पणी लिखें...</value>
+  </data>
+
+</root>

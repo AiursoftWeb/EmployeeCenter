@@ -1,0 +1,194 @@
+@model Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels.CreateViewModel
+
+<div class="container-fluid p-0">
+    <div class="row mb-2 mb-xl-3">
+        <div class="col-auto d-none d-sm-block">
+            <h3>@Localizer["Add Intangible Asset"]</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Name" class="form-label">@Localizer["Name / Description"]</label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Type" class="form-label">@Localizer["Type"]</label>
+                                <select asp-for="Type" class="form-select" asp-items="Html.GetEnumSelectList<IntangibleAssetType>()"></select>
+                                <span asp-validation-for="Type" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Status" class="form-label">@Localizer["Status"]</label>
+                                <select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<IntangibleAssetStatus>()"></select>
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Supplier" class="form-label">@Localizer["Supplier / Registrar"]</label>
+                                <input asp-for="Supplier" class="form-control" placeholder="@Localizer["e.g. Aliyun, GoDaddy"]" />
+                                <span asp-validation-for="Supplier" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Account" class="form-label">@Localizer["Account (Optional)"]</label>
+                                <input asp-for="Account" class="form-control" />
+                                <span asp-validation-for="Account" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Password" class="form-label">@Localizer["Password (Optional)"]</label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ManagementUrl" class="form-label">@Localizer["Management System Entry URL"]</label>
+                            <input asp-for="ManagementUrl" class="form-control" />
+                            <span asp-validation-for="ManagementUrl" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="FilingNumber" class="form-label">@Localizer["Filing / Certificate Number"]</label>
+                                <input asp-for="FilingNumber" class="form-control" />
+                                <span asp-validation-for="FilingNumber" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="FilingSubject" class="form-label">@Localizer["Filing Subject"]</label>
+                                <input asp-for="FilingSubject" class="form-control" placeholder="@Localizer["Subsidiary or Affiliated Company"]" />
+                                <span asp-validation-for="FilingSubject" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="FilingQueryMethod" class="form-label">@Localizer["Filing Query Method"]</label>
+                                <input asp-for="FilingQueryMethod" class="form-control" />
+                                <span asp-validation-for="FilingQueryMethod" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="RegistrationDate" class="form-label">@Localizer["Registration Date"]</label>
+                                <input asp-for="RegistrationDate" type="date" class="form-control" />
+                                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ExpirationDate" class="form-label">@Localizer["Expiration Date"]</label>
+                                <input asp-for="ExpirationDate" type="date" class="form-control" />
+                                <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="PurchasePrice" class="form-label">@Localizer["Purchase Price"]</label>
+                                <div class="input-group">
+                                    <input asp-for="PurchasePrice" type="number" step="0.01" class="form-control" />
+                                </div>
+                                <span asp-validation-for="PurchasePrice" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Currency" class="form-label">@Localizer["Currency"]</label>
+                                <select asp-for="Currency" class="form-select" asp-items="@(new SelectList(Model.CurrencyOptions, "Key", "Value"))"></select>
+                                <span asp-validation-for="Currency" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CompanyEntityId" class="form-label"></label>
+                                <div class="input-group">
+                                    <select asp-for="CompanyEntityId" class="form-select" asp-items="@(new SelectList(Model.AllCompanyEntities, "Id", "CompanyName"))">
+                                        <option value="">-- @Localizer["Select Entity"] --</option>
+                                    </select>
+                                    <a asp-controller="CompanyEntity" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                        <i class="align-middle" data-lucide="plus-circle"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-outline-secondary reload-dropdown" 
+                                            data-url="@Url.Action("GetCompanyEntities", "Assets")" 
+                                            data-target="CompanyEntityId" 
+                                            data-placeholder="@Localizer["Select Entity"]"
+                                            data-name-key="CompanyName"
+                                            title="@Localizer["Reload"]">
+                                        <i class="align-middle" data-lucide="rotate-cw"></i>
+                                    </button>
+                                </div>
+                                <span asp-validation-for="CompanyEntityId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="AssigneeId" class="form-label">@Localizer["Assignee"]</label>
+                                <select asp-for="AssigneeId" class="form-select">
+                                    <option value="">@Localizer["None"]</option>
+                                    @foreach (var user in Model.AllUsers)
+                                    {
+                                        <option value="@user.Id">@user.DisplayName</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="AssigneeId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="TrademarkImageUrl" class="form-label">@Localizer["Trademark Image"]</label>
+                                <vc:file-upload asp-for="TrademarkImageUrl" subfolder="intangible-assets/trademark-images" allowed-extensions="jpg png" max-size-in-mb="10"></vc:file-upload>
+                                <span asp-validation-for="TrademarkImageUrl" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="InvoiceFileUrl" class="form-label">@Localizer["Invoice File"]</label>
+                                <vc:file-upload asp-for="InvoiceFileUrl" subfolder="intangible-asset-invoices" is-vault="true" allowed-extensions="pdf jpg png" max-size-in-mb="10"></vc:file-upload>
+                                <span asp-validation-for="InvoiceFileUrl" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="RegistrationCertificateUrl" class="form-label">@Localizer["Registration Certificate"]</label>
+                                <vc:file-upload asp-for="RegistrationCertificateUrl" subfolder="intangible-asset-certificates" is-vault="true" allowed-extensions="pdf jpg png" max-size-in-mb="10"></vc:file-upload>
+                                <span asp-validation-for="RegistrationCertificateUrl" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" asp-for="IsPublic">
+                                <label class="form-check-label" asp-for="IsPublic">@Localizer["Public Intangible Asset"]</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">@Localizer["Description"]</label>
+                            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
+                            <a asp-action="Index" class="btn btn-secondary">@Localizer["Back"]</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+    <partial name="_DropdownReload" />
+}

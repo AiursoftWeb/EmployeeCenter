@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- No Signing Entity --" xml:space="preserve">
+    <value>-- 서명 엔티티 없음 --</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>목록으로 돌아가기</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>은행 계좌</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Bank Account Name</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>은행명</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>기본 급여</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>생성</value>
+  </data>
+  <data name="Create a new user" xml:space="preserve">
+    <value>새 사용자 생성</value>
+  </data>
+  <data name="Create a password for the new user" xml:space="preserve">
+    <value>새 사용자용 비밀번호 생성</value>
+  </data>
+  <data name="Create New User" xml:space="preserve">
+    <value>새 사용자 생성</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>사용자 생성</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>생성 시간</value>
+  </data>
+  <data name="Display Name" xml:space="preserve">
+    <value>표시 이름</value>
+  </data>
+  <data name="Email Address" xml:space="preserve">
+    <value>이메일 주소</value>
+  </data>
+  <data name="Enter bank account" xml:space="preserve">
+    <value>은행 계좌 입력</value>
+  </data>
+  <data name="Enter bank account name" xml:space="preserve">
+    <value>Enter bank account name</value>
+  </data>
+  <data name="Enter bank name" xml:space="preserve">
+    <value>은행명 입력</value>
+  </data>
+  <data name="Enter base salary" xml:space="preserve">
+    <value>기본 급여 입력</value>
+  </data>
+  <data name="Enter display name" xml:space="preserve">
+    <value>표시 이름 입력</value>
+  </data>
+  <data name="Enter email address" xml:space="preserve">
+    <value>이메일 주소 입력</value>
+  </data>
+  <data name="Enter job level" xml:space="preserve">
+    <value>직급을 입력하세요</value>
+  </data>
+  <data name="Enter legal name" xml:space="preserve">
+    <value>법적 이름 입력</value>
+  </data>
+  <data name="Enter phone number" xml:space="preserve">
+    <value>전화번호 입력</value>
+  </data>
+  <data name="Enter title" xml:space="preserve">
+    <value>Enter title</value>
+  </data>
+  <data name="Enter username" xml:space="preserve">
+    <value>사용자 이름 입력</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>직급</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>법적 이름</value>
+  </data>
+  <data name="OpenID Connect (OIDC) is enabled. User accounts are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only account that exists solely within this application." xml:space="preserve">
+    <value>OpenID Connect(OIDC)가 활성화되었습니다. 사용자 계정은 외부 신원 공급자로부터 동기화됩니다. 사용자를 중앙에서 관리할 수 있도록 새로운 사용자는 OIDC 공급자에서 생성하는 것을 강력히 권장합니다. 이 양식은 이 애플리케이션 내에서만 존재하는 로컬 전용 계정을 생성합니다.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>비밀번호</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>전화번호</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>서명 엔티티</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>사용자</value>
+  </data>
+  <data name="User Account Details" xml:space="preserve">
+    <value>사용자 계정 세부 정보</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>사용자 이름</value>
+  </data>
+  <data name="Warning!" xml:space="preserve">
+    <value>경고!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>이벤트 기록 시간은 좌표 세계시입니다!</value>
+  </data>
+
+</root>

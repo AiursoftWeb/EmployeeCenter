@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Handling</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Alle i virksomheden</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Aftalefri</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Ansøger</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>ansøgninger godkendt</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>ansøgninger afvist</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Godkendelsescenter</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Godkendelseshistorik</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Godkend</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Godkendt</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Godkendt denne måned</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Godkendelse</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>venter på gennemgang over hele virksomheden</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>afventer din gennemgang</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>for øjeblikket fraværende</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dage</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Beslutning</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Hvis afvist ved en fejl:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Hvis medarbejderen ønsker at annullere:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Wigtigt: Godkendelsesbeslutninger er endelige</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Mit hold</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>Ingen godkendelseshistorik.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Ingen ventende ansøgninger.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>Når du godkender eller afviser en fraværsansøgning, kan beslutningen ikke trækkes tilbage. Gennemgå grundigt, før du foretager handling.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>Afventer godkendelse</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Ventende godkendelser</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Periode</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Begrundelse</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Afvis</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Afslået</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Afvises denne måned</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Gennemset</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Sygedagpenge</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Indsendt</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>Hold på ferie</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>Medarbejderen skal indsende et nyt ansøgning.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>De kan trække deres egen ansøgning tilbage, før den starter.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>til</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+
+</root>

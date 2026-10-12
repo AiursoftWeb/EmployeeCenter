@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account (Optional)" xml:space="preserve">
+    <value>Konto (valgfrit)</value>
+  </data>
+  <data name="Are you sure you want to delete this asset?" xml:space="preserve">
+    <value>Er du sikker på, at du vil slette dette aktiv?</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Tildeler</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Tilbage</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beskrivelse</value>
+  </data>
+  <data name="Edit Intangible Asset" xml:space="preserve">
+    <value>Rediger immateriel aktiver</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Udløbsdato</value>
+  </data>
+  <data name="Filing / Certificate Number" xml:space="preserve">
+    <value>Indsættelses-/certifikatnummer</value>
+  </data>
+  <data name="Filing Query Method" xml:space="preserve">
+    <value>Indsættelsesforespørgsmålsmetode</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Sags emne</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>Fakturafil</value>
+  </data>
+  <data name="Invoice URL" xml:space="preserve">
+    <value>Faktura-URL</value>
+  </data>
+  <data name="Management System Entry URL" xml:space="preserve">
+    <value>Indgangs-URL til administrations-system</value>
+  </data>
+  <data name="Name / Description" xml:space="preserve">
+    <value>Navn / Beskrivelse</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Ny</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Ingen</value>
+  </data>
+  <data name="Password (Optional)" xml:space="preserve">
+    <value>Adgangskode (valgfri)</value>
+  </data>
+  <data name="Public Intangible Asset" xml:space="preserve">
+    <value>Offentlig immateriel aktiv</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Købspris</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Registreringsbevis</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Registreringsdato</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Genindlæs</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Gem ændringer</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>Vælg enhed</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Supplier / Registrar" xml:space="preserve">
+    <value>Leverandør / Registreringsorgan</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Varemærkebillede</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+
+</root>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Approval History" xml:space="preserve">
+    <value>Istoricul aprobării</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Aprobate în acest lună</value>
+  </data>
+  <data name="Can Approve Any Leave" xml:space="preserve">
+    <value>Poate aproba orice concediu</value>
+  </data>
+  <data name="Incoming Leaves" xml:space="preserve">
+    <value>Congresul de frunze</value>
+  </data>
+  <data name="Pending Count" xml:space="preserve">
+    <value>Număr așteptare</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Respins în această lună</value>
+  </data>
+  <data name="Show All" xml:space="preserve">
+    <value>Afișează tot</value>
+  </data>
+  <data name="Team On Leave Count" xml:space="preserve">
+    <value>Numărul echipei în concediu</value>
+  </data>
+
+</root>

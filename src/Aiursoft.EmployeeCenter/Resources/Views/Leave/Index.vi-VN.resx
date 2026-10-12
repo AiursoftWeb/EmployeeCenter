@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} ngày nghỉ phép có lương mỗi năm</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>7 ngày nghỉ có lương mỗi năm</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Nghỉ phép năm</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Nộp đơn xin nghỉ phép</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Đã duyệt</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Người duyệt</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>đang chờ phê duyệt</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>Được chuyển sang</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>ngày</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>cách đây vài ngày</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>Chúc bạn có một kỳ nghỉ tuyệt vời!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>trong</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>Thông tin quan trọng về chính sách nghỉ phép của chúng tôi</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>Tổng quan số dư nghỉ phép</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>Lịch sử nghỉ phép</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>Chính sách nghỉ phép</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>Số ngày được chuyển sang tối đa: {0} ngày (hết hạn sau 1 năm)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>Sức khỏe tinh thần: không cần giấy tờ</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Số dư nghỉ phép của tôi</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>Nghỉ phép tiếp theo</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>Không cần phê duyệt, có thể sử dụng ngay lập tức</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>Không tìm thấy lịch sử nghỉ phép.</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>không có nghỉ phép sắp tới</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>của</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Đang chờ xử lý</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>Yêu cầu đang chờ</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Thời gian</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>Bệnh tật thể chất: cần giấy chứng nhận y tế</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>Vui lòng đảm bảo ngày nghỉ của bạn tuân thủ chính sách công ty, tất cả công việc đã được bàn giao và bạn đã gửi email thông báo cho đội nhóm của mình.</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>Hành động nhanh</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Từ chối</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>yêu cầu</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>Yêu cầu phê duyệt từ quản lý trước khi sử dụng</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Nghỉ ốm</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Đã gửi</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>Tài liệu hỗ trợ cần thiết sau khi nghỉ phép kết thúc</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Loại</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>Các ngày nghỉ không phép sẽ được coi là vắng mặt không phép và sẽ dẫn đến khấu trừ lương và các hình thức kỷ luật.</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>Các ngày nghỉ chưa sử dụng sẽ được chuyển sang năm sau</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>Nghỉ phép sắp tới</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Rút lại</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Đã rút lại</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>Lịch sử đơn xin nghỉ phép của bạn và trạng thái của chúng</value>
+  </data>
+
+</root>

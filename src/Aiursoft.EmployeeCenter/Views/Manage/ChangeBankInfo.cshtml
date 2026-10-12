@@ -1,0 +1,43 @@
+@model Aiursoft.EmployeeCenter.Models.ManageViewModels.ChangeBankInfoViewModel
+
+<h1 class="h3 mb-3">@Localizer["Change Bank Information"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <partial name="_ManageSidebar" />
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Bank Information"]</h5>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Manage" asp-action="ChangeBankInfo" method="post">
+                    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="BankCardNumber" class="form-label">@Localizer["Bank Card Number"]</label>
+                        <input asp-for="BankCardNumber" class="form-control form-control-lg" placeholder="@Localizer["Enter your bank card number"]" />
+                        <span asp-validation-for="BankCardNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="BankName" class="form-label">@Localizer["Bank Name (Branch)"]</label>
+                        <input asp-for="BankName" class="form-control form-control-lg" placeholder="@Localizer["Enter your bank name and branch"]" />
+                        <span asp-validation-for="BankName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="BankAccountName" class="form-label">@Localizer["Bank Account Name"]</label>
+                        <input asp-for="BankAccountName" class="form-control form-control-lg" placeholder="@Localizer["Enter your bank account name"]" />
+                        <span asp-validation-for="BankAccountName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">@Localizer["Save changes"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account (Optional)" xml:space="preserve">
+    <value>Akun (Opsional)</value>
+  </data>
+  <data name="Are you sure you want to delete this asset?" xml:space="preserve">
+    <value>Apakah Anda yakin ingin menghapus aset ini?</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Pemilik</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Kembali</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Mata Uang</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Deskripsi</value>
+  </data>
+  <data name="Edit Intangible Asset" xml:space="preserve">
+    <value>Edit Aset Intangible</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Tanggal Kadaluarsa</value>
+  </data>
+  <data name="Filing / Certificate Number" xml:space="preserve">
+    <value>Nomor Pengajuan / Sertifikat</value>
+  </data>
+  <data name="Filing Query Method" xml:space="preserve">
+    <value>Metode Pencarian Pengajuan</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Subjek Pengajuan</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>File Faktur</value>
+  </data>
+  <data name="Invoice URL" xml:space="preserve">
+    <value>URL Faktur</value>
+  </data>
+  <data name="Management System Entry URL" xml:space="preserve">
+    <value>URL Masuk Sistem Manajemen</value>
+  </data>
+  <data name="Name / Description" xml:space="preserve">
+    <value>Nama / Deskripsi</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Baru</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Tidak ada</value>
+  </data>
+  <data name="Password (Optional)" xml:space="preserve">
+    <value>Kata Sandi (Opsional)</value>
+  </data>
+  <data name="Public Intangible Asset" xml:space="preserve">
+    <value>Aset Intangible Publik</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Harga Pembelian</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Sertifikat Pendaftaran</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Tanggal Pendaftaran</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Muat Ulang</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Simpan Perubahan</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>Pilih Entitas</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Supplier / Registrar" xml:space="preserve">
+    <value>Pemasok / Pendaftar</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Gambar Merek Dagang</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Jenis</value>
+  </data>
+
+</root>

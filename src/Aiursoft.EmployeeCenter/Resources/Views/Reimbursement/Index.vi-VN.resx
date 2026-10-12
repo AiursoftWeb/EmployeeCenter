@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>Đã xác nhận</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Số tiền</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>Đang xử lý</value>
+  </data>
+  <data name="Are you sure you want to delete this draft?" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn xóa bản nháp này không?</value>
+  </data>
+  <data name="Are you sure you want to revoke this application?" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn thu hồi đơn xin này không?</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Tải xuống</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Dự thảo</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>Thời gian chi phí</value>
+  </data>
+  <data name="Manage and track your expense reimbursement requests." xml:space="preserve">
+    <value>Quản lý và theo dõi các yêu cầu hoàn trả chi phí của bạn.</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Chi phí của tôi</value>
+  </data>
+  <data name="New Request" xml:space="preserve">
+    <value>Yêu cầu mới</value>
+  </data>
+  <data name="No reimbursement records found." xml:space="preserve">
+    <value>Không tìm thấy hồ sơ hoàn tiền nào.</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Mục đích</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>Đã hoàn trả</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Từ chối</value>
+  </data>
+  <data name="Revoke" xml:space="preserve">
+    <value>Thu hồi</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>Đã hủy</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+
+</root>

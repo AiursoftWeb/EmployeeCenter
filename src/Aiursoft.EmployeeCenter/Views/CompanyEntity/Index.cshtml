@@ -1,0 +1,120 @@
+@model Aiursoft.EmployeeCenter.Models.CompanyEntityViewModels.IndexViewModel
+@using Aiursoft.EmployeeCenter.Authorization
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageCompanyEntities)).Succeeded;
+}
+
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@Localizer["Company Entities"]</h1>
+        @if (canManage)
+        {
+            <a asp-controller="CompanyEntity" asp-action="Create" class="btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-plus fa-sm text-white-50"></i> @Localizer["Create New"]
+            </a>
+        }
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">@Localizer["Entities List"]</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="entitiesTable" width="100%">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Company Name"]</th>
+                            <th>@Localizer["Code"]</th>
+                            <th>@Localizer["Legal Rep"]</th>
+                            <th>@Localizer["Address"]</th>
+                            <th>@Localizer["Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Entities)
+                        {
+                            <tr>
+                                <td>
+                                    @item.CompanyName
+                                    @if(!string.IsNullOrEmpty(item.CompanyNameEnglish))
+                                    {
+                                        <br/>
+                                        <small class="text-muted">@item.CompanyNameEnglish</small>
+                                    }
+                                </td>
+                                <td>@item.EntityCode</td>
+                                <td>@item.LegalRepresentative</td>
+                                <td>
+                                    @if(!string.IsNullOrEmpty(item.RegisteredAddress))
+                                    {
+                                        @item.RegisteredAddress
+                                    }
+                                    else
+                                    {
+                                        @item.OfficeAddress
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-controller="CompanyEntity" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">
+                                        <i class="fas fa-info-circle"></i> @Localizer["Details"]
+                                    </a>
+                                    @if (canManage)
+                                    {
+                                        <a asp-controller="CompanyEntity" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete-modal-@item.Id" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                        
+                                        <div class="modal fade" id="delete-modal-@item.Id" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @Localizer["Are you sure you want to delete {0}?", item.CompanyName]
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                        <form asp-controller="CompanyEntity" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                                            <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#entitiesTable').DataTable({
+                "destroy": true,
+                "responsive": true,
+                "paging": true,
+                "pageLength": 25,
+                "searching": true,
+                "info": false,
+                "order": [[0, "asc"]]
+            });
+        });
+    </script>
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of all your historical payroll records." xml:space="preserve">
+    <value>Daftar semua riwayat catatan penggajian Anda.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Tindakan</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Gaji Pokok</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Waktu Dibuat</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Rincian</value>
+  </data>
+  <data name="Historical Payrolls" xml:space="preserve">
+    <value>Riwayat Penggajian</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>Gaji Saya</value>
+  </data>
+  <data name="Net Salary (Actual)" xml:space="preserve">
+    <value>Gaji Bersih (Aktual)</value>
+  </data>
+  <data name="Reset Zoom" xml:space="preserve">
+    <value>Atur Ulang Zoom</value>
+  </data>
+  <data name="Salary Trend" xml:space="preserve">
+    <value>Tren Gaji</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Bulan Target</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Jumlah Total</value>
+  </data>
+  <data name="Track your salary progression and promotions over time" xml:space="preserve">
+    <value>Lacak perkembangan gaji dan promosi Anda seiring waktu</value>
+  </data>
+
+</root>

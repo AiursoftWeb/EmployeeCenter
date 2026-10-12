@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>Akses Ditolak</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Akun</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Tindakan</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>Tambah Kunci SSH</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>Info Tambahan (Daratan/Tiongkok Hong Kong)</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Alamat</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administrasi</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Detail Administratif</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Asisten AI</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Pusat Karyawan Aiursoft</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Template Aiursoft</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>Anonim</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>Ajukan Cuti</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Pusat Persetujuan</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Riwayat Persetujuan</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Setujui</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Disetujui</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>Proyek yang Disetujui</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Kategori Aset</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Model Aset</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Aset</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Tetapkan</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Tetapkan Aset</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Layanan Audit</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>Pekerjaan Latar Belakang</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Permintaan Salah</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Informasi Bank</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Informasi Dasar</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>Rancangan</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>Rancangan</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Izin Usaha</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Karier</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>Surat Keterangan Karyawan</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>Surat Keterangan Kerja</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>Surat Keterangan Penghasilan</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Cetak Sertifikat</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>Ubah Avatar</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>Ubah Informasi Bank</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>Ubah Kata Sandi</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>Ubah Profil</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Nomor CI</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>Klik untuk masuk</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kode</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>Saluran Penagihan</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Komentar</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>Entitas Perusahaan</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>Detail Entitas Perusahaan</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>Info Entitas Perusahaan</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>Konsultasi Informasi Perusahaan</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>Aset Tak Berwujud Perusahaan</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Nama Perusahaan</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>Kontrak Publik Perusahaan</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Jenis Perusahaan</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Konfirmasi Hapus</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>Rincian Keuangan Kontrak</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>Statistik Keuangan Kontrak</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Kontrak</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Buat</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Buat Akun</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Buat Aset</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>Buat Entitas Perusahaan</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Buat Baru</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>Buat Folder Blueprint Baru</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>Buat Kontrak Baru</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Buat Folder Baru</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Buat Tugas Onboarding</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>Buat Kata Sandi</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>Buat Promosi</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>Buat Pertanyaan</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>Buat Kuesioner</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>Buat Peran</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Buat Server</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Buat Layanan</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Buat Transaksi</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Buat Pengguna</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>Hubungan Pelanggan</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>Hubungan Pelanggan</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dasbor</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>Hapus Peran</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>Hapus Pengguna</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Pengembangan</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Direktori</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Audit DNS</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Unduh / Lihat</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Edit Akun</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Edit Aset</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>Edit Blueprint</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>Edit Folder Blueprint</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>Edit Entitas Perusahaan</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>Edit Kontrak</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>Edit Hubungan Pelanggan</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Edit Folder</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Edit Rekaman Rapat</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>Edit Tugas Onboarding</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>Edit Kata Sandi</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Edit Gaji</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Edit Pertanyaan</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Edit Kuesioner</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>Edit Persyaratan</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>Edit Peran</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Edit Server</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Edit Layanan</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Edit Kunci SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Edit Transaksi</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Edit Transkrip</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>Edit Pengguna</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>Edit Laporan Mingguan</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>Pusat Karyawan</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>Sinyal Karyawan</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Nama Inggris</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>Daftar Entitas</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Kode Entitas</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Rincian Entitas</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Kesalahan</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Pendirian</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Tanggal Kedaluwarsa</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Fitur</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>Isi Kuesioner</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Keuangan</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>Pengaturan Global</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Penyesuaian Libur</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Beranda</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Gambar &amp; Berkas</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>Impor Kontrak dari Zip</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>Pengajuan Cuti Masuk</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Indeks</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Server Indeks</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Informasi</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>Kualitas data infrastruktur</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Kesalahan Server Internal</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>Terbitkan Faktur</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>Terbitkan Gaji</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>Aset IT</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>Cuti</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>Manajemen Cuti</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>Hukum</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>Wakil Hukum</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Wakil Hukum / Direktur</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Lokasi</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Kunci Akun</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Masuk</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>Masuk untuk mendapatkan akses ke semua fitur.</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>Kelola Profil</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Kelola</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Kelola Aset</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Kelola Berbagi Audio</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Kelola Blueprint</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Kelola Kategori</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>Kelola Entitas Perusahaan</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Kelola Kontrak</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>Kelola Hubungan Pelanggan</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Kelola Penyedia DNS</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Kelola Umpan Balik</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Kelola Aset Tak Berwujud</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>Kelola Aset IT</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Kelola Buku Besar</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Kelola Lokasi</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Kelola Saluran Pasar</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Kelola Model</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>Kelola Onboarding</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Kelola Tugas Onboarding</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>Kelola Bagi Kunci Kata Sandi</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Kelola Penggajian</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>Kelola Pencetakan</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Kelola Penyedia</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>Kelola Pertanyaan</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>Kelola Persyaratan</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Kelola Berbagi</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>Kelola Tugas</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Kelola Vendor</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>Saluran Pasar</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Notulen Rapat</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Transkrip Rapat</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Transkrip Rapat</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Misi</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>Pindahkan Kontrak</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Aset Saya</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>Kontrak Saya</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>Aset IT Saya</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Saldo Cuti Saya</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>Gaji Saya</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Pengembalian Biaya Saya</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>Laporan Saya</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>Permintaan Saya</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Tidak Ditemukan</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Hasil OCR</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Cap Resmi</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>Onboarding</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>Proses Onboarding</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>Detail Kata Sandi</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Kata Sandi</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Manajemen Kata Sandi</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Rincian Gaji</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>Penggajian</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Menunggu Persetujuan</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Detail Izin</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Izin</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Pribadi</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Cetak</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>Cetak Sertifikat</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Pengaturan Profil</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>Persyaratan Proyek</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>Riwayat Promosi</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>Respons Survei</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Modal Modal</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Daftar</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>Pengembalian Dana</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Tolak</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Ditolak</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>Ubah Nama Rekaman Rapat</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Balas</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>Membalas ke</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Laporan Baris</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>Permintaan Perubahan</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>Permintaan Perubahan</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>Persyaratan</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>Detail Persyaratan</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Persyaratan disimpan berhasil.</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>Judul Permintaan</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>Sumber Daya</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>Detail Respons</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Terbatas</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>Detail Peran</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Peran</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Simpan Perubahan</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>Lokasi SCR</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Sekretaris</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Audit Layanan</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Layanan</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Dasbor Layanan</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Pengaturan</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>Info yang Dibagikan</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>Kata Sandi yang Dibagikan</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Keluar</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>Kunci SSH</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>Kirim Komentar</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Kirim untuk Persetujuan</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>Kirim Permintaan Baru</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>Kirim Persyaratan</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>Informasi Sistem</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Kalender Tim</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transaksi</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Tidak Diizinkan</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Unggah Audio</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Detail Pengguna</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Pengguna</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Vendor</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>Lihat Blueprint</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>Lihat Kontrak</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>Lihat Hubungan Pelanggan</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>Lihat Saluran Pasar</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>Laporan Mingguan</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>Tulis komentar...</value>
+  </data>
+
+</root>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Adjusted to Rest Day (调休放假)" xml:space="preserve">
+    <value>Ajusté au jour de repos (compensation jour de congé)</value>
+  </data>
+  <data name="Adjusted to Work Day (调休上班)" xml:space="preserve">
+    <value>Jour travaillé ajusté (调休上班)</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>avril</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>août</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>Légende du calendrier</value>
+  </data>
+  <data name="Changes affect leave calculations immediately" xml:space="preserve">
+    <value>Les modifications prennent effet immédiatement sur le calcul des congés.</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Décembre</value>
+  </data>
+  <data name="Failed to update" xml:space="preserve">
+    <value>Échec de la mise à jour</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>février</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>ven.</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Ajustements de jours fériés</value>
+  </data>
+  <data name="Holiday Calendar" xml:space="preserve">
+    <value>Calendrier des jours fériés</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Instructions</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>janvier</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>juillet</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>juin</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>mars</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>mai</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>lun</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>novembre</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>octobre</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="Rest" xml:space="preserve">
+    <value>Repos</value>
+  </data>
+  <data name="Right-click any day to toggle its status" xml:space="preserve">
+    <value>Cliquez avec le bouton droit sur n&apos;importe quel jour pour basculer son statut.</value>
+  </data>
+  <data name="Right-click on any day to toggle between working day and rest day. Changes take effect immediately." xml:space="preserve">
+    <value>Cliquez avec le bouton droit sur n&apos;importe quel jour pour basculer entre jour ouvré et jour de repos. Les modifications prennent effet immédiatement.</value>
+  </data>
+  <data name="Right-click on any day to toggle its status." xml:space="preserve">
+    <value>Cliquez avec le bouton droit sur n&apos;importe quel jour pour basculer son statut.</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>sam.</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>septembre</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Dim</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>jeu</value>
+  </data>
+  <data name="Toggle again to revert to normal" xml:space="preserve">
+    <value>Cliquez à nouveau pour revenir à l&apos;état normal</value>
+  </data>
+  <data name="Toggling" xml:space="preserve">
+    <value>Changement</value>
+  </data>
+  <data name="Toggling a weekend/holiday makes it a work day" xml:space="preserve">
+    <value>Basculer un week-end ou un jour férié le transforme en jour de travail</value>
+  </data>
+  <data name="Toggling a work day makes it a rest day" xml:space="preserve">
+    <value>Passer un jour de travail à jour de repos.</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>mar</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Mis à jour</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>mer.</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>Week-end / Jour férié</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Travail</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>Jour ouvrable</value>
+  </data>
+
+</root>

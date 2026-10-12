@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acties</value>
+  </data>
+  <data name="Add new asset" xml:space="preserve">
+    <value>Nieuw activum toevoegen</value>
+  </data>
+  <data name="All Assets" xml:space="preserve">
+    <value>Alle activa</value>
+  </data>
+  <data name="Are you sure you want to return asset" xml:space="preserve">
+    <value>Weet u zeker dat u het activum terug wilt geven?</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Assetcategorieën</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Assetmodellen</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Asset Tag</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Toewijzen</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Toegewezen aan</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Confirm Return" xml:space="preserve">
+    <value>Bevestig teruggeven</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Download Invoice" xml:space="preserve">
+    <value>Factuur downloaden</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bewerken</value>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>Entiteit</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Inactief</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>In gebruik</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Factuur</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Locatie</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Locaties</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Verloren</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>In onderhoud</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Assets beheren</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>NVT</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>In afwachting van aanvaarding</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reden</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>In gebruik</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Teruggeven</value>
+  </data>
+  <data name="Return Asset" xml:space="preserve">
+    <value>Teruggeven activum</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="to stock?" xml:space="preserve">
+    <value>terug naar voorraad?</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Leveranciers</value>
+  </data>
+
+</root>

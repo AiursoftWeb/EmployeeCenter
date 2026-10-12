@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>實際支付</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>實發薪資（淨額）</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>行政罰款</value>
+  </data>
+  <data name="Are you absolutely sure?" xml:space="preserve">
+    <value>你確定嗎？</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>出勤與罰款</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>返回清單</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>銀行帳戶</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>銀行名稱</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>基本薪資</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>全勤獎金</value>
+  </data>
+  <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
+    <value>按下「確認並發放」即代表您確認上述所有數值均正確且符合公司政策。</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>依據加班時數計算</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>計算預繳稅額</value>
+  </data>
+  <data name="Calculation Formula Graph" xml:space="preserve">
+    <value>計算公式圖示</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>類別</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>公司成本</value>
+  </data>
+  <data name="Company Paid Insurances" xml:space="preserve">
+    <value>公司負擔保險</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>合規薪資表</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>內容 (Markdown)</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>合約基本薪資</value>
+  </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>緊急確認需求</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>幣別</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>幣別：</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>扣款</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>說明 / 公式</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>應發項目</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>教育、住房等</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>員工：</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>員工帳號</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>員工的銀行</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>請輸入負數</value>
+  </data>
+  <data name="Enter payroll details in Markdown format..." xml:space="preserve">
+    <value>請以 Markdown 格式輸入薪資明細...</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>全勤獎金</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>住房公積金</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>住房公積金（公司）</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>所得稅</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>個人保險</value>
+  </data>
+  <data name="Issue New Payroll" xml:space="preserve">
+    <value>發放新薪資單</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>發放薪資</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>項目</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>職務加給</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>遲到 / 早退</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>生育保險 (公司)</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>餐費、交通費等</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>醫療保險</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>醫療保險 (公司負擔)</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>月份：</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>每月績效評估</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>不，讓我再檢查一次</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>可選備註...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>其他津貼</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>加班費</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>薪資設定</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>薪資明細</value>
+  </data>
+  <data name="Payroll issuance is irreversible! Once issued, you cannot delete or modify it. Please verify the following information:" xml:space="preserve">
+    <value>薪資發放一旦完成將無法撤回！發放後您將無法刪除或修改。請確認下列資訊：</value>
+  </data>
+  <data name="Payroll issuance will be sent to the employee. Please verify the following information:" xml:space="preserve">
+    <value>薪資發放將傳送給員工。請確認下列資訊：</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>退休金</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>公司負擔之退休金</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>績效獎金</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>個人所得稅</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>個人保險</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>職務加給</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>備註 / 內容</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>選擇使用者</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>病假 / 事假</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>特別扣除額</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>目標月份</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>稅務資訊</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>應稅所得</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>總金額</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>公司總成本</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>總收入</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>個人保險總額</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>失業保險</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>失業保險 (公司負擔)</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>通常</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>工傷保險 (公司)</value>
+  </data>
+  <data name="Yes, Confirm and Issue!" xml:space="preserve">
+    <value>是的，確認並發放！</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>事件記錄時間是協調世界時！</value>
+  </data>
+
+</root>

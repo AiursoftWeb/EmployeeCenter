@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All caught up!" xml:space="preserve">
+    <value>Alt er opdateret!</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>Medarbejder signaler</value>
+  </data>
+  <data name="Fill Now" xml:space="preserve">
+    <value>Udfyld nu</value>
+  </data>
+  <data name="Help us improve our company by providing your honest feedback." xml:space="preserve">
+    <value>Hjælp os med at forbedre vores virksomhed ved at give os en ærlig feedback.</value>
+  </data>
+  <data name="There are no pending questionnaires for you to fill at this time." xml:space="preserve">
+    <value>Der er ingen åbne spørgeskemaer, du skal udfylde i øjeblikket.</value>
+  </data>
+
+</root>

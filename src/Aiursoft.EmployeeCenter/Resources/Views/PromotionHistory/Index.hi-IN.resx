@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Create Promotion" xml:space="preserve">
+    <value>प्रमोशन बनाएं</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="Days since joining (No promotions yet)" xml:space="preserve">
+    <value>जुड़ने के बाद से दिन (अभी तक कोई पदोन्नति नहीं)</value>
+  </data>
+  <data name="Days since last promotion" xml:space="preserve">
+    <value>पिछले पदोन्नति के बाद से दिन</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>इतिहास</value>
+  </data>
+  <data name="My Total Promotions" xml:space="preserve">
+    <value>मेरी कुल पदोन्नतियाँ</value>
+  </data>
+  <data name="New Level" xml:space="preserve">
+    <value>नया स्तर</value>
+  </data>
+  <data name="No promotion history found." xml:space="preserve">
+    <value>कोई पदोन्नति इतिहास नहीं मिला।</value>
+  </data>
+  <data name="Old Level" xml:space="preserve">
+    <value>पुराना स्तर</value>
+  </data>
+  <data name="Promoter" xml:space="preserve">
+    <value>प्रमोटर</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>पदोन्नति</value>
+  </data>
+  <data name="Recent Promotions" xml:space="preserve">
+    <value>हाल के पदोन्नतियाँ</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>सिस्टम</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>समय</value>
+  </data>
+  <data name="Total Company Promotions (YTD)" xml:space="preserve">
+    <value>कुल कंपनी के पदोन्नति (वर्तमान वर्ष के लिए)</value>
+  </data>
+  <data name="Unknown User" xml:space="preserve">
+    <value>अज्ञात उपयोगकर्ता</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>उपयोगकर्ता</value>
+  </data>
+
+</root>

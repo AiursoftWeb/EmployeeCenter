@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Lägg till globalt lösenord</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Lägg till nya roller</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Lägg till nya användare</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Tillåter godkännande eller avslag av vilken som helst semesteransökan, oavsett rapportlinje, samt visning av semesterhistorik för vilken användare som helst.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Tillåter godkännande eller avvisande av någon ansökan om semester, oavsett rapportlinje.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Tillåter att godkänna, bekräfta eller avslå ersättningsansökningar från alla anställda.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Tillåter godkännande, avvisning eller begäran om ändringar av projektkrav. Alla kan lämna in krav och kommentera dem.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Tillåter att tilldela eller ta bort roller för alla användare.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Tillåter skapande och hantering av alla avtal för företaget.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Tillåter skapande och hantering av påbörjandeuppgiftsmallar för nya anställda.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Tillåter att skapa avtal för företaget. Alla användare kan se offentliga avtal som standard.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Tillåter att skapa nya avtal för vilken användare som helst.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Tillåter att skapa nya globala lösenord som kan delas med andra.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Tillåter skapande av frågor, enkäter och visning av feedbacksvar.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Tillåter att skapa, redigera och ta bort veckorapporter i egna skick för valfri annan användare.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Tillåter skapande, uppdatering och borttagning av ritningar. Alla användare kan se ritningar som standard.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Tillåter att skapa, uppdatera och ta bort samlingkanaler och deras poster.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Tillåter att skapa, uppdatera och ta bort information om företagsentiteter.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Tillåter att skapa, uppdatera och ta bort företagsentitetsinformation. Alla användare kan se företagsentitetsinformation som standard.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Tillåter att skapa, uppdatera och ta bort information om kundrelationer. Alla användare kan visa kundrelationer som standard.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Tillåter att skapa, uppdatera och ta bort informations om marknadskanaler. Alla användare kan se marknadskanaler som standard.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Tillåter att skapa, uppdatera och ta bort tjänster och DNS-providers. Alla användare kan se tjänster som standard.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Tillåter att skapa, uppdatera, avregistrera och underhålla servrar, tjänster, leverantörer, DNS-leverantörer och domänalias.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Tillåter utfärdande och hantering av lönebesked för alla användare.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Tillåter hantering och borttagande av alla globala lösenord som skapats av någon användare.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Tillåter hantering av företagets finansiella konton och registrering av transaktioner.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Tillåter hantering av företagets IT-aktier och immateriella aktier (som domäner, licenser), inklusive kategorier, modeller och enskilda objekt. Tillåter också tilldelning och återhämtning av aktier till/från anställda.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Tillåter hantering av företagets IT-aktier, inklusive kategorier, modeller och enskilda objekt.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Tillåter hantering av företagets IT-aktier, inklusive kategorier, modeller och enskilda objekt. Kan också tilldela och återföra aktier till/från anställda.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Tillåter manuell igångsättning av tjänstens DNS- och tillgänglighetsrevision.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Tillåter modifiering av rollnamn och deras tilldelade behörigheter.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Tillåter ändring av användardetaljer som e-post och roller, och kan även återställa användarlösenord.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Tillåter ändring av användardetaljer som e-post och roller, och kan också återställa användarlösenord.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Tillåter utskrift av anställnings- och inkomstbevis för valfri anställd.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Tillåter utskrift av anställnings- och inkomstbevis för sig själv.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Tillåter att köra den skrivskyddade Cloudflare DNS-auditeringen och visa dess resultat.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Tillåter att köra den skrivskyddade tjänsteauditern och visa dess resultat.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Tillåter permanent borttagning av roller.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Tillåter permanent borttagning av användarkonton.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Tillåter användaren att chatta med AI-assistenten för företagsinformation.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Tillåter användaren att skapa egna veckorapporter.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Tillåter användaren att skapa veckorapporter i ansvar för vilken annan användare som helst.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Tillåter användaren att fylla i och skicka in feedbackfrågeformulär.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Tillåter användaren att skicka in ansökningar om ersättning för sina utgifter.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Tillåter uppladdning, borttagning av mötesinspelningar och omstart av tal-till-text-transkribering.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Tillåter visning av alla företagsavtal, inklusive de som är markerade som privata.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Tillåter visning av alla företagsavtal, inklusive de som är markerade som privata. Alla kan se offentliga avtal som standard.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Tillåter visning och ändring av globala programinställningar.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Tillåter visning av mötesprotokoll och att lyssna på eller läsa protokoll för inspelningar.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Tillåter visning av tjänstens hälsosammanfattningar, observationer och detaljerade revisionsresultat.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Ger tillgång att visa systemnivåinformation och inställningar.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Tillåter visning av bakgrundsjobbskärmen och hantering av jobb.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Tillåter visning av kontraktshistorik för valfri användare.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Tillåter att se listan över alla insamlingskanaler och deras poster.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Tillåter visning av listan över alla behörigheter och deras tilldelningar till roller och användare.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Tillåter att se listan över alla användare.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Tillåter att se listan över roller och deras tilldelade behörigheter.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Tillåter visning av åtgärdsloggar för valfri användare, inklusive deras bankkortändringshistorik.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Tillåter visning av rapportlinjen för valfri användare, inklusive deras chef, underordnade och kollegor.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Tillåter visning av server- och tjänsteregistret, utrollningsrelationer och infrastrukturreferensdata.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Tillåter att visa, redigera och ta bort vilken användares SSH-nycklar som helst.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Godkänn Alla Semesteransökningar</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Godkänn projektkrav</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Godkänn ersättning</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Tilldela roller till användare</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Revidera DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Revisera tjänster</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Revisions av tjänster (Äldre version)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Chatta med AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Skapa och hantera företagsavtal</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Skapa företagsavtal</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Skapa avtal</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Skapa veckorapport</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Skapa veckorapport för vilken som helst</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>Standardbehörighet för HR.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Ta bort roller</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Ta bort användare</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Redigera användarinformation</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Redigera rollinformation</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Redigera användarinformation</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Ger behörighet att skapa nya roller.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Ger behörighet att skapa nya användarkonton.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Ger tillstånd att starta om applikationsinstansen. Kan orsaka tillgänglighetsavbrott men alla inställningar och cacheminnen kommer att laddas om.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Äldre tillstånd bibehållen för övergång. Tilldela Hantera infrastruktur till roller som fortfarande behöver åtkomst.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Legacytillstånd bibehålls för övergång. Tilldela Visa serviceaudit och Kör serviceaudit efter behov.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Hantera valfritt lösenord</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Hantera någons veckorapport</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Hantera tillgångar</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Hantera mallar</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Hantera insamlingskanaler</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Hantera företagsentiteter</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Hantera kundrelationer</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Hantera feedback</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Hantera globala inställningar</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Hantera infrastruktur</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Hantera ledighet</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Hantera bokföring</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Hantera marknadskanaler</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Hantera mötesprotokoll</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Hantera påbörjandeuppgifter</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Hantera löner</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Hantera tjänster</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Hantera tjänster (Legacy)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Hantera SSH-nycklar</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Skriv ut certifikat</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Skriv ut egna certifikat</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Läs Behörigheter</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Läs roller</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Läs användare</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Starta om den här appen</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Kör serviceaudit</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Skicka återkoppling</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Skicka in ersättning</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Visa vilken som helst företagsavtal, inklusive privata</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Visa bakgrundsjobb</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Visa insamlingskanaler</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Visa kontraktshistorik</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Visa infrastruktur</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Visa mötestranskripter</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Visa rapportlinje</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Visa tjänsteaudit</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Visa systemkontext</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Visa användaråtgärdslogg</value>
+  </data>
+
+</root>

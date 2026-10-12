@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Активний</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Ви впевнені?</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>Створити опитування</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Створено</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Неактивний</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Керування відгуками</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>Керування питаннями</value>
+  </data>
+  <data name="No questionnaires created yet." xml:space="preserve">
+    <value>Немає створених анкет ще.</value>
+  </data>
+  <data name="Questionnaires" xml:space="preserve">
+    <value>Анкети</value>
+  </data>
+  <data name="Questions" xml:space="preserve">
+    <value>Питання</value>
+  </data>
+  <data name="Responses" xml:space="preserve">
+    <value>Відповіді</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+
+</root>

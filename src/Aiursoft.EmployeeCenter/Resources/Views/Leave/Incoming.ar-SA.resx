@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>إجراءات</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>الجميع في الشركة</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>إجازة سنوية</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>المتقدم</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>الطلبات المعتمدة</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>الطلبات المرفوضة</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>مركز الموافقة</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>سجل الموافقة</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>موافقة</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>موافق عليه</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>الموافقة هذا الشهر</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>المسؤول عن الموافقة</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>بانتظار المراجعة في جميع أنحاء الشركة</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>بانتظار مراجعتك</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>حاليًا غائب</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>أيام</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>القرار</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>إذا تم الرفض عن طريق الخطأ:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>إذا أراد الموظف الإلغاء:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>مهم: قرارات الموافقة نهائية</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>فريقّي</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>لا يوجد سجل للموافقة.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>لا توجد طلبات معلقة.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>بمجرد الموافقة على طلب إجازة أو رفضه، لا يمكن التراجع عن القرار. يرجى مراجعة الطلب بعناية قبل اتخاذ الإجراء.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>في انتظار الموافقة</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>الموافقات المعلقة</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>الفترة</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>السبب</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>رفض</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>مرفوض</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>مرفوضة هذا الشهر</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>تم المراجعة</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>إجازة مرضية</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>تم التقديم</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>الفريق في إجازة</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>يجب على الموظف تقديم طلب جديد.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>يمكنهم سحب طلبهم الخاص قبل بدئه.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>إلى</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>النوع</value>
+  </data>
+
+</root>

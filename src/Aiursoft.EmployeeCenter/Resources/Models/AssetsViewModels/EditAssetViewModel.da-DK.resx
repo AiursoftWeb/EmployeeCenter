@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Asset Tag" xml:space="preserve">
+    <value>Aktivertag</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Tildeler</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>Tilhører enhed</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>Fakturafil</value>
+  </data>
+  <data name="Is Reimbursed" xml:space="preserve">
+    <value>Er tilbagebetalt</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Placering</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Purchase Date" xml:space="preserve">
+    <value>Købsdato</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Købspris</value>
+  </data>
+  <data name="Serial Number" xml:space="preserve">
+    <value>Serienummer</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} må ikke overstige {1} tegn.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Det {0} er påkrævet.</value>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value>Leverandør</value>
+  </data>
+  <data name="Warranty Expire Date" xml:space="preserve">
+    <value>Garantiforløbsdato</value>
+  </data>
+
+</root>

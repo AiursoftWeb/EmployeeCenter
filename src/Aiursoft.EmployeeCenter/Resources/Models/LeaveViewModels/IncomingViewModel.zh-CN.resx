@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Approval History" xml:space="preserve">
+    <value>审批记录</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>本月已批准</value>
+  </data>
+  <data name="Can Approve Any Leave" xml:space="preserve">
+    <value>可审批任意请假</value>
+  </data>
+  <data name="Incoming Leaves" xml:space="preserve">
+    <value>待处理请假</value>
+  </data>
+  <data name="Pending Count" xml:space="preserve">
+    <value>待处理数量</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>本月驳回</value>
+  </data>
+  <data name="Show All" xml:space="preserve">
+    <value>显示全部</value>
+  </data>
+  <data name="Team On Leave Count" xml:space="preserve">
+    <value>团队休假人数</value>
+  </data>
+
+</root>

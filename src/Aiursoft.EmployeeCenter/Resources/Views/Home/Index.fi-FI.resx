@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>Sisäänrakennettu roolipohjainen käyttöoikeusjärjestelmä (RBAC) hienojakoista käyttöoikeudenhallintaa varten.</value>
+  </data>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>Valmis ratkaisu käyttäjätunnistukseen ja profiilin hallintaan heti käyttöönoton yhteydessä.</value>
+  </data>
+  <data name="A fast, free, open-source and offline-deployable enterprise office center designed to streamline your internal operations." xml:space="preserve">
+    <value>Nopea, ilmainen, avoimen lähdekoodin ja offline-asiakirjoihin asennettava yrityksen toimistokeskus, joka on suunniteltu sisäisten toimintojen helpottamiseksi.</value>
+  </data>
+  <data name="A fast, offline-deployable enterprise office center designed to streamline your internal operations." xml:space="preserve">
+    <value>Nopea, offline-asiakirjoihin soveltuvan yritys toimistokeskuksen suunniteltu helpottamaan sisäisiä toimintojasi.</value>
+  </data>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>Täysin responsiivinen ulkoasu, joka näyttää erinomaiselta sekä työpöytä- että mobiililaitteilla.</value>
+  </data>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Nykyaikainen, ominaisuuksiltaan monipuolinen ja erittäin laajennettava perusta seuraavaa verkkosovellustasi varten.</value>
+  </data>
+  <data name="Accuracy" xml:space="preserve">
+    <value>Tarkkuus</value>
+  </data>
+  <data name="Achieve more with Aiursoft Template" xml:space="preserve">
+    <value>Saavuta enemmän Aiursoft Templatella</value>
+  </data>
+  <data name="Advanced RBAC" xml:space="preserve">
+    <value>Edistynyt RBAC</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Tehokäännökset tekoälyllä</value>
+  </data>
+  <data name="Aiursoft Template is our definitive choice for enterprise projects! It&apos;s built for developers and is lightweight yet powerful. We can skip all the boilerplate for authentication and user management." xml:space="preserve">
+    <value>Aiursoft Template on ratkaiseva valintamme yritysprojekteihin! Se on rakennettu kehittäjille ja on kevyt mutta tehokas. Voimme ohittaa kaiken valmiin koodin todennukseen ja käyttäjien hallintaan.</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Kaikki riippuvuudet rekisteröidään automaattisesti ja ne ovat aina saatavilla konstruktorin kautta tapahtuvan injektoinnin välityksellä.</value>
+  </data>
+  <data name="Anduin" xml:space="preserve">
+    <value>Anduin</value>
+  </data>
+  <data name="Asset Recording" xml:space="preserve">
+    <value>Laitteen rekisteröinti</value>
+  </data>
+  <data name="Automated workflows for payroll, leave, and expenses mean less time on paperwork and more time on people." xml:space="preserve">
+    <value>Automaattiset työvirrat palkanmaksulla, lomalla ja kuluilla tarkoittavat vähemmän paperityötä ja enemmän ihmisten hoitoa.</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Automaattinen tumma tila</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Automaattinen riippuvuuden injektointi</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>Automaattinen, tekoälyavusteinen käännös 28 kielelle maailmanlaajuista saavutettavuutta varten.</value>
+  </data>
+  <data name="Boost Operational Efficiency" xml:space="preserve">
+    <value>Paranna toimintakykyä</value>
+  </data>
+  <data name="Build your next big thing," xml:space="preserve">
+    <value>Rakenna seuraava suuri juttusi,</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Sisäänrakennettu käyttäjienhallinta</value>
+  </data>
+  <data name="Capabilities" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="Centralized data drastically reduces discrepancies in employee records and financial reporting." xml:space="preserve">
+    <value>Keskittynyt tieto vähentää merkittävästi eroja työntekijätilien ja taloudellisen raportoinnin välillä.</value>
+  </data>
+  <data name="Centralized system for maintaining up-to-date employee records and information." xml:space="preserve">
+    <value>Keskittynyt järjestelmä työntekijöiden ajantasaisien tietojen ja tietojen ylläpitämiseksi.</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Tukee täysin Docker-ympäristöä, mikä helpottaa, tehostaa ja luotettavistaa käyttöönottoa.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Kattava dokumentaatio</value>
+  </data>
+  <data name="Dashboard Website" xml:space="preserve">
+    <value>Kojelauta-sivusto</value>
+  </data>
+  <data name="Deploy anywhere, even in air-gapped environments, with our robust Docker support." xml:space="preserve">
+    <value>Käynnistä missä tahansa, myös ilman verkkoyhteyttä olevissa ympäristöissä, vahvan Docker-tuen avulla.</value>
+  </data>
+  <data name="Discussions page" xml:space="preserve">
+    <value>Keskustelusivu</value>
+  </data>
+  <data name="Docker Offline Deployment" xml:space="preserve">
+    <value>Docker-offlinen käyttöönotto</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Dockeröity käyttöönottoa varten</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Dynaaminen navigointipalkki</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>Vaihda helposti tietokantapalveluntarjoajien, kuten SQLite, MySQL, SQL Server ja testaukseen tarkoitetun muistissa olevan tietokannan, välillä.</value>
+  </data>
+  <data name="Efficiency" xml:space="preserve">
+    <value>Tehostus</value>
+  </data>
+  <data name="Efficiently manage employee leave requests and attendance records." xml:space="preserve">
+    <value>Hallinnoi työntekijöiden lomahakemusten ja läsnäolorekordien tehokkaasti.</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>Työntekijäkeskus</value>
+  </data>
+  <data name="Employee Center gives you total control over your data and infrastructure with its easy-to-deploy architecture." xml:space="preserve">
+    <value>Employee Center antaa sinulle täyden hallinnan tietojasi ja infrastruktuuriasi helposti asennettavalla arkkitehtuurilla.</value>
+  </data>
+  <data name="Employee Center integrates disjointed processes into a unified workflow, eliminating manual errors and saving valuable time for your HR and Admin teams." xml:space="preserve">
+    <value>Employee Center yhdistää erilliset prosessit yhtenäiseksi työnkulkuksi, poistaa manuaaliset virheet ja säästää arvokasta aikaa HR- ja hallintatiimeillä.</value>
+  </data>
+  <data name="Employee Management" xml:space="preserve">
+    <value>Työntekijöiden hallinta</value>
+  </data>
+  <data name="Enterprise Login (OIDC)" xml:space="preserve">
+    <value>Enterprise Login (OIDC)</value>
+  </data>
+  <data name="Enterprise Ready" xml:space="preserve">
+    <value>Enterprise-valmis</value>
+  </data>
+  <data name="Enterprise-grade security features ensure your sensitive company data remains protected." xml:space="preserve">
+    <value>Yritystason turvallisuusominaisuudet varmistavat, että arvokkaat yrityksen tiedot pysyvät suojattuina.</value>
+  </data>
+  <data name="Everything you need to run your company" xml:space="preserve">
+    <value>Kaikki, mitä tarvitset yrityksesi ajamiseen</value>
+  </data>
+  <data name="Experience the freedom of a truly open-source employee management system. Join the growing number of companies optimizing their workforce with Employee Center." xml:space="preserve">
+    <value>Tunne avoimen lähdekoodin työntekijähallintajärjestelmän vapautta. Liity yhä suurempaan määrään yrityksiä, jotka optimoivat työvoimansa käyttäen Employee Centeria.</value>
+  </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>UKK</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>nopeammin</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Ominaisuudet</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Sisältää sisäänrakennetun tiedostonhallintajärjestelmän automaattisella avatar-pakkauksella.</value>
+  </data>
+  <data name="Financial Registration" xml:space="preserve">
+    <value>Rahastoilmoitus</value>
+  </data>
+  <data name="Flexible storage options ensuring compatibility with your existing infrastructure." xml:space="preserve">
+    <value>Joustavat tallennusvaihtoehdot, jotka takaa yhteensopivuuden olemassa olevan infrastruktuurin kanssa.</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>kaikkiin kyselyihin tai ongelmien ilmoittamiseen.</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Ilmainen</value>
+  </data>
+  <data name="Free &amp; Open Source" xml:space="preserve">
+    <value>Ilmainen ja avoimen lähdekoodin</value>
+  </data>
+  <data name="Frequently asked questions" xml:space="preserve">
+    <value>Usein kysytyt kysymykset</value>
+  </data>
+  <data name="From HR to Finance, IT to Operations, Employee Center has you covered." xml:space="preserve">
+    <value>HR:stä talouteen, IT:stä toimintaan, Employee Center on sinun puolestasi.</value>
+  </data>
+  <data name="Fully open-source under MIT license. You can customize, fork, and contribute back to the project." xml:space="preserve">
+    <value>Täysin avoimen lähdekoodin MIT-lisenssillä. Voit muokata, forkata ja panostaa takaisin projektiin.</value>
+  </data>
+  <data name="Get Started Now" xml:space="preserve">
+    <value>Aloita nyt</value>
+  </data>
+  <data name="Go to Dashboard" xml:space="preserve">
+    <value>Siirry hallintapaneeliin</value>
+  </data>
+  <data name="Granular Role-Based Access Control to ensure data security and proper authorization." xml:space="preserve">
+    <value>Tarkka roolipohjainen pääsykontrolli tietoturvan ja oikeutusten varmistamiseksi.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Hei maailma!</value>
+  </data>
+  <data name="Here are some of the answers you might be looking for." xml:space="preserve">
+    <value>Tässä on joitain vastauksia, joita saatat etsiä.</value>
+  </data>
+  <data name="Here&apos;s what developers from our community have to say." xml:space="preserve">
+    <value>Tässä on mitä yhteisömme kehittäjät sanovat.</value>
+  </data>
+  <data name="How can I get support?" xml:space="preserve">
+    <value>Miten saan tukea?</value>
+  </data>
+  <data name="How do I deploy my application?" xml:space="preserve">
+    <value>Kuinka otan sovellukseni käyttöön?</value>
+  </data>
+  <data name="Incident Management" xml:space="preserve">
+    <value>Incident Management</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Sisältää laajan dokumentaation ja käytännön esimerkit, joiden avulla pääset nopeasti alkuun.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Integroitu tiedostonhallinta</value>
+  </data>
+  <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
+    <value>Onko Aiursoft Templaten käyttö ilmaista?</value>
+  </data>
+  <data name="Join Discussions" xml:space="preserve">
+    <value>Liity keskusteluun</value>
+  </data>
+  <data name="Join our community and start building today!" xml:space="preserve">
+    <value>Liity yhteisöömme ja aloita rakentaminen tänään!</value>
+  </data>
+  <data name="Join the growing number of companies optimizing their workforce management with Employee Center." xml:space="preserve">
+    <value>Liity yhä suurempaan määrään yrityksiä, jotka optimoivat työvoiman hallintansa Employee Centerin avulla.</value>
+  </data>
+  <data name="Keep detailed inventory records of all company hardware and software assets." xml:space="preserve">
+    <value>Pidä tarkka tietokantarekisteri kaikista yrityksen laitteistojen ja ohjelmistojen varoista.</value>
+  </data>
+  <data name="Leave Tracking" xml:space="preserve">
+    <value>Lomakäytännön seuranta</value>
+  </data>
+  <data name="Manage employees, finances, assets, and more with a single, integrated platform." xml:space="preserve">
+    <value>Hallinnoi työntekijöitä, taloutta, varallisuutta ja muita asioita yhdessä, integroidussa alustassa.</value>
+  </data>
+  <data name="Markdown To HTML" xml:space="preserve">
+    <value>Markdownista HTML:ksi</value>
+  </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MIT-lisenssi</value>
+  </data>
+  <data name="Multi-Database Support" xml:space="preserve">
+    <value>Useita tietokantoja tukeva</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Usean tietokannan tuki</value>
+  </data>
+  <data name="Music Tools" xml:space="preserve">
+    <value>Musiikkityökalut</value>
+  </data>
+  <data name="Offline Capable" xml:space="preserve">
+    <value>Offline-kelpoisuus</value>
+  </data>
+  <data name="Open Source" xml:space="preserve">
+    <value>Avoin lähdekoodi</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID Connect -integraatio</value>
+  </data>
+  <data name="Payslip Distribution" xml:space="preserve">
+    <value>Palkanjakelu</value>
+  </data>
+  <data name="Promotion Management" xml:space="preserve">
+    <value>Promotion Management</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC-valtuutus</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Lue dokumentti</value>
+  </data>
+  <data name="Ready to modernize your office?" xml:space="preserve">
+    <value>Valmiina modernisointiin toimistossasi?</value>
+  </data>
+  <data name="Ready to take full control of your office?" xml:space="preserve">
+    <value>Valmis ottamaan täyden hallinnan toimistostasi?</value>
+  </data>
+  <data name="Reimbursement Calendar" xml:space="preserve">
+    <value>Maksutapahtumakalenteri</value>
+  </data>
+  <data name="Report Line View" xml:space="preserve">
+    <value>Raporttiviittaus</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Responsiivinen suunnittelu</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Arvostelut</value>
+  </data>
+  <data name="Safely share sensitive credentials and company secrets with authorized personnel." xml:space="preserve">
+    <value>Jaettakoon luottamuksellisia tunnuksia ja yrityksen salaisuuksia luotettavasti valtuutetuille henkilöille.</value>
+  </data>
+  <data name="Save Time" xml:space="preserve">
+    <value>Tallenna aikaa</value>
+  </data>
+  <data name="Seamless integration with OpenID Connect providers for secure, single sign-on experience." xml:space="preserve">
+    <value>Ilman katkelmaa avaimen yhdistäminen OpenID Connect -tarjoajien kanssa turvalliseen yksittäiseen kirjautumiseen.</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Saatumattomasti integroi minkä tahansa OpenID Connect -palveluntarjoajan kanssa, automaattisen roolisynkronoinnin avulla.</value>
+  </data>
+  <data name="Secret Distribution" xml:space="preserve">
+    <value>Salaisuuden jakaminen</value>
+  </data>
+  <data name="Secure and efficient electronic distribution of monthly salary slips." xml:space="preserve">
+    <value>Turvallinen ja tehokas sähköinen kuukausipalkan jakaminen.</value>
+  </data>
+  <data name="Security" xml:space="preserve">
+    <value>Turvallisuus</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Omalla palvelimella</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Älykäs tumma tila, joka mukautuu automaattisesti käyttäjän järjestelmäasetuksiin.</value>
+  </data>
+  <data name="Source Code" xml:space="preserve">
+    <value>Lähdekoodi</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Aloita uusi projekti</value>
+  </data>
+  <data name="Streamline financial tracking and record-keeping for better transparency." xml:space="preserve">
+    <value>Yksinkertaista rahoitustarkkailua ja kirjanpitoa paremman läpinäkyvyyden vuoksi.</value>
+  </data>
+  <data name="Systematize the career progression and promotion processes for your team." xml:space="preserve">
+    <value>Järjestä urakehitys- ja edistymisprosessit tiimillesi.</value>
+  </data>
+  <data name="Technical Lead" xml:space="preserve">
+    <value>Tekninen Päällikkö</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Navigointipalkki sopeutuu automaattisesti käyttäjän roolien ja käyttöoikeuksien perusteella.</value>
+  </data>
+  <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
+    <value>Malli on suunniteltu helppokäyttöiseksi käyttöönottoa varten. Se sisältää täyden Docker-tuen, joten voit konttipohjata sovelluksesi ja ajaa sitä missä tahansa. Voit myös ottaa sen käyttöön suoraan IIS:ään, Azure App Serviceen tai mihin tahansa palvelimeen, joka tukee ASP.NET Corea.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>Tämä on malliprojekti</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Tämä on malliprojekti, josta aloitamme matkan...</value>
+  </data>
+  <data name="Track and manage expense reimbursements with an integrated calendar view." xml:space="preserve">
+    <value>Seuraa ja hallinnoi kulukorvauksia integroidun kalenterin näkymän avulla.</value>
+  </data>
+  <data name="Track, report, and resolve workplace incidents to ensure safety and compliance." xml:space="preserve">
+    <value>Seuraa, raportoi ja ratkaise työpaikalla tapahtuneet onnettomuudet varmistaaksesi turvallisuuden ja noudattamisen.</value>
+  </data>
+  <data name="Usage" xml:space="preserve">
+    <value>Käyttö</value>
+  </data>
+  <data name="Use it as a foundation for your SaaS, a backend for your mobile app, a corporate website, or a personal blog. The possibilities are endless." xml:space="preserve">
+    <value>Käytä sitä perustana SaaS-palvelullesi, mobiilisovelluksesi taustajärjestelmänä, yrityssivustona tai henkilökohtaisena blogina. Mahdollisuudet ovat rajattomat.</value>
+  </data>
+  <data name="View on GitHub" xml:space="preserve">
+    <value>Näytä GitHubissa</value>
+  </data>
+  <data name="Visualize organizational structure and reporting hierarchies with clarity." xml:space="preserve">
+    <value>Näytä organisaatiorakenne ja raportointirakenteet selkeästi.</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Tervetuloa</value>
+  </data>
+  <data name="What do I need to get started?" xml:space="preserve">
+    <value>Mitä tarvitsen aloittamiseen?</value>
+  </data>
+  <data name="What our developers say" xml:space="preserve">
+    <value>Mitä kehittäjämme sanovat</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Miksi käyttää Aiursoft Templatea?</value>
+  </data>
+  <data name="Yes, Aiursoft Template is completely free and open-source under the MIT License. You can use it for personal and commercial projects without any cost." xml:space="preserve">
+    <value>Kyllä, Aiursoft Template on täysin ilmainen ja avoin lähdekoodi MIT-lisenssin alla. Voit käyttää sitä henkilökohtaisiin ja kaupallisiin projekteihin ilman mitään kustannuksia.</value>
+  </data>
+  <data name="You can get community support via GitHub Discussions. Please visit our" xml:space="preserve">
+    <value>Saat yhteisötukea GitHub Discussionsin kautta. Käy meidän</value>
+  </data>
+  <data name="You&apos;ll need the .NET 10 SDK, npm and your favorite IDE, like Visual Studio or JetBrains Rider. You can find the full setup guide in our documentation." xml:space="preserve">
+    <value>Tarvitset .NET 10 SDK:n, npm:n ja suosikki-IDE:si, kuten Visual Studion tai JetBrains Riderin. Löydät täydellisen asennusoppaan dokumentaatiostamme.</value>
+  </data>
+
+</root>

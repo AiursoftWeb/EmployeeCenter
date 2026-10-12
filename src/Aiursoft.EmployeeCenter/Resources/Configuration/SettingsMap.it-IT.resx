@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Un token API di Cloudflare in sola lettura utilizzato da DNS Audit. Concedi DNS Settings:Read per tutti gli account e DNS:Read per tutte le zone.</value>
+  </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Un token API Cloudflare in sola lettura utilizzato da Service Audit. Concedi DNS Settings:Read per tutti gli account e DNS:Read per tutte le zone.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
+    <value>Prompt di sistema dell&apos;assistente AI</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Consenti all&apos;utente di modificare il soprannome</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Consenti agli utenti di modificare il proprio soprannome nella pagina di gestione del profilo.</value>
+  </data>
+  <data name="Annual Leave Per Year" xml:space="preserve">
+    <value>Congedo Annuale All&apos;Anno</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>URL home del marchio</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Nome del marchio</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Token API Cloudflare</value>
+  </data>
+  <data name="Default Payroll Currency" xml:space="preserve">
+    <value>Valuta dello stipendio predefinita</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>Associazione Progetto Obbligatoria</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>Numero ICP</value>
+  </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Prompt di sistema per i verbali delle riunioni</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Logo del progetto</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Nome progetto</value>
+  </data>
+  <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
+    <value>Richiedi agli impiegati di associare almeno un progetto quando inviano una relazione settimanale.</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Il nome del marchio dell&apos;azienda o del progetto. Esempio: Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>La valuta predefinita da utilizzare quando si emette un nuovo stipendio.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Il numero di licenza ICP per gli utenti della Cina continentale. Lasciare vuoto per nascondere.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Il logo del progetto visualizzato nella navbar e nel footer. Supporta jpg, png, svg.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Il nome del progetto visualizzato nel frontend.</value>
+  </data>
+  <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
+    <value>Il numero di giorni di ferie annuali retribuite assegnati a ciascun dipendente ogni anno.</value>
+  </data>
+  <data name="The system prompt for the AI assistant." xml:space="preserve">
+    <value>Il prompt di sistema per l&apos;assistente AI.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Il prompt di sistema utilizzato per generare i verbali delle riunioni dai resoconti.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>L&apos;URL dell&apos;azienda o del progetto. Esempio: https://www.aiursoft.com</value>
+  </data>
+
+</root>

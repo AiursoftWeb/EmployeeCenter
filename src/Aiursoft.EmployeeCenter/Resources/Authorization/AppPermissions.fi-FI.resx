@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Lisää globaali salasana</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Lisää uusia rooleja</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Lisää uusia käyttäjiä</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Sallii hyväksyä tai hylätä minkä tahansa lomahakemuksen riippumatta raportointirakenteesta sekä nähdä minkä tahansa käyttäjän lomahistorian.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Sallii hyväksyä tai hylätä minkä tahansa lomapyyntö, riippumatta raportointirakenteesta.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Mahdollistaa tilitysopyyntöjen hyväksymisen, vahvistamisen tai hylkämisen mistä tahansa työntekijästä.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Mahdollistaa projektivaatimusten hyväksymisen, hylkäämisen tai muutoksia vaativien pyyntöjen tekemisen. Kaikki voivat esittää vaatimuksia ja kommentoida niitä.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Mahdollistaa roolien määrittämisen tai poistamisen mille tahansa käyttäjälle.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Sallii kaikkien yrityksen sopimusten luomisen ja hallinnan.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Sallii uusien työntekijöiden alustustaskujen mallien luomisen ja hallinnan.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Sallii yrityksen sopimusten luomisen. Kaikki käyttäjät voivat nähdä julkaistut sopimukset oletuksena.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Sallii uusien sopimusten luomisen kaikille käyttäjille.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Mahdollistaa uusien globaalien salasanojen luomisen, jotka voidaan jakaa muiden kanssa.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Sallii kysymysten, kyselylomakkeiden luomisen ja palautteen vastausten tarkastelun.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Sallii viikonraporttien luomisen, muokkaamisen ja poistamisen muiden käyttäjien puolesta.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Sallii luoda, päivittää ja poistaa luonnoksia. Kaikki käyttäjät voivat oletuksena tarkastella luonnoksia.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Salli kokoelmakanavien ja niiden tietojen luominen, päivittäminen ja poistaminen.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Sallii yritysentiteettitietojen luomisen, päivittämisen ja poiston.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Sallii yrityksen yksikön tietojen luomisen, päivittämisen ja poistamisen. Kaikki käyttäjät voivat nähdä yrityksen yksikön tiedot oletuksena.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Sallii asiakassuhteiden tietojen luomisen, päivittämisen ja poiston. Kaikki käyttäjät voivat nähdä asiakassuhteet oletuksena.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Sallii markkinakanavien tiedon luomisen, päivittämisen ja poistamisen. Kaikki käyttäjät voivat nähdä markkinakanavat oletuksena.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Sallii palveluiden ja DNS-toimittajien luomisen, päivittämisen ja poistamisen. Kaikki käyttäjät voivat oletuksena tarkastella palveluja.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Mahdollistaa palvelimien, palveluiden, palveluntarjoajien, DNS-palveluntarjoajien ja domain-aliasien luomisen, päivittämisen, elinkaaren päättämisen ja ylläpidon.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Mahdollistaa palkkalaskujen luomisen ja hallinnoinnin kaikille käyttäjille.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Sallii minkä tahansa käyttäjän luomien globaalien salasanojen hallinnan ja poistamisen.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Sallii yrityksen taloudellisten tilien hallinnoinnin ja tapahtumien kirjaamisen.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Sallii yrityksen tietoteknisten ja epäaineellisten omaisuusvälineiden hallinnan (kuten verkkotunnukset, lisenssit), mukaan lukien luokat, mallit ja yksittäiset tuotteet. Sallii myös omaisuuden myöntämisen ja palauttamisen työntekijöiltä.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Sallii yrityksen tietoteknisten varojen hallinnoinnin, mukaan lukien luokat, mallit ja yksittäiset tuotteet.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Mahdollistaa yrityksen tietoteknisten varojen hallinnan, mukaan lukien kategoriat, mallit ja yksittäiset tuotteet. Mahdollistaa myös varojen myöntämisen ja palauttamisen työntekijöille.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Sallii manuaalisesti käynnistää palvelun DNS- ja saatavuustarkistuksen.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Sallii roolien nimien ja niihin liitettyjen käyttöoikeuksien muokkaamisen.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Sallii käyttäjätietojen muokkaamisen, kuten sähköpostiosoitetta ja roolia, sekä käyttäjän salasanan nollauksen.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Sallii käyttäjätietojen, kuten sähköpostiosoitteen ja roolien, muokkaamisen sekä käyttäjien salasanojen nollaamisen.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Sallii työntekijän työ- ja tulotodistusten tulostamisen kaikille työntekijöille.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Sallii työsuoritustodistusten ja tulotodistusten tulostamisen itselleen.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Sallii luku-only Cloudflare DNS-tarkastuksen suorittamisen ja sen löytöjen katselun.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Sallii luku-only-palvelutarkastuksen suorittamisen ja sen havaintojen katselun.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Sallii roolien pysyvän poistamisen.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Sallii käyttäjätilien pysyvän poistamisen.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Sallii käyttäjän keskustella tekoälyavustajan kanssa yritystietojen saamiseksi.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Sallii käyttäjän luoda omat viikko- raporttinsa.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Mahdollistaa käyttäjän luoda viikkoraportteja muiden käyttäjien puolesta.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Sallii käyttäjän täyttää ja lähettää palautetta koskevat kyselyt.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Käyttäjä voi jättää korvauspyyntöjä menoistaan.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Mahdollistaa kokousnauhojen lataamisen, poistamisen ja puheesta tekstiksi -muunnoksen uudelleen aloittamisen.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Sallii kaikkien yrityksen sopimusten tarkastelun, mukaan lukien ne, jotka on merkitty yksityisiksi.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Sallii kaikkien yrityksen sopimusten tarkastelun, mukaan lukien ne, jotka on merkitty yksityisiksi. Kaikki voivat tarkastella julkaistuja sopimuksia oletuksena.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Salli globaalien sovellusasetusten tarkastelun ja muokkaamisen.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Mahdollistaa kokouspöytäkirjojen katselun sekä minkä tahansa tallenteen pöytäkirjojen kuuntelun tai lukemisen.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Salli palvelun terveydentilan yhteenvetojen, havaintojen ja yksityiskohtaisten tilintarkastustulosten näkemisen.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Mahdollistaa järjestelmätason tietojen ja asetusten tarkastelemisen.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Sallii taustatehtävien hallintapaneelin tarkastelun ja tehtävien hallinnoinnin.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Sallii käyttäjän sopimushistorian tarkastelun.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Sallii kaikkien keräyskanavien ja niiden tietojen luettelon tarkastelun.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Sallii kaikkien oikeuksien ja niiden roolien sekä käyttäjien käyttöoikeuksien näkymisen.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Mahdollistaa kaikkien käyttäjien luettelon katsomisen.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Mahdollistaa rooliluettelon ja niihin liitettyjen käyttöoikeuksien tarkastelemisen.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Sallii käyttäjän toimintalokien tarkastelun, mukaan lukien niiden pankkikorttien muutoshistorian.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Mahdollistaa minkä tahansa käyttäjän raportointilinjan katselun, mukaan lukien heidän esimiehensä, alaisensa ja kollegansa.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Mahdollistaa palvelimien ja palvelurekisterin, laajennusriippuvuuksien ja infrastruktuurin viitetietojen katselun.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Mahdollistaa minkä tahansa käyttäjän SSH-avainten tarkastelun, muokkaamisen ja poistamisen.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Hyväksy kaikki lomakyselyt</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Hyväksy projektivaatimukset</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Hyväksy korvauksia</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Anna roolit käyttäjille</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Tarkista DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Palvelujen auditointi</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Palveluiden auditointi (vanha)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Keskustele tekoälyn kanssa</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Luo ja hallinnoi yrityksen sopimuksia</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Luo yrityslehdet</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Luo sopimus</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Luo viikkoraportti</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Luo viikko-raportti kenelle tahansa</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>Oletusoikeus HR:lle.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Poista roolit</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Poista käyttäjiä</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Muokkaa käyttäjätietoja</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Muokkaa roolitietoja</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Muokkaa käyttäjätietoja</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Antaa oikeuden luoda uusia rooleja.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Antaa oikeuden luoda uusia käyttäjätilejä.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Antaa luvan sovelluksen uudelleenkäynnistämiseen. Saattaa aiheuttaa käyttökatkoksia, mutta kaikki asetukset ja välimuisti ladataan uudelleen.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Perintöoikeus on säilytetty siirtymäkaudelle. Määritä Hallitse infrastruktuuria -oikeus rooleille, joilla on edelleen pääsy.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Perintöoikeus säilytetty siirtymäkauden vuoksi. Määritä Näytä palvelutarkastus ja Suorita palvelutarkastus sopivissa tapauksissa.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Hallitse mitä tahansa salasanaa</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Hallinnoi kenen tahansa viikkoraporttia</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Hallinnoi varoja</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Hallinnoi luonnoksia</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Hallitse perintäkanavia</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Hallinnoi yrityksen yksiköitä</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Hallinnoi asiakassuhteita</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Hallinnoi palautetta</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Hallinnoi yleisiä asetuksia</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Infrastruktuurin hallinta</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Hallinnoi lomia</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Hallinnoi tilikonttia</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Hallinnoi markkinakanavia</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Hallinnoi kokousmuistioita</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Hallinnoi rekrytoinnin tehtäviä</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Hallitse palkkalaskelmia</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Hallinnoi palveluita</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Palvelujen hallinta (legacy)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Hallitse SSH-avaimia</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Tulosta todistukset</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Tulosta oma todistukset</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Lue oikeudet</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Lue roolit</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Lue käyttäjiä</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Käynnistä tämä sovellus uudelleen</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Suorita palvelutarkastus</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Lähetä palautetta</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Lähetä korvaus</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Näytä mikä tahansa yrityksen sopimus, mukaan lukien yksityiset</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Näytä taustatehtävät</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Näytä keräyskanavia</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Näytä sopimushistoria</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Näytä infrastruktuuri</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Näytä kokousten pöytäkirjat</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Näytä raporttirivi</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Näytä palvelutarkastus</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Näytä järjestelmän konteksti</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Näytä käyttäjän toimintalogi</value>
+  </data>
+
+</root>

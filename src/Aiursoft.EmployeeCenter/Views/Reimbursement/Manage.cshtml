@@ -1,0 +1,170 @@
+@model Aiursoft.EmployeeCenter.Models.ReimbursementViewModels.ManageIndexViewModel
+@{
+}
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@inject StorageService StorageService
+
+<div class="container-xl">
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    @Localizer["Reimbursement Approval Center"]
+                </h2>
+                <div class="text-muted mt-1">@Localizer["Review and process reimbursement requests from employees."]</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h3 class="card-title">@Localizer["Pending Requests ({0})", Model.PendingRequests.Count]</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Submitter"]</th>
+                            <th>@Localizer["Purpose"]</th>
+                            <th>@Localizer["Amount"]</th>
+							<th>@Localizer["Download"]</th>
+							<th>@Localizer["Submitted At"]</th>
+                            <th class="w-1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.PendingRequests.Count == 0)
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">@Localizer["No pending requests."]</td>
+                            </tr>
+                        }
+                        @foreach (var item in Model.PendingRequests)
+                        {
+                            <tr>
+                                <td>@item.Submitter.DisplayName</td>
+                                <td>@item.Purpose</td>
+                                <td>@item.Amount.ToString("N2") @item.Currency</td>
+								<td>
+									@if (item.InvoicePath is not null)
+									{
+										<a href="@StorageService.RelativePathToInternetUrl(@item.InvoicePath, isVault: true)" class="btn btn-sm btn-outline-info" target="_blank">
+											<i class="align-middle" data-lucide="download"></i> @Localizer["Download"]
+										</a>
+									}
+								</td>
+                                <td>@item.SubmittedAt.ToString("g")</td>
+                                <td>
+                                    <div class="btn-list flex-nowrap gap-2">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-white btn-sm">
+                                            @Localizer["Review"]
+                                        </a>
+                                        <form asp-action="Acknowledge" asp-route-id="@item.Id" method="post">
+                                            <button type="submit" class="btn btn-success btn-sm">@Localizer["Acknowledge"]</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <h3 class="card-title">@Localizer["Acknowledged (Wait for Payment) ({0})", Model.AcknowledgedRequests.Count]</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Submitter"]</th>
+                            <th>@Localizer["Purpose"]</th>
+                            <th>@Localizer["Amount"]</th>
+							<th>@Localizer["Acknowledged At"]</th>
+                            <th class="w-1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.AcknowledgedRequests.Count == 0)
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">@Localizer["No acknowledged requests waiting for payment."]</td>
+                            </tr>
+                        }
+                        @foreach (var item in Model.AcknowledgedRequests)
+                        {
+                            <tr>
+                                <td>@item.Submitter.DisplayName</td>
+                                <td>@item.Purpose</td>
+                                <td>@item.Amount.ToString("N2") @item.Currency</td>
+                                <td>@item.ReviewedAt?.ToString("g")</td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-azure btn-sm">
+                                        @Localizer["Process"]
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@Localizer["Recent History (Last 100)"]</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Submitter"]</th>
+                            <th>@Localizer["Purpose"]</th>
+                            <th>@Localizer["Amount"]</th>
+							<th>@Localizer["Status"]</th>
+                            <th>@Localizer["Reviewed By"]</th>
+                            <th>@Localizer["Processed At"]</th>
+                            <th class="w-1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.HistoryRequests)
+                        {
+                            <tr>
+                                <td>@item.Submitter.DisplayName</td>
+                                <td>@item.Purpose</td>
+                                <td>@item.Amount.ToString("N2") @item.Currency</td>
+                                <td>
+                                    @switch (item.Status)
+                                    {
+                                        case ReimbursementStatus.Reimbursed:
+                                            <span class="badge bg-success">@Localizer["Reimbursed"]</span>
+                                            break;
+                                        case ReimbursementStatus.Rejected:
+                                            <span class="badge bg-danger">@Localizer["Rejected"]</span>
+                                            break;
+                                        case ReimbursementStatus.Revoked:
+                                            <span class="badge bg-warning">@Localizer["Revoked"]</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>@item.ReviewedBy?.DisplayName</td>
+                                <td>@(item.ReviewedAt?.ToString("g") ?? item.SubmittedAt.ToString("g"))</td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">
+                                        @Localizer["Details"]
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

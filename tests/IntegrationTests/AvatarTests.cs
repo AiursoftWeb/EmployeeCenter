@@ -1,0 +1,198 @@
+using Aiursoft.EmployeeCenter.Services.FileStorage;
+
+namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
+
+// JB scanner bug. Not a warning.
+#pragma warning disable CS8602
+
+[TestClass]
+public class AvatarTests : TestBase
+{
+    [TestMethod]
+    public async Task ChangeAvatarSuccessfullyTest()
+    {
+        // 1. Register and Login
+        await RegisterAndLoginAsync();
+
+        // 2. Upload a file
+        // 1x1 transparent GIF
+        var gifBytes = Convert.FromBase64String("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+        var fileContent = new ByteArrayContent(gifBytes);
+        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/gif");
+
+        var multipartContent = new MultipartFormDataContent();
+        multipartContent.Add(fileContent, "file", "avatar.gif");
+
+        var storage = GetService<StorageService>();
+        var subfolder = "avatars-" + Guid.NewGuid().ToString("N");
+        var uploadUrl = storage.GetUploadUrl(subfolder, isVault: false);
+        var uploadResponse = await Http.PostAsync(uploadUrl, multipartContent);
+        uploadResponse.EnsureSuccessStatusCode();
+
+        var uploadResult = await uploadResponse.Content.ReadFromJsonAsync<UploadResult>();
+        Assert.IsNotNull(uploadResult);
+        Assert.IsNotNull(uploadResult.Path);
+
+        // 3. Change Avatar
+        var changeAvatarResponse = await PostForm("/Manage/ChangeAvatar", new Dictionary<string, string>
+        {
+            { "AvatarUrl", uploadResult.Path }
+        });
+
+        // 4. Verify Success
+        AssertRedirect(changeAvatarResponse, "/Manage?Message=ChangeAvatarSuccess");
+    }
+
+    [TestMethod]
+    public async Task AvatarImageProcessingTest()
+    {
+        // 1. Register and Login
+        await RegisterAndLoginAsync();
+
+        // 2. Upload a file
+        var gifBytes = Convert.FromBase64String("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+        var fileContent = new ByteArrayContent(gifBytes);
+        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/gif");
+
+        var multipartContent = new MultipartFormDataContent();
+        multipartContent.Add(fileContent, "file", "avatar.gif");
+
+        var storage = GetService<StorageService>();
+        var subfolder = "avatars-" + Guid.NewGuid().ToString("N");
+        var uploadUrl = storage.GetUploadUrl(subfolder, isVault: false);
+        var uploadResponse = await Http.PostAsync(uploadUrl, multipartContent);
+        uploadResponse.EnsureSuccessStatusCode();
+
+        var uploadResult = await uploadResponse.Content.ReadFromJsonAsync<UploadResult>();
+        Assert.IsNotNull(uploadResult);
+        Assert.IsNotNull(uploadResult.InternetPath);
+
+        // 3. Test Clear EXIF (Default download)
+        var downloadResponse = await Http.GetAsync(uploadResult.InternetPath);
+        downloadResponse.EnsureSuccessStatusCode();
+        Assert.AreEqual("application/octet-stream", downloadResponse.Content.Headers.ContentType?.MediaType);
+
+        // 4. Test Compression
+        var compressedResponse = await Http.GetAsync(uploadResult.InternetPath + "?w=100");
+        compressedResponse.EnsureSuccessStatusCode();
+        Assert.AreEqual("application/octet-stream", compressedResponse.Content.Headers.ContentType?.MediaType);
+    }
+
+    [TestMethod]
+    public async Task AvatarPngCompressionTest()
+    {
+        // 1. Register and Login
+        await RegisterAndLoginAsync();
+
+        // 2. Upload a PNG file
+        // 1x2 PNG
+        var pngBytes = Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAIAAAAW4yFwAAAAEElEQVR4nGP4z8DAxMDAAAAHCQEClNBcOwAAAABJRU5ErkJggg==");
+        var fileContent = new ByteArrayContent(pngBytes);
+        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+
+        var multipartContent = new MultipartFormDataContent();
+        multipartContent.Add(fileContent, "file", "avatar.png");
+
+        var storage = GetService<StorageService>();
+        var subfolder = "avatars-" + Guid.NewGuid().ToString("N");
+        var uploadUrl = storage.GetUploadUrl(subfolder, isVault: false);
+        var uploadResponse = await Http.PostAsync(uploadUrl, multipartContent);
+        uploadResponse.EnsureSuccessStatusCode();
+
+        var uploadResult = await uploadResponse.Content.ReadFromJsonAsync<UploadResult>();
+        Assert.IsNotNull(uploadResult);
+        Assert.IsNotNull(uploadResult.InternetPath);
+
+        // 3. Test Compression
+        var compressedResponse = await Http.GetAsync(uploadResult.InternetPath + "?w=100");
+        compressedResponse.EnsureSuccessStatusCode();
+
+        // Verify it is an image and likely PNG
+        Assert.AreEqual("image/png", compressedResponse.Content.Headers.ContentType?.MediaType);
+
+        // Verify dimensions
+        await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
+        using var image = SkiaSharp.SKBitmap.Decode(stream);
+        Assert.AreEqual(128, image.Width);
+        Assert.AreEqual(256, image.Height);
+    }
+
+    [TestMethod]
+    public async Task AvatarPngCompressionSquareTest()
+    {
+        // 1. Register and Login
+        await RegisterAndLoginAsync();
+
+        // 2. Upload a PNG file
+        // 1x2 PNG
+        var pngBytes = Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAIAAAAW4yFwAAAAEElEQVR4nGP4z8DAxMDAAAAHCQEClNBcOwAAAABJRU5ErkJggg==");
+        var fileContent = new ByteArrayContent(pngBytes);
+        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+
+        var multipartContent = new MultipartFormDataContent();
+        multipartContent.Add(fileContent, "file", "avatar.png");
+
+        var storage = GetService<StorageService>();
+        var subfolder = "avatars-" + Guid.NewGuid().ToString("N");
+        var uploadUrl = storage.GetUploadUrl(subfolder, isVault: false);
+        var uploadResponse = await Http.PostAsync(uploadUrl, multipartContent);
+        uploadResponse.EnsureSuccessStatusCode();
+
+        var uploadResult = await uploadResponse.Content.ReadFromJsonAsync<UploadResult>();
+        Assert.IsNotNull(uploadResult);
+        Assert.IsNotNull(uploadResult.InternetPath);
+
+        // 3. Test Compression
+        var compressedResponse = await Http.GetAsync(uploadResult.InternetPath + "?w=100&square=true");
+        compressedResponse.EnsureSuccessStatusCode();
+
+        // Verify it is an image and likely PNG
+        Assert.AreEqual("image/png", compressedResponse.Content.Headers.ContentType?.MediaType);
+
+        // Verify dimensions
+        await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
+        using var image = SkiaSharp.SKBitmap.Decode(stream);
+        Assert.AreEqual(128, image.Width);
+        Assert.AreEqual(128, image.Height);
+    }
+
+    [TestMethod]
+    public async Task AvatarPngCompressionWidthOnlyTest()
+    {
+        // 1. Register and Login
+        await RegisterAndLoginAsync();
+
+        // 2. Upload a PNG file
+        var pngBytes = Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAIAAAAW4yFwAAAAEElEQVR4nGP4z8DAxMDAAAAHCQEClNBcOwAAAABJRU5ErkJggg==");
+        var fileContent = new ByteArrayContent(pngBytes);
+        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+
+        var multipartContent = new MultipartFormDataContent();
+        multipartContent.Add(fileContent, "file", "avatar.png");
+
+        var storage = GetService<StorageService>();
+        var subfolder = "avatars-" + Guid.NewGuid().ToString("N");
+        var uploadUrl = storage.GetUploadUrl(subfolder, isVault: false);
+        var uploadResponse = await Http.PostAsync(uploadUrl, multipartContent);
+        uploadResponse.EnsureSuccessStatusCode();
+
+        var uploadResult = await uploadResponse.Content.ReadFromJsonAsync<UploadResult>();
+        Assert.IsNotNull(uploadResult);
+
+        // 3. Test Compression with width only
+        var compressedResponse = await Http.GetAsync(uploadResult.InternetPath + "?w=100");
+        compressedResponse.EnsureSuccessStatusCode();
+
+        await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
+        using var image = SkiaSharp.SKBitmap.Decode(stream);
+        Assert.AreEqual(128, image.Width);
+    }
+
+    private class UploadResult
+    {
+        public string Path { get; init; } = string.Empty;
+        public string InternetPath { get; init; } = string.Empty;
+    }
+}
+#pragma warning restore CS8602
+#pragma warning restore CS8602

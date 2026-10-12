@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of all contract records." xml:space="preserve">
+    <value>قائمة بجميع سجلات العقود.</value>
+  </data>
+  <data name="A list of all your contracts." xml:space="preserve">
+    <value>قائمة بجميع عقودك.</value>
+  </data>
+  <data name="A list of folders and contracts in this location." xml:space="preserve">
+    <value>قائمة بالمجلدات والعقود الموجودة في هذا الموقع.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>إجراءات</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Are you sure you want to delete this folder?" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد حذف هذا المجلد؟</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="Click here to manage contents." xml:space="preserve">
+    <value>اضغط هنا لإدارة المحتويات</value>
+  </data>
+  <data name="Contents" xml:space="preserve">
+    <value>المحتويات</value>
+  </data>
+  <data name="Contract History" xml:space="preserve">
+    <value>سجل العقود</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>العقود</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>وقت الإنشاء</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>تنزيل</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>غير صالح</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>هناك فراغ!</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>عقودي</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>فتح</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>المُالِك</value>
+  </data>
+  <data name="Pending Signature" xml:space="preserve">
+    <value>معلق التوقيع</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>معاينة</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>إعادة تسمية</value>
+  </data>
+  <data name="Shared" xml:space="preserve">
+    <value>مشترك</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="This folder is currently empty." xml:space="preserve">
+    <value>هذا المجلد فارغ حالياً.</value>
+  </data>
+
+</root>

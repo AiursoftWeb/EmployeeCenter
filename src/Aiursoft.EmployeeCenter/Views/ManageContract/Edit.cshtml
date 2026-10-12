@@ -1,0 +1,79 @@
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.EditViewModel
+
+<h1 class="h3 mb-3">@Localizer["Edit Contract"]</h1>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Contract Details"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">@Localizer["Contract Name"]</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="FilePath" class="form-label">@Localizer["Contract File"]</label>
+                        <vc:file-upload 
+                            asp-for="FilePath" 
+                            subfolder="contract" 
+                            allowed-extensions="pdf jpg png docx"
+                            is-vault="true">
+                        </vc:file-upload>
+                        <span asp-validation-for="FilePath" class="text-danger"></span>
+                        <div class="form-text">@Localizer["Leave empty to keep current file."]</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Status" class="form-label">@Localizer["Status"]</label>
+                        <select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<ContractStatus>()"></select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="FolderId" class="form-label">@Localizer["Folder"]</label>
+                        <select asp-for="FolderId" class="form-select">
+                            <option value="">@Localizer["(Root)"]</option>
+                            @foreach (var folder in (IEnumerable<SelectListItem>)ViewData["Folders"]!)
+                            {
+                                <option value="@folder.Value" selected="@(folder.Selected ? "selected" : null)">@folder.Text</option>
+                            }
+                        </select>
+                        <span asp-validation-for="FolderId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" asp-for="IsPublic">
+                            <label class="form-check-label" asp-for="IsPublic">@Localizer["Public Contract (Everyone can see)"]</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="align-middle me-2" data-lucide="save"></i> @Localizer["Save Changes"]
+                    </button>
+                    <a asp-action="Index" class="btn btn-light">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

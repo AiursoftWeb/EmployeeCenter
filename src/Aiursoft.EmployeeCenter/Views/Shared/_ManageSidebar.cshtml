@@ -1,0 +1,63 @@
+@using Aiursoft.EmployeeCenter.Configuration
+@using Microsoft.Extensions.Options
+@inject IOptions<AppSettings> AppSettings
+
+@{
+    string IsActive(string controller, string action)
+    {
+        var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+        return string.Equals(currentController, controller, StringComparison.OrdinalIgnoreCase) &&
+        string.Equals(currentAction, action, StringComparison.OrdinalIgnoreCase)
+        ? "active"
+        : "";
+    }
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Settings"]</h5>
+    </div>
+    <div class="list-group list-group-flush">
+        <a asp-controller="Manage" asp-action="ChangeAvatar"
+            class="list-group-item list-group-item-action @IsActive("Manage", "ChangeAvatar")">
+            <i class="align-middle me-2" data-lucide="image"></i>
+            @Localizer["Change your avatar"]
+        </a>
+        <a asp-controller="Manage" asp-action="MaintainProfile"
+            class="list-group-item list-group-item-action @IsActive("Manage", "MaintainProfile")">
+            <i class="align-middle me-2" data-lucide="user-cog"></i>
+            @Localizer["Maintain Profile"]
+        </a>
+
+        @if (AppSettings.Value.LocalEnabled)
+        {
+            <a asp-controller="Manage" asp-action="ChangeProfile"
+                class="list-group-item list-group-item-action @IsActive("Manage", "ChangeProfile")">
+                <i class="align-middle me-2" data-lucide="user"></i>
+                @Localizer["Change your profile"]
+            </a>
+            <a asp-controller="Manage" asp-action="ChangePassword"
+                class="list-group-item list-group-item-action @IsActive("Manage", "ChangePassword")">
+                <i class="align-middle me-2" data-lucide="lock"></i>
+                @Localizer["Change your password"]
+            </a>
+
+        }
+        <a asp-controller="Manage" asp-action="ChangeBankInfo"
+            class="list-group-item list-group-item-action @IsActive("Manage", "ChangeBankInfo")">
+            <i class="align-middle me-2" data-lucide="credit-card"></i>
+            @Localizer["Change bank information"]
+        </a>
+        <a asp-controller="SshKeys" asp-action="Index"
+            class="list-group-item list-group-item-action @IsActive("SshKeys", "Index")">
+            <i class="align-middle me-2" data-lucide="key"></i>
+            @Localizer["SSH Keys"]
+        </a>
+
+        <a asp-controller="Manage" asp-action="Index" class="list-group-item list-group-item-action">
+            <i class="align-middle me-2" data-lucide="arrow-left"></i>
+            @Localizer["Back to Overview"]
+        </a>
+    </div>
+</div>

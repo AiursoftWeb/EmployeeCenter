@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Ενέργειες</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Όλη η Εταιρεία</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Ετήσια άδεια</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Υποψήφιος</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>αιτήσεις εγκρίθηκαν</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>αιτήσεις απορρίφθηκαν</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Κέντρο Εγκρίσεων</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Ιστορικό Εγκρίσεων</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Εγκρίνω</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Εγκρίθηκε</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Ε aproved Αυτόν τον Μήνα</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Εγκριτής</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>εκκρεμεί αξιολόγηση σε όλη την εταιρεία</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>αναμονή κρίσης σας</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>επί του παρόντος απών</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Ημέρες</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Απόφαση</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Αν απορριφθεί λάθος:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Αν ο υπάλληλος επιθυμεί να ακυρώσει:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Σημαντικό: Οι Αποφάσεις Εγκρίσεως είναι Τελικές</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Η Ομάδα Μου</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>Καμία ιστορία εγκρίσεων.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Κανένα ανεπίλυτο αίτημα.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>Μόλις εγκρίνετε ή απορρίψετε μια αίτηση άδειας, η απόφαση δεν μπορεί να αναιρεθεί. Παρακαλούμε ελέγξτε προσεκτικά πριν λάβετε απόφαση.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>Εκκρεμεί Έγκριση</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Εκκρεμείς Εγκρίσεις</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Περίοδος</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Λόγος</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Απόρριψη</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Απορρίφθηκε</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Απορριφθέντα Αυτόν τον Μήνα</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Εγκρίθηκε</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Ασθενεία</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Υποβλήθηκε</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>Ομάδα σε άδεια</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>Ο υπάλληλος πρέπει να υποβάλει μια νέα αίτηση.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>Μπορούν να αποσύρουν τη δική τους αίτηση πριν αρχίσει.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>στο</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Τύπος</value>
+  </data>
+
+</root>

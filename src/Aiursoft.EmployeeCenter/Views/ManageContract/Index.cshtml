@@ -1,0 +1,160 @@
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@using Aiursoft.EmployeeCenter.Authorization
+@using Microsoft.AspNetCore.Authorization
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.ManageViewModel
+@inject StorageService StorageService
+@inject IAuthorizationService AuthorizationService
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>
+            @Localizer["Manage Contracts"] @(Model.CurrentFolder != null ? $"- {Model.CurrentFolder.Name}" : "")
+            @if (Model.CurrentFolder != null && (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanCreateContract)).Succeeded)
+            {
+                <a asp-action="EditFolder" asp-route-id="@Model.CurrentFolder.Id" class="btn btn-sm btn-outline-primary ms-2">
+                    <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Rename"]
+                </a>
+            }
+        </h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        @if (Model.FolderId != null)
+        {
+            <a asp-action="Index" asp-route-id="@Model.CurrentFolder?.ParentFolderId" class="btn btn-secondary me-2">
+                <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back"]
+            </a>
+        }
+        @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanCreateContract)).Succeeded)
+        {
+            <a asp-action="CreateFolder" asp-route-id="@Model.FolderId" class="btn btn-outline-primary me-2">
+                <i class="align-middle" data-lucide="folder-plus"></i> @Localizer["Create Folder"]
+            </a>
+            <a asp-action="ImportZip" asp-route-folderId="@Model.FolderId" class="btn btn-outline-success me-2">
+                <i class="align-middle" data-lucide="archive"></i> @Localizer["Import Zip"]
+            </a>
+            <a asp-action="Create" asp-route-folderId="@Model.FolderId" class="btn btn-primary">
+                <i class="align-middle" data-lucide="plus-circle"></i> @Localizer["Create new contract"]
+            </a>
+        }
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["Contents"]</h5>
+        <h6 class="card-subtitle text-muted">@Localizer["A list of folders and contracts in this location."]</h6>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["Name"]</th>
+                <th>@Localizer["Status"]</th>
+                <th>@Localizer["Visibility"]</th>
+                <th>@Localizer["Created Time"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var folder in Model.SubFolders)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Index" asp-route-id="@folder.Id">
+                            <i class="align-middle me-2" data-lucide="folder"></i> @folder.Name
+                        </a>
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><label class="text-muted" data-utc-time="@folder.CreateTime.ToHtmlDateTime()"></label></td>
+                    <td class="text-end">
+                        @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanCreateContract)).Succeeded)
+                        {
+                            <a asp-action="EditFolder" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                            </a>
+                            <form asp-action="DeleteFolder" asp-route-id="@folder.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-folder-confirm', 'Are you sure you want to delete this folder?'));">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                </button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            @foreach (var item in Model.Contracts)
+            {
+                <tr>
+                    <td>
+                        <i class="align-middle me-2" data-lucide="file-text"></i> @item.Name
+                    </td>
+                    <td>
+                        @switch (item.Status)
+                        {
+                            case ContractStatus.PendingSignature:
+                                <span class="badge bg-warning">@Localizer["Pending Signature"]</span>
+                                break;
+                            case ContractStatus.Active:
+                                <span class="badge bg-success">@Localizer["Active"]</span>
+                                break;
+                            case ContractStatus.Invalid:
+                                <span class="badge bg-danger">@Localizer["Invalid"]</span>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        @if (item.IsPublic)
+                        {
+                            <span class="badge bg-info">@Localizer["Public"]</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@Localizer["Private"]</span>
+                        }
+                    </td>
+                    <td><label class="text-muted" data-utc-time="@item.CreateTime.ToHtmlDateTime()"></label></td>
+                    <td class="text-end">
+                        <a href="@StorageService.RelativePathToInternetUrl(item.FilePath, isVault: true)" class="btn btn-sm btn-outline-info" target="_blank">
+                            <i class="align-middle" data-lucide="download"></i> @Localizer["Download"]
+                        </a>
+                        @if (item.CollectionChannels.Any())
+                        {
+                            <a asp-action="Finance" asp-route-id="@item.Id" class="btn btn-sm btn-outline-success" title="@Localizer["Finance"]">
+                                <i class="align-middle" data-lucide="dollar-sign"></i> @Localizer["Finance"]
+                            </a>
+                        }
+                        @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanCreateContract)).Succeeded)
+                        {
+                            <a asp-action="OcrResults" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Preview"]">
+                                <i class="align-middle" data-lucide="eye"></i> @Localizer["Preview"]
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                            </a>
+                            <a asp-action="Move" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Move to folder"]">
+                                <i class="align-middle" data-lucide="folder-input"></i> @Localizer["Move"]
+                            </a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-contract-confirm', 'Are you sure you want to delete this contract?'));">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                </button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="loc-data" class="d-none">
+    <span data-key="delete-folder-confirm">@Localizer["Are you sure you want to delete this folder?"]</span>
+    <span data-key="delete-contract-confirm">@Localizer["Are you sure you want to delete this contract?"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+}

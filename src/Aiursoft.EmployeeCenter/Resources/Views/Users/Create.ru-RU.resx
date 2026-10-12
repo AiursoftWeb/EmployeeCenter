@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- No Signing Entity --" xml:space="preserve">
+    <value>-- Нет юридического лица --</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Назад к списку</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Банковский счет</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Bank Account Name</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Название банка</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Базовая зарплата</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="Create a new user" xml:space="preserve">
+    <value>Создать нового пользователя</value>
+  </data>
+  <data name="Create a password for the new user" xml:space="preserve">
+    <value>Создайте пароль для нового пользователя</value>
+  </data>
+  <data name="Create New User" xml:space="preserve">
+    <value>Создать нового пользователя</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Создать пользователя</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Время создания</value>
+  </data>
+  <data name="Display Name" xml:space="preserve">
+    <value>Отображаемое имя</value>
+  </data>
+  <data name="Email Address" xml:space="preserve">
+    <value>Адрес электронной почты</value>
+  </data>
+  <data name="Enter bank account" xml:space="preserve">
+    <value>Введите номер банковского счёта</value>
+  </data>
+  <data name="Enter bank account name" xml:space="preserve">
+    <value>Enter bank account name</value>
+  </data>
+  <data name="Enter bank name" xml:space="preserve">
+    <value>Введите название банка</value>
+  </data>
+  <data name="Enter base salary" xml:space="preserve">
+    <value>Введите базовый оклад</value>
+  </data>
+  <data name="Enter display name" xml:space="preserve">
+    <value>Введите отображаемое имя</value>
+  </data>
+  <data name="Enter email address" xml:space="preserve">
+    <value>Введите адрес электронной почты</value>
+  </data>
+  <data name="Enter job level" xml:space="preserve">
+    <value>Введите уровень должности</value>
+  </data>
+  <data name="Enter legal name" xml:space="preserve">
+    <value>Введите юридическое имя</value>
+  </data>
+  <data name="Enter phone number" xml:space="preserve">
+    <value>Введите номер телефона</value>
+  </data>
+  <data name="Enter title" xml:space="preserve">
+    <value>Enter title</value>
+  </data>
+  <data name="Enter username" xml:space="preserve">
+    <value>Введите имя пользователя</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>Уровень должности</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>Юридическое имя</value>
+  </data>
+  <data name="OpenID Connect (OIDC) is enabled. User accounts are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only account that exists solely within this application." xml:space="preserve">
+    <value>Включен OpenID Connect (OIDC). Учетные записи пользователей синхронизируются из внешнего поставщика удостоверений. Мы настоятельно рекомендуем создавать новых пользователей в вашем OIDC-провайдере, чтобы обеспечить их централизованное управление. Эта форма создаст локальную учетную запись, которая существует исключительно в рамках этого приложения.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>Подписывающая организация</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="User Account Details" xml:space="preserve">
+    <value>Данные учетной записи пользователя</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Имя пользователя</value>
+  </data>
+  <data name="Warning!" xml:space="preserve">
+    <value>Внимание!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Время регистрации события — это Всемирное координированное время!</value>
+  </data>
+
+</root>

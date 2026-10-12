@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- No Associated Contract --" xml:space="preserve">
+    <value>-- ไม่มีการผูกมัดกับสัญญา --</value>
+  </data>
+  <data name="-- Select Payee --" xml:space="preserve">
+    <value>-- เลือกผู้รับเงิน --</value>
+  </data>
+  <data name="-- Select Payer --" xml:space="preserve">
+    <value>-- เลือกผู้ชำระเงิน --</value>
+  </data>
+  <data name="Are you sure you want to terminate this collection channel? This action cannot be undone and will stop further collections." xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการยกเลิกช่องทางเก็บเงินนี้? การกระทำนี้ไม่สามารถยกเลิกได้และจะทำให้การเก็บเงินในอนาคตหยุดชะงัก</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Confirm Terminate" xml:space="preserve">
+    <value>ยืนยันการระงับ</value>
+  </data>
+  <data name="Edit collection channel" xml:space="preserve">
+    <value>แก้ไขช่องทางการจัดเก็บ</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>บันทึกการเปลี่ยนแปลง</value>
+  </data>
+  <data name="Terminate" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Terminate Collection Channel" xml:space="preserve">
+    <value>ยกเลิกช่องการเรียกเก็บเงิน</value>
+  </data>
+
+</root>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Create Promotion" xml:space="preserve">
+    <value>Crea Promozione</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Giorni</value>
+  </data>
+  <data name="Days since joining (No promotions yet)" xml:space="preserve">
+    <value>Giorni dalla data di assunzione (nessuna promozione ancora)</value>
+  </data>
+  <data name="Days since last promotion" xml:space="preserve">
+    <value>Giorni dal ultimo incarico</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Cronologia</value>
+  </data>
+  <data name="My Total Promotions" xml:space="preserve">
+    <value>Totale delle mie promozioni</value>
+  </data>
+  <data name="New Level" xml:space="preserve">
+    <value>Nuovo Livello</value>
+  </data>
+  <data name="No promotion history found." xml:space="preserve">
+    <value>Nessun cronologia di promozione trovata.</value>
+  </data>
+  <data name="Old Level" xml:space="preserve">
+    <value>Livello Vecchio</value>
+  </data>
+  <data name="Promoter" xml:space="preserve">
+    <value>Promotore</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Promozione</value>
+  </data>
+  <data name="Recent Promotions" xml:space="preserve">
+    <value>Promozioni recenti</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Tempo</value>
+  </data>
+  <data name="Total Company Promotions (YTD)" xml:space="preserve">
+    <value>Promozioni Totali Aziendali (YTD)</value>
+  </data>
+  <data name="Unknown User" xml:space="preserve">
+    <value>Utente Sconosciuto</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Utente</value>
+  </data>
+
+</root>

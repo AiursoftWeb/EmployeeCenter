@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="Add new asset" xml:space="preserve">
+    <value>Adicionar novo ativo</value>
+  </data>
+  <data name="All Assets" xml:space="preserve">
+    <value>Todos os Ativos</value>
+  </data>
+  <data name="Are you sure you want to return asset" xml:space="preserve">
+    <value>Tem a certeza de que deseja devolver o ativo</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Categorias de Ativos</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Modelos de Ativos</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Etiqueta do Ativo</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Atribuir</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Responsável</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Confirm Return" xml:space="preserve">
+    <value>Confirmar Devolução</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="Download Invoice" xml:space="preserve">
+    <value>Transferir Fatura</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>Entidade</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Inativo</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>Em Uso</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Fatura</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Localização</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Locais</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Perdido</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>Manutenção</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Gerir Ativos</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Modelo</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>N/D</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Pendente Aceitação</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Motivo</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Aposentado</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Devolver</value>
+  </data>
+  <data name="Return Asset" xml:space="preserve">
+    <value>Devolver Ativo</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="to stock?" xml:space="preserve">
+    <value>para armazém?</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Fornecedores</value>
+  </data>
+
+</root>

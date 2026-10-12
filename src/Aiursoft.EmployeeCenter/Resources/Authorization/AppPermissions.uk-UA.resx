@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Додати глобальний пароль</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Додати нові ролі</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Додати нових користувачів</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Дозволяє затверджувати або відхиляти будь-яку заявку на відпустку, незалежно від лінії звітності, та переглядати історію відпусток будь-якого користувача.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Дозволяє затверджувати або відхиляти будь-яку заявку на відпустку, незалежно від лінії звітності.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Дозволяє затверджувати, підтверджувати або відхиляти запити на відшкодування витрат від будь-якого співробітника.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Дозволяє затверджувати, відхиляти або вимагати змін у вимогах до проекту. Всі можуть подавати вимоги та залишати коментарі до них.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Дозволяє призначати або знімати ролі для будь-кого користувача.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Дозволяє створювати та керувати всіма контрактами компанії.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Дозволяє створювати та керувати шаблонами завдань на вступання нових співробітників.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Дозволяє створювати контракти для компанії. За замовчуванням кожен користувач може переглядати публічні контракти.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Дозволяє створювати нові контракти для будь-якого користувача.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Дозволяє створювати нові глобальні паролі, якими можна ділитися з іншими.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Дозволяє створювати запитання, анкети та переглядати відгуки користувачів.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Дозволяє створювати, редагувати та видаляти тижневі звіти від імені будь-якого іншого користувача.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Дозволяє створювати, оновлювати та видаляти макети. За замовчуванням кожен користувач може переглядати макети.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Дозволяє створювати, оновлювати та видаляти канали збору та їхні записи.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Дозволяє створювати, оновлювати та видаляти інформацію про компанійні сутності.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Дозволяє створювати, оновлювати та видаляти інформацію про компанію. За замовчуванням кожен користувач може переглядати інформацію про компанію.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Дозволяє створювати, оновлювати та видаляти інформацію про відносини з клієнтами. За замовчуванням кожен користувач може переглядати відносини з клієнтами.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Дозволяє створювати, оновлювати та видаляти інформацію про канали продажів. За замовчуванням кожен користувач може переглядати канали продажів.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Дозволяє створювати, оновлювати та видаляти сервіси та постачальників DNS. За замовчуванням кожен користувач може переглядати сервіси.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Дозволяє створювати, оновлювати, виводити з експлуатації та обслуговувати сервери, сервіси, провайдерів, DNS-провайдерів і домени-псевдоніми.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Дозволяє видавати та керувати розрахунковими відомостями для всіх користувачів.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Дозволяє керувати та видаляти будь-який глобальний пароль, створений будь-яким користувачем.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Дозволяє керувати фінансовими рахунками компанії та реєструвати операції.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Дозволяє керувати інформаційними технологіями компанії та нематеріальними активами (наприклад, доменами, ліцензіями), включаючи категорії, моделі та окремі елементи. Також дозволяє призначати та відновлювати активи для/від співробітників.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Дозволяє керувати ІТ-активами компанії, включаючи категорії, моделі та окремі елементи.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Дозволяє керувати IT-активами компанії, включаючи категорії, моделі та окремі одиниці. Також дозволяє призначати та повертаєти активи співробітникам.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Дозволяє вручну ініціювати аудит DNS та доступності служб.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Дозволяє змінювати назви ролей та призначені для них дозволи.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Дозволяє змінювати деталі користувача, такі як електронна пошта та ролі, а також скидувати паролі користувачів.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Дозволяє змінювати дані користувача, такі як електронна пошта та ролі, а також скидати паролі користувачів.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Дозволяє друкувати довідки про зайнятість та доходи для будь-якого працівника.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Дозволяє друкувати довідки про зайнятість та доходи для себе.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Дозволяє запускати аудиторську перевірку DNS Cloudflare в режимі лише читання та переглядати її результати.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Дозволяє запускати читання-ревізію служб та переглядати її результати.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Дозволяє остаточне видалення ролей.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Дозволяє остаточне видалення облікових записів користувачів.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Дозволяє користувачеві спілкуватися з асистентом ШІ щодо інформації про компанію.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Дозволяє користувачеві створювати власні тижневі звіти.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Дозволяє користувачеві створювати тижневі звіти від імені будь-якого іншого користувача.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Дозволяє користувачеві заповнювати та надсилати анкети зворотного зв’язку.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Дозволяє користувачеві подавати запити на відшкодування витрат.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Дозволяє завантажувати та видаляти записи зустрічей, а також повторно ініціювати транскрипцію мовлення в текст.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Дозволяє переглядати всі компанійні договори, включаючи ті, що позначені як приватні.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Дозволяє переглядати всі корпоративні угоди, включаючи ті, що позначені як приватні. За замовчуванням кожен може переглядати публічні угоди.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Дозволяє переглядати та змінювати глобальні налаштування додатку.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Дозволяє переглядати транскрипти зустрічей, а також прослуховувати або читати транскрипти будь-яких записів.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Дозволяє перегляд зведених даних про стан служб, спостережень та детальних результатів аудиту.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Дозволяє перегляд системної інформації та налаштувань.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Дозволяє переглядати панель керування фоновими завданнями та керувати завданнями.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Дозволяє переглядати історію контрактів будь-якого користувача.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Дозволяє переглядати список усіх каналів збору коштів та їхніх записів.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Дозволяє переглядати список усіх дозволів та їхніх призначень ролям та користувачам.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Дозволяє переглядати список усіх користувачів.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Дозволяє переглядати список ролей та призначені для них дозволи.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Дозволяє переглядати журнал операцій будь-якого користувача, включаючи історію зміни банківських карток.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Дозволяє переглядати звітну лінію будь-якого користувача, включаючи його керівника, підлеглих та колег.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Дозволяє переглядати реєстр серверів і сервісів, зв&apos;язки розгортання та довідкові дані інфраструктури.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Дозволяє переглядати, редагувати та видаляти SSH-ключі будь-якого користувача.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Затвердити будь-який відпустку</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Затвердити вимоги до проекту</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Підтвердити відшкодування</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Призначити ролі користувачам</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Аудит DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Аудит сервісів</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Аудит сервісів (застаріле)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Чат із ШІ</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Створювати та керувати корпоративними контрактами</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Створити договори компанії</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Створити договір</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Створити тижневий звіт</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Створити тижневий звіт для будь-кого</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>За замовчуванням дозвіл для HR.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Видалити ролі</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Видалення користувачів</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Редагування інформації користувача</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Редагувати інформацію про роль</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Редагувати інформацію про користувача</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Надає дозвіл на створення нових ролей.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Надає дозвіл на створення нових облікових записів користувачів.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Надає дозвіл на перезапуск екземпляра програми. Може призвести до перерв у доступності, але всі налаштування та кеш буде перезавантажено.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Легасі-дозвіл збережено для переходного періоду. Призначте керування інфраструктурою ролям, які все ще потребують доступу.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Спадкове дозвіл збережено для переходного періоду. Призначте перегляд аудиту служби та запуск аудиту служби за потреби.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Керувати будь-яким паролем</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Керувати щотижневим звітом будь-кого</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Керування активами</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Керувати макетами</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Керувати каналами збору</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Керувати компанійними сутностями</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Керування відносинами з клієнтами</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Керувати відгуками</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Налаштування глобальних параметрів</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Керування інфраструктурою</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Керувати відпустками</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Керувати бухгалтерським обліком</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Керування каналами ринку</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Керування стенограмами зустрічей</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Керувати завданнями онбордингу</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Керувати розрахунком заробітної плати</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Керувати послугами</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Керування службами (застаріле)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Керування SSH-ключами</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Друкувати сертифікати</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Друкувати свої сертифікати</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Читати дозволи</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Перегляд ролей</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Перегляд користувачів</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Перезавантажити цей додаток</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Запустити аудит служб</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Надіслати відгук</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Подати запит на відшкодування</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Переглянути будь-який компанійний договір, включаючи приватні</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Переглянути фонові завдання</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Переглянути канали збору</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Переглянути історію контрактів</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Перегляд інфраструктури</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Перегляд стенограм зустрічей</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Переглянути лінію звіту</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Перегляд аудиту служб</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Перегляд системного контексту</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Переглянути журнал операцій користувача</value>
+  </data>
+
+</root>

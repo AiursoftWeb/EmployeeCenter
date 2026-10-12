@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Имя счета</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Тип счета</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>Логика бухгалтерского учета основана на модели «резервуара»: деньги перемещаются из одного резервуара (источника) в другой резервуар (назначения). Понимание этих пяти элементов является ключом к двойной системе бухгалтерского учета.</value>
+  </data>
+  <data name="Archived" xml:space="preserve">
+    <value>Архивировано</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Актив</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Депозиты в банках, Дебиторская задолженность (деньги, которые вам должны), Серверы/ноутбуки.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Заем у директора</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Заем денег = Увеличение; Погашение долга = Уменьшение.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Наличные деньги или вещи, которые можно конвертировать в деньги.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Расходы, понесённые</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Долги компании, которые необходимо погасить в будущем.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Определение:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Направление:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Займы директора (деньги, которые вы предоставили компании), Непогашенные счета-фактуры, Долг по кредитной карте</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Редактировать аккаунт</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Уставный капитал</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Примеры:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Расход</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Из (Источник)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Доход</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Обязательство</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Логика</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Доходы</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Доход, полученный от продажи продуктов или предоставления услуг. Увеличивает прибыль.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Деньги поступают со счета для погашения долга</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Деньги поступают со счета на расходы</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Деньги поступают с долга на банковский счёт</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Деньги поступают из капитала на банковский счёт</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Деньги, полученные в виде дохода, поступили на банковский счет</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Денежные поступления = Рост; Денежные выплаты = Снижение</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Деньги, потраченные на поддержание деятельности компании. Уменьшает прибыль.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Оплата серверов</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Краткая шпаргалка</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Погашение займа директору</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Выручка от продаж, Сборы за услуги, Процентный доход</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Сценарий</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Продажа программного обеспечения</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Платежи за хостинг серверов, банковские комиссии, зарплаты</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Уставный капитал (первоначальные инвестиции), Нераспределённая прибыль (накопленная прибыль).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Вложение акционеров</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Вложение акционера/прибыль = рост; вывод акционера/убыток = снижение.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Показать на панели управления</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Чистая стоимость компании. Формула: Активы - Обязательства = Капитал.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Вещи, которые вы должны другим</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Вещи, которыми вы владеете</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>В (Назначение)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Понимание элементов бухгалтерского учета</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Значение, которое действительно принадлежит вам</value>
+  </data>
+
+</root>

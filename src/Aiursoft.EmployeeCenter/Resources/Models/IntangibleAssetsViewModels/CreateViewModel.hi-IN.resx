@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account" xml:space="preserve">
+    <value>खाता</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>नियुक्त व्यक्ति</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>संस्था से संबंधित</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>मुद्रा</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>समाप्ति तिथि</value>
+  </data>
+  <data name="Filing Number" xml:space="preserve">
+    <value>फाइलिंग नंबर</value>
+  </data>
+  <data name="Filing Query Method" xml:space="preserve">
+    <value>फाइलिंग क्वेरी विधि</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>दस्तावेज़ विषय</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>इन्वॉइस फ़ाइल</value>
+  </data>
+  <data name="Management URL" xml:space="preserve">
+    <value>प्रबंधन URL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>पासवर्ड</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>सार्वजनिक</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>खरीद मूल्य</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>पंजीकरण प्रमाणपत्र</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>पंजीकरण तिथि</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>आपूर्तिकर्ता</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} के {1} अक्षरों से अधिक नहीं हो सकते।</value>
+  </data>
+  <data name="The {0} is not a valid URL." xml:space="preserve">
+    <value>{0} एक मान्य URL नहीं है।</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} आवश्यक है।</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>ट्रेडमार्क छवि</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+
+</root>

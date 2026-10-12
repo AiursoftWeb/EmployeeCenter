@@ -1,0 +1,1189 @@
+using Aiursoft.EmployeeCenter.Configuration;
+using Aiursoft.EmployeeCenter.Authorization;
+using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
+using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
+
+namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
+
+[TestClass]
+public class AudioTests : TestBase
+{
+    [TestMethod]
+    public async Task TranscriptPageShowsSeparateSpeechToTextAndSummaryProgress()
+    {
+        await LoginAsAdmin();
+
+        int pendingAudioId;
+        int transcribingAudioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var pendingAudio = new Audio
+            {
+                Name = "Pending speech-to-text",
+                FilePath = "audio/pending-speech-to-text.mp3",
+                OwnerId = admin.Id
+            };
+            var transcribingAudio = new Audio
+            {
+                Name = "Active speech-to-text",
+                FilePath = "audio/active-speech-to-text.mp3",
+                OwnerId = admin.Id,
+                AsrAttemptCount = 1,
+                LastAsrAttemptTime = DateTime.UtcNow
+            };
+            db.Audios.AddRange(pendingAudio, transcribingAudio);
+            await db.SaveChangesAsync();
+            pendingAudioId = pendingAudio.Id;
+            transcribingAudioId = transcribingAudio.Id;
+        }
+
+        var pendingResponse = await Http.GetAsync($"/Audio/Transcript/{pendingAudioId}");
+        pendingResponse.EnsureSuccessStatusCode();
+        var pendingHtml = await pendingResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(pendingHtml, "Waiting to transcribe audio");
+        StringAssert.Contains(pendingHtml, "Waiting for speech-to-text to finish");
+        Assert.DoesNotContain("id=\"copy-meeting-minutes\"", pendingHtml);
+        Assert.DoesNotContain("const meetingMinutesMarkdown", pendingHtml);
+        Assert.AreEqual(2, pendingHtml.Split("progress-bar-animated").Length - 1);
+
+        var transcribingResponse = await Http.GetAsync($"/Audio/Transcript/{transcribingAudioId}");
+        transcribingResponse.EnsureSuccessStatusCode();
+        var transcribingHtml = await transcribingResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcribingHtml, "Transcribing audio");
+        StringAssert.Contains(transcribingHtml, "Waiting for speech-to-text to finish");
+        Assert.AreEqual(2, transcribingHtml.Split("progress-bar-animated").Length - 1);
+    }
+
+    [TestMethod]
+    public async Task CreateAcceptsExistingVaultLogicalPath()
+    {
+        await LoginAsAdmin();
+
+        var filePath = $"audio/create-{Guid.NewGuid():N}.mp3";
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            await using var stream = new MemoryStream("audio"u8.ToArray());
+            await storage.SaveFromStream(filePath, stream, isVault: true);
+        }
+
+        var response = await PostForm(
+            "/Audio/Create",
+            new Dictionary<string, string>
+            {
+                { "Name", "Standard logical path upload" },
+                { "FilePath", filePath }
+            },
+            "/Audio/Create");
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = await verificationDb.Audios.SingleAsync(item => item.Name == "Standard logical path upload");
+        Assert.AreEqual(filePath, audio.FilePath);
+    }
+
+    [TestMethod]
+    public async Task CreateRejectsLogicalPathOutsideAudioBucket()
+    {
+        await LoginAsAdmin();
+
+        var response = await PostForm(
+            "/Audio/Create",
+            new Dictionary<string, string>
+            {
+                { "Name", "Invalid bucket upload" },
+                { "FilePath", "contract/private.mp3" }
+            },
+            "/Audio/Create");
+
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        using var verificationScope = Server!.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.IsFalse(await verificationDb.Audios.AnyAsync(item => item.Name == "Invalid bucket upload"));
+    }
+
+    [TestMethod]
+    public async Task CreateRejectsAudioPathEscapingItsVaultBucket()
+    {
+        await LoginAsAdmin();
+
+        var response = await PostForm(
+            "/Audio/Create",
+            new Dictionary<string, string>
+            {
+                { "Name", "Escaped bucket upload" },
+                { "FilePath", "audio/../contract/private.mp3" }
+            },
+            "/Audio/Create");
+
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        using var verificationScope = Server!.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.IsFalse(await verificationDb.Audios.AnyAsync(item => item.Name == "Escaped bucket upload"));
+    }
+
+    [TestMethod]
+    public async Task FailedInitialUploadIsPreservedAndCanBeDownloadedOrRetried()
+    {
+        await LoginAsAdmin();
+
+        const string audioName = "Invalid media upload";
+        var filePath = $"audio/invalid-{Guid.NewGuid():N}.mp4";
+        string physicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            await using var stream = new MemoryStream("not media"u8.ToArray());
+            await storage.SaveFromStream(filePath, stream, isVault: true);
+            physicalPath = storage.GetFilePhysicalPath(filePath, isVault: true);
+        }
+
+        var response = await PostForm(
+            "/Audio/Create",
+            new Dictionary<string, string>
+            {
+                { "Name", audioName },
+                { "FilePath", filePath }
+            },
+            "/Audio/Create");
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+
+        await Task.Delay(TimeSpan.FromSeconds(2));
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audio = await verificationDb.Audios.SingleAsync(item => item.Name == audioName);
+        Assert.AreEqual(AudioMediaStatus.Failed, audio.MediaStatus);
+        Assert.AreEqual("The uploaded file could not be processed.", audio.MediaProcessingError);
+        Assert.IsTrue(File.Exists(physicalPath));
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audio.Id}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcriptHtml, "Download Original File");
+        StringAssert.Contains(transcriptHtml, "Retry Media Processing");
+        Assert.DoesNotContain("Waiting to transcribe audio", transcriptHtml);
+        Assert.DoesNotContain("ffprobe", transcriptHtml);
+
+        var downloadResponse = await Http.GetAsync($"/Audio/DownloadOriginal/{audio.Id}");
+        downloadResponse.EnsureSuccessStatusCode();
+        Assert.AreEqual("not media", await downloadResponse.Content.ReadAsStringAsync());
+        Assert.AreEqual("attachment", downloadResponse.Content.Headers.ContentDisposition?.DispositionType);
+
+        var retryResponse = await PostForm(
+            $"/Audio/RetryMedia/{audio.Id}",
+            new Dictionary<string, string>(),
+            $"/Audio/Transcript/{audio.Id}");
+        AssertRedirect(retryResponse, $"/Audio/Transcript/{audio.Id}");
+        await Task.Delay(TimeSpan.FromSeconds(2));
+        Assert.IsTrue(File.Exists(physicalPath));
+
+        var indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        var indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(indexHtml, "Media processing failed");
+
+        var deleteResponse = await PostForm(
+            $"/Audio/Delete/{audio.Id}",
+            new Dictionary<string, string>(),
+            "/Audio/Create");
+        AssertRedirect(deleteResponse, "/Audio");
+        Assert.IsFalse(File.Exists(physicalPath));
+    }
+
+    [TestMethod]
+    public async Task FailedLegacyUploadWithoutFileHasNoDownloadOrRetry()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var audio = new Audio
+            {
+                Name = "Legacy failed media",
+                FilePath = $"audio/missing-{Guid.NewGuid():N}.mp4",
+                OwnerId = admin.Id,
+                MediaStatus = AudioMediaStatus.Failed,
+                MediaProcessingError = "Media processing failed."
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcriptHtml, "The original uploaded file is no longer available.");
+        Assert.DoesNotContain("Download Original File", transcriptHtml);
+        Assert.DoesNotContain("Retry Media Processing", transcriptHtml);
+        Assert.AreEqual(HttpStatusCode.NotFound,
+            (await Http.GetAsync($"/Audio/DownloadOriginal/{audioId}")).StatusCode);
+
+        var retryResponse = await PostForm(
+            $"/Audio/RetryMedia/{audioId}",
+            new Dictionary<string, string>(),
+            "/Audio/Create");
+        AssertRedirect(retryResponse, $"/Audio/Transcript/{audioId}");
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.AreEqual(AudioMediaStatus.Failed, (await verificationDb.Audios.FindAsync(audioId))!.MediaStatus);
+    }
+
+    [TestMethod]
+    public async Task DeletePreservesAFileReferencedByAnotherAudio()
+    {
+        await LoginAsAdmin();
+
+        int deletedAudioId;
+        string physicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var filePath = $"audio/shared-{Guid.NewGuid():N}.mp3";
+            await using var stream = new MemoryStream("shared audio"u8.ToArray());
+            await storage.SaveFromStream(filePath, stream, isVault: true);
+            physicalPath = storage.GetFilePhysicalPath(filePath, isVault: true);
+            var deletedAudio = new Audio { Name = "Shared one", FilePath = filePath, OwnerId = admin.Id };
+            var remainingAudio = new Audio { Name = "Shared two", FilePath = filePath, OwnerId = admin.Id };
+            db.Audios.AddRange(deletedAudio, remainingAudio);
+            await db.SaveChangesAsync();
+            deletedAudioId = deletedAudio.Id;
+        }
+
+        var response = await PostForm(
+            $"/Audio/Delete/{deletedAudioId}",
+            new Dictionary<string, string>(),
+            "/Audio/Index");
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        Assert.IsTrue(File.Exists(physicalPath));
+        File.Delete(physicalPath);
+    }
+
+    [TestMethod]
+    public async Task ReplacingSharedLegacyFilePreservesItForRemainingAudio()
+    {
+        await LoginAsAdmin();
+
+        int replacedAudioId;
+        string oldPhysicalPath;
+        string newFilePath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var oldFilePath = $"audio/shared-edit-{Guid.NewGuid():N}.mp3";
+            await using var oldStream = new MemoryStream("old shared audio"u8.ToArray());
+            await storage.SaveFromStream(oldFilePath, oldStream, isVault: true);
+            oldPhysicalPath = storage.GetFilePhysicalPath(oldFilePath, isVault: true);
+            var replacedAudio = new Audio { Name = "Replace shared one", FilePath = oldFilePath, OwnerId = admin.Id };
+            var remainingAudio = new Audio { Name = "Replace shared two", FilePath = oldFilePath, OwnerId = admin.Id };
+            db.Audios.AddRange(replacedAudio, remainingAudio);
+            await db.SaveChangesAsync();
+            replacedAudioId = replacedAudio.Id;
+
+            newFilePath = $"audio/{admin.Id}/{Guid.NewGuid():N}.mp3";
+            await using var newStream = new MemoryStream(CreateWaveFile());
+            await storage.SaveFromStream(newFilePath, newStream, isVault: true);
+        }
+
+        var response = await PostForm(
+            "/Audio/Edit",
+            new Dictionary<string, string>
+            {
+                { "Id", replacedAudioId.ToString() },
+                { "Name", "Replaced shared one" },
+                { "FilePath", newFilePath }
+            },
+            $"/Audio/Edit/{replacedAudioId}");
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+
+        await Task.Delay(TimeSpan.FromSeconds(2));
+
+        using var verificationScope = Server!.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var updatedAudio = await verificationDb.Audios.FindAsync(replacedAudioId);
+        Assert.AreEqual(newFilePath, updatedAudio?.FilePath);
+        Assert.IsTrue(File.Exists(oldPhysicalPath));
+        File.Delete(oldPhysicalPath);
+    }
+
+    [TestMethod]
+    public async Task AudioAsrJobReportsFailedAudioProcessing()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+        var settings = new AsrSettings
+        {
+            Enabled = true,
+            Endpoint = "https://asr.example.com/v1/audio/transcriptions",
+            BearerToken = "test-token"
+        };
+        var options = Options.Create(settings);
+        var mediaProcessor = new AsrMediaProcessor(
+            options,
+            NullLogger<AsrMediaProcessor>.Instance);
+        var asrService = new AsrService(
+            new HttpClient(),
+            options,
+            db,
+            storage,
+            mediaProcessor,
+            NullLogger<AsrService>.Instance);
+        var job = new AudioAsrJob(
+            db,
+            asrService,
+            options,
+            NullLogger<AudioAsrJob>.Instance);
+        db.Audios.Add(new Audio
+        {
+            Name = "Missing ASR Media",
+            FilePath = $"audio/{Guid.NewGuid():N}.mp3"
+        });
+        await db.SaveChangesAsync();
+
+        var exception = await Assert.ThrowsExactlyAsync<InvalidOperationException>(job.ExecuteAsync);
+
+        StringAssert.Contains(exception.Message, "ASR processing failed for audio IDs");
+    }
+
+    [TestMethod]
+    public async Task ResetAsrClearsCompletedAndSegmentResults()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var audio = new Audio
+            {
+                Name = "Reset ASR Test",
+                FilePath = "audio/reset-test.mp3",
+                OwnerId = admin.Id,
+                AsrAttemptCount = 3,
+                EmptyResultCount = 1
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audioId,
+                PlainText = "completed"
+            });
+            db.AudioAsrSegments.Add(new AudioAsrSegment
+            {
+                AudioId = audioId,
+                SegmentIndex = 0,
+                SegmentDurationSeconds = 1800,
+                OverlapSeconds = 2,
+                SegmentsJson = "[]",
+                PlainText = "completed"
+            });
+            await db.SaveChangesAsync();
+        }
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcriptHtml, "id=\"resetAsrModal\"");
+        StringAssert.Contains(transcriptHtml, "Are you sure you want to continue?");
+
+        var response = await PostForm(
+            $"/Audio/ResetAsr/{audioId}",
+            new Dictionary<string, string>(),
+            $"/Audio/Transcript/{audioId}");
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        var redirectedResponse = await Http.GetAsync(response.Headers.Location);
+        redirectedResponse.EnsureSuccessStatusCode();
+        var redirectedHtml = await redirectedResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(
+            redirectedHtml,
+            "An offline ASR task has been created. Please do not create it again.");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audioAfterReset = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(audioAfterReset);
+        Assert.AreEqual(0, audioAfterReset.AsrAttemptCount);
+        Assert.AreEqual(0, audioAfterReset.EmptyResultCount);
+        Assert.IsFalse(string.IsNullOrEmpty(audioAfterReset.AsrProcessingToken));
+        Assert.IsNull(audioAfterReset.AsrActiveTaskId);
+        Assert.IsFalse(await verificationDb.AudioAsrResults.AnyAsync(result => result.AudioId == audioId));
+        Assert.IsFalse(await verificationDb.AudioAsrSegments.AnyAsync(segment => segment.AudioId == audioId));
+    }
+
+    [TestMethod]
+    public async Task ResetAsrPreservesResultsWhenMediaIsNotReady()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var audio = new Audio
+            {
+                Name = "Failed media reset",
+                FilePath = "audio/failed-reset.mp3",
+                OwnerId = admin.Id,
+                MediaStatus = AudioMediaStatus.Failed,
+                AsrAttemptCount = 3
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Preserved transcript",
+                MeetingMinutesMarkdown = "# Preserved minutes"
+            });
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var response = await PostForm(
+            $"/Audio/ResetAsr/{audioId}",
+            new Dictionary<string, string>(),
+            "/Audio/Create");
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audioAfterReset = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(audioAfterReset);
+        Assert.AreEqual(3, audioAfterReset.AsrAttemptCount);
+        Assert.AreEqual(
+            "Preserved transcript",
+            (await verificationDb.AudioAsrResults.FindAsync(audioId))?.PlainText);
+    }
+
+    [TestMethod]
+    public async Task FailedReplacementPreservesOriginalRecordingAndInvalidatesMinutesAfterRename()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        string originalFilePath;
+        string originalPhysicalPath;
+        string replacementFilePath;
+        string replacementPhysicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            originalFilePath = $"audio/original-{Guid.NewGuid():N}.wav";
+            await using var originalStream = new MemoryStream(CreateWaveFile());
+            await storage.SaveFromStream(originalFilePath, originalStream, isVault: true);
+            originalPhysicalPath = storage.GetFilePhysicalPath(originalFilePath, isVault: true);
+            replacementFilePath = $"audio/replacement-{Guid.NewGuid():N}.mp4";
+            await using var replacementStream = new MemoryStream("not media"u8.ToArray());
+            await storage.SaveFromStream(replacementFilePath, replacementStream, isVault: true);
+            replacementPhysicalPath = storage.GetFilePhysicalPath(replacementFilePath, isVault: true);
+            var audio = new Audio
+            {
+                Name = "Original recording",
+                FilePath = originalFilePath,
+                OwnerId = admin.Id
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Original transcript",
+                TranscriptRevision = 2,
+                MeetingMinutesMarkdown = "# Original minutes",
+                MeetingMinutesTranscriptRevision = 2,
+                MeetingMinutesAttemptCount = 2,
+                LastMeetingMinutesAttemptTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var response = await PostForm(
+            "/Audio/Edit",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "Name", "Renamed failed replacement" },
+                { "FilePath", replacementFilePath }
+            },
+            $"/Audio/Edit/{audioId}");
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        await Task.Delay(TimeSpan.FromSeconds(2));
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audioAfterReplacement = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(audioAfterReplacement);
+        Assert.AreEqual(AudioMediaStatus.Ready, audioAfterReplacement.MediaStatus);
+        Assert.AreEqual("Renamed failed replacement", audioAfterReplacement.Name);
+        Assert.AreEqual(originalFilePath, audioAfterReplacement.FilePath);
+        Assert.IsNull(audioAfterReplacement.PendingFilePath);
+        Assert.AreEqual("The uploaded file could not be processed.", audioAfterReplacement.MediaProcessingError);
+        var asrResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(asrResult);
+        Assert.AreEqual("Original transcript", asrResult.PlainText);
+        Assert.AreEqual(3, asrResult.TranscriptRevision);
+        Assert.AreEqual(2, asrResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual(0, asrResult.MeetingMinutesAttemptCount);
+        Assert.IsNull(asrResult.LastMeetingMinutesAttemptTime);
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var transcriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(transcriptHtml, "Meeting minutes may be outdated");
+        StringAssert.Contains(transcriptHtml, "Regenerate Meeting Minutes");
+        Assert.IsTrue(File.Exists(originalPhysicalPath));
+        Assert.IsFalse(File.Exists(replacementPhysicalPath));
+        File.Delete(originalPhysicalPath);
+    }
+
+    [TestMethod]
+    public async Task DeleteAudioRemovesStoredRecordingFile()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        string physicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var filePath = $"audio/delete-{Guid.NewGuid():N}.mka";
+            await using var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes("audio"));
+            filePath = await storage.SaveFromStream(filePath, stream, isVault: true);
+            physicalPath = storage.GetFilePhysicalPath(filePath, isVault: true);
+            var audio = new Audio
+            {
+                Name = "Delete File Test",
+                FilePath = filePath,
+                OwnerId = admin.Id
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        Assert.IsTrue(File.Exists(physicalPath));
+
+        var response = await PostForm(
+            $"/Audio/Delete/{audioId}",
+            new Dictionary<string, string>(),
+            "/Audio/Index");
+        AssertRedirect(response, "/Audio");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.IsNull(await verificationDb.Audios.FindAsync(audioId));
+        Assert.IsFalse(File.Exists(physicalPath));
+    }
+
+    [TestMethod]
+    public async Task EditAudioNamePreservesExistingWebmRecording()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        string filePath;
+        string physicalPath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            await using var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes("existing webm audio"));
+            filePath = await storage.SaveFromStream(
+                $"audio/edit-{Guid.NewGuid():N}.webm",
+                stream,
+                isVault: true);
+            physicalPath = storage.GetFilePhysicalPath(filePath, isVault: true);
+            var audio = new Audio
+            {
+                Name = "Original Name",
+                FilePath = filePath,
+                OwnerId = admin.Id
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Existing transcript",
+                TranscriptRevision = 3,
+                MeetingMinutesMarkdown = "# Existing minutes",
+                MeetingMinutesTranscriptRevision = 3,
+                MeetingMinutesAttemptCount = 2,
+                LastMeetingMinutesAttemptTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var response = await PostForm(
+            "/Audio/Edit",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "Name", "Updated Name" },
+                { "FilePath", filePath }
+            },
+            $"/Audio/Edit/{audioId}");
+
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+        Assert.IsTrue(File.Exists(physicalPath));
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var updatedAudio = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(updatedAudio);
+        Assert.AreEqual("Updated Name", updatedAudio.Name);
+        Assert.AreEqual(filePath, updatedAudio.FilePath);
+        var asrResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(asrResult);
+        Assert.AreEqual(4, asrResult.TranscriptRevision);
+        Assert.AreEqual(3, asrResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual(0, asrResult.MeetingMinutesAttemptCount);
+        Assert.IsNull(asrResult.LastMeetingMinutesAttemptTime);
+        File.Delete(physicalPath);
+    }
+
+    [TestMethod]
+    public async Task AudioSharingMatchesPasswordSharing()
+    {
+        await LoginAsAdmin();
+
+        const string audioName = "Sharing Test Recording";
+        int audioId;
+        string ownerDisplayName;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            ownerDisplayName = admin.DisplayName;
+            var audio = new Audio
+            {
+                Name = audioName,
+                FilePath = "audio/sharing-test.mp3",
+                OwnerId = admin.Id
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Original transcript",
+                MeetingMinutesMarkdown = "# Meeting Summary\n\n| Item | Owner |\n|---|---|\n| Ship | Alice |\n\n<script>alert('x')</script>"
+            });
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var ownerTranscriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        ownerTranscriptResponse.EnsureSuccessStatusCode();
+        var ownerTranscriptHtml = await ownerTranscriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(ownerTranscriptHtml, "Meeting Summary");
+        StringAssert.Contains(ownerTranscriptHtml, "<table");
+        StringAssert.Contains(ownerTranscriptHtml, ownerDisplayName);
+        StringAssert.Contains(ownerTranscriptHtml, "data-access-source=\"Owner\"");
+        StringAssert.Contains(ownerTranscriptHtml, "data-effective-permission=\"Editable\"");
+        StringAssert.Contains(ownerTranscriptHtml, "id=\"copy-meeting-minutes\"");
+        StringAssert.Contains(ownerTranscriptHtml, "onclick=\"copyMeetingMinutes(this)\"");
+        StringAssert.Contains(ownerTranscriptHtml, "const meetingMinutesMarkdown");
+        StringAssert.Contains(ownerTranscriptHtml, "Meeting Summary\\n\\n| Item | Owner |");
+        StringAssert.Contains(ownerTranscriptHtml, "\\u003cscript\\u003ealert(\\u0027x\\u0027)\\u003c/script\\u003e");
+        Assert.DoesNotContain("<script>alert('x')</script>", ownerTranscriptHtml);
+
+        await Http.GetAsync("/Account/LogOff");
+        var (email, password) = await RegisterAndLoginAsync();
+
+        string userId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            userId = await db.Users
+                .Where(user => user.Email == email)
+                .Select(user => user.Id)
+                .FirstAsync();
+        }
+
+        var indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        var indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        Assert.DoesNotContain(audioName, indexHtml);
+
+        var transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        Assert.AreEqual(HttpStatusCode.NotFound, transcriptResponse.StatusCode);
+
+        await Http.GetAsync("/Account/LogOff");
+        await LoginAsAdmin();
+
+        var shareResponse = await PostForm(
+            $"/Audio/AddShare/{audioId}",
+            new Dictionary<string, string>
+            {
+                { "TargetUserId", userId },
+                { "Permission", ((int)SharePermission.ReadOnly).ToString() }
+            },
+            $"/Audio/ManageShares/{audioId}");
+        AssertRedirect(shareResponse, $"/Audio/ManageShares/{audioId}");
+
+        await Http.GetAsync("/Account/LogOff");
+        await LoginAsAsync(email, password);
+
+        indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(indexHtml, audioName);
+        StringAssert.Contains(indexHtml, ownerDisplayName);
+        StringAssert.Contains(indexHtml, "data-access-source=\"DirectShare\"");
+        StringAssert.Contains(indexHtml, "data-effective-permission=\"ReadOnly\"");
+
+        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        var sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(sharedTranscriptHtml, "Meeting Summary");
+        StringAssert.Contains(sharedTranscriptHtml, ownerDisplayName);
+        StringAssert.Contains(sharedTranscriptHtml, "data-access-source=\"DirectShare\"");
+        StringAssert.Contains(sharedTranscriptHtml, "data-effective-permission=\"ReadOnly\"");
+        StringAssert.Contains(sharedTranscriptHtml, "id=\"copy-meeting-minutes\"");
+        Assert.DoesNotContain("Edit Transcript", sharedTranscriptHtml);
+        Assert.DoesNotContain(">Rename<", sharedTranscriptHtml);
+        Assert.DoesNotContain("Regenerate Meeting Minutes", sharedTranscriptHtml);
+
+        var editResponse = await Http.GetAsync($"/Audio/Edit/{audioId}");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, editResponse.StatusCode);
+        var renameResponse = await Http.GetAsync($"/Audio/Rename/{audioId}");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, renameResponse.StatusCode);
+        var editTranscriptResponse = await Http.GetAsync($"/Audio/EditTranscript/{audioId}");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, editTranscriptResponse.StatusCode);
+        var regenerateResponse = await PostForm(
+            "/Audio/RegenerateMeetingMinutes",
+            new Dictionary<string, string> { { "id", audioId.ToString() } },
+            "/");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, regenerateResponse.StatusCode);
+
+        using (var scope = Server.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var share = await db.AudioShares.SingleAsync(item =>
+                item.AudioId == audioId && item.SharedWithUserId == userId);
+            share.Permission = SharePermission.Editable;
+            await db.SaveChangesAsync();
+        }
+
+        editResponse = await Http.GetAsync($"/Audio/Edit/{audioId}");
+        editResponse.EnsureSuccessStatusCode();
+        renameResponse = await Http.GetAsync($"/Audio/Rename/{audioId}");
+        renameResponse.EnsureSuccessStatusCode();
+        editTranscriptResponse = await Http.GetAsync($"/Audio/EditTranscript/{audioId}");
+        editTranscriptResponse.EnsureSuccessStatusCode();
+
+        renameResponse = await PostForm(
+            "/Audio/Rename",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "Name", "Renamed shared meeting" }
+            },
+            $"/Audio/Rename/{audioId}");
+        AssertRedirect(renameResponse, $"/Audio/Transcript/{audioId}");
+
+        editTranscriptResponse = await PostForm(
+            "/Audio/EditTranscript",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "TranscriptRevision", "1" },
+                { "PlainText", "Corrected shared transcript" }
+            },
+            $"/Audio/EditTranscript/{audioId}");
+        AssertRedirect(editTranscriptResponse, $"/Audio/Transcript/{audioId}");
+
+        var staleEditResponse = await PostForm(
+            "/Audio/EditTranscript",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "TranscriptRevision", "1" },
+                { "PlainText", "Stale overwrite" }
+            },
+            $"/Audio/EditTranscript/{audioId}");
+        staleEditResponse.EnsureSuccessStatusCode();
+        StringAssert.Contains(
+            await staleEditResponse.Content.ReadAsStringAsync(),
+            "The transcript was changed by another user.");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        Assert.AreEqual("Renamed shared meeting", (await verificationDb.Audios.FindAsync(audioId))?.Name);
+        var correctedResult = await verificationDb.AudioAsrResults.FindAsync(audioId);
+        Assert.IsNotNull(correctedResult);
+        Assert.AreEqual("Corrected shared transcript", correctedResult.PlainText);
+        Assert.AreEqual(2, correctedResult.TranscriptRevision);
+        Assert.AreEqual(0, correctedResult.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual("# Meeting Summary\n\n| Item | Owner |\n|---|---|\n| Ship | Alice |\n\n<script>alert('x')</script>", correctedResult.MeetingMinutesMarkdown);
+
+        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        transcriptResponse.EnsureSuccessStatusCode();
+        sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(sharedTranscriptHtml, "data-effective-permission=\"Editable\"");
+        StringAssert.Contains(sharedTranscriptHtml, "Meeting minutes may be outdated");
+        StringAssert.Contains(sharedTranscriptHtml, "Regenerate Meeting Minutes");
+        StringAssert.Contains(sharedTranscriptHtml, "Transcript API");
+        Assert.DoesNotContain("AI Raw API", sharedTranscriptHtml);
+
+        indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(indexHtml, "Minutes outdated");
+
+        var retryLimit = Server.Services
+            .GetRequiredService<IOptions<AppSettings>>()
+            .Value.Agent.MeetingMinutesMaxRetryCount;
+        correctedResult.MeetingMinutesMarkdown = null;
+        correctedResult.MeetingMinutesTranscriptRevision = correctedResult.TranscriptRevision;
+        correctedResult.MeetingMinutesAttemptCount = retryLimit;
+        await verificationDb.SaveChangesAsync();
+        transcriptResponse = await Http.GetAsync($"/Audio/Transcript/{audioId}");
+        sharedTranscriptHtml = await transcriptResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(sharedTranscriptHtml, "Retry Meeting Minutes");
+
+        var queueService = Server.Services.GetRequiredService<MeetingMinutesQueueService>();
+        var activeTaskStarted = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var releaseActiveTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var activeTask = queueService.ExecuteIfNotActiveAsync(
+            audioId,
+            correctedResult.TranscriptRevision,
+            correctedResult.CreateTime,
+            async () =>
+            {
+                activeTaskStarted.SetResult();
+                await releaseActiveTask.Task;
+            });
+        await activeTaskStarted.Task;
+
+        try
+        {
+            regenerateResponse = await PostForm(
+                "/Audio/RegenerateMeetingMinutes",
+                new Dictionary<string, string> { { "id", audioId.ToString() } },
+                $"/Audio/EditTranscript/{audioId}");
+            AssertRedirect(regenerateResponse, $"/Audio/Transcript/{audioId}");
+            await verificationDb.Entry(correctedResult).ReloadAsync();
+            Assert.AreEqual(retryLimit, correctedResult.MeetingMinutesAttemptCount);
+            Assert.IsNull(correctedResult.LastMeetingMinutesAttemptTime);
+        }
+        finally
+        {
+            releaseActiveTask.TrySetResult();
+            await activeTask;
+        }
+    }
+
+    [TestMethod]
+    public async Task AudioAccessContextShowsRoleSourcesHighestPermissionOwnerFallbackAndManagementPermission()
+    {
+        await LoginAsAdmin();
+        await Http.GetAsync("/Account/LogOff");
+        var (email, password) = await RegisterAndLoginAsync();
+
+        var readerRoleName = $"AudioReaders{Guid.NewGuid():N}";
+        var editorRoleName = $"AudioEditors{Guid.NewGuid():N}";
+        int roleSharedAudioId;
+        int ownedAudioId;
+        int unknownOwnerAudioId;
+        string ownerDisplayName;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var user = await userManager.FindByEmailAsync(email);
+            Assert.IsNotNull(user);
+            var owner = await db.Users.FirstAsync(item => item.Email == "admin@default.com");
+            ownerDisplayName = owner.DisplayName;
+
+            var readerRole = new IdentityRole(readerRoleName);
+            var editorRole = new IdentityRole(editorRoleName);
+            Assert.IsTrue((await roleManager.CreateAsync(readerRole)).Succeeded);
+            Assert.IsTrue((await roleManager.CreateAsync(editorRole)).Succeeded);
+            Assert.IsTrue((await userManager.AddToRoleAsync(user, readerRoleName)).Succeeded);
+            Assert.IsTrue((await userManager.AddToRoleAsync(user, editorRoleName)).Succeeded);
+
+            var roleSharedAudio = new Audio
+            {
+                Name = "Role shared access context",
+                FilePath = "audio/role-shared-access-context.mp3",
+                OwnerId = owner.Id
+            };
+            var ownedAudio = new Audio
+            {
+                Name = "Owned access context",
+                FilePath = "audio/owned-access-context.mp3",
+                OwnerId = user.Id
+            };
+            var unknownOwnerAudio = new Audio
+            {
+                Name = "Unknown owner access context",
+                FilePath = "audio/unknown-owner-access-context.mp3",
+                OwnerId = null
+            };
+            db.Audios.AddRange(roleSharedAudio, ownedAudio, unknownOwnerAudio);
+            await db.SaveChangesAsync();
+
+            db.AudioShares.AddRange(
+                new AudioShare
+                {
+                    AudioId = roleSharedAudio.Id,
+                    SharedWithRoleId = readerRole.Id,
+                    Permission = SharePermission.ReadOnly
+                },
+                new AudioShare
+                {
+                    AudioId = roleSharedAudio.Id,
+                    SharedWithRoleId = editorRole.Id,
+                    Permission = SharePermission.Editable
+                },
+                new AudioShare
+                {
+                    AudioId = unknownOwnerAudio.Id,
+                    SharedWithUserId = user.Id,
+                    Permission = SharePermission.ReadOnly
+                });
+            await db.SaveChangesAsync();
+
+            roleSharedAudioId = roleSharedAudio.Id;
+            ownedAudioId = ownedAudio.Id;
+            unknownOwnerAudioId = unknownOwnerAudio.Id;
+        }
+
+        await Http.GetAsync("/Account/LogOff");
+        await LoginAsAsync(email, password);
+
+        var indexResponse = await Http.GetAsync("/Audio/Index");
+        indexResponse.EnsureSuccessStatusCode();
+        var indexHtml = await indexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(indexHtml, "Role shared access context");
+        StringAssert.Contains(indexHtml, ownerDisplayName);
+        StringAssert.Contains(indexHtml, $"Role: {readerRoleName}");
+        StringAssert.Contains(indexHtml, $"Role: {editorRoleName}");
+        StringAssert.Contains(indexHtml, "data-effective-permission=\"Editable\"");
+        StringAssert.Contains(indexHtml, "Unknown Owner");
+
+        var roleSharedResponse = await Http.GetAsync($"/Audio/Transcript/{roleSharedAudioId}");
+        roleSharedResponse.EnsureSuccessStatusCode();
+        var roleSharedHtml = await roleSharedResponse.Content.ReadAsStringAsync();
+        Assert.AreEqual(2, roleSharedHtml.Split("data-access-source=\"RoleShare\"").Length - 1);
+        StringAssert.Contains(roleSharedHtml, $"Role: {readerRoleName}");
+        StringAssert.Contains(roleSharedHtml, $"Role: {editorRoleName}");
+        StringAssert.Contains(roleSharedHtml, "data-effective-permission=\"Editable\"");
+
+        var editResponse = await Http.GetAsync($"/Audio/Edit/{roleSharedAudioId}");
+        editResponse.EnsureSuccessStatusCode();
+
+        var ownedResponse = await Http.GetAsync($"/Audio/Transcript/{ownedAudioId}");
+        ownedResponse.EnsureSuccessStatusCode();
+        var ownedHtml = await ownedResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(ownedHtml, "data-access-source=\"Owner\"");
+        StringAssert.Contains(ownedHtml, "data-effective-permission=\"Editable\"");
+
+        var unknownOwnerResponse = await Http.GetAsync($"/Audio/Transcript/{unknownOwnerAudioId}");
+        unknownOwnerResponse.EnsureSuccessStatusCode();
+        var unknownOwnerHtml = await unknownOwnerResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(unknownOwnerHtml, "Unknown Owner");
+        StringAssert.Contains(unknownOwnerHtml, "data-access-source=\"DirectShare\"");
+        StringAssert.Contains(unknownOwnerHtml, "data-effective-permission=\"ReadOnly\"");
+
+        var managerRoleName = $"AudioManagers{Guid.NewGuid():N}";
+        using (var scope = Server.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var managerRole = new IdentityRole(managerRoleName);
+            Assert.IsTrue((await roleManager.CreateAsync(managerRole)).Succeeded);
+            Assert.IsTrue((await roleManager.AddClaimAsync(
+                managerRole,
+                new Claim(AppPermissions.Type, AppPermissionNames.CanManageAudio))).Succeeded);
+            var user = await userManager.FindByEmailAsync(email);
+            Assert.IsNotNull(user);
+            Assert.IsTrue((await userManager.AddToRoleAsync(user, managerRoleName)).Succeeded);
+        }
+
+        await Http.GetAsync("/Account/LogOff");
+        await LoginAsAsync(email, password);
+
+        var managerResponse = await Http.GetAsync($"/Audio/Transcript/{roleSharedAudioId}");
+        managerResponse.EnsureSuccessStatusCode();
+        var managerHtml = await managerResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(managerHtml, "data-access-source=\"AudioManagementPermission\"");
+        StringAssert.Contains(managerHtml, "Audio Management Permission");
+        StringAssert.Contains(managerHtml, "data-effective-permission=\"Editable\"");
+        Assert.DoesNotContain("data-access-source=\"RoleShare\"", managerHtml);
+
+        var managerIndexResponse = await Http.GetAsync("/Audio/Index");
+        managerIndexResponse.EnsureSuccessStatusCode();
+        var managerIndexHtml = await managerIndexResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(managerIndexHtml, "data-access-source=\"AudioManagementPermission\"");
+        StringAssert.Contains(managerIndexHtml, "Audio Management Permission");
+    }
+
+    [TestMethod]
+    public async Task ResetAsrClearsTranscriptMinutesAndRetryState()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var audio = new Audio
+            {
+                Name = "Reset Minutes Recording",
+                FilePath = "audio/reset-minutes.mp3",
+                OwnerId = admin.Id,
+                AsrAttemptCount = 4,
+                EmptyResultCount = 2,
+                LastAsrAttemptTime = DateTime.UtcNow
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Transcript",
+                MeetingMinutesMarkdown = "# Minutes",
+                MeetingMinutesAttemptCount = 2,
+                LastMeetingMinutesAttemptTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+        }
+
+        var response = await PostForm(
+            $"/Audio/ResetAsr/{audioId}",
+            new Dictionary<string, string> { { "id", audioId.ToString() } },
+            $"/Audio/Transcript/{audioId}");
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var audioAfterReset = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(audioAfterReset);
+        Assert.AreEqual(0, audioAfterReset.AsrAttemptCount);
+        Assert.AreEqual(0, audioAfterReset.EmptyResultCount);
+        Assert.IsNull(audioAfterReset.LastAsrAttemptTime);
+        Assert.IsFalse(await verificationDb.AudioAsrResults.AnyAsync(result => result.AudioId == audioId));
+    }
+
+    [TestMethod]
+    public async Task ReplacingAudioClearsTranscriptMinutesAndRetryState()
+    {
+        await LoginAsAdmin();
+
+        int audioId;
+        string replacementFilePath;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+            var audio = new Audio
+            {
+                Name = "Replace Minutes Recording",
+                FilePath = "audio/original.mp3",
+                OwnerId = admin.Id,
+                AsrAttemptCount = 3,
+                EmptyResultCount = 1,
+                LastAsrAttemptTime = DateTime.UtcNow
+            };
+            db.Audios.Add(audio);
+            await db.SaveChangesAsync();
+            db.AudioAsrResults.Add(new AudioAsrResult
+            {
+                AudioId = audio.Id,
+                PlainText = "Old transcript",
+                MeetingMinutesMarkdown = "# Old minutes",
+                MeetingMinutesAttemptCount = 2,
+                LastMeetingMinutesAttemptTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+            audioId = audio.Id;
+
+            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
+            replacementFilePath = $"audio/{admin.Id}/{Guid.NewGuid():N}.mp3";
+            await using var replacementStream = new MemoryStream(CreateWaveFile());
+            await storage.SaveFromStream(replacementFilePath, replacementStream, isVault: true);
+        }
+
+        var response = await PostForm(
+            "/Audio/Edit",
+            new Dictionary<string, string>
+            {
+                { "Id", audioId.ToString() },
+                { "Name", "Replaced Recording" },
+                { "FilePath", replacementFilePath }
+            },
+            $"/Audio/Edit/{audioId}");
+        AssertRedirect(response, $"/Audio/Transcript/{audioId}");
+
+        await Task.Delay(TimeSpan.FromSeconds(2));
+
+        using var verificationScope = Server.Services.CreateScope();
+        var verificationDb = verificationScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var replacedAudio = await verificationDb.Audios.FindAsync(audioId);
+        Assert.IsNotNull(replacedAudio);
+        Assert.AreEqual(replacementFilePath, replacedAudio.FilePath);
+        Assert.AreEqual(0, replacedAudio.AsrAttemptCount);
+        Assert.AreEqual(0, replacedAudio.EmptyResultCount);
+        Assert.IsNull(replacedAudio.LastAsrAttemptTime);
+        Assert.IsFalse(await verificationDb.AudioAsrResults.AnyAsync(result => result.AudioId == audioId));
+    }
+
+    private static byte[] CreateWaveFile()
+    {
+        const int sampleRate = 16000;
+        const int sampleCount = 1600;
+        using var stream = new MemoryStream();
+        using var writer = new BinaryWriter(stream);
+        writer.Write("RIFF"u8.ToArray());
+        writer.Write(36 + sampleCount * 2);
+        writer.Write("WAVEfmt "u8.ToArray());
+        writer.Write(16);
+        writer.Write((short)1);
+        writer.Write((short)1);
+        writer.Write(sampleRate);
+        writer.Write(sampleRate * 2);
+        writer.Write((short)2);
+        writer.Write((short)16);
+        writer.Write("data"u8.ToArray());
+        writer.Write(sampleCount * 2);
+        for (var index = 0; index < sampleCount; index++)
+        {
+            writer.Write((short)0);
+        }
+        return stream.ToArray();
+    }
+}

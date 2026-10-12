@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Rekening Bank</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Nama Pemilik Rekening</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Alamat Bank</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>Kode Bank</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Nama Bank</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>Mata Uang Dasar</value>
+  </data>
+  <data name="Business License / BR Scan" xml:space="preserve">
+    <value>Izin Usaha / Scan BR</value>
+  </data>
+  <data name="Business Registration (BR / Business License)" xml:space="preserve">
+    <value>Pendaftaran Bisnis (BR / Izin Usaha)</value>
+  </data>
+  <data name="CI Number (HK)" xml:space="preserve">
+    <value>Nomor CI (HK)</value>
+  </data>
+  <data name="Company Logo" xml:space="preserve">
+    <value>Logo Perusahaan</value>
+  </data>
+  <data name="Company Name (Chinese)" xml:space="preserve">
+    <value>Nama Perusahaan (Cina)</value>
+  </data>
+  <data name="Company Name (English)" xml:space="preserve">
+    <value>Nama Perusahaan (Inggris)</value>
+  </data>
+  <data name="Company Seal" xml:space="preserve">
+    <value>Cap Perusahaan</value>
+  </data>
+  <data name="Company Secretary (HK)" xml:space="preserve">
+    <value>Kepala Sekretaris Perusahaan (HK)</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Jenis Perusahaan</value>
+  </data>
+  <data name="Create corresponding ledger" xml:space="preserve">
+    <value>Buat buku besar yang sesuai</value>
+  </data>
+  <data name="Entity Code (Social Credit Code / BR Number)" xml:space="preserve">
+    <value>Kode Entitas (Kode Kredit Sosial / Nomor BR)</value>
+  </data>
+  <data name="Establishment Date" xml:space="preserve">
+    <value>Tanggal Pendirian</value>
+  </data>
+  <data name="Expiry Date (Business License / BR)" xml:space="preserve">
+    <value>Tanggal Kedaluwarsa (Izin Usaha / BR)</value>
+  </data>
+  <data name="Legal Representative / Director" xml:space="preserve">
+    <value>Perwakilan Hukum / Direktur</value>
+  </data>
+  <data name="Legal Representative Legal Name" xml:space="preserve">
+    <value>Nama Lengkap Perwakilan Hukum</value>
+  </data>
+  <data name="Office Address" xml:space="preserve">
+    <value>Alamat Kantor</value>
+  </data>
+  <data name="Operation Status" xml:space="preserve">
+    <value>Status Operasi</value>
+  </data>
+  <data name="Organization Certificate (CR / Org Code)" xml:space="preserve">
+    <value>Sertifikat Organisasi (CR / Kode Organisasi)</value>
+  </data>
+  <data name="Please upload a valid certificate file." xml:space="preserve">
+    <value>Silakan unggah file sertifikat yang valid.</value>
+  </data>
+  <data name="Please upload a valid license file." xml:space="preserve">
+    <value>Silakan unggah file lisensi yang valid.</value>
+  </data>
+  <data name="Please upload a valid logo file." xml:space="preserve">
+    <value>Silakan unggah file logo yang valid.</value>
+  </data>
+  <data name="Please upload a valid seal file." xml:space="preserve">
+    <value>Silakan unggah file stempel yang valid.</value>
+  </data>
+  <data name="Registered Address" xml:space="preserve">
+    <value>Alamat Terdaftar</value>
+  </data>
+  <data name="Registered Capital (Mainland)" xml:space="preserve">
+    <value>Modal Terdaftar (Daratan Tiongkok)</value>
+  </data>
+  <data name="SCR Location (HK)" xml:space="preserve">
+    <value>Lokasi SCR (HK)</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Kode SWIFT</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} tidak boleh melebihi {1} karakter.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} diperlukan.</value>
+  </data>
+  <data name="Zip Code" xml:space="preserve">
+    <value>Kode Pos</value>
+  </data>
+
+</root>

@@ -1,0 +1,55 @@
+@model Aiursoft.EmployeeCenter.Models.ManageOnboardingViewModels.EditViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Edit Onboarding Task"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Order" class="form-label"></label>
+                        <input asp-for="Order" class="form-control" />
+                        <span asp-validation-for="Order" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ExpectedDurationSeconds" class="form-label"></label>
+                        <input asp-for="ExpectedDurationSeconds" class="form-control" />
+                        <span asp-validation-for="ExpectedDurationSeconds" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="StartLink" class="form-label"></label>
+                        <input asp-for="StartLink" class="form-control" />
+                        <span asp-validation-for="StartLink" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">@Localizer["Save Changes"]</button>
+                        <a asp-action="Index" class="btn btn-light">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

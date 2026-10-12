@@ -1,0 +1,81 @@
+@model Aiursoft.EmployeeCenter.Models.SshKeysViewModels.IndexViewModel
+
+<div class="card">
+    <div class="card-header d-flex align-items-center">
+        <div>
+            <h5 class="card-title">@Localizer["Public SSH Keys"]</h5>
+            <h6 class="card-subtitle text-muted">@Localizer["Manage public SSH keys for server access."]</h6>
+        </div>
+        <div class="ms-auto">
+            <a asp-action="Create" asp-route-userId="@Model.TargetUser.Id" class="btn btn-primary btn-sm">
+                <i class="align-middle" data-lucide="plus"></i> @Localizer["Add New Key"]
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th>@Localizer["Name"]</th>
+                    <th>@Localizer["Public Key"]</th>
+                    <th>@Localizer["Created Time"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.SshKeys)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            <code class="text-truncate d-inline-block" style="max-width: 300px;">@item.PublicKey</code>
+                        </td>
+                        <td><label class="text-muted" data-utc-time="@item.CreationTime.ToHtmlDateTime()"></label></td>
+                        <td class="text-end">
+                            <div class="btn-group">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                                    <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal-@item.Id">
+                                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                </button>
+                            </div>
+
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="deleteModal-@item.Id" tabindex="-1" role="dialog"
+                                aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content text-start">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body m-3">
+                                            <p class="mb-0">@Localizer["Are you sure you want to delete the SSH key '{0}'?",
+                                            item.Name]</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                            <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                                <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.SshKeys.Any())
+                {
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">@Localizer["No SSH keys found."]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.OcrPreviewViewModel
+@using Aiursoft.EmployeeCenter.Configuration
+@using Microsoft.Extensions.Options
+@inject IOptions<OcrSettings> OcrSettings
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["OCR Results"] - @Model.Contract.Name</h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to List"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="plain-text-tab" data-bs-toggle="tab" href="#plain-text" role="tab">@Localizer["Plain Text"]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="json-result-tab" data-bs-toggle="tab" href="#json-result" role="tab">@Localizer["Raw JSON"]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="info-tab" data-bs-toggle="tab" href="#info" role="tab">@Localizer["Status Info"]</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="plain-text" role="tabpanel">
+                @if (string.IsNullOrEmpty(Model.PlainText))
+                {
+                    <div class="alert alert-info">@Localizer["No OCR text available for this contract. It might still be processing or failed."]</div>
+                }
+                else
+                {
+                    <pre class="bg-light p-3 border rounded" style="white-space: pre-wrap;">@Model.PlainText</pre>
+                }
+            </div>
+            <div class="tab-pane fade" id="json-result" role="tabpanel">
+                @if (string.IsNullOrEmpty(Model.JsonResult))
+                {
+                    <div class="alert alert-info">@Localizer["No raw JSON data available."]</div>
+                }
+                else
+                {
+                    <pre class="bg-light p-3 border rounded"><code>@Model.JsonResult</code></pre>
+                }
+            </div>
+            <div class="tab-pane fade" id="info" role="tabpanel">
+                <table class="table table-sm">
+                    <tr>
+                        <th>@Localizer["Attempt Count"]</th>
+                        <td>@Model.Contract.OcrAttemptCount</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Last Attempt"]</th>
+                        <td>
+                            @if (Model.Contract.LastOcrAttemptTime.HasValue)
+                            {
+                                <label data-utc-time="@Model.Contract.LastOcrAttemptTime.Value.ToHtmlDateTime()"></label>
+                            }
+                            else
+                            {
+                                <span>@Localizer["Never"]</span>
+                            }
+                        </td>
+                    </tr>
+                </table>
+                <div class="alert alert-warning mt-3">
+                    @if (string.IsNullOrEmpty(Model.PlainText) && Model.Contract.OcrAttemptCount >= OcrSettings.Value.ContractOcrMaxRetryCount)
+                    {
+                        <p>@Localizer["OCR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Contract.OcrAttemptCount]</p>
+                    }
+                    else
+                    {
+                        <p>@Localizer["If the OCR result is not ideal, you can reset the retry counter and re-trigger OCR."]</p>
+                    }
+                    <form asp-action="ResetOcr" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@Model.Contract.Id" />
+                        <button type="submit" class="btn btn-warning">@Localizer["Reset & Retry OCR"]</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

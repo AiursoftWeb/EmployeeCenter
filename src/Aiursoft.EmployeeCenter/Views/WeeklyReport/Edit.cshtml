@@ -1,0 +1,166 @@
+@model Aiursoft.EmployeeCenter.Models.WeeklyReportViewModels.EditViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
+
+<div class="container-fluid p-0">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Edit Weekly Report"]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <a asp-controller="WeeklyReport" asp-action="Index" asp-route-userId="@Model.User!.Id">
+                            <img src="@(StorageService.RelativePathToInternetUrl(Model.User!.AvatarRelativePath) + "?w=100&square=true")"
+                                 class="rounded-circle me-3"
+                                 alt="@Model.User!.DisplayName"
+                                 width="50"
+                                 height="50">
+                        </a>
+                        <div>
+                            <a asp-controller="WeeklyReport" asp-action="Index" asp-route-userId="@Model.User!.Id" class="text-decoration-none text-body">
+                                <h5 class="mb-0 fw-bold">@Model.User!.DisplayName</h5>
+                            </a>
+                            <p class="text-muted small mb-0">@Model.User!.Title</p>
+                        </div>
+                    </div>
+
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="mb-3">
+                            <label asp-for="Content" class="form-label"></label>
+                            <textarea asp-for="Content" class="form-control" rows="12" placeholder="@Localizer["Update your weekly report... (Markdown supported)"]" required></textarea>
+                            <span asp-validation-for="Content" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">@Localizer["Project Associations"]</label>
+                            @if(Model.ForceProjectAssociation)
+                            {
+                                <span class="badge bg-danger">@Localizer["Required"]</span>
+                            }
+                            <div id="project-list" class="mb-2">
+                                @for (int i = 0; i < Model.Requirements.Count; i++)
+                                {
+                                    var req = Model.Requirements[i];
+                                    var proj = Model.ApprovedProjects.FirstOrDefault(p => p.Id == req.RequirementId);
+                                    var title = proj?.Title ?? $"Project #{req.RequirementId}";
+                                    <div class="d-flex justify-content-between align-items-center mb-1 p-2 bg-light rounded border">
+                                        <span class="fw-bold">@title <span class="badge bg-secondary ms-2">@req.Hours h</span></span>
+                                        <input type="hidden" name="Requirements[@i].RequirementId" value="@req.RequirementId">
+                                        <input type="hidden" name="Requirements[@i].Hours" value="@req.Hours">
+                                        <button type="button" class="btn btn-sm btn-outline-danger remove-project-btn">
+                                            <i data-lucide="trash-2"></i>
+                                        </button>
+                                    </div>
+                                }
+                            </div>
+                            <div class="row g-2">
+                                <div class="col">
+                                    <select class="form-select" id="new-project-select">
+                                        <option value="">@Localizer["Select Project..."]</option>
+                                        @foreach (var project in Model.ApprovedProjects)
+                                        {
+                                            <option value="@project.Id">@project.Title</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="number" class="form-control" id="new-project-hours" placeholder="@Localizer["Hours"]" min="1" style="width: 100px;">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" class="btn btn-secondary" id="add-project-btn">
+                                        <i class="align-middle" data-lucide="plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Index" asp-route-userId="@Model.User.Id" class="btn btn-outline-secondary">
+                                <i class="align-middle me-1" data-lucide="arrow-left"></i> @Localizer["Back"]
+                            </a>
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="align-middle me-1" data-lucide="save"></i> @Localizer["Save Changes"]
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const projectSelect = document.getElementById('new-project-select');
+        const projectHours = document.getElementById('new-project-hours');
+        const addProjectBtn = document.getElementById('add-project-btn');
+        const projectList = document.getElementById('project-list');
+        let projectIndex = @Model.Requirements.Count;
+
+        if (addProjectBtn && projectSelect && projectHours && projectList) {
+            // Bind existing remove buttons
+            projectList.querySelectorAll('.remove-project-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    btn.closest('div').remove();
+                    reIndexProjects();
+                });
+            });
+
+            addProjectBtn.addEventListener('click', function() {
+                const projectId = projectSelect.value;
+                const projectText = projectSelect.options[projectSelect.selectedIndex].text;
+                const hours = projectHours.value;
+
+                if (!projectId || !hours || hours <= 0) {
+                    alert('Please select a project and enter valid hours.');
+                    return;
+                }
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'd-flex justify-content-between align-items-center mb-1 p-2 bg-light rounded border';
+                itemDiv.innerHTML = `
+                    <span class="fw-bold">${projectText} <span class="badge bg-secondary ms-2">${hours}h</span></span>
+                    <input type="hidden" name="Requirements[${projectIndex}].RequirementId" value="${projectId}">
+                    <input type="hidden" name="Requirements[${projectIndex}].Hours" value="${hours}">
+                    <button type="button" class="btn btn-sm btn-outline-danger remove-project-btn">
+                        <i data-lucide="trash-2"></i>
+                    </button>
+                `;
+                
+                projectList.appendChild(itemDiv);
+                
+                if (window.lucide) {
+                    lucide.createIcons({
+                        root: itemDiv
+                    });
+                }
+                
+                projectSelect.value = '';
+                projectHours.value = '';
+                
+                itemDiv.querySelector('.remove-project-btn').addEventListener('click', function() {
+                    itemDiv.remove();
+                    reIndexProjects();
+                });
+
+                reIndexProjects();
+            });
+
+            function reIndexProjects() {
+                const items = projectList.children;
+                projectIndex = 0;
+                for (let i = 0; i < items.length; i++) {
+                    const idInput = items[i].querySelector('input[name*="RequirementId"]');
+                    const hoursInput = items[i].querySelector('input[name*="Hours"]');
+                    if (idInput && hoursInput) {
+                        idInput.name = `Requirements[${projectIndex}].RequirementId`;
+                        hoursInput.name = `Requirements[${projectIndex}].Hours`;
+                        projectIndex++;
+                    }
+                }
+            }
+        }
+    });
+</script>

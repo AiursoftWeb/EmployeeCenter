@@ -1,0 +1,145 @@
+@model Aiursoft.EmployeeCenter.Models.ServersViewModels.IndexServerViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
+@using Aiursoft.EmployeeCenter.Authorization
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageInfrastructure)).Succeeded;
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Servers"]</h3>
+    </div>
+
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="Index" asp-route-includeRetired="@(!Model.IncludeRetired)" class="btn btn-outline-secondary">
+            @(Model.IncludeRetired ? Localizer["Hide retired"] : Localizer["Show retired"])
+        </a>
+        @if (canManage)
+        {
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Server"]
+            </a>
+        }
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["All Servers"]</h5>
+    </div>
+    @if (!Model.Servers.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    @Localizer["No servers found."]
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Hostname"]</th>
+                        <th>@Localizer["IPv4 Address"]</th>
+                        <th>@Localizer["IPv6 Address"]</th>
+                        <th>@Localizer["Associated Services"]</th>
+                        <th>@Localizer["Location"]</th>
+                        <th>@Localizer["Company"]</th>
+                        <th>@Localizer["Owner"]</th>
+                        <th>@Localizer["Provider"]</th>
+                        <th>@Localizer["Link"]</th>
+                        <th class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var s in Model.Servers)
+                    {
+                        <tr>
+                            <td>
+                                <code>@s.Hostname</code>
+                                @if (s.RetiredAt.HasValue)
+                                {
+                                    <span class="badge bg-secondary ms-1">@Localizer["Retired"]</span>
+                                }
+                            </td>
+                            <td>
+                                @s.ServerIp
+                            </td>
+                            <td>
+                                @s.Ipv6Address
+                            </td>
+                            <td>
+                                <a asp-controller="Services"
+                                   asp-action="List"
+                                   asp-route-serverId="@s.Id"
+                                   class="badge bg-primary text-decoration-none">
+                                    @Model.AssociatedServiceCounts.GetValueOrDefault(s.Id)
+                                </a>
+                            </td>
+                            <td>
+                                @(s.Location?.Name ?? "-")
+                            </td>
+                            <td>
+                                @(s.CompanyEntity?.CompanyName ?? "-")
+                            </td>
+                            <td class="align-middle">
+                                @if (s.TechnicalOwner != null)
+                                {
+                                    <a asp-controller="Users" asp-action="Details" asp-route-id="@s.TechnicalOwnerId" class="text-body d-flex align-items-center">
+                                        <img src="@Storage.RelativePathToInternetUrl(s.TechnicalOwner.AvatarRelativePath)" class="avatar img-fluid rounded me-1" alt="@s.TechnicalOwner.DisplayName" style="width: 20px; height: 20px;" />
+                                        @s.TechnicalOwner.DisplayName
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">@Localizer["No Owner"]</span>
+                                }
+                            </td>
+                            <td>
+                                @(s.Provider?.Name ?? "-")
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(s.DetailLink))
+                                {
+                                    <a href="@s.DetailLink" target="_blank">@Localizer["Details"]</a>
+                                }
+                                else
+                                {
+                                    <span>-</span>
+                                }
+                            </td>
+                            <td class="text-end">
+                                @if (canManage && !s.RetiredAt.HasValue)
+                                {
+                                    <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-outline-primary">
+                                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                    </a>
+                                    <form asp-action="Delete" asp-route-id="@s.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-confirm', 'Are you sure?'));">
+                                        <input type="hidden" name="concurrencyToken" value="@s.ConcurrencyToken" />
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            <i class="align-middle" data-lucide="archive"></i> @Localizer["Retire"]
+                                        </button>
+                                    </form>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<div id="loc-data" hidden>
+    <span data-key="delete-confirm">@Localizer["Are you sure?"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+}

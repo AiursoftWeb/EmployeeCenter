@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Działania</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Wszystka firma</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Urlop urlopowy</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Prośnik</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>zatwierdzone wnioski</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>odrzucone wnioski</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Centrum Zatwierdzeń</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Historia zatwierdzeń</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Zatwierdź</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Zatwierdzone</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Zatwierdzone w tym miesiącu</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Zatwierdzający</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>oczekujące na przegląd w całej firmie</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>oczekiwanie na Twoją ocenę</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>obecnie nieobecni</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dni</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Decyzja</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Jeśli odrzucono przez pomyłkę:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Jeśli pracownik chce anulować:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Ważne: Decyzje dotyczące zatwierdzenia są ostateczne</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Moja drużyna</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>Brak historii zatwierdzeń.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Brak niezatwierdzonych wniosków.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>Po zatwierdzeniu lub odrzuceniu wniosku o urlop decyzja nie może zostać cofnięta. Proszę dokładnie przejrzeć przed podjęciem działania.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>Oczekujące zatwierdzenie</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Oczekujące zatwierdzenia</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Okres</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Powód</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Odrzuć</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Odrzucone</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Odrzucone w tym miesiącu</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Przeglądu</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Choroba</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Zgłoszono</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>Zespół w urlopie</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>Pracownik musi złożyć nową wniosek.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>Mogą wycofać swoją wniosek przed rozpoczęciem.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>do</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+
+</root>

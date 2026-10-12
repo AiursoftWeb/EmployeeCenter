@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Alternative service" xml:space="preserve">
+    <value>वैकल्पिक सेवा</value>
+  </data>
+  <data name="Authentik Integrated" xml:space="preserve">
+    <value>Authentik Integrated</value>
+  </data>
+  <data name="Cloudflare Proxied" xml:space="preserve">
+    <value>Cloudflare Proxied</value>
+  </data>
+  <data name="Company entity" xml:space="preserve">
+    <value>कंपनी एंटिटी</value>
+  </data>
+  <data name="Cross-Entity Link" xml:space="preserve">
+    <value>क्रॉस-एंटिटी लिंक</value>
+  </data>
+  <data name="DNS Provider" xml:space="preserve">
+    <value>DNS प्रदाता</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>डोमेन</value>
+  </data>
+  <data name="Enable Availability Audit" xml:space="preserve">
+    <value>उपलब्धता ऑडिट सक्षम करें</value>
+  </data>
+  <data name="FRPS Server" xml:space="preserve">
+    <value>FRPS सर्वर</value>
+  </data>
+  <data name="Is Online" xml:space="preserve">
+    <value>ऑनलाइन है</value>
+  </data>
+  <data name="Is Self Developed" xml:space="preserve">
+    <value>स्वयं विकसित</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>स्थान</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>मालिक</value>
+  </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>प्रमुख डोमेन</value>
+  </data>
+  <data name="Protocols" xml:space="preserve">
+    <value>प्रोटोकॉल</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>उद्देश्य</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>टिप्पणी</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>सर्वर</value>
+  </data>
+  <data name="Server (Asset)" xml:space="preserve">
+    <value>सर्वर (एसेट)</value>
+  </data>
+  <data name="Server IP" xml:space="preserve">
+    <value>सर्वर आईपी</value>
+  </data>
+  <data name="Service name" xml:space="preserve">
+    <value>सेवा का नाम</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} के {1} अक्षरों से अधिक नहीं हो सकते।</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} आवश्यक है।</value>
+  </data>
+  <data name="Via FRPS" xml:space="preserve">
+    <value>FRPS के माध्यम से</value>
+  </data>
+
+</root>

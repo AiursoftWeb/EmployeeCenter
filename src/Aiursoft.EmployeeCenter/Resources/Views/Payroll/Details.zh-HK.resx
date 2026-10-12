@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>實際支付</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>實際薪金（淨額）</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>行政罰款</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>出勤及罰款</value>
+  </data>
+  <data name="Back to My Payrolls" xml:space="preserve">
+    <value>返回我的薪資單</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>銀行戶口</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>銀行名稱</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>底薪</value>
+  </data>
+  <data name="Basic Info" xml:space="preserve">
+    <value>基本資料</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>類別</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>公司成本</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>扣減</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>收入</value>
+  </data>
+  <data name="Employee ID" xml:space="preserve">
+    <value>員工編號</value>
+  </data>
+  <data name="Employee Name" xml:space="preserve">
+    <value>員工姓名</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>全勤獎</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>公積金</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>公積金（公司）</value>
+  </data>
+  <data name="How is your salary calculated?" xml:space="preserve">
+    <value>你嘅薪金係點樣計算嘅？</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>入息稅</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>資訊</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>保險（個人）</value>
+  </data>
+  <data name="Issue Date" xml:space="preserve">
+    <value>發佈日期</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>項目</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>職級</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>職位薪金</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>遲到 / 早退</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>生育保險 (公司)</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>醫療</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>醫療保險（公司）</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>備註</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>其他津貼</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>加班費</value>
+  </data>
+  <data name="Payroll Content" xml:space="preserve">
+    <value>薪金內容</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>薪金單詳情</value>
+  </data>
+  <data name="Payroll period" xml:space="preserve">
+    <value>支薪週期</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>強積金</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>強積金（公司供款）</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>表現獎金</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>個人入息稅</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>個人保險</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>列印</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>備註</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>病假 / 事假</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>特別附加扣除</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>目標月份</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>稅務資料</value>
+  </data>
+  <data name="Tax relief items" xml:space="preserve">
+    <value>免稅項目</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>應課稅入息</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>職位</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>總金額</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>公司總成本</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>總收入</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>個人保險總額</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>失業保險</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>失業保險 (公司)</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>工傷保險 (公司)</value>
+  </data>
+  <data name="Your actual salary is calculated as:" xml:space="preserve">
+    <value>您嘅實際薪金計算方式如下：</value>
+  </data>
+
+</root>

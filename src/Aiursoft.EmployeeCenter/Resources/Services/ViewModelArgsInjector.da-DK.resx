@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>Adgang nægtet</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Konti</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Handling</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>Tilføj SSH-nøgle</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>Yderligere oplysninger (fastland/HK)</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Administrative detaljer</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI-assistent</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Aiursoft Medarbejdercenter</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft Skabelon</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>Anonym</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>Ansøg om frihed</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Godkendelsescenter</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Godkendelseshistorik</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Godkend</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Godkendt</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>Godkendte projekter</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Aktivkategorier</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Aktivmodeler</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Aktiver</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Tildel</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Tildel aktiver</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Lyd</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Revider tjenester</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>Baggrundstasks</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Forkert anmodning</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Bankoplysninger</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Grundlæggende oplysninger</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>Blåkart</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>Blæktryk</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Erhvervslicens</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Karriere</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>Certifikat for ansættelse</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>Arbejdsgivereksamen</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>Certifikat for indkomst</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Udskriv certifikat</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>Skift avatar</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>Ændre bankoplysninger</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>Skift adgangskode</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>Rediger profil</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>CI-nummer</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>Klik for at logge ind</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kode</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>Indtægtskanaler</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Kommentarer</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>Virksomhedsentiteter</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>Virksomhedsenhedsdetaljer</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>Virksomhedsentitet Info</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>Konsultation om virksomhedsoplysninger</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>Virksomhedens immaterielle aktiver</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Virksomhedsnavn</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>Virksomhedens offentlige kontrakter</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Virksomhedstype</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Bekræft sletning</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>Oplysninger om kontraktøkonomi</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>Kontrakfinansieringsstatistik</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Aftaler</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Opret</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Opret konto</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Opret tilgængelighed</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>Opret virksomhedsenhed</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Opret ny</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>Opret ny Blueprint-mappe</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>Opret ny kontrakt</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Opret ny mappe</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Opret påbegyndelsesopgave</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>Opret adgangskode</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>Opret fremrykning</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>Opret spørgsmål</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>Opret spørgeskema</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>Opret rolle</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Opret server</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Opret tjeneste</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Opret transaktion</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Opret bruger</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>Kundeforhold</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>Kundeforhold</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>Slet rolle</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>Slet bruger</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Udvikling</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Mappe</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS-audit</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Hent / Vis</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Redigér</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Rediger konto</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Rediger aktiva</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>Rediger blueprint</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>Rediger blueprint-mappe</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>Rediger virksomhedsentitet</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>Rediger kontrakt</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>Rediger kundeforhold</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Rediger mappe</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Rediger mødeoptagelse</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>Rediger påbegyndelsesopgave</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>Rediger adgangskode</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Rediger løn</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Rediger spørgsmål</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Rediger spørgeskema</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>Rediger krav</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>Rediger Rolle</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Rediger server</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Redigér tjeneste</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Rediger SSH-nøgle</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Rediger transaktion</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Redigér protokol</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>Rediger bruger</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>Rediger ugentlig rapport</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Redaktør</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>Medarbejdercenter</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>Medarbejder Signalering</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Engelsk navn</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>Enhedsliste</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Enhedskode</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Enhedsdetaljer</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fejl</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Etablering</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Udløbsdato</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Funktioner</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>Udfyld spørgeskema</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finans</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>Globale indstillinger</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Feriejusteringer</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Hjem</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Billeder &amp; Fil</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>Importer kontrakter fra zip-fil</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>Indkommende orlov</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Indeks</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Index Server</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>Infrastrukturdatakvalitet</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Intern serverfejl</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>Udsted faktura</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>Udsted løn</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT-aktiver</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>Ferie</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>Feriehåndtering</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>Juridisk</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>Retssag</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Retningslinjer / Direktør</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Pladser</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Låsning</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Log ind</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>Log ind for at få adgang til alle funktioner.</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>Opret profil</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Administrer</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Håndtér aktiver</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Administrer lyddelelser</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Administrer blueprint</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Administrer kategorier</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>Håndtér virksomhedsenheder</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Administrer kontrakter</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>Håndtér kundeforhold</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Administrer DNS-udbydere</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Håndtér feedback</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Håndtér intangible aktiver</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>Administrer IT-aktiver</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Håndtér bogføring</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Administrer lokationer</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Administrer markedskanaler</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Administrer modeller</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>Håndtér påbegyndelse</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Håndtér påbegyndelsesopgaver</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>Administrer adgang til adgangskoder</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Administrer Lønninger</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>Håndtér udskrivning</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Administrer udbydere</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>Håndtér spørgsmål</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>Håndtér krav</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Administrer Delinger</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>Håndtér opgaver</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Administrer leverandører</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>Markedkanaler</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Møderapport</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Mødeoptegelse</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Mødeskitser</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Opdrag</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>Flyt kontrakt</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Mine aktiver</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>Mine kontrakter</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>Mine IT-aktiver</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Min feriebalance</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>Mine Lønninger</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Mine refusioner</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>Min Rapportlinje</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>Mine krav</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Ikke fundet</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR-resultater</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Officiel stempel</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>Indarbejdelse</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>Indarbejdelsesproces</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>Passwordoplysninger</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Adgangskoder</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Adgangskodehåndtering</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Lønopgørelse detaljer</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>Lønninger</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Venter på godkendelse</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Tilladelsesdetaljer</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Tilladelser</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Personlig</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Forhåndsvisning</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Udskriv</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>Udskriv certifikat</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Profilindstillinger</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>Projektkrav</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>Udviklingshistorik</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>Svar på spørgeskemaer</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Ejerkapital</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrer</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>Refusion</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Afvise</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Afslået</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>Omdøb mødesoptagelse</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Svar</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>Svarer til</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Rapportlinje</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>Anmod om ændringer</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>Anmod om ændringer</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>Krav</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>Kravdetaljer</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Krav gemt successfullt.</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>Anmodningstitel</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>Ressourcer</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>Svardetaljer</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Begrænset</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>Roledetaljer</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roller</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Gem ændringer</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>SCR-placering</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Sekretær</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Servers</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Servicesaudit</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Tjenester</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Services-dashboard</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Indstillinger</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>Delt Info</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>Delte adgangskoder</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Log ud</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH-nøgler</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>Indsend kommentar</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Indsend til godkendelse</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>Indsend ny krav</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>Indsend krav</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>Systeminformation</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Holdkalender</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Skabelon</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transaktioner</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Uautoriseret</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Upload audio</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Brugerdetaljer</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Brugere</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Leverandører</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>Vis blueprint</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>Vis kontrakter</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>Vis kundeforhold</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>Vis markedskanaler</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>Ugentlig rapport</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>Skriv en kommentar...</value>
+  </data>
+
+</root>

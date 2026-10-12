@@ -1,0 +1,325 @@
+@using Aiursoft.EmployeeCenter.Controllers
+@model Aiursoft.EmployeeCenter.Models.RequirementViewModels.EditorViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@(Model.IsEditing ? Localizer["Edit Requirement"] : Localizer["Submit Requirement"])</h3>
+    </div>
+</div>
+
+@if (Model.SavedSuccessfully)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="check-circle"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Success!"]</strong>
+            @Localizer["Requirement saved successfully."]
+        </div>
+    </div>
+}
+
+<div id="upload-error-banner" class="quick-save-banner">
+    <div class="quick-save-banner-content" style="background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 32px rgba(239,68,68,0.35);">
+        <i class="align-middle" data-lucide="alert-circle"></i>
+        <span>@Localizer["Image upload failed!"]</span>
+    </div>
+</div>
+
+<form asp-action="@(Model.IsEditing ? "Edit" : "Create")" method="post" id="markdown-form">
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="btn-group btn-group-sm me-3 d-none d-lg-inline-block" role="group" aria-label="View mode" id="view-mode-switcher-desktop">
+                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-split-desktop" value="split" autocomplete="off" checked>
+                            <label class="btn btn-outline-secondary" for="view-split-desktop" title="@Localizer["Split View"]"> <i class="align-middle" data-lucide="columns"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-editor-desktop" value="editor" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-editor-desktop" title="@Localizer["Editor Only"]"> <i class="align-middle" data-lucide="edit-3"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-preview-desktop" value="preview" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-preview-desktop" title="@Localizer["Preview Only"]"> <i class="align-middle" data-lucide="eye"></i></label>
+                        </div>
+
+                        <div class="btn-group btn-group-sm me-3 d-lg-none" role="group" aria-label="Mobile view mode" id="view-mode-switcher-mobile">
+                            <input type="radio" class="btn-check" name="view-mode-mobile" id="view-editor-mobile" value="editor" autocomplete="off" checked>
+                            <label class="btn btn-outline-secondary" for="view-editor-mobile" title="@Localizer["Editor"]"> <i class="align-middle" data-lucide="edit-3"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-mobile" id="view-preview-mobile" value="preview" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-preview-mobile" title="@Localizer["Preview"]"> <i class="align-middle" data-lucide="eye"></i></label>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-white text-muted">@Localizer["Title"]</span>
+                                <input asp-for="Title" class="form-control" placeholder="@Localizer["Requirement Title"]" />
+                                <input type="hidden" asp-for="RequirementId" />
+                            </div>
+                        </div>
+
+                        <div class="ms-auto">
+                            <a asp-action="My" class="btn btn-sm btn-outline-secondary me-1">
+                                <i class="align-middle" data-lucide="arrow-left">&nbsp;</i>
+                                <span class="d-none d-md-inline">@Localizer["Back"]</span>
+                            </a>
+                            <button type="submit" class="btn btn-sm btn-primary shadow-sm">
+                                <i class="align-middle" data-lucide="save">&nbsp;</i>
+                                <span class="d-none d-md-inline">@(Model.IsEditing ? Localizer["Save Changes"] : Localizer["Submit for Approval"])</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height: calc(100vh - 320px); min-height: 420px;">
+
+        <div id="editor-column" class="col-lg-6 h-100 pb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-0 d-flex flex-column h-100">
+                    <div class="flex-grow-1 position-relative editor-wrapper">
+                        <div id="markdown-editor-container" style="width: 100%; height: 100%;"></div>
+                        <textarea asp-for="InputMarkdown" id="markdown-editor" class="form-control" rows="20"></textarea>
+                    </div>
+                    <span asp-validation-for="InputMarkdown" class="text-danger px-2"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="preview-column" class="col-lg-6 h-100 pb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header border-bottom d-flex align-items-center justify-content-between pt-2 pb-0 flex-shrink-0" style="min-height: 49px;">
+                    <div class="d-flex align-items-center">
+                        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="true">
+                                    <i class="align-middle" data-lucide="eye">&nbsp;</i> @Localizer["Preview"]
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="#code" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                    <i class="align-middle" data-lucide="code-2">&nbsp;</i> @Localizer["HTML"]
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-body p-0 d-flex flex-column overflow-hidden">
+
+                    <div class="tab-content flex-grow-1 d-flex flex-column p-0" style="height: 100%;">
+
+                        <div class="tab-pane flex-column h-100 active show" id="preview" role="tabpanel">
+                            <div class="flex-grow-1 overflow-auto p-4 markdown-content" id="markdown-preview">
+                                <!-- markdown preview rendered client-side -->
+                            </div>
+                        </div>
+
+                        <div class="tab-pane flex-column h-100" id="code" role="tabpanel">
+                            <textarea id="html-output" class="form-control border-0 p-3" readonly
+                                style="font-family: 'Cascadia Code', 'Consolas', monospace; font-size: 0.85rem; height: 100%; resize: none;"
+                                placeholder="HTML output will appear here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
+    <style>
+        .tab-content > .tab-pane.active {
+            display: flex !important;
+        }
+
+        @@media (max-width: 991.98px) {
+            #editor-column,
+            #preview-column {
+                width: 100%;
+                display: none;
+            }
+
+            .view-mode-editor #editor-column,
+            .view-mode-preview #preview-column {
+                display: block;
+            }
+        }
+
+        /* Quick save banner */
+        .quick-save-banner {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-120%);
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .quick-save-banner.show {
+            transform: translateX(-50%) translateY(24px);
+        }
+        .quick-save-banner-content {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.35);
+            white-space: nowrap;
+        }
+        .quick-save-banner-content i {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" defer src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    @* uistack-markdown-ui, mermaid, hljs MUST be loaded before Monaco's loader.js *@
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
+    <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+                var markdownEditorElement = document.getElementById('markdown-editor');
+                var monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
+                var markdownEditorController;
+                var isDirty = false;
+
+                if (markdownEditorElement) {
+                    markdownEditorController = await window.AiursoftMarkdownUi.createMarkdownEditor({
+                        editorContainer: document.getElementById('markdown-editor-container'),
+                        textarea: markdownEditorElement,
+                        previewContainer: document.getElementById('markdown-preview'),
+                        editorPane: document.getElementById('editor-column'),
+                        previewPane: document.getElementById('preview-column'),
+                        form: document.getElementById('markdown-form'),
+                        loadMonaco: function () { return window.AiursoftMarkdownUi.loadMonacoFromAmd(); },
+                        theme: monacoTheme,
+                        initialViewMode: 'split',
+                        viewModeStorageKey: 'markdown-view-mode',
+                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
+                        mermaidTheme: '@(isDarkMode ? "dark" : "default")',
+                        onSave: function () {
+                            document.getElementById('markdown-form').requestSubmit();
+                        },
+                        onChange: function () { isDirty = true; },
+                        onPreviewRendered: function (markdown) {
+                            var htmlOutput = document.getElementById('html-output');
+                            if (htmlOutput) {
+                                htmlOutput.value = window.AiursoftMarkdownUi.renderMarkdown(markdown);
+                            }
+                        },
+                        imageUploadOptions: {
+                            onError: function () {
+                                var errBanner = document.getElementById('upload-error-banner');
+                                if (!errBanner) return;
+                                errBanner.classList.add('show');
+                                setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
+                            }
+                        },
+                        onInitializationError: function (error) {
+                            console.error('Markdown editor initialization error:', error);
+                        },
+                        onPreviewError: function (error) {
+                            console.error('Markdown preview error:', error);
+                        }
+                    });
+
+                    window.addEventListener('beforeunload', function (e) {
+                        if (isDirty) { e.preventDefault(); e.returnValue = ''; }
+                    });
+                    var form = document.getElementById('markdown-form');
+                    if (form) { form.addEventListener('submit', function () { isDirty = false; }); }
+                    var titleInput = document.getElementById('Title');
+                    if (titleInput) { titleInput.addEventListener('input', function () { isDirty = true; }); }
+                }
+
+                var editorCol = document.getElementById('editor-column');
+                var previewCol = document.getElementById('preview-column');
+                var formRoot = document.getElementById('markdown-form');
+                var radiosDesktop = document.querySelectorAll('input[name="view-mode-desktop"]');
+                var radiosMobile = document.querySelectorAll('input[name="view-mode-mobile"]');
+
+                function isMobile() { return window.innerWidth < 992; }
+
+                function setViewMode(mode) {
+                    if (!editorCol || !previewCol || !formRoot) return;
+                    if (isMobile() && mode === 'split') { mode = 'editor'; }
+                    localStorage.setItem('markdown-view-mode', mode);
+                    if (markdownEditorController) {
+                        void markdownEditorController.setViewMode(mode);
+                    }
+
+                    var dr = document.querySelector('input[name="view-mode-desktop"][value="' + mode + '"]');
+                    if (dr) dr.checked = true;
+                    var mr = document.querySelector('input[name="view-mode-mobile"][value="' + mode + '"]');
+                    if (mr) mr.checked = true;
+
+                    if (!isMobile()) {
+                        formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
+                        if (mode === 'split') {
+                            editorCol.classList.remove('d-none', 'col-lg-12'); editorCol.classList.add('col-lg-6');
+                            previewCol.classList.remove('d-none', 'col-lg-12'); previewCol.classList.add('col-lg-6');
+                        } else if (mode === 'editor') {
+                            editorCol.classList.remove('d-none', 'col-lg-6'); editorCol.classList.add('col-lg-12');
+                            previewCol.classList.add('d-none');
+                        } else {
+                            editorCol.classList.add('d-none');
+                            previewCol.classList.remove('d-none', 'col-lg-6'); previewCol.classList.add('col-lg-12');
+                        }
+                    } else {
+                        editorCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
+                        previewCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
+                        formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
+                        formRoot.classList.add('view-mode-' + mode);
+                    }
+                }
+
+                radiosDesktop.forEach(function (r) { r.addEventListener('change', function (e) { setViewMode(e.target.value); }); });
+                radiosMobile.forEach(function (r) { r.addEventListener('change', function (e) { setViewMode(e.target.value); }); });
+                window.addEventListener('resize', function () { setViewMode(localStorage.getItem('markdown-view-mode') || 'split'); });
+                setViewMode(localStorage.getItem('markdown-view-mode') || 'split');
+
+        });
+    </script>
+}

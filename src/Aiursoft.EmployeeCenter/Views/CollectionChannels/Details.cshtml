@@ -1,0 +1,168 @@
+@model Aiursoft.EmployeeCenter.Models.CollectionChannelsViewModels.DetailsViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Collection Channel Details"]</h3>
+    </div>
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-action="Edit" asp-route-id="@Model.Channel.Id" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="edit"></i> @Localizer["Edit Channel"]
+        </a>
+        @if (Model.Channel.IsRecurring || Model.Channel.Records.Count == 0)
+        {
+            <a asp-controller="CollectionRecords" asp-action="Create" asp-route-channelId="@Model.Channel.Id" class="btn btn-primary">
+                <i class="align-middle" data-lucide="plus-circle"></i> @Localizer["Add record"]
+            </a>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Channel Info"]</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>@Localizer["Payer"]</th>
+                        <td>@(Model.Channel.Payer?.CompanyName ?? Localizer["N/A"].Value)</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Payee"]</th>
+                        <td>@(Model.Channel.Payee?.CompanyName ?? Localizer["N/A"].Value)</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Reference Amount"]</th>
+                        <td>@((Model.Channel.ReferenceAmount / 100.0).ToString("N2")) @Model.Channel.Currency</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Payment Method"]</th>
+                        <td>@Model.Channel.PaymentMethod</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Start Billing"]</th>
+                        <td>@Model.Channel.StartBillingDate.ToShortDateString()</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["First Payment"]</th>
+                        <td>@Model.Channel.FirstPaymentDate.ToShortDateString()</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Recurring"]</th>
+                        <td>
+                            @if (Model.Channel.IsRecurring)
+                            {
+                                <span class="badge bg-info">@Model.Channel.RecurringPeriod</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">@Localizer["One-time"]</span>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Status"]</th>
+                        <td>
+                            @switch (Model.Channel.Status)
+                            {
+                                case CollectionChannelStatus.Active:
+                                    <span class="badge bg-success">@Localizer["Active"]</span>
+                                    break;
+                                case CollectionChannelStatus.Paused:
+                                    <span class="badge bg-warning">@Localizer["Paused"]</span>
+                                    break;
+                                case CollectionChannelStatus.Terminated:
+                                    <span class="badge bg-danger">@Localizer["Terminated"]</span>
+                                    break;
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Contract"]</th>
+                        <td>
+                            @if (Model.Channel.Contract != null)
+                            {
+                                <a asp-controller="Contract" asp-action="Preview" asp-route-id="@Model.Channel.ContractId">
+                                    @Model.Channel.Contract.Name
+                                </a>
+                            }
+                            else
+                            {
+                                @Localizer["N/A"]
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Collection Records"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                    <tr>
+                        <th>@Localizer["Due Date"]</th>
+                        <th>@Localizer["Remark"]</th>
+                        <th>@Localizer["Expected"]</th>
+                        <th>@Localizer["Actual"]</th>
+                        <th>@Localizer["Paid Date"]</th>
+                        <th>@Localizer["Status"]</th>
+                        <th class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var record in Model.Channel.Records.OrderByDescending(r => r.DueDate))
+                    {
+                        <tr>
+                            <td>@record.DueDate.ToShortDateString()</td>
+                            <td>@(record.Remark ?? Localizer["N/A"].Value)</td>
+                            <td>@((record.ExpectedAmount / 100.0).ToString("N2")) @Model.Channel.Currency</td>
+                            <td>@((record.ActualAmount / 100.0).ToString("N2")) @Model.Channel.Currency</td>
+                            <td>@(record.PaidDate?.ToShortDateString() ?? Localizer["N/A"].Value)</td>
+                            <td>
+                                @switch (record.Status)
+                                {
+                                    case CollectionRecordStatus.Pending:
+                                        <span class="badge bg-warning">@Localizer["Pending"]</span>
+                                        break;
+                                    case CollectionRecordStatus.Partial:
+                                        <span class="badge bg-info">@Localizer["Partial"]</span>
+                                        break;
+                                    case CollectionRecordStatus.Overdue:
+                                        <span class="badge bg-danger">@Localizer["Overdue"]</span>
+                                        break;
+                                    case CollectionRecordStatus.Settled:
+                                        <span class="badge bg-success">@Localizer["Settled"]</span>
+                                        break;
+                                    case CollectionRecordStatus.Cancelled:
+                                        <span class="badge bg-secondary">@Localizer["Cancelled"]</span>
+                                        break;
+                                }
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group">
+                                    <a asp-controller="CollectionRecords" asp-action="Edit" asp-route-id="@record.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Edit"]">
+                                        <i class="align-middle" data-lucide="edit"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    @if (!Model.Channel.Records.Any())
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center">@Localizer["No records found."]</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

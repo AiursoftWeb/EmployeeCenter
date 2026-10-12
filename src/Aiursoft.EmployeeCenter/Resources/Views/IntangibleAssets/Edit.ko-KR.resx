@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account (Optional)" xml:space="preserve">
+    <value>계정 (선택 사항)</value>
+  </data>
+  <data name="Are you sure you want to delete this asset?" xml:space="preserve">
+    <value>이 자산을 삭제하시겠습니까?</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>담당자</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>뒤로</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>통화</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>설명</value>
+  </data>
+  <data name="Edit Intangible Asset" xml:space="preserve">
+    <value>무형 자산 편집</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>만료 일자</value>
+  </data>
+  <data name="Filing / Certificate Number" xml:space="preserve">
+    <value>출원 / 등록 번호</value>
+  </data>
+  <data name="Filing Query Method" xml:space="preserve">
+    <value>출원 조회 방법</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>출원 제목</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>청구서 파일</value>
+  </data>
+  <data name="Invoice URL" xml:space="preserve">
+    <value>청구서 URL</value>
+  </data>
+  <data name="Management System Entry URL" xml:space="preserve">
+    <value>관리 시스템 접근 URL</value>
+  </data>
+  <data name="Name / Description" xml:space="preserve">
+    <value>이름 / 설명</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>신규</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>없음</value>
+  </data>
+  <data name="Password (Optional)" xml:space="preserve">
+    <value>비밀번호 (선택 사항)</value>
+  </data>
+  <data name="Public Intangible Asset" xml:space="preserve">
+    <value>공개 무형 자산</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>구매 가격</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>등록 증명서</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>등록 일자</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>새로고침</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>변경 사항 저장</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>엔티티 선택</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="Supplier / Registrar" xml:space="preserve">
+    <value>공급업체 / 등록기관</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>상표 이미지</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>유형</value>
+  </data>
+
+</root>

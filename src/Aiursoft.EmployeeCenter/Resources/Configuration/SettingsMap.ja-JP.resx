@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>DNS Auditで使用される読み取り専用のCloudflare APIトークン。すべてのアカウントにDNS Settings:Read、すべてのゾーンにDNS:Readを付与してください。</value>
+  </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>サービス監査で使用される読み取り専用の Cloudflare API トークンです。すべてのアカウントに対して DNS 設定:読み取り、すべてのゾーンに対して DNS:読み取りの権限を付与してください。</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
+    <value>AIアシスタントシステムプロンプト</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>ユーザーがニックネームを調整できるようにする</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>プロフィール管理ページでユーザーがニックネームを調整できるように許可します。</value>
+  </data>
+  <data name="Annual Leave Per Year" xml:space="preserve">
+    <value>年間有給休暇日数</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>ブランド ホーム URL</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>ブランド名</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API トークン</value>
+  </data>
+  <data name="Default Payroll Currency" xml:space="preserve">
+    <value>デフォルト給与通貨</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>プロジェクト連携の強制</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>ICP番号</value>
+  </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>議事録システムプロンプト</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>プロジェクトロゴ</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>プロジェクト名</value>
+  </data>
+  <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
+    <value>週次レポートを提出する際に、従業員が少なくとも1つのプロジェクトに紐付けられるようにする。</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>会社またはプロジェクトのブランド名。例：Aiursoft。</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>新しい給与を発行する際に使用するデフォルトの通貨。</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>中国本土ユーザー向けのICPライセンス番号。空欄のままにすると非表示になります。</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>ナビゲーションバーとフッターに表示されるプロジェクトのロゴ。jpg、png、svg形式をサポート。</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>フロントエンドに表示されるプロジェクトの名前</value>
+  </data>
+  <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
+    <value>1年に1人あたりに割り当てられる有給年次休暇の日数。</value>
+  </data>
+  <data name="The system prompt for the AI assistant." xml:space="preserve">
+    <value>AI アシスタントのシステムプロンプト。</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>トランスクリプトから会議議事録を生成するために使用されるシステムプロンプト。</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>会社またはプロジェクトのURL。例: https://www.aiursoft.com</value>
+  </data>
+
+</root>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>実支払額</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>実給与（手取り）</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>行政罰金</value>
+  </data>
+  <data name="Are you absolutely sure?" xml:space="preserve">
+    <value>本当に確実ですか？</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>勤怠・罰則</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>リストに戻る</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>口座番号</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>銀行名</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>基本給</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>無欠勤手当</value>
+  </data>
+  <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
+    <value>「確認して発行」をクリックすることで、上記のすべての値が正しいこと、および会社の方針に準拠していることを確認したことになります。</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>残業時間に基づいて計算</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>源泉徴収税</value>
+  </data>
+  <data name="Calculation Formula Graph" xml:space="preserve">
+    <value>計算式グラフ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>カテゴリー</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>会社負担額</value>
+  </data>
+  <data name="Company Paid Insurances" xml:space="preserve">
+    <value>会社負担保険料</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>法令遵守給与明細表</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>コンテンツ (Markdown)</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>契約基本給</value>
+  </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>重大な確認が必要です</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>通貨:</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>控除</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>説明 / 計算式</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>給与収入</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>教育、住宅など</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>従業員:</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>従業員の口座番号</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>従業員の銀行</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>負の値として入力</value>
+  </data>
+  <data name="Enter payroll details in Markdown format..." xml:space="preserve">
+    <value>給与明細をMarkdown形式で入力してください...</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>全勤手当</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>住宅積立金</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>住宅積立金（会社負担分）</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>所得税</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>社会保険料（個人負担分）</value>
+  </data>
+  <data name="Issue New Payroll" xml:space="preserve">
+    <value>新規給与明細の発行</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>給与を発行する</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>項目</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>職務給</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>遅刻・早退</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>出産育児保険（会社負担）</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>食事、交通費など</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>医療保険</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>医療保険（会社負担）</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>月:</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>月次業績評価</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>いいえ、もう一度確認します</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>任意の備考...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>その他手当</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>時間外手当</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>給与設定</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>給与明細</value>
+  </data>
+  <data name="Payroll issuance is irreversible! Once issued, you cannot delete or modify it. Please verify the following information:" xml:space="preserve">
+    <value>給与計算の実行は取り消しできません！実行後は削除または変更ができません。以下の情報を確認してください：</value>
+  </data>
+  <data name="Payroll issuance will be sent to the employee. Please verify the following information:" xml:space="preserve">
+    <value>給与の発行は従業員に送信されます。以下の情報を確認してください。</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>年金</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>年金（会社負担）</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>業績ボーナス</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>所得税</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>個人保険料</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>役職に基づく給与</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>備考 / 内容</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>ユーザーを選択</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>病気休暇 / 私用休暇</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>特別加算控除</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>対象月</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>税情報</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>課税所得</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>合計金額</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>会社総費用</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>総支給額</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>個人負担保険料合計</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>失業保険</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>失業保険（会社負担）</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>通常</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>労災保険（会社負担分）</value>
+  </data>
+  <data name="Yes, Confirm and Issue!" xml:space="preserve">
+    <value>はい、確認して発行します！</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>イベント記録時間は協定世界時です！</value>
+  </data>
+
+</root>

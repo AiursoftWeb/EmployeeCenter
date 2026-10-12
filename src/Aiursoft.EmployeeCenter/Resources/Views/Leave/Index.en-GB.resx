@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} days paid annual leave per year</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>7 days paid sick leave per year</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Annual Leave</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Apply for Leave</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Approver</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>awaiting approval</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>Carried Over</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>days away</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>Have a wonderful break!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>Key information about our leave policies</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>Leave Balance Summary</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>Leave History</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>Leave Policy</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>Maximum carryover: {0} days (expires after 1 year)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>Mental health: no documents required</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>My Leave Balance</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>Next Leave</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>No approval required, can be used immediately</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>No leave history found.</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>no upcoming leave</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>Pending Requests</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>Physical illness: medical certificate required</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team.</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>Quick Actions</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>requests</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>Requires manager approval before use</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Sick Leave</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Submitted</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>Supporting documents required after leave ends</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action.</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>Unused days carry over to the next year</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>Upcoming Leave</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Withdrawn</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>Your leave applications and their status</value>
+  </data>
+
+</root>

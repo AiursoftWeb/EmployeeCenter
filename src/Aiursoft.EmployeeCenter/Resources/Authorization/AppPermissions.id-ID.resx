@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Tambahkan Kata Sandi Global</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Tambah Peran Baru</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Tambahkan Pengguna Baru</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Memungkinkan menyetujui atau menolak aplikasi cuti apa pun, terlepas dari jalur pelaporan, dan melihat riwayat cuti pengguna apa pun.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Memungkinkan menyetujui atau menolak pengajuan cuti apa pun, terlepas dari jalur pelaporan.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Mengizinkan persetujuan, pengakuan, atau penolakan permintaan penggantian biaya dari karyawan manapun.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Memungkinkan menyetujui, menolak, atau meminta perubahan pada persyaratan proyek. Semua orang dapat mengajukan persyaratan dan memberikan komentar pada mereka.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Memungkinkan menetapkan atau mencabut peran untuk pengguna mana pun.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Memungkinkan pembuatan dan pengelolaan semua kontrak perusahaan.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Memungkinkan pembuatan dan pengelolaan templat tugas onboarding untuk karyawan baru.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Memungkinkan pembuatan kontrak untuk perusahaan. Setiap pengguna dapat melihat kontrak publik secara default.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Memungkinkan pembuatan kontrak baru untuk pengguna mana pun.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Memungkinkan pembuatan kata sandi global baru yang dapat dibagikan dengan orang lain.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Memungkinkan pembuatan pertanyaan, kuesioner, dan melihat respons umpan balik.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pengeditan, dan penghapusan laporan mingguan atas nama pengguna lain.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, dan penghapusan blueprints. Setiap pengguna dapat melihat blueprints secara default.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, dan penghapusan saluran koleksi dan catatan mereka.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, dan penghapusan informasi entitas perusahaan.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, dan penghapusan informasi entitas perusahaan. Setiap pengguna dapat melihat informasi entitas perusahaan secara default.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, dan penghapusan informasi hubungan pelanggan. Setiap pengguna dapat melihat hubungan pelanggan secara default.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, dan penghapusan informasi saluran pasar. Setiap pengguna dapat melihat saluran pasar secara default.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, dan penghapusan layanan serta penyedia DNS. Setiap pengguna dapat melihat layanan secara default.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pembaruan, penghapusan, dan pemeliharaan server, layanan, penyedia, penyedia DNS, dan alias domain.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Memungkinkan penerbitan dan pengelolaan slip gaji untuk semua pengguna.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Memungkinkan pengelolaan dan penghapusan kata sandi global apa pun yang dibuat oleh pengguna mana pun.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Memungkinkan pengelolaan akun keuangan perusahaan dan pencatatan transaksi.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Memungkinkan pengelolaan aset TI perusahaan dan aset tak berwujud (seperti domain, lisensi), termasuk kategori, model, dan item individu. Juga memungkinkan penugasan dan pemulihan aset ke/dari karyawan.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Memungkinkan pengelolaan aset TI perusahaan, termasuk kategori, model, dan item individu.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Memungkinkan pengelolaan aset TI perusahaan, termasuk kategori, model, dan item individu. Juga memungkinkan penugasan dan pemulihan aset ke/dari karyawan.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Mengizinkan pemicuan manual audit DNS dan ketersediaan layanan.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Memungkinkan modifikasi nama peran dan izin yang ditetapkan padanya.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Memungkinkan modifikasi detail pengguna seperti email dan peran, serta dapat mereset kata sandi pengguna.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Memungkinkan modifikasi detail pengguna seperti email dan peran, serta dapat mengatur ulang kata sandi pengguna.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Memungkinkan mencetak sertifikat pekerjaan dan penghasilan untuk karyawan mana pun.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Memungkinkan pencetakan surat keterangan pekerjaan dan penghasilan untuk diri sendiri.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Mengizinkan menjalankan audit DNS Cloudflare yang hanya-baca dan melihat temuannya.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Mengizinkan menjalankan audit layanan hanya-baca dan melihat temuannya.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Memungkinkan penghapusan permanen peran.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Memungkinkan penghapusan permanen akun pengguna.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Memungkinkan pengguna untuk mengobrol dengan asisten AI untuk informasi perusahaan.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Memungkinkan pengguna untuk membuat laporan mingguan mereka sendiri.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Memungkinkan pengguna membuat laporan mingguan atas nama pengguna lain.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Memungkinkan pengguna mengisi dan mengirimkan kuesioner umpan balik.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Memungkinkan pengguna mengajukan permintaan penggantian biaya untuk pengeluaran mereka.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Memungkinkan mengunggah, menghapus rekaman rapat, dan memicu ulang transkripsi suara-ke-teks.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Memungkinkan melihat semua kontrak perusahaan, termasuk yang ditandai sebagai pribadi.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Memungkinkan melihat semua kontrak perusahaan, termasuk yang ditandai sebagai pribadi. Semua orang dapat melihat kontrak publik secara default.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Memungkinkan melihat dan mengubah pengaturan aplikasi global.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Memungkinkan melihat transkrip rapat dan mendengarkan atau membaca transkrip dari rekaman apa pun.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Memungkinkan melihat ringkasan kesehatan layanan, pengamatan, dan temuan audit terperinci.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Memungkinkan melihat informasi dan pengaturan tingkat sistem.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Memungkinkan melihat dasbor pekerjaan latar belakang dan mengelola pekerjaan.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Memungkinkan melihat riwayat kontrak dari pengguna mana pun.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Memungkinkan melihat daftar semua saluran koleksi dan catatannya.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Memungkinkan melihat daftar semua izin dan penugasan mereka ke peran serta pengguna.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Memungkinkan melihat daftar semua pengguna.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Memungkinkan melihat daftar peran dan izin yang ditetapkan.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Memungkinkan melihat log operasi dari pengguna mana pun, termasuk riwayat perubahan kartu bank mereka.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Memungkinkan melihat laporan garis dari setiap pengguna, termasuk manajer, bawahan, dan rekan sejawat mereka.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Memungkinkan melihat registrasi server dan layanan, hubungan deployment, dan data referensi infrastruktur.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Memungkinkan melihat, mengedit, dan menghapus kunci SSH milik pengguna mana pun.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Setujui Cuti Apa Pun</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Setujui Persyaratan Proyek</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Setujui Penggantian</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Tetapkan Peran ke Pengguna</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Audit DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Audit Layanan</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Audit Layanan (Lega)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Obrolan dengan AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Buat dan kelola kontrak perusahaan</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Buat kontrak perusahaan</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Buat Kontrak</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Buat Laporan Mingguan</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Buat Laporan Mingguan untuk Siapa Pun</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>Izin default untuk HR.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Hapus Peran</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Hapus Pengguna</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Edit Informasi Pengguna</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Edit Informasi Peran</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Sunting Informasi Pengguna</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Memberikan izin untuk membuat peran baru.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Memberikan izin untuk membuat akun pengguna baru.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Memberikan izin untuk memulai ulang instance aplikasi. Dapat menyebabkan gangguan ketersediaan, tetapi semua pengaturan dan cache akan dimuat ulang.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Izin lama dipertahankan untuk transisi. Tetapkan Kelola Infrastruktur ke peran yang masih memerlukan akses.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Izin lama dipertahankan untuk transisi. Tugaskan Tinjau Audit Layanan dan Jalankan Audit Layanan sesuai kebutuhan.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Kelola Kata Sandi Apa Saja</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Kelola laporan mingguan siapa pun</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Kelola Aset</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Kelola Blueprint</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Kelola Saluran Koleksi</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Kelola Entitas Perusahaan</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Kelola Hubungan Pelanggan</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Kelola Umpan Balik</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Kelola Pengaturan Global</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Kelola Infrastruktur</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Kelola Cuti</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Kelola Buku Besar</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Kelola Saluran Pasar</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Kelola Transkrip Rapat</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Kelola Tugas Onboarding</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Kelola Penggajian</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Kelola Layanan</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Kelola Layanan (Lama)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Kelola Kunci SSH</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Cetak Sertifikat</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Cetak Sertifikat Diri</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Baca Izin</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Lihat Peran</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Membaca Pengguna</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Mulai Ulang Aplikasi Ini</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Jalankan Audit Layanan</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Kirim Umpan Balik</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Ajukan Penggantian</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Lihat kontrak perusahaan apa pun, termasuk yang bersifat pribadi</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Lihat Pekerjaan Latar Belakang</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Lihat Saluran Koleksi</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Lihat Riwayat Kontrak</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Lihat Infrastruktur</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Lihat Transkrip Rapat</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Lihat Laporan Baris</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Lihat Audit Layanan</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Lihat Konteks Sistem</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Lihat Log Operasi Pengguna</value>
+  </data>
+
+</root>

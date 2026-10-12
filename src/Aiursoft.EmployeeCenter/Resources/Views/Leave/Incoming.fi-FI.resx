@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Kaikki yritys</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Vuosiloma</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Hakemus</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>hyväksytyt hakemukset</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>hylättyjä hakemuksia</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Hyväksyntäkeskus</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Hyväksyntähistoria</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Hyväksy</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Hyväksytty</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Hyväksytty tänä kuuna</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Hyväksyjä</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>odottaa tarkastusta koko yrityksessä</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>odotetaan arviointiasi</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>nykyisin poissa</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Päivät</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Päätös</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Jos hylätty virheellisesti:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Jos työntekijä haluaa peruuttaa:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Tärkeää: Hyvityspäätökset ovat lopullisia</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Minun tiimi</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>Ei hyvityshistoriaa.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Ei odottavia hakemuksia.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>Kun hyväksyt tai hylkää lomahakemuksen, päätöstä ei voida peruuttaa. Tarkista huolellisesti ennen toiminnan aloittamista.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>Odottaa hyväksyntää</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Odottavat hyvitykset</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Aika</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Syy</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Hylätä</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Hylätty</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Hylätty tänä kuuna</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Arvioitu</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Sairaanlomakausi</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Lähetetty</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>Tiimi lomalla</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>Työntekijän on luotava uusi hakemus.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>He voivat perua omat hakemuksensa ennen kuin ne alkavat.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>ja</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tyyppi</value>
+  </data>
+
+</root>

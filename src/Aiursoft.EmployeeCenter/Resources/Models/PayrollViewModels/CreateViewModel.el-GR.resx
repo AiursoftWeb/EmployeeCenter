@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Administrative Fines" xml:space="preserve">
+    <value>Διοικητικά Προστίματα</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Τραπεζικός Λογαριασμός</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Όνομα Τράπεζας</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Βασικός Μισθός</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>Περιεχόμενο (Markdown)</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Νομισματική μονάδα</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>Πλήρης Προσέλευση</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>Ταμείο Στέγασης (Εταιρείας)</value>
+  </data>
+  <data name="Housing Fund (Personal)" xml:space="preserve">
+    <value>Ταμείο Στέγασης (Προσωπικό)</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>Μισθός Θέσης</value>
+  </data>
+  <data name="Late/Early" xml:space="preserve">
+    <value>Αργή/Πρόωρη</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>Μητρότητα (Εταιρεία)</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>Ιατρική (Εταιρείας)</value>
+  </data>
+  <data name="Medical (Personal)" xml:space="preserve">
+    <value>Ιατρική (Προσωπική)</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>Άλλες Παροχές</value>
+  </data>
+  <data name="Overtime" xml:space="preserve">
+    <value>Υπερωρίες</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>Σύνταξη (Εταιρείας)</value>
+  </data>
+  <data name="Pension (Personal)" xml:space="preserve">
+    <value>Σύνταξη (Προσωπική)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>Επίδομα Απόδοσης</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>Φόρος Εισοδήματος Φυσικών Προσώπων</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Αναρρωτική Άδεια</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>Ειδική Επιπλέον Κράτηση</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Στόχος Μήνας</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Το {0} δεν μπορεί να υπερβαίνει τα {1} χαρακτήρες.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Το {0} είναι απαραίτητο.</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Συνολικό Ποσό</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>Ανεργία (Εταιρείας)</value>
+  </data>
+  <data name="Unemployment (Personal)" xml:space="preserve">
+    <value>Ανεργία (Προσωπική)</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Χρήστης</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>Εργατικού Ατυχήματος (Εταιρεία)</value>
+  </data>
+
+</root>

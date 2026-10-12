@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Nome account</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Tipo conto</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>La logica contabile segue un &quot;Modello di Pool&quot;: i soldi fluiscono da una pool (fonte) a un&apos;altra pool (destinazione). Comprendere questi cinque elementi è fondamentale per la contabilità a partita doppia.</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Attivo</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Depositi bancari, Crediti (denaro dovuto da altri), Server/Laptop.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Prestito dal Direttore</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Prendere denaro in prestito = Aumento; Restituire denaro = Diminuzione.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Contanti in cassa, o beni che possono essere convertiti in contanti.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Costi sostenuti</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Crea</value>
+  </data>
+  <data name="Create New Account" xml:space="preserve">
+    <value>Crea un nuovo account</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Debiti che l&apos;azienda deve rimborsare in futuro.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Definizione:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Direzione:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Prestiti da direttore (denaro che hai prestato all&apos;azienda), Fatture non pagate, Debito carta di credito.</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>es. HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>es. Statrys Checking</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Patrimonio</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Esempi:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Spesa</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Da (Fonte)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Entrate</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Passività</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Logica</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Denaro guadagnato</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Denaro guadagnato dalla vendita di prodotti o dalla prestazione di servizi. Aumenta il profitto.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Il denaro fluisce dal conto bancario per eliminare il debito</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Il denaro fluisce dal conto corrente alle spese</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Il denaro fluisce dal debito al conto bancario</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Il denaro fluisce dall&apos;equità al conto bancario</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Denaro generato come reddito nel conto bancario</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Denaro in entrata = Aumento; Denaro in uscita = Diminuzione.</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Denaro speso per mantenere le operazioni aziendali. Diminuisce il profitto.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Pagamento dei server</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Foglio Riepilogativo Rapido</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Rimborsare Direttore</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Ricavi dalle vendite, Commissioni di servizio, Reddito da interessi</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Scenari</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Vendita di Software</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Spese di hosting del server, commissioni bancarie, stipendi</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Capitale sociale (investimento iniziale), Utili conservati (profitto accumulato).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Investimento del Socio</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Investimento del socio/profitto = Aumento; Prelievo del socio/perdita = Diminuzione.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Mostra nel Dashboard</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Il valore netto dell&apos;azienda. Formula: Attivo - Passivo = Patrimonio netto.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Cose che devi a terzi</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Cose che ti appartengono</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>A (Destinazione)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Comprensione degli elementi contabili</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Valore che ti appartiene veramente</value>
+  </data>
+
+</root>

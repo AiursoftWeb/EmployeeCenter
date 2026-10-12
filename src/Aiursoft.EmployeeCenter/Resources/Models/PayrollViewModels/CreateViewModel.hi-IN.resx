@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Administrative Fines" xml:space="preserve">
+    <value>प्रशासनिक जुर्माना</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>बैंक खाता</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>बैंक का नाम</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>मूल वेतन</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>सामग्री (मार्कडाउन)</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>मुद्रा</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>पूर्ण उपस्थिति</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>आवास निधि (कंपनी)</value>
+  </data>
+  <data name="Housing Fund (Personal)" xml:space="preserve">
+    <value>आवास निधि (व्यक्तिगत)</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>कार्य वेतन</value>
+  </data>
+  <data name="Late/Early" xml:space="preserve">
+    <value>देर से/जल्दी</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>प्रसूति अवकाश (कंपनी)</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>चिकित्सा (कंपनी)</value>
+  </data>
+  <data name="Medical (Personal)" xml:space="preserve">
+    <value>चिकित्सा (व्यक्तिगत)</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>अन्य भत्ते</value>
+  </data>
+  <data name="Overtime" xml:space="preserve">
+    <value>ओवरटाइम</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>पेंशन (कंपनी)</value>
+  </data>
+  <data name="Pension (Personal)" xml:space="preserve">
+    <value>पेंशन (व्यक्तिगत)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>प्रदर्शन बोनस</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>व्यक्तिगत आयकर</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>बीमारी की छुट्टी</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>विशेष अतिरिक्त कटौती</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>लक्ष्य माह</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} के {1} अक्षरों से अधिक नहीं हो सकते।</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} आवश्यक है।</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>कुल राशि</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>बेरोजगारी (कंपनी)</value>
+  </data>
+  <data name="Unemployment (Personal)" xml:space="preserve">
+    <value>बेरोजगारी (व्यक्तिगत)</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>उपयोगकर्ता</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>कार्य चोट (कंपनी)</value>
+  </data>
+
+</root>

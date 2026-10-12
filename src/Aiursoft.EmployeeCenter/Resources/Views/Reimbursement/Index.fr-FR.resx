@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>Reçu</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Montant</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>En cours</value>
+  </data>
+  <data name="Are you sure you want to delete this draft?" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer ce brouillon ?</value>
+  </data>
+  <data name="Are you sure you want to revoke this application?" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir révoquer cette demande ?</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Catégorie</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Brouillon</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>Date de dépense</value>
+  </data>
+  <data name="Manage and track your expense reimbursement requests." xml:space="preserve">
+    <value>Gérez et suivez vos demandes de remboursement de frais.</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Mes remboursements</value>
+  </data>
+  <data name="New Request" xml:space="preserve">
+    <value>Nouvelle demande</value>
+  </data>
+  <data name="No reimbursement records found." xml:space="preserve">
+    <value>Aucun enregistrement de remboursement trouvé.</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Motif</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>Remboursé</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejeté</value>
+  </data>
+  <data name="Revoke" xml:space="preserve">
+    <value>Révoquer</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>Révoqué</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+
+</root>

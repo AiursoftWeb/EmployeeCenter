@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Amount" xml:space="preserve">
+    <value>Montant</value>
+  </data>
+  <data name="Are you sure you want to delete this transaction? This action cannot be undone." xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer cette transaction ? Cette action ne peut pas être annulée.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Default is 1. How much Destination currency equals 1 Source currency unit." xml:space="preserve">
+    <value>Valeur par défaut : 1. Combien vaut la monnaie de destination pour 1 unité de monnaie source ?</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Delete Transaction" xml:space="preserve">
+    <value>Supprimer la transaction</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Destination Account" xml:space="preserve">
+    <value>Compte de destination</value>
+  </data>
+  <data name="Destination Account (To)" xml:space="preserve">
+    <value>Compte de destination (À)</value>
+  </data>
+  <data name="e.g. Pay Sleek for Professional Fee" xml:space="preserve">
+    <value>p. ex. Payer Sleek pour des frais professionnels</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Modifier la transaction</value>
+  </data>
+  <data name="Exchange Rate" xml:space="preserve">
+    <value>Taux de change</value>
+  </data>
+  <data name="Invoice Attachment" xml:space="preserve">
+    <value>Pièce jointe de la facture</value>
+  </data>
+  <data name="MT103 Attachment" xml:space="preserve">
+    <value>Pièce jointe MT103</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Facultatif</value>
+  </data>
+  <data name="Payment Voucher Attachment" xml:space="preserve">
+    <value>Pièce justificative de paiement</value>
+  </data>
+  <data name="Select Account" xml:space="preserve">
+    <value>Sélectionner un compte</value>
+  </data>
+  <data name="Source Account" xml:space="preserve">
+    <value>Compte source</value>
+  </data>
+  <data name="Source Account (From)" xml:space="preserve">
+    <value>Compte source (De)</value>
+  </data>
+  <data name="Transaction Time" xml:space="preserve">
+    <value>Heure de transaction</value>
+  </data>
+  <data name="Update Transaction" xml:space="preserve">
+    <value>Mettre à jour la transaction</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>L&apos;heure d&apos;enregistrement de l&apos;événement est en heure universelle coordonnée !</value>
+  </data>
+
+</root>

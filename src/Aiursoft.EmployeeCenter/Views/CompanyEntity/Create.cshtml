@@ -1,0 +1,197 @@
+@model Aiursoft.EmployeeCenter.Models.CompanyEntityViewModels.CreateViewModel
+
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">@Localizer["Create Company Entity"]</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">@Localizer["Entity Details"]</h6>
+        </div>
+        <div class="card-body">
+            <form asp-controller="CompanyEntity" asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                         <!-- Basic Info -->
+                        <div class="form-group">
+                            <label asp-for="CompanyName"></label>
+                            <input asp-for="CompanyName" class="form-control" />
+                            <span asp-validation-for="CompanyName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CompanyNameEnglish"></label>
+                            <input asp-for="CompanyNameEnglish" class="form-control" />
+                            <span asp-validation-for="CompanyNameEnglish" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="EntityCode"></label>
+                            <input asp-for="EntityCode" class="form-control" />
+                            <span asp-validation-for="EntityCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CINumber"></label>
+                            <input asp-for="CINumber" class="form-control" />
+                            <span asp-validation-for="CINumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LegalRepresentative"></label>
+                            <input asp-for="LegalRepresentative" class="form-control" />
+                            <span asp-validation-for="LegalRepresentative" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LegalRepresentativeLegalName"></label>
+                            <input asp-for="LegalRepresentativeLegalName" class="form-control" />
+                            <span asp-validation-for="LegalRepresentativeLegalName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CompanyType"></label>
+                            <input asp-for="CompanyType" class="form-control" />
+                            <span asp-validation-for="CompanyType" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="EstablishmentDate"></label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                            <input asp-for="EstablishmentDate" class="form-control" />
+                            <span asp-validation-for="EstablishmentDate" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="ExpiryDate"></label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                            <input asp-for="ExpiryDate" class="form-control" />
+                            <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Address & Bank -->
+                        <div class="form-group">
+                            <label asp-for="RegisteredAddress"></label>
+                            <textarea asp-for="RegisteredAddress" class="form-control"></textarea>
+                            <span asp-validation-for="RegisteredAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OfficeAddress"></label>
+                            <textarea asp-for="OfficeAddress" class="form-control"></textarea>
+                            <span asp-validation-for="OfficeAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ZipCode"></label>
+                            <input asp-for="ZipCode" class="form-control" />
+                            <span asp-validation-for="ZipCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BankName"></label>
+                            <input asp-for="BankName" class="form-control" />
+                            <span asp-validation-for="BankName" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="BankAccount"></label>
+                            <input asp-for="BankAccount" class="form-control" />
+                            <span asp-validation-for="BankAccount" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="BankAccountName"></label>
+                            <input asp-for="BankAccountName" class="form-control" />
+                            <span asp-validation-for="BankAccountName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SwiftCode"></label>
+                            <input asp-for="SwiftCode" class="form-control" />
+                            <span asp-validation-for="SwiftCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BankCode"></label>
+                            <input asp-for="BankCode" class="form-control" />
+                            <span asp-validation-for="BankCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BankAddress"></label>
+                            <textarea asp-for="BankAddress" class="form-control"></textarea>
+                            <span asp-validation-for="BankAddress" class="text-danger"></span>
+                        </div>
+                        
+                         <!-- Files -->
+                        <div class="form-group">
+                            <label asp-for="LogoPath"></label>
+                             <vc:file-upload asp-for="LogoPath" subfolder="companyfiles" allowed-extensions="jpg png svg" />
+                            <span asp-validation-for="LogoPath" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="SealPath"></label>
+                             <vc:file-upload asp-for="SealPath" subfolder="companyfiles" allowed-extensions="jpg png svg" />
+                            <span asp-validation-for="SealPath" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="LicensePath"></label>
+                             <vc:file-upload asp-for="LicensePath" subfolder="company-certs" is-vault="true" allowed-extensions="jpg png pdf" />
+                            <span asp-validation-for="LicensePath" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="OrganizationCertificatePath"></label>
+                             <vc:file-upload asp-for="OrganizationCertificatePath" subfolder="company-certs" is-vault="true" allowed-extensions="jpg png pdf" />
+                            <span asp-validation-for="OrganizationCertificatePath" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                 <h6 class="m-0 font-weight-bold text-secondary mb-3">@Localizer["Additional Info (Mainland/HK)"]</h6>
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="RegisteredCapital"></label>
+                            <input asp-for="RegisteredCapital" class="form-control" />
+                            <span asp-validation-for="RegisteredCapital" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="OperationStatus"></label>
+                            <input asp-for="OperationStatus" class="form-control" />
+                            <span asp-validation-for="OperationStatus" class="text-danger"></span>
+                        </div>
+                    </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="SCRLocation"></label>
+                            <input asp-for="SCRLocation" class="form-control" />
+                            <span asp-validation-for="SCRLocation" class="text-danger"></span>
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="CompanySecretary"></label>
+                            <input asp-for="CompanySecretary" class="form-control" />
+                            <span asp-validation-for="CompanySecretary" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="BaseCurrency"></label>
+                            <select asp-for="BaseCurrency" class="form-control">
+                                <option value="CNY">CNY - Chinese Yuan</option>
+                                <option value="HKD">HKD - Hong Kong Dollar</option>
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                                <option value="JPY">JPY - Japanese Yen</option>
+                            </select>
+                            <span asp-validation-for="BaseCurrency" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-check">
+                            <input asp-for="CreateLedger" class="form-check-input" />
+                            <label asp-for="CreateLedger" class="form-check-label"></label>
+                            <span asp-validation-for="CreateLedger" class="text-danger"></span>
+                        </div>
+                    </div>
+                 </div>
+
+                <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
+                <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

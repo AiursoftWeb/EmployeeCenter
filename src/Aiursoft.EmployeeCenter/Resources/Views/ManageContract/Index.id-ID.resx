@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of all contract records in the system." xml:space="preserve">
+    <value>Daftar semua catatan kontrak dalam sistem.</value>
+  </data>
+  <data name="A list of folders and contracts in this location." xml:space="preserve">
+    <value>Daftar folder dan kontrak di lokasi ini.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Tindakan</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktif</value>
+  </data>
+  <data name="All Contracts" xml:space="preserve">
+    <value>Semua Kontrak</value>
+  </data>
+  <data name="Are you sure you want to delete this contract?" xml:space="preserve">
+    <value>Apakah Anda yakin ingin menghapus kontrak ini?</value>
+  </data>
+  <data name="Are you sure you want to delete this folder?" xml:space="preserve">
+    <value>Apakah Anda yakin ingin menghapus folder ini?</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Kembali</value>
+  </data>
+  <data name="Contents" xml:space="preserve">
+    <value>Konten</value>
+  </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Buat Folder</value>
+  </data>
+  <data name="Create new contract" xml:space="preserve">
+    <value>Buat kontrak baru</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Waktu Dibuat</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Unduh</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Keuangan</value>
+  </data>
+  <data name="Import Zip" xml:space="preserve">
+    <value>Impor Zip</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Tidak Valid</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Kelola Kontrak</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Pindahkan</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Pindahkan ke folder</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nama</value>
+  </data>
+  <data name="Pending Signature" xml:space="preserve">
+    <value>Menunggu Tanda Tangan</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Umum</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Ubah Nama</value>
+  </data>
+  <data name="Shared" xml:space="preserve">
+    <value>Dibagikan</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Pengguna</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilitas</value>
+  </data>
+
+</root>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="CRITICAL: Missing Reports" xml:space="preserve">
+    <value>KRYTYCZNE: Brakujące raporty</value>
+  </data>
+  <data name="Everything is up to date!" xml:space="preserve">
+    <value>Wszystko jest aktualne!</value>
+  </data>
+  <data name="Extremely Dangerous!" xml:space="preserve">
+    <value>Bardzo niebezpiecznie!</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Godziny</value>
+  </data>
+  <data name="Incomplete Submission" xml:space="preserve">
+    <value>Niekompletna submisja</value>
+  </data>
+  <data name="Jot down your thoughts here... (Auto-saved)" xml:space="preserve">
+    <value>Zapisz swoje myśli tutaj... (Zapisywane automatycznie)</value>
+  </data>
+  <data name="Loading..." xml:space="preserve">
+    <value>Ładowanie...</value>
+  </data>
+  <data name="Missing Reports" xml:space="preserve">
+    <value>Brakujące raporty</value>
+  </data>
+  <data name="New Weekly Report" xml:space="preserve">
+    <value>Nowy raport tygodniowy</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Notatnik</value>
+  </data>
+  <data name="On behalf of" xml:space="preserve">
+    <value>W imieniu</value>
+  </data>
+  <data name="Post as myself" xml:space="preserve">
+    <value>Opublikuj jako ja sam</value>
+  </data>
+  <data name="Post Report" xml:space="preserve">
+    <value>Opublikuj raport</value>
+  </data>
+  <data name="Project Associations" xml:space="preserve">
+    <value>Powiązania projektów</value>
+  </data>
+  <data name="Reports are ordered by time. Scroll down to see older reports." xml:space="preserve">
+    <value>Raporty są sortowane według daty. Przewiń w dół, aby zobaczyć starsze raporty.</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Wymagane</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Zapisano</value>
+  </data>
+  <data name="Select Project..." xml:space="preserve">
+    <value>Wybierz projekt...</value>
+  </data>
+  <data name="Select Week" xml:space="preserve">
+    <value>Wybierz tydzień</value>
+  </data>
+  <data name="Show All" xml:space="preserve">
+    <value>Pokaż wszystkie</value>
+  </data>
+  <data name="Showing weekly reports from" xml:space="preserve">
+    <value>Wyświetlanie raportów tygodniowych od:</value>
+  </data>
+  <data name="Submission Status" xml:space="preserve">
+    <value>Status zgłoszenia</value>
+  </data>
+  <data name="This week&apos;s report has been submitted!" xml:space="preserve">
+    <value>Zgłoszono raport z tego tygodnia!</value>
+  </data>
+  <data name="What have you done this week? (Markdown supported)" xml:space="preserve">
+    <value>Co zrobiłeś w tym tygodniu? (obsługiwane jest Markdown)</value>
+  </data>
+  <data name="You have missed ALL weekly reports in the last 4 weeks! This is a serious issue. Please submit them immediately!" xml:space="preserve">
+    <value>Pominąłeś WSZYSTKIE raporty tygodniowe z ostatnich 4 tygodni! To poważny problem. Proszę natychmiast je przesłać!</value>
+  </data>
+  <data name="You have missed submitting some weekly reports in the last 4 weeks. Please catch up!" xml:space="preserve">
+    <value>Pominąłeś przesłanie niektórych raportów tygodniowych w ostatnich 4 tygodniach. Proszę nadrobić!</value>
+  </data>
+  <data name="You have missed submitting weekly reports in the last 4 weeks. Please catch up!" xml:space="preserve">
+    <value>Pominąłeś przesłanie raportów tygodniowych w ostatnich 4 tygodniach. Proszę nadrobić!</value>
+  </data>
+  <data name="You haven&apos;t submitted any reports in the last 4 weeks!" xml:space="preserve">
+    <value>Nie przesłałeś żadnych raportów w ciągu ostatnich 4 tygodni!</value>
+  </data>
+  <data name="You haven&apos;t submitted this week&apos;s report yet." xml:space="preserve">
+    <value>Nie przesłałeś jeszcze raportu z tego tygodnia.</value>
+  </data>
+  <data name="Your reports for the last 4 weeks are all submitted." xml:space="preserve">
+    <value>Twoje raporty za ostatnie 4 tygodnie zostały wszystkie przesłane.</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Czas zapisu zdarzenia to czas UTC!</value>
+  </data>
+
+</root>

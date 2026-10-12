@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- Select Category --" xml:space="preserve">
+    <value>-- श्रेणी चुनें --</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Current file:" xml:space="preserve">
+    <value>वर्तमान फ़ाइल:</value>
+  </data>
+  <data name="Edit Reimbursement Request" xml:space="preserve">
+    <value>पुनर्भुगतान अनुरोध संपादित करें</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="Keep as Draft" xml:space="preserve">
+    <value>ड्राफ्ट के रूप में रखें</value>
+  </data>
+  <data name="Meals (餐饮费)" xml:space="preserve">
+    <value>भोजन (भोजन की लागत)</value>
+  </data>
+  <data name="Others (其他)" xml:space="preserve">
+    <value>अन्य (अन्य)</value>
+  </data>
+  <data name="Paste supporting email content or other context here..." xml:space="preserve">
+    <value>समर्थक ईमेल सामग्री या अन्य संदर्भ यहाँ पेस्ट करें...</value>
+  </data>
+  <data name="Procurement (采购费)" xml:space="preserve">
+    <value>प्रोक््यूमेंट (क्रेता खर्च)</value>
+  </data>
+  <data name="Submit Request" xml:space="preserve">
+    <value>अनुरोध जमा करें</value>
+  </data>
+  <data name="Transport (交通费)" xml:space="preserve">
+    <value>परिवहन (交通费)</value>
+  </data>
+  <data name="Travel (差旅费)" xml:space="preserve">
+    <value>यात्रा (यात्रा व्यय)</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>नया अपलोड करने पर यह प्रतिस्थापित हो जाएगा</value>
+  </data>
+  <data name="What was this expense for?" xml:space="preserve">
+    <value>इस खर्च का उद्देश्य क्या था?</value>
+  </data>
+
+</root>

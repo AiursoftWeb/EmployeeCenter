@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>الدفع الفعلي</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>الراتب الفعلي (الصافي)</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>الغرامات الإدارية</value>
+  </data>
+  <data name="Are you sure to update?" xml:space="preserve">
+    <value>هل أنت متأكد من التحديث؟</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>الحضور والخصومات</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>رقم الحساب البنكي</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>اسم البنك</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>الراتب الأساسي</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>مكافأة لعدم الغياب</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>محسوبة بناءً على ساعات العمل الإضافي</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>حساب الضريبة المدفوعة مسبقًا</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>الفئة</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>تكلفة الشركة</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>جدول رواتب الامتثال</value>
+  </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>تأكيد التغييرات</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>الراتب الأساسي المتفق عليه</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>العملة</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>العملة:</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>الخصومات</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>الوصف / الصيغة</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>الإيرادات</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>تعديل الرواتب</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>التعليم، السكن، إلخ</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>الموظف:</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>رقم الحساب الخاص بالموظف</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>بنك الموظف</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>أدخل كقيمة سالبة</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>الحضور الكامل</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>صندوق الإسكان</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>الصندوق السكني (الشركة)</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>ضريبة الدخل</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>التأمينات (الشخصية)</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>العنصر</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>الراتب الوظيفي</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>الانصراف المبكر / المتأخر</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>الإجازة الولادية (الشركة)</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>وجبات، نقل، إلخ</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>الطب</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>الطب (الشركة)</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>الشهر:</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>التقييم الأداء الشهري</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>لا، دعني أتحقق مجددًا</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>ملاحظات اختيارية...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>بدلات إضافية</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>دفع الوقت الإضافي</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>تكوين الرواتب</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>التقاعد</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>الضمان الاجتماعي (الشركة)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>مكافأة الأداء</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>ضريبة الدخل الشخصية</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>التأمين الشخصي</value>
+  </data>
+  <data name="Please verify the updated information:" xml:space="preserve">
+    <value>يرجى التحقق من المعلومات المحدّثة:</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>الراتب حسب المسمى الوظيفي</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>ملاحظة / محتوى</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>حفظ التغييرات</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>اختيار المستخدم</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>المرض / الإجازة الشخصية</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>الاستقطاع الإضافي الخاص</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>شهر الهدف</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>معلومات الضرائب</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>الدخل الخاضع للضريبة</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>إجمالي تكلفة الشركة</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>إجمالي الأرباح</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>إجمالي التأمينات الشخصية</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>البطالة</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>البطالة (الشركة)</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>عادةً ما</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>القيمة</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>إصابة العمل (الشركة)</value>
+  </data>
+  <data name="Yes, Confirm and Save!" xml:space="preserve">
+    <value>نعم، تأكيد والحفظ!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>وقت تسجيل الحدث هو التوقيت العالمي المنسق!</value>
+  </data>
+
+</root>

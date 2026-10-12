@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Team Calendar" xml:space="preserve">
+    <value>Over Teamkalender</value>
+  </data>
+  <data name="Annual" xml:space="preserve">
+    <value>Annual</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Goedgekeurd</value>
+  </data>
+  <data name="Blue - Approved future leave" xml:space="preserve">
+    <value>Blauw - Goedgekeurde toekomstige verlofperiode</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Wissen</value>
+  </data>
+  <data name="Close Search" xml:space="preserve">
+    <value>Zoekopdracht sluiten</value>
+  </data>
+  <data name="Currently on Leave" xml:space="preserve">
+    <value>Op dit moment op verlof</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dagen</value>
+  </data>
+  <data name="Days label" xml:space="preserve">
+    <value>dagen</value>
+  </data>
+  <data name="Green - Leave period has finished" xml:space="preserve">
+    <value>Groen - Verlofperiode is afgelopen</value>
+  </data>
+  <data name="Leave History: {0}" xml:space="preserve">
+    <value>Leave History: {0}</value>
+  </data>
+  <data name="Leave Schedule" xml:space="preserve">
+    <value>Verlofplanning</value>
+  </data>
+  <data name="No leave records found for this user in the specified range." xml:space="preserve">
+    <value>Geen verlofrecords gevonden voor deze gebruiker in het opgegeven bereik.</value>
+  </data>
+  <data name="No team members found." xml:space="preserve">
+    <value>Geen teamleden gevonden.</value>
+  </data>
+  <data name="No upcoming or past leave records." xml:space="preserve">
+    <value>Geen komende of verleden verlofrecords.</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>Geen gebruikers gevonden</value>
+  </data>
+  <data name="Not Yet Started" xml:space="preserve">
+    <value>Nog niet begonnen</value>
+  </data>
+  <data name="Only approved leave applications are displayed here." xml:space="preserve">
+    <value>Alleen goedgekeurde verlofverzoeken worden hier weergegeven.</value>
+  </data>
+  <data name="Overview of leave schedules for your manager, reports, and colleagues." xml:space="preserve">
+    <value>Overzicht van verlofplannen voor uw manager, rapporterende medewerkers en collega&apos;s.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>In afwachting</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Periode</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reden</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Afgekeurd</value>
+  </data>
+  <data name="Relation" xml:space="preserve">
+    <value>Relatie</value>
+  </data>
+  <data name="Returned" xml:space="preserve">
+    <value>Teruggekeerd</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>Beoordiger</value>
+  </data>
+  <data name="Search Any Employee" xml:space="preserve">
+    <value>Zoek elke medewerker</value>
+  </data>
+  <data name="Search for any employee to view their full leave history for the past and future 365 days." xml:space="preserve">
+    <value>Zoek naar een willekeurige medewerker om hun volledige verlofgeschiedenis van de afgelopen en komende 365 dagen te bekijken.</value>
+  </data>
+  <data name="Sick" xml:space="preserve">
+    <value>Sick</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Status Legend" xml:space="preserve">
+    <value>Statusverklaring</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Systeem</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Teamkalender</value>
+  </data>
+  <data name="Team Member" xml:space="preserve">
+    <value>Teamlid</value>
+  </data>
+  <data name="Team Members&apos; Leave Status" xml:space="preserve">
+    <value>Status verlof teamleden</value>
+  </data>
+  <data name="This calendar helps you stay informed about your team&apos;s availability to facilitate work handovers and planning." xml:space="preserve">
+    <value>Deze kalender helpt u op de hoogte te blijven van de beschikbaarheid van uw team, waardoor het overdragen van werkzaamheden en planning wordt vergemakkelijkt.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Type 3+ characters to search for an employee..." xml:space="preserve">
+    <value>Typ 3+ tekens om een medewerker te zoeken...</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Ingetrokken</value>
+  </data>
+  <data name="Yellow - Employee is currently away" xml:space="preserve">
+    <value>Geel - Medewerker is momenteel afwezig</value>
+  </data>
+
+</root>

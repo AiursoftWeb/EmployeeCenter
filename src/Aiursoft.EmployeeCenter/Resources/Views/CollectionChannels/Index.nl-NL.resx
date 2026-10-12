@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acties</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Actief</value>
+  </data>
+  <data name="Add new channel" xml:space="preserve">
+    <value>Nieuw kanaal toevoegen</value>
+  </data>
+  <data name="All Collection Channels" xml:space="preserve">
+    <value>Alle verzamelkanalen</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Bedrag</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>Verzamelkanalen</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bewerken</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>Betalingmethode</value>
+  </data>
+  <data name="One-time" xml:space="preserve">
+    <value>eenmalig</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Gepauzeerd</value>
+  </data>
+  <data name="Payee" xml:space="preserve">
+    <value>Ontvanger</value>
+  </data>
+  <data name="Payer" xml:space="preserve">
+    <value>Betaler</value>
+  </data>
+  <data name="Recurring" xml:space="preserve">
+    <value>Terugkerend</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Terminated" xml:space="preserve">
+    <value>Beëindigd</value>
+  </data>
+
+</root>

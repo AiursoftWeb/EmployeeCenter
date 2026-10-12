@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Adjusted to Rest Day (调休放假)" xml:space="preserve">
+    <value>調整至休息日（調休放假）</value>
+  </data>
+  <data name="Adjusted to Work Day (调休上班)" xml:space="preserve">
+    <value>調整為上班日 (調休上班)</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>四月</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>八月</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>行事曆圖例</value>
+  </data>
+  <data name="Changes affect leave calculations immediately" xml:space="preserve">
+    <value>變更將立即影響休假計算</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>十二月</value>
+  </data>
+  <data name="Failed to update" xml:space="preserve">
+    <value>更新失敗</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>二月</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>週五</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>假期調整</value>
+  </data>
+  <data name="Holiday Calendar" xml:space="preserve">
+    <value>假日行事曆</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>使用說明</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>一月</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>七月</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>六月</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>三月</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>五月</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>週一</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>下一頁</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>十一月</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>十月</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>上個月</value>
+  </data>
+  <data name="Rest" xml:space="preserve">
+    <value>放假</value>
+  </data>
+  <data name="Right-click any day to toggle its status" xml:space="preserve">
+    <value>右鍵按一下任何一天以切換其狀態</value>
+  </data>
+  <data name="Right-click on any day to toggle between working day and rest day. Changes take effect immediately." xml:space="preserve">
+    <value>右鍵按一下任何日期，即可在上班日與休息日之間切換。變更將立即生效。</value>
+  </data>
+  <data name="Right-click on any day to toggle its status." xml:space="preserve">
+    <value>按一下任意日期以切換其狀態。</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>週六</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>九月</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>週日</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>週四</value>
+  </data>
+  <data name="Toggle again to revert to normal" xml:space="preserve">
+    <value>再次點擊可恢復預設狀態</value>
+  </data>
+  <data name="Toggling" xml:space="preserve">
+    <value>切換中</value>
+  </data>
+  <data name="Toggling a weekend/holiday makes it a work day" xml:space="preserve">
+    <value>點選週末/假日可將其變更為上班日</value>
+  </data>
+  <data name="Toggling a work day makes it a rest day" xml:space="preserve">
+    <value>點選工作日會使其變為休息日</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>週二</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>已更新</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>週三</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>週末 / 假日</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>上班</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>工作日</value>
+  </data>
+
+</root>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledge" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="Acknowledged At" xml:space="preserve">
+    <value>Kabul Edildiği Tarih</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Tutar</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaylar</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>İndir</value>
+  </data>
+  <data name="No acknowledged requests waiting for payment." xml:space="preserve">
+    <value>Ödenmesi bekleyen onaylanmış talep bulunmamaktadır.</value>
+  </data>
+  <data name="No pending requests." xml:space="preserve">
+    <value>Bekleyen istek yok.</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>İşle</value>
+  </data>
+  <data name="Processed At" xml:space="preserve">
+    <value>İşleme Alındığı Tarih</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Amaç</value>
+  </data>
+  <data name="Recent History (Last 100)" xml:space="preserve">
+    <value>Son Geçmiş (Son 100)</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>İade Edildi</value>
+  </data>
+  <data name="Reimbursement Approval Center" xml:space="preserve">
+    <value>İade Onay Merkezi</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Reddedildi</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>İncele</value>
+  </data>
+  <data name="Review and process reimbursement requests from employees." xml:space="preserve">
+    <value>Çalışanlardan gelen iade taleplerini gözden geçirin ve işleme alın.</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>İnceleyen</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>İptal Edildi</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>Gönderildiği Tarih</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>Gönderen</value>
+  </data>
+
+</root>

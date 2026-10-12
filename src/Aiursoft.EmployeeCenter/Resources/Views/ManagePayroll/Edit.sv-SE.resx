@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>Verklig betalning</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>Verklig lön (netto)</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>Administrativa böter</value>
+  </data>
+  <data name="Are you sure to update?" xml:space="preserve">
+    <value>Är du säker på att du vill uppdatera?</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>Anmälan &amp; Avdrag</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Bankkonto</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Grundlöne</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>Bonus för inga frånvaron</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>Beräknas utifrån övertids timmar</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>Beräknad förskattning</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>Företagskostnad</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>Compliance Payroll Table</value>
+  </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>Bekräfta ändringar</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>Kontrakterad grundlöne</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>Valuta:</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>Avdrag</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>Beskrivning / Formel</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>Inkomster</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Redigera löneutbetalning</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>Utbildning, bostad, etc.</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Anställd:</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>Användarens kontonummer</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>Anställdens bank</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>Ange som negativt värde</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>Full Attendance</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>Bostadsfond</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>Bostadsfond (Företag)</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>Inkomstskatt</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>Försäkringar (Personlig)</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>Jobbsalär</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>Sen / Tidig ledighet</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>Försörjning (Företag)</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>Mat, transport m.m.</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>Medicinsk</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>Medical (Company)</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>Månad:</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>Månatlig prestandavärdering</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>Nej, låt mig kolla igen</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>Valfria anteckningar...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>Andra ersättningar</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>Övertidslön</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>Lönekonfiguration</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>Pension</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>Pension (Company)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>Prestandabonus</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>Personlig inkomstskatt</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>Personlig försäkring</value>
+  </data>
+  <data name="Please verify the updated information:" xml:space="preserve">
+    <value>Vänligen verifiera den uppdaterade informationen:</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>Positionbaserat löne</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>Kommentar / Innehåll</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Spara ändringar</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>Välj användare</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>Sjuk / Personlig ledighet</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>Special Additional Deduction</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Mål månad</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>Skatteinformation</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>Skattepliktig inkomst</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>Total Company Cost</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>Total Earnings</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>Total Personlig Försäkringar</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>Arbetslöshet</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>Arbetslöshets (Företag)</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>vanligtvis</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Värde</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>Arbetsolycka (Företag)</value>
+  </data>
+  <data name="Yes, Confirm and Save!" xml:space="preserve">
+    <value>Ja, Bekräfta och spara!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Händelseloggningstid är koordinerat världstid!</value>
+  </data>
+
+</root>

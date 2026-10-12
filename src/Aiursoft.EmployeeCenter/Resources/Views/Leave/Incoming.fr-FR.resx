@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Toute l&apos;entreprise</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Congés annuels</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Demandeur</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>demandes approuvées</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>demandes rejetées</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Centre d&apos;approbation</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Historique des approbations</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approuver</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approuvé</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Approbés ce mois-ci</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Approbateur</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>en attente de validation dans toute l&apos;entreprise</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>en attente de votre examen</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>actuellement absent</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Jours</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Décision</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Si rejeté par erreur :</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Si l&apos;employé souhaite annuler :</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Important : Les décisions d&apos;approbation sont définitives</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Mon équipe</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>Aucun historique d&apos;approbation.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Aucune demande en attente.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>Une fois que vous approuvez ou rejetez une demande de congé, la décision ne peut pas être annulée. Veuillez la vérifier attentivement avant d&apos;agir.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>En attente d&apos;approbation</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Approbations en attente</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Période</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Motif</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Rejeter</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejeté</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Rejetés ce mois-ci</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Révisé</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Congé maladie</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Soumis</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>Équipe en congé</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>L&apos;employé doit soumettre une nouvelle demande.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>Ils peuvent retirer leur propre demande avant qu&apos;elle ne commence.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>à</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+
+</root>

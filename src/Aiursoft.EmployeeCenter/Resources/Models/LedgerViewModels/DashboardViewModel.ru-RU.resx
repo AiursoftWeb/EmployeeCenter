@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account" xml:space="preserve">
+    <value>Счёт</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Счета</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="Chart Inflow Data" xml:space="preserve">
+    <value>Данные по поступлениям для графика</value>
+  </data>
+  <data name="Chart Labels" xml:space="preserve">
+    <value>Метки графика</value>
+  </data>
+  <data name="Chart Outflow Data" xml:space="preserve">
+    <value>Данные по оттоку на диаграмме</value>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>Организация</value>
+  </data>
+  <data name="Expenses for Period" xml:space="preserve">
+    <value>Расходы за период</value>
+  </data>
+  <data name="Filtered Account" xml:space="preserve">
+    <value>Отфильтрованный счёт</value>
+  </data>
+  <data name="Filtered Account Balance" xml:space="preserve">
+    <value>Баланс отфильтрованного счёта</value>
+  </data>
+  <data name="Inflow Distribution" xml:space="preserve">
+    <value>Распределение поступлений</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Месяц</value>
+  </data>
+  <data name="Monthly Burn Rate" xml:space="preserve">
+    <value>Месячная норма расходов</value>
+  </data>
+  <data name="Net Income for Period" xml:space="preserve">
+    <value>Чистая прибыль за период</value>
+  </data>
+  <data name="Outflow Distribution" xml:space="preserve">
+    <value>Распределение расходов</value>
+  </data>
+  <data name="Recent Transactions" xml:space="preserve">
+    <value>Последние транзакции</value>
+  </data>
+  <data name="Revenue for Period" xml:space="preserve">
+    <value>Выручка за период</value>
+  </data>
+  <data name="Runway (Months)" xml:space="preserve">
+    <value>Запасы (месяцы)</value>
+  </data>
+  <data name="Total Assets" xml:space="preserve">
+    <value>Общие активы</value>
+  </data>
+  <data name="Total Equity" xml:space="preserve">
+    <value>Общий капитал</value>
+  </data>
+  <data name="Total Inflow" xml:space="preserve">
+    <value>Общий приток</value>
+  </data>
+  <data name="Total Liabilities" xml:space="preserve">
+    <value>Общие обязательства</value>
+  </data>
+  <data name="Total Outflow" xml:space="preserve">
+    <value>Общий отток</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Год</value>
+  </data>
+
+</root>

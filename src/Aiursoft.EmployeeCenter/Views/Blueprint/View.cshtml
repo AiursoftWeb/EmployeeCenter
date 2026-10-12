@@ -1,0 +1,49 @@
+@using Aiursoft.EmployeeCenter.Controllers
+@model Aiursoft.EmployeeCenter.Models.BlueprintViewModels.ReaderViewModel
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Model.Blueprint.Title</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="markdown-content" id="markdown-preview"></div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        var __rawMarkdownContent = @Json.Serialize(Model.Blueprint.Content);
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var contentEl = document.getElementById('markdown-preview');
+            if (!contentEl) return;
+
+            contentEl.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(__rawMarkdownContent);
+        });
+    </script>
+    @{
+        ViewData["MarkdownSelector"] = "#markdown-preview";
+        ViewData["MarkdownTheme"] = isDarkMode ? "dark" : "default";
+    }
+    <partial name="_MarkdownReaderAssets" />
+}

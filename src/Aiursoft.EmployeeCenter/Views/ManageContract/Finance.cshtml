@@ -1,0 +1,140 @@
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.FinanceDetailsViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Finance Details"] - @Model.Contract.Name</h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-action="Index" asp-route-id="@Model.Contract.FolderId" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to List"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Income Summary"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="text-muted mb-1">@Localizer["Total Expected"]</p>
+                        <h4 class="mb-0">@((Model.TotalExpectedIncome / 100.0).ToString("N2")) @Model.Currency</h4>
+                    </div>
+                    <div class="col-6">
+                        <p class="text-muted mb-1">@Localizer["Total Received"]</p>
+                        <h4 class="mb-0 text-success">@((Model.TotalActualIncome / 100.0).ToString("N2")) @Model.Currency</h4>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="text-muted mb-1">@Localizer["Pending Collection"]</p>
+                    <h4 class="mb-0 @(Model.TotalPendingIncome > 0 ? "text-warning" : "text-muted")">@((Model.TotalPendingIncome / 100.0).ToString("N2")) @Model.Currency</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Expense Summary"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="text-muted mb-1">@Localizer["Total Expected"]</p>
+                        <h4 class="mb-0">@((Model.TotalExpectedExpense / 100.0).ToString("N2")) @Model.Currency</h4>
+                    </div>
+                    <div class="col-6">
+                        <p class="text-muted mb-1">@Localizer["Total Paid"]</p>
+                        <h4 class="mb-0 text-danger">@((Model.TotalActualExpense / 100.0).ToString("N2")) @Model.Currency</h4>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="text-muted mb-1">@Localizer["Pending Payment"]</p>
+                    <h4 class="mb-0 @(Model.TotalPendingExpense > 0 ? "text-warning" : "text-muted")">@((Model.TotalPendingExpense / 100.0).ToString("N2")) @Model.Currency</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["Related Collection Channels"]</h5>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["Type"]</th>
+                <th>@Localizer["Counterparty"]</th>
+                <th>@Localizer["Amount"]</th>
+                <th>@Localizer["Method"]</th>
+                <th>@Localizer["Status"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Contract.CollectionChannels)
+            {
+                var isIncome = item.Payee?.CreateLedger == true;
+                var isExpense = item.Payer?.CreateLedger == true;
+                <tr>
+                    <td>
+                        @if (isIncome && isExpense)
+                        {
+                            <span class="badge bg-info">@Localizer["Internal"]</span>
+                        }
+                        else if (isIncome)
+                        {
+                            <span class="badge bg-success">@Localizer["Income"]</span>
+                        }
+                        else if (isExpense)
+                        {
+                            <span class="badge bg-danger">@Localizer["Expense"]</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@Localizer["Other"]</span>
+                        }
+                    </td>
+                    <td>
+                        @if (isIncome)
+                        {
+                            @(item.Payer?.CompanyName ?? Localizer["N/A"].Value)
+                        }
+                        else
+                        {
+                            @(item.Payee?.CompanyName ?? Localizer["N/A"].Value)
+                        }
+                    </td>
+                    <td>@((item.ReferenceAmount / 100.0).ToString("N2")) @item.Currency</td>
+                    <td>@item.PaymentMethod</td>
+                    <td>
+                        @switch (item.Status)
+                        {
+                            case CollectionChannelStatus.Active:
+                                <span class="badge bg-success">@Localizer["Active"]</span>
+                                break;
+                            case CollectionChannelStatus.Paused:
+                                <span class="badge bg-warning">@Localizer["Paused"]</span>
+                                break;
+                            case CollectionChannelStatus.Terminated:
+                                <span class="badge bg-danger">@Localizer["Terminated"]</span>
+                                break;
+                        }
+                    </td>
+                    <td class="text-end">
+                        <a asp-controller="CollectionChannels" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                            <i class="align-middle" data-lucide="eye"></i> @Localizer["View"]
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

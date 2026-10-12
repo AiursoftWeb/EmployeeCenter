@@ -1,0 +1,279 @@
+@using Aiursoft.EmployeeCenter.Authorization
+@model Aiursoft.EmployeeCenter.Models.ServicesViewModels.IndexViewModel
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@{
+    var canManageInfrastructure = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageInfrastructure)).Succeeded;
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        @if (Model.FilteredServer == null)
+        {
+            <h3>@Localizer["Services"]</h3>
+        }
+        else
+        {
+            <h3>@Localizer["Services associated with {0}", Model.FilteredServer.Hostname ?? Model.FilteredServer.ServerIp ?? Model.FilteredServer.Id.ToString()]</h3>
+        }
+    </div>
+
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="List" asp-route-serverId="@Model.FilteredServer?.Id" asp-route-includeRetired="@(!Model.IncludeRetired)" class="btn btn-outline-secondary me-2">
+            @(Model.IncludeRetired ? Localizer["Hide retired"] : Localizer["Show retired"])
+        </a>
+        <a asp-action="Index" class="btn btn-outline-secondary me-2">
+            <i class="align-middle" data-lucide="layout-dashboard"></i> @Localizer["Dashboard"]
+        </a>
+        @if (canManageInfrastructure)
+        {
+            @if (Model.FilteredServer != null)
+            {
+                <a asp-controller="Servers" asp-action="Index" class="btn btn-outline-secondary me-2">
+                    <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Servers"]
+                </a>
+            }
+            <a asp-action="DnsProviders" class="btn btn-outline-primary me-2">
+                <i class="align-middle" data-lucide="globe"></i> @Localizer["Manage DNS Providers"]
+            </a>
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Service"]
+            </a>
+        }
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">
+            @(Model.FilteredServer == null
+                ? Localizer["All Services"]
+                : Localizer["Associated Services"])
+        </h5>
+    </div>
+    @if (!Model.Services.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    @Localizer["No services found."]
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0" id="servicesTable">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Service"]</th>
+                        <th>@Localizer["Primary domain"]</th>
+                        <th>@Localizer["Owner"]</th>
+                        <th>@Localizer["Protocols"]</th>
+                        <th>@Localizer["Location"]</th>
+                        <th>@Localizer["Server"]</th>
+                        <th>@Localizer["DNS"]</th>
+                        <th>@Localizer["Purpose"]</th>
+                        <th>@Localizer["Self"]</th>
+                        <th>@Localizer["Authentik"]</th>
+                        <th>@Localizer["Cloudflare Proxied"]</th>
+                        <th>@Localizer["Audit enabled"]</th>
+                        <th>@Localizer["Observed health"]</th>
+                        <th>@Localizer["Via Frps"]</th>
+                        <th>@Localizer["Lifecycle status"]</th>
+                        <th class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var s in Model.Services)
+                    {
+                        <tr>
+                            <td>
+                                @(s.Name ?? "-")
+                                @if (s.RetiredAt.HasValue)
+                                {
+                                    <span class="badge bg-secondary ms-1">@Localizer["Retired"]</span>
+                                }
+                            </td>
+                            <td>
+                                <code>@s.PrimaryDomain</code>
+                                @if (s.Protocols?.Trim().StartsWith("HTTP", StringComparison.OrdinalIgnoreCase) == true)
+                                {
+                                    var protocol = s.Protocols.Contains("HTTPS", StringComparison.OrdinalIgnoreCase) ? "https" : "http";
+                                    var url = $"{protocol}://{s.PrimaryDomain}";
+                                    <a href="@url" target="_blank" rel="noopener noreferrer" class="ms-1" title="@Localizer["Open service"]">
+                                        <i class="align-middle" data-lucide="external-link"></i>
+                                    </a>
+                                }
+                            </td>
+                            <td>
+                                @(s.CompanyEntity?.CompanyName ?? "-")
+                            </td>
+                            <td>
+                                @(s.Protocols ?? "-")
+                            </td>
+                            <td>
+                                @(s.Server?.Location?.Name ?? "-")
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrWhiteSpace(s.Server?.DetailLink))
+                                {
+                                    <a href="@s.Server.DetailLink" target="_blank" class="btn btn-sm btn-light border shadow-sm">
+                                         <i class="align-middle text-muted" data-lucide="server"></i>
+                                         @(s.Server?.Hostname ?? s.Server?.ServerIp ?? "-")
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span>@(s.Server?.Hostname ?? s.Server?.ServerIp ?? "-")</span>
+                                }
+                            </td>
+                            <td>
+                                @(s.DnsProvider?.Name ?? "-")
+                            </td>
+                            <td>
+                                @Localizer[s.Purpose.ToString()]
+                            </td>
+                            <td data-order="@(s.IsSelfDeveloped ? 1 : 0)">
+                                @if (s.IsSelfDeveloped)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
+                                }
+                            </td>
+                            <td data-order="@(s.AuthentikIntegrated ? 1 : 0)">
+                                @if (s.AuthentikIntegrated)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
+                                }
+                            </td>
+                            <td data-order="@(s.IsCloudflareProxied ? 1 : 0)">
+                                @if (s.IsCloudflareProxied)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
+                                }
+                            </td>
+                            <td data-order="@(s.IsAvailabilityAuditEnabled ? 1 : 0)">
+                                @if (s.IsAvailabilityAuditEnabled)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="text-muted align-middle" data-lucide="circle-off"></i>
+                                }
+                            </td>
+                            <td>
+                                @if (!Model.CanViewAudit)
+                                {
+                                    <span class="text-muted">@Localizer["Restricted"]</span>
+                                }
+                                else if (Model.LatestObservations.TryGetValue(s.Id, out var observation))
+                                {
+                                    var healthClass = observation.Health == ObservedServiceHealth.Healthy ? "success" :
+                                        observation.Health == ObservedServiceHealth.Degraded ? "warning" : "danger";
+                                    <span class="badge bg-@healthClass" title="@observation.Details">
+                                        @Localizer[observation.Health.ToString()]
+                                        @if (observation.StatusCode.HasValue)
+                                        {
+                                            <span>HTTP @observation.StatusCode</span>
+                                        }
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@Localizer["Not observed"]</span>
+                                }
+                            </td>
+                            <td data-order="@(s.IsViaFrps ? (s.FrpsServerId.HasValue ? 2 : 1) : 0)">
+                                @if (s.IsViaFrps && s.FrpsServerId.HasValue)
+                                {
+                                    <i class="text-success align-middle" data-lucide="check-circle"></i>
+                                }
+                                else if (s.IsViaFrps)
+                                {
+                                    <div class="d-flex align-items-center gap-1 text-warning" role="alert">
+                                        <i class="align-middle" data-lucide="triangle-alert"></i>
+                                        <span class="small">@Localizer["Please associate an FRPS server."]</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <i class="text-warning align-middle" data-lucide="x-circle"></i>
+                                }
+                            </td>
+                            <td data-order="@((int)s.Status)">
+                                @switch (s.Status)
+                                {
+                                    case ServiceStatus.Running:
+                                        <span class="badge bg-success">@Localizer["Running"]</span>
+                                        break;
+                                    case ServiceStatus.Developing:
+                                        <span class="badge bg-warning">@Localizer["Developing"]</span>
+                                        break;
+                                    case ServiceStatus.Testing:
+                                        <span class="badge bg-info">@Localizer["Testing"]</span>
+                                        break;
+                                    case ServiceStatus.Offline:
+                                        <span class="badge bg-danger">@Localizer["Offline"]</span>
+                                        break;
+                                    case ServiceStatus.Retired:
+                                        <span class="badge bg-secondary">@Localizer["Retired"]</span>
+                                        break;
+                                }
+                            </td>
+                            <td class="text-end">
+
+                                @if (canManageInfrastructure && !s.RetiredAt.HasValue)
+                                {
+                                    <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-outline-primary">
+                                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                    </a>
+                                    <form asp-action="Delete" asp-route-id="@s.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('confirm-retire-service', '@Localizer["Are you sure you want to retire this service?"]'));">
+                                        <input type="hidden" name="concurrencyToken" value="@s.ConcurrencyToken" />
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            <i class="align-middle" data-lucide="archive"></i> @Localizer["Retire"]
+                                        </button>
+                                    </form>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<div id="loc-data" hidden>
+    <span data-key="confirm-retire-service">@Localizer["Are you sure you want to retire this service?"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+    <script>
+        $(document).ready(function () {
+            $('#servicesTable').DataTable({
+                "destroy": true,
+                "responsive": true,
+                "paging": true,
+                "pageLength": 25,
+                "searching": true,
+                "info": false,
+                "order": [[0, "asc"]]
+            });
+        });
+    </script>
+}

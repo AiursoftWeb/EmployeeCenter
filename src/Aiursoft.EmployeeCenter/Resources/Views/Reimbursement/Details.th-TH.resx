@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>ได้รับการยอมรับ</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>จำนวนเงิน</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>กำลังดำเนินการ</value>
+  </data>
+  <data name="Are you sure you want to reject this request?" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการปฏิเสธคำขอนี้?</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>กลับสู่รายการ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>หมวดหมู่</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>ความคิดเห็น</value>
+  </data>
+  <data name="Confirm &amp; Issued" xml:space="preserve">
+    <value>ยืนยันและออกแล้ว</value>
+  </data>
+  <data name="Confirm Reimbursement" xml:space="preserve">
+    <value>ยืนยันการชำระคืน</value>
+  </data>
+  <data name="Confirm Rejection" xml:space="preserve">
+    <value>ยืนยันการปฏิเสธ</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>ร่าง</value>
+  </data>
+  <data name="Electronic Invoice" xml:space="preserve">
+    <value>ใบแจ้งหนี้อิเล็กทรอนิกส์</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>เวลาใช้จ่าย</value>
+  </data>
+  <data name="Finalize" xml:space="preserve">
+    <value>สรุป</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>ข้อมูลทั่วไป</value>
+  </data>
+  <data name="Invoice Preview" xml:space="preserve">
+    <value>ตัวอย่างใบแจ้งหนี้</value>
+  </data>
+  <data name="Invoice Source Website (发票来源网站)" xml:space="preserve">
+    <value>เว็บไซต์แหล่งที่มาของใบแจ้งหนี้ (发票来源网站)</value>
+  </data>
+  <data name="Mark as Acknowledged (知道了)" xml:space="preserve">
+    <value>ทำเครื่องหมายว่าได้รับทราบ (知道了)</value>
+  </data>
+  <data name="No invoice attached." xml:space="preserve">
+    <value>ไม่มีเอกสารแนบ</value>
+  </data>
+  <data name="Please leave a comment for the employee (e.g. transaction ID)." xml:space="preserve">
+    <value>กรุณาแสดงความคิดเห็นถึงพนักงาน (เช่น เลขที่รายการ)</value>
+  </data>
+  <data name="Please provide a reason for the rejection." xml:space="preserve">
+    <value>กรุณาระบุเหตุผลในการปฏิเสธ</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>วัตถุประสงค์</value>
+  </data>
+  <data name="Really transferred via bank? (真的银行转账了吗？)" xml:space="preserve">
+    <value>โอนเงินผ่านธนาคารแล้วจริงหรือไม่? (真的银行转账了吗？)</value>
+  </data>
+  <data name="Reason / Comment" xml:space="preserve">
+    <value>เหตุผล / ความเห็น</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>จ่ายคืนแล้ว</value>
+  </data>
+  <data name="Reimbursed (已经下发)" xml:space="preserve">
+    <value>คืนเงินแล้ว (ได้โอนแล้ว)</value>
+  </data>
+  <data name="Reimbursement Details" xml:space="preserve">
+    <value>รายละเอียดการคืนเงิน</value>
+  </data>
+  <data name="Reject (拒绝)" xml:space="preserve">
+    <value>ปฏิเสธ (ปฏิเสธ)</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>ปฏิเสธ</value>
+  </data>
+  <data name="Required..." xml:space="preserve">
+    <value>ต้องมี...</value>
+  </data>
+  <data name="Reviewed At" xml:space="preserve">
+    <value>ตรวจสอบเมื่อ</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>ผู้ตรวจสอบ</value>
+  </data>
+  <data name="Reviewer Comment" xml:space="preserve">
+    <value>ความคิดเห็นของผู้ตรวจสอบ</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>ส่งเมื่อ</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>ผู้ยื่นคำขอ</value>
+  </data>
+  <data name="Supporting Context / Email" xml:space="preserve">
+    <value>บริบทสนับสนุน / อีเมล</value>
+  </data>
+  <data name="View/Download Invoice" xml:space="preserve">
+    <value>ดู/ดาวน์โหลดใบแจ้งหนี้</value>
+  </data>
+
+</root>

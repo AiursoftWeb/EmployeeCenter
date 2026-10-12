@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Accommodation: Must issue VAT Special Invoice with full company name. Avoid fixed-amount paper invoices if possible." xml:space="preserve">
+    <value>Проживание: необходимо выдавать специальный счет-фактуру по НДС с полным названием компании. По возможности избегайте бумажных счетов-фактур с фиксированной суммой.</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Счет</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Административные сведения</value>
+  </data>
+  <data name="Ask merchants for electronic invoices (PDF/OFD) sent to your email or employees@aiursoft.com." xml:space="preserve">
+    <value>Запрашивайте у продавцов электронные счета-фактуры (PDF/OFD), отправленные на вашу электронную почту или employees@aiursoft.com.</value>
+  </data>
+  <data name="Associated Intangible Assets" xml:space="preserve">
+    <value>Связанные нематериальные активы</value>
+  </data>
+  <data name="Associated Servers" xml:space="preserve">
+    <value>Связанные серверы</value>
+  </data>
+  <data name="Avoid paper invoices to prevent loss." xml:space="preserve">
+    <value>Избегайте бумажных счетов-фактур, чтобы предотвратить их утрату.</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Банк</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>Код банка</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Сведения о банке</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>Базовая валюта</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Основная информация</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Свидетельство о регистрации бизнеса</value>
+  </data>
+  <data name="Business Registration" xml:space="preserve">
+    <value>Регистрация компании</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Номер CI</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Название компании</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Тип компании</value>
+  </data>
+  <data name="Copy Full Info" xml:space="preserve">
+    <value>Копировать полную информацию</value>
+  </data>
+  <data name="Copy Summary" xml:space="preserve">
+    <value>Копировать краткую информацию</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Скачать / Просмотреть</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Имя на английском языке</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Код подразделения</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Сведения об организации</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Дата регистрации</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Срок действия</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Изображения и файлы</value>
+  </data>
+  <data name="Instructions for Employees" xml:space="preserve">
+    <value>Инструкции для сотрудников</value>
+  </data>
+  <data name="Invoice Issuance Guide" xml:space="preserve">
+    <value>Руководство по выставлению счетов</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Юридический представитель / Директор</value>
+  </data>
+  <data name="Legal Rep Legal Name" xml:space="preserve">
+    <value>Юридическое лицо (ФИО)</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
+  </data>
+  <data name="Meals, Transportation, Communication, Electronics (Computers/Peripherals)." xml:space="preserve">
+    <value>Питание, транспорт, связь, электроника (компьютеры/периферийные устройства).</value>
+  </data>
+  <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
+    <value>Должно быть реальное деловое расходование. Нет поддельных счетов-фактур.</value>
+  </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>Сотрудники, подписавшие соглашение с этой организацией, отсутствуют.</value>
+  </data>
+  <data name="No intangible assets associated." xml:space="preserve">
+    <value>Связанные нематериальные активы отсутствуют.</value>
+  </data>
+  <data name="No servers associated." xml:space="preserve">
+    <value>Серверы не связаны.</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Официальная печать</value>
+  </data>
+  <data name="Organization Certificate" xml:space="preserve">
+    <value>Свидетельство о регистрации организации</value>
+  </data>
+  <data name="Please show the following information to the merchant when making a payment:" xml:space="preserve">
+    <value>Пожалуйста, покажите следующую информацию мерчанту при оплате:</value>
+  </data>
+  <data name="Prefer Electronic Invoices (Fully Digitalized)" xml:space="preserve">
+    <value>Предпочитайте электронные счета-фактуры (полностью цифровые)</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Уставный капитал</value>
+  </data>
+  <data name="Reimbursement Categories" xml:space="preserve">
+    <value>Категории возмещения расходов</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Ограниченный</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>Местоположение в реестре СКР</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Генеральный директор</value>
+  </data>
+  <data name="Special Cases" xml:space="preserve">
+    <value>Особые случаи</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Список сотрудников</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-код</value>
+  </data>
+  <data name="Tax ID" xml:space="preserve">
+    <value>ИНН</value>
+  </data>
+  <data name="Tip: When incurring business or welfare expenses, please request an invoice. Prefer electronic invoices. Keep the original PDF." xml:space="preserve">
+    <value>Совет: при возникновении деловых или социальных расходов, пожалуйста, запросите счет-фактуру. Предпочтение отдавайте электронным счетам-фактурам. Сохраните исходный PDF.</value>
+  </data>
+
+</root>

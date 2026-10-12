@@ -1,0 +1,64 @@
+@model Aiursoft.EmployeeCenter.Models.PasswordsViewModels.EditViewModel
+
+<div class="row mb-3">
+    <div class="col-12">
+        <h3>@Localizer["Edit Password"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label">@Localizer["Title"]</label>
+                        <input asp-for="Title" class="form-control" required />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Account" class="form-label">@Localizer["Account / Username"]</label>
+                        <input asp-for="Account" class="form-control" />
+                        <span asp-validation-for="Account" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Secret" class="form-label">@Localizer["Password / Secret"]</label>
+                        <input asp-for="Secret" class="form-control" type="text" required />
+                        <span asp-validation-for="Secret" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Note" class="form-label">@Localizer["Note"]</label>
+                        <textarea asp-for="Note" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Note" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="FilePath" class="form-label">@Localizer["Attachment"]</label>
+                        <vc:file-upload 
+                            asp-for="FilePath" 
+                            subfolder="password-attachments" 
+                            is-vault="true">
+                        </vc:file-upload>
+                        <span asp-validation-for="FilePath" class="text-danger"></span>
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">@Localizer["Save Changes"]</button>
+                        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@                                                                                               
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@                                                                                               
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

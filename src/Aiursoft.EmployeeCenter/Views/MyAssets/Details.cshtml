@@ -1,0 +1,137 @@
+@using Aiursoft.EmployeeCenter.Services
+@model Aiursoft.EmployeeCenter.Models.MyAssetsViewModels.DetailsViewModel
+@inject AssetFileService AssetFiles
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Asset Details"]: <code>@Model.Asset.AssetTag</code></h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-action="Index" class="btn btn-light">@Localizer["Back to List"]</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Overview"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i class="align-middle text-primary" data-lucide="monitor" style="width: 64px; height: 64px;"></i>
+                    <h4 class="mt-2">@Model.Asset.Model.Brand @Model.Asset.Model.ModelName</h4>
+                    <span class="badge @(Model.Asset.Status == AssetStatus.InUse ? "bg-success" : "bg-secondary")">@Model.Asset.Status</span>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @Localizer["Asset Tag"]
+                        <code>@Model.Asset.AssetTag</code>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @Localizer["Serial Number"]
+                        <span>@(Model.Asset.SerialNumber ?? Localizer["N/A"].Value)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @Localizer["Category"]
+                        <span>@Model.Asset.Model.Category.Name</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @Localizer["Location"]
+                        <span>@(Model.Asset.Location?.Name ?? Localizer["N/A"].Value)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Financial & Warranty"]</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @Localizer["Purchase Date"]
+                        <span>@(Model.Asset.PurchaseDate?.ToString("yyyy-MM-dd") ?? Localizer["N/A"].Value)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @Localizer["Vendor"]
+                        <span>@(Model.Asset.Vendor?.Name ?? Localizer["N/A"].Value)</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @Localizer["Warranty Expire"]
+                        <span>@(Model.Asset.WarrantyExpireDate?.ToString("yyyy-MM-dd") ?? Localizer["N/A"].Value)</span>
+                    </li>
+                </ul>
+                @if (!string.IsNullOrEmpty(Model.Asset.InvoiceFileUrl))
+                {
+                    <div class="mt-3 text-center">
+                        <a href="@AssetFiles.GetInternetUrl(Model.Asset.InvoiceFileUrl)" target="_blank" class="btn btn-outline-info">
+                            <i class="align-middle me-1" data-lucide="file-text"></i> @Localizer["View Invoice"]
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["History"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["Time"]</th>
+                                <th>@Localizer["Operator"]</th>
+                                <th>@Localizer["Action"]</th>
+                                <th>@Localizer["Field"]</th>
+                                <th>@Localizer["New Value"]</th>
+                                <th>@Localizer["Reason"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var history in Model.Asset.Histories.OrderByDescending(h => h.Timestamp))
+                            {
+                                <tr>
+                                    <td><label class="text-muted" data-utc-time="@history.Timestamp.ToHtmlDateTime()"></label></td>
+                                    <td>
+                                        <a asp-controller="Users" asp-action="Details" asp-route-id="@history.OperatorId" class="text-body">
+                                            @history.Operator.DisplayName
+                                        </a>
+                                    </td>
+                                    <td><span class="badge bg-info">@history.ActionType</span></td>
+                                    <td>@(history.FieldName ?? "-")</td>
+                                    <td>
+                                        @if (history.FieldName == "Status")
+                                        {
+                                            @history.NewValue
+                                        }
+                                        else
+                                        {
+                                            <span class="text-truncate d-inline-block" style="max-width: 150px;" title="@history.NewValue">@history.NewValue</span>
+                                        }
+                                    </td>
+                                    <td>@history.Reason</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Technical Specs"]</h5>
+            </div>
+            <div class="card-body">
+                <pre class="bg-light p-3 rounded">@(Model.Asset.Model.Specs ?? Localizer["No specifications recorded."].Value)</pre>
+            </div>
+        </div>
+    </div>
+</div>

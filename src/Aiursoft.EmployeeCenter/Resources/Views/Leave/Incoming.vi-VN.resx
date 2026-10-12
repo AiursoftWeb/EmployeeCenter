@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Toàn công ty</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Nghỉ phép năm</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Người xin nghỉ</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>các đơn xin nghỉ đã được duyệt</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>các đơn xin nghỉ bị từ chối</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Trung tâm phê duyệt</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Lịch sử phê duyệt</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Duyệt</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Đã duyệt</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Đã phê duyệt trong tháng này</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Người duyệt</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>đang chờ duyệt trên toàn công ty</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>đang chờ bạn xem xét</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>đang vắng mặt</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Ngày</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Quyết định</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Nếu từ chối nhầm:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Nếu nhân viên muốn hủy:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Quan trọng: Quyết định phê duyệt là cuối cùng</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Đội của tôi</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>Không có lịch sử phê duyệt.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Không có đơn xin nghỉ nào đang chờ xử lý.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>Sau khi bạn duyệt hoặc từ chối đơn xin nghỉ phép, quyết định sẽ không thể hoàn tác. Vui lòng xem xét kỹ trước khi thực hiện hành động.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>Chờ phê duyệt</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Duyệt chờ</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Thời gian</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Lý do</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Từ chối</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Từ chối</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Từ chối trong tháng này</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Đã xem xét</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Nghỉ ốm</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Đã gửi</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>Đội đang nghỉ phép</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>Nhân viên phải nộp đơn xin nghỉ mới.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>Họ có thể rút lại đơn của chính mình trước khi nó bắt đầu.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>đến</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Loại</value>
+  </data>
+
+</root>

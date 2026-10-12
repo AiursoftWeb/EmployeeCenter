@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>Доступ заборонено</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Рахунки</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>Додати ключ SSH</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>Додаткова інформація (материкова частина/Гонконг)</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адреса</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Адмін</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Адміністрування</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Адміністративні відомості</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>ШІ</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI Assistant</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Центр співробітників Aiursoft</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Шаблон Aiursoft</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>Анонімний</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>Подати заяву на відпустку</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Центр затвердження</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Історія затвердження</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Затвердити</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Затверджено</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>Затверджені проекти</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Категорії активів</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Моделі активів</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Майно</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Призначити</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Призначити актив</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Аудіо</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Аудит послуг</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>Фонові завдання</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Помилковий запит</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Банківська інформація</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Базова інформація</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>Чернетка</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>Чернетки</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Дозвіл на ведення бізнесу</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Кар&apos;єра</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>Свідоцтво про зайнятість</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>Свідоцтво про роботу</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>Свідоцтво про доход</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Друк сертифіката</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>Змінити аватар</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>Змінити інформацію про банк</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>Змінити пароль</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>Змінити профіль</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Чат</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Номер CI</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>Натисніть, щоб увійти</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>Канали збору коштів</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Коментарі</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>Компанії та структурні підрозділи</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>Деталі компанії</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>Інформація про компанію</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>Консультація з інформації про компанію</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>Компанійні нематеріальні активи</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Назва компанії</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>Компанійні публічні контракти</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Тип компанії</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Підтвердити видалення</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>Деталі фінансів договору</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>Статистика фінансів за контрактами</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Договори</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Створити</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Створити обліковий запис</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Створити актив</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>Створити юридичну особу компанії</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Створити нове</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>Створити нову папку ескізу</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>Створити новий договір</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Створити нову папку</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Створити завдання ознайомлення</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>Створити пароль</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>Створити промоцію</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>Створити питання</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>Створити опитування</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>Створити роль</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Створити сервер</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Створити сервіс</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Створити транзакцію</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Створити користувача</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>Відносини з клієнтами</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>Відносини з клієнтами</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Панель керування</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>Видалити роль</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>Видалити користувача</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Деталі</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Розробка</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Каталог</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Аудит DNS</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Завантажити / Переглянути</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Редагувати обліковий запис</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Редагувати актив</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>Редагувати макет</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>Редагувати папку синьорів</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>Редагувати юридичну особу компанії</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>Редагувати договір</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>Редагувати відносини з клієнтами</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Редагувати папку</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Редагувати запис зустрічі</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>Редагувати завдання ознайомлення</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>Редагувати пароль</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Редагувати зарплатню</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Редагувати запитання</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Редагувати анкету</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>Редагувати вимогу</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>Редагувати роль</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Редагувати сервер</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Редагувати послугу</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Редагувати ключ SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Редагувати транзакцію</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Редагувати транскрипт</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>Редагувати користувача</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>Редагувати тижневий звіт</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Редактор</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>Центр співробітників</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>Сигнали співробітників</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Англійська назва</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>Список організацій</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Код підприємства</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Деталі організації</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Створення</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Дата закінчення дії</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Функції</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>Заповнити анкету</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Фінанси</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>Глобальні налаштування</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Відпусткові корективи</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Головна</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Зображення та файли</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>Імпортувати контракти з архіву Zip</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>Вхідні відпустки</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Індекс</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Індексація сервера</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Інформація</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>Якість інфраструктурних даних</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Помилка внутрішнього сервера</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>Видати рахунок</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>Видати зарплату</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT-активи</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>Відпустка</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>Керування відпустками</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>Юридичні</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>Юридична особа</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Юридичний представник / Директор</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Локації</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Блокування</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Увійти</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>Увійдіть, щоб отримати доступ до всіх функцій.</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>Підтримувати профіль</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Керування</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Керування активами</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Керування спільним доступом до аудіо</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Керування макетами</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Керувати категоріями</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>Керування компанійними сутностями</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Керування контрактами</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>Керування відносинами з клієнтами</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Керування провайдерами DNS</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Керування відгуками</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Керування нематеріальними активами</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>Керування IT-активами</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Керування журналом</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Керування локаціями</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Керування каналами ринку</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Керування моделями</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>Керування онбордингом</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Керування завданнями онбордингу</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>Керування спільними паролями</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Керування зарплатами</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>Керування друку</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Керувати постачальниками</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>Керування питаннями</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>Керування вимогами</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Керування спільним доступом</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>Керування завданнями</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Керувати постачальниками</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>Ринкові канали</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Протокол засідання</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Текст зустрічі</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Стенограми зустрічей</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Місії</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>Перемістити договір</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Мої активи</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>Мої контракти</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>Мої ІТ-активи</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Мій залишок відпустки</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>Мої зарплатні відомості</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Мої відшкодування</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>Моя лінія звітів</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>Мої вимоги</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Не знайдено</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Результати OCR</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Офіційний печатка</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>Вступ</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>Процес онбордингу</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>Деталі пароля</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Паролі</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Керування паролями</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Деталі заробітної плати</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>Відомості про заробітну плату</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Очікує підтвердження</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Деталі дозволів</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Дозволи</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Особисті</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Перегляд</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Друкувати</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>Друкувати сертифікат</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Профіль</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Налаштування профілю</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>Вимоги до проекту</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>Історія підвищень</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>Відповіді на анкету</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Реєстраційний капітал</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Реєстрація</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>Відшкодування</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Відхилити</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Відхилено</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>Перейменувати запис зустрічі</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Відповісти</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>Відповідаючи на</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Лінія звітів</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>Запитати зміни</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>Запитати зміни</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>Вимога</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>Деталі вимоги</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Вимога успішно збережена.</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>Назва вимоги</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>Ресурси</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>Деталі відповіді</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Обмежений</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>Деталі ролі</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Ролі</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Зберегти зміни</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>Місце розташування SCR</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Секретар</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Сервери</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Аудит послуг</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Послуги</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Панель службових засобів</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>Спільна інформація</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>Спільні паролі</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Вийти</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>Ключі SSH</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>Надіслати коментар</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Надіслати на затвердження</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>Надіслати новий вимогу</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>Надіслати вимогу</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Система</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>Інформація про систему</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Календар команди</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Транзакції</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Неавторизовано</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Завантажити аудіо</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Деталі користувача</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Користувачі</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Постачальники</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>Переглянути ескізи</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>Переглянути контракти</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>Переглянути відносини з клієнтами</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>Переглянути канали ринку</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>Тижневий звіт</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>Напишіть коментар...</value>
+  </data>
+
+</root>

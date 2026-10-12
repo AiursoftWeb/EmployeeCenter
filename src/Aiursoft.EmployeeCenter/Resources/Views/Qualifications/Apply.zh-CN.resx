@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Applicant" xml:space="preserve">
+    <value>申请人</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>业务用途</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>生成水印并下载</value>
+  </data>
+  <data name="Generate and Preview" xml:space="preserve">
+    <value>生成并预览</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>接收单位</value>
+  </data>
+  <data name="Specify the actual transaction, for example supplier onboarding or a named project tender." xml:space="preserve">
+    <value>请填写具体业务，例如供应商入驻或某项目投标。</value>
+  </data>
+  <data name="The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form." xml:space="preserve">
+    <value>服务端添加明水印和隐形追踪水印。申请人姓名来自登录账号，无法在此修改。</value>
+  </data>
+</root>

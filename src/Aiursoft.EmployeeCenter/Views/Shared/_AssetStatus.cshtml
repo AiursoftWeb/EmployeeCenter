@@ -1,0 +1,20 @@
+@model Aiursoft.EmployeeCenter.Entities.IntangibleAssetStatus
+
+@switch (Model)
+{
+    case IntangibleAssetStatus.Applying:
+        <span class="badge bg-warning">@Localizer["Applying"]</span>
+        break;
+    case IntangibleAssetStatus.Active:
+        <span class="badge bg-success">@Localizer["Active"]</span>
+        break;
+    case IntangibleAssetStatus.Revoked:
+        <span class="badge bg-danger">@Localizer["Revoked"]</span>
+        break;
+    case IntangibleAssetStatus.Running:
+        <span class="badge bg-info">@Localizer["Running"]</span>
+        break;
+    case IntangibleAssetStatus.Suspended:
+        <span class="badge bg-secondary">@Localizer["Suspended"]</span>
+        break;
+}

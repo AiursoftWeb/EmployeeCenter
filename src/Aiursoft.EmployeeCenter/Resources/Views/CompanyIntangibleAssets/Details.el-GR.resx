@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Information" xml:space="preserve">
+    <value>Πληροφορίες Πρόσβασης</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Λογαριασμός</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Ανάθεση</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>Ανήκει στην Οντότητα</value>
+  </data>
+  <data name="Company Intangible Asset Details" xml:space="preserve">
+    <value>Λεπτομέρειες Απαράσκευαστου Περιουσίας της Εταιρείας</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Περιγραφή</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Ημερομηνία Λήξης</value>
+  </data>
+  <data name="Filing &amp; Registration" xml:space="preserve">
+    <value>Καταχώρηση &amp; Εγγραφή</value>
+  </data>
+  <data name="Filing Number" xml:space="preserve">
+    <value>Αριθμός Καταχώρησης</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Θέμα Υποβολής</value>
+  </data>
+  <data name="Financial &amp; Assignment" xml:space="preserve">
+    <value>Χρηματοοικονομικά &amp; Ανάθεση</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>Γενικές Πληροφορίες</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Τιμολόγιο</value>
+  </data>
+  <data name="Management URL" xml:space="preserve">
+    <value>Διεύθυνση Διαχείρισης</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>Όχι Ανατεθειμένος</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Τιμή αγοράς</value>
+  </data>
+  <data name="Query Method" xml:space="preserve">
+    <value>Μέθοδος Αναζήτησης</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Πιστοποιητικό Εγγραφής</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Ημερομηνία Εγγραφής</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Προμηθευτής</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Εικόνα εμπορικού σήματος</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Τύπος</value>
+  </data>
+  <data name="View Certificate" xml:space="preserve">
+    <value>Προβολή Πιστοποιητικού</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>Προβολή Απόδειξης</value>
+  </data>
+  <data name="View Trademark Image" xml:space="preserve">
+    <value>Προβολή εικόνας εμπορικού σήματος</value>
+  </data>
+
+</root>

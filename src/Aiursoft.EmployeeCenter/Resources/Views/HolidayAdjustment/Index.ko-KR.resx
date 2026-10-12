@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Adjusted to Rest Day (调休放假)" xml:space="preserve">
+    <value>조정된 휴일 (대체 휴일)</value>
+  </data>
+  <data name="Adjusted to Work Day (调休上班)" xml:space="preserve">
+    <value>근무일로 조정됨 (조휴근무)</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>4월</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>8월</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>달력 범례</value>
+  </data>
+  <data name="Changes affect leave calculations immediately" xml:space="preserve">
+    <value>변경 사항은 즉시 연차 계산에 반영됩니다.</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>12월</value>
+  </data>
+  <data name="Failed to update" xml:space="preserve">
+    <value>업데이트에 실패했습니다</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>2월</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>금</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>휴일 조정</value>
+  </data>
+  <data name="Holiday Calendar" xml:space="preserve">
+    <value>휴일 캘린더</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>사용 설명</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>1월</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>7월</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>6월</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>3월</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>5월</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>월</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>다음</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>11월</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>10월</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>이전</value>
+  </data>
+  <data name="Rest" xml:space="preserve">
+    <value>휴일</value>
+  </data>
+  <data name="Right-click any day to toggle its status" xml:space="preserve">
+    <value>오른쪽 클릭으로 날짜 상태를 전환합니다.</value>
+  </data>
+  <data name="Right-click on any day to toggle between working day and rest day. Changes take effect immediately." xml:space="preserve">
+    <value>오른쪽 클릭하여 근무일과 휴일을 전환합니다. 변경 사항은 즉시 적용됩니다.</value>
+  </data>
+  <data name="Right-click on any day to toggle its status." xml:space="preserve">
+    <value>오른쪽 클릭으로 어떤 날짜의 상태를 전환합니다.</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>토</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>9월</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>일</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>목</value>
+  </data>
+  <data name="Toggle again to revert to normal" xml:space="preserve">
+    <value>다시 토글하여 원래 상태로 되돌립니다.</value>
+  </data>
+  <data name="Toggling" xml:space="preserve">
+    <value>전환 중...</value>
+  </data>
+  <data name="Toggling a weekend/holiday makes it a work day" xml:space="preserve">
+    <value>주말/공휴일을 전환하면 근무일로 설정됩니다.</value>
+  </data>
+  <data name="Toggling a work day makes it a rest day" xml:space="preserve">
+    <value>작업 일자를 토글하면 휴일로 변경됩니다.</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>화</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>업데이트됨</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>수</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>주말 / 공휴일</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>근무</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>근무일</value>
+  </data>
+
+</root>

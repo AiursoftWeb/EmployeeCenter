@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of all contract records." xml:space="preserve">
+    <value>모든 계약 기록의 목록입니다.</value>
+  </data>
+  <data name="A list of all your contracts." xml:space="preserve">
+    <value>모든 계약서의 목록입니다.</value>
+  </data>
+  <data name="A list of folders and contracts in this location." xml:space="preserve">
+    <value>이 위치의 폴더 및 계약 목록입니다.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>유효</value>
+  </data>
+  <data name="Are you sure you want to delete this folder?" xml:space="preserve">
+    <value>이 폴더를 삭제하시겠습니까?</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>뒤로가기</value>
+  </data>
+  <data name="Click here to manage contents." xml:space="preserve">
+    <value>여기를 클릭하여 콘텐츠를 관리하세요.</value>
+  </data>
+  <data name="Contents" xml:space="preserve">
+    <value>내용</value>
+  </data>
+  <data name="Contract History" xml:space="preserve">
+    <value>계약 내역</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>계약서</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>생성 시간</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>다운로드</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>편집</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>무효</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>여기는 비어 있습니다!</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>내 계약서</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>이름</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>열기</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>소유자</value>
+  </data>
+  <data name="Pending Signature" xml:space="preserve">
+    <value>서명 대기 중</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>이름 변경</value>
+  </data>
+  <data name="Shared" xml:space="preserve">
+    <value>공유됨</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="This folder is currently empty." xml:space="preserve">
+    <value>이 폴더는 현재 비어 있습니다.</value>
+  </data>
+
+</root>

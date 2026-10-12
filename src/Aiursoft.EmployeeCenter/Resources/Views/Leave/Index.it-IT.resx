@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} giorni di congedo annuale retribuito all&apos;anno</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>7 giorni di congedo malattia retribuito all&apos;anno</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Azioni</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Congedo annuale</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Richiedi congedo</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approvato</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Approvatore</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>in attesa di approvazione</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>Già portato avanti</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>giorni</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>giorni di distanza</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>Buona pausa!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>Informazioni chiave sulle nostre politiche di congedo</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>Riepilogo del Saldo Congedo</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>Cronologia congedi</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>Politica sul congedo</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>Massimo accumulo: {0} giorni (scade dopo 1 anno)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>Salute mentale: nessun documento richiesto</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Saldo congedo personale</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>Prossimo congedo</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>Nessuna approvazione richiesta, può essere utilizzato immediatamente</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>Nessun cronologia congedi trovata.</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>nessun congedo in arrivo</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>di</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>In sospeso</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>Richieste in sospeso</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Periodo</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>Malattia fisica: richiesto certificato medico</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>Assicurati che il tuo congedo sia conforme alla politica aziendale, che tutto il lavoro sia stato consegnato e che tu abbia inviato una mail al tuo team.</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>Azioni rapide</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rifiutato</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>richieste</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>Richiede l&apos;approvazione del responsabile prima dell&apos;uso</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Congedo per malattia</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stato</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Inviato</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>Documenti di supporto richiesti dopo la fine del congedo</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>Le assenze non autorizzate sono considerate assenze ingiustificate e comporteranno decurtazioni dello stipendio e azioni disciplinari.</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>I giorni non utilizzati vengono portati avanti all&apos;anno successivo</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>Congedo imminente</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Ritira</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Ritirato</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>Le tue richieste di congedo e il loro stato</value>
+  </data>
+
+</root>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account" xml:space="preserve">
+    <value>Conta</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Contas</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Saldo</value>
+  </data>
+  <data name="Chart Inflow Data" xml:space="preserve">
+    <value>Dados do Gráfico de Entrada</value>
+  </data>
+  <data name="Chart Labels" xml:space="preserve">
+    <value>Rótulos do Gráfico</value>
+  </data>
+  <data name="Chart Outflow Data" xml:space="preserve">
+    <value>Dados do Gráfico de Saídas</value>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>Entidade</value>
+  </data>
+  <data name="Expenses for Period" xml:space="preserve">
+    <value>Despesas do Período</value>
+  </data>
+  <data name="Filtered Account" xml:space="preserve">
+    <value>Conta Filtrada</value>
+  </data>
+  <data name="Filtered Account Balance" xml:space="preserve">
+    <value>Saldo da Conta Filtrada</value>
+  </data>
+  <data name="Inflow Distribution" xml:space="preserve">
+    <value>Distribuição de Entradas</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Mês</value>
+  </data>
+  <data name="Monthly Burn Rate" xml:space="preserve">
+    <value>Taxa Mensal de Gasto</value>
+  </data>
+  <data name="Net Income for Period" xml:space="preserve">
+    <value>Lucro Líquido do Período</value>
+  </data>
+  <data name="Outflow Distribution" xml:space="preserve">
+    <value>Distribuição de Saídas</value>
+  </data>
+  <data name="Recent Transactions" xml:space="preserve">
+    <value>Transações Recentes</value>
+  </data>
+  <data name="Revenue for Period" xml:space="preserve">
+    <value>Receita do Período</value>
+  </data>
+  <data name="Runway (Months)" xml:space="preserve">
+    <value>Tempo de Sobrevivência (Meses)</value>
+  </data>
+  <data name="Total Assets" xml:space="preserve">
+    <value>Total de Ativos</value>
+  </data>
+  <data name="Total Equity" xml:space="preserve">
+    <value>Patrimônio Líquido Total</value>
+  </data>
+  <data name="Total Inflow" xml:space="preserve">
+    <value>Total de Entradas</value>
+  </data>
+  <data name="Total Liabilities" xml:space="preserve">
+    <value>Total Passivos</value>
+  </data>
+  <data name="Total Outflow" xml:space="preserve">
+    <value>Total Saída</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Ano</value>
+  </data>
+
+</root>

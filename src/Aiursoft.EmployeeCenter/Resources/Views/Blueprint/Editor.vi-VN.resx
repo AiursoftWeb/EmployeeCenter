@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="(Root)" xml:space="preserve">
+    <value>(Root)</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Quay lại</value>
+  </data>
+  <data name="Blueprint saved successfully." xml:space="preserve">
+    <value>Lưu bản thiết kế thành công.</value>
+  </data>
+  <data name="Blueprint Title" xml:space="preserve">
+    <value>Tiêu đề bản thiết kế</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Trình soạn thảo</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Chỉ chỉnh sửa</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Thư mục</value>
+  </data>
+  <data name="HTML" xml:space="preserve">
+    <value>HTML</value>
+  </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>Tải lên hình ảnh thất bại!</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Xem trước</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Chỉ xem trước</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>In</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Lưu thay đổi</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Chế độ chia đôi</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Thành công!</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+
+</root>

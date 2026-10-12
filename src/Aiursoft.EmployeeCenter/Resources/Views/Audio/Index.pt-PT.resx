@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>Uma lista de gravações áudio de reuniões, transcrições e estados de processamento por IA.</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Fonte de Acesso</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>Todos os registos de reuniões carregados</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>Tem a certeza de que deseja eliminar esta gravação da reunião?</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>Estado da ASR</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Permissão de gestão de áudio</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>À espera de reconhecimento</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Data de criação</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Departamento</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Partilha Direta</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editável</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Vazio</value>
+  </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>A gerar atas</value>
+  </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>Falha no processamento de media</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>Gravações de Reuniões</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Transcrições de Reuniões</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Atas geradas</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Falha na geração de ata</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Atas desatualizadas</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Estado das Actas</value>
+  </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>A minha permissão</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Seguinte</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>Ainda sem gravações de reuniões</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Proprietário</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pendente</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privado</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>A processar</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Somente leitura</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>Reconhecimento em curso</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>Transcrição de voz para texto concluída</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>Total de Reuniões</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>Transcritas</value>
+  </data>
+  <data name="Transcript" xml:space="preserve">
+    <value>Transcrição</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Proprietário desconhecido</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Carregar Gravação de Reunião</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>Carregue a sua primeira gravação de reunião para transcrever e analisar com IA.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>A aguardar transcrição</value>
+  </data>
+
+</root>

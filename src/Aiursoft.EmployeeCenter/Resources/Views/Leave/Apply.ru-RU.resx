@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allows retroactive entry for leaves already taken" xml:space="preserve">
+    <value>Позволяет вводить отпуска с задней датой для уже взятых отпусков</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Ежегодный отпуск</value>
+  </data>
+  <data name="Annual leave requires approval" xml:space="preserve">
+    <value>На ежегодный отпуск требуется одобрение</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Заявка на отпуск</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Апрель</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Август</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>Справка по календарю</value>
+  </data>
+  <data name="Calendar View" xml:space="preserve">
+    <value>Календарь</value>
+  </data>
+  <data name="Can apply for leave from 7 days ago to end of current year" xml:space="preserve">
+    <value>Можно подать заявку на отпуск с 7 дней назад до конца текущего года</value>
+  </data>
+  <data name="Can be up to 7 days in the past or future dates within current year" xml:space="preserve">
+    <value>Может быть до 7 дней назад или в будущем в пределах текущего года</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Click on working days to select your leave period" xml:space="preserve">
+    <value>Нажмите на рабочие дни, чтобы выбрать период отпуска</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Декабрь</value>
+  </data>
+  <data name="End Date" xml:space="preserve">
+    <value>Дата окончания</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Февраль</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Пт</value>
+  </data>
+  <data name="Important Notes" xml:space="preserve">
+    <value>Важные заметки</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Январь</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Июль</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Июнь</value>
+  </data>
+  <data name="Last day of your leave (inclusive)" xml:space="preserve">
+    <value>Последний день вашего отпуска (включительно)</value>
+  </data>
+  <data name="Leave Application Form" xml:space="preserve">
+    <value>Форма заявки на отпуск</value>
+  </data>
+  <data name="Leave Type" xml:space="preserve">
+    <value>Тип отпуска</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Март</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Май</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Пн</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Следующий</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Ноябрь</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Октябрь</value>
+  </data>
+  <data name="Only working days are counted (weekends and holidays excluded)" xml:space="preserve">
+    <value>Учитываются только рабочие дни (выходные и праздничные дни не учитываются)</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Предыдущий</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Причина</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Сб</value>
+  </data>
+  <data name="Select your leave dates and provide a reason for your leave." xml:space="preserve">
+    <value>Выберите даты отпуска и укажите причину отпуска.</value>
+  </data>
+  <data name="Selected Leave Day" xml:space="preserve">
+    <value>Выбранный день отпуска</value>
+  </data>
+  <data name="Selected Period" xml:space="preserve">
+    <value>Выбранный период</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Сентябрь</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Болезнь</value>
+  </data>
+  <data name="Sick leave requires supporting documents after return" xml:space="preserve">
+    <value>На больничный лист требуется подтверждающий документ после возвращения</value>
+  </data>
+  <data name="Start Date" xml:space="preserve">
+    <value>Дата начала</value>
+  </data>
+  <data name="Submit Application" xml:space="preserve">
+    <value>Отправить заявку</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Вс</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>Чт</value>
+  </data>
+  <data name="total days" xml:space="preserve">
+    <value>всего дней</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Вт</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>Ср</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>Выходные / Праздничные дни</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>Рабочий день</value>
+  </data>
+  <data name="working days" xml:space="preserve">
+    <value>рабочие дни</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Время записи события — это время по поясу UTC!</value>
+  </data>
+
+</root>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- Select Category --" xml:space="preserve">
+    <value>-- Select Category --</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulare</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="Meals (餐饮费)" xml:space="preserve">
+    <value>Meals (cheltuieli pentru mese)</value>
+  </data>
+  <data name="New Reimbursement Request" xml:space="preserve">
+    <value>Nouă cerere de rambursare</value>
+  </data>
+  <data name="Others (其他)" xml:space="preserve">
+    <value>Altele (Altele)</value>
+  </data>
+  <data name="Paste supporting email content or other context here..." xml:space="preserve">
+    <value>Introduceți aici conținutul e-mailului de susținere sau alte detalii...</value>
+  </data>
+  <data name="Procurement (采购费)" xml:space="preserve">
+    <value>Procurement (cheltuieli de aprovizionare)</value>
+  </data>
+  <data name="Save as Draft" xml:space="preserve">
+    <value>Salvează ca șablon</value>
+  </data>
+  <data name="Submit Request" xml:space="preserve">
+    <value>Trimite cererea</value>
+  </data>
+  <data name="Transport (交通费)" xml:space="preserve">
+    <value>Transport (Taxe de transport)</value>
+  </data>
+  <data name="Travel (差旅费)" xml:space="preserve">
+    <value>Travel (cheltuieli de deplasare)</value>
+  </data>
+  <data name="What was this expense for?" xml:space="preserve">
+    <value>Pentru ce a fost această cheltuială?</value>
+  </data>
+
+</root>

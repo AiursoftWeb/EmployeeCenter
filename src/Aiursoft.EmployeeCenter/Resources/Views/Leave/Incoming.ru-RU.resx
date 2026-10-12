@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Вся компания</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Ежегодный отпуск</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Заявитель</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>поданные заявки одобрены</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>отклонённые заявки</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Центр утверждений</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>История утверждений</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Одобрить</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Утверждено</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Утверждено в этом месяце</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Одобривший</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>ожидает проверки по всей компании</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>ожидается ваша проверка</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>в настоящее время отсутствует</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Дни</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Решение</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Если отклонено по ошибке:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Если сотрудник хочет отменить:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Важно: решения по утверждению являются окончательными</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Моя команда</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>История утверждений отсутствует.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Нет ожидающих заявок.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>После одобрения или отклонения заявки на отпуск решение нельзя отменить. Пожалуйста, внимательно проверьте информацию перед принятием решения.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>Ожидает одобрения</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Ожидаемые одобрения</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Период</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Причина</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Отклонить</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Отклонено</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Отклонено в этом месяце</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Одобренные</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Болезнь</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Подано</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>Команда в отпуске</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>Сотрудник должен подать новую заявку.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>Они могут отозвать свое заявление до начала действия.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>до</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+
+</root>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>연 {0}일의 유급 연차 휴가</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>연간 7일의 유급 병가</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>연차 휴가</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>휴가 신청</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>승인됨</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>승인자</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>승인 대기 중</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>이월</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>일</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>일 후</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>좋은 휴가 되세요!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>~ 후</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>휴가 정책에 관한 핵심 정보</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>잔여 휴가 일수 요약</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>휴가 내역</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>휴가 정책</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>최대 이월: {0}일 (1년 후 만료)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>정신 건강: 서류 제출 없음</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>내 연차 잔여량</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>다음 휴가</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>승인 없이도 즉시 사용 가능</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>휴가 기록이 없습니다.</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>upcoming 휴가 없음</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>의</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>보류 중</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>보류 중인 요청</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>기간</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>신체 질환: 진단서 필요</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>휴가가 회사 정책에 부합되도록 확인하고, 모든 업무를 인수인계했으며 팀에 이메일을 보낸 것을 확인해 주세요.</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>빠른 작업</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>거부됨</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>요청</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>사용 전에 관리자 승인이 필요합니다</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>병가</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>제출됨</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>휴가 종료 후 증빙 서류가 필요합니다</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>유형</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>무단 결근은 무단 결근으로 간주되며, 급여 공제 및 징계 조치가 적용될 수 있습니다.</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>사용하지 않은 일수는 다음 해로 이월됩니다.</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>upcoming Leave</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>취소됨</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>귀하의 휴가 신청 및 상태</value>
+  </data>
+
+</root>

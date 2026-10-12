@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allows retroactive entry for leaves already taken" xml:space="preserve">
+    <value>Zaten alınan izinler için geriye dönük girişe izin verir</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Yıllık Tatil</value>
+  </data>
+  <data name="Annual leave requires approval" xml:space="preserve">
+    <value>Yıllık izin onay gerektirir</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>İzin için Başvur</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Nisan</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Ağustos</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>Takvim Legi</value>
+  </data>
+  <data name="Calendar View" xml:space="preserve">
+    <value>Takvim Görünümü</value>
+  </data>
+  <data name="Can apply for leave from 7 days ago to end of current year" xml:space="preserve">
+    <value>7 gün önceki tarihten itibaren mevcut yılın sonuna kadar izin alabilirsiniz</value>
+  </data>
+  <data name="Can be up to 7 days in the past or future dates within current year" xml:space="preserve">
+    <value>Geçerli yıl içinde en fazla 7 gün önceden veya geleceğe kadar tarihler olabilir</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Click on working days to select your leave period" xml:space="preserve">
+    <value>İş günlerine tıklayarak izin döneminizi seçin</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Aralık</value>
+  </data>
+  <data name="End Date" xml:space="preserve">
+    <value>Bitiş Tarihi</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Şubat</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Cuma</value>
+  </data>
+  <data name="Important Notes" xml:space="preserve">
+    <value>Önemli Notlar</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Ocak</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Temmuz</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Haziran</value>
+  </data>
+  <data name="Last day of your leave (inclusive)" xml:space="preserve">
+    <value>İzin sürenizin son günü (dahil)</value>
+  </data>
+  <data name="Leave Application Form" xml:space="preserve">
+    <value>İzin Başvuru Formu</value>
+  </data>
+  <data name="Leave Type" xml:space="preserve">
+    <value>İzin Türü</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Mart</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Mayıs</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Pzt</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Sonraki</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Kasım</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Ekim</value>
+  </data>
+  <data name="Only working days are counted (weekends and holidays excluded)" xml:space="preserve">
+    <value>Sadece iş günleri sayılır (hafta sonları ve tatiller hariç)</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Önceki</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Cts</value>
+  </data>
+  <data name="Select your leave dates and provide a reason for your leave." xml:space="preserve">
+    <value>İzin tarihlerinizi seçin ve bir neden belirtin.</value>
+  </data>
+  <data name="Selected Leave Day" xml:space="preserve">
+    <value>Seçili Tatil Günü</value>
+  </data>
+  <data name="Selected Period" xml:space="preserve">
+    <value>Seçili Dönem</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Eylül</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Hastalık İzni</value>
+  </data>
+  <data name="Sick leave requires supporting documents after return" xml:space="preserve">
+    <value>İşsizlik izni, geri dönüşten sonra destekleyici belgeler gerektirir</value>
+  </data>
+  <data name="Start Date" xml:space="preserve">
+    <value>Başlangıç Tarihi</value>
+  </data>
+  <data name="Submit Application" xml:space="preserve">
+    <value>Başvuruyu Gönder</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Paz</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>Çar</value>
+  </data>
+  <data name="total days" xml:space="preserve">
+    <value>toplam gün</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Sal</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>Çar</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>Hafta Sonu / Tatil</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>Çalışma Günü</value>
+  </data>
+  <data name="working days" xml:space="preserve">
+    <value>iş günleri</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Olay kaydı zamanı koordinasyonlu dünya saati!</value>
+  </data>
+
+</root>

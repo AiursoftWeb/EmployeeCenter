@@ -1,0 +1,171 @@
+@using Aiursoft.EmployeeCenter.Controllers
+@using Aiursoft.EmployeeCenter.Authorization
+@using System.Security.Claims
+@model Aiursoft.EmployeeCenter.Models.RequirementViewModels.ReaderViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+    var canApprove = User.HasClaim(AppPermissions.Type, AppPermissionNames.CanApproveProjectRequirements);
+    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+    var isCreator = Model.Requirement.SubmitterId == userId;
+    var canEdit = canApprove || (isCreator && Model.Requirement.Status != RequirementStatus.Approved);
+}
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Model.Requirement.Title</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1 text-nowrap">
+        @if (canEdit)
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Requirement.Id" class="btn btn-warning shadow-sm">
+                <i class="align-middle" data-lucide="edit"></i> @Localizer["Edit"]
+            </a>
+        }
+        @if (canApprove && Model.Requirement.Status == RequirementStatus.PendingApproval)
+        {
+            <form asp-action="Approve" asp-route-id="@Model.Requirement.Id" method="post" class="d-inline">
+                <button type="submit" class="btn btn-success shadow-sm">
+                    <i class="align-middle" data-lucide="check"></i> @Localizer["Approve"]
+                </button>
+            </form>
+            <form asp-action="RequestChanges" asp-route-id="@Model.Requirement.Id" method="post" class="d-inline">
+                <button type="submit" class="btn btn-warning shadow-sm">
+                    <i class="align-middle" data-lucide="edit"></i> @Localizer["Request Changes"]
+                </button>
+            </form>
+            <form asp-action="Reject" asp-route-id="@Model.Requirement.Id" method="post" class="d-inline">
+                <button type="submit" class="btn btn-danger shadow-sm">
+                    <i class="align-middle" data-lucide="x"></i> @Localizer["Reject"]
+                </button>
+            </form>
+        }
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header d-flex align-items-center">
+        <div class="me-3">
+            <img src="@StorageService.RelativePathToInternetUrl(Model.Requirement.Submitter?.AvatarRelativePath ?? "images/default-avatar.jpg")?w=40&square=true" class="avatar img-fluid rounded" alt="@Model.Requirement.Submitter?.DisplayName" />
+        </div>
+        <div>
+            <h5 class="card-title mb-0">@Model.Requirement.Submitter?.DisplayName</h5>
+            <small class="text-muted" data-utc-time="@Model.Requirement.CreationTime.ToHtmlDateTime()"></small>
+            @{
+                var badgeClass = Model.Requirement.Status switch
+                {
+                    RequirementStatus.Approved => "bg-success",
+                    RequirementStatus.Rejected => "bg-danger",
+                    RequirementStatus.RequestChanges => "bg-warning",
+                    _ => "bg-info"
+                };
+            }
+            <span class="badge @badgeClass ms-2">@Localizer[Model.Requirement.Status.ToString()]</span>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="markdown-content" id="markdown-preview"></div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Comments"]</h5>
+    </div>
+    <div class="card-body">
+        @foreach (var comment in Model.Requirement.Comments.Where(c => c.ParentCommentId == null).OrderBy(c => c.CreateTime))
+        {
+            <div class="d-flex mb-3">
+                <img src="@StorageService.RelativePathToInternetUrl(comment.Author?.AvatarRelativePath ?? "images/default-avatar.jpg")?w=32&square=true" class="avatar img-fluid rounded me-2" alt="@comment.Author?.DisplayName" />
+                <div class="flex-grow-1">
+                    <div class="d-flex align-items-center mb-1">
+                        <strong>@comment.Author?.DisplayName</strong>
+                        <small class="text-muted ms-2" data-utc-time="@comment.CreateTime.ToHtmlDateTime()"></small>
+                    </div>
+                    <div>@comment.Content</div>
+                    <div class="mt-1">
+                        <a href="javascript:void(0)" class="text-sm reply-link" data-comment-id="@comment.Id" data-author="@comment.Author?.DisplayName">@Localizer["Reply"]</a>
+                    </div>
+
+                    @foreach (var reply in comment.Replies.OrderBy(r => r.CreateTime))
+                    {
+                        <div class="d-flex mt-3">
+                            <img src="@StorageService.RelativePathToInternetUrl(reply.Author?.AvatarRelativePath ?? "images/default-avatar.jpg")?w=24&square=true" class="avatar img-fluid rounded me-2" alt="@reply.Author?.DisplayName" />
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center mb-1">
+                                    <strong>@reply.Author?.DisplayName</strong>
+                                    <small class="text-muted ms-2" data-utc-time="@reply.CreateTime.ToHtmlDateTime()"></small>
+                                </div>
+                                <div>@reply.Content</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+        <hr />
+
+        <form asp-action="Comment" asp-route-id="@Model.Requirement.Id" method="post" id="comment-form">
+            <input type="hidden" name="replyToId" id="replyToId" />
+            <div id="reply-info" class="alert alert-info py-1 px-2 mb-2 d-none">
+                @Localizer["Replying to"] <span id="reply-author"></span>
+                <button type="button" class="btn-close btn-sm float-end" id="cancel-reply"></button>
+            </div>
+            <div class="mb-3">
+                <textarea name="content" class="form-control" rows="3" placeholder="@Localizer["Write a comment..."]" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">@Localizer["Submit Comment"]</button>
+        </form>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        var __rawMarkdownContent = @Json.Serialize(Model.Requirement.Content);
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var isDarkMode = @(isDarkMode.ToString().ToLower());
+            var contentEl = document.getElementById('markdown-preview');
+            if (!contentEl) return;
+
+            contentEl.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(__rawMarkdownContent);
+
+            // --- Reply Logic ---
+            document.querySelectorAll('.reply-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const commentId = this.getAttribute('data-comment-id');
+                    const author = this.getAttribute('data-author');
+                    document.getElementById('replyToId').value = commentId;
+                    document.getElementById('reply-author').innerText = author;
+                    document.getElementById('reply-info').classList.remove('d-none');
+                    document.querySelector('#comment-form textarea').focus();
+                });
+            });
+
+            document.getElementById('cancel-reply')?.addEventListener('click', function() {
+                document.getElementById('replyToId').value = '';
+                document.getElementById('reply-info').classList.add('d-none');
+            });
+        });
+    </script>
+    @{
+        ViewData["MarkdownSelector"] = "#markdown-preview";
+        ViewData["MarkdownTheme"] = isDarkMode ? "dark" : "default";
+    }
+    <partial name="_MarkdownReaderAssets" />
+}

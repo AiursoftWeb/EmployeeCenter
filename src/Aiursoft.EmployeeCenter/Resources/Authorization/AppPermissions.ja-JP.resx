@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>グローバルパスワード追加</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>新しいロールの追加</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>新規ユーザーの追加</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>報告ラインに関係なく、すべての休暇申請の承認または却下および、任意のユーザーの休暇履歴の閲覧を許可します。</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>報告ラインを問わず、任意の休暇申請の承認または却下が可能です。</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>任意の従業員の請求書承認、承認、または却下を許可します。</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>プロジェクト要件の承認、却下、または変更の依頼を許可します。すべてのユーザーが要件を提出し、コメントを残すことができます。</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>任意のユーザーに対してロールの割り当てまたは削除を許可します。</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>会社のすべての契約の作成および管理を許可します。</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>新入社員向けのオンボーディングタスクテンプレートの作成および管理を許可します。</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>会社の契約を作成することを許可します。すべてのユーザーは、デフォルトでパブリックな契約を閲覧できます。</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>すべてのユーザーに対して新しい契約を作成できるようにします。</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>他のユーザーと共有できる新規グローバルパスワードの作成を許可します。</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>質問やアンケートの作成、フィードバックの応答の閲覧を許可します。</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>他のユーザーの代わりに週次レポートの作成、編集、削除を許可します。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>ブループリントの作成、更新、削除を許可します。デフォルトでは、すべてのユーザーがブループリントを閲覧できます。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>コレクションチャンネルとそのレコードの作成、更新、および削除を許可します。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>会社エンティティ情報の作成、更新、削除を許可します。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>会社エンティティ情報の作成、更新、削除を許可します。デフォルトでは、すべてのユーザーが会社エンティティ情報の閲覧が可能です。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>顧客関係情報の作成、更新、削除を許可します。デフォルトでは、すべてのユーザーが顧客関係を閲覧できます。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>マーケットチャネル情報の作成、更新、削除を許可します。デフォルトで、すべてのユーザーがマーケットチャネルを表示できます。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>サービスおよびDNSプロバイダーの作成、更新、削除を許可します。デフォルトでは、すべてのユーザーがサービスを閲覧できます。</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>サーバー、サービス、プロバイダー、DNSプロバイダー、ドメインエイリアスの作成、更新、廃棄、およびメンテナンスを許可します。</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>すべてのユーザーの給与明細の発行と管理を許可します。</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>任意のユーザーによって作成されたグローバルパスワードの管理および削除ができます。</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>会社の財務勘定を管理し、取引を記録することを許可します。</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>会社のIT資産および無形資産（ドメイン、ライセンスなど）の管理を許可します。カテゴリ、モデル、個々のアイテムを含みます。また、従業員への資産の割り当ておよび回収も許可します。</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>会社のIT資産（カテゴリ、モデル、個別アイテムを含む）を管理できるようにします。</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>会社のIT資産（カテゴリ、モデル、個別アイテムを含む）の管理を許可します。また、従業員への資産の割り当ておよび回収も許可します。</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>サービスのDNSおよび可用性監査を手動でトリガーできます。</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>ロール名とその割り当てられた権限の変更を許可します。</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>ユーザーのメールアドレスやロールなどの詳細情報を編集できるほか、ユーザーのパスワードをリセットすることもできます。</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>ユーザーのメールアドレスやロールなどの詳細情報の変更を許可し、ユーザーのパスワードをリセットすることもできます。</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>すべての従業員に対する雇用および所得証明書の印刷を許可します。</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>自分自身の雇用および所得証明書の印刷を許可します。</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>読み取り専用のCloudflare DNS監査の実行と、その検出結果の表示を許可します。</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>読み取り専用のサービス監査の実行と、その結果の閲覧を許可します。</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>ロールの完全な削除を許可します。</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>ユーザーアカウントの完全削除を許可します。</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>ユーザーが会社の情報について AI アシスタントとチャットできるようにします。</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>ユーザーが自分の週次レポートを作成できるようにします。</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>ユーザーは、他の任意のユーザーの代わりに週次レポートを作成できるようにします。</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>ユーザーがフィードバックアンケートを記入および提出できるようにします。</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>ユーザーが経費の補償請求を提出できるようにします。</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>会議録音のアップロード、削除、および音声からテキストへの文字起こしの再トリガーを許可します。</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>すべての会社契約（プライベートとしてマークされたものも含む）を閲覧できるようにします。</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>すべての会社契約（プライベートとしてマークされたものも含む）の閲覧を許可します。デフォルトでは、すべてのユーザーがパブリック契約を閲覧できます。</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>グローバルなアプリケーション設定の表示および変更を許可します。</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>会議の文字起こしを表示したり、任意の録音の文字起こしを聴いたり読んだりできます。</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>サービスのヘルスサマリー、観測結果、および詳細な監査結果の閲覧を許可します。</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>システムレベルの情報と設定の表示を許可します。</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>バックグラウンドジョブダッシュボードの表示とジョブの管理を許可します。</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>任意のユーザーの契約履歴を閲覧できるようにします。</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>すべての収集チャネルとそのレコードの一覧を表示できます。</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>すべての権限およびそのロールおよびユーザーへの割り当ての一覧を表示できるようにします。</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>すべてのユーザーのリストを表示することを許可します。</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>ロールの一覧とそれに割り当てられた権限を表示できます。</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>任意のユーザーの操作ログ（銀行カードの変更履歴を含む）を閲覧できます。</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>任意のユーザーのレポートライン（マネージャー、部下、同僚を含む）を閲覧できます。</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>サーバーおよびサービスのレジストリ、デプロイ関係、インフラストラクチャ参照データの閲覧を許可します。</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>任意のユーザーのSSHキーを表示、編集、削除できます。</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>任意の休暇承認</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>プロジェクト要件の承認</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>償還承認</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>ユーザーへのロール割り当て</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>DNS監査</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>監査サービス</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>監査サービス（レガシー）</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>AI とチャット</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>会社の契約の作成と管理</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>会社契約の作成</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>契約を作成</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>週次レポートの作成</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>誰かの週次レポートを作成する</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>人事のデフォルト権限</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>ロールの削除</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>ユーザーの削除</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>ユーザー情報の編集</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>ロール情報の編集</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>ユーザー情報の編集</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>新しいロールを作成する権限を付与します。</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>新しいユーザーアカウントを作成する権限を付与します。</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>アプリケーションインスタンスの再起動を許可します。可用性の中断を引き起こす可能性がありますが、すべての設定とキャッシュは再読み込みされます。</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>移行のためのレガシー権限として保持されています。引き続きアクセスが必要なロールには「インフラ管理」を割り当ててください。</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>移行のために保持されているレガシー権限です。適切な権限として「サービスの監査を表示」および「サービスの監査を実行」を割り当ててください。</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>任意のパスワード管理</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>誰の週次レポートも管理する</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>資産を管理する</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>ブループリントの管理</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>コレクションチャンネルの管理</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>会社エンティティの管理</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>顧客関係を管理する</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>フィードバックの管理</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>グローバル設定の管理</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>インフラストラクチャの管理</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>休暇管理</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>レジャーの管理</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>マーケットチャネルの管理</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>会議の文字起こしを管理</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>オンボーディングタスクの管理</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>給与管理</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>サービスの管理</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>サービス管理（レガシー）</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>SSHキーの管理</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>証明書を印刷する</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>自己証明書の印刷</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>権限の読み取り</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>ロールの閲覧</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>ユーザーの閲覧</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>このアプリを再起動</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>サービス監査の実行</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>フィードバックを送信</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>支給申請を提出</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>会社の契約書をすべて閲覧可能（非公開のものも含む）</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>バックグラウンドジョブの表示</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>コレクションチャネルの表示</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>契約履歴を表示</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>インフラストラクチャの表示</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>会議のトランスクリプトを表示</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>報告ラインを表示</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>サービス監査の表示</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>システムコンテキストの表示</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>ユーザー操作ログ閲覧</value>
+  </data>
+
+</root>

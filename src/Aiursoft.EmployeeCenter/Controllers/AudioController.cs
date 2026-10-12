@@ -1,0 +1,806 @@
+using Aiursoft.Canon.TaskQueue;
+using Aiursoft.EmployeeCenter.Authorization;
+using Aiursoft.EmployeeCenter.Entities;
+using Aiursoft.EmployeeCenter.Models.AudioViewModels;
+using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Services.FileStorage;
+using Aiursoft.UiStack.Navigation;
+using Aiursoft.WebTools.Attributes;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace Aiursoft.EmployeeCenter.Controllers;
+
+[Authorize]
+[LimitPerMin]
+public class AudioController(
+    EmployeeCenterDbContext context,
+    AsrService asrService,
+    ServiceTaskQueue taskQueue,
+    AudioMediaQueueService mediaQueueService,
+    MeetingMinutesQueueService meetingMinutesQueueService,
+    AudioFileCleanupService fileCleanupService,
+    StorageService storageService,
+    UserManager<User> userManager,
+    RoleManager<IdentityRole> roleManager,
+    IAuthorizationService authorizationService,
+    ILogger<AudioController> logger)
+    : Controller
+{
+    private const int AudioPageSize = 50;
+
+    [RenderInNavBar(
+        NavGroupName = "Administration",
+        NavGroupOrder = 3,
+        CascadedLinksGroupName = "Audio",
+        CascadedLinksIcon = "mic",
+        CascadedLinksOrder = 6,
+        LinkText = "Meeting Transcripts",
+        LinkOrder = 1)]
+    public async Task<IActionResult> Index(int page = 1)
+    {
+        page = Math.Max(page, 1);
+
+        var isManager = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
+        var userId = userManager.GetUserId(User);
+        var userRoleIds = isManager ? [] : await GetUserRoleIdsAsync();
+
+        IQueryable<Audio> query = context.Audios;
+        if (!isManager)
+        {
+            query = query.Where(a =>
+                a.OwnerId == userId ||
+                a.AudioShares.Any(s =>
+                    s.SharedWithUserId == userId ||
+                    (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId))));
+        }
+
+        var totalAudioCount = await query.CountAsync();
+
+        var audios = await query
+            .OrderByDescending(a => a.CreateTime)
+            .Skip((page - 1) * AudioPageSize)
+            .Take(AudioPageSize + 1)
+            .Select(a => new AudioListItemViewModel
+            {
+                Audio = a,
+                AccessContext = new AudioAccessContextViewModel
+                {
+                    OwnerId = a.OwnerId,
+                    OwnerDisplayName = a.Owner == null ? null : a.Owner.DisplayName,
+                    EffectivePermission = SharePermission.Editable
+                },
+                HasTranscript = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText != ""),
+                IsEmptyResult = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.PlainText == ""),
+                HasMeetingMinutes = context.AudioAsrResults.Any(r => r.AudioId == a.Id && r.MeetingMinutesMarkdown != null && r.MeetingMinutesMarkdown != ""),
+                MeetingMinutesOutdated = context.AudioAsrResults.Any(r =>
+                    r.AudioId == a.Id && r.TranscriptRevision != r.MeetingMinutesTranscriptRevision),
+                MeetingMinutesAttemptCount = context.AudioAsrResults
+                    .Where(r => r.AudioId == a.Id)
+                    .Select(r => r.MeetingMinutesAttemptCount)
+                    .FirstOrDefault()
+            })
+            .ToListAsync();
+
+        var hasNextPage = audios.Count > AudioPageSize;
+        if (hasNextPage)
+        {
+            audios.RemoveAt(AudioPageSize);
+        }
+
+        var matchingShares = isManager || audios.Count == 0
+            ? []
+            : await context.AudioShares
+                .Where(s => audios.Select(item => item.Audio.Id).Contains(s.AudioId))
+                .Where(s => s.SharedWithUserId == userId ||
+                            (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
+                .OrderBy(s => s.Id)
+                .Select(s => new AudioAccessSourceRecord
+                {
+                    AudioId = s.AudioId,
+                    Type = s.SharedWithUserId == userId
+                        ? AudioAccessSourceType.DirectShare
+                        : AudioAccessSourceType.RoleShare,
+                    RoleName = s.SharedWithRole == null ? null : s.SharedWithRole.Name,
+                    Permission = s.Permission
+                })
+                .ToListAsync();
+
+        foreach (var item in audios)
+        {
+            item.AccessContext = BuildAudioAccessContext(
+                item.AccessContext.OwnerId,
+                item.AccessContext.OwnerDisplayName,
+                userId,
+                isManager,
+                matchingShares
+                    .Where(share => share.AudioId == item.Audio.Id)
+                    .Select(share => new AudioAccessSourceViewModel
+                    {
+                        Type = share.Type,
+                        RoleName = share.RoleName,
+                        Permission = share.Permission
+                    })
+                    .ToList())!;
+        }
+
+        var model = new IndexViewModel
+        {
+            Audios = audios,
+            TotalAudioCount = totalAudioCount,
+            Page = page,
+            HasNextPage = hasNextPage
+        };
+
+        return this.StackView(model);
+    }
+
+    [Authorize(Policy = AppPermissionNames.CanManageAudio)]
+    public IActionResult Create()
+    {
+        return this.StackView(new CreateViewModel());
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanManageAudio)]
+    public async Task<IActionResult> Create(CreateViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            if (!TryGetExistingAudioPath(model.FilePath!, out var filePath))
+            {
+                ModelState.AddModelError(nameof(model.FilePath), "The file upload failed or the file is missing. Please re-upload.");
+                return this.StackView(model);
+            }
+
+            var user = await userManager.GetUserAsync(User);
+            var audio = new Audio
+            {
+                Name = model.Name,
+                FilePath = filePath,
+                MediaStatus = AudioMediaStatus.Uploaded,
+                CreateTime = DateTime.UtcNow,
+                OwnerId = user!.Id
+            };
+            context.Audios.Add(audio);
+            await context.SaveChangesAsync();
+            QueueMediaProcessing(audio.Id);
+            return RedirectToAction(nameof(Transcript), new { id = audio.Id });
+        }
+
+        return this.StackView(model);
+    }
+
+    public async Task<IActionResult> Edit(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        return this.StackView(new EditViewModel
+        {
+            Id = audio.Id,
+            Name = audio.Name,
+            FilePath = audio.FilePath
+        });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(EditViewModel model)
+    {
+        if (!ModelState.IsValid) return this.StackView(model);
+
+        var audio = await context.Audios.FindAsync(model.Id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+        if (!TryGetExistingAudioPath(model.FilePath!, out var filePath))
+        {
+            ModelState.AddModelError(nameof(model.FilePath), "The file upload failed or the file is missing. Please re-upload.");
+            return this.StackView(model);
+        }
+
+        var replaceAudio = audio.FilePath != filePath;
+        audio.Name = model.Name;
+        await InvalidateMeetingMinutesForNameChangeAsync(audio);
+        if (!replaceAudio)
+        {
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+                return this.StackView(model);
+            }
+            return RedirectToAction(nameof(Transcript), new { id = audio.Id });
+        }
+        if (audio.MediaStatus == AudioMediaStatus.Processing)
+        {
+            ModelState.AddModelError(nameof(model.FilePath), "Another recording replacement is already being processed.");
+            return this.StackView(model);
+        }
+
+        var abandonedPendingPath = audio.PendingFilePath;
+        audio.PendingFilePath = filePath;
+        audio.MediaStatus = AudioMediaStatus.Uploaded;
+        audio.MediaProcessingError = null;
+        audio.MediaProcessingToken = Guid.NewGuid().ToString("N");
+        fileCleanupService.QueueDeletion(abandonedPendingPath);
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+            return this.StackView(model);
+        }
+        await fileCleanupService.TryCleanupQueuedAsync();
+        QueueMediaProcessing(audio.Id);
+        return RedirectToAction(nameof(Transcript), new { id = audio.Id });
+    }
+
+    public async Task<IActionResult> Rename(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        return this.StackView(new RenameViewModel
+        {
+            Id = audio.Id,
+            Name = audio.Name
+        });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Rename(RenameViewModel model)
+    {
+        var audio = await context.Audios.FindAsync(model.Id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+        if (!ModelState.IsValid) return this.StackView(model);
+
+        if (audio.Name != model.Name)
+        {
+            audio.Name = model.Name;
+            await InvalidateMeetingMinutesForNameChangeAsync(audio);
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+                return this.StackView(model);
+            }
+        }
+        return RedirectToAction(nameof(Transcript), new { id = audio.Id });
+    }
+
+    public async Task<IActionResult> EditTranscript(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        var asrResult = await context.AudioAsrResults.FindAsync(id);
+        if (asrResult == null || string.IsNullOrEmpty(asrResult.PlainText)) return NotFound();
+
+        return this.StackView(new EditTranscriptViewModel
+        {
+            Id = audio.Id,
+            TranscriptRevision = asrResult.TranscriptRevision,
+            PlainText = asrResult.PlainText
+        });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> EditTranscript(EditTranscriptViewModel model)
+    {
+        var audio = await context.Audios.FindAsync(model.Id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        var asrResult = await context.AudioAsrResults.FindAsync(model.Id);
+        if (asrResult == null || string.IsNullOrEmpty(asrResult.PlainText)) return NotFound();
+        if (!ModelState.IsValid) return this.StackView(model);
+        if (asrResult.TranscriptRevision != model.TranscriptRevision)
+        {
+            ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+            return this.StackView(model);
+        }
+
+        if (asrResult.PlainText != model.PlainText)
+        {
+            asrResult.PlainText = model.PlainText;
+            asrResult.TranscriptRevision++;
+            asrResult.MeetingMinutesAttemptCount = 0;
+            asrResult.LastMeetingMinutesAttemptTime = null;
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                ModelState.AddModelError(string.Empty, "The transcript was changed by another user. Reload the page and apply your changes again.");
+                return this.StackView(model);
+            }
+        }
+        return RedirectToAction(nameof(Transcript), new { id = audio.Id });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RegenerateMeetingMinutes(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanEditAudioAsync(audio)) return Unauthorized();
+
+        var asrResult = await context.AudioAsrResults
+            .FirstOrDefaultAsync(result => result.AudioId == id);
+        if (asrResult == null || string.IsNullOrWhiteSpace(asrResult.PlainText)) return NotFound();
+        if (!string.IsNullOrWhiteSpace(asrResult.MeetingMinutesMarkdown) &&
+            asrResult.TranscriptRevision == asrResult.MeetingMinutesTranscriptRevision)
+        {
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
+        TempData["MeetingMinutesRegenerationQueued"] = meetingMinutesQueueService.QueueRetry(
+            id,
+            asrResult.TranscriptRevision,
+            asrResult.CreateTime);
+        return RedirectToAction(nameof(Transcript), new { id });
+    }
+
+    public async Task<IActionResult> Transcript(int id)
+    {
+        var audio = await context.Audios
+            .Include(a => a.Owner)
+            .FirstOrDefaultAsync(a => a.Id == id);
+        if (audio == null) return NotFound();
+
+        var isManager = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded;
+        var userId = userManager.GetUserId(User);
+        var userRoleIds = isManager || audio.OwnerId == userId ? [] : await GetUserRoleIdsAsync();
+        var matchingShares = isManager || audio.OwnerId == userId
+            ? []
+            : await context.AudioShares
+                .Where(s => s.AudioId == audio.Id)
+                .Where(s => s.SharedWithUserId == userId ||
+                            (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
+                .OrderBy(s => s.Id)
+                .Select(s => new AudioAccessSourceViewModel
+                {
+                    Type = s.SharedWithUserId == userId
+                        ? AudioAccessSourceType.DirectShare
+                        : AudioAccessSourceType.RoleShare,
+                    RoleName = s.SharedWithRole == null ? null : s.SharedWithRole.Name,
+                    Permission = s.Permission
+                })
+                .ToListAsync();
+        var accessContext = BuildAudioAccessContext(
+            audio.OwnerId,
+            audio.Owner?.DisplayName,
+            userId,
+            isManager,
+            matchingShares);
+        if (accessContext == null) return NotFound();
+
+        var canManageShares = isManager || (userId != null && audio.OwnerId == userId);
+
+        var asrResult = await context.AudioAsrResults
+            .AsNoTracking()
+            .FirstOrDefaultAsync(result => result.AudioId == id);
+
+        return this.StackView(new TranscriptViewModel
+        {
+            Audio = audio,
+            PlainText = asrResult?.PlainText,
+            MeetingMinutesMarkdown = asrResult?.MeetingMinutesMarkdown,
+            MeetingMinutesAttemptCount = asrResult?.MeetingMinutesAttemptCount ?? 0,
+            LastMeetingMinutesAttemptTime = asrResult?.LastMeetingMinutesAttemptTime,
+            MeetingMinutesOutdated = asrResult != null &&
+                                     asrResult.TranscriptRevision != asrResult.MeetingMinutesTranscriptRevision,
+            CanManageShares = canManageShares,
+            HasFailedMediaFile = audio.MediaStatus == AudioMediaStatus.Failed &&
+                                 TryGetExistingAudioPath(audio.FilePath, out _),
+            AccessContext = accessContext
+        });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> DownloadOriginal(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null || !await CanViewAudioAsync(audio)) return NotFound();
+        if (audio.MediaStatus != AudioMediaStatus.Failed ||
+            !TryGetExistingAudioPath(audio.FilePath, out _)) return NotFound();
+
+        var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(audio.FilePath, "audio");
+        return PhysicalFile(physicalPath, "application/octet-stream", Path.GetFileName(audio.FilePath));
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RetryMedia(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanManageAudioAsync(audio)) return Unauthorized();
+        if (audio.MediaStatus != AudioMediaStatus.Failed) return RedirectToAction(nameof(Transcript), new { id });
+        if (!TryGetExistingAudioPath(audio.FilePath, out _))
+        {
+            TempData["MediaRetrySourceMissing"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
+
+        audio.MediaStatus = AudioMediaStatus.Uploaded;
+        audio.MediaProcessingError = null;
+        audio.MediaProcessingToken = Guid.NewGuid().ToString("N");
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
+        QueueMediaProcessing(id);
+        TempData["MediaRetryQueued"] = true;
+        return RedirectToAction(nameof(Transcript), new { id });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ResetAsr(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanManageAudioAsync(audio)) return Unauthorized();
+        if (audio.MediaStatus != AudioMediaStatus.Ready)
+        {
+            TempData["AsrResetUnavailable"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
+
+        try
+        {
+            await asrService.CancelActiveTaskAsync(audio);
+        }
+        catch (Exception)
+        {
+            TempData["AsrResetError"] = true;
+            return RedirectToAction(nameof(Transcript), new { id });
+        }
+        var existingResult = await context.AudioAsrResults.FirstOrDefaultAsync(r => r.AudioId == id);
+        if (existingResult != null)
+        {
+            context.AudioAsrResults.Remove(existingResult);
+        }
+        var segments = await context.AudioAsrSegments
+            .Where(segment => segment.AudioId == id)
+            .ToListAsync();
+        context.AudioAsrSegments.RemoveRange(segments);
+
+        audio.AsrAttemptCount = 0;
+        audio.EmptyResultCount = 0;
+        audio.LastAsrAttemptTime = null;
+        audio.AsrProcessingToken = Guid.NewGuid().ToString("N");
+        audio.AsrActiveTaskId = null;
+        audio.AsrTerminalError = null;
+        await context.SaveChangesAsync();
+
+        // 将 ASR 处理放入独立后台任务，避免长耗时（最长 TimeoutSeconds）请求阻塞当前 HTTP 请求。
+        var asrProcessingToken = audio.AsrProcessingToken;
+        taskQueue.QueueWithDependency<AsrService>(
+            queueName: "asr",
+            taskName: $"Reset ASR for audio {id}",
+            task: svc => svc.ProcessAudioAsrAsync(id, asrProcessingToken));
+
+        TempData["AsrTaskQueued"] = true;
+        return RedirectToAction(nameof(Transcript), new { id });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanManageAudioAsync(audio)) return Unauthorized();
+
+        try
+        {
+            await asrService.CancelActiveTaskAsync(audio);
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(
+                ex,
+                "Deleting audio {AudioId} after its active ASR task could not be cancelled.",
+                audio.Id);
+        }
+        var filePath = audio.FilePath;
+        var pendingFilePath = audio.PendingFilePath;
+        context.Audios.Remove(audio);
+        fileCleanupService.QueueDeletion(filePath);
+        fileCleanupService.QueueDeletion(pendingFilePath);
+        await context.SaveChangesAsync();
+        await fileCleanupService.TryCleanupQueuedAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Export(int id)
+    {
+        var audio = await context.Audios.FirstOrDefaultAsync(a => a.Id == id);
+        if (audio == null) return NotFound();
+        if (!await CanViewAudioAsync(audio)) return NotFound();
+
+        var plainText = await asrService.GetAsrResultByAudioIdAsync(id);
+        if (string.IsNullOrEmpty(plainText))
+        {
+            return BadRequest("Transcript is empty or still processing.");
+        }
+
+        var fileBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        var fileName = $"{audio.Name}.txt";
+        return File(fileBytes, "text/plain", fileName);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> RawText(int id)
+    {
+        var audio = await context.Audios.FirstOrDefaultAsync(a => a.Id == id);
+        if (audio == null) return NotFound();
+        if (!await CanViewAudioAsync(audio)) return NotFound();
+
+        var plainText = await asrService.GetAsrResultByAudioIdAsync(id);
+        if (string.IsNullOrEmpty(plainText))
+        {
+            return Content(string.Empty, "text/plain");
+        }
+
+        return Content(plainText, "text/plain", System.Text.Encoding.UTF8);
+    }
+
+    public async Task<IActionResult> ManageShares(int id)
+    {
+        var audio = await context.Audios
+            .Include(a => a.AudioShares)
+            .ThenInclude(s => s.SharedWithUser)
+            .FirstOrDefaultAsync(a => a.Id == id);
+        if (audio == null) return NotFound();
+        if (!await CanManageAudioAsync(audio)) return Unauthorized();
+
+        var allRoles = await roleManager.Roles.ToListAsync();
+
+        return this.StackView(new ManageSharesViewModel
+        {
+            AudioId = audio.Id,
+            AudioName = audio.Name,
+            ExistingShares = audio.AudioShares.ToList(),
+            AvailableRoles = allRoles
+        });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddShare(int id, AddShareViewModel model)
+    {
+        var audio = await context.Audios.FindAsync(id);
+        if (audio == null) return NotFound();
+        if (!await CanManageAudioAsync(audio)) return Unauthorized();
+
+        var targetCount = new[] { model.TargetUserId, model.TargetRoleId }.Count(targetId => !string.IsNullOrWhiteSpace(targetId));
+        if (targetCount != 1)
+        {
+            return RedirectToAction(nameof(ManageShares), new { id, error = "invalid" });
+        }
+
+        if (model.TargetUserId != null && await userManager.FindByIdAsync(model.TargetUserId) == null)
+        {
+            return RedirectToAction(nameof(ManageShares), new { id, error = "invalid" });
+        }
+        if (model.TargetRoleId != null && await roleManager.FindByIdAsync(model.TargetRoleId) == null)
+        {
+            return RedirectToAction(nameof(ManageShares), new { id, error = "invalid" });
+        }
+
+        var exists = await context.AudioShares
+            .AnyAsync(s => s.AudioId == id &&
+                           ((model.TargetUserId != null && s.SharedWithUserId == model.TargetUserId) ||
+                            (model.TargetRoleId != null && s.SharedWithRoleId == model.TargetRoleId)));
+        if (exists)
+        {
+            return RedirectToAction(nameof(ManageShares), new { id, error = "duplicate" });
+        }
+
+        var share = new AudioShare
+        {
+            AudioId = id,
+            SharedWithUserId = model.TargetUserId,
+            SharedWithRoleId = model.TargetRoleId,
+            Permission = model.Permission
+        };
+
+        context.AudioShares.Add(share);
+        await context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(ManageShares), new { id });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RemoveShare(int id)
+    {
+        var share = await context.AudioShares
+            .Include(s => s.Audio)
+            .FirstOrDefaultAsync(s => s.Id == id);
+        if (share == null) return NotFound();
+        if (!await CanManageAudioAsync(share.Audio)) return Unauthorized();
+
+        var audioId = share.AudioId;
+        context.AudioShares.Remove(share);
+        await context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(ManageShares), new { id = audioId });
+    }
+
+    private async Task<bool> CanViewAudioAsync(Audio audio) => await GetAudioPermissionAsync(audio) != null;
+
+    private async Task<bool> CanEditAudioAsync(Audio audio) => await GetAudioPermissionAsync(audio) == SharePermission.Editable;
+
+    private async Task<SharePermission?> GetAudioPermissionAsync(Audio audio)
+    {
+        if ((await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded)
+        {
+            return SharePermission.Editable;
+        }
+
+        var userId = userManager.GetUserId(User);
+        if (audio.OwnerId == userId) return SharePermission.Editable;
+
+        var userRoleIds = await GetUserRoleIdsAsync();
+        var share = await context.AudioShares
+            .AnyAsync(s => s.AudioId == audio.Id &&
+                           (s.SharedWithUserId == userId ||
+                            (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId))));
+        if (!share) return null;
+
+        return await context.AudioShares
+            .Where(s => s.AudioId == audio.Id)
+            .Where(s => s.SharedWithUserId == userId ||
+                        (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
+            .OrderByDescending(s => s.Permission)
+            .Select(s => (SharePermission?)s.Permission)
+            .FirstAsync();
+    }
+
+    private async Task<bool> CanManageAudioAsync(Audio audio)
+    {
+        if ((await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAudio)).Succeeded)
+        {
+            return true;
+        }
+
+        var userId = userManager.GetUserId(User);
+        return audio.OwnerId == userId;
+    }
+
+    private static AudioAccessContextViewModel? BuildAudioAccessContext(
+        string? ownerId,
+        string? ownerDisplayName,
+        string? userId,
+        bool isManager,
+        List<AudioAccessSourceViewModel> matchingShares)
+    {
+        if (userId != null && ownerId == userId)
+        {
+            return new AudioAccessContextViewModel
+            {
+                OwnerId = ownerId,
+                OwnerDisplayName = ownerDisplayName,
+                EffectivePermission = SharePermission.Editable,
+                Sources =
+                [
+                    new AudioAccessSourceViewModel
+                    {
+                        Type = AudioAccessSourceType.Owner,
+                        Permission = SharePermission.Editable
+                    }
+                ]
+            };
+        }
+
+        if (isManager)
+        {
+            return new AudioAccessContextViewModel
+            {
+                OwnerId = ownerId,
+                OwnerDisplayName = ownerDisplayName,
+                EffectivePermission = SharePermission.Editable,
+                Sources =
+                [
+                    new AudioAccessSourceViewModel
+                    {
+                        Type = AudioAccessSourceType.AudioManagementPermission,
+                        Permission = SharePermission.Editable
+                    }
+                ]
+            };
+        }
+
+        if (matchingShares.Count == 0) return null;
+
+        return new AudioAccessContextViewModel
+        {
+            OwnerId = ownerId,
+            OwnerDisplayName = ownerDisplayName,
+            EffectivePermission = matchingShares.Max(share => share.Permission),
+            Sources = matchingShares
+        };
+    }
+
+    private bool TryGetExistingAudioPath(string logicalPath, out string filePath)
+    {
+        filePath = string.Empty;
+        try
+        {
+            var physicalPath = storageService.GetVaultSubfolderFilePhysicalPath(logicalPath, "audio");
+            if (!System.IO.File.Exists(physicalPath)) return false;
+            filePath = logicalPath;
+            return true;
+        }
+        catch (ArgumentException)
+        {
+            return false;
+        }
+    }
+
+    private void QueueMediaProcessing(int audioId)
+    {
+        mediaQueueService.QueueIfNotActive(audioId);
+    }
+
+    private async Task InvalidateMeetingMinutesForNameChangeAsync(Audio audio)
+    {
+        if (context.Entry(audio).Property(item => item.Name).OriginalValue == audio.Name) return;
+
+        var asrResult = await context.AudioAsrResults.FindAsync(audio.Id);
+        if (asrResult == null || string.IsNullOrWhiteSpace(asrResult.PlainText)) return;
+
+        asrResult.TranscriptRevision++;
+        asrResult.MeetingMinutesAttemptCount = 0;
+        asrResult.LastMeetingMinutesAttemptTime = null;
+    }
+
+    private async Task<List<string>> GetUserRoleIdsAsync()
+    {
+        var user = await userManager.GetUserAsync(User);
+        if (user == null) return [];
+
+        var userRoles = await userManager.GetRolesAsync(user);
+        return await roleManager.Roles
+            .Where(r => userRoles.Contains(r.Name!))
+            .Select(r => r.Id)
+            .ToListAsync();
+    }
+
+    private sealed class AudioAccessSourceRecord
+    {
+        public int AudioId { get; init; }
+        public AudioAccessSourceType Type { get; init; }
+        public string? RoleName { get; init; }
+        public SharePermission Permission { get; init; }
+    }
+}

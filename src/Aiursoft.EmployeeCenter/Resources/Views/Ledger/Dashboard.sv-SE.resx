@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Balances" xml:space="preserve">
+    <value>Kontobalanser</value>
+  </data>
+  <data name="All Year" xml:space="preserve">
+    <value>Hela året</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Belopp</value>
+  </data>
+  <data name="Assets &amp; Liabilities Trend" xml:space="preserve">
+    <value>Trend för tillgångar och skulder</value>
+  </data>
+  <data name="Bank Balance" xml:space="preserve">
+    <value>Banksaldo</value>
+  </data>
+  <data name="Bank Balance Less Liabilities" xml:space="preserve">
+    <value>Bankbalans minus skulder</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>omräknat till nuvarande växelkurs</value>
+  </data>
+  <data name="Current Balance" xml:space="preserve">
+    <value>Aktuell saldo</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Instrumentbräda</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beskrivning</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Redigera</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Eget kapital</value>
+  </data>
+  <data name="Expenses" xml:space="preserve">
+    <value>Utgifter</value>
+  </data>
+  <data name="Fix Error" xml:space="preserve">
+    <value>Korriger Fel</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Från</value>
+  </data>
+  <data name="Health Metrics" xml:space="preserve">
+    <value>Hälsoindikatorer</value>
+  </data>
+  <data name="Income &amp; Expense Chart" xml:space="preserve">
+    <value>Intäkter och utgifter diagram</value>
+  </data>
+  <data name="Inflow" xml:space="preserve">
+    <value>Inflöde</value>
+  </data>
+  <data name="Inflow Distribution" xml:space="preserve">
+    <value>Inflödesfördelning</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Faktura</value>
+  </data>
+  <data name="Loading..." xml:space="preserve">
+    <value>Laddar...</value>
+  </data>
+  <data name="Manage Accounts" xml:space="preserve">
+    <value>Hantera konton</value>
+  </data>
+  <data name="Monthly Burn Rate" xml:space="preserve">
+    <value>Månadlig förbrukningshastighet</value>
+  </data>
+  <data name="Months" xml:space="preserve">
+    <value>Månader</value>
+  </data>
+  <data name="Net Profit" xml:space="preserve">
+    <value>Nettoresultat</value>
+  </data>
+  <data name="New Transaction" xml:space="preserve">
+    <value>Ny transaktion</value>
+  </data>
+  <data name="No Invoice" xml:space="preserve">
+    <value>Ingen faktura</value>
+  </data>
+  <data name="No Material" xml:space="preserve">
+    <value>Ingen materiel</value>
+  </data>
+  <data name="Outflow" xml:space="preserve">
+    <value>Utflöde</value>
+  </data>
+  <data name="Outflow Distribution" xml:space="preserve">
+    <value>Utflödesfördelning</value>
+  </data>
+  <data name="Recent Transactions" xml:space="preserve">
+    <value>Senaste transaktioner</value>
+  </data>
+  <data name="Revenue" xml:space="preserve">
+    <value>Intäkter</value>
+  </data>
+  <data name="Runway" xml:space="preserve">
+    <value>Flygplats</value>
+  </data>
+  <data name="Supporting Materials" xml:space="preserve">
+    <value>Bifogade dokument</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>Till</value>
+  </data>
+  <data name="Total Assets" xml:space="preserve">
+    <value>Total tillgångar</value>
+  </data>
+  <data name="Total Expenses" xml:space="preserve">
+    <value>Totala kostnader</value>
+  </data>
+  <data name="Total Inflow" xml:space="preserve">
+    <value>Total Inflow</value>
+  </data>
+  <data name="Total Liabilities" xml:space="preserve">
+    <value>Totala skulder</value>
+  </data>
+  <data name="Total Outflow" xml:space="preserve">
+    <value>Total utflöde</value>
+  </data>
+  <data name="Total Revenue" xml:space="preserve">
+    <value>Total Intäkter</value>
+  </data>
+  <data name="View All" xml:space="preserve">
+    <value>Visa alla</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>Visa faktura</value>
+  </data>
+  <data name="Voucher" xml:space="preserve">
+    <value>Kvitto</value>
+  </data>
+
+</root>

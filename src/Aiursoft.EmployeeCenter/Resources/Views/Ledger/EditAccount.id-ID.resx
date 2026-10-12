@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Nama Akun</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Jenis Akun</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>Logika akuntansi mengikuti model &apos;Kolam&apos;: uang mengalir dari satu kolam (sumber) ke kolam lainnya (tujuan). Memahami kelima elemen ini adalah kunci dalam pencatatan akuntansi ganda.</value>
+  </data>
+  <data name="Archived" xml:space="preserve">
+    <value>Ditandai sebagai Arsip</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Aset</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Setoran bank, Piutang (uang yang harus dibayar oleh pihak lain), Server/Laptop.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Meminjam dari Direktur</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Meminjam uang = Meningkat; Melunasi uang = Menurun.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Uang tunai yang dimiliki, atau barang-barang yang dapat diubah menjadi uang tunai.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Biaya yang dikeluarkan</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Mata Uang</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Utang yang harus dibayar perusahaan di masa depan.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Definisi:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Arah:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Pinjaman direktur (uang yang Anda pinjamkan ke perusahaan), Faktur yang belum dibayar, Utang kartu kredit.</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Edit Akun</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Ekuitas</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Contoh:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Biaya</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Dari (Sumber)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Pendapatan</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Kewajiban</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Logika</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Uang yang diperoleh</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Uang yang diperoleh dari penjualan produk atau penyediaan layanan. Meningkatkan laba.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Uang mengalir dari bank untuk menghilangkan utang</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Uang mengalir dari bank ke pengeluaran</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Uang mengalir dari utang ke rekening bank</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Uang mengalir dari ekuitas ke rekening bank</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Uang yang dihasilkan sebagai pendapatan masuk ke bank</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Uang masuk = Penambahan; Uang keluar = Pengurangan.</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Uang yang dikeluarkan untuk mempertahankan operasional perusahaan. Mengurangi laba.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Membayar Server</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Kartu Cepat</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Melunasi Hutang Direktur</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Pendapatan Penjualan, Biaya Layanan, Pendapatan Bunga.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Simpan</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Skenario</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Penjualan Perangkat Lunak</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Biaya penyewaan server, Biaya bank, Gaji</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Modal Saham (investasi awal), Laba Ditahan (laba kumulatif).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Investasi Pemegang Saham</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Investasi pemegang saham/Keuntungan = Penambahan; Penarikan pemegang saham/Rugi = Pengurangan.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Tampilkan di Dasbor</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Nilai bersih perusahaan. Rumus: Aset - Kewajiban = Ekuitas.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Hal yang harus kamu bayar kepada orang lain</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Hal yang Anda miliki</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>Ke (Tujuan)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Memahami Elemen Akuntansi</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Nilai yang benar-benar menjadi milikmu</value>
+  </data>
+
+</root>

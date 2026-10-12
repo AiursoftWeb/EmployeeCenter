@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>การชำระเงินจริง</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>เงินเดือนสุทธิ (หลังหักภาษี)</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>ค่าปรับทางวินัย</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>จำนวน</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>การเข้างาน &amp; การลงโทษ</value>
+  </data>
+  <data name="Back to My Payrolls" xml:space="preserve">
+    <value>กลับไปยังสลิปเงินเดือนของฉัน</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>บัญชีธนาคาร</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>ชื่อธนาคาร</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>เงินเดือนพื้นฐาน</value>
+  </data>
+  <data name="Basic Info" xml:space="preserve">
+    <value>ข้อมูลพื้นฐาน</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>หมวดหมู่</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>ต้นทุนของบริษัท</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>การหักเงิน</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>รายได้</value>
+  </data>
+  <data name="Employee ID" xml:space="preserve">
+    <value>รหัสพนักงาน</value>
+  </data>
+  <data name="Employee Name" xml:space="preserve">
+    <value>ชื่อพนักงาน</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>เงินพิเศษการเข้างานครบ</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>กองทุนสำรองเลี้ยงชีพ</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>กองทุนสำรองเลี้ยงชีพ (บริษัท)</value>
+  </data>
+  <data name="How is your salary calculated?" xml:space="preserve">
+    <value>เงินเดือนของคุณคำนวณอย่างไร?</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>ภาษีเงินได้</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>ข้อมูล</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>ประกันสังคม (ส่วนบุคคล)</value>
+  </data>
+  <data name="Issue Date" xml:space="preserve">
+    <value>วันที่ออก</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>รายการ</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>ระดับงาน</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>เงินเดือนตามตำแหน่งงาน</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>สาย / ลาออกก่อนเวลา</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>ค่าคลอดบุตร (บริษัท)</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>ประกันสุขภาพ</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>ประกันสุขภาพ (บริษัท)</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>หมายเหตุ</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>เบี้ยเลี้ยงอื่น ๆ</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>ค่าล่วงเวลา</value>
+  </data>
+  <data name="Payroll Content" xml:space="preserve">
+    <value>รายละเอียดเงินเดือน</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>รายละเอียดเงินเดือน</value>
+  </data>
+  <data name="Payroll period" xml:space="preserve">
+    <value>รอบระยะเวลาการจ่ายเงินเดือน</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>เงินบำนาญ</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>กองทุนบำเหน็จบำนาญ (บริษัท)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>โบนัสผลงาน</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>ภาษีเงินได้บุคคลธรรมดา</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>ประกันส่วนบุคคล</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>พิมพ์</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>หมายเหตุ</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>ลาป่วย / ลากิจ</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>การหักเพิ่มเติมพิเศษ</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>เดือนเป้าหมาย</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>ข้อมูลภาษี</value>
+  </data>
+  <data name="Tax relief items" xml:space="preserve">
+    <value>รายการลดหย่อนภาษี</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>รายได้ที่ต้องเสียภาษี</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>ตำแหน่ง</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>ยอดรวมทั้งหมด</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>ต้นทุนรวมของบริษัท</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>รายได้รวม</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>รวมเงินประกันส่วนบุคคล</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>ประกันการว่างงาน</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>ประกันการว่างงาน (บริษัท)</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>ประกันการประสบอันตรายหรือเจ็บป่วยเนื่องจากการทำงาน (บริษัท)</value>
+  </data>
+  <data name="Your actual salary is calculated as:" xml:space="preserve">
+    <value>เงินเดือนจริงของคุณคำนวณได้ดังนี้:</value>
+  </data>
+
+</root>

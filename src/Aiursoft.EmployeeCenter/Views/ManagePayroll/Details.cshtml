@@ -1,0 +1,297 @@
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@model Aiursoft.EmployeeCenter.Models.PayrollViewModels.DetailsViewModel
+@inject StorageService StorageService
+
+@* ReSharper disable Razor.ResourceNotResolved *@
+<div class="row mb-2 mb-xl-3 d-print-none">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Payroll Details"] - @Model.Payroll.TargetMonth.ToString("yyyy-MM")</h3>
+    </div>
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-action="Edit" asp-route-id="@Model.Payroll.Id" class="btn btn-secondary">
+            <i class="align-middle me-2" data-lucide="edit"></i> @Localizer["Edit"]
+        </a>
+        <button class="btn btn-primary" onclick="window.print();">
+            <i class="align-middle me-2" data-lucide="printer"></i> @Localizer["Print"]
+        </button>
+        <a asp-action="Index" class="btn btn-light">@Localizer["Back to Manage Payrolls"]</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-none border">
+            <div class="card-header bg-light">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.Payroll.OwnerId">
+                            <img src="@StorageService.RelativePathToInternetUrl(Model.Payroll.Owner.AvatarRelativePath)?w=64&square=true" alt="@Model.Payroll.Owner.DisplayName" class="rounded-circle" width="64" height="64" />
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.Payroll.OwnerId" class="text-body">
+                            <h4 class="mb-0">@Model.Payroll.Owner.DisplayName</h4>
+                        </a>
+                        <p class="text-muted mb-0">@Localizer["Job Level"]: @(Model.Payroll.Owner.JobLevel ?? "N/A") | @Localizer["Title"]: @(Model.Payroll.Owner.Title ?? "N/A") | @Localizer["Employee ID"]: @Model.Payroll.Owner.Id.Substring(0, 8)</p>
+                    </div>
+                    <div class="col-auto text-end">
+                        <div class="h3 mb-0 text-primary">
+                            @{
+                                var culture = Model.Payroll.Currency switch
+                                {
+                                    "CNY" => "zh-CN",
+                                    "JPY" => "ja-JP",
+                                    "HKD" => "zh-HK",
+                                    _ => "en-US"
+                                };
+                            }
+                            @Model.Payroll.TotalAmount.ToString("C", System.Globalization.CultureInfo.GetCultureInfo(culture))
+                        </div>
+                        <p class="text-muted mb-0">@Localizer["Actual Salary (Net)"] (@Model.Payroll.Currency)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 150px;">@Localizer["Category"]</th>
+                                <th>@Localizer["Item"]</th>
+                                <th style="width: 200px;" class="text-end">@Localizer["Amount"]</th>
+                                <th>@Localizer["Notes"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Base Information -->
+                            <tr>
+                                <td rowspan="3" class="align-middle fw-bold text-center bg-light">@Localizer["Basic Info"]</td>
+                                <td>@Localizer["Target Month"]</td>
+                                <td class="text-end">@Model.Payroll.TargetMonth.ToString("yyyy-MM")</td>
+                                <td>@Localizer["Payroll period"]</td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Employee Name"]</td>
+                                <td class="text-end">
+                                    <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.Payroll.OwnerId" class="text-body">
+                                        @Model.Payroll.Owner.DisplayName
+                                    </a>
+                                </td>
+                                <td>@Model.Payroll.Owner.Email</td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Remark"]</td>
+                                <td class="text-end" colspan="2">@Model.Payroll.Content</td>
+                            </tr>
+
+                            <!-- Earnings -->
+                            <tr>
+                                <td rowspan="7" class="align-middle fw-bold text-center bg-light">@Localizer["Earnings"]</td>
+                                <td>@Localizer["Base Salary"]</td>
+                                <td class="text-end">@Model.Payroll.BaseSalary.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Job Salary"]</td>
+                                <td class="text-end">@Model.Payroll.JobSalary.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Performance Bonus"]</td>
+                                <td class="text-end">@Model.Payroll.PerformanceBonus.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Overtime Pay"]</td>
+                                <td class="text-end">@Model.Payroll.Overtime.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Full Attendance"]</td>
+                                <td class="text-end">@Model.Payroll.FullAttendance.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Other Allowances"]</td>
+                                <td class="text-end">@Model.Payroll.OtherAllowances.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+                            @{
+                                var totalEarnings = Model.Payroll.BaseSalary + Model.Payroll.JobSalary + Model.Payroll.PerformanceBonus +
+                                                   Model.Payroll.Overtime + Model.Payroll.FullAttendance + Model.Payroll.OtherAllowances;
+                            }
+                            <tr class="table-primary fw-bold">
+                                <td>@Localizer["Total Earnings"]</td>
+                                <td class="text-end">@totalEarnings.ToString("N2")</td>
+                                <td><code>Sum(Earnings)</code></td>
+                            </tr>
+
+                            <!-- Deductions -->
+                            <tr>
+                                <td rowspan="3" class="align-middle fw-bold text-center bg-light">@Localizer["Attendance & Penalties"]</td>
+                                <td>@Localizer["Late / Early Leave"]</td>
+                                <td class="text-end text-danger">@Model.Payroll.LateEarly.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Sick / Personal Leave"]</td>
+                                <td class="text-end text-danger">@Model.Payroll.SickLeave.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Administrative Fines"]</td>
+                                <td class="text-end text-danger">@Model.Payroll.AdministrativeFines.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+
+                            <!-- Insurances -->
+                            <tr>
+                                <td rowspan="5" class="align-middle fw-bold text-center bg-light">@Localizer["Insurances (Personal)"]</td>
+                                <td>@Localizer["Pension"]</td>
+                                <td class="text-end text-danger">@Model.Payroll.PensionPersonal.ToString("N2")</td>
+                                <td>8%</td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Medical"]</td>
+                                <td class="text-end text-danger">@Model.Payroll.MedicalPersonal.ToString("N2")</td>
+                                <td>2%</td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Unemployment"]</td>
+                                <td class="text-end text-danger">@Model.Payroll.UnemploymentPersonal.ToString("N2")</td>
+                                <td>0.5%</td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Housing Fund"]</td>
+                                <td class="text-end text-danger">@Model.Payroll.HousingFundPersonal.ToString("N2")</td>
+                                <td>12%</td>
+                            </tr>
+                            @{
+                                var totalPersonalInsurance = Model.Payroll.PensionPersonal + Model.Payroll.MedicalPersonal +
+                                                             Model.Payroll.UnemploymentPersonal + Model.Payroll.HousingFundPersonal;
+                            }
+                            <tr class="table-warning fw-bold">
+                                <td>@Localizer["Total Personal Insurances"]</td>
+                                <td class="text-end text-danger">@totalPersonalInsurance.ToString("N2")</td>
+                                <td><code>@Localizer["Sum(Insurances)"]</code></td>
+                            </tr>
+
+                            <!-- Tax -->
+                            <tr>
+                                <td rowspan="3" class="align-middle fw-bold text-center bg-light">@Localizer["Tax Information"]</td>
+                                <td>@Localizer["Special Additional Deduction"]</td>
+                                <td class="text-end">@Model.Payroll.SpecialAdditionalDeduction.ToString("N2")</td>
+                                <td>@Localizer["Tax relief items"]</td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Taxable Income"]</td>
+                                @{
+                                    var taxableIncome = Math.Max(0, totalEarnings - totalPersonalInsurance - 5000 - Model.Payroll.SpecialAdditionalDeduction);
+                                }
+                                <td class="text-end">@taxableIncome.ToString("N2")</td>
+                                <td><code>@Localizer["Earnings - Insurance - 5000 - Special"]</code></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Personal Income Tax"]</td>
+                                <td class="text-end text-danger">@Model.Payroll.PersonalIncomeTax.ToString("N2")</td>
+                                <td></td>
+                            </tr>
+
+                            <!-- Actual -->
+                            <tr class="table-success fw-bold">
+                                <td rowspan="3" class="align-middle fw-bold text-center bg-success text-white">@Localizer["Actual Payment"]</td>
+                                <td>@Localizer["Actual Salary (Net)"]</td>
+                                <td class="text-end text-success fs-4">@Model.Payroll.TotalAmount.ToString("N2")</td>
+                                <td><code>@Localizer["Earnings + Penalties - Insurance - Tax"]</code></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Bank Name"]</td>
+                                <td class="text-end">@Model.Payroll.BankName</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Bank Account"]</td>
+                                <td class="text-end">@Model.Payroll.BankAccount</td>
+                                <td></td>
+                            </tr>
+
+                            <!-- Company Cost -->
+                            <tr class="d-print-none">
+                                <td rowspan="7" class="align-middle fw-bold text-center bg-light">@Localizer["Company Cost"]</td>
+                                <td>@Localizer["Pension (Company)"]</td>
+                                <td class="text-end">@Model.Payroll.PensionCompany.ToString("N2")</td>
+                                <td>16%</td>
+                            </tr>
+                            <tr class="d-print-none">
+                                <td>@Localizer["Medical (Company)"]</td>
+                                <td class="text-end">@Model.Payroll.MedicalCompany.ToString("N2")</td>
+                                <td>9%</td>
+                            </tr>
+                            <tr class="d-print-none">
+                                <td>@Localizer["Unemployment (Company)"]</td>
+                                <td class="text-end">@Model.Payroll.UnemploymentCompany.ToString("N2")</td>
+                                <td>0.8%</td>
+                            </tr>
+                            <tr class="d-print-none">
+                                <td>@Localizer["Work Injury (Company)"]</td>
+                                <td class="text-end">@Model.Payroll.WorkInjuryCompany.ToString("N2")</td>
+                                <td>0.4%</td>
+                            </tr>
+                            <tr class="d-print-none">
+                                <td>@Localizer["Maternity (Company)"]</td>
+                                <td class="text-end">@Model.Payroll.MaternityCompany.ToString("N2")</td>
+                                <td>0.8%</td>
+                            </tr>
+                            <tr class="d-print-none">
+                                <td>@Localizer["Housing Fund (Company)"]</td>
+                                <td class="text-end">@Model.Payroll.HousingFundCompany.ToString("N2")</td>
+                                <td>12%</td>
+                            </tr>
+                            @{
+                                var totalCompanyInsurance = Model.Payroll.PensionCompany + Model.Payroll.MedicalCompany +
+                                                             Model.Payroll.UnemploymentCompany + Model.Payroll.WorkInjuryCompany +
+                                                             Model.Payroll.MaternityCompany + Model.Payroll.HousingFundCompany;
+                                var totalCompanyCost = totalEarnings + totalCompanyInsurance;
+                            }
+                            <tr class="table-info fw-bold d-print-none">
+                                <td>@Localizer["Total Company Cost"]</td>
+                                <td class="text-end">@totalCompanyCost.ToString("N2")</td>
+                                <td><code>@Localizer["Earnings + Sum(Company Insurances)"]</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer d-print-none">
+                <div class="alert alert-info mb-0" role="alert">
+                    <div class="alert-message">
+                        <h5 class="alert-heading">@Localizer["How is your salary calculated?"]</h5>
+                        <p class="mb-0">
+                            @Localizer["Your actual salary is calculated as:"]<br/>
+                            <strong>@Localizer["Total Earnings"] (@totalEarnings.ToString("N2"))</strong>
+                            <span class="text-danger"> + @Localizer["Deductions"] (@((Model.Payroll.LateEarly + Model.Payroll.SickLeave + Model.Payroll.AdministrativeFines).ToString("N2")))</span>
+                            <span class="text-warning"> - @Localizer["Personal Insurance"] (@totalPersonalInsurance.ToString("N2"))</span>
+                            <span class="text-secondary"> - @Localizer["Income Tax"] (@Model.Payroll.PersonalIncomeTax.ToString("N2"))</span>
+                            = <strong class="text-success">@Model.Payroll.TotalAmount.ToString("N2")</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @@media print {
+        .d-print-none {
+            display: none !important;
+        }
+        .card {
+            border: 1px solid #dee2e6 !important;
+            box-shadow: none !important;
+        }
+        body {
+            background: white !important;
+        }
+    }
+</style>@* ReSharper restore Razor.ResourceNotResolved *@

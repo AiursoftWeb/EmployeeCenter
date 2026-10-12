@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Information" xml:space="preserve">
+    <value>Відомості про доступ</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Обліковий запис</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Покладач</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>Належить організації</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Термін дії</value>
+  </data>
+  <data name="Filing &amp; Registration" xml:space="preserve">
+    <value>Подання та реєстрація</value>
+  </data>
+  <data name="Filing Number" xml:space="preserve">
+    <value>Номер подання</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Предмет подання</value>
+  </data>
+  <data name="Financial &amp; Assignment" xml:space="preserve">
+    <value>Фінансові витрати та призначення</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>Загальна інформація</value>
+  </data>
+  <data name="Hidden" xml:space="preserve">
+    <value>Прихований</value>
+  </data>
+  <data name="Intangible Asset Details" xml:space="preserve">
+    <value>Деталі нематеріального активу</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Рахунок</value>
+  </data>
+  <data name="Management URL" xml:space="preserve">
+    <value>URL керування</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>Не призначено</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Публічний</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Ціна придбання</value>
+  </data>
+  <data name="Query Method" xml:space="preserve">
+    <value>Спосіб запиту</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Свідоцтво про реєстрацію</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Дата реєстрації</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Постачальник</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Зображення торговельної марки</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="View Certificate" xml:space="preserve">
+    <value>Переглянути сертифікат</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>Переглянути рахунок</value>
+  </data>
+  <data name="View Trademark Image" xml:space="preserve">
+    <value>Переглянути зображення торговельної марки</value>
+  </data>
+
+</root>

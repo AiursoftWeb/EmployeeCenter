@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Μονά-αναγνώσιμη διακριτική τιμή API της Cloudflare που χρησιμοποιείται από το DNS Audit. Χωρίστε τα δικαιώματα DNS Settings:Read για όλους τους λογαριασμούς και DNS:Read για όλες τις ζώνες.</value>
+  </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Μονοδιαβάσιμο token API Cloudflare που χρησιμοποιείται από το Service Audit. Εξουσιοδοτήστε DNS Settings:Read για όλους τους λογαριασμούς και DNS:Read για όλες τις ζώνες.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
+    <value>Πρόγραμμα Συστήματος Βοηθού AI</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Επιτρέψτε στον Χρήστη να Τροποποιήσει το Κωδικό Όνομα</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Επιτρέψτε στους χρήστες να τροποποιήσουν το ψευδώνυμό τους στη σελίδα διαχείρισης προφίλ.</value>
+  </data>
+  <data name="Annual Leave Per Year" xml:space="preserve">
+    <value>Ετήσια Άδεια Ανά Χρόνο</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>Διεύθυνση URL του Σπιτιού της Μάρκας</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Όνομα Εταιρείας</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Διακριτικό API του Cloudflare</value>
+  </data>
+  <data name="Default Payroll Currency" xml:space="preserve">
+    <value>Προεπιλεγμένο Νόμισμα Μισθοδοσίας</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>Αναγκαστική Σύνδεση Έργου</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>Αριθμός ICP</value>
+  </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Προβολή Συστήματος για Σημειώσεις Συναντήσεων</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Λογότυπο Έργου</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Όνομα Έργου</value>
+  </data>
+  <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
+    <value>Απαιτείται από τους υπαλλήλους να συνδέσουν τουλάχιστον ένα έργο κατά την υποβολή μιας εβδομαδιαίας αναφοράς.</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Το όνομα του σήματος της εταιρείας ή του έργου. Π.χ. Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>Η προεπιλεγμένη νομισματική μονάδα που θα χρησιμοποιηθεί κατά την έκδοση μιας νέας αποδοχής.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Ο αριθμός άδειας ICP για χρήστες της κυρίαρχης Κίνας. Αφήστε κενό για να κρυφτεί.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Το λογότυπο του έργου που εμφανίζεται στην ναβιγατόρια και τον ποδόσκαλο. Υποστήριξη jpg, png, svg.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Το όνομα του έργου που εμφανίζεται στο frontend.</value>
+  </data>
+  <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
+    <value>Ο αριθμός των ημερών πληρωμένου ετήσιου άδειας που ανατίθεται σε κάθε υπάλληλο κάθε χρόνο.</value>
+  </data>
+  <data name="The system prompt for the AI assistant." xml:space="preserve">
+    <value>Η οδηγία συστήματος για τον βοηθό AI.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Η προεντολή συστήματος που χρησιμοποιείται για τη δημιουργία πρακτικών συνεδριάσεων από τα πρακτικά ομιλιών.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Η διεύθυνση της εταιρείας ή του έργου. Π.χ. https://www.aiursoft.com</value>
+  </data>
+
+</root>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add New Asset" xml:space="preserve">
+    <value>Додати новий актив</value>
+  </data>
+  <data name="Already Reimbursed" xml:space="preserve">
+    <value>Вже відшкодовано</value>
+  </data>
+  <data name="Asset Tag must be unique. It&apos;s recommended to follow a consistent naming convention like ASM-YYYY-NNN." xml:space="preserve">
+    <value>Тег активу має бути унікальним. Рекомендується використовувати єдину систему іменування, наприклад ASM-YYYY-NNN.</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Основна інформація</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="e.g. ASM-2024-001" xml:space="preserve">
+    <value>напр. ASM-2024-001</value>
+  </data>
+  <data name="Financial Information" xml:space="preserve">
+    <value>Фінансова інформація</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Новий</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>Не призначено</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="Save Asset" xml:space="preserve">
+    <value>Зберегти майно</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>Вибрати організацію</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>Вибрати розташування</value>
+  </data>
+  <data name="Select Model" xml:space="preserve">
+    <value>Вибрати модель</value>
+  </data>
+  <data name="Select Vendor" xml:space="preserve">
+    <value>Вибрати постачальника</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>Поради</value>
+  </data>
+  <data name="Upload the invoice to keep financial records traceable." xml:space="preserve">
+    <value>Завантажте рахунок-фактуру, щоб зберегти можливість відстеження фінансових записів.</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Час реєстрації події — UTC!</value>
+  </data>
+
+</root>

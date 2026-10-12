@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account / Username" xml:space="preserve">
+    <value>Conta / Nome de usuário</value>
+  </data>
+  <data name="Are you sure you want to delete this password?" xml:space="preserve">
+    <value>Tem certeza de que deseja excluir esta senha?</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Anexo</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Voltar</value>
+  </data>
+  <data name="Created by" xml:space="preserve">
+    <value>Criado por</value>
+  </data>
+  <data name="Created on" xml:space="preserve">
+    <value>Criado em</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="Download Attachment" xml:space="preserve">
+    <value>Baixar Anexo</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gerenciar Compartilhamentos</value>
+  </data>
+  <data name="No notes." xml:space="preserve">
+    <value>Sem anotações.</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Observação</value>
+  </data>
+  <data name="Password / Secret" xml:space="preserve">
+    <value>Senha / Segredo</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>Detalhes da Senha</value>
+  </data>
+
+</root>

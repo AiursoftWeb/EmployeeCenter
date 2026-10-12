@@ -1,0 +1,26 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.DetectViewModel
+@inject IHtmlLocalizer<Aiursoft.EmployeeCenter.Models.QualificationsViewModels.DetectViewModel> Localizer
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["Detect Watermark"]</h1>
+    <p>@Localizer["Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are processed locally and are not retained."]</p>
+    <div class="alert alert-warning">@Localizer["Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked."]</div>
+    <form asp-action="Detect" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <label asp-for="Image" class="form-label">@Localizer["Image to Inspect"]</label>
+        <input asp-for="Image" type="file" accept="image/png,image/jpeg" class="form-control mb-3" required />
+        <button type="submit" class="btn btn-primary">@Localizer["Inspect"]</button>
+        <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+    </form>
+    @if (Model.Message is not null) { <div class="alert alert-info mt-3">@Model.Message</div> }
+    @if (Model.Record is not null)
+    {
+        <dl class="row mt-3">
+            <dt class="col-sm-3">@Localizer["Tracking ID"]</dt><dd class="col-sm-9"><a asp-action="Record" asp-route-id="@Model.Record.Id">@Model.Record.Id</a></dd>
+            <dt class="col-sm-3">@Localizer["Applicant"]</dt><dd class="col-sm-9">@Model.Record.ApplicantName (@Model.Record.ApplicantId)</dd>
+            <dt class="col-sm-3">@Localizer["Qualification / Version"]</dt><dd class="col-sm-9">@Model.Record.CompanyName — @Model.Record.QualificationName / @Model.Record.Version</dd>
+            <dt class="col-sm-3">@Localizer["Business Purpose"]</dt><dd class="col-sm-9">@Model.Record.Purpose</dd>
+            <dt class="col-sm-3">@Localizer["Recipient Company"]</dt><dd class="col-sm-9">@Model.Record.Recipient</dd>
+            <dt class="col-sm-3">@Localizer["Generated At (UTC)"]</dt><dd class="col-sm-9">@Model.Record.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+        </dl>
+    }
+</div>

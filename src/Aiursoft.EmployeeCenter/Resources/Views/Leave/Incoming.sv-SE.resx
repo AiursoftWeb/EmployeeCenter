@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Åtgärder</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Alla i företaget</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Årlig ledighet</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Ansökande</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>ansökningar godkända</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>ansökningar avvisade</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Godkännandecenter</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Godkännandehistorik</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Godkänn</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Godkänt</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Godkända den här månaden</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Godkännare</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>väntar på granskning över hela företaget</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>väntar på din granskning</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>för närvarande frånvarande</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dagar</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Beslut</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Om avvisat per misstag:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Om anställningen vill kanske avboka:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Wiktigt: Godkännandeavgöranden är slutgiltiga</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Mitt team</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>Ingen godkännandehistorik.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Inga väntande ansökningar.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>När du godkänner eller avvisar ett semesteransökan kan beslutet inte ångras. Granska noggrant innan du vidtar åtgärd.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>Väntande godkännande</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Väntande godkännanden</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Anledning</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Avvisa</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Avvisad</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Avvisade den här månaden</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Granskad</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Sjukdomsledighet</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Inskickat</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>Team på semester</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>Anställningen måste lämna in en ny ansökan.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>De kan ångra sin egen ansökan innan den börjar.</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>till</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+
+</root>

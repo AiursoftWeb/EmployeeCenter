@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Aktionen</value>
+  </data>
+  <data name="Are you sure you want to delete this task?" xml:space="preserve">
+    <value>Möchten Sie dieses Task wirklich löschen?</value>
+  </data>
+  <data name="Avatar" xml:space="preserve">
+    <value>Avatar</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Abgeschlossen</value>
+  </data>
+  <data name="Create New Task" xml:space="preserve">
+    <value>Neue Aufgabe erstellen</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Mitarbeiter</value>
+  </data>
+  <data name="Employee Onboarding Progress" xml:space="preserve">
+    <value>Mitarbeiter-Onboarding-Fortschritt</value>
+  </data>
+  <data name="Expected Duration" xml:space="preserve">
+    <value>Erwartete Dauer</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Onboarding-Aufgaben verwalten</value>
+  </data>
+  <data name="No onboarding tasks created yet." xml:space="preserve">
+    <value>Noch keine Onboarding-Aufgaben erstellt.</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Reihenfolge</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Fortschritt</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Aufgaben</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+
+</root>

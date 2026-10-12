@@ -1,0 +1,50 @@
+@model Aiursoft.EmployeeCenter.Models.AssetsViewModels.ManageLocationsViewModel
+
+<h1 class="h3 mb-3">@Localizer["Locations"]</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Existing Locations"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Name"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var l in Model.Locations)
+                        {
+                            <tr>
+                                <td>@l.Name</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Add New Location"]</h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="CreateLocation">
+                    <div class="mb-3">
+                        <label class="form-label">@Localizer["Location Name"]</label>
+                        <input asp-for="NewName" class="form-control" required placeholder="@Localizer["e.g. SH Office - Room 101"]" />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">@Localizer["Add Location"]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index" class="btn btn-light">@Localizer["Back to Assets"]</a>
+</div>

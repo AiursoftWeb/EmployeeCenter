@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account" xml:space="preserve">
+    <value>Обліковий запис</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Click here to create one." xml:space="preserve">
+    <value>Натисніть тут, щоб створити один.</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Створити новий</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Деталі</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Редагується</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Тут пусто!</value>
+  </data>
+  <data name="Manage and view shared account passwords." xml:space="preserve">
+    <value>Керуйте та переглядайте паролі спільних облікових записів.</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Керувати спільним доступом</value>
+  </data>
+  <data name="My Passwords" xml:space="preserve">
+    <value>Мої паролі</value>
+  </data>
+  <data name="No passwords created yet." xml:space="preserve">
+    <value>Паролів ще не створено.</value>
+  </data>
+  <data name="No passwords have been shared with you yet." xml:space="preserve">
+    <value>Паролів, якими з вами поділилися, ще немає.</value>
+  </data>
+  <data name="No passwords shared with you." xml:space="preserve">
+    <value>Вам не надано доступ до жодних паролів.</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Власник</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Керування паролями</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Дозвіл</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Лише для читання</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Поділено зі мною</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="You have not created any passwords yet." xml:space="preserve">
+    <value>Ви ще не створили жодного пароля.</value>
+  </data>
+
+</root>

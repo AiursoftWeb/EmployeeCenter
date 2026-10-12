@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Adaugă Parolă Globală</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Adăugare Roluri Noi</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Adăugare Utilizatori Noi</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Permite aprobarea sau respingerea oricărei cereri de concediu, indiferent de linia ierarhică, și vizualizarea istoricului de concedii al oricărui utilizator.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Permite aprobarea sau respingerea oricărei cereri de concediu, indiferent de linia ierarhică.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Permite aprobarea, confirmarea sau respingerea cererilor de rambursare de la orice angajat.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Permite aprobarea, respingerea sau solicitarea de modificări pentru cerințele proiectului. Toți utilizatorii pot trimite cerințe și pot comenta asupra acestora.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Permite atribuirea sau eliminarea rolurilor pentru orice utilizator.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Permite crearea și gestionarea tuturor contractelor companiei.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Permite crearea și gestionarea șablonelor de sarcini de integrare pentru noii angajați.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Permite crearea de contracte pentru companie. Toți utilizatorii pot vizualiza contractele publice implicit.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Permite crearea de noi contracte pentru orice utilizator.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Permite crearea de parole globale noi care pot fi partajate cu alții.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Permite crearea de întrebări, chestionare și vizualizarea răspunsurilor la feedback.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Permite crearea, editarea și ștergerea rapoartelor săptămânale în numele oricărui alt utilizator.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Permite crearea, actualizarea și ștergerea de planuri. Toți utilizatorii pot vizualiza planurile implicit.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Permite crearea, actualizarea și ștergerea canalelor de colectare și a înregistrărilor acestora.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Permite crearea, actualizarea și ștergerea informațiilor despre entitățile companiei.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Permite crearea, actualizarea și ștergerea informațiilor entității companiei. Toți utilizatorii pot vizualiza informațiile entității companiei implicit.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Permite crearea, actualizarea și ștergerea informațiilor despre relațiile cu clienții. Toți utilizatorii pot vizualiza relațiile cu clienții implicit.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Permite crearea, actualizarea și ștergerea informațiilor despre canalele de piață. Toți utilizatorii pot vizualiza canalele de piață implicit.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Permite crearea, actualizarea și ștergerea serviciilor și furnizorilor de DNS. Toți utilizatorii pot vizualiza serviciile implicit.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Permite crearea, actualizarea, retragerea și mentenerea serverelor, serviciilor, furnizorilor, furnizorilor DNS și a aliasurilor de domeniu.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Permite emitirea și gestionarea fluturașilor de salariu pentru toți utilizatorii.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Permite gestionarea și ștergerea oricărei parole globale create de orice utilizator.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Permite gestionarea conturilor financiare ale companiei și înregistrarea tranzacțiilor.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Permite gestionarea activelor IT ale companiei și a activelor intangibile (cum ar fi domeniile, licențele), inclusiv categorii, modele și articole individuale. De asemenea, permite atribuirea și recuperarea activelor de la/în favoarea angajaților.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Permite gestionarea activelor IT ale companiei, inclusiv categorii, modele și articole individuale.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Permite gestionarea activelor IT ale companiei, inclusiv categoriile, modelele și articolele individuale. Permite, de asemenea, atribuirea și recuperarea activelor de la/la angajați.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Permite declanșarea manuală a auditului DNS și al disponibilității serviciilor.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Permite modificarea numelor rolurilor și a permisiunilor atribuite acestora.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Permite modificarea detaliilor utilizatorului, cum ar fi adresa de email și rolurile, și poate reseta și parolele utilizatorilor.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Permite modificarea detaliilor utilizatorului, cum ar fi adresa de e-mail și rolurile, și poate, de asemenea, să reseteze parolele utilizatorilor.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Permite tipărirea certificatelor de angajare și venit pentru orice angajat.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Permite tipărirea certificatelor de angajare și venit pentru persoana însăși.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Permite rularea auditului DNS Cloudflare în mod doar-citire și vizualizarea rezultatelor acestuia.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Permite rularea auditului de servicii în modul doar-citire și vizualizarea constărilor sale.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Permite ștergerea permanentă a rolurilor.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Permite ștergerea permanentă a conturilor de utilizator.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Permite utilizatorului să discute cu asistentul AI pentru informații despre companie.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Permite utilizatorului să-și creeze rapoarte săptămânale proprii.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Permite utilizatorului să creeze rapoarte săptămânale în numele oricărui alt utilizator.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Permite utilizatorului să completeze și să trimită chestionare de feedback.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Permite utilizatorului să depună cereri de decontare pentru cheltuielile sale.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Permite încărcarea și ștergerea înregistrărilor de întâlniri, precum și reactivarea transcrierii vocal-text.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Permite vizualizarea tuturor contractelor companiei, inclusiv a celor marcate ca private.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Permite vizualizarea tuturor contractelor companiei, inclusiv a celor marcate ca private. Toți utilizatorii pot vizualiza contractele publice implicit.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Permite vizualizarea și modificarea setărilor globale ale aplicației.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Permite vizualizarea transcrierilor ședințelor și ascultarea sau citirea transcrierilor oricărei înregistrări.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Permite vizualizarea rezumatelor privind sănătatea serviciilor, observațiilor și constatărilor detaliate din audit.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Permite vizualizarea informațiilor și setărilor la nivel de sistem.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Permite vizualizarea panoului de control al sarcinilor în fundal și gestionarea sarcinilor.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Permite vizualizarea istoricului contractelor pentru orice utilizator.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Permite vizualizarea listei tuturor canalelor de colectare și a înregistrărilor acestora.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Permite vizualizarea listei tuturor permisiunilor și a atribuirilor lor către roluri și utilizatori.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Permite vizualizarea listei cu toți utilizatorii.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Permite vizualizarea listei de roluri și a permisiunilor atribuite acestora.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Permite vizualizarea jurnalului de operațiuni al oricărui utilizator, inclusiv istoricul modificărilor cardurilor bancare.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Permite vizualizarea liniei de raportare a oricărui utilizator, inclusiv a managerului, subordonaților și colegilor acestuia.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Permite vizualizarea registrului de servere și servicii, relațiilor de implementare și a datelor de referință ale infrastructurii.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Permite vizualizarea, editarea și ștergerea cheilor SSH ale oricărui utilizator.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Aproba orice concediu</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Aproba Cerințele Proiectului</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Aprobați decontarea</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Atribuie Roluri Utilizatorilor</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Audit DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Audit Servicii</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Audit Servicii (Moștenire)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Chat cu AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Creează și gestionează contractele companiei</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Creează contracte companie</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Crează Contract</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Crează Raport Săptămânal</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Creează Raport Săptămânal pentru Oricine</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>Permisiune implicită pentru HR.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Șterge Roluri</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Ștergere utilizatori</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Editare Informații Utilizator</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Editează Informațiile Rolului</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Editare Informații Utilizator</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Acordă permisiunea de a crea roluri noi.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Acordă permisiunea de a crea conturi de utilizator noi.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Acordă permisiunea de a reporni instanța aplicației. Poate cauza întreruperi de disponibilitate, dar toate setările și memoria cache vor fi reîncărcate.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Permisiune moștenită, păstrată pentru tranziție. Atribuiți Gestionare Infrastructură rolurilor care încă au nevoie de acces.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Permisiune de moștenire păstrată pentru tranziție. Atribuiți Vizualizare audit servicii și Rulare audit servicii după caz.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Gestionează Orice Parolă</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Gestionează raportul săptămânal al oricărei persoane</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Gestionează Activele</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Gestionează modelele</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Gestionați canalele de colectare</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Gestionează entitățile companiei</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Gestionează Relațiile cu Clieni</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Gestionează Feedback-ul</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Gestionează setările globale</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Gestionea Infrastructurii</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Gestionează concediile</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Gestionează Jurnalul</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Gestionează canalele de piață</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Gestionează transcrierile ședințelor</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Gestionează sarcinile de integrare</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Gestionare Salarii</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Gestionează Serviciile</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Gestione servicii (Legacy)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Gestionează chei SSH</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Imprimă Certificatelor</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Imprimă Certificatul Propriu</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Citire Permisiuni</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Citește Roluri</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Citește Utilizatori</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Repornește această aplicație</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Rulează Auditul Serviciului</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Trimite Feedback</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Trimite rambursare</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Vizualizează orice contract al companiei, inclusiv cele private</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Vizualizează sarcinile în fundal</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Vizualizare canale de colectare</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Vizualizează istoricul contractelor</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Vizualizare Infrastructură</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Vizualizare transcrieri ședințe</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Vizualizează Linia de Raport</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Vizualizare auditul serviciilor</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Vizualizare Context Sistem</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Vizualizează Jurnalul de Operații al Utilizatorului</value>
+  </data>
+
+</root>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account (Card Number)" xml:space="preserve">
+    <value>은행 계좌 (카드 번호)</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>은행 계좌 이름</value>
+  </data>
+  <data name="Bank Name (Branch)" xml:space="preserve">
+    <value>은행 이름 (지점)</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>생성 시간</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>법적 이름</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>범례</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>매니저</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>없음</value>
+  </data>
+  <data name="Peer" xml:space="preserve">
+    <value>동료</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>전화번호</value>
+  </data>
+  <data name="Please select a user first." xml:space="preserve">
+    <value>먼저 사용자를 선택해 주세요.</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>직급</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>보고 라인</value>
+  </data>
+  <data name="Search Person" xml:space="preserve">
+    <value>사용자 검색</value>
+  </data>
+  <data name="Subordinate" xml:space="preserve">
+    <value>부하 직원</value>
+  </data>
+  <data name="Target" xml:space="preserve">
+    <value>대상</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>직책</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>사용자 세부 정보</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>사용자 이름</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>보고 라인 보기</value>
+  </data>
+  <data name="Visual Report Line" xml:space="preserve">
+    <value>시각적 보고 라인</value>
+  </data>
+  <data name="You have to log in to view report line." xml:space="preserve">
+    <value>리포트 라인을 보려면 로그인해야 합니다.</value>
+  </data>
+
+</root>

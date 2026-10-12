@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Accommodation: Must issue VAT Special Invoice with full company name. Avoid fixed-amount paper invoices if possible." xml:space="preserve">
+    <value>Розміщення: Необхідно видавати ПДВ-спеціальний рахунок-фактуру з повним ім&apos;ям компанії. Якщо можливо, уникати паперових рахунків-фактур фіксованої суми.</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Рахунок</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адреса</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Адміністративні відомості</value>
+  </data>
+  <data name="Ask merchants for electronic invoices (PDF/OFD) sent to your email or employees@aiursoft.com." xml:space="preserve">
+    <value>Запитуйте у продавців електронні рахунки (PDF/OFD), які надсилаються на вашу електронну пошту або employees@aiursoft.com.</value>
+  </data>
+  <data name="Associated Intangible Assets" xml:space="preserve">
+    <value>Пов&apos;язані нематеріальні активи</value>
+  </data>
+  <data name="Associated Servers" xml:space="preserve">
+    <value>Пов&apos;язані сервери</value>
+  </data>
+  <data name="Avoid paper invoices to prevent loss." xml:space="preserve">
+    <value>Уникайте паперових рахунків-фактур, щоб уникнути їх втрати.</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Банк</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>Код банку</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Банківська інформація</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>Базова валюта</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Основна інформація</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Дозвіл на ведення бізнесу</value>
+  </data>
+  <data name="Business Registration" xml:space="preserve">
+    <value>Реєстрація бізнесу</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Номер CI</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Назва компанії</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Тип компанії</value>
+  </data>
+  <data name="Copy Full Info" xml:space="preserve">
+    <value>Копіювати повну інформацію</value>
+  </data>
+  <data name="Copy Summary" xml:space="preserve">
+    <value>Копіювати підсумок</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Завантажити / Переглянути</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Англійська назва</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Код підприємства</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Відомості про сутність</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Дата створення</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Дата закінчення дії</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Зображення та файли</value>
+  </data>
+  <data name="Instructions for Employees" xml:space="preserve">
+    <value>Інструкції для співробітників</value>
+  </data>
+  <data name="Invoice Issuance Guide" xml:space="preserve">
+    <value>Посібник з видачі рахунків-фактур</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Юридичний представник / Директор</value>
+  </data>
+  <data name="Legal Rep Legal Name" xml:space="preserve">
+    <value>Юридична особа — повне ім&apos;я</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
+  </data>
+  <data name="Meals, Transportation, Communication, Electronics (Computers/Peripherals)." xml:space="preserve">
+    <value>Їжа, транспорт, зв&apos;язок, електроніка (комп&apos;ютери/периферія).</value>
+  </data>
+  <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
+    <value>Мають бути справжні витрати на бізнес. Не фальшиві рахунки.</value>
+  </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>Немає співробітників, які підписали договір з цією організацією.</value>
+  </data>
+  <data name="No intangible assets associated." xml:space="preserve">
+    <value>Немає пов’язаних нематеріальних активів.</value>
+  </data>
+  <data name="No servers associated." xml:space="preserve">
+    <value>Немає призначених серверів.</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Офіційний печатка</value>
+  </data>
+  <data name="Organization Certificate" xml:space="preserve">
+    <value>Посвідчення про реєстрацію організації</value>
+  </data>
+  <data name="Please show the following information to the merchant when making a payment:" xml:space="preserve">
+    <value>Будь ласка, покажіть наступну інформацію торговцю під час оплати:</value>
+  </data>
+  <data name="Prefer Electronic Invoices (Fully Digitalized)" xml:space="preserve">
+    <value>Перевага електронних рахунків-фактур (повністю цифрові)</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Реєстраційний капітал</value>
+  </data>
+  <data name="Reimbursement Categories" xml:space="preserve">
+    <value>Категорії відшкодування</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Обмежено</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>Місце реєстрації СКР</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Секретар</value>
+  </data>
+  <data name="Special Cases" xml:space="preserve">
+    <value>Спеціальні випадки</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Список співробітників</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Код SWIFT</value>
+  </data>
+  <data name="Tax ID" xml:space="preserve">
+    <value>ІПН</value>
+  </data>
+  <data name="Tip: When incurring business or welfare expenses, please request an invoice. Prefer electronic invoices. Keep the original PDF." xml:space="preserve">
+    <value>Порада: при виникненні бізнес-або соціальних витрат, будь ласка, запитуйте рахунок-фактуру. Надавайте перевагу електронним рахункам-фактурам. Зберігайте оригінальний PDF.</value>
+  </data>
+
+</root>

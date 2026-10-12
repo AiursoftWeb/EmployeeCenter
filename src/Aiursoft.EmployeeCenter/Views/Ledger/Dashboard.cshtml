@@ -1,0 +1,774 @@
+@model Aiursoft.EmployeeCenter.Models.LedgerViewModels.DashboardViewModel
+@{
+    // Query parameters for API calls
+    var entityId = Model.Entity.Id;
+    var accountId = Model.FilteredAccount?.Id;
+    var year = Model.Year;
+    var month = Model.Month;
+    var showAssetLiabilityTrend = Model.Entity.Id == 1 && Model.FilteredAccount?.Id == 5 &&
+                                  Model.FilteredAccount.AccountType == FinanceAccountType.Asset &&
+                                  !Model.FilteredAccount.IsArchived &&
+                                  Model.FilteredAccount.Currency == Model.Entity.BaseCurrency;
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @if (Model.FilteredAccount != null)
+        {
+            <h1 class="h3 mb-0 text-gray-800">
+                <a asp-action="Dashboard" asp-route-id="@Model.Entity.Id" class="text-decoration-none text-gray-800">
+                    <i class="fas fa-chevron-left fa-sm mr-2"></i>
+                </a>
+                @Model.FilteredAccount.AccountName - @Localizer["Dashboard"]
+            </h1>
+        }
+        else
+        {
+            <h1 class="h3 mb-0 text-gray-800">@Model.Entity.CompanyName - @Localizer["Dashboard"]</h1>
+        }
+        <div class="d-flex align-items-center">
+            <form method="get" class="mr-3" style="display: flex; align-items: center; background: #f8f9fc; padding: 8px 16px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <input type="hidden" name="id" value="@Model.Entity.Id" />
+                @if (Model.FilteredAccount != null)
+                {
+                    <input type="hidden" name="accountId" value="@Model.FilteredAccount.Id" />
+                }
+                <div class="d-flex align-items-center mr-3">
+                    <i class="fas fa-calendar-alt text-primary mr-2" style="font-size: 14px;"></i>
+                    <select name="year" class="form-control form-control-sm" onchange="this.form.submit()" style="border: 1px solid #e3e6f0; border-radius: 6px; padding: 6px 12px; min-width: 90px; font-weight: 500; cursor: pointer;">
+                        @for (int y = DateTime.UtcNow.Year; y >= 2020; y--)
+                        {
+                            <!option value="@y" @(Model.Year == y ? "selected" : "")>@y</!option>
+                        }
+                    </select>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-calendar-day text-info mr-2" style="font-size: 14px;"></i>
+                    <select name="month" class="form-control form-control-sm" onchange="this.form.submit()" style="border: 1px solid #e3e6f0; border-radius: 6px; padding: 6px 12px; min-width: 120px; font-weight: 500; cursor: pointer;">
+                        <!option value="">@Localizer["All Year"]</!option>
+                        @for (int m = 1; m <= 12; m++)
+                        {
+                            <!option value="@m" @(Model.Month == m ? "selected" : "")>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(m)</!option>
+                        }
+                    </select>
+                </div>
+            </form>
+            <a asp-controller="Ledger" asp-action="Accounts" asp-route-id="@Model.Entity.Id" class="btn btn-sm btn-info shadow-sm mr-2">
+                <i class="fas fa-list fa-sm text-white-50"></i> @Localizer["Manage Accounts"]
+            </a>
+            <a asp-controller="Ledger" asp-action="CreateTransaction" asp-route-id="@Model.Entity.Id" class="btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-plus fa-sm text-white-50"></i> @Localizer["New Transaction"]
+            </a>
+        </div>
+    </div>
+
+    @* ── Filtered Account Summary Cards ── *@
+    @if (Model.FilteredAccount != null)
+    {
+        <div class="row" id="account-summary-cards">
+            <div class="col-xl-3 col-md-6 mb-4">
+                @{
+                    var colorClass = "primary";
+                    var iconClass = "fa-coins";
+                    if (Model.FilteredAccount.AccountType == FinanceAccountType.Asset)
+                    {
+                        colorClass = "success";
+                        iconClass = "fa-wallet";
+                    }
+                    else if (Model.FilteredAccount.AccountType == FinanceAccountType.Liability)
+                    {
+                        colorClass = "danger";
+                        iconClass = "fa-hand-holding-usd";
+                    }
+                    else if (Model.FilteredAccount.AccountType == FinanceAccountType.Expense)
+                    {
+                        colorClass = "warning";
+                        iconClass = "fa-shopping-cart";
+                    }
+                    else if (Model.FilteredAccount.AccountType == FinanceAccountType.Income)
+                    {
+                        colorClass = "info";
+                        iconClass = "fa-receipt";
+                    }
+                }
+                <div class="card border-left-@colorClass shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-@colorClass text-uppercase mb-1">
+                                    @Model.FilteredAccount.AccountName (@Model.FilteredAccount.Currency) - @Localizer["Current Balance"]
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="filtered-account-balance">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas @iconClass fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    @Localizer["Total Inflow"]
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-inflow">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-arrow-down fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                    @Localizer["Total Outflow"]
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-outflow">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-arrow-up fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @* ── Company Financial Overview Cards ── *@
+    @if (Model.FilteredAccount == null)
+    {
+        <!-- Company Financial Overview -->
+        <div class="row">
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    @Localizer["Total Revenue"] (@Model.Entity.BaseCurrency)
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="revenue-for-period">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-hand-holding-usd fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                    @Localizer["Total Expenses"] (@Model.Entity.BaseCurrency)
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="expenses-for-period">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    @Localizer["Net Profit"] (@Model.Entity.BaseCurrency)
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="net-income-for-period">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-chart-line fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    @Localizer["Total Assets"] (@Model.Entity.BaseCurrency)
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-assets">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-wallet fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    @Localizer["Total Liabilities"] (@Model.Entity.BaseCurrency)
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-liabilities">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-file-invoice-dollar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-left-secondary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                    @Localizer["Equity"] (@Model.Entity.BaseCurrency)
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-equity">
+                                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-building fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Balance Cards (populated via JS) -->
+        <div class="row">
+            <div class="col-12">
+                <h5 class="mb-3">@Localizer["Account Balances"]</h5>
+            </div>
+            <div class="col-12" id="account-balance-cards">
+                <div class="text-center py-3">
+                    <span class="spinner-border spinner-border-sm" role="status"></span> @Localizer["Loading..."]
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        @(Model.FilteredAccount != null ? Localizer["Income & Expense Chart"] : Localizer["Company Revenue & Expenses"]) (@Model.Year)
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="myAreaChart" style="height: 300px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* ── Selected asset account balance versus company-wide liabilities ── *@
+    @if (showAssetLiabilityTrend)
+    {
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            @Model.FilteredAccount!.AccountName (@Model.Year)
+                            <small class="text-muted">— @Model.Entity.BaseCurrency</small>
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="assetTrendChart" style="height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <!-- Transaction Feed -->
+        <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        @(Model.FilteredAccount != null ? Localizer["Account Transactions"] : Localizer["Recent Transactions"])
+                    </h6>
+                    @if (Model.FilteredAccount == null)
+                    {
+                        <a asp-action="Transactions" asp-route-id="@Model.Entity.Id" class="btn btn-sm btn-link">@Localizer["View All"]</a>
+                    }
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" id="transactions-container">
+                        <div class="text-center py-3">
+                            <span class="spinner-border spinner-border-sm" role="status"></span> @Localizer["Loading..."]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Health Metrics -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">@Localizer["Health Metrics"]</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            @Localizer["Monthly Burn Rate"] (@Model.Entity.BaseCurrency)
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="monthly-burn-rate">
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            @Localizer["Runway"]
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="runway-months">
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @if (Model.FilteredAccount != null)
+            {
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">@Localizer["Inflow Distribution"]</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-pie">
+                            <canvas id="inflowPieChart" style="height: 250px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">@Localizer["Outflow Distribution"]</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-pie">
+                            <canvas id="outflowPieChart" style="height: 250px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/chart.js/dist/chart.umd.min.js" asp-append-version="true"></script>
+    <script>
+        // ──────────────────────────────────────────────
+        //  Dashboard async data loader
+        // ──────────────────────────────────────────────
+        $(document).ready(function () {
+            var entityId = @entityId;
+            var accountId = @(accountId.HasValue ? accountId.Value.ToString() : "null");
+            var year = @year;
+            var month = @(month.HasValue ? month.Value.ToString() : "null");
+            var hasFilteredAccount = @(Model.FilteredAccount != null ? "true" : "false");
+            var showAssetLiabilityTrend = @(showAssetLiabilityTrend ? "true" : "false");
+
+            var inflowLabel = hasFilteredAccount ? "@Localizer["Inflow"]" : "@Localizer["Revenue"]";
+            var outflowLabel = hasFilteredAccount ? "@Localizer["Outflow"]" : "@Localizer["Expenses"]";
+
+            function buildApiUrl(action) {
+                var url = '@Url.Action("DashboardSummaryApi", "Ledger")'.replace('DashboardSummaryApi', action);
+                url += '?id=' + entityId;
+                if (accountId !== null) url += '&accountId=' + accountId;
+                if (year !== null) url += '&year=' + year;
+                if (month !== null) url += '&month=' + month;
+                return url;
+            }
+
+            function formatNumber(val) {
+                return Number(val).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+
+            function escapeHtml(text) {
+                if (!text) return '';
+                var div = document.createElement('div');
+                div.appendChild(document.createTextNode(text));
+                return div.innerHTML;
+            }
+
+            // ── 1. Load Summary (cards + health metrics) ──
+            $.getJSON(buildApiUrl('DashboardSummaryApi'), function (data) {
+                if (hasFilteredAccount) {
+                    $('#filtered-account-balance').text(formatNumber(data.FilteredAccountBalance));
+                    $('#total-inflow').text(formatNumber(data.TotalInflow));
+                    $('#total-outflow').text(formatNumber(data.TotalOutflow));
+                } else {
+                    $('#revenue-for-period').text(formatNumber(data.RevenueForPeriod));
+                    $('#expenses-for-period').text(formatNumber(data.ExpensesForPeriod));
+                    $('#net-income-for-period').text(formatNumber(data.NetIncomeForPeriod));
+                    $('#total-assets').text(formatNumber(data.TotalAssets));
+                    $('#total-liabilities').text(formatNumber(data.TotalLiabilities));
+                    $('#total-equity').text(formatNumber(data.TotalEquity));
+
+                    // Render account balance cards
+                    renderAccountCards(data.Accounts);
+                }
+                $('#monthly-burn-rate').text(formatNumber(data.MonthlyBurnRate));
+                if (data.RunwayMonths !== null) {
+                    $('#runway-months').text(Number(data.RunwayMonths).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' @Localizer["Months"]');
+                } else {
+                    $('#runway-months').html('<span class="text-success">∞</span>');
+                }
+            });
+
+            function renderAccountCards(accounts) {
+                var container = $('#account-balance-cards');
+                container.empty();
+                var row = $('<div class="row"></div>');
+
+                // Asset (AccountType == 0)
+                accounts.filter(function(a) { return a.AccountType === 0; }).forEach(function(ab) {
+                    row.append(buildAccountCard(ab, 'success', 'fa-wallet'));
+                });
+                // Liability (AccountType == 1)
+                accounts.filter(function(a) { return a.AccountType === 1; }).forEach(function(ab) {
+                    row.append(buildAccountCard(ab, 'danger', 'fa-hand-holding-usd'));
+                });
+
+                container.append(row);
+            }
+
+            function buildAccountCard(ab, colorClass, iconClass) {
+                var url = '@Url.Action("Dashboard", "Ledger")' + '?id=' + entityId + '&accountId=' + ab.Id;
+                return '<div class="col-xl-3 col-md-6 mb-4">' +
+                    '<a href="' + url + '" class="text-decoration-none">' +
+                    '<div class="card border-left-' + colorClass + ' shadow h-100 py-2"><div class="card-body">' +
+                    '<div class="row no-gutters align-items-center"><div class="col mr-2">' +
+                    '<div class="text-xs font-weight-bold text-' + colorClass + ' text-uppercase mb-1">' +
+                    escapeHtml(ab.AccountName) + ' (' + escapeHtml(ab.Currency) + ')' +
+                    '</div>' +
+                    '<div class="h5 mb-0 font-weight-bold text-gray-800">' + formatNumber(ab.Balance) + '</div>' +
+                    '</div><div class="col-auto"><i class="fas ' + iconClass + ' fa-2x text-gray-300"></i></div>' +
+                    '</div></div></div></a></div>';
+            }
+
+            // ── 2. Load Chart Data ──
+            $.getJSON(buildApiUrl('DashboardChartApi'), function (data) {
+                var ctx = document.getElementById("myAreaChart");
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.Labels,
+                        datasets: [{
+                            label: inflowLabel,
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(78, 115, 223, 0.05)",
+                            borderColor: "rgba(78, 115, 223, 1)",
+                            pointRadius: 3,
+                            pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                            pointBorderColor: "rgba(78, 115, 223, 1)",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                            pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: data.InflowData,
+                        }, {
+                            label: outflowLabel,
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(231, 74, 59, 0.05)",
+                            borderColor: "rgba(231, 74, 59, 1)",
+                            pointRadius: 3,
+                            pointBackgroundColor: "rgba(231, 74, 59, 1)",
+                            pointBorderColor: "rgba(231, 74, 59, 1)",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "rgba(231, 74, 59, 1)",
+                            pointHoverBorderColor: "rgba(231, 74, 59, 1)",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: data.OutflowData,
+                        }],
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        layout: { padding: { left: 10, right: 25, top: 25, bottom: 0 } },
+                        scales: {
+                            x: { grid: { display: false, drawBorder: false } },
+                            y: {
+                                ticks: {
+                                    maxTicksLimit: 5, padding: 10,
+                                    callback: function(value) { return value.toLocaleString(); }
+                                },
+                                grid: {
+                                    color: "rgb(234, 236, 244)", zeroLineColor: "rgb(234, 236, 244)",
+                                    drawBorder: false, borderDash: [2], zeroLineBorderDash: [2]
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: true },
+                            tooltip: {
+                                backgroundColor: "rgb(255,255,255)", bodyColor: "#858796",
+                                titleMarginBottom: 10, titleColor: '#6e707e',
+                                titleFont: { size: 14 }, borderColor: '#dddfeb', borderWidth: 1,
+                                padding: 15, displayColors: false, intersect: false, mode: 'index',
+                                caretPadding: 10,
+                                callbacks: {
+                                    label: function(tooltipItem) {
+                                        return tooltipItem.dataset.label + ': ' + tooltipItem.raw.toLocaleString();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+
+            // ── 3. Load bank balance, company-wide liabilities, and their difference ──
+            if (showAssetLiabilityTrend) {
+                var assetApiUrl = buildApiUrl('DashboardAssetTrendApi');
+                $.getJSON(assetApiUrl, function (data) {
+                    var ctx2 = document.getElementById("assetTrendChart");
+                    new Chart(ctx2, {
+                        type: 'line',
+                        data: {
+                            labels: data.Labels,
+                            datasets: [{
+                                label: "@Localizer["Bank Balance"]",
+                                lineTension: 0.3,
+                                backgroundColor: "rgba(28, 200, 138, 0.05)",
+                                borderColor: "rgba(28, 200, 138, 1)",
+                                pointRadius: 3,
+                                pointBackgroundColor: "rgba(28, 200, 138, 1)",
+                                pointBorderColor: "rgba(28, 200, 138, 1)",
+                                pointHoverRadius: 3,
+                                pointHoverBackgroundColor: "rgba(28, 200, 138, 1)",
+                                pointHoverBorderColor: "rgba(28, 200, 138, 1)",
+                                pointHitRadius: 10,
+                                pointBorderWidth: 2,
+                                data: data.AssetData,
+                            }, {
+                                label: "@Localizer["Total Liabilities"]",
+                                lineTension: 0.3,
+                                backgroundColor: "rgba(231, 74, 59, 0.05)",
+                                borderColor: "rgba(231, 74, 59, 1)",
+                                pointRadius: 3,
+                                pointBackgroundColor: "rgba(231, 74, 59, 1)",
+                                pointBorderColor: "rgba(231, 74, 59, 1)",
+                                pointHoverRadius: 3,
+                                pointHoverBackgroundColor: "rgba(231, 74, 59, 1)",
+                                pointHoverBorderColor: "rgba(231, 74, 59, 1)",
+                                pointHitRadius: 10,
+                                pointBorderWidth: 2,
+                                data: data.LiabilityData,
+                            }, {
+                                label: "@Localizer["Bank Balance Less Liabilities"]",
+                                lineTension: 0.3,
+                                backgroundColor: "rgba(78, 115, 223, 0.05)",
+                                borderColor: "rgba(78, 115, 223, 1)",
+                                pointRadius: 3,
+                                pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                                pointBorderColor: "rgba(78, 115, 223, 1)",
+                                pointHoverRadius: 3,
+                                pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                                pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                                pointHitRadius: 10,
+                                pointBorderWidth: 2,
+                                data: data.NetData,
+                            }],
+                        },
+                        options: {
+                            maintainAspectRatio: false,
+                            layout: { padding: { left: 10, right: 25, top: 25, bottom: 0 } },
+                            scales: {
+                                x: { grid: { display: false, drawBorder: false } },
+                                y: {
+                                    ticks: {
+                                        maxTicksLimit: 5, padding: 10,
+                                        callback: function(value) { return value.toLocaleString(); }
+                                    },
+                                    grid: {
+                                        color: "rgb(234, 236, 244)", zeroLineColor: "rgb(234, 236, 244)",
+                                        drawBorder: false, borderDash: [2], zeroLineBorderDash: [2]
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: { display: true },
+                                tooltip: {
+                                    backgroundColor: "rgb(255,255,255)", bodyColor: "#858796",
+                                    titleMarginBottom: 10, titleColor: '#6e707e',
+                                    titleFont: { size: 14 }, borderColor: '#dddfeb', borderWidth: 1,
+                                    padding: 15, displayColors: false, intersect: false, mode: 'index',
+                                    caretPadding: 10,
+                                    callbacks: {
+                                        label: function(tooltipItem) {
+                                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw.toLocaleString();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            // ── 4. Load Transactions ──
+            $.getJSON(buildApiUrl('DashboardTransactionsApi'), function (data) {
+                var container = $('#transactions-container');
+                var html = '<table class="table table-hover" id="transactionTable">' +
+                    '<thead><tr>' +
+                    '<th>@Localizer["Date"]</th>' +
+                    '<th>@Localizer["Description"]</th>' +
+                    '<th>@Localizer["From"]</th>' +
+                    '<th>@Localizer["To"]</th>' +
+                    '<th>@Localizer["Amount"]</th>' +
+                    '<th>@Localizer["Supporting Materials"]</th>' +
+                    '<th>@Localizer["Fix Error"]</th>' +
+                    '</tr></thead><tbody>';
+
+                data.forEach(function (t) {
+                    html += '<tr>';
+                    html += '<td>' + escapeHtml(t.TransactionTime) + '</td>';
+                    html += '<td>' + escapeHtml(t.Description) + '</td>';
+                    html += '<td>' + escapeHtml(t.SourceAccountName || '') + '</td>';
+                    html += '<td>' + escapeHtml(t.DestinationAccountName || '') + '</td>';
+                    html += '<td>' + formatNumber(t.Amount) + ' ' + escapeHtml(t.SourceCurrency || '');
+                    if (t.ExchangeRate !== 1) {
+                        html += '<br/><small class="text-muted">(' + formatNumber(t.ConvertedAmount) + ' ' + escapeHtml(t.DestinationCurrency || '') + ')</small>';
+                    }
+                    html += '</td>';
+                    // Supporting materials
+                    html += '<td>';
+                    var hasMaterial = false;
+                    if (t.InvoiceUrl) {
+                        html += '<a href="' + t.InvoiceUrl + '" target="_blank" title="@Localizer["Invoice"]"><i class="fas fa-file-invoice"></i></a> ';
+                        hasMaterial = true;
+                    }
+                    if (t.MT103Url) {
+                        html += '<a href="' + t.MT103Url + '" target="_blank" title="MT103"><i class="fas fa-file-contract"></i></a> ';
+                        hasMaterial = true;
+                    }
+                    if (t.PaymentVoucherUrl) {
+                        html += '<a href="' + t.PaymentVoucherUrl + '" target="_blank" title="@Localizer["Voucher"]"><i class="fas fa-receipt"></i></a> ';
+                        hasMaterial = true;
+                    }
+                    if (!hasMaterial) {
+                        html += '<i class="fas fa-paperclip text-gray-300" title="@Localizer["No Material"]"></i>';
+                    }
+                    html += '</td>';
+                    // Edit link
+                    html += '<td><a href="@Url.Action("EditTransaction", "Ledger")?id=' + t.Id + '&entityId=' + t.EntityId + '" title="@Localizer["Edit"]"><i class="fas fa-edit"></i></a></td>';
+                    html += '</tr>';
+                });
+
+                html += '</tbody></table>';
+                container.html(html);
+
+                $('#transactionTable').DataTable({
+                    "destroy": true,
+                    "responsive": true,
+                    "paging": true,
+                    "pageLength": 25,
+                    "searching": true,
+                    "info": false,
+                    "order": [[0, "desc"]]
+                });
+            });
+
+            // ── 4. Load Distribution (pie charts) – only for filtered account ──
+            @if (Model.FilteredAccount != null)
+            {
+                <text>
+                $.getJSON(buildApiUrl('DashboardDistributionApi'), function (data) {
+                    new Chart(document.getElementById("inflowPieChart"), {
+                        type: 'doughnut',
+                        data: {
+                            labels: Object.keys(data.InflowDistribution),
+                            datasets: [{
+                                data: Object.values(data.InflowDistribution),
+                                backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796', '#5a5c69'],
+                                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#dda20a', '#be2617', '#60616f', '#373840'],
+                                hoverBorderColor: "rgba(234, 236, 244, 1)",
+                            }],
+                        },
+                        options: {
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: true, position: 'bottom' } }
+                        },
+                    });
+
+                    new Chart(document.getElementById("outflowPieChart"), {
+                        type: 'doughnut',
+                        data: {
+                            labels: Object.keys(data.OutflowDistribution),
+                            datasets: [{
+                                data: Object.values(data.OutflowDistribution),
+                                backgroundColor: ['#e74a3b', '#f6c23e', '#4e73df', '#1cc88a', '#36b9cc', '#858796', '#5a5c69'],
+                                hoverBackgroundColor: ['#be2617', '#dda20a', '#2e59d9', '#17a673', '#2c9faf', '#60616f', '#373840'],
+                                hoverBorderColor: "rgba(234, 236, 244, 1)",
+                            }],
+                        },
+                        options: {
+                            maintainAspectRatio: false,
+                            plugins: { legend: { display: true, position: 'bottom' } }
+                        },
+                    });
+                });
+                </text>
+            }
+        });
+    </script>
+}

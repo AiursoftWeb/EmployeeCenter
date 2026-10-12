@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="Add new asset" xml:space="preserve">
+    <value>Lisää uusi varasto</value>
+  </data>
+  <data name="All Assets" xml:space="preserve">
+    <value>Kaikki varat</value>
+  </data>
+  <data name="Are you sure you want to return asset" xml:space="preserve">
+    <value>Oletko varma, että haluat palauttaa varaston varaston?</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Varaston kategoriat</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Laitemallit</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Välineen tunniste</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Määritä</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Määräys</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Peruuta</value>
+  </data>
+  <data name="Confirm Return" xml:space="preserve">
+    <value>Vahvista palautus</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Tiedot</value>
+  </data>
+  <data name="Download Invoice" xml:space="preserve">
+    <value>Lataa lasku</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Muokkaa</value>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>Yritys</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Tyhjä</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>Käytössä</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Lasku</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Sijainti</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Sijainnit</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Kadonnut</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>Huoltotila</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Hallinnoi varastoja</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Malli</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>Ei saatavilla</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Odottaa hyväksyntää</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Syy</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Poistettu käytöstä</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Palauta</value>
+  </data>
+  <data name="Return Asset" xml:space="preserve">
+    <value>Palauta varasto</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Tila</value>
+  </data>
+  <data name="to stock?" xml:space="preserve">
+    <value>varastoon?</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Toimittajat</value>
+  </data>
+
+</root>

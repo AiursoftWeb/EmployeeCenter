@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Balances" xml:space="preserve">
+    <value>계좌 잔고</value>
+  </data>
+  <data name="All Year" xml:space="preserve">
+    <value>전체 연도</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>금액</value>
+  </data>
+  <data name="Assets &amp; Liabilities Trend" xml:space="preserve">
+    <value>자산 및 부채 추이</value>
+  </data>
+  <data name="Bank Balance" xml:space="preserve">
+    <value>은행 잔액</value>
+  </data>
+  <data name="Bank Balance Less Liabilities" xml:space="preserve">
+    <value>은행 잔액에서 부채를 차감한 금액</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>현재 환율 적용</value>
+  </data>
+  <data name="Current Balance" xml:space="preserve">
+    <value>현재 잔액</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>대시보드</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>날짜</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>설명</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>수정</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>자본금</value>
+  </data>
+  <data name="Expenses" xml:space="preserve">
+    <value>지출</value>
+  </data>
+  <data name="Fix Error" xml:space="preserve">
+    <value>오류 수정</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>출처</value>
+  </data>
+  <data name="Health Metrics" xml:space="preserve">
+    <value>건강 지표</value>
+  </data>
+  <data name="Income &amp; Expense Chart" xml:space="preserve">
+    <value>수입 및 지출 차트</value>
+  </data>
+  <data name="Inflow" xml:space="preserve">
+    <value>수입</value>
+  </data>
+  <data name="Inflow Distribution" xml:space="preserve">
+    <value>유입 분포</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>송장</value>
+  </data>
+  <data name="Loading..." xml:space="preserve">
+    <value>로딩 중...</value>
+  </data>
+  <data name="Manage Accounts" xml:space="preserve">
+    <value>계정 관리</value>
+  </data>
+  <data name="Monthly Burn Rate" xml:space="preserve">
+    <value>월간 소비율</value>
+  </data>
+  <data name="Months" xml:space="preserve">
+    <value>개월</value>
+  </data>
+  <data name="Net Profit" xml:space="preserve">
+    <value>순이익</value>
+  </data>
+  <data name="New Transaction" xml:space="preserve">
+    <value>새 거래</value>
+  </data>
+  <data name="No Invoice" xml:space="preserve">
+    <value>송장 없음</value>
+  </data>
+  <data name="No Material" xml:space="preserve">
+    <value>자료 없음</value>
+  </data>
+  <data name="Outflow" xml:space="preserve">
+    <value>지출</value>
+  </data>
+  <data name="Outflow Distribution" xml:space="preserve">
+    <value>유출 분포</value>
+  </data>
+  <data name="Recent Transactions" xml:space="preserve">
+    <value>최근 거래</value>
+  </data>
+  <data name="Revenue" xml:space="preserve">
+    <value>수익</value>
+  </data>
+  <data name="Runway" xml:space="preserve">
+    <value>운영 자금 지속 기간</value>
+  </data>
+  <data name="Supporting Materials" xml:space="preserve">
+    <value>서포팅 매터리얼스</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="Total Assets" xml:space="preserve">
+    <value>총 자산</value>
+  </data>
+  <data name="Total Expenses" xml:space="preserve">
+    <value>총 지출</value>
+  </data>
+  <data name="Total Inflow" xml:space="preserve">
+    <value>총 수입</value>
+  </data>
+  <data name="Total Liabilities" xml:space="preserve">
+    <value>총 부채</value>
+  </data>
+  <data name="Total Outflow" xml:space="preserve">
+    <value>총 지출</value>
+  </data>
+  <data name="Total Revenue" xml:space="preserve">
+    <value>총 수익</value>
+  </data>
+  <data name="View All" xml:space="preserve">
+    <value>모두 보기</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>송장 보기</value>
+  </data>
+  <data name="Voucher" xml:space="preserve">
+    <value>증빙서류</value>
+  </data>
+
+</root>

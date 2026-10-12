@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>添加全局密码</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>添加新角色</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>添加新用户</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>允许审批或拒绝任何请假申请，不受汇报线限制，并可查看任何用户的请假记录。</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>允许批准或拒绝任何请假申请，不受汇报线限制。</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>允许批准、确认或拒绝任何员工的报销请求。</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>允许对项目需求进行同意、拒绝或要求变更的操作。所有人都可以提交需求并发表评论。</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>允许为任何用户分配或移除角色。</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>允许创建和管理公司的所有合同。</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>允许创建和管理新员工入职任务模板。</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>允许为公司创建合同。默认情况下，所有用户均可查看公开合同。</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>允许创建可以与他人共享的新全局密码。</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>允许创建问题、问卷调查以及查看反馈回复。</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>允许代表任何其他用户创建、编辑和删除周报。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>允许创建、更新和删除蓝图。默认情况下，每个用户都可以查看蓝图。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>允许创建、更新和删除收集渠道及其记录。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>允许创建、更新和删除公司实体信息。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>允许创建、更新和删除公司实体信息。默认情况下，所有用户均可查看公司实体信息。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>允许创建、更新和删除客户关系信息。默认情况下，所有用户均可查看客户关系。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>允许创建、更新和删除市场渠道信息。默认情况下，每个用户都可以查看市场渠道。</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>允许创建、更新和删除服务及DNS提供商。默认情况下，每个用户都可以查看服务。</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>允许创建、更新、退役和维护服务器、服务、提供商、DNS 提供商和域名别名。</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>允许为所有用户发放和管理工资单。</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>允许管理并删除由任何用户创建的全局密码。</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>允许管理公司的财务账户并记录交易。</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>允许管理公司的IT资产和无形资产（如域名、许可证），包括类别、型号和单个资产。同时也允许将资产分配给或从员工处收回资产。</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>允许管理公司的IT资产，包括类别、型号和单个物品。</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>允许管理公司的IT资产，包括类别、型号和单个物品。同时也允许将资产分配给员工或从员工处回收资产。</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>允许手动触发服务的 DNS 和可用性审计。</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>允许修改角色名称及其分配的权限。</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>允许修改用户信息，例如邮箱和角色，也可重置用户密码。</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>允许修改用户详细信息（如邮箱和角色），重置用户密码，以及查看包括工资在内的敏感用户详情。</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>允许为任何员工打印雇佣和收入证明。</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>允许打印本人的在职和收入证明。</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>允许运行只读的 Cloudflare DNS 审计并查看其结果。</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>允许运行只读服务审计并查看其结果。</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>允许永久删除角色。</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>允许永久删除用户账户。</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>允许用户与 AI 助手聊天以获取公司信息。</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>允许用户创建自己的周报。</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>允许用户填写并提交反馈问卷。</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>允许用户提交其费用的报销申请。</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>允许上传、删除会议录音，并重新触发语音转文字转录。</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>允许查看公司的所有合同，包括标记为私密的合同。</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>允许查看所有公司合同，包括标记为私有的合同。默认情况下，所有用户都可以查看公开合同。</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>允许查看和修改全局应用设置。</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>允许查看会议记录，以及收听或阅读任何录音的文字记录。</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>允许查看服务健康摘要、观察结果以及详细的审计发现。</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>允许查看系统级信息和设置。</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>允许查看后台任务仪表板并管理任务。</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>允许查看所有集合渠道及其记录列表。</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>允许查看所有权限及其分配给角色和用户的列表。</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>允许查看所有用户的列表。</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>允许查看角色列表及其分配的权限。</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>允许查看任何用户的操作日志，包括其银行卡变更历史。</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>允许查看任何用户的汇报线，包括其上级、下属及平级。</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>允许查看服务器和服务注册表、部署关系以及基础设施参考数据。</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>允许查看、编辑和删除任何用户的 SSH 公钥。</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>审批任何请假</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>审批项目需求</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>批准报销</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>为用户分配角色</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>审计 DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>审计服务</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>审计服务（旧版）</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>咨询 AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>创建和管理公司的合同</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>创建公司合同</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>创建周报</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>删除角色</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>删除用户</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>编辑并查看用户详情</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>编辑角色信息</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>编辑用户信息</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>授予创建新角色的权限。</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>授予创建新用户账户的权限。</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>授予重启应用程序实例的权限。可能导致服务中断，但所有设置和缓存都将重新加载。</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>出于过渡考虑保留的旧版权限。请将“管理基础设施”权限分配给仍需访问权限的角色。</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>保留此旧权限以用于过渡。请根据需求分配“查看服务审计”和“运行服务审计”权限。</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>管理任何密码</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>管理任何人的周报</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>管理资产</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>管理蓝图</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>管理收款渠道</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>管理公司基本实体信息</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>管理客户关系</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>管理反馈</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>管理全局设置</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>管理基础设施</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>请假管理</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>管理账簿</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>管理市场渠道</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>管理会议记录</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>管理入职任务</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>管理薪资</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>管理服务</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>管理服务（旧版）</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>管理 SSH 公钥</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>打印证书</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>打印个人证明文件</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>读取权限</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>查看角色</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>查看用户</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>重启此应用</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>运行服务审计</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>提交反馈</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>提交报销</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>查看公司的任意合同，包含私密合同</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>查看后台任务</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>查看收款渠道</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>查看基础设施</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>查看会议记录</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>查看汇报线</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>查看服务审计</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>查看系统上下文</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>查看用户操作日志</value>
+  </data>
+
+  <data name="Manage Business Qualifications" xml:space="preserve"><value>管理业务资质</value></data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve"><value>允许上传、启用和停用私有资质原件、查看所有下载记录及检测追踪水印。</value></data>
+</root>

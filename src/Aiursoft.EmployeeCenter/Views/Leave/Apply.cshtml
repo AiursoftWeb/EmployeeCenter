@@ -1,0 +1,428 @@
+@model Aiursoft.EmployeeCenter.Models.LeaveViewModels.ApplyViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Apply for Leave"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Leave Application Form"]</h5>
+                <h6 class="card-subtitle text-muted">@Localizer["Select your leave dates and provide a reason for your leave."]</h6>
+            </div>
+            <div class="card-body">
+                <form asp-action="Apply" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="LeaveType" class="form-label">@Localizer["Leave Type"]</label>
+                        <select asp-for="LeaveType" class="form-select" required>
+                            <option value="0">@Localizer["Annual Leave"]</option>
+                            <option value="1">@Localizer["Sick Leave"]</option>
+                        </select>
+                        <span asp-validation-for="LeaveType" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="StartDate" class="form-label">@Localizer["Start Date"]</label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                            <input asp-for="StartDate" type="date" class="form-control" id="startDate" required />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="EndDate" class="form-label">@Localizer["End Date"]</label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                            <input asp-for="EndDate" type="date" class="form-control" id="endDate" required />
+                            <span asp-validation-for="EndDate" class="text-danger"></span>
+                            <small class="form-text text-muted">@Localizer["Last day of your leave (inclusive)"]</small>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">@Localizer["Calendar View"]</label>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <button type="button" id="prevMonth" class="btn btn-sm btn-outline-secondary">
+                                <i class="align-middle" data-lucide="chevron-left"></i>
+                                @Localizer["Previous"]
+                            </button>
+                            <h6 class="mb-0" id="currentMonthYear"></h6>
+                            <button type="button" id="nextMonth" class="btn btn-sm btn-outline-secondary">
+                                @Localizer["Next"]
+                                <i class="align-middle" data-lucide="chevron-right"></i>
+                            </button>
+                        </div>
+                        <div id="calendar" class="border rounded p-3"></div>
+                        <div id="calendarSummary" class="mt-2 text-muted"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Reason" class="form-label">@Localizer["Reason"]</label>
+                        <textarea asp-for="Reason" class="form-control" rows="4" maxlength="500" required></textarea>
+                        <span asp-validation-for="Reason" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="align-middle" data-lucide="send"></i>
+                            @Localizer["Submit Application"]
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="align-middle" data-lucide="x"></i>
+                            @Localizer["Cancel"]
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-xl-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Calendar Legend"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                    <div style="width: 30px; height: 30px; background-color: #e9ecef; border: 1px solid #dee2e6;" class="me-2"></div>
+                    <span>@Localizer["Weekend / Holiday"]</span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <div style="width: 30px; height: 30px; background-color: white; border: 1px solid #dee2e6;" class="me-2"></div>
+                    <span>@Localizer["Working Day"]</span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <div style="width: 30px; height: 30px; background-color: #0d6efd; border: 1px solid #0d6efd;" class="me-2"></div>
+                    <span>@Localizer["Selected Leave Day"]</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Important Notes"]</h5>
+            </div>
+            <div class="card-body">
+                <ul class="mb-0">
+                    <li>@Localizer["Can apply for leave from 7 days ago to end of current year"]</li>
+                    <li>@Localizer["Allows retroactive entry for leaves already taken"]</li>
+                    <li>@Localizer["Only working days are counted (weekends and holidays excluded)"]</li>
+                    <li>@Localizer["Annual leave requires approval"]</li>
+                    <li>@Localizer["Sick leave requires supporting documents after return"]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <style>
+        #calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        
+        .calendar-day:hover:not(.disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .calendar-day.working-day {
+            background-color: white;
+        }
+        
+        .calendar-day.non-working {
+            background-color: #e9ecef;
+            color: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .calendar-day.selected {
+            background-color: #0d6efd;
+            color: white;
+            border-color: #0d6efd;
+        }
+        
+        .calendar-day.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .calendar-day-number {
+            font-weight: 600;
+        }
+        
+        .calendar-day-label {
+            font-size: 0.7rem;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const startDate = document.getElementById("startDate");
+            const endDate = document.getElementById("endDate");
+            const calendar = document.getElementById("calendar");
+            const calendarSummary = document.getElementById("calendarSummary");
+            const prevMonthBtn = document.getElementById("prevMonth");
+            const nextMonthBtn = document.getElementById("nextMonth");
+            const currentMonthYearDisplay = document.getElementById("currentMonthYear");
+            
+            let holidays = new Set();
+            let selectedRange = { start: null, end: null };
+            let currentViewMonth = new Date(); // The month being displayed
+            currentViewMonth.setDate(1); // Set to first day of month
+            currentViewMonth.setHours(0, 0, 0, 0);
+            
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            // Calculate constraints - allow 7 days back, up to end of current year
+            const minAllowedDate = new Date(today);
+            minAllowedDate.setDate(minAllowedDate.getDate() - 7); // 7 days in the past
+            
+            const maxAllowedDate = new Date(today.getFullYear(), 11, 31); // End of current year
+            
+            // Set date input limits for validation
+            const minInputDate = new Date(today);
+            minInputDate.setDate(minInputDate.getDate() - 7); // 7 days back
+            const maxInputDate = new Date(today.getFullYear(), 11, 31); // End of year
+            
+            startDate.min = minInputDate.toISOString().split('T')[0];
+            startDate.max = maxInputDate.toISOString().split('T')[0];
+            endDate.min = minInputDate.toISOString().split('T')[0];
+            endDate.max = maxInputDate.toISOString().split('T')[0];
+            
+            // Month navigation
+            prevMonthBtn.addEventListener("click", function() {
+                const newMonth = new Date(currentViewMonth);
+                newMonth.setMonth(newMonth.getMonth() - 1);
+                
+                // Check if new month is within allowed range
+                if (newMonth >= minAllowedDate) {
+                    currentViewMonth = newMonth;
+                    loadAndRenderCalendar();
+                }
+            });
+            
+            nextMonthBtn.addEventListener("click", function() {
+                const newMonth = new Date(currentViewMonth);
+                newMonth.setMonth(newMonth.getMonth() + 1);
+                
+                // Check if new month is within current year
+                if (newMonth.getFullYear() <= today.getFullYear() && newMonth <= maxAllowedDate) {
+                    currentViewMonth = newMonth;
+                    loadAndRenderCalendar();
+                }
+            });
+            
+            // Helper to format date as YYYY-MM-DD in local time
+            function formatDate(date) {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+
+            // Fetch holidays from API for the displayed month
+            async function loadHolidays() {
+                try {
+                    const monthStart = new Date(currentViewMonth);
+                    const monthEnd = new Date(currentViewMonth.getFullYear(), currentViewMonth.getMonth() + 1, 0);
+                    
+                    const response = await fetch(`@Url.Action("GetHolidays")?start=${formatDate(monthStart)}&end=${formatDate(monthEnd)}`);
+                    const data = await response.json();
+                    holidays = new Set(data.holidays);
+                } catch (error) {
+                    console.error("Failed to load holidays:", error);
+                    holidays = new Set();
+                }
+            }
+            
+            async function loadAndRenderCalendar() {
+                await loadHolidays();
+                renderCalendar();
+                updateNavigationButtons();
+            }
+            
+            function updateNavigationButtons() {
+                // Update month/year display
+                const monthNames = ['@Localizer["January"]', '@Localizer["February"]', '@Localizer["March"]', '@Localizer["April"]', '@Localizer["May"]', '@Localizer["June"]', '@Localizer["July"]', '@Localizer["August"]', '@Localizer["September"]', '@Localizer["October"]', '@Localizer["November"]', '@Localizer["December"]'];
+                currentMonthYearDisplay.textContent = `${monthNames[currentViewMonth.getMonth()]} ${currentViewMonth.getFullYear()}`;
+                
+                // Disable/enable navigation buttons based on constraints
+                const prevMonth = new Date(currentViewMonth);
+                prevMonth.setMonth(prevMonth.getMonth() - 1);
+                prevMonthBtn.disabled = prevMonth < minAllowedDate;
+                
+                const nextMonth = new Date(currentViewMonth);
+                nextMonth.setMonth(nextMonth.getMonth() + 1);
+                nextMonthBtn.disabled = nextMonth.getFullYear() > today.getFullYear();
+            }
+            
+            function isHoliday(date) {
+                const dateStr = formatDate(date);
+                return holidays.has(dateStr);
+            }
+            
+            function isWorkingDay(date) {
+                // Server determines all non-working days (including weekends)
+                return !isHoliday(date);
+            }
+            
+            function renderCalendar() {
+                calendar.innerHTML = "";
+                
+                // Add day headers (starting with Sunday)
+                const dayNames = ['@Localizer["Sun"]', '@Localizer["Mon"]', '@Localizer["Tue"]', '@Localizer["Wed"]', '@Localizer["Thu"]', '@Localizer["Fri"]', '@Localizer["Sat"]'];
+                dayNames.forEach(day => {
+                    const header = document.createElement("div");
+                    header.className = "calendar-day-label text-center fw-bold mb-2";
+                    header.textContent = day;
+                    calendar.appendChild(header);
+                });
+                
+                // Get first day of the month and calculate starting position
+                const firstDayOfMonth = new Date(currentViewMonth);
+                const lastDayOfMonth = new Date(currentViewMonth.getFullYear(), currentViewMonth.getMonth() + 1, 0);
+                
+                // Get the day of week for the first day (0 = Sunday)
+                const startDayOfWeek = firstDayOfMonth.getDay();
+                
+                // Add empty cells for days before the month starts
+                for (let i = 0; i < startDayOfWeek; i++) {
+                    const emptyCell = document.createElement("div");
+                    emptyCell.className = "calendar-day disabled";
+                    calendar.appendChild(emptyCell);
+                }
+                
+                // Render actual days of the month
+                const currentDate = new Date(firstDayOfMonth);
+                while (currentDate <= lastDayOfMonth) {
+                    const dayElement = document.createElement("div");
+                    const dateStr = formatDate(currentDate);
+                    const isWorking = isWorkingDay(currentDate);
+                    const isTooOld = currentDate < minInputDate; // Before 7 days ago
+                    const isTooFar = currentDate > maxInputDate; // After end of year
+                    
+                    dayElement.className = "calendar-day";
+                    dayElement.className += isWorking ? " working-day" : " non-working";
+                    
+                    // Mark dates outside allowed range as disabled
+                    if (isTooOld || isTooFar) {
+                        dayElement.classList.add("disabled");
+                    }
+                    
+                    // Check if in selected range
+                    if (selectedRange.start && selectedRange.end) {
+                        const date = new Date(currentDate);
+                        if (date >= selectedRange.start && date <= selectedRange.end) {
+                            dayElement.classList.add("selected");
+                        }
+                    }
+                    
+                    dayElement.innerHTML = `
+                        <div class="calendar-day-number">${currentDate.getDate()}</div>
+                    `;
+                    
+                    dayElement.dataset.date = dateStr;
+                    
+                    if (isWorking && !isTooOld && !isTooFar) {
+                        dayElement.onclick = function() {
+                            selectDate(new Date(this.dataset.date + 'T00:00:00'));
+                        };
+                    }
+                    calendar.appendChild(dayElement);
+                    
+                    currentDate.setDate(currentDate.getDate() + 1);
+                }
+                
+                updateSummary();
+            }
+            
+            function selectDate(date) {
+                if (!selectedRange.start || (selectedRange.start && selectedRange.end)) {
+                    // Start new selection
+                    selectedRange.start = date;
+                    selectedRange.end = null;
+                    startDate.value = formatDate(date);
+                    endDate.value = "";
+                } else {
+                    // Complete selection
+                    if (date < selectedRange.start) {
+                        selectedRange.end = selectedRange.start;
+                        selectedRange.start = date;
+                    } else {
+                        selectedRange.end = date;
+                    }
+                    startDate.value = formatDate(selectedRange.start);
+                    endDate.value = formatDate(selectedRange.end);
+                }
+                renderCalendar();
+            }
+            
+            function updateSummary() {
+                if (!selectedRange.start || !selectedRange.end) {
+                    calendarSummary.textContent = '@Localizer["Click on working days to select your leave period"]';
+                    return;
+                }
+                
+                let workingDays = 0;
+                let totalDays = 0;
+                const current = new Date(selectedRange.start);
+                
+                while (current <= selectedRange.end) {
+                    totalDays++;
+                    if (isWorkingDay(current)) {
+                        workingDays++;
+                    }
+                    current.setDate(current.getDate() + 1);
+                }
+                
+                calendarSummary.innerHTML = `
+                    <strong>@Localizer["Selected Period"]:</strong> ${selectedRange.start.toLocaleDateString()} - ${selectedRange.end.toLocaleDateString()} 
+                    (<strong>${workingDays}</strong> @Localizer["working days"], ${totalDays} @Localizer["total days"])
+                `;
+            }
+            
+            // Update calendar when dates change manually
+            startDate.addEventListener("change", function() {
+                if (this.value) {
+                    selectedRange.start = new Date(this.value + 'T00:00:00');
+                    if (endDate.value) {
+                        selectedRange.end = new Date(endDate.value + 'T00:00:00');
+                    }
+                    renderCalendar();
+                }
+            });
+            
+            endDate.addEventListener("change", function() {
+                if (this.value) {
+                    selectedRange.end = new Date(this.value + 'T00:00:00');
+                    if (startDate.value) {
+                        selectedRange.start = new Date(startDate.value + 'T00:00:00');
+                    }
+                    renderCalendar();
+                }
+            });
+            
+            // Initialize
+            loadAndRenderCalendar();
+        });
+    </script>
+}

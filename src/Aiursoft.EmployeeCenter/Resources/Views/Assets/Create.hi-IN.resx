@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add New Asset" xml:space="preserve">
+    <value>नया संपत्ति जोड़ें</value>
+  </data>
+  <data name="Already Reimbursed" xml:space="preserve">
+    <value>पहले से ही रिफंड किया गया</value>
+  </data>
+  <data name="Asset Tag must be unique. It&apos;s recommended to follow a consistent naming convention like ASM-YYYY-NNN." xml:space="preserve">
+    <value>एसेट टैग अद्वितीय होना चाहिए। एक सुसंगत नामकरण प्रणाली अपनाने की सिफारिश की जाती है, जैसे ASM-YYYY-NNN।</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>मूल जानकारी</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="e.g. ASM-2024-001" xml:space="preserve">
+    <value>उदा. ASM-2024-001</value>
+  </data>
+  <data name="Financial Information" xml:space="preserve">
+    <value>वित्तीय जानकारी</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>नया</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>अनुसूचित नहीं</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>रीलोड</value>
+  </data>
+  <data name="Save Asset" xml:space="preserve">
+    <value>सेव एसेट</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>एंटिटी चुनें</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>स्थान चुनें</value>
+  </data>
+  <data name="Select Model" xml:space="preserve">
+    <value>मॉडल चुनें</value>
+  </data>
+  <data name="Select Vendor" xml:space="preserve">
+    <value>वेंडर चुनें</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>सुझाव</value>
+  </data>
+  <data name="Upload the invoice to keep financial records traceable." xml:space="preserve">
+    <value>इन्वॉइस अपलोड करें ताकि वित्तीय रिकॉर्ड ट्रेसेबल बने रहें।</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>घटना रिकॉर्ड समय अंतर्राष्ट्रीय समय है!</value>
+  </data>
+
+</root>

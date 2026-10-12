@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account (Card Number)" xml:space="preserve">
+    <value>Банковский счет (номер карты)</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Имя банковского счета</value>
+  </data>
+  <data name="Bank Name (Branch)" xml:space="preserve">
+    <value>Название банка (филиал)</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Время создания</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>Фамилия и имя</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Легенда</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Руководитель</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Отсутствует</value>
+  </data>
+  <data name="Peer" xml:space="preserve">
+    <value>Коллега</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="Please select a user first." xml:space="preserve">
+    <value>Сначала выберите пользователя.</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>Должность</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Линия отчётности</value>
+  </data>
+  <data name="Search Person" xml:space="preserve">
+    <value>Поиск сотрудника</value>
+  </data>
+  <data name="Subordinate" xml:space="preserve">
+    <value>Подчинённый</value>
+  </data>
+  <data name="Target" xml:space="preserve">
+    <value>Цель</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Должность</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Сведения о пользователе</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Имя пользователя</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Просмотреть цепочку отчётности</value>
+  </data>
+  <data name="Visual Report Line" xml:space="preserve">
+    <value>Визуальная линия отчётности</value>
+  </data>
+  <data name="You have to log in to view report line." xml:space="preserve">
+    <value>Для просмотра цепочки отчётности необходимо войти в систему.</value>
+  </data>
+
+</root>

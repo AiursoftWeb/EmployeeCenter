@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>全部下载记录</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>公司主体</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>检测隐形水印</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>每次上传均为独立版本。更新时请上传新版并停用旧版，已停用的资质可以重新启用。原有公司证照链接不会自动迁移，上线前请移除旧公开原件及旧下载入口。</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>启用资质后员工才能使用。停止使用后无法生成、预览或下载，原有追踪记录会保留。</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>管理业务资质</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>暂无可用资质。</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>资质</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Stop Use" xml:space="preserve">
+    <value>停止使用</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>添加资质</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+</root>

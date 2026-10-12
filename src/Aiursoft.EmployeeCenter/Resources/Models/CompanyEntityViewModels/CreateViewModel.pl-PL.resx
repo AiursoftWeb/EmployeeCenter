@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Konto bankowe</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Nazwa konta bankowego</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Adres banku</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>Kod banku</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Nazwa banku</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>Waluta bazowa</value>
+  </data>
+  <data name="Business License / BR Scan" xml:space="preserve">
+    <value>Dowód działalności / Skan BR</value>
+  </data>
+  <data name="Business Registration (BR / Business License)" xml:space="preserve">
+    <value>Rejestracja firmowa (BR / Zezwolenie na działalność)</value>
+  </data>
+  <data name="CI Number (HK)" xml:space="preserve">
+    <value>Numer CI (HK)</value>
+  </data>
+  <data name="Company Logo" xml:space="preserve">
+    <value>Logo firmy</value>
+  </data>
+  <data name="Company Name (Chinese)" xml:space="preserve">
+    <value>Nazwa firmy (chiński)</value>
+  </data>
+  <data name="Company Name (English)" xml:space="preserve">
+    <value>Nazwa firmy (angielski)</value>
+  </data>
+  <data name="Company Seal" xml:space="preserve">
+    <value>Pieczęć firmy</value>
+  </data>
+  <data name="Company Secretary (HK)" xml:space="preserve">
+    <value>Sekretarz Spółki (HK)</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Typ firmy</value>
+  </data>
+  <data name="Create corresponding ledger" xml:space="preserve">
+    <value>Utwórz odpowiedni rejestry</value>
+  </data>
+  <data name="Entity Code (Social Credit Code / BR Number)" xml:space="preserve">
+    <value>Kod jednostki (Kod kredytu społecznego / Nr BR)</value>
+  </data>
+  <data name="Establishment Date" xml:space="preserve">
+    <value>Data założenia</value>
+  </data>
+  <data name="Expiry Date (Business License / BR)" xml:space="preserve">
+    <value>Data wygaśnięcia (uprawnienia do prowadzenia działalności / BR)</value>
+  </data>
+  <data name="Legal Representative / Director" xml:space="preserve">
+    <value>Reprezentant prawny / Dyrektor</value>
+  </data>
+  <data name="Legal Representative Legal Name" xml:space="preserve">
+    <value>Imię i nazwisko reprezentanta prawno</value>
+  </data>
+  <data name="Office Address" xml:space="preserve">
+    <value>Adres biura</value>
+  </data>
+  <data name="Operation Status" xml:space="preserve">
+    <value>Status działalności</value>
+  </data>
+  <data name="Organization Certificate (CR / Org Code)" xml:space="preserve">
+    <value>Certyfikat organizacji (CR / Kod organizacji)</value>
+  </data>
+  <data name="Please upload a valid certificate file." xml:space="preserve">
+    <value>Proszę przesłać ważny plik certyfikatu.</value>
+  </data>
+  <data name="Please upload a valid license file." xml:space="preserve">
+    <value>Proszę przesłać ważny plik licencji.</value>
+  </data>
+  <data name="Please upload a valid logo file." xml:space="preserve">
+    <value>Proszę przesłać poprawny plik logo.</value>
+  </data>
+  <data name="Please upload a valid seal file." xml:space="preserve">
+    <value>Proszę przesłać poprawny plik pieczęci.</value>
+  </data>
+  <data name="Registered Address" xml:space="preserve">
+    <value>Adres rejestracyjny</value>
+  </data>
+  <data name="Registered Capital (Mainland)" xml:space="preserve">
+    <value>Kapitał zarejestrowany (Chiny główne)</value>
+  </data>
+  <data name="SCR Location (HK)" xml:space="preserve">
+    <value>Miejsce zamieszkania SCR (HK)</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Kod SWIFT</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Wartość {0} nie może przekraczać {1} znaków.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Pole {0} jest wymagane.</value>
+  </data>
+  <data name="Zip Code" xml:space="preserve">
+    <value>Kod pocztowy</value>
+  </data>
+
+</root>

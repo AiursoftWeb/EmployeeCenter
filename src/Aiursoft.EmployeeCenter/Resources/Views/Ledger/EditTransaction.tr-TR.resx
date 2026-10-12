@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Amount" xml:space="preserve">
+    <value>Tutar</value>
+  </data>
+  <data name="Are you sure you want to delete this transaction? This action cannot be undone." xml:space="preserve">
+    <value>Bu işlemi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Default is 1. How much Destination currency equals 1 Source currency unit." xml:space="preserve">
+    <value>Varsayılan 1&apos;dir. 1 Kaynak para birimi kaç Hedef para birimine eşittir?</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Delete Transaction" xml:space="preserve">
+    <value>İşlemi Sil</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Destination Account" xml:space="preserve">
+    <value>Hedef Hesap</value>
+  </data>
+  <data name="Destination Account (To)" xml:space="preserve">
+    <value>Hesap (Alıcı)</value>
+  </data>
+  <data name="e.g. Pay Sleek for Professional Fee" xml:space="preserve">
+    <value>Örn. Sleek için profesyonel ücret ödemesi</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>İşlemi Düzenle</value>
+  </data>
+  <data name="Exchange Rate" xml:space="preserve">
+    <value>Döviz Kuru</value>
+  </data>
+  <data name="Invoice Attachment" xml:space="preserve">
+    <value>Fatura Ek Dosyası</value>
+  </data>
+  <data name="MT103 Attachment" xml:space="preserve">
+    <value>MT103 Ek Dosyası</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>İsteğe Bağlı</value>
+  </data>
+  <data name="Payment Voucher Attachment" xml:space="preserve">
+    <value>Ödeme Fişi Ekleri</value>
+  </data>
+  <data name="Select Account" xml:space="preserve">
+    <value>Hesap Seç</value>
+  </data>
+  <data name="Source Account" xml:space="preserve">
+    <value>Kaynak Hesap</value>
+  </data>
+  <data name="Source Account (From)" xml:space="preserve">
+    <value>Kaynak Hesap (Giden)</value>
+  </data>
+  <data name="Transaction Time" xml:space="preserve">
+    <value>İşlem Zamanı</value>
+  </data>
+  <data name="Update Transaction" xml:space="preserve">
+    <value>Güncelle İşlem</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Olay kaydı zamanı koordineli evrensel zamandır!</value>
+  </data>
+
+</root>

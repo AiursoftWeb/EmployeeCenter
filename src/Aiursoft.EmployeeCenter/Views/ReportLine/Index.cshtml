@@ -1,0 +1,271 @@
+@using Aiursoft.EmployeeCenter.Authorization
+@using Microsoft.AspNetCore.Authorization
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@using System.Net
+@model Aiursoft.EmployeeCenter.Models.ReportLineViewModels.IndexViewModel
+@inject IAuthorizationService AuthorizationService
+@inject StorageService StorageService
+
+@functions {
+    string GetSafeId(string id) => "u_" + id.Replace("-", "_");
+
+    string GetNodeLabel(User user)
+    {
+        var avatarUrl = StorageService.RelativePathToInternetUrl(user.AvatarRelativePath) + "?w=100&square=true";
+        var label = $@"
+<div style='width: 200px; padding: 8px; box-sizing: border-box; text-align: left;'>
+    <a href='/ReportLine/Index/{user.Id}' style='text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;'>
+        <div style='width: 40px; height: 40px; min-width: 40px; margin-right: 12px; display: flex; align-items: center; justify-content: center;'>
+            <img src='{avatarUrl}' style='width: 40px !important; height: 40px !important; border-radius: 50% !important; object-fit: cover !important; max-width: none !important;' />
+        </div>
+        <div style='text-align: left; line-height: 1.3; flex-grow: 1; overflow: hidden;'>
+            <div style='font-weight: 700; font-size: 14px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'>{WebUtility.HtmlEncode(user.DisplayName)}</div>
+            @{(string.IsNullOrEmpty(user.JobLevel) && string.IsNullOrEmpty(user.Title) ? "" : $"<div style='font-size: 11px; background-color: rgba(0,0,0,0.06); padding: 1px 6px; border-radius: 4px; display: inline-block; color: #444; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;'>{WebUtility.HtmlEncode(user.JobLevel ?? "")}{(string.IsNullOrEmpty(user.JobLevel) || string.IsNullOrEmpty(user.Title) ? "" : " | ")}{WebUtility.HtmlEncode(user.Title ?? "")}</div>")}
+        </div>
+    </a>
+</div>";
+        return $"\"{label}\"";
+    }
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Report Line"]</h3>
+    </div>
+</div>
+
+@if (Model.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <div class="alert-message">
+            @Model.Error
+        </div>
+    </div>
+}
+
+@if (Model.IsViewingSelf || (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanViewReportLine)).Succeeded)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Search Person"]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-end">
+                        <div class="col-12 mb-3">
+                            <partial name="_UserSelector" model='("TargetUserId", "TargetUserName", "", "")' />
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary w-100" onclick="viewTargetReportLine()">@Localizer["View Report Line"]</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3 d-none d-md-block">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Legend"]</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column gap-2">
+                        <span><span class="badge shadow" style="background-color: #E3F2FD; color: #1565C0;">&nbsp;</span> @Localizer["Manager"]</span>
+                        <span><span class="badge shadow" style="background-color: #F3E5F5; color: #7B1FA2;">&nbsp;</span> @Localizer["Target"]</span>
+                        <span><span class="badge shadow" style="background-color: #FFF3E0; color: #EF6C00;">&nbsp;</span> @Localizer["Peer"]</span>
+                        <span><span class="badge shadow" style="background-color: #E8F5E9; color: #2E7D32;">&nbsp;</span> @Localizer["Subordinate"]</span>
+                    </div>
+                </div>
+            </div>
+
+            @if (Model.IsViewingSelf || (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanReadUsers)).Succeeded)
+            {
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">@Localizer["User Details"]</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm my-2">
+                            <tbody>
+                                <tr>
+                                    <th>@Localizer["Username"]</th>
+                                    <td>@Model.TargetUser.UserName</td>
+                                </tr>
+                                <tr>
+                                    <th>@Localizer["Creation Time"]</th>
+                                    <td><label class="text-muted" data-utc-time="@Model.TargetUser.CreationTime.ToHtmlDateTime()"></label></td>
+                                </tr>
+                                <tr>
+                                    <th>@Localizer["Rank"]</th>
+                                    <td>@(Model.TargetUser.JobLevel ?? "N/A")</td>
+                                </tr>
+                                <tr>
+                                    <th>@Localizer["Title"]</th>
+                                    <td>@(Model.TargetUser.Title ?? "N/A")</td>
+                                </tr>
+                                <tr>
+                                    <th>@Localizer["Legal Name"]</th>
+                                    <td>@(Model.TargetUser.LegalName ?? "N/A")</td>
+                                </tr>
+                                <tr>
+                                    <th>@Localizer["Phone Number"]</th>
+                                    <td>@(Model.TargetUser.PhoneNumber ?? "N/A")</td>
+                                </tr>
+                                @if (Model.IsViewingSelf || (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAndViewDetailsOfUsers)).Succeeded)
+                                {
+                                    <tr>
+                                        <th>@Localizer["Bank Name (Branch)"]</th>
+                                        <td>@(Model.TargetUser.BankName ?? "N/A")</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Localizer["Bank Account (Card Number)"]</th>
+                                        <td>@(Model.TargetUser.BankAccount ?? "N/A")</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Localizer["Bank Account Name"]</th>
+                                        <td>@(Model.TargetUser.BankAccountName ?? "N/A")</td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <th>@Localizer["Manager"]</th>
+                                    <td>
+                                        @if (Model.TargetUser.Manager != null)
+                                        {
+                                            <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.TargetUser.ManagerId">
+                                                @Model.TargetUser.Manager.DisplayName
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            @Localizer["None"]
+                                        }
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0"><i class="align-middle me-2" data-lucide="network"></i> @Localizer["Visual Report Line"]</h5>
+                </div>
+                <div class="card-body overflow-auto">
+                    <div class="mermaid">
+                        graph TD
+                        classDef targetUser fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,rx:10,ry:10
+                        classDef manager fill:#E3F2FD,stroke:#1565C0,rx:10,ry:10
+                        classDef peer fill:#FFF3E0,stroke:#EF6C00,rx:10,ry:10
+                        classDef subordinate fill:#E8F5E9,stroke:#2E7D32,rx:10,ry:10
+
+                        @{
+                            var chain = Model.ManagerChain.AsEnumerable().Reverse().ToList();
+                            foreach (var m in chain)
+                            {
+                                <text>@(GetSafeId(m.Id))(@Html.Raw(GetNodeLabel(m))):::manager
+                                </text>
+                                <text>click @GetSafeId(m.Id) href "/ReportLine/Index/@m.Id"
+                                </text>
+                            }
+
+                            for (int i = 0; i < chain.Count; i++)
+                            {
+                                if (i < chain.Count - 1)
+                                {
+                                    <text>@GetSafeId(chain[i].Id) --> @GetSafeId(chain[i+1].Id)
+                                    </text>
+                                }
+                                else
+                                {
+                                    <text>@GetSafeId(chain[i].Id) --> @GetSafeId(Model.TargetUser.Id)
+                                    </text>
+                                }
+                            }
+                        }
+
+                        @(GetSafeId(Model.TargetUser.Id))(@Html.Raw(GetNodeLabel(Model.TargetUser))):::targetUser
+                        click @GetSafeId(Model.TargetUser.Id) href "/ReportLine/Index/@Model.TargetUser.Id"
+
+                        @foreach (var peer in Model.Peers)
+                        {
+                            <text>@(GetSafeId(peer.Id))(@Html.Raw(GetNodeLabel(peer))):::peer
+                            </text>
+                            <text>click @GetSafeId(peer.Id) href "/ReportLine/Index/@peer.Id"
+                            </text>
+                            if (Model.TargetUser.ManagerId != null)
+                            {
+                                <text>@GetSafeId(Model.TargetUser.ManagerId) --> @GetSafeId(peer.Id)
+                                </text>
+                            }
+                        }
+
+                        @foreach (var sub in Model.Subordinates)
+                        {
+                            <text>@(GetSafeId(sub.Id))(@Html.Raw(GetNodeLabel(sub))):::subordinate
+                            </text>
+                            <text>click @GetSafeId(sub.Id) href "/ReportLine/Index/@sub.Id"
+                            </text>
+                            <text>@GetSafeId(Model.TargetUser.Id) --> @GetSafeId(sub.Id)
+                            </text>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function viewTargetReportLine() {
+            const targetId = document.getElementById('user-id-hidden-TargetUserId').value;
+            if (targetId) {
+                window.location.href = '/ReportLine/Index/' + targetId;
+            } else {
+                alert('@Localizer["Please select a user first."]');
+            }
+        }
+    </script>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            @Localizer["You have to log in to view report line."]
+        </div>
+    </div>
+}
+
+<script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
+<script>
+    mermaid.initialize({ 
+        startOnLoad: true,
+        securityLevel: 'strict',
+        theme: 'base',
+        themeVariables: {
+            fontFamily: 'Inter, system-ui, sans-serif',
+            fontSize: '14px',
+            lineColor: '#607D8B'
+        },
+        flowchart: {
+            htmlLabels: true,
+            curve: 'basis',
+            useMaxWidth: false
+        }
+    });
+</script>
+
+<style>
+    .mermaid {
+        display: flex;
+        justify-content: center;
+        min-height: 400px;
+        background-color: #fff;
+    }
+    
+    .mermaid svg {
+        max-width: 100%;
+        height: auto;
+        width: auto !important;
+    }
+</style>

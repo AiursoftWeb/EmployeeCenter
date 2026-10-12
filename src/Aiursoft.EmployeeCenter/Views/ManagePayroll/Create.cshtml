@@ -1,0 +1,445 @@
+@model Aiursoft.EmployeeCenter.Models.PayrollViewModels.CreateViewModel
+
+@* ReSharper disable Razor.ResourceNotResolved *@
+<h1 class="h3 mb-3">@Localizer["Issue New Payroll"]</h1>
+
+<div class="row">
+    <div class="col-12">
+        <form asp-action="Create" id="payrollForm">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Payroll Configuration"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="UserId" class="form-label">@Localizer["Select User"]</label>
+                            <select asp-for="UserId" class="form-select" id="userSelect" asp-items="@(new SelectList(Model.AllUsers, "Id", "DisplayName"))">
+                                <option value="">-- @Localizer["Select User"] --</option>
+                            </select>
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="TargetMonth" class="form-label">@Localizer["Target Month"]</label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                            <input asp-for="TargetMonth" class="form-control" type="month" value="@Model.TargetMonth.ToString("yyyy-MM")" />
+                            <span asp-validation-for="TargetMonth" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="Currency" class="form-label">@Localizer["Currency"]</label>
+                            <select asp-for="Currency" class="form-select" asp-items="@(new SelectList(Model.CurrencyOptions, "Key", "Value"))"></select>
+                            <span asp-validation-for="Currency" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="Content" class="form-label">@Localizer["Remark / Content"]</label>
+                            <input asp-for="Content" class="form-control" placeholder="@Localizer["Optional remarks..."]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Compliance Payroll Table"]</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 150px;">@Localizer["Category"]</th>
+                                    <th>@Localizer["Item"]</th>
+                                    <th style="width: 250px;">@Localizer["Value"]</th>
+                                    <th>@Localizer["Description / Formula"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Earnings -->
+                                <tr>
+                                    <td rowspan="7" class="align-middle fw-bold text-center bg-light">@Localizer["Earnings"]</td>
+                                    <td>@Localizer["Base Salary"]</td>
+                                    <td><input asp-for="BaseSalary" class="form-control calc-trigger" /></td>
+                                    <td>@Localizer["Contracted basic salary"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Job Salary"]</td>
+                                    <td><input asp-for="JobSalary" class="form-control calc-trigger" /></td>
+                                    <td>@Localizer["Position-based salary"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Performance Bonus"]</td>
+                                    <td><input asp-for="PerformanceBonus" class="form-control calc-trigger" /></td>
+                                    <td>@Localizer["Monthly performance evaluation"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Overtime Pay"]</td>
+                                    <td><input asp-for="Overtime" class="form-control calc-trigger" /></td>
+                                    <td>@Localizer["Calculated based on overtime hours"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Full Attendance"]</td>
+                                    <td><input asp-for="FullAttendance" class="form-control calc-trigger" /></td>
+                                    <td>@Localizer["Bonus for no absence"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Other Allowances"]</td>
+                                    <td><input asp-for="OtherAllowances" class="form-control calc-trigger" /></td>
+                                    <td>@Localizer["Meal, transport, etc."]</td>
+                                </tr>
+                                <tr class="table-primary fw-bold">
+                                    <td>@Localizer["Total Earnings"]</td>
+                                    <td><input id="totalEarnings" class="form-control fw-bold" readonly value="0.00" /></td>
+                                    <td><code>Sum(Earnings)</code></td>
+                                </tr>
+
+                                <!-- Deductions -->
+                                <tr>
+                                    <td rowspan="3" class="align-middle fw-bold text-center bg-light">@Localizer["Attendance & Penalties"]</td>
+                                    <td>@Localizer["Late / Early Leave"]</td>
+                                    <td><input asp-for="LateEarly" class="form-control calc-trigger text-danger" /></td>
+                                    <td>@Localizer["Enter as negative value"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Sick / Personal Leave"]</td>
+                                    <td><input asp-for="SickLeave" class="form-control calc-trigger text-danger" /></td>
+                                    <td>@Localizer["Enter as negative value"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Administrative Fines"]</td>
+                                    <td><input asp-for="AdministrativeFines" class="form-control calc-trigger text-danger" /></td>
+                                    <td>@Localizer["Enter as negative value"]</td>
+                                </tr>
+
+                                <!-- Insurances -->
+                                <tr>
+                                    <td rowspan="5" class="align-middle fw-bold text-center bg-light">@Localizer["Insurances (Personal)"]</td>
+                                    <td>@Localizer["Pension"]</td>
+                                    <td><input asp-for="PensionPersonal" class="form-control calc-trigger" /></td>
+                                    <td>8% @Localizer["usually"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Medical"]</td>
+                                    <td><input asp-for="MedicalPersonal" class="form-control calc-trigger" /></td>
+                                    <td>2% @Localizer["usually"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Unemployment"]</td>
+                                    <td><input asp-for="UnemploymentPersonal" class="form-control calc-trigger" /></td>
+                                    <td>0.5% @Localizer["usually"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Housing Fund"]</td>
+                                    <td><input asp-for="HousingFundPersonal" class="form-control calc-trigger" /></td>
+                                    <td>12% @Localizer["usually"]</td>
+                                </tr>
+                                <tr class="table-warning fw-bold">
+                                    <td>@Localizer["Total Personal Insurances"]</td>
+                                    <td><input id="totalPersonalInsurance" class="form-control fw-bold" readonly value="0.00" /></td>
+                                    <td><code>Sum(Insurances)</code></td>
+                                </tr>
+
+                                <!-- Tax -->
+                                <tr>
+                                    <td rowspan="3" class="align-middle fw-bold text-center bg-light">@Localizer["Tax Information"]</td>
+                                    <td>@Localizer["Special Additional Deduction"]</td>
+                                    <td><input asp-for="SpecialAdditionalDeduction" class="form-control calc-trigger" /></td>
+                                    <td>@Localizer["Education, housing, etc."]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Taxable Income"]</td>
+                                    <td><input id="taxableIncome" class="form-control" readonly value="0.00" /></td>
+                                    <td><code>Total Earnings - Insurance - 5000 - Special</code></td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Personal Income Tax"]</td>
+                                    <td><input asp-for="PersonalIncomeTax" class="form-control calc-trigger" /></td>
+                                    <td>@Localizer["Calculated pre-paid tax"]</td>
+                                </tr>
+
+                                <!-- Actual -->
+                                <tr class="table-success fw-bold">
+                                    <td rowspan="3" class="align-middle fw-bold text-center bg-success text-white">@Localizer["Actual Payment"]</td>
+                                    <td>@Localizer["Actual Salary (Net)"]</td>
+                                    <td><input asp-for="TotalAmount" class="form-control fw-bold fs-4" readonly /></td>
+                                    <td><code>Total Earnings + Deductions - Insurance - Tax</code></td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Bank Name"]</td>
+                                    <td><input asp-for="BankName" class="form-control" /></td>
+                                    <td>@Localizer["Employee's bank"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Bank Account"]</td>
+                                    <td><input asp-for="BankAccount" class="form-control" /></td>
+                                    <td>@Localizer["Employee's account number"]</td>
+                                </tr>
+
+                                <!-- Company Cost -->
+                                <tr>
+                                    <td rowspan="7" class="align-middle fw-bold text-center bg-light">@Localizer["Company Cost"]</td>
+                                    <td>@Localizer["Pension (Company)"]</td>
+                                    <td><input asp-for="PensionCompany" class="form-control calc-trigger" /></td>
+                                    <td>16% @Localizer["usually"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Medical (Company)"]</td>
+                                    <td><input asp-for="MedicalCompany" class="form-control calc-trigger" /></td>
+                                    <td>9% @Localizer["usually"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Unemployment (Company)"]</td>
+                                    <td><input asp-for="UnemploymentCompany" class="form-control calc-trigger" /></td>
+                                    <td>0.8% @Localizer["usually"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Work Injury (Company)"]</td>
+                                    <td><input asp-for="WorkInjuryCompany" class="form-control calc-trigger" /></td>
+                                    <td>0.4% @Localizer["usually"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Maternity (Company)"]</td>
+                                    <td><input asp-for="MaternityCompany" class="form-control calc-trigger" /></td>
+                                    <td>0.8% @Localizer["usually"]</td>
+                                </tr>
+                                <tr>
+                                    <td>@Localizer["Housing Fund (Company)"]</td>
+                                    <td><input asp-for="HousingFundCompany" class="form-control calc-trigger" /></td>
+                                    <td>12% @Localizer["usually"]</td>
+                                </tr>
+                                <tr class="table-info fw-bold">
+                                    <td>@Localizer["Total Company Cost"]</td>
+                                    <td><input id="totalCompanyCost" class="form-control fw-bold" readonly value="0.00" /></td>
+                                    <td><code>Total Earnings + Sum(Company Insurances)</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="button" id="submitButton" class="btn btn-primary btn-lg">
+                        <i class="align-middle me-2" data-lucide="check-circle"></i> @Localizer["Issue Payroll"]
+                    </button>
+                    <a asp-action="Index" class="btn btn-light btn-lg">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title"><i class="align-middle me-2" data-lucide="alert-triangle"></i> @Localizer["CRITICAL CONFIRMATION REQUIRED"]</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="mb-4 mt-3">
+                    <i class="text-danger" data-lucide="alert-octagon" style="width: 64px; height: 64px;"></i>
+                </div>
+                <h3 class="text-danger fw-bold mb-3">@Localizer["Are you absolutely sure?"]</h3>
+                <p class="fs-5 mb-4">@Localizer["Payroll issuance will be sent to the employee. Please verify the following information:"]</p>
+
+                <div class="bg-light p-4 rounded border mb-4">
+                    <div class="row text-start mb-3">
+                        <div class="col-sm-4 fw-bold">@Localizer["Employee:"]</div>
+                        <div class="col-sm-8" id="modalUserName"></div>
+                    </div>
+                    <div class="row text-start mb-3">
+                        <div class="col-sm-4 fw-bold">@Localizer["Month:"]</div>
+                        <div class="col-sm-8" id="modalMonth"></div>
+                    </div>
+                    <div class="row text-start mb-3">
+                        <div class="col-sm-4 fw-bold">@Localizer["Currency:"]</div>
+                        <div class="col-sm-8" id="modalCurrency"></div>
+                    </div>
+                    <hr />
+                    <div class="d-flex align-items-center justify-content-center flex-wrap text-center">
+                        <div class="p-2 border rounded bg-white m-1"><span id="modalTotalEarnings">0.00</span><br /><small>@Localizer["Total Earnings"]</small></div>
+                        <div class="p-2 m-1 fw-bold">+</div>
+                        <div class="p-2 border rounded bg-danger text-white m-1"><span id="modalDeductions">0.00</span><br /><small>@Localizer["Deductions"]</small></div>
+                        <div class="p-2 m-1 fw-bold">-</div>
+                        <div class="p-2 border rounded bg-warning m-1"><span id="modalPersonalInsurance">0.00</span><br /><small>@Localizer["Personal Insurance"]</small></div>
+                        <div class="p-2 m-1 fw-bold">-</div>
+                        <div class="p-2 border rounded bg-secondary text-white m-1"><span id="modalIncomeTax">0.00</span><br /><small>@Localizer["Income Tax"]</small></div>
+                        <div class="p-2 m-1 fw-bold">=</div>
+                        <div class="p-2 border rounded bg-success text-white m-1 fw-bold"><span class="fs-4" id="modalNetSalary">0.00</span><br /><small>@Localizer["Actual Salary (Net)"]</small></div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning" role="alert">
+                    <div class="alert-icon">
+                        <i class="align-middle" data-lucide="info"></i>
+                    </div>
+                    <div class="alert-message">
+                        @Localizer["By clicking 'Confirm and Issue', you confirm that all values above are correct and compliant with the company policy."]
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light btn-lg" data-bs-dismiss="modal">@Localizer["No, let me check again"]</button>
+                <button type="button" id="finalConfirmButton" class="btn btn-danger btn-lg">
+                    <i class="align-middle me-2" data-lucide="check-circle"></i> @Localizer["Yes, Confirm and Issue!"]
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Calculation Formula Graph"]</h5>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-info mb-0" role="alert">
+            <div class="alert-message">
+                <div class="d-flex align-items-center justify-content-center flex-wrap text-center">
+                    <div class="p-2 border rounded bg-white m-1">@Localizer["Total Earnings"]</div>
+                    <div class="p-2 m-1 fw-bold">+</div>
+                    <div class="p-2 border rounded bg-danger text-white m-1">@Localizer["Deductions"]</div>
+                    <div class="p-2 m-1 fw-bold">-</div>
+                    <div class="p-2 border rounded bg-warning m-1">@Localizer["Personal Insurance"]</div>
+                    <div class="p-2 m-1 fw-bold">-</div>
+                    <div class="p-2 border rounded bg-secondary text-white m-1">@Localizer["Income Tax"]</div>
+                    <div class="p-2 m-1 fw-bold">=</div>
+                    <div class="p-2 border rounded bg-success text-white m-1 fw-bold">@Localizer["Actual Salary (Net)"]</div>
+                </div>
+                <hr />
+                <div class="d-flex align-items-center justify-content-center flex-wrap text-center mt-2">
+                    <div class="p-2 border rounded bg-white m-1">@Localizer["Total Earnings"]</div>
+                    <div class="p-2 m-1 fw-bold">+</div>
+                    <div class="p-2 border rounded bg-info m-1">@Localizer["Company Paid Insurances"]</div>
+                    <div class="p-2 m-1 fw-bold">=</div>
+                    <div class="p-2 border rounded bg-dark text-white m-1 fw-bold">@Localizer["Total Company Cost"]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        const usersData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.AllUsers.Select(u => new { 
+            id = u.Id, 
+            baseSalary = u.BaseSalary, 
+            bankName = u.BankName, 
+            bankAccount = u.BankAccount 
+        })));
+
+        function calculate() {
+            const getVal = (id) => parseFloat(document.getElementById(id).value) || 0;
+            
+            const baseSalary = getVal('BaseSalary');
+            const jobSalary = getVal('JobSalary');
+            const performanceBonus = getVal('PerformanceBonus');
+            const overtime = getVal('Overtime');
+            const fullAttendance = getVal('FullAttendance');
+            const otherAllowances = getVal('OtherAllowances');
+            
+            const totalEarnings = baseSalary + jobSalary + performanceBonus + overtime + fullAttendance + otherAllowances;
+            document.getElementById('totalEarnings').value = totalEarnings.toFixed(2);
+            
+            const lateEarly = getVal('LateEarly');
+            const sickLeave = getVal('SickLeave');
+            const administrativeFines = getVal('AdministrativeFines');
+            const totalDeductions = lateEarly + sickLeave + administrativeFines; // Expected to be negative
+            
+            const pensionPersonal = getVal('PensionPersonal');
+            const medicalPersonal = getVal('MedicalPersonal');
+            const unemploymentPersonal = getVal('UnemploymentPersonal');
+            const housingFundPersonal = getVal('HousingFundPersonal');
+            const totalPersonalInsurance = pensionPersonal + medicalPersonal + unemploymentPersonal + housingFundPersonal;
+            document.getElementById('totalPersonalInsurance').value = totalPersonalInsurance.toFixed(2);
+            
+            const specialDeduction = getVal('SpecialAdditionalDeduction');
+            const taxableIncome = Math.max(0, totalEarnings - totalPersonalInsurance - 5000 - specialDeduction);
+            document.getElementById('taxableIncome').value = taxableIncome.toFixed(2);
+            
+            const personalIncomeTax = getVal('PersonalIncomeTax');
+            
+            const netSalary = totalEarnings + totalDeductions - totalPersonalInsurance - personalIncomeTax;
+            document.getElementById('TotalAmount').value = netSalary.toFixed(2);
+            
+            const pensionCompany = getVal('PensionCompany');
+            const medicalCompany = getVal('MedicalCompany');
+            const unemploymentCompany = getVal('UnemploymentCompany');
+            const workInjuryCompany = getVal('WorkInjuryCompany');
+            const maternityCompany = getVal('MaternityCompany');
+            const housingFundCompany = getVal('HousingFundCompany');
+            const totalCompanyInsurance = pensionCompany + medicalCompany + unemploymentCompany + workInjuryCompany + maternityCompany + housingFundCompany;
+            
+            const totalCompanyCost = totalEarnings + totalCompanyInsurance;
+            document.getElementById('totalCompanyCost').value = totalCompanyCost.toFixed(2);
+        }
+
+        document.querySelectorAll('.calc-trigger').forEach(input => {
+            input.addEventListener('input', calculate);
+        });
+
+        document.getElementById('userSelect').addEventListener('change', function() {
+            const userId = this.value;
+            const user = usersData.find(u => u.id === userId);
+            if (user) {
+                document.getElementById('BaseSalary').value = user.baseSalary;
+                document.getElementById('BankName').value = user.bankName || '';
+                document.getElementById('BankAccount').value = user.bankAccount || '';
+                calculate();
+            }
+        });
+
+        // Initial calculation
+        calculate();
+
+        // Prevent Enter key from submitting the form
+        document.getElementById('payrollForm').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        document.getElementById('submitButton').addEventListener('click', function() {
+            const form = document.getElementById('payrollForm');
+            
+            // Check validation (Support both jQuery validation and native validation)
+            if (window.jQuery && typeof jQuery.fn.valid === 'function') {
+                if (!jQuery(form).valid()) {
+                    return;
+                }
+            } else if (typeof form.checkValidity === 'function') {
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+            }
+
+            // Fill modal data
+            const userSelect = document.getElementById('userSelect');
+            document.getElementById('modalUserName').innerText = userSelect.options[userSelect.selectedIndex].text;
+            document.getElementById('modalMonth').innerText = document.getElementById('TargetMonth').value;
+            
+            const currencySelect = document.getElementById('Currency');
+            document.getElementById('modalCurrency').innerText = currencySelect.options[currencySelect.selectedIndex].text;
+            
+            document.getElementById('modalTotalEarnings').innerText = document.getElementById('totalEarnings').value;
+            
+            const lateEarly = parseFloat(document.getElementById('LateEarly').value) || 0;
+            const sickLeave = parseFloat(document.getElementById('SickLeave').value) || 0;
+            const administrativeFines = parseFloat(document.getElementById('AdministrativeFines').value) || 0;
+            document.getElementById('modalDeductions').innerText = (lateEarly + sickLeave + administrativeFines).toFixed(2);
+            
+            document.getElementById('modalPersonalInsurance').innerText = document.getElementById('totalPersonalInsurance').value;
+            document.getElementById('modalIncomeTax').innerText = document.getElementById('PersonalIncomeTax').value;
+            document.getElementById('modalNetSalary').innerText = document.getElementById('TotalAmount').value;
+
+            // Show modal
+            const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+            confirmModal.show();
+        });
+
+        document.getElementById('finalConfirmButton').addEventListener('click', function() {
+            document.getElementById('payrollForm').submit();
+        });
+    </script>
+}@* ReSharper restore Razor.ResourceNotResolved *@

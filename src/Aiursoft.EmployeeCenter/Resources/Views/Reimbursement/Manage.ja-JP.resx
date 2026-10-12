@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledge" xml:space="preserve">
+    <value>承認</value>
+  </data>
+  <data name="Acknowledged At" xml:space="preserve">
+    <value>承認時刻</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="No acknowledged requests waiting for payment." xml:space="preserve">
+    <value>支払待ちの承認済みリクエストはありません。</value>
+  </data>
+  <data name="No pending requests." xml:space="preserve">
+    <value>未処理の請求はありません。</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>処理</value>
+  </data>
+  <data name="Processed At" xml:space="preserve">
+    <value>処理日時</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>用途</value>
+  </data>
+  <data name="Recent History (Last 100)" xml:space="preserve">
+    <value>最近の履歴 (直近 100 件)</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>支払済</value>
+  </data>
+  <data name="Reimbursement Approval Center" xml:space="preserve">
+    <value>請求書承認センター</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>却下</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>レビュー</value>
+  </data>
+  <data name="Review and process reimbursement requests from employees." xml:space="preserve">
+    <value>従業員からの請求書の確認および処理を行ってください。</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>レビュー担当</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>取り消し</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>提出日時</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>提出者</value>
+  </data>
+
+</root>

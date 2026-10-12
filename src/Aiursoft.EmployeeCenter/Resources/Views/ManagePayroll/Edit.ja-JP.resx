@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>実際の支払い</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>実際の給与（ネット給与）</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>行政罰金</value>
+  </data>
+  <data name="Are you sure to update?" xml:space="preserve">
+    <value>更新してもよろしいですか？</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>勤怠および罰則</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>口座番号</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>銀行名</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>基本給</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>欠勤なしに対するボーナス</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>残業時間に基づいて計算されます</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>事前に計算された前払税</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>カテゴリ</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>会社コスト</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>コンプライアンス給与テーブル</value>
+  </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>変更内容の確認</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>契約された基本給</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>通貨:</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>控除</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>説明 / 公式</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>収入</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>給与編集</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>教育、住宅など</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>従業員:</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>従業員の口座番号</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>従業員の銀行</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>負の値として入力してください</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>フルアテンダンス</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>住宅積立金</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>住宅積立金 (会社)</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>所得税</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>保険 (個人)</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>項目</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>職務給</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>遅刻／早退</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>出産手当金（会社負担）</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>食事、交通費など</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>医療</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>医療（会社）</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>月:</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>月次パフォーマンス評価</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>いいえ、もう一度確認します</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>オプションの備考...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>その他手当</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>残業手当</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>給与設定</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>年金</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>年金 (会社)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>パフォーマンスボーナス</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>個人所得税</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>個人保険</value>
+  </data>
+  <data name="Please verify the updated information:" xml:space="preserve">
+    <value>更新された情報を確認してください:</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>役職ベースの給与</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>備考 / 内容</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>変更を保存</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>ユーザーを選択</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>病気 / 個人休暇</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>特別控除</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>対象月</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>税情報</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>課税対象所得</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>合計会社コスト</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>合計収入</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>合計個人保険料</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>失業</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>失業保険 (会社負担)</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>通常</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>業務災害（会社）</value>
+  </data>
+  <data name="Yes, Confirm and Save!" xml:space="preserve">
+    <value>はい、確認して保存します！</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>イベント記録時間は協定世界時です！</value>
+  </data>
+
+</root>

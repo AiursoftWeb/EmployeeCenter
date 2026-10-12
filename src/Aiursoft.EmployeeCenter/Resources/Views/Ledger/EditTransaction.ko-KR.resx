@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Amount" xml:space="preserve">
+    <value>금액</value>
+  </data>
+  <data name="Are you sure you want to delete this transaction? This action cannot be undone." xml:space="preserve">
+    <value>이 거래를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Default is 1. How much Destination currency equals 1 Source currency unit." xml:space="preserve">
+    <value>기본값은 1입니다. 1개의 원본 통화 단위가 목적지 통화로 얼마에 해당하는지 입니다.</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="Delete Transaction" xml:space="preserve">
+    <value>거래 삭제</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>설명</value>
+  </data>
+  <data name="Destination Account" xml:space="preserve">
+    <value>목적 계좌</value>
+  </data>
+  <data name="Destination Account (To)" xml:space="preserve">
+    <value>수신 계좌 (받는 사람)</value>
+  </data>
+  <data name="e.g. Pay Sleek for Professional Fee" xml:space="preserve">
+    <value>예: Sleek 에 대한 전문 수수료 지급</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>거래 수정</value>
+  </data>
+  <data name="Exchange Rate" xml:space="preserve">
+    <value>환율</value>
+  </data>
+  <data name="Invoice Attachment" xml:space="preserve">
+    <value>청구서 첨부 파일</value>
+  </data>
+  <data name="MT103 Attachment" xml:space="preserve">
+    <value>MT103 첨부파일</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>선택 사항</value>
+  </data>
+  <data name="Payment Voucher Attachment" xml:space="preserve">
+    <value>지급 증빙 첨부 파일</value>
+  </data>
+  <data name="Select Account" xml:space="preserve">
+    <value>계좌 선택</value>
+  </data>
+  <data name="Source Account" xml:space="preserve">
+    <value>원본 계좌</value>
+  </data>
+  <data name="Source Account (From)" xml:space="preserve">
+    <value>출금 계좌 (보내는 곳)</value>
+  </data>
+  <data name="Transaction Time" xml:space="preserve">
+    <value>거래 시간</value>
+  </data>
+  <data name="Update Transaction" xml:space="preserve">
+    <value>거래 업데이트</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>이벤트 기록 시간은 조정된 세계시입니다!</value>
+  </data>
+
+</root>

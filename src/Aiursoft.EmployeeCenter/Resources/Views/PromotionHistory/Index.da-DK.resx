@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Create Promotion" xml:space="preserve">
+    <value>Opret tilbagebetaling</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dage</value>
+  </data>
+  <data name="Days since joining (No promotions yet)" xml:space="preserve">
+    <value>Dage siden ansættelse (Ingen fremrykkelser endnu)</value>
+  </data>
+  <data name="Days since last promotion" xml:space="preserve">
+    <value>Dage siden sidste fremadskridt</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Historik</value>
+  </data>
+  <data name="My Total Promotions" xml:space="preserve">
+    <value>Mine totale fremrykninger</value>
+  </data>
+  <data name="New Level" xml:space="preserve">
+    <value>Nyt niveau</value>
+  </data>
+  <data name="No promotion history found." xml:space="preserve">
+    <value>Ingen fremgangshistorik fundet.</value>
+  </data>
+  <data name="Old Level" xml:space="preserve">
+    <value>Gammel niveau</value>
+  </data>
+  <data name="Promoter" xml:space="preserve">
+    <value>Udnyttelse</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Udnyttelse</value>
+  </data>
+  <data name="Recent Promotions" xml:space="preserve">
+    <value>Seneste fremstød</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Tid</value>
+  </data>
+  <data name="Total Company Promotions (YTD)" xml:space="preserve">
+    <value>Samlede virksomhedspromotioner (ÅB)</value>
+  </data>
+  <data name="Unknown User" xml:space="preserve">
+    <value>Ukendt bruger</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Bruger</value>
+  </data>
+
+</root>

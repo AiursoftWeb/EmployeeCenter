@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>Geaccepteerd</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acties</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Bedrag</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>Indienen</value>
+  </data>
+  <data name="Are you sure you want to reject this request?" xml:space="preserve">
+    <value>Weet u zeker dat u dit verzoek wilt afwijzen?</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Terug naar lijst</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Confirm &amp; Issued" xml:space="preserve">
+    <value>Bevestigen &amp; Uitbetaald</value>
+  </data>
+  <data name="Confirm Reimbursement" xml:space="preserve">
+    <value>Bevestig terugbetaling</value>
+  </data>
+  <data name="Confirm Rejection" xml:space="preserve">
+    <value>Bevestig weigering</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Concept</value>
+  </data>
+  <data name="Electronic Invoice" xml:space="preserve">
+    <value>Elektronische factuur</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>Reiskostenperiode</value>
+  </data>
+  <data name="Finalize" xml:space="preserve">
+    <value>Definitief maken</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>Algemene informatie</value>
+  </data>
+  <data name="Invoice Preview" xml:space="preserve">
+    <value>Factuurvoorbeeld</value>
+  </data>
+  <data name="Invoice Source Website (发票来源网站)" xml:space="preserve">
+    <value>Factuurbronwebsite (发票来源网站)</value>
+  </data>
+  <data name="Mark as Acknowledged (知道了)" xml:space="preserve">
+    <value>Aanvaarden (bekend)</value>
+  </data>
+  <data name="No invoice attached." xml:space="preserve">
+    <value>Geen factuur bijgesloten.</value>
+  </data>
+  <data name="Please leave a comment for the employee (e.g. transaction ID)." xml:space="preserve">
+    <value>Laat een opmerking achter voor de medewerker (bijv. transactie-ID).</value>
+  </data>
+  <data name="Please provide a reason for the rejection." xml:space="preserve">
+    <value>Geef een reden voor de afkeuring.</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Doel</value>
+  </data>
+  <data name="Really transferred via bank? (真的银行转账了吗？)" xml:space="preserve">
+    <value>Echt via bank overgemaakt? (Is dit echt via bankoverdracht gebeurd?)</value>
+  </data>
+  <data name="Reason / Comment" xml:space="preserve">
+    <value>Reden / Opmerking</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>Vergoed</value>
+  </data>
+  <data name="Reimbursed (已经下发)" xml:space="preserve">
+    <value>Gereviseerd (rekening verstrekt)</value>
+  </data>
+  <data name="Reimbursement Details" xml:space="preserve">
+    <value>Reimbursement Details</value>
+  </data>
+  <data name="Reject (拒绝)" xml:space="preserve">
+    <value>Afkeuren (拒绝)</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Afgewezen</value>
+  </data>
+  <data name="Required..." xml:space="preserve">
+    <value>Vereist...</value>
+  </data>
+  <data name="Reviewed At" xml:space="preserve">
+    <value>Beoordeeld op</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>Geverifieerd door</value>
+  </data>
+  <data name="Reviewer Comment" xml:space="preserve">
+    <value>Opmerking beoordelaar</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>Ingetrokken</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>Ingediend op</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>Indiener</value>
+  </data>
+  <data name="Supporting Context / Email" xml:space="preserve">
+    <value>Aanvullende context / E-mail</value>
+  </data>
+  <data name="View/Download Invoice" xml:space="preserve">
+    <value>Factuur bekijken/Downloaden</value>
+  </data>
+
+</root>

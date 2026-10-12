@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allows retroactive entry for leaves already taken" xml:space="preserve">
+    <value>Permite entrada retroativa para férias já tomadas</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Férias Anuais</value>
+  </data>
+  <data name="Annual leave requires approval" xml:space="preserve">
+    <value>As férias anuais requerem aprovação.</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Aplicar para Férias</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Abril</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Agosto</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>Legenda do Calendário</value>
+  </data>
+  <data name="Calendar View" xml:space="preserve">
+    <value>Visualização do Calendário</value>
+  </data>
+  <data name="Can apply for leave from 7 days ago to end of current year" xml:space="preserve">
+    <value>Pode solicitar férias de 7 dias atrás até ao final do ano atual</value>
+  </data>
+  <data name="Can be up to 7 days in the past or future dates within current year" xml:space="preserve">
+    <value>Pode ser até 7 dias no passado ou no futuro, dentro do ano atual</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Click on working days to select your leave period" xml:space="preserve">
+    <value>Clique nos dias úteis para selecionar o seu período de férias</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Dezembro</value>
+  </data>
+  <data name="End Date" xml:space="preserve">
+    <value>Data de Fim</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Fevereiro</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="Important Notes" xml:space="preserve">
+    <value>Notas Importantes</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Janeiro</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Julho</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Junho</value>
+  </data>
+  <data name="Last day of your leave (inclusive)" xml:space="preserve">
+    <value>Último dia das suas férias (incluído)</value>
+  </data>
+  <data name="Leave Application Form" xml:space="preserve">
+    <value>Formulário de Solicitação de Férias</value>
+  </data>
+  <data name="Leave Type" xml:space="preserve">
+    <value>Tipo de Férias</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Março</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Maio</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Seg</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Próximo</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Novembro</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Outubro</value>
+  </data>
+  <data name="Only working days are counted (weekends and holidays excluded)" xml:space="preserve">
+    <value>Apenas os dias úteis são contados (fins de semana e feriados excluídos)</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Motivo</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Sáb</value>
+  </data>
+  <data name="Select your leave dates and provide a reason for your leave." xml:space="preserve">
+    <value>Selecione as suas datas de férias e indique uma razão para as férias.</value>
+  </data>
+  <data name="Selected Leave Day" xml:space="preserve">
+    <value>Dia de Férias Selecionado</value>
+  </data>
+  <data name="Selected Period" xml:space="preserve">
+    <value>Período Selecionado</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Setembro</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Férias por Doença</value>
+  </data>
+  <data name="Sick leave requires supporting documents after return" xml:space="preserve">
+    <value>O licenciamento por doença exige documentos comprovativos após a devolução.</value>
+  </data>
+  <data name="Start Date" xml:space="preserve">
+    <value>Data de Início</value>
+  </data>
+  <data name="Submit Application" xml:space="preserve">
+    <value>Submeter Aplicação</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Dom</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>Qua</value>
+  </data>
+  <data name="total days" xml:space="preserve">
+    <value>dias totais</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Ter</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>Qua</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>Fim de Semana / Feriado</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>Dia Útil</value>
+  </data>
+  <data name="working days" xml:space="preserve">
+    <value>dias úteis</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>A hora de registo do evento é em UTC!</value>
+  </data>
+
+</root>

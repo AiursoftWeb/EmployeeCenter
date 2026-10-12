@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Amount" xml:space="preserve">
+    <value>Sumă</value>
+  </data>
+  <data name="Amount must be greater than 0" xml:space="preserve">
+    <value>Suma trebuie să fie mai mare decât 0</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comentariu</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valută</value>
+  </data>
+  <data name="Electronic Invoice" xml:space="preserve">
+    <value>Factură electronică</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>Timpul cheltuielilor</value>
+  </data>
+  <data name="Invalid file path." xml:space="preserve">
+    <value>Cale de fișier invalidă.</value>
+  </data>
+  <data name="Invoice Source Website" xml:space="preserve">
+    <value>Sursa facturii (sit web)</value>
+  </data>
+  <data name="Please enter a valid URL." xml:space="preserve">
+    <value>Introduceți un URL valid.</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Scop</value>
+  </data>
+  <data name="Supporting Email" xml:space="preserve">
+    <value>E-mail de susținere</value>
+  </data>
+
+</root>

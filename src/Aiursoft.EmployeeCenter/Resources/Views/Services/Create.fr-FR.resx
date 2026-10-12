@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add New Service" xml:space="preserve">
+    <value>Ajouter un nouveau service</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Informations de base</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Cross-Entity Link is used to suggest local/international versions to users." xml:space="preserve">
+    <value>Le lien entre entités est utilisé pour suggérer aux utilisateurs les versions locales/internationales.</value>
+  </data>
+  <data name="Domain should be the primary entry point for the service." xml:space="preserve">
+    <value>Le domaine doit être le point d&apos;entrée principal du service.</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>p. ex. Portail client</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>p. ex. exemple.com</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>p. ex. HTTPS, TCP</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Aucun</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>Requis lorsque Via FRPS est activé.</value>
+  </data>
+  <data name="Save Service" xml:space="preserve">
+    <value>Enregistrer le service</value>
+  </data>
+  <data name="Select DNS Provider" xml:space="preserve">
+    <value>Sélectionnez un fournisseur DNS</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>Sélectionner le serveur FRPS</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>Sélectionner un emplacement</value>
+  </data>
+  <data name="Select Owner" xml:space="preserve">
+    <value>Sélectionner le propriétaire</value>
+  </data>
+  <data name="Select Server" xml:space="preserve">
+    <value>Sélectionner le serveur</value>
+  </data>
+  <data name="Select Server (Asset)" xml:space="preserve">
+    <value>Sélectionner le serveur (actif)</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>Conseils</value>
+  </data>
+
+</root>

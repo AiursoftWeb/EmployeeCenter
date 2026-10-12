@@ -1,0 +1,40 @@
+@model Aiursoft.EmployeeCenter.Models.SshKeysViewModels.EditViewModel
+@{
+}
+
+<h1 class="h3 mb-3">@Localizer["Edit SSH Key"]</h1>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Update SSH Key"]</h5>
+                <h6 class="card-subtitle text-muted">@Localizer["Modify your public SSH key details."]</h6>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="TargetUserId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="PublicKey" class="form-label"></label>
+                        <textarea asp-for="PublicKey" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="PublicKey" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">@Localizer["Save Changes"]</button>
+                        <a asp-action="Index" asp-route-userId="@Model.TargetUserId" class="btn btn-secondary">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

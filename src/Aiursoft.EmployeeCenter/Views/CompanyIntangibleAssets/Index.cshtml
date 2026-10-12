@@ -1,0 +1,94 @@
+@model Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels.IndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Company Intangible Assets"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Shared Intangible Assets"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                    <tr>
+                        <th>@Localizer["Name"]</th>
+                        <th>@Localizer["Type"]</th>
+                        <th>@Localizer["Status"]</th>
+                        <th class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.Assets)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Type</td>
+                            <td>
+                                @await Html.PartialAsync("_AssetStatus", item.Status)
+                            </td>
+                            <td class="text-end">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
+                                    <i class="align-middle" data-lucide="eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    @if (!Model.Assets.Any())
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">@Localizer["No shared assets found."]</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["My Assigned Assets"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                    <tr>
+                        <th>@Localizer["Name"]</th>
+                        <th>@Localizer["Type"]</th>
+                        <th>@Localizer["Status"]</th>
+                        <th class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.MyAssets)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Type</td>
+                            <td>
+                                @await Html.PartialAsync("_AssetStatus", item.Status)
+                            </td>
+                            <td class="text-end">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
+                                    <i class="align-middle" data-lucide="eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    @if (!Model.MyAssets.Any())
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">@Localizer["No assigned assets found."]</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

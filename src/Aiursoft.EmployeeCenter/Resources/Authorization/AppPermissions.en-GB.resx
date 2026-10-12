@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Add Global Password</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Add New Roles</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Add New Users</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Allows approving or rejecting any leave application, regardless of the reporting line.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Allows approving, acknowledging, or rejecting reimbursement requests from any employee.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Allows approving, rejecting, or requesting changes to project requirements. Everyone can submit requirements and comment on them.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Allows assigning or removing roles for any user.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Allows creating and managing all contracts for the company.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Allows creating and managing onboarding task templates for new employees.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Allows creating contracts for the company. Every user can view public contracts by default</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Allows creating new global passwords that can be shared with others.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Allows creating questions, questionnaires, and viewing feedback responses.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Allows creating, editing, and deleting weekly reports on behalf of any other user.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Allows creating, updating, and deleting blueprints. Every user can view blueprints by default.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Allows creating, updating, and deleting collection channels and their records.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Allows creating, updating, and deleting company entity information.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Allows creating, updating, and deleting company entity information. Every user can view company entity information by default.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Allows creating, updating, and deleting market channel information. Every user can view market channels by default.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Allows creating, updating, and deleting services and DNS providers. Every user can view services by default.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Allows issuing and managing payroll slips for all users.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Allows managing and deleting any global password created by any user.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Allows managing the company&apos;s financial accounts and recording transactions.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Allows managing the company&apos;s IT assets and intangible assets (such as domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to or from employees.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Allows managing the company&apos;s IT assets, including categories, models, and individual items.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Allows manually triggering the service DNS and availability audit.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Allows modification of role names and their assigned permissions.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Allows modification of user details such as email and roles, and also enables resetting of user passwords.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Allows printing employment and income certificates for any employee.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Allows printing employment and income certificates for oneself.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Allows running the read-only Cloudflare DNS audit and viewing its findings.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Allows running the read-only service audit and viewing its findings.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Allows the permanent deletion of roles.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Allows the permanent deletion of user accounts.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Allows the user to chat with the AI assistant for company information.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Allows the user to create their own weekly reports.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Allows the user to fill out and submit feedback questionnaires.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Allows the user to submit reimbursement requests for their expenses.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Allows uploading and deleting meeting recordings, and re-triggering speech-to-text transcription.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Allows viewing all company contracts, including those marked as private.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Allows viewing and modifying global application settings.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Allows viewing meeting transcripts and listening to or reading transcripts of any recording.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Allows viewing service health summaries, observations, and detailed audit findings.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Allows viewing system-level information and settings.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Allows viewing the background job dashboard and managing jobs.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Allows viewing the list of all collection channels and their records.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Allows viewing the list of all permissions and their assignments to roles and users.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Allows viewing the list of all users.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Allows viewing the list of roles and their assigned permissions.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Allows viewing the operation logs of any user, including their bank card change history.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Allows viewing the report line of any user, including their manager, subordinates, and peers.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Allows viewing the server and service registry, deployment relationships, and infrastructure reference data.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Allows viewing, editing, and deleting any user&apos;s SSH keys.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Approve Any Leave</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Approve Project Requirements</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Approve Reimbursement</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Assign Roles to Users</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Audit DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Audit Services</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Audit Services (Legacy)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Chat with AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Create and manage company contracts</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Create company contracts</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Create Weekly Report</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Delete Roles</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Delete Users</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Edit and View Details of Users</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Edit Role Information</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Edit User Information</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Grants permission to create new roles.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Grants permission to create new user accounts.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Manage Any Password</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Manage anyone&apos;s weekly report</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Manage Assets</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Manage Blueprints</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Manage Collection Channels</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Manage Company Entity Information</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Manage Customer Relationships</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Manage Feedback</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Manage Global Settings</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Manage Infrastructure</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Manage Ledger</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Manage Market Channels</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Manage Meeting Transcripts</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Manage Onboarding Tasks</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Manage Payroll</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Manage Services</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Manage Services (Legacy)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Manage SSH Keys</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Print Certificates</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Print Self Certificates</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Read Permissions</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Read Roles</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Read Users</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Reboot This App</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Run Service Audit</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Submit Feedback</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Submit Reimbursement</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>View any company contract, including private ones</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>View Background Jobs</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>View Collection Channels</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>View Infrastructure</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>View Meeting Transcripts</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>View Report Line</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>View Service Audit</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>View System Context</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>View User Operation Log</value>
+  </data>
+
+</root>

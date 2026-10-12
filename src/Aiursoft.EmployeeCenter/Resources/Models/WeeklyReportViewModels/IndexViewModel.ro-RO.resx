@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Users" xml:space="preserve">
+    <value>Toți utilizatorii</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>Proiecte aprobate</value>
+  </data>
+  <data name="Available Weeks" xml:space="preserve">
+    <value>Săptămâni disponibile</value>
+  </data>
+  <data name="Can Create" xml:space="preserve">
+    <value>Poate crea</value>
+  </data>
+  <data name="Can Manage Anyone Weekly Report" xml:space="preserve">
+    <value>Poate gestiona Raportul săptămânal al oricărei persoane</value>
+  </data>
+  <data name="Critical Missing Reports" xml:space="preserve">
+    <value>Raportări critice lipsă</value>
+  </data>
+  <data name="Current Week Submitted" xml:space="preserve">
+    <value>Săptămâna Curentă Trimisă</value>
+  </data>
+  <data name="Filter User" xml:space="preserve">
+    <value>Filtrare utilizator</value>
+  </data>
+  <data name="Filter User Id" xml:space="preserve">
+    <value>Filtrare ID utilizator</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>Asociere forțată la proiect</value>
+  </data>
+  <data name="Has Recent Missing Reports" xml:space="preserve">
+    <value>Are Rapoarte Lipsă Recente</value>
+  </data>
+  <data name="Missing Weeks Count" xml:space="preserve">
+    <value>Număr săptămâni lipsă</value>
+  </data>
+  <data name="Notepad Content" xml:space="preserve">
+    <value>Conținut Blocnotă</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Raporte</value>
+  </data>
+
+</root>

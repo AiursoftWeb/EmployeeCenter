@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledge" xml:space="preserve">
+    <value>Recunoaște</value>
+  </data>
+  <data name="Acknowledged At" xml:space="preserve">
+    <value>Recunoscut la</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Sumă</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalii</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Descarcă</value>
+  </data>
+  <data name="No acknowledged requests waiting for payment." xml:space="preserve">
+    <value>Nu există cereri recunoscute în așteptare pentru plată.</value>
+  </data>
+  <data name="No pending requests." xml:space="preserve">
+    <value>Nu există cereri în așteptare.</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>Procesare</value>
+  </data>
+  <data name="Processed At" xml:space="preserve">
+    <value>Procesat la</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Scop</value>
+  </data>
+  <data name="Recent History (Last 100)" xml:space="preserve">
+    <value>Istoric recent (ultimele 100)</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>Decontat</value>
+  </data>
+  <data name="Reimbursement Approval Center" xml:space="preserve">
+    <value>Centrul de aprobare a rambursărilor</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Respinsă</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Revizuire</value>
+  </data>
+  <data name="Review and process reimbursement requests from employees." xml:space="preserve">
+    <value>Revizuiți și procesați cererile de rambursare de la angajați.</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>Revizuit de</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>Revocat</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>Depus la</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>Întreprinzător</value>
+  </data>
+
+</root>

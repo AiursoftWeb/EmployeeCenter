@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Bankkonto</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Bankadress</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Banknamn</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>Betalningsmottagarens namn</value>
+  </data>
+  <data name="Buyer" xml:space="preserve">
+    <value>Köpare</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>Köparens adress</value>
+  </data>
+  <data name="Buyer Attention" xml:space="preserve">
+    <value>Köparens uppmärksamhet</value>
+  </data>
+  <data name="Buyer CR No" xml:space="preserve">
+    <value>Köpare CR-nummer</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>Köparens namn</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Kontrakt nr</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>Fakturanummer</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>Fakturatyp</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>Proformainvånt / Faktureringssedel</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>Kvitto / Betalt faktura</value>
+  </data>
+  <data name="Seller" xml:space="preserve">
+    <value>Säljare</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>Säljarens adress</value>
+  </data>
+  <data name="Seller Code" xml:space="preserve">
+    <value>Säljarkod</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>Säljarens kontakt</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>Säljarens namn</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-kod</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} krävs.</value>
+  </data>
+
+</root>

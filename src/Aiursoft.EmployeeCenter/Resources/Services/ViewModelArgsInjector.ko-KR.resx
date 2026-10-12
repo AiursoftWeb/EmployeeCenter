@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>액세스 거부됨</value>
+  </data>
+  <data name="Account Settings" xml:space="preserve">
+    <value>계정 설정</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>계정</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>SSH 키 추가</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>추가 정보 (본토/홍콩)</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>주소</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>관리자</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>관리</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>행정 정보</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI 어시스턴트</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Aiursoft 직원 센터</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft 템플릿</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>익명</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>휴가 신청</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>승인 센터</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>승인 내역</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>승인</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>승인됨</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>승인된 프로젝트</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>자산 카테고리</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>자산 모델</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>자산</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>배정</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>자산 할당</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>오디오</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>서비스 감사</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>백그라운드 작업</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>잘못된 요청</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>은행 정보</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>기본 정보</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>블루프린트</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>설계도</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>사업자 등록증</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>경력</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>고용 증명서</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>재직증명서</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>소득 증명서</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>증명서 인쇄</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>아바타 변경</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>은행 정보 변경</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>비밀번호 변경</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>프로필 변경</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>채팅</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>CI 번호</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>로그인하려면 클릭</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>코드</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>채널 수금</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>댓글</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>회사 엔티티</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>회사 엔티티 세부 정보</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>회사 엔티티 정보</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>회사 정보 상담</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>회사 무형 자산</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>회사 이름</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>회사 공공 계약</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>회사 유형</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>삭제 확인</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>계약 재무 세부 정보</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>계약 재무 통계</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>계약서</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>생성</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>계정 생성</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>자산 생성</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>회사 엔티티 생성</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>새로 만들기</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>새 블루프린트 폴더 생성</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>새 계약 생성</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>새 폴더 만들기</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>온보딩 작업 생성</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>비밀번호 생성</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>승진 생성</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>질문 생성</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>설문지 만들기</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>역할 생성</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>서버 생성</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>서비스 생성</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>거래 생성</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>사용자 생성</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>고객 관계</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>고객 관계</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>대시보드</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>역할 삭제</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>사용자 삭제</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>세부 정보</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>개발</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>디렉터리</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS 감사</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>다운로드 / 보기</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>편집</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>계정 수정</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>자산 수정</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>블루프린트 수정</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>Blueprint 폴더 편집</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>회사 엔티티 수정</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>계약 수정</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>고객 관계 수정</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>폴더 편집</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>회의 녹음 편집</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>온보딩 작업 수정</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>비밀번호 수정</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>급여 수정</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>질문 수정</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>설문지 편집</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>요구사항 편집</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>역할 편집</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>서버 수정</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>서비스 편집</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>SSH 키 수정</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>거래 수정</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>전사 편집</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>사용자 편집</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>주간 보고서 편집</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>편집자</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>직원 센터</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>직원 신호</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>영문 이름</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>엔티티 목록</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>엔티티 코드</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>엔티티 세부 정보</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>설립</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>만료일</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>기능</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>설문지 작성</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>재무</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>전역 설정</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>휴일 조정</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>홈</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>인사</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>이미지 및 파일</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>Zip에서 계약서 가져오기</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>입사 휴가</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>인덱스</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>인덱스 서버</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>인프라 데이터 품질</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>내부 서버 오류</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>견적서 발행</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>급여 발행</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT 자산</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>휴가</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>휴가 관리</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>법적</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>법적 대리인</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>법무 대리인 / 이사</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>위치</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>잠금 해제</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>로그인</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>로그인하여 모든 기능을 이용하세요.</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>로고</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>프로필 관리</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>관리</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>자산 관리</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>오디오 공유 관리</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>블루프린트 관리</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>카테고리 관리</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>회사 엔티티 관리</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>계약 관리</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>고객 관계 관리</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>DNS 공급자 관리</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>피드백 관리</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>무형 자산 관리</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>IT 자산 관리</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>원장 관리</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>장소 관리</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>마켓 채널 관리</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>모델 관리</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>온보딩 관리</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>온보딩 작업 관리</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>비밀번호 공유 관리</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>급여 관리</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>인쇄 관리</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>공급자 관리</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>질문 관리</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>요구사항 관리</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>공유 관리</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>작업 관리</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>벤더 관리</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>시장 채널</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>회의록</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>회의 기록</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>회의록</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>미션</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>계약 이동</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>내 자산</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>내 계약서</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>내 IT 자산</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>내 휴가 잔여 일수</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>내 급여</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>내 비용 청구</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>내 보고선</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>내 요구사항</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>찾을 수 없음</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR 결과</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>공식 도장</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>온보딩</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>온보딩 프로세스</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>비밀번호 세부 정보</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>비밀번호</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>비밀번호 관리</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>급여 세부 정보</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>급여</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>승인 대기</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>권한 세부 정보</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>권한</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>개인</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>인쇄</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>증명서 출력</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>프로필</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>프로필 설정</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>프로젝트 요구사항</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>승진 이력</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>설문조사 응답</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>등록 자본</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>회원가입</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>비용 정산</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>거부</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>거부됨</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>회의 녹음 이름 변경</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>답글</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>답글 달기</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>보고선</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>변경 요청</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>변경 요청</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>요구사항</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>요구사항 세부 정보</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>요구사항이 성공적으로 저장되었습니다.</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>요구사항 제목</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>자원</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>응답 세부 정보</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>제한됨</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>역할 상세 정보</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>역할</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>변경 사항 저장</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>SCR 위치</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>사무국</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>서버</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>서비스 감사</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>서비스</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>서비스 대시보드</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>공유 정보</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>공유된 암호</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>로그아웃</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH 키</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>댓글 제출</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>승인 요청 제출</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>새 요구사항 제출</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>요구사항 제출</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>시스템</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>시스템 정보</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>팀 캘린더</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>템플릿</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>거래 내역</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>권한 없음</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>오디오 업로드</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>사용자 세부 정보</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>사용자</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>공급업체</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>블루프린트 보기</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>계약 보기</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>고객 관계 보기</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>마켓 채널 보기</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>주간 보고서</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>댓글을 작성하세요...</value>
+  </data>
+
+</root>

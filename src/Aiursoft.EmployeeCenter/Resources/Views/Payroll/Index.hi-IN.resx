@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of all your historical payroll records." xml:space="preserve">
+    <value>आपके सभी ऐतिहासिक वेतन रिकॉर्ड की एक सूची।</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>कार्रवाइयाँ</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>मूल वेतन</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>निर्माण समय</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="Historical Payrolls" xml:space="preserve">
+    <value>ऐतिहासिक वेतन विवरण</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>मेरे वेतन विवरण</value>
+  </data>
+  <data name="Net Salary (Actual)" xml:space="preserve">
+    <value>शुद्ध वेतन (वास्तविक)</value>
+  </data>
+  <data name="Reset Zoom" xml:space="preserve">
+    <value>ज़ूम रीसेट करें</value>
+  </data>
+  <data name="Salary Trend" xml:space="preserve">
+    <value>वेतन प्रवृत्ति</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>लक्ष्य माह</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>कुल राशि</value>
+  </data>
+  <data name="Track your salary progression and promotions over time" xml:space="preserve">
+    <value>समय के साथ अपने वेतन वृद्धि और पदोन्नति का ट्रैक रखें</value>
+  </data>
+
+</root>

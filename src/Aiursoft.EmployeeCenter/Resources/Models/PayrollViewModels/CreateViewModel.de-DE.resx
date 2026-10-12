@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Administrative Fines" xml:space="preserve">
+    <value>Verwaltungsstrafen</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Bankkonto</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Grundgehalt</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>Inhalt (Markdown)</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Währung</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>Vollständige Anwesenheit</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>Wohnungsbaukasse (Arbeitgeber)</value>
+  </data>
+  <data name="Housing Fund (Personal)" xml:space="preserve">
+    <value>Wohnungsbaukasse (Arbeitnehmer)</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>Aufgabenbezogenes Gehalt</value>
+  </data>
+  <data name="Late/Early" xml:space="preserve">
+    <value>Verspätung/Zuspätkommen</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>Mutterschaft (Unternehmen)</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>Krankenversicherung (Arbeitgeberanteil)</value>
+  </data>
+  <data name="Medical (Personal)" xml:space="preserve">
+    <value>Krankenversicherung (Arbeitnehmer)</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>Sonstige Zulagen</value>
+  </data>
+  <data name="Overtime" xml:space="preserve">
+    <value>Überstunden</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>Rentenversicherung (Arbeitgeberanteil)</value>
+  </data>
+  <data name="Pension (Personal)" xml:space="preserve">
+    <value>Rentenversicherung (Arbeitnehmeranteil)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>Leistungsbonus</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>Einkommensteuer</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Krankheitsbedingte Abwesenheit</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>Sonderabzug</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Zielmonat</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Der {0} darf {1} Zeichen nicht überschreiten.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Das {0} ist erforderlich.</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Gesamtbetrag</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>Arbeitslosigkeit (Unternehmen)</value>
+  </data>
+  <data name="Unemployment (Personal)" xml:space="preserve">
+    <value>Arbeitslosigkeit (Arbeitnehmeranteil)</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>Arbeitsunfall (Unternehmen)</value>
+  </data>
+
+</root>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Asset Tag" xml:space="preserve">
+    <value>Etichetta bene</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Assegnatario</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>Appartiene all&apos;Entità</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>File Fattura</value>
+  </data>
+  <data name="Is Reimbursed" xml:space="preserve">
+    <value>È rimborsato</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Ubicazione</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Modello</value>
+  </data>
+  <data name="Purchase Date" xml:space="preserve">
+    <value>Data di acquisto</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Prezzo di acquisto</value>
+  </data>
+  <data name="Serial Number" xml:space="preserve">
+    <value>Numero di serie</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stato</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Il {0} non può superare {1} caratteri.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Il {0} è obbligatorio.</value>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value>Fornitore</value>
+  </data>
+  <data name="Warranty Expire Date" xml:space="preserve">
+    <value>Data scadenza garanzia</value>
+  </data>
+
+</root>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Company Entity" xml:space="preserve">
+    <value>Đơn vị công ty</value>
+  </data>
+  <data name="Detail Link" xml:space="preserve">
+    <value>Liên kết chi tiết</value>
+  </data>
+  <data name="Hostname" xml:space="preserve">
+    <value>Tên máy chủ</value>
+  </data>
+  <data name="IP Address" xml:space="preserve">
+    <value>Địa chỉ IP</value>
+  </data>
+  <data name="IPv4 Address" xml:space="preserve">
+    <value>Địa chỉ IPv4</value>
+  </data>
+  <data name="IPv6 Address" xml:space="preserve">
+    <value>Địa chỉ IPv6</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Chủ sở hữu</value>
+  </data>
+  <data name="Provider" xml:space="preserve">
+    <value>Nhà cung cấp</value>
+  </data>
+  <data name="Technical owner" xml:space="preserve">
+    <value>Chủ sở hữu kỹ thuật</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} không được vượt quá {1} ký tự.</value>
+  </data>
+
+</root>

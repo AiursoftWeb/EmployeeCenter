@@ -1,0 +1,70 @@
+@model Aiursoft.EmployeeCenter.Models.ManageFeedbackViewModels.QuestionsViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Manage Questions"]</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <a asp-action="Index" class="btn btn-outline-secondary shadow-sm me-2">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Questionnaires"]
+        </a>
+        <a asp-action="CreateQuestion" class="btn btn-primary shadow-sm">
+            <i class="align-middle" data-lucide="plus"></i> @Localizer["Create Question"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Questions"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["Type"]</th>
+                            <th>@Localizer["Tags"]</th>
+                            <th>@Localizer["Created"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var q in Model.Questions)
+                        {
+                            <tr>
+                                <td>@q.Title</td>
+                                <td>@q.Type</td>
+                                <td>@q.Tags</td>
+                                <td>@q.CreationTime.ToLocalTime().ToString("g")</td>
+                                <td class="text-end">
+                                    <a asp-action="EditQuestion" asp-route-id="@q.Id" class="btn btn-sm btn-outline-primary me-1">@Localizer["Edit"]</a>
+                                    <form asp-action="DeleteQuestion" asp-route-id="@q.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('delete-confirm', 'Are you sure?'));">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">@Localizer["Delete"]</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        @if (!Model.Questions.Any())
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">@Localizer["No questions created yet."]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loc-data" class="d-none">
+    <span data-key="delete-confirm">@Localizer["Are you sure?"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+}

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>ชื่อบัญชี</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>ประเภทบัญชี</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>ตรรกะการบัญชีเป็นไปตามแบบจำลอง &apos;คลังเงิน&apos;: เงินไหลจากคลังหนึ่ง (แหล่งที่มา) ไปยังอีกคลังหนึ่ง (ปลายทาง) การเข้าใจองค์ประกอบห้าประการนี้เป็นกุญแจสำคัญของการบัญชีแบบบัญชีเดี่ยวสองด้าน</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>สินทรัพย์</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>เงินฝากธนาคาร, บัญชีลูกหนี้ (เงินที่ผู้อื่นค้างชำระ), เซิร์ฟเวอร์/แล็ปท็อป</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>การกู้ยืมจากผู้อำนวยการ</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>การกู้ยืมเงิน = เพิ่มขึ้น; การชำระหนี้ = ลดลง</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>เงินสดในมือ หรือสิ่งของที่สามารถเปลี่ยนเป็นเงินสดได้</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>ค่าใช้จ่ายที่เกิดขึ้น</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>สร้าง</value>
+  </data>
+  <data name="Create New Account" xml:space="preserve">
+    <value>สร้างบัญชีใหม่</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>สกุลเงิน</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>หนี้สินที่บริษัทต้องชำระในอนาคต</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>นิยาม:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>ทิศทาง:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>เงินกู้จากผู้จัดการ (เงินที่คุณให้กู้บริษัท), ใบแจ้งหนี้ที่ยังไม่ได้จ่าย, หนี้บัตรเครดิต</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>เช่น HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>เช่น Statrys Checking</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>ส่วนของเจ้าของ</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>ตัวอย่าง:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>ค่าใช้จ่าย</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>จาก (แหล่งที่มา)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>รายได้</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>หนี้สิน</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>ตรรกะ</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>เงินที่ได้รับ</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>เงินที่ได้รับจากการขายผลิตภัณฑ์หรือการให้บริการ เพิ่มกำไร</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>เงินไหลออกจากบัญชีธนาคารเพื่อชำระหนี้</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>เงินไหลจากบัญชีธนาคารไปยังค่าใช้จ่าย</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>เงินไหลจากหนี้สินไปยังบัญชีธนาคาร</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>เงินไหลจากส่วนของผู้ถือหุ้นไปยังบัญชีธนาคาร</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>เงินที่ได้รับจากการทำรายได้เข้าสู่บัญชีธนาคาร</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>เงินเข้า = เพิ่ม; เงินออก = ลด</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>เงินที่ใช้เพื่อการดำเนินงานของบริษัท ลดผลกำไร</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>การชำระค่าเซิร์ฟเวอร์</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>แผ่นสรุปเร็ว</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>การคืนเงินให้ผู้อำนวยการ</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>รายได้จากการขายสินค้า, ค่าธรรมเนียมบริการ, รายได้จากดอกเบี้ย</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>สถานการณ์</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>การขายซอฟต์แวร์</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>ค่าบริการโฮสต์เซิร์ฟเวอร์, ค่าธรรมเนียมธนาคาร, ค่าจ้าง</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>หุ้นทุน (การลงทุนเริ่มต้น), กำไรที่ถือครองไว้ (กำไรสะสม)</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>การลงทุนจากผู้ถือหุ้น</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>การลงทุนของผู้ถือหุ้น/กำไร = เพิ่มขึ้น; การถอนทุนของผู้ถือหุ้น/ขาดทุน = ลดลง</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>แสดงในแดชบอร์ด</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>มูลค่าสุทธิของบริษัท สมการ: สินทรัพย์ - หนี้สิน = ส่วนของผู้ถือหุ้น</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>สิ่งที่คุณต้องจ่ายให้ผู้อื่น</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>สิ่งของที่คุณเป็นเจ้าของ</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>ถึง (ปลายทาง)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>เข้าใจองค์ประกอบการบัญชี</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>ค่าที่เป็นของคุณอย่างแท้จริง</value>
+  </data>
+
+</root>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Details" xml:space="preserve">
+    <value>Thông tin Tài khoản</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
+    <value>Tổng quan về hồ sơ người dùng, các vai trò được gán và quyền hạn hiệu lực.</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Mã tài sản</value>
+  </data>
+  <data name="Assigned Assets" xml:space="preserve">
+    <value>Tài sản được phân công</value>
+  </data>
+  <data name="Assigned Roles" xml:space="preserve">
+    <value>Vai trò được giao</value>
+  </data>
+  <data name="Back to list" xml:space="preserve">
+    <value>Quay lại danh sách</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Tài khoản Ngân hàng</value>
+  </data>
+  <data name="Bank Account (Card Number)" xml:space="preserve">
+    <value>Tài khoản ngân hàng (Số thẻ)</value>
+  </data>
+  <data name="Bank Account Name (Holder)" xml:space="preserve">
+    <value>Tên tài khoản ngân hàng (Chủ tài khoản)</value>
+  </data>
+  <data name="Bank Information Change History" xml:space="preserve">
+    <value>Lịch sử thay đổi thông tin ngân hàng</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Tên ngân hàng</value>
+  </data>
+  <data name="Bank Name (Branch)" xml:space="preserve">
+    <value>Tên ngân hàng (Chi nhánh)</value>
+  </data>
+  <data name="Bank Name (Old -&gt; New)" xml:space="preserve">
+    <value>Tên ngân hàng (Cũ -&gt; Mới)</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Lương cơ bản</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Thông Tin Cơ Bản</value>
+  </data>
+  <data name="Card Number (Old -&gt; New)" xml:space="preserve">
+    <value>Số thẻ (Cũ -&gt; Mới)</value>
+  </data>
+  <data name="Changed By" xml:space="preserve">
+    <value>Đã thay đổi bởi</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Thời gian tạo</value>
+  </data>
+  <data name="Delete this User" xml:space="preserve">
+    <value>Xóa người dùng này</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="Edit this User" xml:space="preserve">
+    <value>Chỉnh sửa Người dùng này</value>
+  </data>
+  <data name="Effective Permissions" xml:space="preserve">
+    <value>Quyền Hữu Hiệu</value>
+  </data>
+  <data name="Effective Permissions (from all roles)" xml:space="preserve">
+    <value>Quyền Hữu Hiệu (từ tất cả các vai trò)</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Holder (Old -&gt; New)" xml:space="preserve">
+    <value>Chủ tài khoản (Cũ -&gt; Mới)</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Ngưng hoạt động</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>Đang sử dụng</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>Cấp bậc công việc</value>
+  </data>
+  <data name="Job Level (职级)" xml:space="preserve">
+    <value>Cấp bậc công việc (职级)</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>Tên pháp lý</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Mất</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>Bảo trì</value>
+  </data>
+  <data name="Manage All Assets" xml:space="preserve">
+    <value>Quản lý Tất cả Tài sản</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Quản lý Hợp đồng</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Quản lý Khóa SSH</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Quản lý</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Mô hình</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="No assets assigned to this user." xml:space="preserve">
+    <value>Không có tài sản nào được gán cho người dùng này.</value>
+  </data>
+  <data name="No change history found." xml:space="preserve">
+    <value>Không tìm thấy lịch sử thay đổi.</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Chờ chấp nhận</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Thông tin Hồ sơ</value>
+  </data>
+  <data name="Promote User" xml:space="preserve">
+    <value>Thăng chức người dùng</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Dòng báo cáo</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Đã ngừng sử dụng</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>Đơn vị ký kết</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Hệ thống</value>
+  </data>
+  <data name="This user has no effective permissions." xml:space="preserve">
+    <value>Người dùng này không có quyền hạn hiệu lực nào.</value>
+  </data>
+  <data name="This user has not been assigned any roles." xml:space="preserve">
+    <value>Người dùng này chưa được gán bất kỳ vai trò nào.</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Thời gian</value>
+  </data>
+  <data name="Title (职务)" xml:space="preserve">
+    <value>Chức vụ</value>
+  </data>
+  <data name="User Details:" xml:space="preserve">
+    <value>Thông tin Người dùng:</value>
+  </data>
+  <data name="User name" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Xem đường báo cáo</value>
+  </data>
+  <data name="View Weekly Reports" xml:space="preserve">
+    <value>Xem báo cáo hàng tuần</value>
+  </data>
+  <data name="Weekly Reports" xml:space="preserve">
+    <value>Báo cáo hàng tuần</value>
+  </data>
+
+</root>

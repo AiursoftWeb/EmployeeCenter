@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Accommodation: Must issue VAT Special Invoice with full company name. Avoid fixed-amount paper invoices if possible." xml:space="preserve">
+    <value>Alojamiento: debe emitir una factura especial con IVA con el nombre completo de la empresa. Evite las facturas en papel de importe fijo si es posible.</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Cuenta</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Datos administrativos</value>
+  </data>
+  <data name="Ask merchants for electronic invoices (PDF/OFD) sent to your email or employees@aiursoft.com." xml:space="preserve">
+    <value>Solicite a los comerciantes facturas electrónicas (PDF/OFD) enviadas a su correo electrónico o a employees@aiursoft.com.</value>
+  </data>
+  <data name="Associated Intangible Assets" xml:space="preserve">
+    <value>Activos Intangibles Asociados</value>
+  </data>
+  <data name="Associated Servers" xml:space="preserve">
+    <value>Servidores asociados</value>
+  </data>
+  <data name="Avoid paper invoices to prevent loss." xml:space="preserve">
+    <value>Evite las facturas en papel para evitar pérdidas.</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Banco</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>Código del banco</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Información del banco</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>Moneda base</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Información básica</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Licencia de negocio</value>
+  </data>
+  <data name="Business Registration" xml:space="preserve">
+    <value>Registro de empresa</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Número de CI</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Nombre de la empresa</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Tipo de empresa</value>
+  </data>
+  <data name="Copy Full Info" xml:space="preserve">
+    <value>Copiar información completa</value>
+  </data>
+  <data name="Copy Summary" xml:space="preserve">
+    <value>Copiar resumen</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Descargar / Ver</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Nombre en inglés</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Código de entidad</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Detalles de la entidad</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Fecha de constitución</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Fecha de caducidad</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Imágenes y archivos</value>
+  </data>
+  <data name="Instructions for Employees" xml:space="preserve">
+    <value>Instrucciones para empleados</value>
+  </data>
+  <data name="Invoice Issuance Guide" xml:space="preserve">
+    <value>Guía para la emisión de facturas</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Representante legal / Director</value>
+  </data>
+  <data name="Legal Rep Legal Name" xml:space="preserve">
+    <value>Nombre legal del representante legal</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logotipo</value>
+  </data>
+  <data name="Meals, Transportation, Communication, Electronics (Computers/Peripherals)." xml:space="preserve">
+    <value>Comidas, transporte, comunicación, electrónica (ordenadores/periféricos).</value>
+  </data>
+  <data name="Must be real business expenses. No fake invoices." xml:space="preserve">
+    <value>Debe tratarse de gastos empresariales reales. No facturas falsas.</value>
+  </data>
+  <data name="No employees signed with this entity." xml:space="preserve">
+    <value>No hay empleados firmados con esta entidad.</value>
+  </data>
+  <data name="No intangible assets associated." xml:space="preserve">
+    <value>No hay activos intangibles asociados.</value>
+  </data>
+  <data name="No servers associated." xml:space="preserve">
+    <value>Sin servidores asociados.</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Sello oficial</value>
+  </data>
+  <data name="Organization Certificate" xml:space="preserve">
+    <value>Certificado de organización</value>
+  </data>
+  <data name="Please show the following information to the merchant when making a payment:" xml:space="preserve">
+    <value>Por favor, muestra la siguiente información al comerciante al realizar un pago:</value>
+  </data>
+  <data name="Prefer Electronic Invoices (Fully Digitalized)" xml:space="preserve">
+    <value>Preferir facturas electrónicas (completamente digitalizadas)</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Capital registrado</value>
+  </data>
+  <data name="Reimbursement Categories" xml:space="preserve">
+    <value>Categorías de reembolso</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restringido</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>Ubicación del SCR</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Secretario</value>
+  </data>
+  <data name="Special Cases" xml:space="preserve">
+    <value>Casos especiales</value>
+  </data>
+  <data name="Staff List" xml:space="preserve">
+    <value>Lista de Personal</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Código SWIFT</value>
+  </data>
+  <data name="Tax ID" xml:space="preserve">
+    <value>CIF</value>
+  </data>
+  <data name="Tip: When incurring business or welfare expenses, please request an invoice. Prefer electronic invoices. Keep the original PDF." xml:space="preserve">
+    <value>Consejo: Al incurrir gastos empresariales o de bienestar, por favor solicite una factura. Prefiera facturas electrónicas. Guarde la versión PDF original.</value>
+  </data>
+
+</root>

@@ -1,0 +1,156 @@
+@model Aiursoft.EmployeeCenter.Models.LedgerViewModels.CreateTransactionViewModel
+@{
+    var accounts = (List<FinanceAccount>)ViewBag.Accounts;
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@Localizer["New Transaction"]</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form asp-action="CreateTransaction" method="post">
+                <input type="hidden" asp-for="EntityId" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Description">@Localizer["Description"]</label>
+                    <input asp-for="Description" class="form-control" placeholder="@Localizer["e.g. Pay Sleek for Professional Fee"]" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="SourceAccountId">@Localizer["Source Account (From)"]</label>
+                            <select asp-for="SourceAccountId" class="form-control">
+                                <option value="">-- @Localizer["Select Account"] --</option>
+                                @foreach (var account in accounts)
+                                {
+                                    <option value="@account.Id">@account.AccountName (@account.AccountType - @account.Currency)</option>
+                                }
+                            </select>
+                            <span asp-validation-for="SourceAccountId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="DestinationAccountId">@Localizer["Destination Account (To)"]</label>
+                            <select asp-for="DestinationAccountId" class="form-control">
+                                <option value="">-- @Localizer["Select Account"] --</option>
+                                @foreach (var account in accounts)
+                                {
+                                    <option value="@account.Id">@account.AccountName (@account.AccountType - @account.Currency)</option>
+                                }
+                            </select>
+                            <span asp-validation-for="DestinationAccountId" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Amount">@Localizer["Amount"]</label>
+                            <input asp-for="Amount" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="ExchangeRate">@Localizer["Exchange Rate"] (Source / Destination)</label>
+                            <input asp-for="ExchangeRate" class="form-control" type="number" step="0.000001" />
+                            <div id="exchangeRateHint" class="alert alert-info mt-2" style="display: none;">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                <span id="hintText"></span>
+                            </div>
+                            <small class="form-text text-muted">@Localizer["Default is 1. How much Destination currency equals 1 Source currency unit."]</small>
+                            <span asp-validation-for="ExchangeRate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="TransactionTime">@Localizer["Transaction Time"]</label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
+                            <input asp-for="TransactionTime" class="form-control" />
+                            <span asp-validation-for="TransactionTime" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="InvoicePath">@Localizer["Invoice Attachment"]</label>
+                    <vc:file-upload asp-for="InvoicePath" subfolder="ledger-invoices" is-vault="true" allowed-extensions="jpg png pdf" />
+                    <span asp-validation-for="InvoicePath" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="MT103Path">@Localizer["MT103 Attachment"] (@Localizer["Optional"])</label>
+                            <vc:file-upload asp-for="MT103Path" subfolder="ledger-mt103" is-vault="true" allowed-extensions="jpg png pdf" />
+                            <span asp-validation-for="MT103Path" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PaymentVoucherPath">@Localizer["Payment Voucher Attachment"] (@Localizer["Optional"])</label>
+                            <vc:file-upload asp-for="PaymentVoucherPath" subfolder="ledger-vouchers" is-vault="true" allowed-extensions="jpg png pdf" />
+                            <span asp-validation-for="PaymentVoucherPath" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">@Localizer["Record Transaction"]</button>
+                <a asp-action="Dashboard" asp-route-id="@Model.EntityId" class="btn btn-secondary">@Localizer["Cancel"]</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="loc-data" class="d-none">
+    <span data-key="transfer-hint">@Localizer["You are transferring from {0} to {1}. The exchange rate should be: 1 {0} = [Exchange Rate] {1}.", "{0}", "{1}"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+    <partial name="_LocalizationHelper" />
+    <script>
+        $(document).ready(function () {
+            function updateExchangeRateHint() {
+                var sourceOption = $('#SourceAccountId option:selected');
+                var destOption = $('#DestinationAccountId option:selected');
+                
+                if (sourceOption.val() && destOption.val()) {
+                    var sourceText = sourceOption.text();
+                    var destText = destOption.text();
+                    
+                    var sourceCurrency = sourceText.substring(sourceText.lastIndexOf(' - ') + 3, sourceText.lastIndexOf(')'));
+                    var destCurrency = destText.substring(destText.lastIndexOf(' - ') + 3, destText.lastIndexOf(')'));
+                    
+                    if (sourceCurrency !== destCurrency) {
+                        var hint = getLocalizedText('transfer-hint', "You are transferring from {0} to {1}. The exchange rate should be: 1 {0} = [Exchange Rate] {1}.");
+                        hint = hint.replace(/\{0\}/g, sourceCurrency).replace(/\{1\}/g, destCurrency);
+                        $('#hintText').text(hint);
+                        $('#exchangeRateHint').fadeIn();
+                    } else {
+                        $('#exchangeRateHint').fadeOut();
+                        $('#ExchangeRate').val(1);
+                    }
+                } else {
+                    $('#exchangeRateHint').fadeOut();
+                }
+            }
+            
+            $('#SourceAccountId, #DestinationAccountId').change(updateExchangeRateHint);
+            updateExchangeRateHint();
+        });
+    </script>
+}

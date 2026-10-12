@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} dias de férias anuais remuneradas por ano</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>7 dias de licença médica remunerada por ano</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Férias Anuais</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Solicitar Férias</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Aprovado</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Aprovador</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>à espera de aprovação</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>Transferido</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>dias</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>dias de distância</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>Tenha um ótimo descanso!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>em</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>Informação essencial sobre as nossas políticas de férias</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>Resumo do Saldo de Férias</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>Histórico de Férias</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>Política de Férias</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>Máximo de carregamento: {0} dias (expira após 1 ano)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>Saúde mental: não são necessários documentos</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Meu Saldo de Férias</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>Próximo Férias</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>Nenhuma aprovação necessária, pode ser utilizada imediatamente</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>Nenhuma história de férias encontrada.</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>sem férias agendadas</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pendente</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>Solicitações Pendentes</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Período</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>Doença física: obrigatório certificado médico</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>Por favor, assegure-se de que as suas férias estão em conformidade com a política da empresa, que todo o trabalho foi entregue e de que enviou um e-mail à sua equipa.</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>Ações Rápidas</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejeitado</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>pedidos</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>Requer aprovação do gestor antes da utilização</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Férias por Doença</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Submetido</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>Documentos comprovativos exigidos após o término das férias</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>Ausências não autorizadas são consideradas faltas sem justificação e resultarão em deduções salariais e medidas disciplinares.</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>Os dias não utilizados são transferidos para o ano seguinte</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>Férias Próximas</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Retirado</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>Os seus pedidos de férias e o seu estado</value>
+  </data>
+
+</root>

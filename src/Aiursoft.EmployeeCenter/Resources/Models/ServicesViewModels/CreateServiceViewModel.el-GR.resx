@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Alternative service" xml:space="preserve">
+    <value>Εναλλακτική υπηρεσία</value>
+  </data>
+  <data name="Authentik Integrated" xml:space="preserve">
+    <value>Authentik Integrated</value>
+  </data>
+  <data name="Cloudflare Proxied" xml:space="preserve">
+    <value>Cloudflare Proxied</value>
+  </data>
+  <data name="Company entity" xml:space="preserve">
+    <value>Νομικό πρόσωπο εταιρείας</value>
+  </data>
+  <data name="Cross-Entity Link" xml:space="preserve">
+    <value>Σύνδεση Μεταξύ Οντοτήτων</value>
+  </data>
+  <data name="DNS Provider" xml:space="preserve">
+    <value>Πάροχος DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Πεδίο</value>
+  </data>
+  <data name="Enable Availability Audit" xml:space="preserve">
+    <value>Ενεργοποίηση Ελέγχου Διαθεσιμότητας</value>
+  </data>
+  <data name="FRPS Server" xml:space="preserve">
+    <value>Εξυπηρετητής FRPS</value>
+  </data>
+  <data name="Is Online" xml:space="preserve">
+    <value>Είναι Σε Λειτουργία</value>
+  </data>
+  <data name="Is Self Developed" xml:space="preserve">
+    <value>Είναι Αυτοαναπτυγμένο</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Τοποθεσία</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Κάτοχος</value>
+  </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>Πρωτεύον τομέα</value>
+  </data>
+  <data name="Protocols" xml:space="preserve">
+    <value>Πρωτόκολλα</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Σκοπός</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Σχόλιο</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>Εξυπηρετητής</value>
+  </data>
+  <data name="Server (Asset)" xml:space="preserve">
+    <value>Εξυπηρετητής (Αγαθό)</value>
+  </data>
+  <data name="Server IP" xml:space="preserve">
+    <value>IP Διακομιστή</value>
+  </data>
+  <data name="Service name" xml:space="preserve">
+    <value>Όνομα υπηρεσίας</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Το {0} δεν μπορεί να υπερβαίνει τα {1} χαρακτήρες.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Το {0} είναι απαραίτητο.</value>
+  </data>
+  <data name="Via FRPS" xml:space="preserve">
+    <value>Μέσω FRPS</value>
+  </data>
+
+</root>

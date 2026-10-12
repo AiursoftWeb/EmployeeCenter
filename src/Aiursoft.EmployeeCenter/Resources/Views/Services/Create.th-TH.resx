@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add New Service" xml:space="preserve">
+    <value>เพิ่มบริการใหม่</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>ข้อมูลพื้นฐาน</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Cross-Entity Link is used to suggest local/international versions to users." xml:space="preserve">
+    <value>Cross-Entity Link ใช้เพื่อแนะนำเวอร์ชันท้องถิ่น/สากลให้กับผู้ใช้</value>
+  </data>
+  <data name="Domain should be the primary entry point for the service." xml:space="preserve">
+    <value>โดเมนควรเป็นจุดเข้าถึงหลักสำหรับบริการ</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>เช่น Customer Portal</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>เช่น example.com</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>เช่น HTTPS, TCP</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>ใหม่</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>ไม่มี</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>รีโหลด</value>
+  </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>จำเป็นเมื่อเปิดใช้งาน Via FRPS</value>
+  </data>
+  <data name="Save Service" xml:space="preserve">
+    <value>บันทึกบริการ</value>
+  </data>
+  <data name="Select DNS Provider" xml:space="preserve">
+    <value>เลือกผู้ให้บริการ DNS</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>เลือกเซิร์ฟเวอร์ FRPS</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>เลือกตำแหน่ง</value>
+  </data>
+  <data name="Select Owner" xml:space="preserve">
+    <value>เลือกเจ้าของ</value>
+  </data>
+  <data name="Select Server" xml:space="preserve">
+    <value>เลือกเซิร์ฟเวอร์</value>
+  </data>
+  <data name="Select Server (Asset)" xml:space="preserve">
+    <value>เลือกเซิร์ฟเวอร์ (สินทรัพย์)</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>คำแนะนำ</value>
+  </data>
+
+</root>

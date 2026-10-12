@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>银行账户</value>
+  </data>
+  <data name="Bank Account (Card Number)" xml:space="preserve">
+    <value>银行账号（卡号）</value>
+  </data>
+  <data name="Bank Account Name (Holder)" xml:space="preserve">
+    <value>账户名（户名）</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>银行名称</value>
+  </data>
+  <data name="Bank Name (Branch)" xml:space="preserve">
+    <value>银行名称（分行）</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>基本工资</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Email Address" xml:space="preserve">
+    <value>电子邮件地址</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>职级</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>法定姓名</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>经理</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>电话号码</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>签约方</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} 不能超过 {1} 个字符。</value>
+  </data>
+  <data name="The {0} is not a valid email address." xml:space="preserve">
+    <value>{0} 不是有效的电子邮件地址。</value>
+  </data>
+  <data name="The {0} is not a valid phone number." xml:space="preserve">
+    <value>{0} 不是有效的电话号码。</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0}是必填的。</value>
+  </data>
+  <data name="The {0} must be at least {1} characters." xml:space="preserve">
+    <value>{0} 至少需要 {1} 个字符。</value>
+  </data>
+  <data name="The {0} must be at least {2} and at max {1} characters long." xml:space="preserve">
+    <value>{0}的长度至少为{2}个字符，最多为{1}个字符。</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>职位</value>
+  </data>
+  <data name="User name" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+
+</root>

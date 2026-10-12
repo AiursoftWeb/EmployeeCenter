@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} dagen betaald jaarverlof per jaar</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>7 dagen betaalde ziekteverlof per jaar</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acties</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Jaarverlof</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Verzoek om verlof</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Goedkeuren</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Goedkeurder</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>in afwachting van goedkeuring</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>Overgedragen</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>dagen</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>dagen af</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>Geniet van een geweldige vakantie!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>over</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>Belangrijke informatie over onze verlofpolitiek</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>Overzicht saldo verlof</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>Verlofgeschiedenis</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>Verlofpolitiek</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>Maximale overdracht: {0} dagen (vervalt na 1 jaar)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>Geestelijke gezondheid: geen documenten vereist</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Mijn verlofbalans</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>Volgende Vakantie</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>Geen goedkeuring vereist, direct gebruikbaar</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>Geen verlofgeschiedenis gevonden.</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>geen komende verlof</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>van</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>In afwachting</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>In afwachting van goedkeuring</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Periode</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>Lichamelijke ziekte: medische verklaring vereist</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>Zorg ervoor dat uw verlof voldoet aan het bedrijfspolitiek, dat alle werk is overgedragen en dat u een e-mail heeft verzonden naar uw team.</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>Snelacties</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Afgekeurd</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>aanvragen</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>Vereist goedkeuring van de manager voordat het wordt gebruikt</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Ziekteverlof</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Ingediend</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>Ondersteunende documenten zijn vereist na het einde van de verlofperiode</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>Ongeoorloofde afwezigheden worden beschouwd als ongeoorloofde afwezigheid en leiden tot salarisvermindering en disciplinaire maatregelen.</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>Niet-gebruikte dagen worden overgedragen naar het volgende jaar</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>Aankomende verlof</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Intrekken</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Ingetrokken</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>Uw verlofaanvragen en hun status</value>
+  </data>
+
+</root>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>कार्यवाही</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="Actual" xml:space="preserve">
+    <value>वास्तविक</value>
+  </data>
+  <data name="Add record" xml:space="preserve">
+    <value>रिकॉर्ड जोड़ें</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>रद्द</value>
+  </data>
+  <data name="Channel Info" xml:space="preserve">
+    <value>चैनल जानकारी</value>
+  </data>
+  <data name="Collection Channel Details" xml:space="preserve">
+    <value>संग्रह चैनल विवरण</value>
+  </data>
+  <data name="Collection Records" xml:space="preserve">
+    <value>संग्रह रिकॉर्ड</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>संविदा</value>
+  </data>
+  <data name="Due Date" xml:space="preserve">
+    <value>नियत तिथि</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>संपादित करें</value>
+  </data>
+  <data name="Edit Channel" xml:space="preserve">
+    <value>चैनल संपादित करें</value>
+  </data>
+  <data name="Expected" xml:space="preserve">
+    <value>अपेक्षित</value>
+  </data>
+  <data name="First Payment" xml:space="preserve">
+    <value>पहला भुगतान</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>उपलब्ध नहीं</value>
+  </data>
+  <data name="No records found." xml:space="preserve">
+    <value>कोई रिकॉर्ड नहीं मिला।</value>
+  </data>
+  <data name="One-time" xml:space="preserve">
+    <value>एक बार</value>
+  </data>
+  <data name="Overdue" xml:space="preserve">
+    <value>अवधि-पार</value>
+  </data>
+  <data name="Paid Date" xml:space="preserve">
+    <value>पेमेंट दिनांक</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>आंशिक</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>स्थगित</value>
+  </data>
+  <data name="Payee" xml:space="preserve">
+    <value>प्राप्तकर्ता</value>
+  </data>
+  <data name="Payer" xml:space="preserve">
+    <value>देयक</value>
+  </data>
+  <data name="Payment Method" xml:space="preserve">
+    <value>भुगतान विधि</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>लंबित</value>
+  </data>
+  <data name="Recurring" xml:space="preserve">
+    <value>नियमित</value>
+  </data>
+  <data name="Reference Amount" xml:space="preserve">
+    <value>संदर्भ राशि</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>टिप्पणी</value>
+  </data>
+  <data name="Settled" xml:space="preserve">
+    <value>समाप्त</value>
+  </data>
+  <data name="Start Billing" xml:space="preserve">
+    <value>बिलिंग शुरू करें</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Terminated" xml:space="preserve">
+    <value>समाप्त</value>
+  </data>
+
+</root>

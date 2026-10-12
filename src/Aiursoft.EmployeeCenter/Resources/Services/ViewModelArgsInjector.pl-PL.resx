@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>Dostęp zabroniony</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Konta</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Działania</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>Dodaj klucz SSH</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>Dodatkowe informacje (Chiny/Hongkong)</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administracja</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Szczegóły administracyjne</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Asystent AI</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Aiursoft Centrum Pracownicze</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft Template</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>Anonimowy</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>Złóż wniosek o urlop</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Centrum Zatwierdzeń</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Historia zatwierdzeń</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Zatwierdź</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Zaakceptowane</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>Zatwierdzone projekty</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Kategorie aktywów</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Modele zasobów</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Zasoby</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Przypisz</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Przypisz aktyw</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Audyt usług</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>Zadania w tle</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Błąd żądania</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Informacje bankowe</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Informacje podstawowe</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>Szablon</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>Szablony</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Dowód działalności gospodarczej</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Kariera</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>Potwierdzenie zatrudnienia</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>Potwierdzenie zatrudnienia</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>Potwierdzenie dochodów</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Drukuj certyfikat</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>Zmień awatar</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>Zmień dane bankowe</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>Zmień hasło</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>Zmień Profil</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Czat</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Numer CI</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>Kliknij, aby się zalogować</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>Kanały ściągnięć</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Komentarze</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>Jednostki firmowe</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>Szczegóły jednostki firmy</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>Informacje o jednostce firmy</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>Konsultacja informacji o firmie</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>Aktywa niematerialne firmy</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Nazwa firmy</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>Umowy Publiczne Firmy</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Typ firmy</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Potwierdź usunięcie</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>Szczegóły finansów kontraktowych</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>Statystyki finansowe umów</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Umowy</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Utwórz konto</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Utwórz Aktyw</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>Utwórz jednostkę firmową</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Utwórz nowy</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>Utwórz nowy folder szablonu</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>Utwórz nowy kontrakt</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Utwórz nowy folder</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Utwórz zadanie onboardingu</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>Utwórz hasło</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>Utwórz promocję</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>Utwórz pytanie</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>Utwórz ankiety</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>Utwórz rolę</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Utwórz serwer</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Utwórz usługę</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Utwórz transakcję</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Utwórz użytkownika</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>Relacje z klientami</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>Relacje z klientami</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Pulpit</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>Usuń rolę</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>Usuń użytkownika</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Rozwój</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Katalog</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Audyt DNS</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Pobierz / Wyświetl</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Edytuj konto</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Edytuj zasób</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>Edytuj szablon</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>Edytuj folder szablonu</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>Edytuj jednostkę firmową</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>Edytuj kontrakt</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>Edytuj relacje z klientem</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Edytuj folder</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Edytuj nagranie spotkania</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>Edytuj zadanie onboardingu</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>Edytuj hasło</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Edytuj wypłatę</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Edytuj pytanie</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Edytuj ankiety</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>Edytuj wymaganie</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>Edytuj rolę</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Edytuj serwer</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Edytuj usługę</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Edytuj klucz SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Edytuj transakcję</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Edytuj transkrypcję</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>Edytuj użytkownika</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>Edytuj raport tygodniowy</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Edytor</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>Centrum Pracowników</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>Sygnały pracowników</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Nazwa angielska</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>Lista jednostek</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Kod jednostki</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Szczegóły jednostki</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Ustanowienie</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Data ważności</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Funkcje</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>Wypełnij ankietę</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finanse</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>Ustawienia globalne</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Dostosowania urlopowe</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Strona główna</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Obrazy i pliki</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>Importuj kontrakty z pliku Zip</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>Przychodzące urlopy</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Indeks</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Serwer indeksowania</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Informacje</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>Jakość danych infrastruktury</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Wewnętrzny błąd serwera</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>Wystaw fakturę</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>Wystaw płatność</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>Zasoby IT</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>Urlop</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>Zarządzanie urlopami</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>Prawne</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>Reprezentant prawny</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Reprezentant prawny / Dyrektor</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Lokalizacje</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Blokada</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>Zaloguj się, aby uzyskać dostęp do wszystkich funkcji.</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>Utrzymaj profil</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Zarządzaj</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Zarządzaj zasobami</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Zarządzaj udostępnieniami audio</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Zarządzaj szablonami</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Zarządzaj kategoriami</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>Zarządzaj jednostkami firmy</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Zarządzaj umowami</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>Zarządzaj relacjami z klientami</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Zarządzaj dostawcami DNS</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Zarządzaj opiniami</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Zarządzanie aktywami niematerialnymi</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>Zarządzaj zasobami IT</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Zarządzaj księgą</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Zarządzaj lokalizacjami</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Zarządzaj kanałami rynkowymi</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Zarządzaj modelami</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>Zarządzaj onboardowaniem</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Zarządzaj zadaniami onboardingu</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>Zarządzaj udostępnionymi hasłami</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Zarządzaj wynagrodzeniami</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>Zarządzanie drukowaniem</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Zarządzaj dostawcami</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>Zarządzaj pytaniami</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>Zarządzaj wymaganiami</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Zarządzaj udostępnieniami</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>Zarządzaj zadaniami</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Zarządzaj dostawcami</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>Kanały rynkowe</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Notatki z posiedzenia</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Transkrypcja spotkania</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Transkrypcje spotkań</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Zadania</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>Przenieś umowę</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Moje zasoby</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>Moje kontrakty</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>Moje zasoby IT</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Moje saldo urlopów</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>Moje księgi płac</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Moje zwroty kosztów</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>Moja linia raportowa</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>Moje wymagania</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Nie znaleziono</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Wyniki OCR</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Oficjalny pieczęć</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>Wprowadzenie</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>Proces onboardingu</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>Szczegóły hasła</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Hasła</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Zarządzanie hasłami</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Szczegóły wynagrodzeń</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>listy płac</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Oczekujące na zatwierdzenie</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Szczegóły uprawnień</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Uprawnienia</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Osobiste</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Podgląd</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Drukuj</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>Drukuj certyfikat</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Ustawienia profilu</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>Wymagania projektu</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>Historia awansów</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>Odpowiedzi ankietowe</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Kapitał zakładowy</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Zarejestruj</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>Reimbursement</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Odrzuć</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Odrzucono</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>Zmień nazwę nagrania spotkania</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Odpowiedz</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>Odpowiadając na</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Linia raportowa</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>Wymagaj zmian</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>Wymagaj zmian</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>Wymóg</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>Szczegóły wymagania</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Wymóg został pomyślnie zapisany.</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>Tytuł wymagania</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>Zasoby</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>Szczegóły odpowiedzi</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Ograniczony</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>Szczegóły roli</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Zapisz zmiany</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>Miejsce rejestru SCR</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Sekretarz</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Serwery</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Audyt usług</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Usługi</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Pulpit usług</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>Udostępnione informacje</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>Udostępnione hasła</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>Klucze SSH</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>Prześlij komentarz</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Prześlij do zatwierdzenia</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>Prześlij nowe wymaganie</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>Prześlij wniosek</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>Informacje o systemie</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Kalendarz zespołu</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Szablon</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transakcje</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Nieautoryzowany</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Prześlij plik audio</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Szczegóły użytkownika</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Dostawcy</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>Wyświetl szablony</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>Zobacz Kontrakty</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>Zobacz relacje z klientami</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>Wyświetl kanały rynkowe</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>Raport tygodniowy</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>Napisz komentarz...</value>
+  </data>
+
+</root>

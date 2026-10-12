@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Rekeningnaam</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Rekeningtype</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>De boekhoudlogica volgt een &apos;poolmodel&apos;: geld stroomt van de ene pool (bron) naar een andere pool (bestemming). Het begrijpen van deze vijf elementen is essentieel voor dubbelboekhouding.</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Actief</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Bankdepositen, Debiteuren (geld dat anderen u verschuldigd zijn), Servers/Laptops.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Lenen van Directeur</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Geld lenen = Toename; Geld terugbetalen = Afname.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Contant in hand, of dingen die omgezet kunnen worden in contant geld.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Kosten gemaakt</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Aanmaken</value>
+  </data>
+  <data name="Create New Account" xml:space="preserve">
+    <value>Nieuw account aanmaken</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Schulden die het bedrijf in de toekomst moet terugbetalen.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Definitie:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Richting:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Directeurleningen (geld dat u aan het bedrijf hebt geleend), Onbetaalde facturen, Creditcardschulden</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>bijv. HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>bijv. Statrys Checking</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Eigen vermogen</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Voorbeelden:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Kosten</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Van (Bron)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Inkomsten</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Schuld</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Logica</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Gewonnen geld</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Geld verdiend door het verkopen van producten of het leveren van diensten. Verhoogt de winst.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Geld stroomt van bank naar schuldbestrijding</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Geld stroomt van bank naar uitgaven</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Geld stroomt van schulden naar bankrekening</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Geld stroomt van eigen vermogen naar bankrekening</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Geld dat wordt gegenereerd als inkomsten in de bank</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Geld binnen = Toename; Geld buiten = Afname.</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Geld uitgegeven voor het onderhoud van bedrijfsactiviteiten. Vermindert winst.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Serverkosten betalen</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Snel overzicht</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Terugbetalen aan directeur</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Omzet, Dienstverleningskosten, Interestinkomen</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Scenario</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Software verkopen</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Serverhostingkosten, Bankkosten, Loonkosten</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Aandelenkapitaal (beginnende investering), Reservering van winst (opgebouwde winst).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Aandeelhoudersinvestering</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Aandeelhoudersinvestering/winst = Toename; Aandeelhoudersopname/verlies = Afname.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Toon op dashboard</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Het netto vermogen van het bedrijf. Formule: Actief - Passief = Eigen vermogen.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Dingen die je anderen schuldigt</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Dingen die je bezit</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>Naar (Bestemming)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Accounting-elementen begrijpen</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Waarde die echt van jou is</value>
+  </data>
+
+</root>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Bankrekening</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Bankadres</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Banknaam</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>Begunstigde Naam</value>
+  </data>
+  <data name="Buyer" xml:space="preserve">
+    <value>Koper</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>Koperadres</value>
+  </data>
+  <data name="Buyer Attention" xml:space="preserve">
+    <value>Aandacht voor koper</value>
+  </data>
+  <data name="Buyer CR No" xml:space="preserve">
+    <value>Koper CR-nummer</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>Koper naam</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Contractnummer</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>Factuurnummer</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>Factuurtype</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>Proforma factuur / Factuurverklaring</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>Bon / Betaalde factuur</value>
+  </data>
+  <data name="Seller" xml:space="preserve">
+    <value>Verkoper</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>Verkoperadres</value>
+  </data>
+  <data name="Seller Code" xml:space="preserve">
+    <value>Verkopercode</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>Verkopercontact</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>Verkoper Naam</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-code</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Het {0} is verplicht.</value>
+  </data>
+
+</root>

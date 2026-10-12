@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Business Qualifications" xml:space="preserve">
+    <value>业务资质</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>公司主体</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>生成水印并下载</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>我的下载记录</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>暂无可用资质。</value>
+  </data>
+  <data name="Originals are private. Specify the business purpose and recipient to generate a personalized watermarked copy." xml:space="preserve">
+    <value>原件私有保存。请填写具体业务用途和接收单位，生成带个人水印的副本。</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>资质</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+</root>

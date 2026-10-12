@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of all issued payroll records in the system." xml:space="preserve">
+    <value>Список усіх виданих записів про виплату зарплати в системі.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="All History" xml:space="preserve">
+    <value>Весь історія</value>
+  </data>
+  <data name="All Payrolls" xml:space="preserve">
+    <value>Усі зарплатні відомості</value>
+  </data>
+  <data name="All Users" xml:space="preserve">
+    <value>Всі користувачі</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Час створення</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Деталі</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Експорт</value>
+  </data>
+  <data name="Export payroll history to Excel (CSV)." xml:space="preserve">
+    <value>Експорт історії виплат у Excel (CSV).</value>
+  </data>
+  <data name="Export Payrolls" xml:space="preserve">
+    <value>Експорт зарплат</value>
+  </data>
+  <data name="Issue new payroll" xml:space="preserve">
+    <value>Створити нову відомість</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Керування зарплатними відомостями</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Цільовий місяць</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Загальна сума</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Користувач</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Рік</value>
+  </data>
+
+</root>

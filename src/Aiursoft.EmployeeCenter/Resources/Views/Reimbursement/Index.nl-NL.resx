@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>Aangemeld</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Bedrag</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>Indienen</value>
+  </data>
+  <data name="Are you sure you want to delete this draft?" xml:space="preserve">
+    <value>Weet u zeker dat u deze concept wilt verwijderen?</value>
+  </data>
+  <data name="Are you sure you want to revoke this application?" xml:space="preserve">
+    <value>Weet u zeker dat u deze aanvraag wilt intrekken?</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Verwijderen</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Downloaden</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Concept</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bewerken</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>Uitgavedatum</value>
+  </data>
+  <data name="Manage and track your expense reimbursement requests." xml:space="preserve">
+    <value>Beheer en volg uw vergoedingsaanvragen.</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Mijn vergoedingen</value>
+  </data>
+  <data name="New Request" xml:space="preserve">
+    <value>Nieuw verzoek</value>
+  </data>
+  <data name="No reimbursement records found." xml:space="preserve">
+    <value>Geen terugbetalingen gevonden.</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Doel</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>Gedekt</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Afgewezen</value>
+  </data>
+  <data name="Revoke" xml:space="preserve">
+    <value>Intrekken</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>Ingetrokken</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+
+</root>

@@ -1,0 +1,22 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.PreviewViewModel
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["Watermarked Preview"]</h1>
+    <p>@Model.Record.QualificationName — @Model.Record.Version</p>
+    <dl class="row">
+        <dt class="col-sm-3">@Localizer["Applicant"]</dt><dd class="col-sm-9">@Model.Record.ApplicantName</dd>
+        <dt class="col-sm-3">@Localizer["Business Purpose"]</dt><dd class="col-sm-9">@Model.Record.Purpose</dd>
+        <dt class="col-sm-3">@Localizer["Recipient Company"]</dt><dd class="col-sm-9">@Model.Record.Recipient</dd>
+        <dt class="col-sm-3">@Localizer["Tracking ID"]</dt><dd class="col-sm-9">@Model.Record.Id</dd>
+        <dt class="col-sm-3">@Localizer["Generated At (UTC)"]</dt><dd class="col-sm-9">@Model.Record.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+    </dl>
+    <div class="alert alert-warning">@Localizer["Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation."]</div>
+    @if (Model.Record.BusinessQualification?.IsActive == true)
+    {
+        <img src="@Url.Action("Image", new { id = Model.Record.Id })" class="img-fluid mb-3" alt="@Localizer["Watermarked qualification copy"]" />
+        <form asp-action="Download" asp-route-id="@Model.Record.Id" method="post" class="mb-3">
+            <button type="submit" class="btn btn-primary">@Localizer["Download Watermarked PNG"]</button>
+        </form>
+    }
+    else { <div class="alert alert-warning">@Localizer["This qualification is disabled. Preview and download are unavailable until an administrator enables it."]</div> }
+    <a asp-action="Records" class="btn btn-secondary">@Localizer["My Download Records"]</a>
+</div>

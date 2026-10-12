@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allows retroactive entry for leaves already taken" xml:space="preserve">
+    <value>Επιτρέπει αναδρομική καταχώρηση για άδειες που ήδη πήραν</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Ετήσια Άδεια</value>
+  </data>
+  <data name="Annual leave requires approval" xml:space="preserve">
+    <value>Η ετήσια άδεια απαιτεί επικύρωση</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Υποβολή αίτησης άδειας</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Απρίλιος</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Αύγουστος</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>Λεξικό Ημερολογίου</value>
+  </data>
+  <data name="Calendar View" xml:space="preserve">
+    <value>Προβολή Ημερολογίου</value>
+  </data>
+  <data name="Can apply for leave from 7 days ago to end of current year" xml:space="preserve">
+    <value>Μπορείτε να αιτηθείτε άδεια από τις 7 ημέρες πριν μέχρι το τέλος του τρέχοντος έτους</value>
+  </data>
+  <data name="Can be up to 7 days in the past or future dates within current year" xml:space="preserve">
+    <value>Μπορεί να είναι έως και 7 ημέρες πριν ή μετά από ημερομηνίες εντός του τρέχοντος έτους</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="Click on working days to select your leave period" xml:space="preserve">
+    <value>Κάντε κλικ στις εργάσιμες ημέρες για να επιλέξετε την περίοδο διακοπών σας</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Δεκέμβριος</value>
+  </data>
+  <data name="End Date" xml:space="preserve">
+    <value>Τέλος Ημερομηνίας</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Φεβρουάριος</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Παρ</value>
+  </data>
+  <data name="Important Notes" xml:space="preserve">
+    <value>Σημαντικές Παρατηρήσεις</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Ιανουάριος</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Ιούλιος</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Ιούνιος</value>
+  </data>
+  <data name="Last day of your leave (inclusive)" xml:space="preserve">
+    <value>Τελευταία ημέρα των αδειών σας (συμπεριλαμβανομένη)</value>
+  </data>
+  <data name="Leave Application Form" xml:space="preserve">
+    <value>Φόρμα Αίτησης Αδείας</value>
+  </data>
+  <data name="Leave Type" xml:space="preserve">
+    <value>Τύπος Αδείας</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Μάρτιος</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Μάιος</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Δευ</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Επόμενο</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Νοέμβριος</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Οκτώβριος</value>
+  </data>
+  <data name="Only working days are counted (weekends and holidays excluded)" xml:space="preserve">
+    <value>Μόνο τα εργάσιμα ημερομηνίες λαμβάνονται υπόψη (σαββατοκύριακα και εορτές εξαιρούνται)</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Προηγούμενος</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Λόγος</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Σάβ</value>
+  </data>
+  <data name="Select your leave dates and provide a reason for your leave." xml:space="preserve">
+    <value>Επιλέξτε τις ημερομηνίες των αποδρομών σας και δώστε λόγο για τις αποδρομές σας.</value>
+  </data>
+  <data name="Selected Leave Day" xml:space="preserve">
+    <value>Επιλεγμένη Ημέρα Άδειας</value>
+  </data>
+  <data name="Selected Period" xml:space="preserve">
+    <value>Επιλεγμένη Περίοδος</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Σεπτέμβριος</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Ασθένεια</value>
+  </data>
+  <data name="Sick leave requires supporting documents after return" xml:space="preserve">
+    <value>Η ασθένεια απαιτεί υποστηρικτικά έγγραφα μετά την επιστροφή</value>
+  </data>
+  <data name="Start Date" xml:space="preserve">
+    <value>Ημερομηνία Έναρξης</value>
+  </data>
+  <data name="Submit Application" xml:space="preserve">
+    <value>Υποβολή Αίτησης</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Κυρ</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>Τετ</value>
+  </data>
+  <data name="total days" xml:space="preserve">
+    <value>συνολικές μέρες</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Τρί</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>Τετ</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>Σαββατοκύριακο / Εορταστική Ημέρα</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>Εργάσιμη Ημέρα</value>
+  </data>
+  <data name="working days" xml:space="preserve">
+    <value>εργάσιμες ημέρες</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Η ώρα καταγραφής των εγγράφων είναι η ώρα του Συντονισμένου Παγκόσμιου Χρόνου!</value>
+  </data>
+
+</root>

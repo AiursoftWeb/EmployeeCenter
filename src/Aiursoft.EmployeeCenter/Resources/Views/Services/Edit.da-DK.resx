@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Basic Information" xml:space="preserve">
+    <value>Grundlæggende oplysninger</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="Cross-Entity Link is used to suggest local/international versions to users." xml:space="preserve">
+    <value>Kryds-entitetstilknytning bruges til at foreslå lokale/internationale versioner til brugere.</value>
+  </data>
+  <data name="Domain should be the primary entry point for the service." xml:space="preserve">
+    <value>Domæne bør være den primære indgangspunkt for tjenesten.</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>f.eks. example.com</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>f.eks. HTTPS, TCP</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Rediger service</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Ny</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Ingen</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Genindlæs</value>
+  </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>Påkrævet, når Via FRPS er aktiveret.</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Gem ændringer</value>
+  </data>
+  <data name="Select DNS Provider" xml:space="preserve">
+    <value>Vælg DNS-udbyder</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>Vælg FRPS-server</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>Vælg placering</value>
+  </data>
+  <data name="Select Owner" xml:space="preserve">
+    <value>Vælg ejer</value>
+  </data>
+  <data name="Select Server" xml:space="preserve">
+    <value>Vælg server</value>
+  </data>
+  <data name="Select Server (Asset)" xml:space="preserve">
+    <value>Vælg server (aktiver)</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>Tips</value>
+  </data>
+
+</root>

@@ -1,0 +1,49 @@
+@model Aiursoft.EmployeeCenter.Models.InfrastructureViewModels.InfrastructureDataQualityViewModel
+
+<div class="row mb-3 align-items-center">
+    <div class="col">
+        <h3 class="mb-1">@Localizer["Infrastructure data quality"]</h3>
+        <p class="text-muted mb-0">@Localizer["Read-only migration readiness report generated at {0}.", Model.GeneratedAt.ToString("u")]</p>
+    </div>
+    <div class="col-auto">
+        <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Back to dashboard"]</a>
+    </div>
+</div>
+
+<div class="alert alert-info">
+    @Localizer["Legacy rows are not changed automatically. Review and save each row to opt it into normalized uniqueness and validation."]
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Findings"] (@Model.Issues.Count)</h5>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["Severity"]</th>
+                <th>@Localizer["Resource"]</th>
+                <th>@Localizer["Rule"]</th>
+                <th>@Localizer["Details"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var issue in Model.Issues)
+            {
+                var badge = issue.Severity == "Error" ? "danger" : issue.Severity == "Warning" ? "warning" : "info";
+                <tr>
+                    <td><span class="badge bg-@badge">@Localizer[issue.Severity]</span></td>
+                    <td><code>@issue.ResourceType #@issue.ResourceId</code></td>
+                    <td><code>@issue.Code</code></td>
+                    <td>@issue.Details</td>
+                </tr>
+            }
+            @if (Model.Issues.Count == 0)
+            {
+                <tr><td colspan="4" class="text-center text-success py-5">@Localizer["No data-quality issues found."]</td></tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

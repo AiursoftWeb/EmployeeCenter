@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>Aliasin hallinta</value>
+  </data>
+  <data name="Alias hostname" xml:space="preserve">
+    <value>Alias-ispäinvaino</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>Aliastyyppi</value>
+  </data>
+  <data name="Audit Now" xml:space="preserve">
+    <value>Tarkista nyt</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Tarkastus odottaa</value>
+  </data>
+  <data name="Audit status" xml:space="preserve">
+    <value>Tarkastelun tila</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>Tarkastusstatus edellyttää palvelutarkastuksen katseluoikeutta.</value>
+  </data>
+  <data name="Available DNS candidates" xml:space="preserve">
+    <value>Käytettävissä olevat DNS-ehdokkaset</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>odottaa tarkastusta</value>
+  </data>
+  <data name="Create alias" xml:space="preserve">
+    <value>Luo alias</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Kriittinen</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Poista</value>
+  </data>
+  <data name="Delete this domain alias?" xml:space="preserve">
+    <value>Haluatko poistaa tämän domainin aliasin?</value>
+  </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="Domain Alias Registry" xml:space="preserve">
+    <value>Alueluettelo</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>Jokaisen lähdekoneen nimen on oltava yhdenmukainen sen rekisteröidyn HTTP-uudelleenohjauksen tai DNS CNAME-kohteen kanssa.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Muokkaa</value>
+  </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>Odotettu kohde</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>kunnossa</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP-ohjaus</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Viimeisin onnistunut tarkistus</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>Hallinnoi vanhoja isännimiä ja tarkista niiden HTTP-ohjaukset tai DNS CNAME-kohteet.</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>hallittuja aliasseja</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>vaativat huomiota</value>
+  </data>
+  <data name="New Alias" xml:space="preserve">
+    <value>Uusi alias</value>
+  </data>
+  <data name="No domain aliases have been registered." xml:space="preserve">
+    <value>Yksikään domainaliasia ei ole rekisteröity.</value>
+  </data>
+  <data name="No unregistered DNS hostnames are currently available." xml:space="preserve">
+    <value>Ei rekisteröimättömiä DNS-isäntänimiä ole tällä hetkellä saatavilla.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Odottaa</value>
+  </data>
+  <data name="Registered Aliases" xml:space="preserve">
+    <value>Rekisteröidyt aliakset</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Rajoitettu</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Palvelujen kojelauta</value>
+  </data>
+  <data name="Target service" xml:space="preserve">
+    <value>Kohdepalvelu</value>
+  </data>
+  <data name="Total aliases" xml:space="preserve">
+    <value>Alienien kokonaismäärä</value>
+  </data>
+  <data name="Updated at" xml:space="preserve">
+    <value>Päivitetty</value>
+  </data>
+
+</root>

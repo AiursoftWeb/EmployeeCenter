@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Assign Asset" xml:space="preserve">
+    <value>Tilldela tillgång</value>
+  </data>
+  <data name="Assignment Details" xml:space="preserve">
+    <value>Uppgiftsdetaljer</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>I bruk</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Ny</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Notis</value>
+  </data>
+  <data name="Optional notes for this assignment..." xml:space="preserve">
+    <value>Valfria anteckningar för denna tilldelning...</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Väntande bekräftelse</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Uppdatera</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>Välj användare</value>
+  </data>
+  <data name="The assigned employee will need to log in and confirm the receipt of the asset before it officially becomes" xml:space="preserve">
+    <value>Den tilldelade anställde måste logga in och bekräfta mottagandet av tillgången innan den officiellt blir</value>
+  </data>
+  <data name="When you assign an asset, the status will change to" xml:space="preserve">
+    <value>När du tilldelar en tillgång ändras statusen till</value>
+  </data>
+
+</root>

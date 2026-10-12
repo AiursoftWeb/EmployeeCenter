@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Details" xml:space="preserve">
+    <value>Στοιχεία Λογαριασμού</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Ενέργειες</value>
+  </data>
+  <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
+    <value>Μια επισκόπηση του προφίλ του χρήστη, των ανατεθειμένων ρόλων και των ενεργών δικαιωμάτων.</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Αριθμός Περιουσίας</value>
+  </data>
+  <data name="Assigned Assets" xml:space="preserve">
+    <value>Ανατεθέντα Περιουσιακά Στοιχεία</value>
+  </data>
+  <data name="Assigned Roles" xml:space="preserve">
+    <value>Ανατεθειμένοι Ρόλοι</value>
+  </data>
+  <data name="Back to list" xml:space="preserve">
+    <value>Πίσω στη λίστα</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Bank Account</value>
+  </data>
+  <data name="Bank Account (Card Number)" xml:space="preserve">
+    <value>Τραπεζικός Λογαριασμός (Αριθμός Κάρτας)</value>
+  </data>
+  <data name="Bank Account Name (Holder)" xml:space="preserve">
+    <value>Όνομα λογαριασμού τράπεζας (Κάτοχος)</value>
+  </data>
+  <data name="Bank Information Change History" xml:space="preserve">
+    <value>Ιστορικό Αλλαγών Στοιχείων Τραπέζης</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="Bank Name (Branch)" xml:space="preserve">
+    <value>Όνομα Τράπεζας (Κλάδος)</value>
+  </data>
+  <data name="Bank Name (Old -&gt; New)" xml:space="preserve">
+    <value>Όνομα Τράπεζας (Παλιό -&gt; Νέο)</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Basic Salary</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Βασικές Πληροφορίες</value>
+  </data>
+  <data name="Card Number (Old -&gt; New)" xml:space="preserve">
+    <value>Αριθμός Κάρτας (Παλιός -&gt; Νέος)</value>
+  </data>
+  <data name="Changed By" xml:space="preserve">
+    <value>Αλλαγή από</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Χρόνος Δημιουργίας</value>
+  </data>
+  <data name="Delete this User" xml:space="preserve">
+    <value>Διαγραφή αυτού του χρήστη</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Λεπτομέρειες</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Επεξεργασία</value>
+  </data>
+  <data name="Edit this User" xml:space="preserve">
+    <value>Επεξεργασία αυτού του χρήστη</value>
+  </data>
+  <data name="Effective Permissions" xml:space="preserve">
+    <value>Αποτελεσματικά Δικαιώματα</value>
+  </data>
+  <data name="Effective Permissions (from all roles)" xml:space="preserve">
+    <value>Αποτελεσματικά Δικαιώματα (από όλους τους ρόλους)</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Holder (Old -&gt; New)" xml:space="preserve">
+    <value>Κάτοχος (Παλιό -&gt; Νέο)</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Αδρανής</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>Σε Χρήση</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>Job Level</value>
+  </data>
+  <data name="Job Level (职级)" xml:space="preserve">
+    <value>Επίπεδο Θέσης (επίπεδο θέσης)</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>Νόμιμο Όνομα</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Τοποθεσία</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Απομακρυσμένο</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>Συντήρηση</value>
+  </data>
+  <data name="Manage All Assets" xml:space="preserve">
+    <value>Διαχείριση Όλων των Περιουσιακών Στοιχείων</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Διαχείριση Συμβάσεων</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Διαχείριση Κλειδιών SSH</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Διευθυντής</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Μοντέλο</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="No assets assigned to this user." xml:space="preserve">
+    <value>Δεν έχουν ανατεθεί περιουσιακά στον χρήστη αυτόν.</value>
+  </data>
+  <data name="No change history found." xml:space="preserve">
+    <value>Δεν βρέθηκε ιστορικό αλλαγών.</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Εκκρεμεί Αποδοχή</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>Τηλέφωνο</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Στοιχεία Προφίλ</value>
+  </data>
+  <data name="Promote User" xml:space="preserve">
+    <value>Προαγωγή Χρήστη</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Γραμμή Αναφοράς</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Αποσυνδέθηκε</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>Υπογραφή Οντότητας</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Σύστημα</value>
+  </data>
+  <data name="This user has no effective permissions." xml:space="preserve">
+    <value>Αυτός ο χρήστης δεν έχει αποτελεσματικά δικαιώματα.</value>
+  </data>
+  <data name="This user has not been assigned any roles." xml:space="preserve">
+    <value>Αυτός ο χρήστης δεν έχει ανατεθεί σε κανένα ρόλο.</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Χρόνος</value>
+  </data>
+  <data name="Title (职务)" xml:space="preserve">
+    <value>Θέση (职务)</value>
+  </data>
+  <data name="User Details:" xml:space="preserve">
+    <value>Στοιχεία Χρήστη:</value>
+  </data>
+  <data name="User name" xml:space="preserve">
+    <value>Όνομα χρήστη</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Προβολή Γραμμής Αναφοράς</value>
+  </data>
+  <data name="View Weekly Reports" xml:space="preserve">
+    <value>Προβολή Εβδομαδιαίων Αναφορών</value>
+  </data>
+  <data name="Weekly Reports" xml:space="preserve">
+    <value>Εβδομαδιαίες Αναφορές</value>
+  </data>
+
+</root>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account (Optional)" xml:space="preserve">
+    <value>Λογαριασμός (Προαιρετικός)</value>
+  </data>
+  <data name="Are you sure you want to delete this asset?" xml:space="preserve">
+    <value>Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το περιουσιακό στοιχείο;</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Ανάθεση</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Πίσω</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Νόμισμα</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Περιγραφή</value>
+  </data>
+  <data name="Edit Intangible Asset" xml:space="preserve">
+    <value>Επεξεργασία Ακίνητου Περιουσιακού Στοιχείου</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Ημερομηνία Λήξης</value>
+  </data>
+  <data name="Filing / Certificate Number" xml:space="preserve">
+    <value>Αριθμός Υποβολής / Πιστοποιητικού</value>
+  </data>
+  <data name="Filing Query Method" xml:space="preserve">
+    <value>Μέθοδος Αναζήτησης Καταχώρησης</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Θέμα Καταχώρησης</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>Αρχείο Τιμολογίου</value>
+  </data>
+  <data name="Invoice URL" xml:space="preserve">
+    <value>URL του Παραστατικού</value>
+  </data>
+  <data name="Management System Entry URL" xml:space="preserve">
+    <value>URL εισαγωγής στο σύστημα διαχείρισης</value>
+  </data>
+  <data name="Name / Description" xml:space="preserve">
+    <value>Όνομα / Περιγραφή</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Νέο</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Κανένας</value>
+  </data>
+  <data name="Password (Optional)" xml:space="preserve">
+    <value>Κωδικός (Προαιρετικό)</value>
+  </data>
+  <data name="Public Intangible Asset" xml:space="preserve">
+    <value>Δημόσιο Αποτελεσματικό Περιουσιακό Στοιχείο</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Τιμή Αγοράς</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Πιστοποιητικό Εγγραφής</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Ημερομηνία Εγγραφής</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Επαναφόρτωση</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Αποθήκευση Αλλαγών</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>Επιλέξτε Οντότητα</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="Supplier / Registrar" xml:space="preserve">
+    <value>Προμηθευτής / Εγγραφέας</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Εικόνα εμπορικού σήματος</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Τύπος</value>
+  </data>
+
+</root>

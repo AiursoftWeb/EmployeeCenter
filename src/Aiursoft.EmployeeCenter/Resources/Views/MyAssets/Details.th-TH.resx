@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Action" xml:space="preserve">
+    <value>การกระทำ</value>
+  </data>
+  <data name="Asset Details" xml:space="preserve">
+    <value>รายละเอียดสินทรัพย์</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>แท็กสินทรัพย์</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>กลับไปยังรายการ</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>ฟิลด์</value>
+  </data>
+  <data name="Financial &amp; Warranty" xml:space="preserve">
+    <value>การเงินและการรับประกัน</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>ประวัติ</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>สถานที่</value>
+  </data>
+  <data name="New Value" xml:space="preserve">
+    <value>ค่าใหม่</value>
+  </data>
+  <data name="Operator" xml:space="preserve">
+    <value>ผู้ดำเนินการ</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>ภาพรวม</value>
+  </data>
+  <data name="Purchase Date" xml:space="preserve">
+    <value>วันที่ซื้อ</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>เหตุผล</value>
+  </data>
+  <data name="Serial Number" xml:space="preserve">
+    <value>หมายเลขซีรีล</value>
+  </data>
+  <data name="Technical Specs" xml:space="preserve">
+    <value>ข้อมูลเทคนิค</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>เวลา</value>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value>ผู้จัดจำหน่าย</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>ดูใบแจ้งหนี้</value>
+  </data>
+  <data name="Warranty Expire" xml:space="preserve">
+    <value>หมดอายุการรับประกัน</value>
+  </data>
+
+</root>

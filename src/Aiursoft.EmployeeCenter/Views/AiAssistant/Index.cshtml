@@ -1,0 +1,292 @@
+@using Aiursoft.EmployeeCenter.Controllers
+@model Aiursoft.EmployeeCenter.Models.AiAssistantViewModels.IndexViewModel
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["AI Assistant"]</h3>
+    </div>
+</div>
+
+<div class="card flex-fill w-100" style="min-height: calc(100vh - 350px);">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">@Localizer["Chat with EmployeeCenter AI"]</h5>
+        <button class="btn btn-sm btn-outline-secondary" id="btnClearChat">@Localizer["Clear Session"]</button>
+    </div>
+    <div class="card-body d-flex flex-column p-0">
+        <div id="chatMessages" class="flex-grow-1 overflow-auto p-3" style="background-color: #f8f9fa;">
+            <div class="text-center text-muted my-5" id="welcomeMessage">
+                <i class="align-middle me-2" data-lucide="sparkles" style="width: 48px; height: 48px; color: #ffc107;"></i>
+                <p class="mt-2">@Localizer["Hello! Ask me anything about employee handbook, blueprints or weekly reports."]</p>
+            </div>
+        </div>
+        
+        <div class="p-3 border-top bg-white">
+            <form id="chatForm" class="input-group align-items-end">
+                <textarea id="userInput" class="form-control" placeholder="@Localizer["Ask anything..."]" rows="1" style="resize: none;" required></textarea>
+                <button class="btn btn-primary" type="submit" id="btnSend">
+                    <i class="align-middle" data-lucide="send"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .message {
+        margin-bottom: 1rem;
+        max-width: 85%;
+        padding: 0.75rem 1rem;
+        border-radius: 1rem;
+        position: relative;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    .message-user {
+        background-color: #3b7ddd;
+        color: white;
+        align-self: flex-end;
+        margin-left: auto;
+        border-bottom-right-radius: 0.25rem;
+    }
+    .message-assistant {
+        background-color: #ffffff;
+        color: #212529;
+        align-self: flex-start;
+        border-bottom-left-radius: 0.25rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+    .assistant-message-container {
+        align-self: flex-start;
+        max-width: 85%;
+        margin-bottom: 1rem;
+    }
+    .assistant-message-container .message-assistant {
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+    .message-actions {
+        display: flex;
+        margin-top: 0.25rem;
+        padding-left: 0.25rem;
+    }
+    .message-copy-button {
+        color: #6c757d;
+        line-height: 1;
+    }
+    .message-copy-button:hover,
+    .message-copy-button:focus {
+        color: #212529;
+    }
+    #chatMessages {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    @{
+        ViewData["MarkdownSelector"] = "#chatMessages .markdown-content";
+        ViewData["MarkdownTheme"] = isDarkMode ? "dark" : "default";
+    }
+    <partial name="_MarkdownReaderAssets" />
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const chatForm = document.getElementById('chatForm');
+        const userInput = document.getElementById('userInput');
+        const btnSend = document.getElementById('btnSend');
+        const btnClearChat = document.getElementById('btnClearChat');
+        let chatHistory = [];
+
+        function appendMessage(role, content) {
+            const welcome = document.getElementById('welcomeMessage');
+            if (welcome) welcome.remove();
+
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message message-${role}`;
+            if (role === 'assistant') {
+                msgDiv.classList.add('markdown-content');
+                msgDiv.innerHTML = content;
+
+                const assistantContainer = document.createElement('div');
+                assistantContainer.className = 'assistant-message-container';
+                assistantContainer.appendChild(msgDiv);
+                chatMessages.appendChild(assistantContainer);
+            } else {
+                msgDiv.textContent = content; // Using textContent for user messages to avoid XSS and respect newlines
+                chatMessages.appendChild(msgDiv);
+            }
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return msgDiv;
+        }
+
+        function addCopyButton(messageElement, markdownContent) {
+            const actions = document.createElement('div');
+            actions.className = 'message-actions';
+
+            const copyButton = document.createElement('button');
+            copyButton.type = 'button';
+            copyButton.className = 'btn btn-sm btn-link message-copy-button p-1';
+            copyButton.title = '@Localizer["Copy"]';
+            copyButton.setAttribute('aria-label', '@Localizer["Copy"]');
+            copyButton.textContent = '@Localizer["Copy"]';
+
+            copyButton.addEventListener('click', async () => {
+                copyButton.disabled = true;
+
+                try {
+                    await navigator.clipboard.writeText(markdownContent);
+                    copyButton.title = '@Localizer["Copied"]';
+                    copyButton.setAttribute('aria-label', '@Localizer["Copied"]');
+                    copyButton.textContent = '@Localizer["Copied"]';
+
+                    setTimeout(() => {
+                        copyButton.title = '@Localizer["Copy"]';
+                        copyButton.setAttribute('aria-label', '@Localizer["Copy"]');
+                        copyButton.textContent = '@Localizer["Copy"]';
+                        copyButton.disabled = false;
+                    }, 2000);
+                } catch (error) {
+                    copyButton.disabled = false;
+                    console.error('Failed to copy Markdown content:', error);
+                }
+            });
+
+            actions.appendChild(copyButton);
+            messageElement.parentElement.appendChild(actions);
+        }
+
+        userInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        userInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                if (e.ctrlKey) {
+                    // Ctrl+Enter: Insert a newline
+                    const start = this.selectionStart;
+                    const end = this.selectionEnd;
+                    this.value = this.value.substring(0, start) + "\n" + this.value.substring(end);
+                    this.selectionStart = this.selectionEnd = start + 1;
+                    this.dispatchEvent(new Event('input'));
+                    e.preventDefault();
+                } else {
+                    // Enter only: Submit the form
+                    e.preventDefault();
+                    btnSend.click();
+                }
+            }
+        });
+
+        btnClearChat.addEventListener('click', () => {
+            chatHistory = [];
+            chatMessages.innerHTML = `
+                <div class="text-center text-muted my-5" id="welcomeMessage">
+                    <i class="align-middle me-2" data-lucide="sparkles" style="width: 48px; height: 48px; color: #ffc107;"></i>
+                    <p class="mt-2">@Localizer["Session cleared. Ask me anything!"]</p>
+                </div>`;
+        });
+
+        const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+        chatForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            userInput.value = '';
+            userInput.style.height = 'auto';
+            userInput.disabled = true;
+            btnSend.disabled = true;
+
+            appendMessage('user', message);
+            const assistantMsgDiv = appendMessage('assistant', '...');
+
+            try {
+                const startResponse = await fetch('/AiAssistant/Ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        question: message,
+                        history: chatHistory
+                    })
+                });
+
+                const startData = await startResponse.json();
+                if (!startResponse.ok) {
+                    throw new Error(startData.error || "@Localizer["Unknown error occurred."]");
+                }
+
+                // Update history with user's question
+                chatHistory.push({ role: 'user', content: message });
+
+                const taskId = startData.taskId;
+                let completed = false;
+                const startTime = Date.now();
+                const timeout = 15 * 60 * 1000; // 15 minutes
+
+                while (!completed) {
+                    if (Date.now() - startTime > timeout) {
+                        throw new Error("@Localizer["Request timed out."]");
+                    }
+
+                    await sleep(3000); // Poll every 3 seconds
+
+                    const statusResponse = await fetch(`/AiAssistant/CheckStatus?taskId=${taskId}`);
+                    if (!statusResponse.ok) {
+                        throw new Error("@Localizer["Failed to check status."]");
+                    }
+
+                    const statusData = await statusResponse.json();
+                    if (statusData.status === 'Completed') {
+                        assistantMsgDiv.innerHTML = window.AiursoftMarkdownUi.renderMarkdown(statusData.answer);
+                        try {
+                            await window.AiursoftMarkdownUi.initializeMarkdownReader({
+                                container: assistantMsgDiv,
+                                mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+                            });
+                        } catch (previewError) {
+                            console.error('Markdown preview enhancement failed:', previewError);
+                        }
+
+                        addCopyButton(assistantMsgDiv, statusData.answer);
+
+                        // Update history with assistant's answer
+                        chatHistory.push({ role: 'assistant', content: statusData.answer });
+                        
+                        completed = true;
+                    } else if (statusData.status === 'Error') {
+                        throw new Error(statusData.errorMessage || "@Localizer["Agent failed to respond."]");
+                    }
+                    // If status is 'Processing', just continue polling
+                }
+            } catch (error) {
+                assistantMsgDiv.classList.add('text-danger');
+                assistantMsgDiv.innerText = "@Localizer["Error: "]" + error.message;
+            } finally {
+                userInput.disabled = false;
+                btnSend.disabled = false;
+                userInput.focus();
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+    </script>
+}

@@ -1,0 +1,101 @@
+@model Aiursoft.EmployeeCenter.Models.LedgerViewModels.AccountsViewModel
+@{
+}
+
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">@Localizer["Ledger"]</a></li>
+            <li class="breadcrumb-item"><a asp-action="Dashboard" asp-route-id="@Model.EntityId">@Model.EntityName</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Localizer["Accounts"]</li>
+        </ol>
+    </nav>
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@Localizer["Manage Accounts"]</h1>
+        <a asp-action="CreateAccount" asp-route-id="@Model.EntityId" class="btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-plus fa-sm text-white-50"></i> @Localizer["Create New Account"]
+        </a>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">@Localizer["Accounts List"]</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="accountsTable" width="100%">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Account Name"]</th>
+                            <th>@Localizer["Type"]</th>
+                            <th>@Localizer["Currency"]</th>
+                            <th>@Localizer["Balance"]</th>
+                            <th>@Localizer["Status"]</th>
+                            <th>@Localizer["Dashboard"]</th>
+                            <th>@Localizer["Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ab in Model.Accounts)
+                        {
+                            <tr>
+                                <td>@ab.Account.AccountName</td>
+                                <td>@ab.Account.AccountType</td>
+                                <td>@ab.Account.Currency</td>
+                                <td class="font-weight-bold">@ab.Balance.ToString("N2")</td>
+                                <td>
+                                    @if (ab.Account.IsArchived)
+                                    {
+                                        <span class="badge badge-secondary">@Localizer["Archived"]</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-success">@Localizer["Active"]</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (ab.Account.ShowInDashboard)
+                                    {
+                                        <span class="badge badge-info">@Localizer["Visible"]</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-light">@Localizer["Hidden"]</span>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="Dashboard" asp-route-id="@Model.EntityId" asp-route-accountId="@ab.Account.Id" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-list"></i> @Localizer["Transactions"]
+                                        </a>
+                                        <a asp-action="EditAccount" asp-route-id="@ab.Account.Id" class="btn btn-sm btn-info">
+                                            <i class="fas fa-edit"></i> @Localizer["Edit"]
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#accountsTable').DataTable({
+                "destroy": true,
+                "responsive": true,
+                "paging": true,
+                "pageLength": 25,
+                "searching": true,
+                "info": false,
+                "order": [[0, "asc"]]
+            });
+        });
+    </script>
+}

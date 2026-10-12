@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="All Servers" xml:space="preserve">
+    <value>Kaikki palvelimet</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Oletko varma?</value>
+  </data>
+  <data name="Associated Services" xml:space="preserve">
+    <value>Liitetyt palvelut</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Yritys</value>
+  </data>
+  <data name="Create New Server" xml:space="preserve">
+    <value>Luo uusi palvelin</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Poista</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Tiedot</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Muokkaa</value>
+  </data>
+  <data name="Hostname" xml:space="preserve">
+    <value>Hostname</value>
+  </data>
+  <data name="IP Address" xml:space="preserve">
+    <value>IP-osoite</value>
+  </data>
+  <data name="IPv4 Address" xml:space="preserve">
+    <value>IPv4-osoite</value>
+  </data>
+  <data name="IPv6 Address" xml:space="preserve">
+    <value>IPv6-osoite</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Linkki</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Sijainti</value>
+  </data>
+  <data name="No Owner" xml:space="preserve">
+    <value>Ei omistajaa</value>
+  </data>
+  <data name="No servers found." xml:space="preserve">
+    <value>Palvelinta ei löytynyt.</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Omistaja</value>
+  </data>
+  <data name="Provider" xml:space="preserve">
+    <value>Tarjoaja</value>
+  </data>
+  <data name="Retire" xml:space="preserve">
+    <value>Poista käytöstä</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Eläkeellä</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Palvelimet</value>
+  </data>
+
+</root>

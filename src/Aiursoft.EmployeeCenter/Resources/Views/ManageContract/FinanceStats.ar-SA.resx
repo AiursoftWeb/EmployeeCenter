@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="Actual Expense" xml:space="preserve">
+    <value>المصروفات الفعلية</value>
+  </data>
+  <data name="Actual Income" xml:space="preserve">
+    <value>الدخل الفعلي</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>إحصائيات مالية للعقود</value>
+  </data>
+  <data name="Contract Name" xml:space="preserve">
+    <value>اسم العقد</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
+  <data name="Financial Summary by Contract" xml:space="preserve">
+    <value>ملخص مالي حسب العقد</value>
+  </data>
+  <data name="No contracts with financial data found." xml:space="preserve">
+    <value>لم يتم العثور على عقود تحتوي على بيانات مالية.</value>
+  </data>
+  <data name="Pending Expense" xml:space="preserve">
+    <value>مصروفات معلقة</value>
+  </data>
+  <data name="Pending Income" xml:space="preserve">
+    <value>الدخل المعلق</value>
+  </data>
+  <data name="Total income and expense for each contract." xml:space="preserve">
+    <value>إجمالي الدخل والمصروفات لكل عقد.</value>
+  </data>
+
+</root>

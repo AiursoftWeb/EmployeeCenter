@@ -1,0 +1,85 @@
+@using Newtonsoft.Json
+@model Aiursoft.EmployeeCenter.Models.FeedbackViewModels.FillViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Model.Questionnaire!.Title</h3>
+        @if (!string.IsNullOrEmpty(Model.Questionnaire.Description))
+        {
+            <p class="text-muted">@Model.Questionnaire.Description</p>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-8">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Fill" method="post">
+                    <input type="hidden" asp-for="QuestionnaireId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    @{
+                        var index = 0;
+                    }
+                    @foreach (var qq in Model.Questionnaire.Questions.OrderBy(q => q.Order))
+                    {
+                        var q = qq.Question;
+                        <div class="mb-4 p-3 border rounded shadow-sm">
+                            <h5 class="mb-3">@(++index). @q.Title</h5>
+                            
+                            @if (q.Type == SignalQuestionType.MultipleChoice)
+                            {
+                                var options = new List<string>();
+                                if (!string.IsNullOrEmpty(q.Meta))
+                                {
+                                    try 
+                                    {
+                                        var meta = JsonConvert.DeserializeObject<dynamic>(q.Meta);
+                                        if (meta?.Options != null)
+                                        {
+                                            foreach (var opt in meta.Options)
+                                            {
+                                                options.Add(opt.ToString());
+                                            }
+                                        }
+                                    }
+                                    catch (Exception)
+                                    {
+                                        // Meta is not a valid JSON. Ignore it.
+                                    }
+                                }
+
+                                foreach (var opt in options)
+                                {
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="Answers[@q.Id]" id="q_@(q.Id)_@opt" value="@opt" required>
+                                        <label class="form-check-label" for="q_@(q.Id)_@opt">
+                                            @opt
+                                        </label>
+                                    </div>
+                                }
+                            }
+                            else if (q.Type == SignalQuestionType.FillInTheBlank)
+                            {
+                                @* For fill in the blank, we might want to render the title with input boxes. 
+                                   But for simplicity in this first version, we'll just provide an input box.
+                                *@
+                                <input type="text" name="Answers[@q.Id]" class="form-control" placeholder="@Localizer["Your answer..."]" required />
+                            }
+                            else if (q.Type == SignalQuestionType.ShortAnswer)
+                            {
+                                <textarea name="Answers[@q.Id]" class="form-control" rows="3" placeholder="@Localizer["Type your response here..."]" required></textarea>
+                            }
+                        </div>
+                    }
+
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-success btn-lg">@Localizer["Submit Feedback"]</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-lg">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

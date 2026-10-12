@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>İşlemler</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktif</value>
+  </data>
+  <data name="Actual" xml:space="preserve">
+    <value>Gerçek</value>
+  </data>
+  <data name="Add record" xml:space="preserve">
+    <value>Kayıt Ekle</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>İptal Edildi</value>
+  </data>
+  <data name="Channel Info" xml:space="preserve">
+    <value>Kanal Bilgileri</value>
+  </data>
+  <data name="Collection Channel Details" xml:space="preserve">
+    <value>Toplama Kanalı Detayları</value>
+  </data>
+  <data name="Collection Records" xml:space="preserve">
+    <value>Toplantı Kayıtları</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Sözleşme</value>
+  </data>
+  <data name="Due Date" xml:space="preserve">
+    <value>Vade Tarihi</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="Edit Channel" xml:space="preserve">
+    <value>Kanal Düzenle</value>
+  </data>
+  <data name="Expected" xml:space="preserve">
+    <value>Beklenen</value>
+  </data>
+  <data name="First Payment" xml:space="preserve">
+    <value>İlk Ödeme</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>Yok</value>
+  </data>
+  <data name="No records found." xml:space="preserve">
+    <value>Kayıt bulunamadı.</value>
+  </data>
+  <data name="One-time" xml:space="preserve">
+    <value>Tek seferlik</value>
+  </data>
+  <data name="Overdue" xml:space="preserve">
+    <value>Vadesi geçmiş</value>
+  </data>
+  <data name="Paid Date" xml:space="preserve">
+    <value>Ödeme Tarihi</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Kısmi</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Duraklatıldı</value>
+  </data>
+  <data name="Payee" xml:space="preserve">
+    <value>Ödeyici</value>
+  </data>
+  <data name="Payer" xml:space="preserve">
+    <value>Ödeyen</value>
+  </data>
+  <data name="Payment Method" xml:space="preserve">
+    <value>Ödeme Yöntemi</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Bekliyor</value>
+  </data>
+  <data name="Recurring" xml:space="preserve">
+    <value>Tekrarlayan</value>
+  </data>
+  <data name="Reference Amount" xml:space="preserve">
+    <value>Referans Tutar</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Settled" xml:space="preserve">
+    <value>Ödenmiş</value>
+  </data>
+  <data name="Start Billing" xml:space="preserve">
+    <value>Faturalandırma Başlangıcı</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="Terminated" xml:space="preserve">
+    <value>Sonlandırıldı</value>
+  </data>
+
+</root>

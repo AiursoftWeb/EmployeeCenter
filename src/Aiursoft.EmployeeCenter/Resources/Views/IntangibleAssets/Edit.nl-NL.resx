@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account (Optional)" xml:space="preserve">
+    <value>Rekening (optioneel)</value>
+  </data>
+  <data name="Are you sure you want to delete this asset?" xml:space="preserve">
+    <value>Weet u zeker dat u dit activum wilt verwijderen?</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Toegewezen aan</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Terug</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Verwijderen</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Omschrijving</value>
+  </data>
+  <data name="Edit Intangible Asset" xml:space="preserve">
+    <value>Bewerk onroerend goed</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Verloopdatum</value>
+  </data>
+  <data name="Filing / Certificate Number" xml:space="preserve">
+    <value>Aanvraag / Certificaatnummer</value>
+  </data>
+  <data name="Filing Query Method" xml:space="preserve">
+    <value>Aanvraagmethode voor registratie</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Onderwerp van het dossier</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>Factuurbestand</value>
+  </data>
+  <data name="Invoice URL" xml:space="preserve">
+    <value>Factuur URL</value>
+  </data>
+  <data name="Management System Entry URL" xml:space="preserve">
+    <value>URL van de toegang tot het beheersysteem</value>
+  </data>
+  <data name="Name / Description" xml:space="preserve">
+    <value>Naam / Omschrijving</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nieuw</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Geen</value>
+  </data>
+  <data name="Password (Optional)" xml:space="preserve">
+    <value>Wachtwoord (Optioneel)</value>
+  </data>
+  <data name="Public Intangible Asset" xml:space="preserve">
+    <value>Publiek intangibel goed</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Aankoopprijs</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Registratiecertificaat</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Registratiedatum</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Ververs</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Wijzigingen opslaan</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>Selecteer entiteit</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Supplier / Registrar" xml:space="preserve">
+    <value>Leverancier / Registratieorganisatie</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Handelsmerkafbeelding</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+
+</root>

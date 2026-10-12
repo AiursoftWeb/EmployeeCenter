@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Активний</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Сума</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Назад до списку</value>
+  </data>
+  <data name="Counterparty" xml:space="preserve">
+    <value>Контрагент</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Витрати</value>
+  </data>
+  <data name="Expense Summary" xml:space="preserve">
+    <value>Зведена таблиця витрат</value>
+  </data>
+  <data name="Finance Details" xml:space="preserve">
+    <value>Фінансові деталі</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Доходи</value>
+  </data>
+  <data name="Income Summary" xml:space="preserve">
+    <value>Зведення доходів</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Внутрішній</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>Метод</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Інші</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Призупинено</value>
+  </data>
+  <data name="Pending Collection" xml:space="preserve">
+    <value>Очікувана сума до сплати</value>
+  </data>
+  <data name="Pending Payment" xml:space="preserve">
+    <value>Очікуваний платіж</value>
+  </data>
+  <data name="Related Collection Channels" xml:space="preserve">
+    <value>Пов&apos;язані канали стягнення</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Terminated" xml:space="preserve">
+    <value>Припинено</value>
+  </data>
+  <data name="Total Expected" xml:space="preserve">
+    <value>Загальна очікувана сума</value>
+  </data>
+  <data name="Total Paid" xml:space="preserve">
+    <value>Виплачено всього</value>
+  </data>
+  <data name="Total Received" xml:space="preserve">
+    <value>Загальна отримана сума</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Перегляд</value>
+  </data>
+
+</root>

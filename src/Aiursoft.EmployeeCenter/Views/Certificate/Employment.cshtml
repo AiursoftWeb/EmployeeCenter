@@ -1,0 +1,43 @@
+@model Aiursoft.EmployeeCenter.Models.CertificateViewModels.PrintViewModel
+@{
+}
+
+<div class="container-fluid p-0">
+    <h1 class="h3 mb-3">@Localizer["Print Certificate of Employment"]</h1>
+
+    <div class="row">
+        <div class="col-12 col-xl-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">@Localizer["Options"]</h5>
+                    <h6 class="card-subtitle text-muted">@Localizer["Select the language for the certificate."]</h6>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Print" method="post" target="_blank">
+                        <input type="hidden" name="type" value="@Model.Type" />
+                        <div class="mb-3">
+                            <label class="form-label">@Localizer["Language"]</label>
+                            <div>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="lang" value="zh-CN" checked>
+                                    <span class="form-check-label">
+                                        中文 (Chinese)
+                                    </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="lang" value="en-US">
+                                    <span class="form-check-label">
+                                        English
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

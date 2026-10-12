@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Số tài khoản ngân hàng</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Địa chỉ ngân hàng</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Tên ngân hàng</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>Tên người thụ hưởng</value>
+  </data>
+  <data name="Buyer" xml:space="preserve">
+    <value>Người mua</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>Địa chỉ người mua</value>
+  </data>
+  <data name="Buyer Attention" xml:space="preserve">
+    <value>Chú ý cho người mua</value>
+  </data>
+  <data name="Buyer CR No" xml:space="preserve">
+    <value>Mã số thuế người mua</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>Tên người mua</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Số hợp đồng</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Tiền tệ</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Ngày</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>Số hóa đơn</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>Loại hóa đơn</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>Hóa đơn dự thảo / Báo cáo hóa đơn</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>Biên lai / Hóa đơn đã thanh toán</value>
+  </data>
+  <data name="Seller" xml:space="preserve">
+    <value>Người bán</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>Địa chỉ người bán</value>
+  </data>
+  <data name="Seller Code" xml:space="preserve">
+    <value>Mã số nhà cung cấp</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>Liên hệ người bán</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>Tên người bán</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Mã SWIFT</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} là bắt buộc.</value>
+  </data>
+
+</root>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>Plată Reală</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>Salariu Real (Net)</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>Amendamente administrative</value>
+  </data>
+  <data name="Are you sure to update?" xml:space="preserve">
+    <value>Ești sigur că vrei să actualizezi?</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>Prezență și Penalități</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Cont bancar</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Nume Banca</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Salariu de bază</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>Premiu pentru absență zero</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>Calculat pe baza orelor suplimentare</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>Calculat taxă anticipată</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulare</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>Costul companiei</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>Tabel salarii conform normelor</value>
+  </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>CONFIRMĂ SCHIMBĂRI</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>Salariul de bază contractual</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valută</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>Valută:</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>Deduceri</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>Descriere / Formulă</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>Venituri</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Editare Payroll</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>Educație, locuințe, etc.</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Angajat:</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>Numărul contului angajatului</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>Banca angajatului</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>Introducează ca valoare negativă</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>Prezență completă</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>Fondul pentru locuințe</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>Fundul pentru locuințe (Companie)</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>Taxa pe venit</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>Asigurări (Personale)</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Articol</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>Salariu funcție</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>Întârziere / Plecare anticipată</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>Maternitate (Companie)</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>Mese, transport, etc.</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>Medicale</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>Medical (Company)</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>Luna:</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>Evaluarea lunară a performanței</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>Nu, vreau să verific din nou</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>Observații opționale...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>Alte alocații</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>Plată ore suplimentare</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>Configurare salarii</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>Pensie</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>Pensie (Companie)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>Premiu pentru performanță</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>Impozitul pe veniturile personale</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>Asigurare Persoană</value>
+  </data>
+  <data name="Please verify the updated information:" xml:space="preserve">
+    <value>Vă rugăm să verificați informațiile actualizate:</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>Salariu bazat pe poziție</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>Observație / Conținut</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Salvează modificările</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>Select User</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>Boală / Concediu personal</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>Deducere Suplimentară Specială</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Luna țintă</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>Informații fiscale</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>Venit impozabil</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>Cost Total al Companiei</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>Venituri totale</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>Total Personal Insurances</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>Somaj</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>Somaj (Angajator)</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>de obicei</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valoare</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>Accident de muncă (Angajator)</value>
+  </data>
+  <data name="Yes, Confirm and Save!" xml:space="preserve">
+    <value>Da, Confirmați și Salvați!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Ora înregistrării evenimentului este ora UTC!</value>
+  </data>
+
+</root>

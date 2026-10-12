@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Alternative service" xml:space="preserve">
+    <value>Serviço alternativo</value>
+  </data>
+  <data name="Authentik Integrated" xml:space="preserve">
+    <value>Integrado com Authentik</value>
+  </data>
+  <data name="Cloudflare Proxied" xml:space="preserve">
+    <value>Proxied pelo Cloudflare</value>
+  </data>
+  <data name="Company entity" xml:space="preserve">
+    <value>Entidade da empresa</value>
+  </data>
+  <data name="Cross-Entity Link" xml:space="preserve">
+    <value>Link entre Entidades</value>
+  </data>
+  <data name="DNS Provider" xml:space="preserve">
+    <value>Provedor de DNS</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domínio</value>
+  </data>
+  <data name="Enable Availability Audit" xml:space="preserve">
+    <value>Ativar Auditoria de Disponibilidade</value>
+  </data>
+  <data name="FRPS Server" xml:space="preserve">
+    <value>Servidor FRPS</value>
+  </data>
+  <data name="Is Online" xml:space="preserve">
+    <value>Está Online</value>
+  </data>
+  <data name="Is Self Developed" xml:space="preserve">
+    <value>É Desenvolvido por Si Mesmo</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Localização</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Dono</value>
+  </data>
+  <data name="Primary domain" xml:space="preserve">
+    <value>Domínio primário</value>
+  </data>
+  <data name="Protocols" xml:space="preserve">
+    <value>Protocolos</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>Propósito</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Observação</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>Servidor</value>
+  </data>
+  <data name="Server (Asset)" xml:space="preserve">
+    <value>Servidor (Ativo)</value>
+  </data>
+  <data name="Server IP" xml:space="preserve">
+    <value>IP do Servidor</value>
+  </data>
+  <data name="Service name" xml:space="preserve">
+    <value>Nome do serviço</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>O {0} não pode exceder {1} caracteres.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>O {0} é obrigatório.</value>
+  </data>
+  <data name="Via FRPS" xml:space="preserve">
+    <value>Via FRPS</value>
+  </data>
+
+</root>

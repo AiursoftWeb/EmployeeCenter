@@ -1,0 +1,32 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.ManageIndexViewModel
+@inject IHtmlLocalizer<Aiursoft.EmployeeCenter.Models.QualificationsViewModels.ManageIndexViewModel> Localizer
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["Manage Business Qualifications"]</h1>
+    <div class="mb-3">
+        <a asp-action="Create" class="btn btn-primary">@Localizer["Add Qualification"]</a>
+        <a asp-action="Records" class="btn btn-secondary">@Localizer["All Download Records"]</a>
+        <a asp-action="Detect" class="btn btn-secondary">@Localizer["Detect Watermark"]</a>
+    </div>
+    <div class="alert alert-info">@Localizer["Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained."]</div>
+    <div class="alert alert-warning">@Localizer["Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout."]</div>
+    <div class="card"><div class="card-body table-responsive">
+        <table class="table">
+            <thead><tr><th>@Localizer["Company"]</th><th>@Localizer["Qualification"]</th><th>@Localizer["Version"]</th><th>@Localizer["Status"]</th><th>@Localizer["Actions"]</th></tr></thead>
+            <tbody>
+            @foreach (var item in Model.Qualifications)
+            {
+                <tr>
+                    <td>@item.CompanyEntity?.CompanyName</td><td>@item.Name</td><td>@item.Version</td>
+                    <td>@Localizer[item.IsActive ? "Enabled" : "Disabled"]</td>
+                    <td>
+                        <form asp-action="@(item.IsActive ? "Retire" : "Enable")" asp-route-id="@item.Id" method="post" class="d-inline">
+                            <button type="submit" class="btn @(item.IsActive ? "btn-warning" : "btn-success") btn-sm">@Localizer[item.IsActive ? "Stop Use" : "Enable"]</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        @if (Model.Qualifications.Count == 0) { <p>@Localizer["No qualifications available."]</p> }
+    </div></div>
+</div>

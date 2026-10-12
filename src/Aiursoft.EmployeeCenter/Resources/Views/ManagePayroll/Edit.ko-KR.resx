@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>실제 지급액</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>실수급액 (순수급액)</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>행정 벌금</value>
+  </data>
+  <data name="Are you sure to update?" xml:space="preserve">
+    <value>업데이트하시겠습니까?</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>출석 및 징계</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>은행 계좌</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>은행 이름</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>기본 급여</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>결근 없이 받는 보너스</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>초과 근무 시간에 따라 계산됨</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>사전 납부 세금 계산</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>카테고리</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>회사 비용</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>준수 급여표</value>
+  </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>변경 사항 확인</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>계약된 기본 급여</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>통화</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>통화:</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>공제액</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>설명 / 공식</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>수입</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>급여 수정</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>교육, 주거 등</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>사용자:</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>사용자 계좌 번호</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>직원의 은행</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>음수로 입력하세요</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>전체 출석</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>주택기금</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>주택 기금 (회사)</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>소득세</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>보험 (개인)</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>항목</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>직무 급여</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>지각 / 조기 퇴근</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>산부인과 (회사)</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>식사, 교통비 등</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>의료</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>의료 (회사)</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>월:</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>월간 성과 평가</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>아니요, 다시 확인해 보겠습니다</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>선택 사항 비고...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>기타 수당</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>잔업 수당</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>급여 구성</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>연금</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>연금 (회사)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>성과 보너스</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>개인소득세</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>개인 보험</value>
+  </data>
+  <data name="Please verify the updated information:" xml:space="preserve">
+    <value>업데이트된 정보를 확인해 주세요:</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>직위 기반 급여</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>비고 / 내용</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>변경 사항 저장</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>사용자 선택</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>질병 / 개인 휴가</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>특별 추가 공제</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>대상 월</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>세금 정보</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>과세 소득</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>총 회사 비용</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>총 수입</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>개인 보험 합계</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>실업</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>실업 (회사)</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>보통</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>값</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>산재 보험 (회사)</value>
+  </data>
+  <data name="Yes, Confirm and Save!" xml:space="preserve">
+    <value>예, 확인하고 저장합니다!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>이벤트 기록 시간은 조정 세계시입니다!</value>
+  </data>
+
+</root>

@@ -1,0 +1,99 @@
+@model Aiursoft.EmployeeCenter.Models.CollectionRecordsViewModels.CreateViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Add collection record"]</h3>
+        <p class="text-muted">@Localizer["For channel:"] @Model.Channel!.Payer?.CompanyName -> @Model.Channel!.Payee?.CompanyName</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <input type="hidden" asp-for="ChannelId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ExpectedAmount" class="form-label"></label>
+                    <input asp-for="ExpectedAmount" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="ExpectedAmount" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ActualAmount" class="form-label"></label>
+                    <input asp-for="ActualAmount" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="ActualAmount" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="DueDate" class="form-label"></label>
+                    <input asp-for="DueDate" class="form-control" type="date" />
+                    <span asp-validation-for="DueDate" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="PaidDate" class="form-label"></label>
+                    <input asp-for="PaidDate" class="form-control" type="date" />
+                    <span asp-validation-for="PaidDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ReceiptPath" class="form-label"></label>
+                    <vc:file-upload asp-for="ReceiptPath" subfolder="collection-record" is-vault="true" allowed-extensions="pdf docx doc jpg jpeg png zip rar"></vc:file-upload>
+                    <span asp-validation-for="ReceiptPath" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="InvoicePath" class="form-label"></label>
+                    <vc:file-upload asp-for="InvoicePath" subfolder="collection-record" is-vault="true" allowed-extensions="pdf docx doc jpg jpeg png zip rar"></vc:file-upload>
+                    <span asp-validation-for="InvoicePath" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="TransactionId" class="form-label"></label>
+                    <input asp-for="TransactionId" class="form-control" />
+                    <span asp-validation-for="TransactionId" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="SwiftReceiptPath" class="form-label"></label>
+                    <vc:file-upload asp-for="SwiftReceiptPath" subfolder="collection-record" is-vault="true" allowed-extensions="pdf docx doc jpg jpeg png zip rar"></vc:file-upload>
+                    <span asp-validation-for="SwiftReceiptPath" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Status" class="form-label"></label>
+                    <select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<CollectionRecordStatus>()"></select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Remark" class="form-label"></label>
+                    <input asp-for="Remark" class="form-control" placeholder="@Localizer["e.g. First phase payment"]" />
+                    <span asp-validation-for="Remark" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr />
+            <div class="d-flex justify-content-between">
+                <a asp-controller="CollectionChannels" asp-action="Details" asp-route-id="@Model.ChannelId" class="btn btn-secondary">@Localizer["Back to Channel"]</a>
+                <button type="submit" class="btn btn-primary">@Localizer["Add Record"]</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

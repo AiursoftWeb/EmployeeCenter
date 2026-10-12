@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Already Reimbursed" xml:space="preserve">
+    <value>Deja rambursat</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Informații de bază</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Editare Active</value>
+  </data>
+  <data name="Financial Information" xml:space="preserve">
+    <value>Informații financiare</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nou</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>Ne atribuit</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Reîncarcă</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>Select Entitate</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>Select Location</value>
+  </data>
+  <data name="Select Model" xml:space="preserve">
+    <value>Select Model</value>
+  </data>
+  <data name="Select Vendor" xml:space="preserve">
+    <value>Select Vendor</value>
+  </data>
+  <data name="Update Asset" xml:space="preserve">
+    <value>Actualizează Active</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Data înregistrării evenimentului este ora UTC!</value>
+  </data>
+
+</root>

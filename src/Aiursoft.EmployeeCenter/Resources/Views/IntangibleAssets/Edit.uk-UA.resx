@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account (Optional)" xml:space="preserve">
+    <value>Рахунок (не обов’язково)</value>
+  </data>
+  <data name="Are you sure you want to delete this asset?" xml:space="preserve">
+    <value>Ви впевнені, що хочете видалити цей актив?</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Покладач</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="Edit Intangible Asset" xml:space="preserve">
+    <value>Редагувати нематеріальний актив</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Дата закінчення терміну дії</value>
+  </data>
+  <data name="Filing / Certificate Number" xml:space="preserve">
+    <value>Номер подання / свідоцтва</value>
+  </data>
+  <data name="Filing Query Method" xml:space="preserve">
+    <value>Спосіб запиту реєстрації</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Предмет подання</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>Рахунок-фактура</value>
+  </data>
+  <data name="Invoice URL" xml:space="preserve">
+    <value>URL рахунку</value>
+  </data>
+  <data name="Management System Entry URL" xml:space="preserve">
+    <value>URL входу до системи управління</value>
+  </data>
+  <data name="Name / Description" xml:space="preserve">
+    <value>Назва / Опис</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Новий</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Немає</value>
+  </data>
+  <data name="Password (Optional)" xml:space="preserve">
+    <value>Пароль (не обов&apos;язково)</value>
+  </data>
+  <data name="Public Intangible Asset" xml:space="preserve">
+    <value>Громадський нематеріальний актив</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Ціна придбання</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Посвідчення про реєстрацію</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Дата реєстрації</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Зберегти зміни</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>Вибрати організацію</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Supplier / Registrar" xml:space="preserve">
+    <value>Постачальник / Реєстратор</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Зображення торговельної марки</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+
+</root>

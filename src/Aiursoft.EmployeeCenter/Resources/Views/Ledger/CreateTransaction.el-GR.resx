@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Amount" xml:space="preserve">
+    <value>Ποσό</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="Default is 1. How much Destination currency equals 1 Source currency unit." xml:space="preserve">
+    <value>Η προεπιλογή είναι 1. Πόσες μονάδες νομίσματος προορισμού αντιστοιχούν σε 1 μονάδα νομίσματος πηγής.</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Περιγραφή</value>
+  </data>
+  <data name="Destination Account" xml:space="preserve">
+    <value>Προορισμός Λογαριασμού</value>
+  </data>
+  <data name="Destination Account (To)" xml:space="preserve">
+    <value>Λογαριασμός Παραλήπτη (Προς)</value>
+  </data>
+  <data name="e.g. Pay Sleek for Professional Fee" xml:space="preserve">
+    <value>π.χ. Πληρωμή στο Sleek ως αμοιβή επαγγελματία</value>
+  </data>
+  <data name="Exchange Rate" xml:space="preserve">
+    <value>Ρυθμός Συναλλάγματος</value>
+  </data>
+  <data name="Invoice Attachment" xml:space="preserve">
+    <value>Προσάρτημα Τιμολογίου</value>
+  </data>
+  <data name="MT103 Attachment" xml:space="preserve">
+    <value>Προσάρτημα MT103</value>
+  </data>
+  <data name="New Transaction" xml:space="preserve">
+    <value>Νέα Συναλλαγή</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Προαιρετικό</value>
+  </data>
+  <data name="Payment Voucher Attachment" xml:space="preserve">
+    <value>Προσάρτημα Πληρωμής</value>
+  </data>
+  <data name="Record Transaction" xml:space="preserve">
+    <value>Καταχώρηση Συναλλαγής</value>
+  </data>
+  <data name="Select Account" xml:space="preserve">
+    <value>Επιλέξτε Λογαριασμό</value>
+  </data>
+  <data name="Source Account" xml:space="preserve">
+    <value>Πηγή λογαριασμού</value>
+  </data>
+  <data name="Source Account (From)" xml:space="preserve">
+    <value>Λογαριασμός Πηγής (Από)</value>
+  </data>
+  <data name="Transaction Time" xml:space="preserve">
+    <value>Χρόνος Συναλλαγής</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Η ώρα καταγραφής του γεγονότος είναι σε UTC!</value>
+  </data>
+
+</root>

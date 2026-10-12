@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Team Calendar" xml:space="preserve">
+    <value>О календаре команды</value>
+  </data>
+  <data name="Annual" xml:space="preserve">
+    <value>Annual</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Одобрено</value>
+  </data>
+  <data name="Blue - Approved future leave" xml:space="preserve">
+    <value>Синий - Утверждённый отпуск в будущем</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="Close Search" xml:space="preserve">
+    <value>Закрыть поиск</value>
+  </data>
+  <data name="Currently on Leave" xml:space="preserve">
+    <value>В отпуске</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Дней</value>
+  </data>
+  <data name="Days label" xml:space="preserve">
+    <value>дней</value>
+  </data>
+  <data name="Green - Leave period has finished" xml:space="preserve">
+    <value>Зелёный - период отпуска завершён</value>
+  </data>
+  <data name="Leave History: {0}" xml:space="preserve">
+    <value>Leave History: {0}</value>
+  </data>
+  <data name="Leave Schedule" xml:space="preserve">
+    <value>Расписание отпусков</value>
+  </data>
+  <data name="No leave records found for this user in the specified range." xml:space="preserve">
+    <value>Записей отпусков для этого пользователя в указанном диапазоне не найдено.</value>
+  </data>
+  <data name="No team members found." xml:space="preserve">
+    <value>Сотрудники команды не найдены.</value>
+  </data>
+  <data name="No upcoming or past leave records." xml:space="preserve">
+    <value>Нет записей о предстоящих или прошедших отпусках.</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>Пользователи не найдены</value>
+  </data>
+  <data name="Not Yet Started" xml:space="preserve">
+    <value>Еще не начато</value>
+  </data>
+  <data name="Only approved leave applications are displayed here." xml:space="preserve">
+    <value>Здесь отображаются только утвержденные заявки на отпуск.</value>
+  </data>
+  <data name="Overview of leave schedules for your manager, reports, and colleagues." xml:space="preserve">
+    <value>Обзор графиков отпусков вашего руководителя, подчинённых и коллег.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Ожидает подтверждения</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Период</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Причина</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Отклонено</value>
+  </data>
+  <data name="Relation" xml:space="preserve">
+    <value>Связь</value>
+  </data>
+  <data name="Returned" xml:space="preserve">
+    <value>Вернулся</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>Ревьюер</value>
+  </data>
+  <data name="Search Any Employee" xml:space="preserve">
+    <value>Поиск любого сотрудника</value>
+  </data>
+  <data name="Search for any employee to view their full leave history for the past and future 365 days." xml:space="preserve">
+    <value>Поиск любого сотрудника для просмотра их полной истории отпусков за последние и будущие 365 дней.</value>
+  </data>
+  <data name="Sick" xml:space="preserve">
+    <value>Sick</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Status Legend" xml:space="preserve">
+    <value>Легенда статусов</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Система</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Календарь команды</value>
+  </data>
+  <data name="Team Member" xml:space="preserve">
+    <value>Член команды</value>
+  </data>
+  <data name="Team Members&apos; Leave Status" xml:space="preserve">
+    <value>Статус отпусков членов команды</value>
+  </data>
+  <data name="This calendar helps you stay informed about your team&apos;s availability to facilitate work handovers and planning." xml:space="preserve">
+    <value>Этот календарь помогает вам быть в курсе доступности вашей команды для удобного перерыва в работе и планирования.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Type 3+ characters to search for an employee..." xml:space="preserve">
+    <value>Введите 3+ символа для поиска сотрудника...</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Отозвано</value>
+  </data>
+  <data name="Yellow - Employee is currently away" xml:space="preserve">
+    <value>Желтый - сотрудник временно отсутствует</value>
+  </data>
+
+</root>

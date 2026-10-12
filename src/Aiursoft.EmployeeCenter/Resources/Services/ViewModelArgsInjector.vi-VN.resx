@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>Truy cập bị từ chối</value>
+  </data>
+  <data name="Account Settings" xml:space="preserve">
+    <value>Cài đặt Tài khoản</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>Thêm khóa SSH</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>Thông tin bổ sung (Bắc Trung Quốc/HK)</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Quản trị viên</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Quản trị</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>Thông tin hành chính</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Trợ lý AI</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Aiursoft Trung tâm Nhân viên</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft Template</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>Ẩn danh</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>Đề xuất nghỉ phép</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Trung tâm phê duyệt</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Lịch sử phê duyệt</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Duyệt</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Đã duyệt</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>Dự án đã được phê duyệt</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>Danh mục tài sản</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>Mô hình tài sản</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Tài sản</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Phân công</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Gán Tài sản</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Âm thanh</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Dịch vụ Kiểm toán</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>Công việc nền</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Yêu cầu sai</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>Thông tin ngân hàng</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Thông tin cơ bản</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>Bản thiết kế</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>Bản vẽ</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>Giấy phép kinh doanh</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Công việc</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>Chứng nhận việc làm</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>Chứng chỉ việc làm</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>Chứng chỉ thu nhập</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>In phiếu chứng nhận</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>Thay đổi Ảnh đại diện</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>Thay đổi thông tin ngân hàng</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>Đổi Mật khẩu</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>Thay đổi Hồ sơ</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Số CI</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>Nhấp để đăng nhập</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Mã</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>Kênh Thu</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Bình luận</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>Các đơn vị công ty</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>Chi tiết đơn vị công ty</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>Thông tin Đơn vị Công ty</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>Tư vấn thông tin công ty</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>Tài sản vô hình của công ty</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Tên công ty</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>Hợp đồng công ty công khai</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Loại hình công ty</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Xác nhận xóa</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>Chi tiết Tài chính Hợp đồng</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>Thống kê Tài chính Hợp đồng</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Hợp đồng</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Tạo</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Tạo tài khoản</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Tạo Tài sản</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>Tạo thực thể công ty</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Tạo mới</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>Tạo Thư mục Bản vẽ Mới</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>Tạo hợp đồng mới</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Tạo Thư Mục Mới</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Tạo nhiệm vụ trênboarding</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>Tạo mật khẩu</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>Tạo thăng chức</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>Tạo câu hỏi</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>Tạo bảng câu hỏi</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>Tạo Vai Trò</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Tạo Máy Chủ</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Tạo Dịch Vụ</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Tạo Giao dịch</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Tạo Người Dùng</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>Quan hệ khách hàng</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>Quan hệ khách hàng</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Bảng điều khiển</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>Xóa Vai trò</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>Xóa Người Dùng</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Phát triển</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Thư mục</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Kiểm toán DNS</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>Tải xuống / Xem</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Chỉnh sửa tài khoản</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Chỉnh sửa Tài sản</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>Chỉnh sửa Bản thiết kế</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>Chỉnh sửa thư mục bản thiết kế</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>Chỉnh sửa Tổ chức Công ty</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>Chỉnh sửa hợp đồng</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>Chỉnh sửa quan hệ khách hàng</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Sửa thư mục</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Chỉnh sửa bản ghi cuộc họp</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>Chỉnh sửa Nhiệm vụ Đào tạo</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>Sửa mật khẩu</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Chỉnh sửa bảng lương</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>Sửa Câu Hỏi</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>Chỉnh sửa Bảng câu hỏi</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>Chỉnh sửa Yêu cầu</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>Chỉnh sửa Vai trò</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Chỉnh sửa Máy chủ</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Chỉnh sửa Dịch vụ</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Sửa khóa SSH</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Sửa Giao Dịch</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Chỉnh sửa bản ghi</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>Chỉnh sửa Người dùng</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>Chỉnh sửa Báo cáo hàng tuần</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Trình chỉnh sửa</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>Trung tâm Nhân viên</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>Tín hiệu Nhân viên</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>Tên tiếng Anh</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>Danh sách Tổ chức</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>Mã đơn vị</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>Chi tiết đơn vị</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>Thành lập</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>Ngày hết hạn</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Tính năng</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>Điền bảng khảo sát</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Tài chính</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>Cài đặt chung</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Điều chỉnh nghỉ lễ</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Trang Chủ</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>Nhân sự</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>Hình ảnh &amp; Tập tin</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>Nhập hợp đồng từ tệp Zip</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>Giờ nghỉ đến</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Máy chủ Chỉ mục</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>Chất lượng dữ liệu hạ tầng</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Lỗi máy chủ nội bộ</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>Cấp hóa đơn</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>Cấp phát lương</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>Tài sản CNTT</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>Nghỉ phép</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>Quản lý nghỉ phép</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>Pháp lý</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>Đại diện pháp lý</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>Đại diện pháp lý / Giám đốc</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Địa điểm</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Khóa tài khoản</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>Đăng nhập để truy cập tất cả các tính năng.</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>Duy trì hồ sơ</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Quản lý</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Quản lý Tài sản</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Quản lý chia sẻ âm thanh</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Quản lý Bản vẽ</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Quản lý danh mục</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>Quản lý đơn vị công ty</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Quản lý Hợp đồng</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>Quản lý quan hệ khách hàng</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Quản lý nhà cung cấp DNS</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Quản lý Phản hồi</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Quản lý tài sản vô hình</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>Quản lý tài sản CNTT</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Quản lý sổ sách</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Quản lý vị trí</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Quản lý kênh thị trường</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Quản lý Mô hình</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>Quản lý quá trình gia nhập</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Quản lý nhiệm vụ trênboarding</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>Quản lý chia sẻ mật khẩu</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Quản lý Bảng lương</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>Quản lý in ấn</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Quản lý Nhà cung cấp</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>Quản lý Câu hỏi</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>Quản lý Yêu cầu</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Quản lý chia sẻ</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>Quản lý Nhiệm vụ</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Quản lý nhà cung cấp</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>Kênh thị trường</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Biên bản cuộc họp</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Bản ghi cuộc họp</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Biên bản cuộc họp</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Nhiệm vụ</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>Di chuyển Hợp đồng</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Tài sản của tôi</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>Hợp đồng của tôi</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>Tài sản CNTT của tôi</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Số ngày nghỉ phép còn lại của tôi</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>Bảng lương của tôi</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Chi trả của tôi</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>Dòng báo cáo của tôi</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>Yêu cầu của tôi</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Không tìm thấy</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Kết quả OCR</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>Con dấu chính thức</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>Đào tạo người mới</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>Quy trình đưa vào làm</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>Chi tiết Mật khẩu</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Quản lý mật khẩu</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Chi tiết bảng lương</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>Bảng lương</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Đang chờ phê duyệt</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Chi tiết quyền truy cập</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Quyền hạn</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Cá nhân</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Xem trước</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>In</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>In chứng chỉ</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Hồ sơ</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Cài đặt Hồ sơ</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>Yêu cầu Dự án</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>Lịch sử thăng tiến</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>Phản hồi bảng khảo sát</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>Vốn điều lệ</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Đăng ký</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>Hoàn trả</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Từ chối</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Đã từ chối</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>Đổi tên bản ghi cuộc họp</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Trả lời</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>Đang trả lời</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Dòng báo cáo</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>Yêu cầu chỉnh sửa</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>Yêu cầu chỉnh sửa</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>Yêu cầu</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>Chi tiết yêu cầu</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Yêu cầu đã được lưu thành công.</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>Tiêu đề yêu cầu</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>Tài nguyên</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>Chi tiết phản hồi</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Hạn chế</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>Chi tiết Vai trò</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Vai trò</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Lưu thay đổi</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>Địa chỉ SCR</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>Thư ký</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Máy chủ</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Kiểm tra Dịch vụ</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Dịch vụ</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Bảng điều khiển dịch vụ</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Cài đặt</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>Thông tin chia sẻ</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>Mật khẩu chia sẻ</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>Khóa SSH</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>Gửi bình luận</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Gửi để phê duyệt</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>Gửi yêu cầu mới</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>Gửi yêu cầu</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Hệ thống</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>Thông tin Hệ thống</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Lịch nhóm</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Mẫu</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Giao dịch</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Không được ủy quyền</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Tải lên âm thanh</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Thông tin người dùng</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>Nhà cung cấp</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>Xem bản vẽ</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>Xem Hợp đồng</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>Xem quan hệ khách hàng</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>Xem kênh thị trường</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>Báo cáo hàng tuần</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>Viết một bình luận...</value>
+  </data>
+
+</root>

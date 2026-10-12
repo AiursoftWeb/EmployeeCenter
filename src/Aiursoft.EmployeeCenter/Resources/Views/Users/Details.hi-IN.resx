@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Details" xml:space="preserve">
+    <value>खाता विवरण</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>कार्रवाई</value>
+  </data>
+  <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
+    <value>उपयोगकर्ता के प्रोफ़ाइल, सौंपी गई भूमिकाओं और प्रभावी अनुमतियों का एक सिंहावलोकन।</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>संपत्ति टैग</value>
+  </data>
+  <data name="Assigned Assets" xml:space="preserve">
+    <value>आवंटित संपत्ति</value>
+  </data>
+  <data name="Assigned Roles" xml:space="preserve">
+    <value>नियत भूमिकाएँ</value>
+  </data>
+  <data name="Back to list" xml:space="preserve">
+    <value>सूची पर वापस जाएं</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Bank Account</value>
+  </data>
+  <data name="Bank Account (Card Number)" xml:space="preserve">
+    <value>बैंक खाता (कार्ड नंबर)</value>
+  </data>
+  <data name="Bank Account Name (Holder)" xml:space="preserve">
+    <value>बैंक खाता नाम (धारक)</value>
+  </data>
+  <data name="Bank Information Change History" xml:space="preserve">
+    <value>बैंक जानकारी परिवर्तन इतिहास</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="Bank Name (Branch)" xml:space="preserve">
+    <value>बैंक नाम (शाखा)</value>
+  </data>
+  <data name="Bank Name (Old -&gt; New)" xml:space="preserve">
+    <value>बैंक नाम (पुराना -&gt; नया)</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Basic Salary</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>मूल जानकारी</value>
+  </data>
+  <data name="Card Number (Old -&gt; New)" xml:space="preserve">
+    <value>कार्ड नंबर (पुराना -&gt; नया)</value>
+  </data>
+  <data name="Changed By" xml:space="preserve">
+    <value>बदला गया द्वारा</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>निर्माण समय</value>
+  </data>
+  <data name="Delete this User" xml:space="preserve">
+    <value>इस उपयोगकर्ता को हटाएं</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>संपादित करें</value>
+  </data>
+  <data name="Edit this User" xml:space="preserve">
+    <value>इस उपयोगकर्ता को संपादित करें</value>
+  </data>
+  <data name="Effective Permissions" xml:space="preserve">
+    <value>प्रभावी अनुमतियाँ</value>
+  </data>
+  <data name="Effective Permissions (from all roles)" xml:space="preserve">
+    <value>प्रभावी अनुमतियाँ (सभी भूमिकाओं से)</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ईमेल</value>
+  </data>
+  <data name="Holder (Old -&gt; New)" xml:space="preserve">
+    <value>होल्डर (पुराना -&gt; नया)</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>अनिष्ट</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>उपयोग में</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>Job Level</value>
+  </data>
+  <data name="Job Level (职级)" xml:space="preserve">
+    <value>जॉब लेवल (职级)</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>कानूनी नाम</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>स्थान</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>खो गया</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>रखरखाव</value>
+  </data>
+  <data name="Manage All Assets" xml:space="preserve">
+    <value>सभी संपत्तियों का प्रबंधन करें</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>कॉन्ट्रैक्ट्स प्रबंधित करें</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>SSH कुंजियाँ प्रबंधित करें</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>प्रबंधक</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>मॉडल</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
+  <data name="No assets assigned to this user." xml:space="preserve">
+    <value>इस उपयोगकर्ता को कोई संपत्ति नियुक्त नहीं की गई है।</value>
+  </data>
+  <data name="No change history found." xml:space="preserve">
+    <value>कोई परिवर्तन इतिहास नहीं मिला।</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>प्रतीक्षा में स्वीकृति</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>फ़ोन नंबर</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>प्रोफ़ाइल विवरण</value>
+  </data>
+  <data name="Promote User" xml:space="preserve">
+    <value>उपयोगकर्ता को उन्नत करें</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>रिपोर्ट लाइन</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>सेवानिवृत्त</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>हस्ताक्षर करने वाली एकाई</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>सिस्टम</value>
+  </data>
+  <data name="This user has no effective permissions." xml:space="preserve">
+    <value>इस उपयोगकर्ता के पास कोई प्रभावी अनुमतियाँ नहीं हैं।</value>
+  </data>
+  <data name="This user has not been assigned any roles." xml:space="preserve">
+    <value>इस उपयोगकर्ता को कोई भूमिका नहीं दी गई है।</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>समय</value>
+  </data>
+  <data name="Title (职务)" xml:space="preserve">
+    <value>पद (पदवी)</value>
+  </data>
+  <data name="User Details:" xml:space="preserve">
+    <value>उपयोगकर्ता विवरण:</value>
+  </data>
+  <data name="User name" xml:space="preserve">
+    <value>उपयोगकर्ता नाम</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>रिपोर्ट लाइन देखें</value>
+  </data>
+  <data name="View Weekly Reports" xml:space="preserve">
+    <value>साप्ताहिक रिपोर्ट्स देखें</value>
+  </data>
+  <data name="Weekly Reports" xml:space="preserve">
+    <value>साप्ताहिक रिपोर्ट्स</value>
+  </data>
+
+</root>

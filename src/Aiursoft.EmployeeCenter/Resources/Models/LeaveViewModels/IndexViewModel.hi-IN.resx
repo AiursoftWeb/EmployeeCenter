@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Annual Leave Allocation" xml:space="preserve">
+    <value>वार्षिक छुट्टी आवंटन</value>
+  </data>
+  <data name="Annual Leave Per Year Policy" xml:space="preserve">
+    <value>वर्षांतर्गत वार्षिक छुट्टी नीति</value>
+  </data>
+  <data name="Can Apply Leave" xml:space="preserve">
+    <value>छोड़ लागू कर सकते हैं</value>
+  </data>
+  <data name="Carried Over Annual Leave" xml:space="preserve">
+    <value>वार्षिक छुट्टी ले जाई गई</value>
+  </data>
+  <data name="Current Year" xml:space="preserve">
+    <value>वर्तमान वर्ष</value>
+  </data>
+  <data name="Days Until Next Leave" xml:space="preserve">
+    <value>अगले छुट्टी तक दिन</value>
+  </data>
+  <data name="Has Upcoming Leave Within 14 Days" xml:space="preserve">
+    <value>14 दिनों के भीतर आगामी छुट्टी है</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>छुट्टी इतिहास</value>
+  </data>
+  <data name="Next Upcoming Leave" xml:space="preserve">
+    <value>अगला आगामी छुट्टी</value>
+  </data>
+  <data name="Pending Count" xml:space="preserve">
+    <value>लंबित गिनती</value>
+  </data>
+  <data name="Remaining Annual Leave" xml:space="preserve">
+    <value>शेष वार्षिक छुट्टी</value>
+  </data>
+  <data name="Remaining Sick Leave" xml:space="preserve">
+    <value>शेष बीमारी का छुट्टी</value>
+  </data>
+  <data name="Sick Leave Allocation" xml:space="preserve">
+    <value>बीमारी के छुट्टी आवंटन</value>
+  </data>
+
+</root>

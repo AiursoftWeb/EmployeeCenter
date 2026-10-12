@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Action" xml:space="preserve">
+    <value>การกระทำ</value>
+  </data>
+  <data name="Add Category" xml:space="preserve">
+    <value>เพิ่มหมวดหมู่</value>
+  </data>
+  <data name="Add New Category" xml:space="preserve">
+    <value>เพิ่มหมวดหมู่ใหม่</value>
+  </data>
+  <data name="Are you sure to delete this category?" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการลบหมวดหมู่นี้?</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>หมวดหมู่สินทรัพย์</value>
+  </data>
+  <data name="Back to Assets" xml:space="preserve">
+    <value>กลับไปที่สินทรัพย์</value>
+  </data>
+  <data name="Category Name" xml:space="preserve">
+    <value>ชื่อหมวดหมู่</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>รหัส</value>
+  </data>
+  <data name="Code Prefix" xml:space="preserve">
+    <value>คำนำหน้ารหัส</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="e.g. LAP" xml:space="preserve">
+    <value>เช่น LAP</value>
+  </data>
+  <data name="e.g. Laptop" xml:space="preserve">
+    <value>เช่น Laptop</value>
+  </data>
+  <data name="Existing Categories" xml:space="preserve">
+    <value>หมวดหมู่ที่มีอยู่</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="References" xml:space="preserve">
+    <value>อ้างอิง</value>
+  </data>
+
+</root>

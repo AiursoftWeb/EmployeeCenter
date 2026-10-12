@@ -1,0 +1,8 @@
+.editor-wrapper {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+#markdown-editor-container, #html-output-container {
+    min-height: 400px;
+}

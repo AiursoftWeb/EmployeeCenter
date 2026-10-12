@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Assign Asset" xml:space="preserve">
+    <value>Affecter l&apos;actif</value>
+  </data>
+  <data name="Assignment Details" xml:space="preserve">
+    <value>Détails de l&apos;affectation</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>En cours d&apos;utilisation</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Avis</value>
+  </data>
+  <data name="Optional notes for this assignment..." xml:space="preserve">
+    <value>Remarques facultatives pour cette affectation...</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>En attente d&apos;acceptation</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>Sélectionner un utilisateur</value>
+  </data>
+  <data name="The assigned employee will need to log in and confirm the receipt of the asset before it officially becomes" xml:space="preserve">
+    <value>Le collaborateur assigné devra se connecter et confirmer la réception de l&apos;actif avant qu&apos;il ne devienne officiellement</value>
+  </data>
+  <data name="When you assign an asset, the status will change to" xml:space="preserve">
+    <value>Lorsque vous affectez un bien, son statut passera à</value>
+  </data>
+
+</root>

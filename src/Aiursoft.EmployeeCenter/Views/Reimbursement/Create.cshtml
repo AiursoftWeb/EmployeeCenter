@@ -1,0 +1,110 @@
+@model Aiursoft.EmployeeCenter.Models.ReimbursementViewModels.CreateViewModel
+@{
+}
+
+<div class="container-xl">
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    @Localizer["New Reimbursement Request"]
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="ExpenseTime" class="form-label"></label>
+                            <input asp-for="ExpenseTime" class="form-control" type="date" />
+                            <span asp-validation-for="ExpenseTime" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Category" class="form-label"></label>
+                            <select asp-for="Category" class="form-select">
+                                <option value="">@Localizer["-- Select Category --"]</option>
+                                <option value="Transport">@Localizer["Transport (交通费)"]</option>
+                                <option value="Meals">@Localizer["Meals (餐饮费)"]</option>
+                                <option value="Procurement">@Localizer["Procurement (采购费)"]</option>
+                                <option value="Travel">@Localizer["Travel (差旅费)"]</option>
+                                <option value="Others">@Localizer["Others (其他)"]</option>
+                            </select>
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Purpose" class="form-label"></label>
+                        <input asp-for="Purpose" class="form-control" placeholder="@Localizer["What was this expense for?"]" />
+                        <span asp-validation-for="Purpose" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="SupportingEmail" class="form-label"></label>
+                        <textarea asp-for="SupportingEmail" class="form-control" rows="3" placeholder="@Localizer["Paste supporting email content or other context here..."]"></textarea>
+                        <span asp-validation-for="SupportingEmail" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Amount" class="form-label"></label>
+                            <div class="input-group">
+                                <select asp-for="Currency" class="form-select" style="max-width: 150px;" asp-items="@(new SelectList(Model.CurrencyOptions, "Key", "Value"))"></select>
+                                <input asp-for="Amount" class="form-control" type="number" step="0.01" />
+                            </div>
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                            <span asp-validation-for="Currency" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="InvoicePath" class="form-label"></label>
+                            <vc:file-upload 
+                                asp-for="InvoicePath" 
+                                subfolder="reimbursement" 
+                                is-vault="true"
+                                allowed-extensions="pdf docx jpg jpeg png zip rar 7z"
+                                max-size-in-mb="20">
+                            </vc:file-upload>
+                            <span asp-validation-for="InvoicePath" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="InvoiceSourceUrl" class="form-label"></label>
+                        <input asp-for="InvoiceSourceUrl" class="form-control" placeholder="@Localizer["https://..."]" />
+                        <span asp-validation-for="InvoiceSourceUrl" class="text-danger"></span>
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" name="SaveAsDraft" value="true" class="btn btn-secondary">
+                            @Localizer["Save as Draft"]
+                        </button>
+                        <button type="submit" name="SaveAsDraft" value="false" class="btn btn-primary">
+                            @Localizer["Submit Request"]
+                        </button>
+                        <a asp-action="Index" class="btn btn-link">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}
+
+

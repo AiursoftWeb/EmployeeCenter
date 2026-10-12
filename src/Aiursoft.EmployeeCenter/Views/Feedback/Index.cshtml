@@ -1,0 +1,38 @@
+@model Aiursoft.EmployeeCenter.Models.FeedbackViewModels.IndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Employee Signals"]</h3>
+        <p class="text-muted">@Localizer["Help us improve our company by providing your honest feedback."]</p>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var q in Model.ActiveQuestionnaires)
+    {
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@q.Title</h5>
+                    <p class="card-text">@q.Description</p>
+                    <a asp-action="Fill" asp-route-id="@q.Id" class="btn btn-primary">@Localizer["Fill Now"]</a>
+                </div>
+                <div class="card-footer text-muted small">
+                    @Localizer["Posted: {0}", q.CreationTime.ToLocalTime().ToString("d")]
+                </div>
+            </div>
+        </div>
+    }
+    @if (!Model.ActiveQuestionnaires.Any())
+    {
+        <div class="col-12">
+            <div class="card bg-light">
+                <div class="card-body text-center py-5">
+                    <i class="mb-3 text-muted" data-lucide="check-circle" style="width: 48px; height: 48px;"></i>
+                    <h4>@Localizer["All caught up!"]</h4>
+                    <p class="text-muted mb-0">@Localizer["There are no pending questionnaires for you to fill at this time."]</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

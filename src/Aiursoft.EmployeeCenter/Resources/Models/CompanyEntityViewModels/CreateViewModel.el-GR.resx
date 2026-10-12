@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Τραπεζικός Λογαριασμός</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Όνομα λογαριασμού τράπεζας</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Τοποθεσία Τράπεζας</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>Κωδικός Τράπεζας</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Όνομα Τράπεζας</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>Βασικό Νομίσμα</value>
+  </data>
+  <data name="Business License / BR Scan" xml:space="preserve">
+    <value>Άδεια Επιχείρησης / Αντίγραφο BR</value>
+  </data>
+  <data name="Business Registration (BR / Business License)" xml:space="preserve">
+    <value>Επιχειρησιακή Εγγραφή (BR / Αδειοδότηση Επιχείρησης)</value>
+  </data>
+  <data name="CI Number (HK)" xml:space="preserve">
+    <value>Αριθμός CI (ΧΚ)</value>
+  </data>
+  <data name="Company Logo" xml:space="preserve">
+    <value>Λογότυπο Εταιρείας</value>
+  </data>
+  <data name="Company Name (Chinese)" xml:space="preserve">
+    <value>Όνομα Εταιρείας (Κινέζικα)</value>
+  </data>
+  <data name="Company Name (English)" xml:space="preserve">
+    <value>Όνομα Εταιρείας (Αγγλικά)</value>
+  </data>
+  <data name="Company Seal" xml:space="preserve">
+    <value>Εταιρικό Σφραγίδα</value>
+  </data>
+  <data name="Company Secretary (HK)" xml:space="preserve">
+    <value>Γενικός Γραμματέας (ΧΚ)</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Τύπος Εταιρείας</value>
+  </data>
+  <data name="Create corresponding ledger" xml:space="preserve">
+    <value>Δημιουργία αντίστοιχου λογαριασμού</value>
+  </data>
+  <data name="Entity Code (Social Credit Code / BR Number)" xml:space="preserve">
+    <value>Κωδικός Οντότητας (Κωδικός Κοινωνικής Εμπιστοσύνης / Αριθμός BR)</value>
+  </data>
+  <data name="Establishment Date" xml:space="preserve">
+    <value>Ημερομηνία Ίδρυσης</value>
+  </data>
+  <data name="Expiry Date (Business License / BR)" xml:space="preserve">
+    <value>Ημερομηνία Λήξης (Άδεια Επιχείρησης / Αριθμός ΒΡ)</value>
+  </data>
+  <data name="Legal Representative / Director" xml:space="preserve">
+    <value>Νομικός Εκπρόσωπος / Διευθυντής</value>
+  </data>
+  <data name="Legal Representative Legal Name" xml:space="preserve">
+    <value>Όνομα Νομικού Αντιπροσώπου</value>
+  </data>
+  <data name="Office Address" xml:space="preserve">
+    <value>Διεύθυνση Γραφείου</value>
+  </data>
+  <data name="Operation Status" xml:space="preserve">
+    <value>Κατάσταση Λειτουργίας</value>
+  </data>
+  <data name="Organization Certificate (CR / Org Code)" xml:space="preserve">
+    <value>Πιστοποιητικό Οργανισμού (CR / Κωδικός Οργανισμού)</value>
+  </data>
+  <data name="Please upload a valid certificate file." xml:space="preserve">
+    <value>Παρακαλούμε ανεβάστε ένα έγκυρο αρχείο πιστοποιητικού.</value>
+  </data>
+  <data name="Please upload a valid license file." xml:space="preserve">
+    <value>Παρακαλώ ανεβάστε ένα έγκυρο αρχείο άδειας.</value>
+  </data>
+  <data name="Please upload a valid logo file." xml:space="preserve">
+    <value>Παρακαλούμε ανεβάστε ένα έγκυρο αρχείο λογότυπου.</value>
+  </data>
+  <data name="Please upload a valid seal file." xml:space="preserve">
+    <value>Παρακαλώ ανεβάστε ένα έγκυρο αρχείο του σφραγίδας.</value>
+  </data>
+  <data name="Registered Address" xml:space="preserve">
+    <value>Διεύθυνση Εγγραφής</value>
+  </data>
+  <data name="Registered Capital (Mainland)" xml:space="preserve">
+    <value>Κεφάλαιο Εγγραφής (Κύρια Περιοχή)</value>
+  </data>
+  <data name="SCR Location (HK)" xml:space="preserve">
+    <value>Τοποθεσία SCR (ΧΚ)</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Κωδικός SWIFT</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Το {0} δεν μπορεί να υπερβαίνει τα {1} χαρακτήρες.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Το {0} είναι απαραίτητο.</value>
+  </data>
+  <data name="Zip Code" xml:space="preserve">
+    <value>Ταχυδρομικός Κώδικας</value>
+  </data>
+
+</root>

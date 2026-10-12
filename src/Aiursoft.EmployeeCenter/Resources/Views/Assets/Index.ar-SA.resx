@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="Add new asset" xml:space="preserve">
+    <value>إضافة أصل جديد</value>
+  </data>
+  <data name="All Assets" xml:space="preserve">
+    <value>جميع الأصول</value>
+  </data>
+  <data name="Are you sure you want to return asset" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد إرجاع الممتلك؟</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>فئات الأصول</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>نماذج الأصول</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>رقم الأصل</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>تخصيص</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>المرجع</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Confirm Return" xml:space="preserve">
+    <value>تأكيد الإرجاع</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="Download Invoice" xml:space="preserve">
+    <value>تحميل الفاتورة</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تحرير</value>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>الكيان</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>غير نشط</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>قيد الاستخدام</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>فاتورة</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>الموقع</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>المواقع</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>ضائع</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>الصيانة</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>إدارة الأصول</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>النموذج</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>غير متاح</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>في انتظار القبول</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>السبب</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>مُتقاعد</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>إرجاع</value>
+  </data>
+  <data name="Return Asset" xml:space="preserve">
+    <value>إرجاع الأصل</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="to stock?" xml:space="preserve">
+    <value>إلى المخزون؟</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>المورّدون</value>
+  </data>
+
+</root>

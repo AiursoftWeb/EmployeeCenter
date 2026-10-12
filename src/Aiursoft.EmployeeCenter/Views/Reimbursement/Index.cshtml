@@ -1,0 +1,134 @@
+@model Aiursoft.EmployeeCenter.Models.ReimbursementViewModels.IndexViewModel
+@{
+}
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@inject StorageService StorageService
+
+<div class="container-xl">
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    @Localizer["My Reimbursements"]
+                </h2>
+                <div class="text-muted mt-1">@Localizer["Manage and track your expense reimbursement requests."]</div>
+            </div>
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                    <a asp-action="Create" class="btn btn-primary d-none d-sm-inline-block">
+                        <i class="ti ti-plus me-1"></i>
+                        @Localizer["New Request"]
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table table-vcenter card-table table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Purpose"]</th>
+                            <th>@Localizer["Amount"]</th>
+							<th>@Localizer["Category"]</th>
+							<th>@Localizer["Download"]</th>
+                            <th>@Localizer["Expense Time"]</th>
+                            <th>@Localizer["Status"]</th>
+                            <th class="w-1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.MyReimbursements.Count == 0)
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center text-muted">@Localizer["No reimbursement records found."]</td>
+                            </tr>
+                        }
+                        @foreach (var item in Model.MyReimbursements)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Purpose
+                                    @if (!string.IsNullOrEmpty(item.SupportingEmail))
+                                    {
+                                        <div class="text-muted small">@item.SupportingEmail</div>
+                                    }
+                                </td>
+                                <td>@item.Amount.ToString("N2") @item.Currency</td>
+								<td>@item.Category</td>
+								<td>
+									@if (item.InvoicePath is not null)
+									{
+										<a href="@StorageService.RelativePathToInternetUrl(@item.InvoicePath, isVault: true)" class="btn btn-sm btn-outline-info" target="_blank">
+											<i class="align-middle" data-lucide="download"></i> @Localizer["Download"]
+										</a>
+									}
+								</td>
+                                <td>@item.ExpenseTime.ToShortDateString()</td>
+                                <td>
+                                    @switch (item.Status)
+                                    {
+                                        case ReimbursementStatus.Draft:
+                                            <span class="badge bg-secondary">@Localizer["Draft"]</span>
+                                            break;
+                                        case ReimbursementStatus.Applying:
+                                            <span class="badge bg-blue">@Localizer["Applying"]</span>
+                                            break;
+                                        case ReimbursementStatus.Revoked:
+                                            <span class="badge bg-warning">@Localizer["Revoked"]</span>
+                                            break;
+                                        case ReimbursementStatus.Acknowledged:
+                                            <span class="badge bg-info">@Localizer["Acknowledged"]</span>
+                                            break;
+                                        case ReimbursementStatus.Reimbursed:
+                                            <span class="badge bg-success">@Localizer["Reimbursed"]</span>
+                                            break;
+                                        case ReimbursementStatus.Rejected:
+                                            <span class="badge bg-danger">@Localizer["Rejected"]</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>
+                                    <div class="btn-list flex-nowrap">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-white btn-sm">
+                                            @Localizer["Details"]
+                                        </a>
+                                        @if (item.Status == ReimbursementStatus.Draft)
+                                        {
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-white btn-sm">
+                                                @Localizer["Edit"]
+                                            </a>
+                                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm(getLocalizedText('delete-draft-confirm', 'Are you sure you want to delete this draft?'));">
+                                                <button type="submit" class="btn btn-danger btn-sm">@Localizer["Delete"]</button>
+                                            </form>
+                                        }
+                                        @if (item.Status == ReimbursementStatus.Applying)
+                                        {
+                                            <form asp-action="Revoke" asp-route-id="@item.Id" method="post" onsubmit="return confirm(getLocalizedText('revoke-application-confirm', 'Are you sure you want to revoke this application?'));">
+                                                <button type="submit" class="btn btn-warning btn-sm">@Localizer["Revoke"]</button>
+                                            </form>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loc-data" hidden>
+    <span data-key="delete-draft-confirm">@Localizer["Are you sure you want to delete this draft?"]</span>
+    <span data-key="revoke-application-confirm">@Localizer["Are you sure you want to revoke this application?"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+}

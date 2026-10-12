@@ -1,0 +1,285 @@
+@using Aiursoft.EmployeeCenter.Services
+@using Aiursoft.EmployeeCenter.Configuration
+@inject MarkdownDisplayService MarkdownDisplay
+@inject GlobalSettingsService GlobalSettings
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
+@model Aiursoft.EmployeeCenter.Models.DashboardViewModels.IndexViewModel
+@{
+    var tasks = Model.Tasks.OrderBy(t => t.Order).ToList();
+    var logs = Model.Logs;
+    
+    int firstIncompleteIndex = 0;
+    bool foundIncomplete = false;
+    bool anyInProgress = false;
+
+    // Find the first incomplete task index
+    for (int i = 0; i < tasks.Count; i++)
+    {
+        var t = tasks[i];
+        var isCompleted = logs.Any(l => l.TaskId == t.Id && l.CompletionTime != null);
+        var isInProgress = logs.Any(l => l.TaskId == t.Id && l.CompletionTime == null);
+
+        if (isInProgress) anyInProgress = true;
+
+        if (!isCompleted && !foundIncomplete)
+        {
+            firstIncompleteIndex = i;
+            foundIncomplete = true;
+        }
+    }
+    
+    var allCompleted = tasks.Any() && !foundIncomplete;
+
+    var brandName = Model.User.SigningEntity?.CompanyName ?? await GlobalSettings.GetSettingValueAsync(SettingsMap.BrandName);
+    var logoPath = Model.User.SigningEntity?.LogoPath ?? await GlobalSettings.GetSettingValueAsync(SettingsMap.ProjectLogo);
+    var logoUrl = string.IsNullOrWhiteSpace(logoPath) 
+        ? Url.Content("~/logo.svg") 
+        : StorageService.RelativePathToInternetUrl(logoPath);
+}
+
+<div class="container-fluid p-0">
+    <h1 class="h3 mb-3">@Localizer["Employee Onboarding"]</h1>
+    
+    @if (!tasks.Any())
+    {
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert-message">
+                <h4 class="alert-heading">@Localizer["No Tasks Available"]</h4>
+                <p class="mb-0">
+                    @Localizer["You currently have no onboarding tasks assigned. You may explore other features from the sidebar."]
+                </p>
+            </div>
+        </div>
+    }
+    else if (allCompleted)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert-message">
+                <h4 class="alert-heading">@Localizer["Congratulations!"]</h4>
+                <p class="mb-0">
+                    @Localizer["You have completed all onboarding tasks. You are now a fully qualified official employee!"]
+                </p>
+            </div>
+        </div>
+    }
+
+    @if (tasks.Any())
+    {
+        <div class="row">
+        <div class="col-12">
+            <div id="smartwizard-onboarding" class="wizard wizard-primary mb-4">
+                <ul class="nav">
+                    @for (int i = 0; i < tasks.Count; i++)
+                    {
+                        var task = tasks[i];
+                        <li class="nav-item">
+                            <a class="nav-link" href="#step-@task.Id">
+                                @task.Title
+                                <br />
+                                <small>@Localizer["Step"] @(i + 1)</small>
+                            </a>
+                        </li>
+                    }
+                    @if (tasks.Any())
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="#step-completed">
+                                @Localizer["Completed"]
+                                <br />
+                                <small>@Localizer["Step"] @(tasks.Count + 1)</small>
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <div class="tab-content">
+                    @foreach (var task in tasks)
+                    {
+                        var log = logs.FirstOrDefault(l => l.TaskId == task.Id && l.CompletionTime == null);
+                        var completedLog = logs.FirstOrDefault(l => l.TaskId == task.Id && l.CompletionTime != null);
+                        var isCompleted = completedLog != null;
+                        var isInProgress = log != null;
+                        
+                        <div id="step-@task.Id" class="tab-pane" role="tabpanel">
+                            <h3>@task.Title</h3>
+                            <div class="mb-3">
+                                @MarkdownDisplay.RenderMarkdown(task.Description)
+                            </div>
+                            
+                            <hr />
+
+                            @if (isCompleted)
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    <div class="alert-icon">
+                                        <i class="align-middle" data-lucide="check-circle"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        @Localizer["Completed at"] <label class="text-muted" data-utc-time="@completedLog!.CompletionTime?.ToHtmlDateTime()"></label>
+                                    </div>
+                                </div>
+                            }
+                            else if (isInProgress)
+                            {
+                                var secondsSinceStart = (DateTime.UtcNow - log!.StartTime).TotalSeconds;
+                                var canComplete = secondsSinceStart >= 30;
+                                var remaining = Math.Max(0, 30 - secondsSinceStart);
+
+                                <div class="alert alert-info" role="alert">
+                                    <div class="alert-icon">
+                                        <i class="align-middle" data-lucide="loader"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        @Localizer["Task in progress..."]
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center gap-2">
+                                     @if (canComplete)
+                                    {
+                                        <form asp-controller="Onboarding" asp-action="CompleteTask" asp-route-id="@task.Id" method="post">
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="align-middle me-1" data-lucide="check"></i> @Localizer["I have completed"]
+                                            </button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                         <button class="btn btn-primary" disabled>
+                                            <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                                            @Localizer["Processing..."] <span class="countdown-timer" data-seconds="@((int)remaining)">@((int)remaining)</span>s
+                                        </button>
+                                        <small class="text-muted">@Localizer["Please wait..."]</small>
+                                    }
+                                    <a href="@task.StartLink" target="_blank" class="btn btn-outline-primary ms-2">
+                                        <i class="align-middle me-1" data-lucide="external-link"></i>
+                                        @Localizer["Open Task Link"]
+                                    </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-warning" role="alert">
+                                    <div class="alert-icon">
+                                        <i class="align-middle" data-lucide="alert-circle"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        @Localizer["This task is pending."]
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="text-muted small">@Localizer["Expected duration"]: @TimeSpan.FromSeconds(task.ExpectedDurationSeconds).ToString(@"hh\:mm\:ss")</div>
+                                </div>
+                                <div class="mt-2">
+                                    <form asp-controller="Onboarding" asp-action="StartTask" asp-route-id="@task.Id" method="post" target="_blank">
+                                        <button type="submit" class="btn btn-warning px-4 fw-bold">
+                                            <i class="align-middle me-1" data-lucide="play"></i> @Localizer["Start Task"]
+                                        </button>
+                                    </form>
+                                </div>
+                            }
+                        </div>
+                    }
+                    @if (tasks.Any())
+                    {
+                        <div id="step-completed" class="tab-pane" role="tabpanel">
+                            <div class="text-center py-5">
+                                <div class="mb-4">
+                                    <i class="align-middle text-success" data-lucide="award" style="width: 100px; height: 100px;"></i>
+                                </div>
+                                <h2 class="display-5 fw-bold mb-3">@Localizer["Congratulations!"]</h2>
+                                <p class="lead mb-4">
+                                    @Localizer["All tasks completed! You are now a fully qualified employee!"]
+                                </p>
+                                <div class="card bg-body-tertiary border-0 shadow-lg mx-auto overflow-hidden" style="max-width: 600px; border-radius: 1.5rem;">
+                                    <div class="card-body p-0">
+                                        <div class="p-5 text-center position-relative">
+                                            <div class="mb-4">
+                                                <img src="@logoUrl" alt="@brandName" style="height: 48px;" />
+                                            </div>
+                                            
+                                            <h3 class="text-uppercase tracking-widest text-muted small fw-bold mb-3">@Localizer["Certificate"]</h3>
+                                            <div class="mx-auto bg-primary opacity-25 mb-5" style="height: 2px; width: 60px;"></div>
+                                            
+                                            <div class="mb-5">
+                                                <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.User.Id" class="text-decoration-none">
+                                                    <h1 class="display-5 fw-bold text-body mb-0">@(Model.User.LegalName ?? Model.User.DisplayName)</h1>
+                                                </a>
+                                            </div>
+                                            
+                                            <p class="lead text-muted mb-5">
+                                                @Localizer["Wish your career takes off at {0}!", brandName]
+                                            </p>
+                                            
+                                            <div class="d-flex justify-content-center align-items-center gap-3 mt-4">
+                                                <div class="bg-body-secondary px-3 py-1 rounded-pill small text-muted border border-secondary-subtle" data-utc-time="@DateTime.UtcNow.ToHtmlDateTime()"></div>
+                                                <div class="text-primary opacity-50">
+                                                     <i class="align-middle" data-lucide="award" style="width: 32px; height: 32px;"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize SmartWizard
+        $("#smartwizard-onboarding").smartWizard({
+            theme: "arrows",
+            showStepURLhash: false,
+            // Select the first incomplete step
+            selected: @(allCompleted ? tasks.Count : firstIncompleteIndex),
+            toolbarSettings: {
+                showNextButton: false, 
+                showPreviousButton: false
+            },
+            anchorSettings: {
+                enableAllAnchors: false,
+                markDoneStep: true,
+                markAllPreviousStepsAsDone: true,
+                removeDoneStepOnNavigateBack: false,
+                enableAnchorOnDoneStep: true
+            }
+        });
+        
+        // Handle countdown timers
+        var timers = document.querySelectorAll('.countdown-timer');
+        if (timers.length > 0) {
+            timers.forEach(function(timer) {
+                var seconds = parseInt(timer.getAttribute('data-seconds'));
+                var interval = setInterval(function() {
+                    seconds--;
+                    if (seconds <= 0) {
+                        clearInterval(interval);
+                        timer.innerText = "0";
+                        window.location.reload(); // Reload when timer hits 0 to show Complete button
+                    } else {
+                        timer.innerText = seconds;
+                    }
+                }, 1000);
+            });
+        } 
+        
+        // Auto-refresh fallback for 'In Progress' tasks just in case
+        @if (anyInProgress)
+        {
+            <text>
+            setTimeout(function() {
+                window.location.reload();
+            }, 35000); 
+            </text>
+        }
+    });
+</script>

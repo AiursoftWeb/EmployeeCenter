@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Asset Tag" xml:space="preserve">
+    <value>자산 태그</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>담당자</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>소속 엔티티</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>청구서 파일</value>
+  </data>
+  <data name="Is Reimbursed" xml:space="preserve">
+    <value>지급 여부</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>위치</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>모델</value>
+  </data>
+  <data name="Purchase Date" xml:space="preserve">
+    <value>구매 일자</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>구매 가격</value>
+  </data>
+  <data name="Serial Number" xml:space="preserve">
+    <value>시리얼 넘버</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0}은 {1}자를 초과할 수 없습니다.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0}은 필수 항목입니다.</value>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value>공급업체</value>
+  </data>
+  <data name="Warranty Expire Date" xml:space="preserve">
+    <value>보증 만료일</value>
+  </data>
+
+</root>

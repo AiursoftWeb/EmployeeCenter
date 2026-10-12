@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>DNS Denetimi tarafından kullanılan salt okunur bir Cloudflare API belirteci. Tüm hesaplar için DNS Ayarları:Okuma ve tüm bölgeler için DNS:Okuma yetkisini verin.</value>
+  </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Service Audit tarafından kullanılan salt okunur bir Cloudflare API belirteci. Tüm hesaplar için DNS Settings:Read ve tüm bölgeler için DNS:Read izinlerini verin.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
+    <value>Yapay Zeka Asistanı Sistem İstemi</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Kullanıcıların Takma Adlarını Ayarlamasına İzin Ver</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Kullanıcıların profil yönetimi sayfasında takma adlarını ayarlamasına izin verin.</value>
+  </data>
+  <data name="Annual Leave Per Year" xml:space="preserve">
+    <value>Yıllık İzin Yılına Göre</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>Marka Ana Sayfa URL&apos;si</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Marka Adı</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API Anahtarı</value>
+  </data>
+  <data name="Default Payroll Currency" xml:space="preserve">
+    <value>Varsayılan Ödeme Para Birimi</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>Proje Bağlantısını Zorunlu Kıl</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>ICP Numarası</value>
+  </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Toplantı Tutanakları Sistem İfadesi</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Proje Logosu</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Proje Adı</value>
+  </data>
+  <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
+    <value>Haftalık rapor gönderirken çalışanların en az bir projeyle ilişkilendirilmesini zorunlu kıl.</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Şirketin veya projenin marka adı. Örnek: Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>Yeni bir maaş listesi çıkartılırken kullanılacak varsayılan para birimi.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Çin ana karasında kullanıcılar için ICP lisans numarası. Gizlemek için boş bırakın.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Projenin navbar ve footer&apos;da görünen logosu. jpg, png, svg desteklenir.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Frontende görüntülenen projenin adı.</value>
+  </data>
+  <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
+    <value>Her çalışanın her yıl ayrılan ücretli yıllık izin gün sayısını</value>
+  </data>
+  <data name="The system prompt for the AI assistant." xml:space="preserve">
+    <value>Yapay zeka asistanı için sistem komutu.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Daktilo kayıtlarından toplantı tutanakları oluşturmak için kullanılan sistem istemi.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Şirketin veya projenin URL&apos;si. Örnek: https://www.aiursoft.com</value>
+  </data>
+
+</root>

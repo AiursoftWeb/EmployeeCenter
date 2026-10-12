@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>アカウント名</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>アカウント種別</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>会計の論理は「プールモデル」に従います：資金は1つのプール（出所）から別のプール（宛先）へと流れます。この5つの要素を理解することが、二重簿記の鍵です。</value>
+  </data>
+  <data name="Archived" xml:space="preserve">
+    <value>アーカイブ済み</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>資産</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>預金、売掛金（他人があなたに支払うべき金額）、サーバー/ラップトップ</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>取引先からの借り入れ</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>お金の借り入れ = 増加；お金の返済 = 減少</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>手元の現金、または現金に換算できるもの。</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>発生した費用</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>将来返済しなければならない会社の債務。</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>定義：</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>方向：</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>取締役の貸付（会社に貸したお金）、未払いの請求書、クレジットカードの債務</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>アカウントの編集</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>自己資本</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>例：</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>費用</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>元 (ソース)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>収益</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>負債</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>論理</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>儲けたお金</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>製品の販売またはサービスの提供によって得られる収入。利益を増加させる。</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>資金は銀行から債務を返済するために流れます</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>資金は銀行から経費へと流れます</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>借金から銀行口座へ資金が流れます</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>資本から銀行口座へ資金が流れます</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>収益として発生したお金が銀行口座に流入する</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>入金 = 増加；出金 = 減少</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>会社の運営を維持するために支出されたお金。利益を減少させる。</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>サーバーの支払い</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>クイックチートシート</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>取締役への返済</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>売上収益、サービス手数料、利子収入</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>シナリオ</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>ソフトウェアの販売</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>サーバーhosting手数料、銀行手数料、給与</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>株式資本（初期投資）、利益留保（累積利益）。</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>株主の出資</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>株主の出資/利益 = 増加；株主の引き出し/損失 = 減少。</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>ダッシュボードに表示</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>会社の純資産。式：資産 - 負債 = 株主資本。</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>他人に支払い義務があるもの</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>所有しているもの</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>宛先へ</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>会計要素の理解</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>あなたに本当に帰属する価値</value>
+  </data>
+
+</root>

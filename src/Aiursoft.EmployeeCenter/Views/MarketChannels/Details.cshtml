@@ -1,0 +1,90 @@
+@model Aiursoft.EmployeeCenter.Models.MarketChannelsViewModels.DetailsViewModel
+@using Aiursoft.EmployeeCenter.Services
+@inject MarkdownDisplayService MarkdownDisplay
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
+@{
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Market Channel Details"]</h3>
+    </div>
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="Index" class="btn btn-secondary shadow-sm">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to List"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["General Information"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label text-muted">@Localizer["Platform Name"]</label>
+                    <div class="fw-bold">@Model.MarketChannel.Name</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-muted">@Localizer["Manager"]</label>
+                    <div>
+                        @if (Model.MarketChannel.Manager != null)
+                        {
+                            <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.MarketChannel.ManagerId" class="text-body d-flex align-items-center">
+                                <img src="@StorageService.RelativePathToInternetUrl(Model.MarketChannel.Manager?.AvatarRelativePath ?? "images/default-avatar.jpg")?w=40&square=true" class="avatar img-fluid rounded me-2" alt="@Model.MarketChannel.Manager?.DisplayName" />
+                                <div>
+                                    <div class="fw-bold">@Model.MarketChannel.Manager?.DisplayName</div>
+                                    <div class="small text-muted">@Model.MarketChannel.Manager?.Email</div>
+                                </div>
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">@Localizer["Unknown Manager"]</span>
+                        }
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-muted">@Localizer["Target Audience"]</label>
+                    <div>@Model.MarketChannel.TargetAudience</div>
+                </div>
+                <div class="mb-0">
+                    <label class="form-label text-muted">@Localizer["Created On"]</label>
+                    <div data-utc-time="@Model.MarketChannel.CreationTime.ToHtmlDateTime()"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Remarks"]</h5>
+            </div>
+            <div class="card-body">
+                @if (string.IsNullOrWhiteSpace(Model.MarketChannel.Description))
+                {
+                    <p class="text-muted mb-0">@Localizer["No remarks provided."]</p>
+                }
+                else
+                {
+                    <div class="markdown-content">
+                        @MarkdownDisplay.RenderMarkdown(Model.MarketChannel.Description)
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_MarkdownReaderAssets" />
+}

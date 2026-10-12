@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Agent failed to respond." xml:space="preserve">
+    <value>L&apos;agente non ha risposto.</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Assistente AI</value>
+  </data>
+  <data name="Ask anything..." xml:space="preserve">
+    <value>Chiedi qualsiasi cosa...</value>
+  </data>
+  <data name="Chat with EmployeeCenter AI" xml:space="preserve">
+    <value>Chat con EmployeeCenter AI</value>
+  </data>
+  <data name="Clear Session" xml:space="preserve">
+    <value>Cancella sessione</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Copiato</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copia</value>
+  </data>
+  <data name="Error: " xml:space="preserve">
+    <value>Errore:</value>
+  </data>
+  <data name="Failed to check status." xml:space="preserve">
+    <value>Impossibile verificare lo stato.</value>
+  </data>
+  <data name="Hello! Ask me anything about employee handbook, blueprints or weekly reports." xml:space="preserve">
+    <value>Ciao! Chiedimi qualsiasi cosa riguardante il manuale del personale, le planimetrie o i report settimanali.</value>
+  </data>
+  <data name="Request timed out." xml:space="preserve">
+    <value>Richiesta scaduta.</value>
+  </data>
+  <data name="Session cleared. Ask me anything!" xml:space="preserve">
+    <value>Session chiarita. Chiedimi qualsiasi cosa!</value>
+  </data>
+  <data name="Unknown error occurred." xml:space="preserve">
+    <value>Si è verificato un errore sconosciuto.</value>
+  </data>
+
+</root>

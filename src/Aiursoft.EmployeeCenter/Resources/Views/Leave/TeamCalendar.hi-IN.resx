@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Team Calendar" xml:space="preserve">
+    <value>टीम कैलेंडर के बारे में</value>
+  </data>
+  <data name="Annual" xml:space="preserve">
+    <value>Annual</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>approv दिया गया</value>
+  </data>
+  <data name="Blue - Approved future leave" xml:space="preserve">
+    <value>नीला - अनुमोदित भविष्य के छुट्टी</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>साफ करें</value>
+  </data>
+  <data name="Close Search" xml:space="preserve">
+    <value>खोज बंद करें</value>
+  </data>
+  <data name="Currently on Leave" xml:space="preserve">
+    <value>वर्तमान में छुट्टी पर</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="Days label" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="Green - Leave period has finished" xml:space="preserve">
+    <value>हरा - छुट्टी का काल खत्म हो गया है</value>
+  </data>
+  <data name="Leave History: {0}" xml:space="preserve">
+    <value>Leave History: {0}</value>
+  </data>
+  <data name="Leave Schedule" xml:space="preserve">
+    <value>छुट्टी का शेड्यूल</value>
+  </data>
+  <data name="No leave records found for this user in the specified range." xml:space="preserve">
+    <value>निर्दिष्ट सीमा में इस उपयोगकर्ता के लिए कोई छुट्टी का रिकॉर्ड नहीं मिला।</value>
+  </data>
+  <data name="No team members found." xml:space="preserve">
+    <value>कोई टीम सदस्य नहीं मिला।</value>
+  </data>
+  <data name="No upcoming or past leave records." xml:space="preserve">
+    <value>कोई आगामी या पिछली छुट्टी की रिकॉर्ड नहीं है।</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>कोई उपयोगकर्ता नहीं मिला</value>
+  </data>
+  <data name="Not Yet Started" xml:space="preserve">
+    <value>अभी शुरू नहीं हुआ</value>
+  </data>
+  <data name="Only approved leave applications are displayed here." xml:space="preserve">
+    <value>यहाँ केवल अनुमोदित छुट्टी के आवेदन दिखाई जाते हैं।</value>
+  </data>
+  <data name="Overview of leave schedules for your manager, reports, and colleagues." xml:space="preserve">
+    <value>आपके प्रबंधक, रिपोर्ट्स, और सहकर्मियों के छुट्टी के शेड्यूल का ओवरव्यू</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>प्रतीक्षा में</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>अवधि</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>कारण</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>अस्वीकृत</value>
+  </data>
+  <data name="Relation" xml:space="preserve">
+    <value>संबंध</value>
+  </data>
+  <data name="Returned" xml:space="preserve">
+    <value>लौट आए हैं</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>समीक्षक</value>
+  </data>
+  <data name="Search Any Employee" xml:space="preserve">
+    <value>किसी भी कर्मचारी को खोजें</value>
+  </data>
+  <data name="Search for any employee to view their full leave history for the past and future 365 days." xml:space="preserve">
+    <value>किसी भी कर्मचारी को खोजें ताकि उनका पिछले और भविष्य के 365 दिनों का पूरा छुट्टी का इतिहास देखा जा सके।</value>
+  </data>
+  <data name="Sick" xml:space="preserve">
+    <value>Sick</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Status Legend" xml:space="preserve">
+    <value>स्थिति प्रतीक</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>सिस्टम</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>टीम कैलेंडर</value>
+  </data>
+  <data name="Team Member" xml:space="preserve">
+    <value>टीम सदस्य</value>
+  </data>
+  <data name="Team Members&apos; Leave Status" xml:space="preserve">
+    <value>टीम सदस्यों की छुट्टी की स्थिति</value>
+  </data>
+  <data name="This calendar helps you stay informed about your team&apos;s availability to facilitate work handovers and planning." xml:space="preserve">
+    <value>यह कैलेंडर आपको अपनी टीम की उपलब्धता के बारे में अपडेट रखने में मदद करता है ताकि कार्य हस्तांतरण और योजना बनाना आसान हो।</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="Type 3+ characters to search for an employee..." xml:space="preserve">
+    <value>किसी कर्मचारी को खोजने के लिए 3+ अक्षर टाइप करें...</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>वापस लिया गया</value>
+  </data>
+  <data name="Yellow - Employee is currently away" xml:space="preserve">
+    <value>पीला - कर्मचारी वर्तमान में अनुपस्थित है</value>
+  </data>
+
+</root>

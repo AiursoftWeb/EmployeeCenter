@@ -1,0 +1,145 @@
+@model Aiursoft.EmployeeCenter.Models.CollectionChannelsViewModels.EditViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Edit collection channel"]</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="PayerId" class="form-label"></label>
+                    <select asp-for="PayerId" class="form-select" asp-items="@(new SelectList(Model.AllCompanyEntities, "Id", "CompanyName"))">
+                        <option value="">@Localizer["-- Select Payer --"]</option>
+                    </select>
+                    <span asp-validation-for="PayerId" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="PayeeId" class="form-label"></label>
+                    <select asp-for="PayeeId" class="form-select" asp-items="@(new SelectList(Model.AllCompanyEntities, "Id", "CompanyName"))">
+                        <option value="">@Localizer["-- Select Payee --"]</option>
+                    </select>
+                    <span asp-validation-for="PayeeId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ReferenceAmount" class="form-label"></label>
+                    <input asp-for="ReferenceAmount" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="ReferenceAmount" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Currency" class="form-label"></label>
+                    <input asp-for="Currency" class="form-control" />
+                    <span asp-validation-for="Currency" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="PaymentMethod" class="form-label"></label>
+                    <input asp-for="PaymentMethod" class="form-control" />
+                    <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ContractId" class="form-label"></label>
+                    <select asp-for="ContractId" class="form-select" asp-items="@(new SelectList(Model.AllContracts, "Id", "Name"))">
+                        <option value="">@Localizer["-- No Associated Contract --"]</option>
+                    </select>
+                    <span asp-validation-for="ContractId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="StartBillingDate" class="form-label"></label>
+                    <input asp-for="StartBillingDate" class="form-control" type="date" />
+                    <span asp-validation-for="StartBillingDate" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="FirstPaymentDate" class="form-label"></label>
+                    <input asp-for="FirstPaymentDate" class="form-control" type="date" />
+                    <span asp-validation-for="FirstPaymentDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-check form-switch pt-4">
+                        <input class="form-check-input" type="checkbox" asp-for="IsRecurring" id="isRecurringSwitch">
+                        <label class="form-check-label" asp-for="IsRecurring"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3" id="recurringPeriodGroup" style="display: @(Model.IsRecurring ? "block" : "none")">
+                    <label asp-for="RecurringPeriod" class="form-label"></label>
+                    <select asp-for="RecurringPeriod" class="form-select" asp-items="Html.GetEnumSelectList<RecurringPeriod>()"></select>
+                    <span asp-validation-for="RecurringPeriod" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Status" class="form-label"></label>
+                    <select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<CollectionChannelStatus>()"></select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr />
+            <div class="d-flex justify-content-between">
+                <div>
+                    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">@Localizer["Cancel"]</a>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#terminateModal">
+                        <i class="align-middle" data-lucide="x-circle"></i> @Localizer["Terminate"]
+                    </button>
+                    <button type="submit" class="btn btn-primary">@Localizer["Save Changes"]</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Terminate Modal -->
+<div class="modal fade" id="terminateModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="Terminate" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">@Localizer["Terminate Collection Channel"]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <p>@Localizer["Are you sure you want to terminate this collection channel? This action cannot be undone and will stop further collections."]</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                    <button type="submit" class="btn btn-danger">@Localizer["Confirm Terminate"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const isRecurringSwitch = document.getElementById('isRecurringSwitch');
+            const recurringPeriodGroup = document.getElementById('recurringPeriodGroup');
+
+            isRecurringSwitch.addEventListener('change', function () {
+                recurringPeriodGroup.style.display = this.checked ? 'block' : 'none';
+            });
+        });
+    </script>
+}

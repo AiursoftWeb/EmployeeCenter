@@ -1,0 +1,42 @@
+@* ReSharper disable Razor.ResourceNotResolved *@
+@* ReSharper disable NotOverriddenInSpecificCulture *@
+@model Aiursoft.EmployeeCenter.Models.SshKeysViewModels.IndexViewModel
+@{
+}
+
+@using System.Security.Claims
+@{
+    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+    var isCurrentUser = currentUserId == Model.TargetUser.Id;
+}
+
+@if (isCurrentUser)
+{
+    <h1 class="h3 mb-3">@Localizer["Manage your SSH Key"]</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <partial name="_ManageSidebar" />
+        </div>
+        <div class="col-md-8">
+            <partial name="_SshKeysContent" model="Model" />
+        </div>
+    </div>
+}
+else
+{
+    <div class="row mb-2 mb-xl-3">
+            <div class="col-auto d-none d-sm-block">
+                <h3>@Localizer["SSH Keys for"] <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.TargetUser.Id" class="text-body">@Model.TargetUser.DisplayName</a></h3>
+            </div>    </div>
+
+    <partial name="_SshKeysContent" model="Model" />
+
+    <div class="mt-3">
+        <a asp-controller="Users" asp-action="Details" asp-route-id="@Model.TargetUser.Id" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to User Info"]
+        </a>
+    </div>
+}
+@* ReSharper restore Razor.ResourceNotResolved *@
+@* ReSharper restore NotOverriddenInSpecificCulture *@

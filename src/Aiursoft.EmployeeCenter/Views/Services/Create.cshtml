@@ -1,0 +1,210 @@
+@model Aiursoft.EmployeeCenter.Models.ServicesViewModels.CreateServiceViewModel
+
+<h1 class="h3 mb-3">@Localizer["Add New Service"]</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Basic Information"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" placeholder="@Localizer["e.g. Customer Portal"]" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="PrimaryDomain" class="form-label"></label>
+                        <input asp-for="PrimaryDomain" class="form-control" placeholder="@Localizer["e.g. example.com"]" />
+                        <span asp-validation-for="PrimaryDomain" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="CompanyEntityId" class="form-label"></label>
+                            <div class="input-group">
+                                <select asp-for="CompanyEntityId" class="form-select" asp-items="@(new SelectList(Model.AllOwners, "Id", "CompanyName"))">
+                                    <option value="">-- @Localizer["Select Owner"] --</option>
+                                </select>
+                                <a asp-controller="CompanyEntity" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                    <i class="align-middle" data-lucide="plus-circle"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetCompanyEntities")"
+                                        data-target="CompanyEntityId"
+                                        data-placeholder="@Localizer["Select Owner"]"
+                                        data-name-key="CompanyName"
+                                        title="@Localizer["Reload"]">
+                                    <i class="align-middle" data-lucide="rotate-cw"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="CompanyEntityId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="AlternativeServiceId" class="form-label"></label>
+                            <div class="input-group">
+                                <select asp-for="AlternativeServiceId" class="form-select" asp-items="@(new SelectList(Model.AllServices, "Id", "PrimaryDomain"))">
+                                    <option value="">-- @Localizer["None"] --</option>
+                                </select>
+                                <a asp-controller="Services" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                    <i class="align-middle" data-lucide="plus-circle"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetServices")"
+                                        data-target="AlternativeServiceId"
+                                        data-placeholder="@Localizer["None"]"
+                                        data-name-key="PrimaryDomain"
+                                        title="@Localizer["Reload"]">
+                                    <i class="align-middle" data-lucide="rotate-cw"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="AlternativeServiceId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label asp-for="Protocols" class="form-label"></label>
+                            <input asp-for="Protocols" class="form-control" placeholder="@Localizer["e.g. HTTPS, TCP"]" />
+                            <span asp-validation-for="Protocols" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="ServerId" class="form-label"></label>
+                            <div class="input-group">
+                                <select asp-for="ServerId" class="form-select" asp-items="@(new SelectList(Model.AllServers, "Id", "Hostname"))">
+                                    <option value="">-- @Localizer["Select Server"] --</option>
+                                </select>
+                                <a asp-controller="Servers" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                    <i class="align-middle" data-lucide="plus-circle"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetServers")"
+                                        data-target="ServerId"
+                                        data-placeholder="@Localizer["Select Server"]"
+                                        data-name-key="HostName"
+                                        title="@Localizer["Reload"]">
+                                    <i class="align-middle" data-lucide="rotate-cw"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="ServerId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3" id="frps-server-container">
+                            <label asp-for="FrpsServerId" class="form-label"></label>
+                            <div class="input-group">
+                                <select asp-for="FrpsServerId" class="form-select" asp-items="@(new SelectList(Model.AllServers, "Id", "Hostname"))">
+                                    <option value="">-- @Localizer["Select FRPS Server"] --</option>
+                                </select>
+                                <a asp-controller="Servers" asp-action="Create" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                    <i class="align-middle" data-lucide="plus-circle"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                        data-url="@Url.Action("GetServers")"
+                                        data-target="FrpsServerId"
+                                        data-placeholder="@Localizer["Select FRPS Server"]"
+                                        data-name-key="HostName"
+                                        title="@Localizer["Reload"]">
+                                    <i class="align-middle" data-lucide="rotate-cw"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">@Localizer["Required when Via FRPS is enabled."]</div>
+                            <span asp-validation-for="FrpsServerId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DnsProviderId" class="form-label"></label>
+                        <div class="input-group">
+                            <select asp-for="DnsProviderId" class="form-select" asp-items="@(new SelectList(Model.AllDnsProviders, "Id", "Name"))">
+                                <option value="">-- @Localizer["Select DNS Provider"] --</option>
+                            </select>
+                            <a asp-controller="Services" asp-action="DnsProviders" target="_blank" class="btn btn-outline-secondary" title="@Localizer["New"]">
+                                <i class="align-middle" data-lucide="plus-circle"></i>
+                            </a>
+                            <button type="button" class="btn btn-outline-secondary reload-dropdown"
+                                    data-url="@Url.Action("GetDnsProviders")"
+                                    data-target="DnsProviderId"
+                                    data-placeholder="@Localizer["Select DNS Provider"]"
+                                    title="@Localizer["Reload"]">
+                                <i class="align-middle" data-lucide="rotate-cw"></i>
+                            </button>
+                        </div>
+                        <span asp-validation-for="DnsProviderId" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Status" class="form-label"></label>
+                            <select asp-for="Status" class="form-select">
+                                @foreach (var item in Html.GetEnumSelectList<ServiceStatus>())
+                                {
+                                    <option value="@item.Value" selected="@item.Selected">@Localizer[item.Text]</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Purpose" class="form-label"></label>
+                            <select asp-for="Purpose" class="form-select">
+                                @foreach (var item in Html.GetEnumSelectList<ServicePurpose>())
+                                {
+                                    <option value="@item.Value" selected="@item.Selected">@Localizer[item.Text]</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Purpose" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <partial name="_ServiceFeatureToggles" model="Model" />
+
+                    <div class="mb-3">
+                        <label asp-for="Remark" class="form-label"></label>
+                        <textarea asp-for="Remark" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Remark" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">@Localizer["Save Service"]</button>
+                    <a asp-action="Index" class="btn btn-light">@Localizer["Cancel"]</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Tips"]</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">@Localizer["Domain should be the primary entry point for the service."]</p>
+                <p class="text-muted">@Localizer["Cross-Entity Link is used to suggest local/international versions to users."]</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_DropdownReload" />
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viaFrps = document.getElementById('IsViaFrps');
+            const container = document.getElementById('frps-server-container');
+            const frpsServer = document.getElementById('FrpsServerId');
+            const updateFrpsServer = () => {
+                container.classList.toggle('d-none', !viaFrps.checked);
+                frpsServer.required = viaFrps.checked;
+            };
+            viaFrps.addEventListener('change', updateFrpsServer);
+            updateFrpsServer();
+        });
+    </script>
+}

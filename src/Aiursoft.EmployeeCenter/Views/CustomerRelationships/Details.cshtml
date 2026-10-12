@@ -1,0 +1,140 @@
+@using Aiursoft.EmployeeCenter.Authorization
+@using Aiursoft.EmployeeCenter.Services
+@model Aiursoft.EmployeeCenter.Models.CustomerRelationshipViewModels.EditorViewModel
+@inject MarkdownDisplayService MarkdownDisplay
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageCustomerRelationships)).Succeeded;
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Customer Relationship Details"]</h3>
+    </div>
+    @if (canManage)
+    {
+        <div class="col-auto ms-auto text-end mt-n1">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                <i class="align-middle" data-lucide="edit"></i> @Localizer["Edit"]
+            </a>
+        </div>
+    }
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Basic Information"]</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">@Localizer["Name"]</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3">@Localizer["Job Title"]</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.JobTitle))
+                {
+                    @Model.JobTitle
+                }
+                else
+                {
+                    <span class="text-muted">@Localizer["N/A"]</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">@Localizer["Company Entity"]</dt>
+            <dd class="col-sm-9">
+                @if (Model.CompanyEntityId.HasValue)
+                {
+                    <a asp-controller="CompanyEntity" asp-action="Details" asp-route-id="@Model.CompanyEntityId">
+                        @Model.AvailableCompanyEntities.FirstOrDefault(c => c.Value == Model.CompanyEntityId.Value.ToString())?.Text
+                    </a>
+                }
+                else
+                {
+                    <span class="text-muted">@Localizer["N/A"]</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">@Localizer["Email"]</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.Email))
+                {
+                    <a href="mailto:@Model.Email">@Model.Email</a>
+                }
+                else
+                {
+                    <span class="text-muted">@Localizer["N/A"]</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">@Localizer["Phone"]</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.Phone))
+                {
+                    <a href="tel:@Model.Phone">@Model.Phone</a>
+                }
+                else
+                {
+                    <span class="text-muted">@Localizer["N/A"]</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">@Localizer["Address"]</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.Address))
+                {
+                    @Model.Address
+                }
+                else
+                {
+                    <span class="text-muted">@Localizer["N/A"]</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">@Localizer["WeChat ID"]</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.WeChatId))
+                {
+                    @Model.WeChatId
+                }
+                else
+                {
+                    <span class="text-muted">@Localizer["N/A"]</span>
+                }
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Remark"]</h5>
+    </div>
+    <div class="card-body markdown-content">
+        @if (!string.IsNullOrEmpty(Model.Remark))
+        {
+            @MarkdownDisplay.RenderMarkdown(Model.Remark)
+        }
+        else
+        {
+            <span class="text-muted">@Localizer["No remark provided."]</span>
+        }
+    </div>
+</div>
+
+<div class="mb-3">
+    <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to List"]</a>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_MarkdownReaderAssets" />
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Agent failed to respond." xml:space="preserve">
+    <value>एजेंट प्रतिक्रिया करने में विफल रहा।</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>एआई सहायक</value>
+  </data>
+  <data name="Ask anything..." xml:space="preserve">
+    <value>कुछ भी पूछें...</value>
+  </data>
+  <data name="Chat with EmployeeCenter AI" xml:space="preserve">
+    <value>EmployeeCenter AI से चैट करें</value>
+  </data>
+  <data name="Clear Session" xml:space="preserve">
+    <value>सत्र साफ करें</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>कॉपी किया गया</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>कॉपी करें</value>
+  </data>
+  <data name="Error: " xml:space="preserve">
+    <value>त्रुटि:</value>
+  </data>
+  <data name="Failed to check status." xml:space="preserve">
+    <value>स्थिति जांचने में विफल।</value>
+  </data>
+  <data name="Hello! Ask me anything about employee handbook, blueprints or weekly reports." xml:space="preserve">
+    <value>नमस्ते! कर्मचारी हैंडबुक, ब्लूप्रिंट या साप्ताहिक रिपोर्टों के बारे में मुझसे कुछ भी पूछें।</value>
+  </data>
+  <data name="Request timed out." xml:space="preserve">
+    <value>अनुरोध समय समाप्त हो गया।</value>
+  </data>
+  <data name="Session cleared. Ask me anything!" xml:space="preserve">
+    <value>सत्र साफ़ कर दिया गया। मुझसे कुछ भी पूछें!</value>
+  </data>
+  <data name="Unknown error occurred." xml:space="preserve">
+    <value>अज्ञात त्रुटि हुई।</value>
+  </data>
+
+</root>

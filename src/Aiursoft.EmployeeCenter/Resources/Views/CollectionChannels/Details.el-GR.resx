@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Δράσεις</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Ενεργό</value>
+  </data>
+  <data name="Actual" xml:space="preserve">
+    <value>Πραγματική</value>
+  </data>
+  <data name="Add record" xml:space="preserve">
+    <value>Προσθήκη εγγραφής</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Ακυρωμένο</value>
+  </data>
+  <data name="Channel Info" xml:space="preserve">
+    <value>Πληροφορίες Καναλιού</value>
+  </data>
+  <data name="Collection Channel Details" xml:space="preserve">
+    <value>Λεπτομέρειες Καναλιού Συλλογής</value>
+  </data>
+  <data name="Collection Records" xml:space="preserve">
+    <value>Στοιχεία Εισπράξεων</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Σύμβαση</value>
+  </data>
+  <data name="Due Date" xml:space="preserve">
+    <value>Ημερομηνία Λήξης</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Επεξεργασία</value>
+  </data>
+  <data name="Edit Channel" xml:space="preserve">
+    <value>Επεξεργασία Καναλιού</value>
+  </data>
+  <data name="Expected" xml:space="preserve">
+    <value>Αναμενόμενο</value>
+  </data>
+  <data name="First Payment" xml:space="preserve">
+    <value>Πρώτη Πληρωμή</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>Δεν υπάρχει</value>
+  </data>
+  <data name="No records found." xml:space="preserve">
+    <value>Δεν βρέθηκαν αρχεία.</value>
+  </data>
+  <data name="One-time" xml:space="preserve">
+    <value>Μια φορά</value>
+  </data>
+  <data name="Overdue" xml:space="preserve">
+    <value>Παραδρομή</value>
+  </data>
+  <data name="Paid Date" xml:space="preserve">
+    <value>Ημερομηνία Πληρωμής</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Μερική πληρωμή</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Διακοπή</value>
+  </data>
+  <data name="Payee" xml:space="preserve">
+    <value>Δικαιούχος</value>
+  </data>
+  <data name="Payer" xml:space="preserve">
+    <value>Πληρωτής</value>
+  </data>
+  <data name="Payment Method" xml:space="preserve">
+    <value>Τρόπος Πληρωμής</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Εκκρεμεί</value>
+  </data>
+  <data name="Recurring" xml:space="preserve">
+    <value>Αναδρομικός</value>
+  </data>
+  <data name="Reference Amount" xml:space="preserve">
+    <value>Ποσό Αναφοράς</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Σημείωση</value>
+  </data>
+  <data name="Settled" xml:space="preserve">
+    <value>Εξοφλημένο</value>
+  </data>
+  <data name="Start Billing" xml:space="preserve">
+    <value>Έναρξη Χρέωσης</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="Terminated" xml:space="preserve">
+    <value>Διεκόπη</value>
+  </data>
+
+</root>

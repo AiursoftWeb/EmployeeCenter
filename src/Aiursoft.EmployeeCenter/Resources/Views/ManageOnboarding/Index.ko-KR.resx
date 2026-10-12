@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Are you sure you want to delete this task?" xml:space="preserve">
+    <value>이 작업을 삭제하시겠습니까?</value>
+  </data>
+  <data name="Avatar" xml:space="preserve">
+    <value>아바타</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>완료됨</value>
+  </data>
+  <data name="Create New Task" xml:space="preserve">
+    <value>새 작업 생성</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>수정</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>직원</value>
+  </data>
+  <data name="Employee Onboarding Progress" xml:space="preserve">
+    <value>사원 온보딩 진행 상황</value>
+  </data>
+  <data name="Expected Duration" xml:space="preserve">
+    <value>예상 소요 시간</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>온보딩 작업 관리</value>
+  </data>
+  <data name="No onboarding tasks created yet." xml:space="preserve">
+    <value>아직 온보딩 작업이 생성되지 않았습니다.</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>순서</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>진행 상황</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>제목</value>
+  </data>
+
+</root>

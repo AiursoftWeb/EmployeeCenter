@@ -1,0 +1,94 @@
+@model Aiursoft.EmployeeCenter.Models.CustomerRelationshipViewModels.IndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Customer Relations"]</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["All Customer Relationships"]</h5>
+    </div>
+    @if (!Model.CustomerRelationships.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    @Localizer["No customer relationships found."]
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Name"]</th>
+                    <th>@Localizer["Job Title"]</th>
+                    <th>@Localizer["Company Entity"]</th>
+                    <th>@Localizer["Email"]</th>
+                    <th>@Localizer["Phone"]</th>
+                    <th>@Localizer["Last Updated"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var relationship in Model.CustomerRelationships)
+                {
+                    <tr>
+                        <td>
+                            @relationship.Name
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(relationship.JobTitle))
+                            {
+                                @relationship.JobTitle
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
+                        </td>
+                        <td>
+                            @if (relationship.CompanyEntity != null)
+                            {
+                                <a asp-controller="CompanyEntity" asp-action="Details" asp-route-id="@relationship.CompanyEntityId">
+                                    @relationship.CompanyEntity.CompanyName
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(relationship.Email))
+                            {
+                                <a href="mailto:@relationship.Email">@relationship.Email</a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
+                        </td>
+                        <td>
+                            @relationship.Phone
+                        </td>
+                        <td>
+                             <label class="text-muted" data-utc-time="@relationship.UpdateTime.ToHtmlDateTime()"></label>
+                        </td>
+                        <td class="text-end">
+                            <a asp-action="Details" asp-route-id="@relationship.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="eye"></i> @Localizer["Details"]
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

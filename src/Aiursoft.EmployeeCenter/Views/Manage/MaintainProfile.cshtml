@@ -1,0 +1,52 @@
+@model Aiursoft.EmployeeCenter.Models.ManageViewModels.MaintainProfileViewModel
+
+<h1 class="h3 mb-3">@Localizer["Maintain Profile"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <partial name="_ManageSidebar" />
+    </div>
+    <div class="col-md-8">
+        <form asp-action="MaintainProfile" method="post">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0"><i class="align-middle me-2" data-lucide="user"></i>
+                        @Localizer["Personal and Bank Information"]</h5>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="LegalName" class="form-label">@Localizer["Legal Name"]</label>
+                            <input asp-for="LegalName" class="form-control form-control-lg" />
+                            <span asp-validation-for="LegalName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="PhoneNumber" class="form-label">@Localizer["Phone Number"]</label>
+                            <input asp-for="PhoneNumber" class="form-control form-control-lg" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="BankName" class="form-label">@Localizer["Bank Name"]</label>
+                            <input asp-for="BankName" class="form-control" />
+                            <span asp-validation-for="BankName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="BankAccount" class="form-label">@Localizer["Bank Account"]</label>
+                            <input asp-for="BankAccount" class="form-control" />
+                            <span asp-validation-for="BankAccount" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label asp-for="BankAccountName" class="form-label">@Localizer["Bank Account Name"]</label>
+                            <input asp-for="BankAccountName" class="form-control" />
+                            <span asp-validation-for="BankAccountName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">@Localizer["Save Profile"]</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Information" xml:space="preserve">
+    <value>Toegangsgegevens</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Toegewezen aan</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>Behoort tot entiteit</value>
+  </data>
+  <data name="Company Intangible Asset Details" xml:space="preserve">
+    <value>Bedrijfsintangibele activa-details</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beschrijving</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Verloopdatum</value>
+  </data>
+  <data name="Filing &amp; Registration" xml:space="preserve">
+    <value>Inzending &amp; Registratie</value>
+  </data>
+  <data name="Filing Number" xml:space="preserve">
+    <value>Registratienummer</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Inzending onderwerp</value>
+  </data>
+  <data name="Financial &amp; Assignment" xml:space="preserve">
+    <value>Financiën &amp; Toewijzing</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>Algemene informatie</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Factuur</value>
+  </data>
+  <data name="Management URL" xml:space="preserve">
+    <value>Beheer URL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>Niet toegewezen</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Aankoopprijs</value>
+  </data>
+  <data name="Query Method" xml:space="preserve">
+    <value>Zoekmethode</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Registratiecertificaat</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Registratiedatum</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Leverancier</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Handelsmerkafbeelding</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="View Certificate" xml:space="preserve">
+    <value>Certificaat weergeven</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>Factuur weergeven</value>
+  </data>
+  <data name="View Trademark Image" xml:space="preserve">
+    <value>Handelsmerkafbeelding bekijken</value>
+  </data>
+
+</root>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Basic Information" xml:space="preserve">
+    <value>기본 정보</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Cross-Entity Link is used to suggest local/international versions to users." xml:space="preserve">
+    <value>Cross-Entity Link은 사용자에게 지역별/국제 버전을 제안하는 데 사용됩니다.</value>
+  </data>
+  <data name="Domain should be the primary entry point for the service." xml:space="preserve">
+    <value>도메인이 서비스의 주 진입점이어야 합니다.</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>예: example.com</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>예: HTTPS, TCP</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>서비스 편집</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>새로 만들기</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>없음</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>새로 고침</value>
+  </data>
+  <data name="Required when Via FRPS is enabled." xml:space="preserve">
+    <value>FRPS를 통해 사용할 경우 필수입니다.</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>변경 사항 저장</value>
+  </data>
+  <data name="Select DNS Provider" xml:space="preserve">
+    <value>DNS 공급업체 선택</value>
+  </data>
+  <data name="Select FRPS Server" xml:space="preserve">
+    <value>FRPS 서버 선택</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>위치 선택</value>
+  </data>
+  <data name="Select Owner" xml:space="preserve">
+    <value>소유자 선택</value>
+  </data>
+  <data name="Select Server" xml:space="preserve">
+    <value>서버 선택</value>
+  </data>
+  <data name="Select Server (Asset)" xml:space="preserve">
+    <value>서버 (자산) 선택</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>팁</value>
+  </data>
+
+</root>

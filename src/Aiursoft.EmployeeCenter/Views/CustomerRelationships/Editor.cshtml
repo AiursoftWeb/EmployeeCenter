@@ -1,0 +1,83 @@
+@model Aiursoft.EmployeeCenter.Models.CustomerRelationshipViewModels.EditorViewModel
+@{
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@(Model.IsNew ? Localizer["Create Customer Relationship"] : Localizer["Edit Customer Relationship"])</h3>
+    </div>
+</div>
+
+<form asp-action="@(Model.IsNew ? "Create" : "Edit")" method="post">
+    @if (!Model.IsNew)
+    {
+        <input type="hidden" asp-for="Id" />
+    }
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">@Localizer["Basic Information"]</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="JobTitle" class="form-label"></label>
+                    <input asp-for="JobTitle" class="form-control" />
+                    <span asp-validation-for="JobTitle" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="CompanyEntityId" class="form-label"></label>
+                    <select asp-for="CompanyEntityId" asp-items="Model.AvailableCompanyEntities" class="form-select">
+                        <option value="">@Localizer["-- None --"]</option>
+                    </select>
+                    <span asp-validation-for="CompanyEntityId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Phone" class="form-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="WeChatId" class="form-label"></label>
+                    <input asp-for="WeChatId" class="form-control" />
+                    <span asp-validation-for="WeChatId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Address" class="form-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">@Localizer["Remark"]</h5>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label asp-for="Remark" class="form-label"></label>
+                <textarea asp-for="Remark" class="form-control" rows="10" placeholder="@Localizer["Markdown supported..."]"></textarea>
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <a asp-action="Manage" class="btn btn-secondary">@Localizer["Cancel"]</a>
+        <button type="submit" class="btn btn-primary">@Localizer["Save"]</button>
+    </div>
+</form>

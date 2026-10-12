@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Details" xml:space="preserve">
+    <value>Данные учетной записи</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
+    <value>Обзор профиля пользователя, назначенных ролей и действующих разрешений.</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Тег актива</value>
+  </data>
+  <data name="Assigned Assets" xml:space="preserve">
+    <value>Назначенные активы</value>
+  </data>
+  <data name="Assigned Roles" xml:space="preserve">
+    <value>Назначенные роли</value>
+  </data>
+  <data name="Back to list" xml:space="preserve">
+    <value>Назад к списку</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Банковский счёт</value>
+  </data>
+  <data name="Bank Account (Card Number)" xml:space="preserve">
+    <value>Счет в банке (номер карты)</value>
+  </data>
+  <data name="Bank Account Name (Holder)" xml:space="preserve">
+    <value>Имя счета (владелец)</value>
+  </data>
+  <data name="Bank Information Change History" xml:space="preserve">
+    <value>История изменений сведений о банке</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Название банка</value>
+  </data>
+  <data name="Bank Name (Branch)" xml:space="preserve">
+    <value>Название банка (филиал)</value>
+  </data>
+  <data name="Bank Name (Old -&gt; New)" xml:space="preserve">
+    <value>Название банка (старое -&gt; новое)</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Базовая зарплата</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Основная информация</value>
+  </data>
+  <data name="Card Number (Old -&gt; New)" xml:space="preserve">
+    <value>Номер карты (Старый -&gt; Новый)</value>
+  </data>
+  <data name="Changed By" xml:space="preserve">
+    <value>Кем изменено</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Время создания</value>
+  </data>
+  <data name="Delete this User" xml:space="preserve">
+    <value>Удалить этого пользователя</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Сведения</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Edit this User" xml:space="preserve">
+    <value>Редактировать пользователя</value>
+  </data>
+  <data name="Effective Permissions" xml:space="preserve">
+    <value>Действующие разрешения</value>
+  </data>
+  <data name="Effective Permissions (from all roles)" xml:space="preserve">
+    <value>Действующие разрешения (из всех ролей)</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Электронная почта</value>
+  </data>
+  <data name="Holder (Old -&gt; New)" xml:space="preserve">
+    <value>Фамилия (Старая -&gt; Новая)</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Не используется</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>В использовании</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>Уровень должности</value>
+  </data>
+  <data name="Job Level (职级)" xml:space="preserve">
+    <value>Уровень должности (职级)</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>Юридическое имя</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Местоположение</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Потеряно</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>Техническое обслуживание</value>
+  </data>
+  <data name="Manage All Assets" xml:space="preserve">
+    <value>Управление всеми активами</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Управление договорами</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Управление SSH-ключами</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Руководитель</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Модель</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="No assets assigned to this user." xml:space="preserve">
+    <value>У этого пользователя нет назначенных активов.</value>
+  </data>
+  <data name="No change history found." xml:space="preserve">
+    <value>История изменений не найдена.</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Ожидает подтверждения</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Данные профиля</value>
+  </data>
+  <data name="Promote User" xml:space="preserve">
+    <value>Повысить пользователя</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Линия отчётности</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>Выведен из эксплуатации</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>Юридическое лицо, подписывающее документы</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Система</value>
+  </data>
+  <data name="This user has no effective permissions." xml:space="preserve">
+    <value>У этого пользователя нет действующих разрешений.</value>
+  </data>
+  <data name="This user has not been assigned any roles." xml:space="preserve">
+    <value>Этому пользователю не назначены никакие роли.</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Время</value>
+  </data>
+  <data name="Title (职务)" xml:space="preserve">
+    <value>Должность (должность)</value>
+  </data>
+  <data name="User Details:" xml:space="preserve">
+    <value>Данные пользователя:</value>
+  </data>
+  <data name="User name" xml:space="preserve">
+    <value>Имя пользователя</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Просмотреть линию отчёта</value>
+  </data>
+  <data name="View Weekly Reports" xml:space="preserve">
+    <value>Просмотр еженедельных отчетов</value>
+  </data>
+  <data name="Weekly Reports" xml:space="preserve">
+    <value>Еженедельные отчеты</value>
+  </data>
+
+</root>

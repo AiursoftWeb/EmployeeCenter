@@ -1,0 +1,129 @@
+@using Aiursoft.EmployeeCenter.Models.CertificateViewModels
+@model Aiursoft.EmployeeCenter.Models.CertificateViewModels.PrintViewModel
+@{
+    Layout = null;
+    var isEnglish = Model.CertificateLanguage == "en-US";
+    var user = Model.TargetUser!;
+    var displayedCompanyName = (isEnglish && !string.IsNullOrWhiteSpace(Model.CompanyNameEnglish)) 
+        ? Model.CompanyNameEnglish 
+        : Model.CompanyName;
+}
+
+<!DOCTYPE html>
+<html lang="@Model.CertificateLanguage">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(Model.Type == CertificateType.Employment ? (isEnglish ? "Certificate of Employment" : "在职证明") : (isEnglish ? "Certificate of Income" : "收入证明"))</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            margin: 2cm;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2cm;
+        }
+        .title {
+            font-size: 24pt;
+            font-weight: bold;
+        }
+        .content {
+            font-size: 14pt;
+            text-indent: 2em;
+            margin-bottom: 2cm;
+        }
+        .footer {
+            float: right;
+            text-align: right;
+            margin-top: 2cm;
+        }
+        .company-name {
+            font-size: 16pt;
+            font-weight: bold;
+        }
+        .date {
+            margin-top: 0.5cm;
+        }
+        @@media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            @if (Model.Type == CertificateType.Employment)
+            {
+                @(isEnglish ? "Certificate of Employment" : "在职证明")
+            }
+            else
+            {
+                @(isEnglish ? "Certificate of Income" : "收入证明")
+            }
+        </div>
+    </div>
+
+    <div class="content">
+        @if (isEnglish)
+        {
+            if (Model.Type == CertificateType.Employment)
+            {
+                <p>
+                    This is to certify that Mr./Ms. <strong>@(user.LegalName ?? user.DisplayName)</strong>,
+                    has been employed by <strong>@displayedCompanyName</strong> since <strong>@user.CreationTime.ToString("MMMM dd, yyyy")</strong>.
+                    He/She currently holds the position of <strong>@(user.Title ?? "Employee")</strong>.
+                </p>
+                <p>This certificate is issued at the request of the employee.</p>
+            }
+            else
+            {
+                <p>
+                    This is to certify that Mr./Ms. <strong>@(user.LegalName ?? user.DisplayName)</strong>,
+                    has been employed by <strong>@displayedCompanyName</strong> since <strong>@user.CreationTime.ToString("MMMM dd, yyyy")</strong>.
+                    He/She currently holds the position of <strong>@(user.Title ?? "Employee")</strong>.
+                    His/Her monthly salary is <strong>RMB @user.BaseSalary.ToString("N2")</strong>.
+                </p>
+                <p>This certificate is issued at the request of the employee.</p>
+            }
+        }
+        else
+        {
+            if (Model.Type == CertificateType.Employment)
+            {
+                <p>
+                    兹证明 <strong>@(user.LegalName ?? user.DisplayName)</strong> 先生/女士，
+                    自 <strong>@user.CreationTime.ToString("yyyy年MM月dd日")</strong> 起至今在我公司任职，
+                    担任 <strong>@(user.Title ?? "员工")</strong> 一职。
+                </p>
+                <p>特此证明。</p>
+            }
+            else
+            {
+                <p>
+                    兹证明 <strong>@(user.LegalName ?? user.DisplayName)</strong> 先生/女士，
+                    自 <strong>@user.CreationTime.ToString("yyyy年MM月dd日")</strong> 起至今在我公司任职，
+                    担任 <strong>@(user.Title ?? "员工")</strong> 一职。其月薪为人民币 <strong>@user.BaseSalary.ToString("N2")</strong> 元。
+                </p>
+                <p>特此证明。</p>
+            }
+        }
+    </div>
+
+    <div class="footer">
+        <div class="company-name">@displayedCompanyName</div>
+        <div class="date">
+            @(isEnglish ? DateTime.Today.ToString("MMMM dd, yyyy") : DateTime.Today.ToString("yyyy年MM月dd日"))
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            window.print();
+        };
+    </script>
+</body>
+</html>

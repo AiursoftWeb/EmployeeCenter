@@ -1,0 +1,24 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.CreateViewModel
+@inject IHtmlLocalizer<Aiursoft.EmployeeCenter.Models.QualificationsViewModels.CreateViewModel> Localizer
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["Add Qualification"]</h1>
+    <p>@Localizer["Upload a PNG/JPEG original, at most 20 MB, with both dimensions at least 512 pixels. PDF is not supported in this version."]</p>
+    @if (Model.Companies.Count == 0)
+    {
+        <div class="alert alert-warning">@Localizer["Create a company entity before uploading qualifications."]</div>
+    }
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-3"><label asp-for="CompanyEntityId" class="form-label">@Localizer["Company"]</label>
+            <select asp-for="CompanyEntityId" class="form-select" required>
+                <option value="">@Localizer["Select Company"]</option>
+                @foreach (var company in Model.Companies) { <option value="@company.Id">@company.CompanyName</option> }
+            </select>
+        </div>
+        <div class="mb-3"><label asp-for="Name" class="form-label">@Localizer["Qualification Name"]</label><input asp-for="Name" class="form-control" maxlength="100" required /></div>
+        <div class="mb-3"><label asp-for="Version" class="form-label">@Localizer["Version"]</label><input asp-for="Version" class="form-control" maxlength="50" required /></div>
+        <div class="mb-3"><label asp-for="Original" class="form-label">@Localizer["Original Image"]</label><input asp-for="Original" type="file" accept="image/png,image/jpeg" class="form-control" required /></div>
+        <button type="submit" class="btn btn-primary">@Localizer["Add Qualification"]</button>
+        <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+    </form>
+</div>

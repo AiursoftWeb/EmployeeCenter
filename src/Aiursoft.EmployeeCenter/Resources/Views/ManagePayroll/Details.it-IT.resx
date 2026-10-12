@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>Pagamento Effettivo</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>Stipendio Netto</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>Multe Amministrative</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Importo</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>Presenze &amp; Penalità</value>
+  </data>
+  <data name="Back to Manage Payrolls" xml:space="preserve">
+    <value>Torna ai miei cedolini</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Conto Bancario</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Nome della Banca</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Stipendio Base</value>
+  </data>
+  <data name="Basic Info" xml:space="preserve">
+    <value>Informazioni di Base</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>Costo Aziendale</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>Detrazioni</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>Guadagni</value>
+  </data>
+  <data name="Earnings - Insurance - 5000 - Special" xml:space="preserve">
+    <value>Guadagni - Assicurazioni - 5000 - Speciale</value>
+  </data>
+  <data name="Earnings + Penalties - Insurance - Tax" xml:space="preserve">
+    <value>Guadagni + Penalità - Assicurazione - Tasse</value>
+  </data>
+  <data name="Earnings + Sum(Company Insurances)" xml:space="preserve">
+    <value>Guadagni + Somma(Assicurazioni Aziendali)</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="Employee ID" xml:space="preserve">
+    <value>ID Dipendente</value>
+  </data>
+  <data name="Employee Name" xml:space="preserve">
+    <value>Nome del Dipendente</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>Presenza Completa</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>Fondo Casa</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>Fondo Casa (Azienda)</value>
+  </data>
+  <data name="How is your salary calculated?" xml:space="preserve">
+    <value>Come viene calcolato il tuo stipendio?</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>Imposta sul reddito</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Informazioni</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>Assicurazioni (Personali)</value>
+  </data>
+  <data name="Issue Date" xml:space="preserve">
+    <value>Data di Emissione</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Voce</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>Livello di lavoro</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>Stipendio per Mansione</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>Ritardo / Uscita Anticipata</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>Maternità (Azienda)</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>Assicurazione sanitaria</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>Assicurazione sanitaria (Azienda)</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>Altre Indennità</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>Straordinari</value>
+  </data>
+  <data name="Payroll Content" xml:space="preserve">
+    <value>Contenuto della busta paga</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Dettagli della busta paga</value>
+  </data>
+  <data name="Payroll period" xml:space="preserve">
+    <value>Periodo di paga</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>Pensione</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>Pensione (Azienda)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>Bonus di Performance</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>Imposta sul Reddito delle Persone Fisiche</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>Assicurazione Personale</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Stampa</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Nota</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>Malattia / Permesso Personale</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>Detrazione Addizionale Speciale</value>
+  </data>
+  <data name="Sum(Insurances)" xml:space="preserve">
+    <value>Somma(Assicurazioni)</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Mese di Riferimento</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>Informazioni Fiscali</value>
+  </data>
+  <data name="Tax relief items" xml:space="preserve">
+    <value>Voci di detrazione fiscale</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>Reddito imponibile</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titolo</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Importo Totale</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>Costo Totale Azienda</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>Guadagni Totali</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>Totale Assicurazioni Personali</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>Disoccupazione</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>Disoccupazione (Azienda)</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>Infortunio sul Lavoro (Azienda)</value>
+  </data>
+  <data name="Your actual salary is calculated as:" xml:space="preserve">
+    <value>Il tuo stipendio effettivo è calcolato come:</value>
+  </data>
+
+</root>

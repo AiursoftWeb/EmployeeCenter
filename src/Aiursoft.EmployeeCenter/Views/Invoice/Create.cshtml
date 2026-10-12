@@ -1,0 +1,257 @@
+@model Aiursoft.EmployeeCenter.Models.InvoiceViewModels.CreateViewModel
+@{
+}
+
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">@Localizer["Issue Invoice"]</h1>
+
+    <form asp-action="Preview" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="SellerId" />
+        <input type="hidden" asp-for="SellerCode" />
+        <input type="hidden" asp-for="BuyerId" />
+
+        <div class="row">
+            <!-- Left Column: Parties -->
+            <div class="col-lg-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">@Localizer["Bill From (Seller)"]</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label asp-for="SellerName" class="control-label">@Localizer["Seller Name"]</label>
+                            <input asp-for="SellerName" class="form-control" />
+                            <span asp-validation-for="SellerName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="SellerAddress" class="control-label">@Localizer["Seller Address"]</label>
+                            <textarea asp-for="SellerAddress" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="SellerAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="SellerContact" class="control-label">@Localizer["Seller Contact"]</label>
+                            <input asp-for="SellerContact" class="form-control" />
+                            <span asp-validation-for="SellerContact" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">@Localizer["Bill To (Buyer)"]</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label asp-for="BuyerName" class="control-label">@Localizer["Buyer Name"]</label>
+                            <input asp-for="BuyerName" class="form-control" />
+                            <span asp-validation-for="BuyerName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="BuyerAddress" class="control-label">@Localizer["Buyer Address"]</label>
+                            <textarea asp-for="BuyerAddress" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="BuyerAddress" class="text-danger"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="BuyerCRNo" class="control-label">@Localizer["CR No / Entity Code"]</label>
+                                    <input asp-for="BuyerCRNo" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="BuyerAttn" class="control-label">@Localizer["Attn / Contact"]</label>
+                                    <input asp-for="BuyerAttn" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Meta & Banking -->
+            <div class="col-lg-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">@Localizer["Invoice Meta"]</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label asp-for="Type" class="control-label">@Localizer["Invoice Type"]</label>
+                            <select asp-for="Type" class="form-control">
+                                <option value="@((int)Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt)">@Localizer["Receipt / Paid Invoice"]</option>
+                                <option value="@((int)Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Proforma)">@Localizer["Proforma Invoice / Billing Statement"]</option>
+                            </select>
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="InvoiceNo" class="control-label">@Localizer["Invoice No"]</label>
+                                    <input asp-for="InvoiceNo" class="form-control" />
+                                    <span asp-validation-for="InvoiceNo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Date" class="control-label">@Localizer["Date"]</label>
+                                    <input asp-for="Date" class="form-control" type="date" />
+                                    <span asp-validation-for="Date" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="ContractNo" class="control-label">@Localizer["Contract No"]</label>
+                            <input asp-for="ContractNo" class="form-control" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Currency" class="control-label">@Localizer["Currency"]</label>
+                            <input asp-for="Currency" class="form-control" />
+                            <span asp-validation-for="Currency" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">@Localizer["Payment Instructions"]</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label asp-for="BeneficiaryName" class="control-label">@Localizer["Beneficiary Name"]</label>
+                            <input asp-for="BeneficiaryName" class="form-control" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="BankName" class="control-label">@Localizer["Bank Name"]</label>
+                            <input asp-for="BankName" class="form-control" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="BankAccount" class="control-label">@Localizer["Account Number"]</label>
+                            <input asp-for="BankAccount" class="form-control" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="SwiftCode" class="control-label">@Localizer["SWIFT Code"]</label>
+                                    <input asp-for="SwiftCode" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="BankAddress" class="control-label">@Localizer["Bank Address"]</label>
+                                    <input asp-for="BankAddress" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Items Table -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                <h6 class="m-0 font-weight-bold text-primary">@Localizer["Items"]</h6>
+                <button type="button" class="btn btn-sm btn-success" id="addItem">
+                    <i class="fas fa-plus"></i> @Localizer["Add Item"]
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="itemsTable">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["Description"]</th>
+                                <th style="width: 150px;">@Localizer["Quantity"]</th>
+                                <th style="width: 200px;">@Localizer["Unit Price"]</th>
+                                <th style="width: 50px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Items.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        <input asp-for="Items[i].Description" class="form-control" />
+                                    </td>
+                                    <td>
+                                        <input asp-for="Items[i].Quantity" class="form-control" type="number" step="any" />
+                                    </td>
+                                    <td>
+                                        <input asp-for="Items[i].UnitPrice" class="form-control" type="number" step="any" />
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-circle btn-sm removeItem">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+             <div class="card-body">
+                 <div class="form-group mb-3">
+                     <label asp-for="Tax" class="control-label">@Localizer["Tax Amount"]</label>
+                     <input asp-for="Tax" class="form-control" type="number" step="any" />
+                 </div>
+                 <button type="submit" class="btn btn-primary btn-lg btn-block">
+                     <i class="fas fa-eye"></i> @Localizer["Preview & Generate HTML"]
+                 </button>
+             </div>
+        </div>
+    </form>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            let itemIndex = @Model.Items.Count;
+
+            $('#addItem').click(function () {
+                let row = `<tr>
+                    <td>
+                        <input name="Items[${itemIndex}].Description" class="form-control" />
+                    </td>
+                    <td>
+                        <input name="Items[${itemIndex}].Quantity" class="form-control" type="number" step="any" value="1" />
+                    </td>
+                    <td>
+                        <input name="Items[${itemIndex}].UnitPrice" class="form-control" type="number" step="any" value="0" />
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-circle btn-sm removeItem">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
+                $('#itemsTable tbody').append(row);
+                itemIndex++;
+            });
+
+            $(document).on('click', '.removeItem', function () {
+                $(this).closest('tr').remove();
+                reIndex();
+            });
+
+            function reIndex() {
+                $('#itemsTable tbody tr').each(function (index, row) {
+                    $(row).find('input').each(function () {
+                        let name = $(this).attr('name');
+                        if (name) {
+                            let newName = name.replace(/Items\[\d+\]/, `Items[${index}]`);
+                            $(this).attr('name', newName);
+                        }
+                    });
+                });
+                itemIndex = $('#itemsTable tbody tr').length;
+            }
+        });
+    </script>
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>銀行口座</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>銀行住所</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>銀行名</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>受益者名</value>
+  </data>
+  <data name="Buyer" xml:space="preserve">
+    <value>購入者</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>購入者住所</value>
+  </data>
+  <data name="Buyer Attention" xml:space="preserve">
+    <value>購入者担当者</value>
+  </data>
+  <data name="Buyer CR No" xml:space="preserve">
+    <value>購入者 CR 番号</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>購入者名</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>契約番号</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>請求書番号</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>請求書種別</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>事前請求書 / 請求明細書</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>領収書 / 支払済み請求書</value>
+  </data>
+  <data name="Seller" xml:space="preserve">
+    <value>販売者</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>販売者住所</value>
+  </data>
+  <data name="Seller Code" xml:space="preserve">
+    <value>販売業者コード</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>販売者連絡先</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>販売者名</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFTコード</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0}は必須です。</value>
+  </data>
+
+</root>

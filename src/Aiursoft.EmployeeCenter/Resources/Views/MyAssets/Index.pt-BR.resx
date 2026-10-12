@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="Are you sure you want to reject asset" xml:space="preserve">
+    <value>Tem certeza de que deseja recusar o ativo</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>Etiqueta do Ativo</value>
+  </data>
+  <data name="Assets assigned to me" xml:space="preserve">
+    <value>Ativos atribuídos a mim</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Confirm Receipt" xml:space="preserve">
+    <value>Confirmar Recebimento</value>
+  </data>
+  <data name="Confirm Reject" xml:space="preserve">
+    <value>Confirmar Rejeição</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>Em uso</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Está vazio aqui!</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Localização</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Modelo</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Meus Ativos</value>
+  </data>
+  <data name="No assets assigned to you yet." xml:space="preserve">
+    <value>Nenhum ativo atribuído a você ainda.</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>Pendente por Aceitar</value>
+  </data>
+  <data name="Please explain why you are rejecting this asset (e.g. damaged, wrong model)..." xml:space="preserve">
+    <value>Por favor, explique por que você está rejeitando este ativo (por exemplo: danificado, modelo incorreto)...</value>
+  </data>
+  <data name="Reason for rejection" xml:space="preserve">
+    <value>Motivo da rejeição</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Rejeitar</value>
+  </data>
+  <data name="Reject Asset Receipt" xml:space="preserve">
+    <value>Rejeitar Recebimento de Ativo</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>Ainda não há ativos atribuídos a você. Se precisar de algum equipamento, entre em contato com o departamento de RH ou de TI.</value>
+  </data>
+
+</root>

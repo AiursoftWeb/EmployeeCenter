@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Bankkonto</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Kontonavn</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Bankadresse</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>Bankkode</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Banknavn</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>Basisvaluta</value>
+  </data>
+  <data name="Business License / BR Scan" xml:space="preserve">
+    <value>Erhvervslicens / BR-scan</value>
+  </data>
+  <data name="Business Registration (BR / Business License)" xml:space="preserve">
+    <value>Erhvervsregistrering (BR / Virksomhedslicens)</value>
+  </data>
+  <data name="CI Number (HK)" xml:space="preserve">
+    <value>CI-nummer (HK)</value>
+  </data>
+  <data name="Company Logo" xml:space="preserve">
+    <value>Virksomhedslogo</value>
+  </data>
+  <data name="Company Name (Chinese)" xml:space="preserve">
+    <value>Virksomhedsnavn (kinesisk)</value>
+  </data>
+  <data name="Company Name (English)" xml:space="preserve">
+    <value>Virksomhedsnavn (Engelsk)</value>
+  </data>
+  <data name="Company Seal" xml:space="preserve">
+    <value>Virksomhedssel</value>
+  </data>
+  <data name="Company Secretary (HK)" xml:space="preserve">
+    <value>Selskabssekretær (HK)</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Virksomhedstype</value>
+  </data>
+  <data name="Create corresponding ledger" xml:space="preserve">
+    <value>Opret tilsvarende bogføring</value>
+  </data>
+  <data name="Entity Code (Social Credit Code / BR Number)" xml:space="preserve">
+    <value>Enhedskode (Socialkreditkode / BR-nummer)</value>
+  </data>
+  <data name="Establishment Date" xml:space="preserve">
+    <value>Dato for etablering</value>
+  </data>
+  <data name="Expiry Date (Business License / BR)" xml:space="preserve">
+    <value>Udløbsdato (Erhvervslisens / BR)</value>
+  </data>
+  <data name="Legal Representative / Director" xml:space="preserve">
+    <value>Retningslinje / Direktør</value>
+  </data>
+  <data name="Legal Representative Legal Name" xml:space="preserve">
+    <value>Juridisk repræsentant – fulde navn</value>
+  </data>
+  <data name="Office Address" xml:space="preserve">
+    <value>Virksomhedens adresse</value>
+  </data>
+  <data name="Operation Status" xml:space="preserve">
+    <value>Virksomhedens status</value>
+  </data>
+  <data name="Organization Certificate (CR / Org Code)" xml:space="preserve">
+    <value>Organisationsbevis (CR / Org. kode)</value>
+  </data>
+  <data name="Please upload a valid certificate file." xml:space="preserve">
+    <value>Upload venligst en gyldig certifikatfil.</value>
+  </data>
+  <data name="Please upload a valid license file." xml:space="preserve">
+    <value>Upload venligst en gyldig licensfil.</value>
+  </data>
+  <data name="Please upload a valid logo file." xml:space="preserve">
+    <value>Upload venligst en gyldig logofil.</value>
+  </data>
+  <data name="Please upload a valid seal file." xml:space="preserve">
+    <value>Upload venligst en gyldig selvfilsfil.</value>
+  </data>
+  <data name="Registered Address" xml:space="preserve">
+    <value>Registreret adresse</value>
+  </data>
+  <data name="Registered Capital (Mainland)" xml:space="preserve">
+    <value>Ejerkapital (Kina)</value>
+  </data>
+  <data name="SCR Location (HK)" xml:space="preserve">
+    <value>SCR-placering (HK)</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-kode</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} må ikke overstige {1} tegn.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Feltet {0} er påkrævet.</value>
+  </data>
+  <data name="Zip Code" xml:space="preserve">
+    <value>Postnummer</value>
+  </data>
+
+</root>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Add New DNS Provider" xml:space="preserve">
+    <value>Додати нового постачальника DNS</value>
+  </data>
+  <data name="Add Provider" xml:space="preserve">
+    <value>Додати постачальника</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Ви впевнені?</value>
+  </data>
+  <data name="Back to Services" xml:space="preserve">
+    <value>Назад до послуг</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="DNS Providers" xml:space="preserve">
+    <value>Постачальники DNS</value>
+  </data>
+  <data name="e.g. Cloudflare" xml:space="preserve">
+    <value>напр. Cloudflare</value>
+  </data>
+  <data name="e.g. Global CDN &amp; DNS" xml:space="preserve">
+    <value>напр. Глобальний CDN &amp; DNS</value>
+  </data>
+  <data name="Existing DNS Providers" xml:space="preserve">
+    <value>Існуючі постачальники DNS</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+
+</root>

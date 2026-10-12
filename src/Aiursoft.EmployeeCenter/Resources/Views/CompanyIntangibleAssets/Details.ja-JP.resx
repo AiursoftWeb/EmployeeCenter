@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Information" xml:space="preserve">
+    <value>アクセス情報</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>アカウント</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>担当者</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>所属企業</value>
+  </data>
+  <data name="Company Intangible Asset Details" xml:space="preserve">
+    <value>会社の無形資産の詳細</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>有効期限</value>
+  </data>
+  <data name="Filing &amp; Registration" xml:space="preserve">
+    <value>提出および登録</value>
+  </data>
+  <data name="Filing Number" xml:space="preserve">
+    <value>出願番号</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>出願項目</value>
+  </data>
+  <data name="Financial &amp; Assignment" xml:space="preserve">
+    <value>財務および譲渡</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>一般情報</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>請求書</value>
+  </data>
+  <data name="Management URL" xml:space="preserve">
+    <value>管理用URL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>未割り当て</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>購入価格</value>
+  </data>
+  <data name="Query Method" xml:space="preserve">
+    <value>照会方法</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>登録証明書</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>登録日</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>サプライヤー</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>商標画像</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>種類</value>
+  </data>
+  <data name="View Certificate" xml:space="preserve">
+    <value>証明書を表示</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>請求書を表示</value>
+  </data>
+  <data name="View Trademark Image" xml:space="preserve">
+    <value>商標画像を表示</value>
+  </data>
+
+</root>

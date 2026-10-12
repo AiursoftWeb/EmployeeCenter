@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>已確認</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>申請中</value>
+  </data>
+  <data name="Are you sure you want to reject this request?" xml:space="preserve">
+    <value>您確定要拒絕此請求嗎？</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>返回列表</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>類別</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>評論</value>
+  </data>
+  <data name="Confirm &amp; Issued" xml:space="preserve">
+    <value>確認並發出</value>
+  </data>
+  <data name="Confirm Reimbursement" xml:space="preserve">
+    <value>確認撥款</value>
+  </data>
+  <data name="Confirm Rejection" xml:space="preserve">
+    <value>確認拒絕</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>草稿</value>
+  </data>
+  <data name="Electronic Invoice" xml:space="preserve">
+    <value>電子發票</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>費用時間</value>
+  </data>
+  <data name="Finalize" xml:space="preserve">
+    <value>結案</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>一般資訊</value>
+  </data>
+  <data name="Invoice Preview" xml:space="preserve">
+    <value>發票預覽</value>
+  </data>
+  <data name="Invoice Source Website (发票来源网站)" xml:space="preserve">
+    <value>發票來源網站 (發票來源網站)</value>
+  </data>
+  <data name="Mark as Acknowledged (知道了)" xml:space="preserve">
+    <value>標記為已確認</value>
+  </data>
+  <data name="No invoice attached." xml:space="preserve">
+    <value>未附發票</value>
+  </data>
+  <data name="Please leave a comment for the employee (e.g. transaction ID)." xml:space="preserve">
+    <value>請為員工留言（例如交易編號）。</value>
+  </data>
+  <data name="Please provide a reason for the rejection." xml:space="preserve">
+    <value>請提供拒絕理由。</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>用途</value>
+  </data>
+  <data name="Really transferred via bank? (真的银行转账了吗？)" xml:space="preserve">
+    <value>真的透過銀行轉帳了嗎？</value>
+  </data>
+  <data name="Reason / Comment" xml:space="preserve">
+    <value>原因／備註</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>已核銷</value>
+  </data>
+  <data name="Reimbursed (已经下发)" xml:space="preserve">
+    <value>已撥款（已發款）</value>
+  </data>
+  <data name="Reimbursement Details" xml:space="preserve">
+    <value>報銷明細</value>
+  </data>
+  <data name="Reject (拒绝)" xml:space="preserve">
+    <value>Reject (拒絕)</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>已拒絕</value>
+  </data>
+  <data name="Required..." xml:space="preserve">
+    <value>必填...</value>
+  </data>
+  <data name="Reviewed At" xml:space="preserve">
+    <value>檢視時間</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>檢視者</value>
+  </data>
+  <data name="Reviewer Comment" xml:space="preserve">
+    <value>審查者意見</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>已撤銷</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>提交時間</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>提交人</value>
+  </data>
+  <data name="Supporting Context / Email" xml:space="preserve">
+    <value>支援文件/電子郵件</value>
+  </data>
+  <data name="View/Download Invoice" xml:space="preserve">
+    <value>查看/下載發票</value>
+  </data>
+
+</root>

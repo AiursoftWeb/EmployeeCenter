@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Lisää</value>
+  </data>
+  <data name="Add New Share" xml:space="preserve">
+    <value>Lisää uusi jako</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Virhe tapahtui pyyntösi käsittelyn aikana.</value>
+  </data>
+  <data name="Are you sure you want to remove this share?" xml:space="preserve">
+    <value>Haluatko varmasti poistaa tämän jakamisen?</value>
+  </data>
+  <data name="Audio:" xml:space="preserve">
+    <value>Ääni:</value>
+  </data>
+  <data name="Back to Transcript" xml:space="preserve">
+    <value>Takaisin transkriptiin</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Sulje</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Luotu</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Muokattava</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Virhe</value>
+  </data>
+  <data name="Error searching users" xml:space="preserve">
+    <value>Virhe käyttäjien haussa</value>
+  </data>
+  <data name="Existing Shares" xml:space="preserve">
+    <value>Olemassa olevat jaotukset</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Hallinnoi jakamisia</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>jäsenet</value>
+  </data>
+  <data name="No shares yet. Add one above to share this recording." xml:space="preserve">
+    <value>Jakamatta vielä. Lisää yllä oleva jakaa tämä tallenne.</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>Käyttäjiä ei löytynyt</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Oikeudet</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Valitse kelvollinen käyttäjä tai rooli.</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Vain lukuoikeus</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Poista</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rooli</value>
+  </data>
+  <data name="Select a role..." xml:space="preserve">
+    <value>Valitse rooli...</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Jaa nimellä</value>
+  </data>
+  <data name="Shared With" xml:space="preserve">
+    <value>Jakettu käyttäjän kanssa</value>
+  </data>
+  <data name="Specific User" xml:space="preserve">
+    <value>Tietty käyttäjä</value>
+  </data>
+  <data name="This user or role already has access to this recording." xml:space="preserve">
+    <value>Tällä käyttäjällä tai roolilla on jo pääsy tähän nauhoitteeseen.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tyyppi</value>
+  </data>
+  <data name="Type to search users..." xml:space="preserve">
+    <value>Kirjoita hakeaksesi käyttäjiä...</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Käyttäjä</value>
+  </data>
+
+</root>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Are you sure you want to delete this customer relationship?" xml:space="preserve">
+    <value>이 고객 관계를 삭제하시겠습니까?</value>
+  </data>
+  <data name="Company Entity" xml:space="preserve">
+    <value>회사 엔티티</value>
+  </data>
+  <data name="Create Customer Relationship" xml:space="preserve">
+    <value>고객 관계 생성</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>고객 관계</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>세부 정보</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>수정</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>이메일</value>
+  </data>
+  <data name="Job Title" xml:space="preserve">
+    <value>직책</value>
+  </data>
+  <data name="Last Updated" xml:space="preserve">
+    <value>마지막 업데이트</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>고객 관계 관리</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>이름</value>
+  </data>
+  <data name="No customer relationships found." xml:space="preserve">
+    <value>고객 관계가 발견되지 않았습니다.</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>전화번호</value>
+  </data>
+
+</root>

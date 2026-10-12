@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>账户名称</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>账户类型</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>会计逻辑遵循“资金池模型”：资金从一个资金池（来源）流向另一个资金池（去向）。理解这五个要素是掌握复式记账法的关键。</value>
+  </data>
+  <data name="Archived" xml:space="preserve">
+    <value>已归档</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>资产</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>银行存款，应收账款（他人欠你的钱），服务器/笔记本电脑。</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>向董事借款</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>借款 = 增加；还款 = 减少。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>手头现金，或可以转换为现金的资产。</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>支出</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>货币</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>公司未来必须偿还的债务。</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>定义：</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>方向：</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>董事借款（你借给公司的钱），未付发票，信用卡债务。</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>编辑账户</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>权益</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>示例：</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>费用</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>来源（来源）</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>收入</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>负债</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>逻辑</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>赚取的金额</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>通过销售产品或提供服务获得的收入。增加利润。</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>资金从银行流出以消除债务</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>资金从银行流向支出</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>资金从债务流向银行账户</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>资金从权益流向银行账户</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>收入转化为银行资金</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>资金流入 = 增加；资金流出 = 减少。</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>用于维持公司运营的支出。减少利润。</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>购买服务器</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>快速速查表</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>偿还董事借款</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>销售收入、服务费、利息收入</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>场景</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>销售软件</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>服务器托管费用、银行手续费、薪资</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>股本（初始投资），留存收益（累计利润）。</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>股东投资</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>股东投资/利润 = 增加；股东撤资/亏损 = 减少。</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>在仪表板中显示</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>公司的净资产。公式：资产 - 负债 = 所有者权益。</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>欠他人的东西</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>你拥有的资产</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>到 (目标)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>理解会计要素</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>真正属于你的价值</value>
+  </data>
+
+</root>

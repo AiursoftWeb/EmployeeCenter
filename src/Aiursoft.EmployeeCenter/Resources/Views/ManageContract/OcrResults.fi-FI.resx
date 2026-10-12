@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Attempt Count" xml:space="preserve">
+    <value>Yritysten määrä</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Takaisin listaan</value>
+  </data>
+  <data name="If the OCR result is not ideal, you can reset the retry counter and re-trigger OCR." xml:space="preserve">
+    <value>Jos OCR-tulos ei ole ihanteellinen, voit nollata uudelleenkäynnistyslaskurin ja käynnistää OCR-uudelleen.</value>
+  </data>
+  <data name="Last Attempt" xml:space="preserve">
+    <value>Viimeisin yritys</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Ei koskaan</value>
+  </data>
+  <data name="No OCR text available for this contract. It might still be processing or failed." xml:space="preserve">
+    <value>Tälle sopimukseen ei ole saatavilla OCR-tekstiä. Se voi olla edelleen prosessissa tai prosessi epäonnistui.</value>
+  </data>
+  <data name="No raw JSON data available." xml:space="preserve">
+    <value>Ei saatavilla raakaa JSON-tietoa.</value>
+  </data>
+  <data name="OCR Results" xml:space="preserve">
+    <value>OCR-tulokset</value>
+  </data>
+  <data name="Plain Text" xml:space="preserve">
+    <value>Pelkkä teksti</value>
+  </data>
+  <data name="Raw JSON" xml:space="preserve">
+    <value>Raaka JSON</value>
+  </data>
+  <data name="Reset &amp; Retry OCR" xml:space="preserve">
+    <value>Nollaa &amp; Yritä OCR:ia uudelleen</value>
+  </data>
+  <data name="Status Info" xml:space="preserve">
+    <value>Tilastiedot</value>
+  </data>
+
+</root>

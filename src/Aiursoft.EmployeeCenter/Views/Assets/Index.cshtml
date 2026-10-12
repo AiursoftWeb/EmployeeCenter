@@ -1,0 +1,184 @@
+@model Aiursoft.EmployeeCenter.Models.AssetsViewModels.IndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Manage Assets"]</h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        <div class="dropdown d-inline-block me-2">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                <i class="align-middle" data-lucide="settings"></i> @Localizer["Maintenance"]
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-action="Categories">@Localizer["Asset Categories"]</a>
+                <a class="dropdown-item" asp-action="Models">@Localizer["Asset Models"]</a>
+                <a class="dropdown-item" asp-action="Locations">@Localizer["Locations"]</a>
+                <a class="dropdown-item" asp-action="Vendors">@Localizer["Vendors"]</a>
+            </div>
+        </div>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="align-middle" data-lucide="plus-circle"></i> @Localizer["Add new asset"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h5 class="card-title mb-0">@Localizer["All Assets"]</h5>
+            </div>
+            <div class="col-auto">
+                <select class="form-select" onchange="window.location.href='@Url.Action("Index")?companyEntityId=' + this.value">
+                    @foreach (var entity in Model.AllCompanyEntities)
+                    {
+                        var isSelected = entity.Id == Model.SelectedCompanyEntityId;
+                        <option value="@entity.Id" selected="@isSelected">@entity.CompanyName</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["Asset Tag"]</th>
+                <th>@Localizer["Model"]</th>
+                <th>@Localizer["Status"]</th>
+                <th>@Localizer["Entity"]</th>
+                <th>@Localizer["Assignee"]</th>
+                <th>@Localizer["Location"]</th>
+                <th>@Localizer["Invoice"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Assets)
+            {
+                <tr>
+                    <td><code>@item.AssetTag</code></td>
+                    <td>@item.Model.Brand @item.Model.ModelName</td>
+                    <td>
+                        @switch (item.Status)
+                        {
+                            case AssetStatus.Idle:
+                                <span class="badge bg-secondary">@Localizer["Idle"]</span>
+                                break;
+                            case AssetStatus.PendingAccept:
+                                <span class="badge bg-warning">@Localizer["Pending Accept"]</span>
+                                break;
+                            case AssetStatus.InUse:
+                                <span class="badge bg-success">@Localizer["In Use"]</span>
+                                break;
+                            case AssetStatus.Maintenance:
+                                <span class="badge bg-danger">@Localizer["Maintenance"]</span>
+                                break;
+                            case AssetStatus.Retired:
+                                <span class="badge bg-dark">@Localizer["Retired"]</span>
+                                break;
+                            case AssetStatus.Lost:
+                                <span class="badge bg-danger">@Localizer["Lost"]</span>
+                                break;
+                        }
+                    </td>
+                    <td>@(item.CompanyEntity?.CompanyName ?? Localizer["N/A"].Value)</td>
+                                                    <td>
+                                                        @if (item.Assignee != null)
+                                                        {
+                                                            <a asp-controller="Users" asp-action="Details" asp-route-id="@item.AssigneeId" class="text-body">
+                                                                @item.Assignee.DisplayName
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            @Localizer["N/A"]
+                                                        }
+                                                    </td>                    <td>@(item.Location?.Name ?? Localizer["N/A"].Value)</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.InvoiceFileUrl))
+                        {
+                            <a asp-action="DownloadInvoice" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Download Invoice"]" target="_blank">
+                                <i class="align-middle" data-lucide="download"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">@Localizer["N/A"]</span>
+                        }
+                    </td>
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">
+                                <i class="align-middle" data-lucide="eye"></i>
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Edit"]">
+                                <i class="align-middle" data-lucide="edit"></i>
+                            </a>
+                            @if (item.Status == AssetStatus.Idle)
+                            {
+                                <a asp-action="Assign" asp-route-id="@item.Id" class="btn btn-sm btn-outline-success" title="@Localizer["Assign"]">
+                                    <i class="align-middle" data-lucide="user-plus"></i>
+                                </a>
+                            }
+                            @if (item.Status == AssetStatus.InUse || item.Status == AssetStatus.PendingAccept)
+                            {
+                                <button type="button" class="btn btn-sm btn-outline-warning return-btn" data-id="@item.Id" data-tag="@item.AssetTag" title="@Localizer["Return"]">
+                                    <i class="align-middle" data-lucide="rotate-ccw"></i>
+                                </button>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Return Modal -->
+<div class="modal fade" id="returnModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-action="Return" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title">@Localizer["Return Asset"]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="returnAssetId" />
+                    <p>@Localizer["Are you sure you want to return asset"] <strong id="returnAssetTag"></strong> @Localizer["to stock?"]</p>
+                    <div class="mb-3">
+                        <label class="form-label">@Localizer["Reason"]</label>
+                        <textarea name="reason" class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                    <button type="submit" class="btn btn-warning">@Localizer["Confirm Return"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const returnButtons = document.querySelectorAll(".return-btn");
+            const returnModal = new bootstrap.Modal(document.getElementById('returnModal'));
+            const returnAssetIdInput = document.getElementById('returnAssetId');
+            const returnAssetTagSpan = document.getElementById('returnAssetTag');
+
+            returnButtons.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    returnAssetIdInput.value = this.dataset.id;
+                    returnAssetTagSpan.textContent = this.dataset.tag;
+                    returnModal.show();
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Users" xml:space="preserve">
+    <value>所有用戶</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>已批准項目</value>
+  </data>
+  <data name="Available Weeks" xml:space="preserve">
+    <value>可用週數</value>
+  </data>
+  <data name="Can Create" xml:space="preserve">
+    <value>可建立</value>
+  </data>
+  <data name="Can Manage Anyone Weekly Report" xml:space="preserve">
+    <value>可管理任何人週報</value>
+  </data>
+  <data name="Critical Missing Reports" xml:space="preserve">
+    <value>關鍵遺漏報告</value>
+  </data>
+  <data name="Current Week Submitted" xml:space="preserve">
+    <value>本週已提交</value>
+  </data>
+  <data name="Filter User" xml:space="preserve">
+    <value>篩選用戶</value>
+  </data>
+  <data name="Filter User Id" xml:space="preserve">
+    <value>篩選用戶 ID</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>強制項目關聯</value>
+  </data>
+  <data name="Has Recent Missing Reports" xml:space="preserve">
+    <value>有近期遺漏的報告</value>
+  </data>
+  <data name="Missing Weeks Count" xml:space="preserve">
+    <value>遺漏週數</value>
+  </data>
+  <data name="Notepad Content" xml:space="preserve">
+    <value>備忘錄內容</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>報告</value>
+  </data>
+
+</root>

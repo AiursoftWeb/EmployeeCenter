@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Administrative Fines" xml:space="preserve">
+    <value>Administrative bøder</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Bankkonto</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Banknavn</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Grundløn</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>Indhold (Markdown)</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>Fuld fremmøde</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>Boligopsparing (Virksomhed)</value>
+  </data>
+  <data name="Housing Fund (Personal)" xml:space="preserve">
+    <value>Boligopsparing (Personlig)</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>Jobløn</value>
+  </data>
+  <data name="Late/Early" xml:space="preserve">
+    <value>Forsinket/Tidlig</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>Barselsorlov (Virksomhed)</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>Sundhed (Virksomhed)</value>
+  </data>
+  <data name="Medical (Personal)" xml:space="preserve">
+    <value>Sundhed (Personlig)</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>Andre godtgørelser</value>
+  </data>
+  <data name="Overtime" xml:space="preserve">
+    <value>Overtid</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>Pension (Virksomhed)</value>
+  </data>
+  <data name="Pension (Personal)" xml:space="preserve">
+    <value>Pension (Personlig)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>Præstationsbonus</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>Personlig indkomstskat</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Sygdom</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>Særlig ekstra fradrag</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Mål-måned</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} må ikke overstige {1} tegn.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} er påkrævet.</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Samlet beløb</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>Arbejdsløshed (Virksomhed)</value>
+  </data>
+  <data name="Unemployment (Personal)" xml:space="preserve">
+    <value>Arbejdsløshed (Personlig)</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Bruger</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>Arbejdsskade (Virksomhed)</value>
+  </data>
+
+</root>

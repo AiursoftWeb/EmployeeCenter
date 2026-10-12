@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Tên tài khoản</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Loại tài khoản</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>Logic kế toán tuân theo mô hình &apos;bể chứa&apos;: tiền chảy từ một bể (nguồn) sang một bể khác (đích đến). Hiểu rõ năm yếu tố này là chìa khóa để thực hiện kế toán ghi sổ kép.</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Tài sản</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Tiền gửi ngân hàng, Tài khoản phải thu (tiền người khác nợ bạn), Máy chủ/Laptop.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Vay từ Giám đốc</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Vay tiền = Tăng; Trả tiền = Giảm.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Tiền mặt đang có, hoặc những tài sản có thể chuyển đổi thành tiền mặt.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Chi phí phát sinh</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Tạo</value>
+  </data>
+  <data name="Create New Account" xml:space="preserve">
+    <value>Tạo tài khoản mới</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Tiền tệ</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Các khoản nợ mà công ty phải trả trong tương lai.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Định nghĩa:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Hướng:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Vay của giám đốc (số tiền bạn cho công ty vay), Hóa đơn chưa thanh toán, Nợ thẻ tín dụng</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>ví dụ: HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>ví dụ: Tài khoản Checking của Statrys</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Vốn chủ sở hữu</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Ví dụ:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Chi phí</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Từ (Nguồn)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Doanh thu</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Nợ phải trả</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Lô-gic</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Tiền kiếm được</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Tiền thu được từ việc bán sản phẩm hoặc cung cấp dịch vụ. Làm tăng lợi nhuận.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Tiền chảy từ tài khoản ngân hàng để thanh toán nợ</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Tiền chảy từ tài khoản ngân hàng đến chi phí</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Tiền chảy từ nợ đến tài khoản ngân hàng</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Tiền chảy từ vốn chủ sở hữu vào tài khoản ngân hàng</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Tiền phát sinh từ doanh thu vào tài khoản ngân hàng</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Tiền vào = Tăng; Tiền ra = Giảm</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Số tiền chi ra để duy trì hoạt động của công ty. Làm giảm lợi nhuận.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Thanh toán cho Máy chủ</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Bảng Tóm Tắt Nhanh</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Trả nợ Giám đốc</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Doanh thu bán hàng, Phí dịch vụ, Thu nhập lãi vay</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Tình huống</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Bán phần mềm</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Phí thuê máy chủ, Phí ngân hàng, Lương nhân viên</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Vốn góp (đầu tư ban đầu), Lợi nhuận giữ lại (lợi nhuận tích lũy).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Vốn góp của cổ đông</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Vốn góp của cổ đông/Lợi nhuận = Tăng; Rút vốn của cổ đông/Lỗ = Giảm.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Hiện trên Bảng điều khiển</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Vốn chủ sở hữu của công ty. Công thức: Tài sản - Nợ phải trả = Vốn chủ sở hữu.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Những thứ bạn nợ người khác</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Những thứ bạn sở hữu</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>Đến (Đích đến)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Hiểu về các yếu tố kế toán</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Giá trị thực sự thuộc về bạn</value>
+  </data>
+
+</root>

@@ -1,0 +1,262 @@
+@model Aiursoft.EmployeeCenter.Models.ReimbursementViewModels.DetailsViewModel
+@{
+    var reimbursement = Model.Reimbursement;
+}
+
+<div class="container-xl">
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    @Localizer["Reimbursement Details"]
+                </h2>
+            </div>
+            <div class="col-auto ms-auto">
+                <div class="btn-list">
+                    <a asp-action="Index" class="btn btn-white">
+                        @Localizer["Back to List"]
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-body">
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@Localizer["General Information"]</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="datagrid">
+                            <div class="datagrid-item">
+                                <div class="datagrid-title">@Localizer["Submitter"]</div>
+                                <div class="datagrid-content">@reimbursement.Submitter.DisplayName (@reimbursement.Submitter.UserName)</div>
+                            </div>
+                            <div class="datagrid-item">
+                                <div class="datagrid-title">@Localizer["Submitted At"]</div>
+                                <div class="datagrid-content">@reimbursement.SubmittedAt.ToString("g")</div>
+                            </div>
+                            <div class="datagrid-item">
+                                <div class="datagrid-title">@Localizer["Expense Time"]</div>
+                                <div class="datagrid-content">@reimbursement.ExpenseTime.ToShortDateString()</div>
+                            </div>
+                            <div class="datagrid-item">
+                                <div class="datagrid-title">@Localizer["Amount"]</div>
+                                <div class="datagrid-content"><strong>@reimbursement.Amount.ToString("N2") @reimbursement.Currency</strong></div>
+                            </div>
+                            <div class="datagrid-item">
+                                <div class="datagrid-title">@Localizer["Category"]</div>
+                                <div class="datagrid-content">@reimbursement.Category</div>
+                            </div>
+                            <div class="datagrid-item">
+                                <div class="datagrid-title">@Localizer["Status"]</div>
+                                <div class="datagrid-content">
+                                    @switch (reimbursement.Status)
+                                    {
+                                        case ReimbursementStatus.Draft:
+                                            <span class="badge bg-secondary">@Localizer["Draft"]</span>
+                                            break;
+                                        case ReimbursementStatus.Applying:
+                                            <span class="badge bg-blue">@Localizer["Applying"]</span>
+                                            break;
+                                        case ReimbursementStatus.Revoked:
+                                            <span class="badge bg-warning">@Localizer["Revoked"]</span>
+                                            break;
+                                        case ReimbursementStatus.Acknowledged:
+                                            <span class="badge bg-info">@Localizer["Acknowledged"]</span>
+                                            break;
+                                        case ReimbursementStatus.Reimbursed:
+                                            <span class="badge bg-success">@Localizer["Reimbursed"]</span>
+                                            break;
+                                        case ReimbursementStatus.Rejected:
+                                            <span class="badge bg-danger">@Localizer["Rejected"]</span>
+                                            break;
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <h4>@Localizer["Purpose"]</h4>
+                            <p>@reimbursement.Purpose</p>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(reimbursement.SupportingEmail))
+                        {
+                            <div class="mt-4">
+                                <h4>@Localizer["Supporting Context / Email"]</h4>
+                                <div class="p-3 bg-light border rounded pre-wrap">@reimbursement.SupportingEmail</div>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(reimbursement.InvoiceSourceUrl))
+                        {
+                            <div class="mt-4">
+                                <h4>@Localizer["Invoice Source Website (发票来源网站)"]</h4>
+                                <div class="p-3 bg-light border rounded">
+                                    <a href="@reimbursement.InvoiceSourceUrl" target="_blank" rel="noopener noreferrer" class="text-truncate d-block">
+                                        <i class="ti ti-external-link me-1"></i> @reimbursement.InvoiceSourceUrl
+                                    </a>
+                                </div>
+                            </div>
+                        }
+
+                        @if (reimbursement.ReviewedById != null)
+                        {
+                            <hr />
+                            <div class="datagrid">
+                                <div class="datagrid-item">
+                                    <div class="datagrid-title">@Localizer["Reviewed By"]</div>
+                                    <div class="datagrid-content">@reimbursement.ReviewedBy?.DisplayName</div>
+                                </div>
+                                <div class="datagrid-item">
+                                    <div class="datagrid-title">@Localizer["Reviewed At"]</div>
+                                    <div class="datagrid-content">@reimbursement.ReviewedAt?.ToString("g")</div>
+                                </div>
+                            </div>
+                            @if (!string.IsNullOrEmpty(reimbursement.Comment))
+                            {
+                                <div class="mt-3">
+                                    <h4>@Localizer["Reviewer Comment"]</h4>
+                                    <p>@reimbursement.Comment</p>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title">@Localizer["Electronic Invoice"]</h3>
+                    </div>
+                    <div class="card-body">
+                        @if (!string.IsNullOrEmpty(reimbursement.InvoicePath))
+                        {
+                            <div class="mb-3">
+                                <a href="@Model.InvoiceUrl" target="_blank" class="btn btn-outline-primary w-100">
+                                    <i class="ti ti-download me-2"></i> @Localizer["View/Download Invoice"]
+                                </a>
+                            </div>
+                            @if (reimbursement.InvoicePath.EndsWith(".jpg") || reimbursement.InvoicePath.EndsWith(".png") || reimbursement.InvoicePath.EndsWith(".jpeg") || reimbursement.InvoicePath.EndsWith(".webp"))
+                            {
+                                <img src="@Model.InvoiceUrl" class="img-fluid rounded border" alt="@Localizer["Invoice Preview"]" />
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-muted text-center">@Localizer["No invoice attached."]</p>
+                        }
+                    </div>
+                </div>
+
+                @if (Model.CanApprove && (reimbursement.Status == ReimbursementStatus.Applying || reimbursement.Status == ReimbursementStatus.Acknowledged))
+                {
+                    <div class="card card-stacked">
+                        <div class="card-header">
+                            <h3 class="card-title">@Localizer["Actions"]</h3>
+                        </div>
+                        <div class="card-body">
+                            @if (reimbursement.Status == ReimbursementStatus.Applying)
+                            {
+                                <form asp-action="Acknowledge" asp-route-id="@reimbursement.Id" method="post" class="mb-3">
+                                    <button type="submit" class="btn btn-info w-100">
+                                        @Localizer["Mark as Acknowledged (知道了)"]
+                                    </button>
+                                </form>
+                            }
+
+                            <div class="hr-text text-muted">@Localizer["Finalize"]</div>
+
+                            <button type="button" class="btn btn-success w-100 mb-2" data-bs-toggle="modal" data-bs-target="#reimburseModal">
+                                @Localizer["Reimbursed (已经下发)"]
+                            </button>
+
+                            <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#rejectModal">
+                                @Localizer["Reject (拒绝)"]
+                            </button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.CanApprove)
+{
+    <!-- Reimburse Modal -->
+    <div class="modal modal-blur fade" id="reimburseModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@Localizer["Confirm Reimbursement"]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
+                </div>
+                <form asp-action="Reimburse" method="post">
+                    <input type="hidden" name="Id" value="@reimbursement.Id" />
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">@Localizer["Really transferred via bank? (真的银行转账了吗？)"]</label>
+                            <div class="text-muted">@Localizer["Please leave a comment for the employee (e.g. transaction ID)."]</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">@Localizer["Comment"]</label>
+                            <textarea name="Comment" class="form-control" rows="3" required placeholder="@Localizer["Required..."]"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link link-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                        <button type="submit" class="btn btn-success ms-auto">@Localizer["Confirm & Issued"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reject Modal -->
+    <div class="modal modal-blur fade" id="rejectModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@Localizer["Confirm Rejection"]</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
+                </div>
+                <form asp-action="Reject" method="post">
+                    <input type="hidden" name="Id" value="@reimbursement.Id" />
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">@Localizer["Are you sure you want to reject this request?"]</label>
+                            <div class="text-muted">@Localizer["Please provide a reason for the rejection."]</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">@Localizer["Reason / Comment"]</label>
+                            <textarea name="Comment" class="form-control" rows="3" required placeholder="@Localizer["Required..."]"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link link-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                        <button type="submit" class="btn btn-danger ms-auto">@Localizer["Confirm Rejection"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .pre-wrap {
+        white-space: pre-wrap;
+    }
+</style>
+
+<style>
+    .pre-wrap {
+        white-space: pre-wrap;
+    }
+</style>

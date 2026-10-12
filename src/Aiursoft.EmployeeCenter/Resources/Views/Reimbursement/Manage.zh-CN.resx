@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledge" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Acknowledged (Wait for Payment) ({0})" xml:space="preserve">
+    <value>已确认（等待打款） ({0})</value>
+  </data>
+  <data name="Acknowledged At" xml:space="preserve">
+    <value>确认时间</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>金额</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>详情</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>下载</value>
+  </data>
+  <data name="No acknowledged requests waiting for payment." xml:space="preserve">
+    <value>没有等待打款的已确认申请。</value>
+  </data>
+  <data name="No pending requests." xml:space="preserve">
+    <value>没有待处理申请。</value>
+  </data>
+  <data name="Pending Requests ({0})" xml:space="preserve">
+    <value>待处理申请 ({0})</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>处理</value>
+  </data>
+  <data name="Processed At" xml:space="preserve">
+    <value>处理时间</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>用途</value>
+  </data>
+  <data name="Recent History (Last 100)" xml:space="preserve">
+    <value>最近记录（最后100条）</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>已报销</value>
+  </data>
+  <data name="Reimbursement Approval Center" xml:space="preserve">
+    <value>报销审批中心</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>已拒绝</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>审批</value>
+  </data>
+  <data name="Review and process reimbursement requests from employees." xml:space="preserve">
+    <value>查看并处理员工的报销申请。</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>审核人</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>已撤回</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>提交时间</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>提交人</value>
+  </data>
+
+</root>

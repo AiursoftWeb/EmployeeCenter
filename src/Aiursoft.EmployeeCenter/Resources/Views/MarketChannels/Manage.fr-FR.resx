@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="All Market Channels" xml:space="preserve">
+    <value>Tous les canaux marchés</value>
+  </data>
+  <data name="Are you sure you want to delete this market channel? This action cannot be undone." xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer ce canal de marché ? Cette action ne peut pas être annulée.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Create New Channel" xml:space="preserve">
+    <value>Créer un nouveau canal</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Heure de création</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Delete Market Channel" xml:space="preserve">
+    <value>Supprimer le canal de marché</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Gérer les canaux de marché</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>Gestionnaire</value>
+  </data>
+  <data name="No market channels found." xml:space="preserve">
+    <value>Auc canal de marché trouvé.</value>
+  </data>
+  <data name="Platform Name" xml:space="preserve">
+    <value>Nom de la plateforme</value>
+  </data>
+  <data name="Target Audience" xml:space="preserve">
+    <value>Public cible</value>
+  </data>
+  <data name="Unknown Manager" xml:space="preserve">
+    <value>Gérant inconnu</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+
+</root>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Details" xml:space="preserve">
+    <value>รายละเอียดบัญชี</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>การกระทำ</value>
+  </data>
+  <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
+    <value>ภาพรวมของโปรไฟล์ผู้ใช้ บทบาทที่ได้รับมอบหมาย และสิทธิ์การเข้าถึงที่มีผล</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>แท็กสินทรัพย์</value>
+  </data>
+  <data name="Assigned Assets" xml:space="preserve">
+    <value>ทรัพย์สินที่จัดสรรให้</value>
+  </data>
+  <data name="Assigned Roles" xml:space="preserve">
+    <value>บทบาทที่ได้รับมอบหมาย</value>
+  </data>
+  <data name="Back to list" xml:space="preserve">
+    <value>กลับไปยังรายการ</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>บัญชีธนาคาร</value>
+  </data>
+  <data name="Bank Account (Card Number)" xml:space="preserve">
+    <value>บัญชีธนาคาร (หมายเลขบัตร)</value>
+  </data>
+  <data name="Bank Account Name (Holder)" xml:space="preserve">
+    <value>ชื่อบัญชีธนาคาร (ผู้ถือบัญชี)</value>
+  </data>
+  <data name="Bank Information Change History" xml:space="preserve">
+    <value>ประวัติการเปลี่ยนแปลงข้อมูลบัญชีธนาคาร</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>ชื่อธนาคาร</value>
+  </data>
+  <data name="Bank Name (Branch)" xml:space="preserve">
+    <value>ชื่อธนาคาร (สาขา)</value>
+  </data>
+  <data name="Bank Name (Old -&gt; New)" xml:space="preserve">
+    <value>ชื่อธนาคาร (เดิม -&gt; ใหม่)</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>เงินเดือนพื้นฐาน</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>ข้อมูลพื้นฐาน</value>
+  </data>
+  <data name="Card Number (Old -&gt; New)" xml:space="preserve">
+    <value>หมายเลขบัตร (เดิม -&gt; ใหม่)</value>
+  </data>
+  <data name="Changed By" xml:space="preserve">
+    <value>ถูกเปลี่ยนโดย</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>เวลาที่สร้าง</value>
+  </data>
+  <data name="Delete this User" xml:space="preserve">
+    <value>ลบผู้ใช้นี้</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="Edit this User" xml:space="preserve">
+    <value>แก้ไขผู้ใช้นี้</value>
+  </data>
+  <data name="Effective Permissions" xml:space="preserve">
+    <value>สิทธิ์ที่มีผลจริง</value>
+  </data>
+  <data name="Effective Permissions (from all roles)" xml:space="preserve">
+    <value>สิทธิ์ที่แท้จริง (จากบทบาททั้งหมด)</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>อีเมล</value>
+  </data>
+  <data name="Holder (Old -&gt; New)" xml:space="preserve">
+    <value>ผู้ถือ (เดิม -&gt; ใหม่)</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>ว่าง</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>ใช้งานอยู่</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>ระดับงาน</value>
+  </data>
+  <data name="Job Level (职级)" xml:space="preserve">
+    <value>ระดับงาน (ตำแหน่ง)</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>ชื่อตามกฎหมาย</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>ตำแหน่งที่ตั้ง</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>สูญหาย</value>
+  </data>
+  <data name="Maintenance" xml:space="preserve">
+    <value>ซ่อมบำรุง</value>
+  </data>
+  <data name="Manage All Assets" xml:space="preserve">
+    <value>จัดการสินทรัพย์ทั้งหมด</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>จัดการสัญญา</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>จัดการคีย์ SSH</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>ผู้จัดการ</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>รุ่น</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="No assets assigned to this user." xml:space="preserve">
+    <value>ไม่มีสินทรัพย์ใดที่ถูกจัดสรรให้ผู้ใช้รายนี้</value>
+  </data>
+  <data name="No change history found." xml:space="preserve">
+    <value>ไม่พบประวัติการเปลี่ยนแปลง</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>รอดำเนินการยอมรับ</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>หมายเลขโทรศัพท์</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>รายละเอียดโปรไฟล์</value>
+  </data>
+  <data name="Promote User" xml:space="preserve">
+    <value>ส่งเสริมผู้ใช้</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>สายการรายงาน</value>
+  </data>
+  <data name="Retired" xml:space="preserve">
+    <value>หมดอายุการใช้งาน</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>หน่วยงานที่ลงนาม</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>ระบบ</value>
+  </data>
+  <data name="This user has no effective permissions." xml:space="preserve">
+    <value>ผู้ใช้นี้ไม่มีสิทธิ์การใช้งานที่มีผล</value>
+  </data>
+  <data name="This user has not been assigned any roles." xml:space="preserve">
+    <value>ผู้ใช้รายนี้ยังไม่ได้รับมอบหมายบทบาทใดๆ</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>เวลา</value>
+  </data>
+  <data name="Title (职务)" xml:space="preserve">
+    <value>ตำแหน่ง (ตำแหน่ง)</value>
+  </data>
+  <data name="User Details:" xml:space="preserve">
+    <value>รายละเอียดผู้ใช้:</value>
+  </data>
+  <data name="User name" xml:space="preserve">
+    <value>ชื่อผู้ใช้</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>ดูสายงานรายงาน</value>
+  </data>
+  <data name="View Weekly Reports" xml:space="preserve">
+    <value>ดูรายงานรายสัปดาห์</value>
+  </data>
+  <data name="Weekly Reports" xml:space="preserve">
+    <value>รายงานรายสัปดาห์</value>
+  </data>
+
+</root>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Assign Asset" xml:space="preserve">
+    <value>分配资产</value>
+  </data>
+  <data name="Assignment Details" xml:space="preserve">
+    <value>分配详情</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>使用中</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="Notice" xml:space="preserve">
+    <value>注意</value>
+  </data>
+  <data name="Optional notes for this assignment..." xml:space="preserve">
+    <value>此任务的可选备注...</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>待接受</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>选择用户</value>
+  </data>
+  <data name="The assigned employee will need to log in and confirm the receipt of the asset before it officially becomes" xml:space="preserve">
+    <value>被指派的员工需要登录并确认收到资产，之后该资产才会正式变为</value>
+  </data>
+  <data name="When you assign an asset, the status will change to" xml:space="preserve">
+    <value>分配资产后，状态将更改为</value>
+  </data>
+
+</root>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>用于 DNS 审计的只读 Cloudflare API 令牌。请为所有账户授予 DNS 设置:读取 权限，并为所有区域授予 DNS:读取 权限。</value>
+  </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>用于服务审计的只读 Cloudflare API 令牌。请为所有账户授予 DNS Settings:Read 权限，并为所有区域授予 DNS:Read 权限。</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
+    <value>AI 助手系统提示</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>允许用户修改昵称</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>允许用户在个人资料管理页面调整其昵称。</value>
+  </data>
+  <data name="Annual Leave Per Year" xml:space="preserve">
+    <value>年假天数/年</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>品牌主页网址</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>品牌名称</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API 令牌</value>
+  </data>
+  <data name="Default Payroll Currency" xml:space="preserve">
+    <value>默认工资货币</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>强制项目关联</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>ICP 备案号</value>
+  </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>会议纪要系统提示词</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>项目图标</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>项目名称</value>
+  </data>
+  <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
+    <value>提交周报时，要求员工至少关联一个项目。</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>公司或项目的品牌名称。例如：Aiursoft。</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>发放新工资单时使用的默认货币。</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>中国大陆用户使用的ICP许可证号。留空以隐藏。</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>项目在导航栏和页脚中显示的标志。支持 jpg、png、svg 格式。</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>项目在前端显示的名称。</value>
+  </data>
+  <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
+    <value>每年分配给每位员工的带薪年假天数</value>
+  </data>
+  <data name="The system prompt for the AI assistant." xml:space="preserve">
+    <value>AI 助手的系统提示。</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>用于根据转录内容生成会议纪要的系统提示词。</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>公司或项目的网址。例如：https://www.aiursoft.com</value>
+  </data>
+
+</root>

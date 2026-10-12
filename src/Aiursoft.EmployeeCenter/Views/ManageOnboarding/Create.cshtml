@@ -1,0 +1,70 @@
+@model Aiursoft.EmployeeCenter.Models.ManageOnboardingViewModels.CreateViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Create Onboarding Task"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Order" class="form-label"></label>
+                        <input asp-for="Order" class="form-control" />
+                        <span asp-validation-for="Order" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ExpectedDurationSeconds" class="form-label"></label>
+                        <input asp-for="ExpectedDurationSeconds" class="form-control" />
+                        <span asp-validation-for="ExpectedDurationSeconds" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea asp-for="Description" class="form-control" rows="5" placeholder="@Localizer["Markdown supported..."]"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="StartLink" class="form-label"></label>
+                        <input asp-for="StartLink" class="form-control" placeholder="@Localizer["https://"]" />
+                        <span asp-validation-for="StartLink" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
+                        <a asp-action="Index" class="btn btn-light">@Localizer["Cancel"]</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["How to create an onboarding task?"]</h5>
+            </div>
+            <div class="card-body">
+                <p>@Localizer["Onboarding tasks are designed to guide new employees through their first days."]</p>
+                <ul>
+                    <li><strong>@Localizer["Order"]:</strong> @Localizer["Controls the display sequence on the dashboard."]</li>
+                    <li><strong>@Localizer["Expected Duration"]:</strong> @Localizer["Gives employees an idea of how long the task might take."]</li>
+                    <li><strong>@Localizer["Description"]:</strong> @Localizer["Use Markdown to provide detailed instructions or context."]</li>
+                    <li><strong>@Localizer["Start Link"]:</strong> @Localizer["The URL where the employee will be redirected when they click 'Start Task'."]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

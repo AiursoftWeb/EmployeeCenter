@@ -1,0 +1,74 @@
+@model Aiursoft.EmployeeCenter.Models.MarketChannelsViewModels.IndexViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
+@{
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Market Channels"]</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["All Market Channels"]</h5>
+    </div>
+    @if (!Model.MarketChannels.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    @Localizer["No market channels found."]
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Platform Name"]</th>
+                    <th>@Localizer["Manager"]</th>
+                    <th>@Localizer["Target Audience"]</th>
+                    <th>@Localizer["Creation Time"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var channel in Model.MarketChannels)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            @channel.Name
+                        </td>
+                        <td class="align-middle">
+                            @if (channel.Manager != null)
+                            {
+                                <a asp-controller="Users" asp-action="Details" asp-route-id="@channel.ManagerId" class="text-body d-flex align-items-center">
+                                    <img src="@StorageService.RelativePathToInternetUrl(channel.Manager?.AvatarRelativePath ?? "images/default-avatar.jpg")?w=30&square=true" class="avatar img-fluid rounded me-1" alt="@channel.Manager?.DisplayName" />
+                                    @channel.Manager?.DisplayName
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["Unknown Manager"]</span>
+                            }
+                        </td>
+                        <td class="align-middle">
+                            @channel.TargetAudience
+                        </td>
+                        <td class="align-middle text-muted" data-utc-time="@channel.CreationTime.ToHtmlDateTime()"></td>
+                        <td class="text-end">
+                            <a asp-action="Details" asp-route-id="@channel.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="eye"></i> @Localizer["View"]
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

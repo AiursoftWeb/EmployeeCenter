@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Number" xml:space="preserve">
+    <value>Αριθμός λογαριασμού</value>
+  </data>
+  <data name="Add Item" xml:space="preserve">
+    <value>Προσθήκη Προϊόντος</value>
+  </data>
+  <data name="Attn / Contact" xml:space="preserve">
+    <value>Προς / Επαφή</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Διεύθυνση Τράπεζας</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Όνομα Τράπεζας</value>
+  </data>
+  <data name="Beneficiary Name" xml:space="preserve">
+    <value>Όνομα Πιστωτή</value>
+  </data>
+  <data name="Bill From (Seller)" xml:space="preserve">
+    <value>Χορηγός (Πωλητής)</value>
+  </data>
+  <data name="Bill To (Buyer)" xml:space="preserve">
+    <value>Πληρωτέος (Αγοραστής)</value>
+  </data>
+  <data name="Buyer Address" xml:space="preserve">
+    <value>Διεύθυνση Πελάτη</value>
+  </data>
+  <data name="Buyer Name" xml:space="preserve">
+    <value>Όνομα Αγοραστή</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Αριθμός Σύμβασης</value>
+  </data>
+  <data name="CR No / Entity Code" xml:space="preserve">
+    <value>Αριθμός Επιχείρησης / Κωδικός Οργανισμού</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Νόμισμα</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Ημερομηνία</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Περιγραφή</value>
+  </data>
+  <data name="Invoice Meta" xml:space="preserve">
+    <value>Στοιχεία Τιμολογίου</value>
+  </data>
+  <data name="Invoice No" xml:space="preserve">
+    <value>Αριθμός Τιμολογίου</value>
+  </data>
+  <data name="Invoice Type" xml:space="preserve">
+    <value>Τύπος Τιμολογίου</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>Εκδόση Τιμολογίου</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Προϊόντα</value>
+  </data>
+  <data name="Payment Instructions" xml:space="preserve">
+    <value>Οδηγίες Πληρωμής</value>
+  </data>
+  <data name="Preview &amp; Generate HTML" xml:space="preserve">
+    <value>Προεπισκόπηση &amp; Δημιουργία HTML</value>
+  </data>
+  <data name="Proforma Invoice / Billing Statement" xml:space="preserve">
+    <value>Προσωρινή Παραστατική / Δήλωση Χρέωσης</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Ποσότητα</value>
+  </data>
+  <data name="Receipt / Paid Invoice" xml:space="preserve">
+    <value>Απόδειξη / Πληρωμένο Τιμολόγιο</value>
+  </data>
+  <data name="Seller Address" xml:space="preserve">
+    <value>Διεύθυνση Πωλητή</value>
+  </data>
+  <data name="Seller Contact" xml:space="preserve">
+    <value>Επαφή Πωλητή</value>
+  </data>
+  <data name="Seller Name" xml:space="preserve">
+    <value>Όνομα Πωλητή</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Κωδικός SWIFT</value>
+  </data>
+  <data name="Tax Amount" xml:space="preserve">
+    <value>Ποσό Φόρου</value>
+  </data>
+  <data name="Unit Price" xml:space="preserve">
+    <value>Τιμή ανά μονάδα</value>
+  </data>
+
+</root>

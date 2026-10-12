@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account" xml:space="preserve">
+    <value>Tili</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="Click here to create one." xml:space="preserve">
+    <value>Luo uusi napsauttamalla tästä.</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>Luo uusi</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Yksityiskohdat</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Muokkaa</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Muokattava</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>Täällä ei ole mitään!</value>
+  </data>
+  <data name="Manage and view shared account passwords." xml:space="preserve">
+    <value>Hallitse ja tarkastele jaettuja tilisalasanoja.</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Hallitse jakoja</value>
+  </data>
+  <data name="My Passwords" xml:space="preserve">
+    <value>Omat salasanani</value>
+  </data>
+  <data name="No passwords created yet." xml:space="preserve">
+    <value>Salasanoja ei ole vielä luotu.</value>
+  </data>
+  <data name="No passwords have been shared with you yet." xml:space="preserve">
+    <value>Salasanoja ei ole vielä jaettu kanssasi.</value>
+  </data>
+  <data name="No passwords shared with you." xml:space="preserve">
+    <value>Sinulle ei ole jaettu salasanoja.</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Omistaja</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Salasanojen hallinta</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Käyttöoikeus</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Vain luku</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Jaettu kanssani</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Otsikko</value>
+  </data>
+  <data name="You have not created any passwords yet." xml:space="preserve">
+    <value>Olet vielä luonut mitään salasanoja.</value>
+  </data>
+
+</root>

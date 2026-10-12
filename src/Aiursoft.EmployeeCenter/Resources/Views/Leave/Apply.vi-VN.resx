@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allows retroactive entry for leaves already taken" xml:space="preserve">
+    <value>Cho phép nhập dữ liệu ngược thời gian cho các ngày nghỉ đã được đăng ký</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Nghỉ phép hàng năm</value>
+  </data>
+  <data name="Annual leave requires approval" xml:space="preserve">
+    <value>Nghỉ phép hàng năm cần được phê duyệt</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Đăng ký nghỉ phép</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Tháng Tư</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Tháng Tám</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>Chú thích lịch</value>
+  </data>
+  <data name="Calendar View" xml:space="preserve">
+    <value>Xem lịch</value>
+  </data>
+  <data name="Can apply for leave from 7 days ago to end of current year" xml:space="preserve">
+    <value>Có thể đăng ký nghỉ phép từ 7 ngày trước đến cuối năm hiện tại</value>
+  </data>
+  <data name="Can be up to 7 days in the past or future dates within current year" xml:space="preserve">
+    <value>Có thể lên đến 7 ngày trong quá khứ hoặc các ngày trong tương lai trong năm hiện tại</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy bỏ</value>
+  </data>
+  <data name="Click on working days to select your leave period" xml:space="preserve">
+    <value>Nhấp vào các ngày làm việc để chọn khoảng thời gian nghỉ của bạn</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Tháng Mười Hai</value>
+  </data>
+  <data name="End Date" xml:space="preserve">
+    <value>Ngày kết thúc</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Tháng Hai</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Thứ Sáu</value>
+  </data>
+  <data name="Important Notes" xml:space="preserve">
+    <value>Lưu ý quan trọng</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Tháng Một</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Tháng Bảy</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Tháng Sáu</value>
+  </data>
+  <data name="Last day of your leave (inclusive)" xml:space="preserve">
+    <value>Ngày cuối cùng của kỳ nghỉ của bạn (bao gồm ngày đó)</value>
+  </data>
+  <data name="Leave Application Form" xml:space="preserve">
+    <value>Phiếu đăng ký nghỉ phép</value>
+  </data>
+  <data name="Leave Type" xml:space="preserve">
+    <value>Loại nghỉ phép</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Tháng Ba</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Tháng Năm</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Thứ Hai</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Tiếp theo</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Tháng Mười Một</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Tháng Mười</value>
+  </data>
+  <data name="Only working days are counted (weekends and holidays excluded)" xml:space="preserve">
+    <value>Chỉ tính các ngày làm việc (loại trừ cuối tuần và ngày lễ)</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Trước đó</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Lý do</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Thứ Bảy</value>
+  </data>
+  <data name="Select your leave dates and provide a reason for your leave." xml:space="preserve">
+    <value>Chọn ngày nghỉ của bạn và cung cấp lý do nghỉ</value>
+  </data>
+  <data name="Selected Leave Day" xml:space="preserve">
+    <value>Ngày đã chọn cho nghỉ phép</value>
+  </data>
+  <data name="Selected Period" xml:space="preserve">
+    <value>Khoảng thời gian đã chọn</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Tháng Chín</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Nghỉ ốm</value>
+  </data>
+  <data name="Sick leave requires supporting documents after return" xml:space="preserve">
+    <value>Nghỉ ốm yêu cầu tài liệu hỗ trợ sau khi trở lại</value>
+  </data>
+  <data name="Start Date" xml:space="preserve">
+    <value>Ngày bắt đầu</value>
+  </data>
+  <data name="Submit Application" xml:space="preserve">
+    <value>Gửi đơn yêu cầu</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Chủ Nhật</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>Thứ Năm</value>
+  </data>
+  <data name="total days" xml:space="preserve">
+    <value>tổng cộng ngày</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Thứ Ba</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>Thứ Tư</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>Cuối tuần / Ngày lễ</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>Ngày làm việc</value>
+  </data>
+  <data name="working days" xml:space="preserve">
+    <value>ngày làm việc</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Thời gian ghi nhật ký là giờ Trung Quốc điều hòa!</value>
+  </data>
+
+</root>

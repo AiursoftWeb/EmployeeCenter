@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <Version>1.0.90</Version>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>Aiursoft.EmployeeCenter.InMemory</AssemblyName>
+    <RootNamespace>Aiursoft.EmployeeCenter.InMemory</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Company>Aiursoft</Company>
+    <Product>Employee Center InMemory Storage</Product>
+    <Description>In-memory storage provider for Aiursoft Employee Center.</Description>
+    <PackageId>Aiursoft.EmployeeCenter.InMemory</PackageId>
+    <PackageTags>employee-management in-memory storage aiursoft</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/aiursoftweb/employeecenter</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/aiursoftweb/employeecenter.git</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aiursoft.EmployeeCenter.Entities\Aiursoft.EmployeeCenter.Entities.csproj" />
+    <None Include="../../README.md" Pack="true" PackagePath="." />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aiursoft.DbTools.InMemory" Version="10.0.25" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,357 @@
+@model Aiursoft.EmployeeCenter.Models.LeaveViewModels.TeamCalendarViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Team Calendar"]</h3>
+    </div>
+</div>
+
+@if (Model.CanApproveAnyLeave)
+{
+    <div class="row mb-3">
+        <div class="col-12 col-xl-9">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Localizer["Search Any Employee"]</h5>
+                    <p class="card-subtitle text-muted mb-3">@Localizer["Search for any employee to view their full leave history for the past and future 365 days."]</p>
+                    <div class="position-relative">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="align-middle" data-lucide="search"></i></span>
+                            <input type="text" id="user-search-input" class="form-control" placeholder="@Localizer["Type 3+ characters to search for an employee..."]" autocomplete="off">
+                            <button class="btn btn-outline-secondary" type="button" id="user-search-clear">@Localizer["Clear"]</button>
+                        </div>
+                        <div id="user-search-results" class="list-group position-absolute w-100 mt-1 shadow" style="z-index: 1000; display: none; max-height: 250px; overflow-y: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-12 col-xl-9">
+        @if (Model.SearchedUser != null)
+        {
+            <div class="card border-primary mb-4">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h5 class="card-title text-white mb-0">@Localizer["Leave History: {0}", Model.SearchedUser.DisplayName]</h5>
+                    <a asp-action="TeamCalendar" class="btn btn-sm btn-light">@Localizer["Close Search"]</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["Type"]</th>
+                                <th>@Localizer["Period"]</th>
+                                <th>@Localizer["Days"]</th>
+                                <th>@Localizer["Reason"]</th>
+                                <th>@Localizer["Status"]</th>
+                                <th>@Localizer["Reviewer"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.SearchedUserLeaves.Count == 0)
+                            {
+                                <tr>
+                                    <td colspan="6" class="text-center text-muted py-4">@Localizer["No leave records found for this user in the specified range."]</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                foreach (var leave in Model.SearchedUserLeaves)
+                                {
+                                    <tr>
+                                        <td>
+                                            @(leave.LeaveType == LeaveType.AnnualLeave ? Localizer["Annual"] : Localizer["Sick"])
+                                        </td>
+                                        <td>
+                                            @if (leave.StartDate.Date == leave.EndDate.Date)
+                                            {
+                                                <span data-utc-time="@leave.StartDate.ToHtmlDateTime()" data-date-only="true"></span>
+                                            }
+                                            else
+                                            {
+                                                <span data-utc-time="@leave.StartDate.ToHtmlDateTime()" data-date-only="true"></span><span> - </span><span data-utc-time="@leave.EndDate.ToHtmlDateTime()" data-date-only="true"></span>
+                                            }
+                                        </td>
+                                        <td>@leave.TotalDays.ToString("0.##")</td>
+                                        <td>@leave.Reason</td>
+                                        <td>
+                                            @if (leave.IsWithdrawn)
+                                            {
+                                                <span class="badge bg-secondary">@Localizer["Withdrawn"]</span>
+                                            }
+                                            else if (leave.IsPending)
+                                            {
+                                                <span class="badge text-bg-info">@Localizer["Pending"]</span>
+                                            }
+                                            else if (leave.IsApproved)
+                                            {
+                                                <span class="badge bg-success">@Localizer["Approved"]</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-danger">@Localizer["Rejected"]</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (leave.ReviewedBy != null)
+                                            {
+                                                <div class="d-flex align-items-center">
+                                                    <img src="@StorageService.RelativePathToInternetUrl(leave.ReviewedBy.AvatarRelativePath)?w=40&square=true" class="rounded-circle me-2" alt="@leave.ReviewedBy.DisplayName" width="20" height="20">
+                                                    <span class="small">@leave.ReviewedBy.DisplayName</span>
+                                                </div>
+                                            }
+                                            else if (!leave.IsPending && !leave.IsWithdrawn)
+                                            {
+                                                <span class="text-muted small">@Localizer["System"]</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted small">-</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Team Members' Leave Status"]</h5>
+                <h6 class="card-subtitle text-muted">@Localizer["Overview of leave schedules for your manager, reports, and colleagues."]</h6>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Team Member"]</th>
+                            <th>@Localizer["Relation"]</th>
+                            <th>@Localizer["Leave Schedule"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.TeamLeaves.Count == 0)
+                        {
+                            <tr>
+                                <td colspan="3" class="text-center text-muted py-4">@Localizer["No team members found."]</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var member in Model.TeamLeaves)
+                            {
+                                <tr>
+                                    <td>
+                                <div class="d-flex align-items-center mb-2">
+                                    <a asp-controller="Users" asp-action="Details" asp-route-id="@member.User.Id" class="text-body d-flex align-items-center">
+                                        <img src="@StorageService.RelativePathToInternetUrl(member.User.AvatarRelativePath)?w=64&square=true" class="rounded-circle me-2" alt="@member.User.DisplayName" width="32" height="32">
+                                        <div>
+                                            <div class="fw-bold">@member.User.DisplayName</div>
+                                            <div class="small text-muted">@member.User.Email</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge text-bg-light border">@Localizer[member.Relation]</span>
+                                    </td>
+                                    <td>
+                                        @if (member.Leaves.Count == 0)
+                                        {
+                                            <span class="text-muted small">@Localizer["No upcoming or past leave records."]</span>
+                                        }
+                                        else
+                                        {
+                                            <div class="d-flex flex-wrap gap-2">
+                                                @foreach (var leave in member.Leaves.OrderByDescending(l => l.StartDate))
+                                                {
+                                                    var today = DateTime.UtcNow.Date;
+                                                    string statusClass;
+                                                    string statusText;
+                                                    
+                                                    if (today >= leave.StartDate.Date && today <= leave.EndDate.Date)
+                                                    {
+                                                        statusClass = "text-bg-warning"; // Yellow: Currently on leave
+                                                        statusText = Localizer["On Leave"].Value;
+                                                    }
+                                                    else if (today > leave.EndDate.Date)
+                                                    {
+                                                        statusClass = "bg-success"; // Green: Returned
+                                                        statusText = Localizer["Returned"].Value;
+                                                    }
+                                                    else
+                                                    {
+                                                        statusClass = "bg-primary"; // Blue: Not yet started
+                                                        statusText = Localizer["Upcoming"].Value;
+                                                    }
+                                                    
+                                                    <div class="border rounded p-2 text-light @statusClass" style="min-width: 150px;">
+                                                        <div class="fw-bold small">@statusText</div>
+                                                        <div class="small">
+                                                            @if (leave.StartDate.Date == leave.EndDate.Date)
+                                                            {
+                                                                <label data-utc-time="@leave.StartDate.ToHtmlDateTime()" data-date-only="true"></label>
+                                                            }
+                                                            else
+                                                            {
+                                                                <label data-utc-time="@leave.StartDate.ToHtmlDateTime()" data-date-only="true"></label><span> - </span><label data-utc-time="@leave.EndDate.ToHtmlDateTime()" data-date-only="true"></label>
+                                                            }
+                                                        </div>
+                                                        <div class="small opacity-75">@(leave.LeaveType == LeaveType.AnnualLeave ? Localizer["Annual"] : Localizer["Sick"]) (@leave.TotalDays.ToString("0.##") @Localizer["Days label"])</div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-12 col-xl-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Status Legend"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-warning rounded me-2" style="width: 20px; height: 20px;"></div>
+                    <div>
+                        <strong>@Localizer["Currently on Leave"]</strong>
+                        <div class="small text-muted">@Localizer["Yellow - Employee is currently away"]</div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-success rounded me-2" style="width: 20px; height: 20px;"></div>
+                    <div>
+                        <strong>@Localizer["Returned"]</strong>
+                        <div class="small text-muted">@Localizer["Green - Leave period has finished"]</div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-0">
+                    <div class="bg-primary rounded me-2" style="width: 20px; height: 20px;"></div>
+                    <div>
+                        <strong>@Localizer["Not Yet Started"]</strong>
+                        <div class="small text-muted">@Localizer["Blue - Approved future leave"]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["About Team Calendar"]</h5>
+            </div>
+            <div class="card-body">
+                <p class="small text-muted">
+                    @Localizer["This calendar helps you stay informed about your team's availability to facilitate work handovers and planning."]
+                </p>
+                <p class="small text-muted mb-0">
+                    @Localizer["Only approved leave applications are displayed here."]
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        (function() {
+            const stripTime = (el) => {
+                const text = el.innerText.trim();
+                if (text && text.includes(' ')) {
+                    const dateOnly = text.split(' ')[0];
+                    if (el.innerText !== dateOnly) {
+                        el.innerText = dateOnly;
+                    }
+                }
+            };
+
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    const target = mutation.target.nodeType === 3 ? mutation.target.parentElement : mutation.target;
+                    if (target && target.hasAttribute('data-date-only')) {
+                        stripTime(target);
+                    }
+                });
+            });
+
+            const config = { childList: true, characterData: true, subtree: true };
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('[data-date-only="true"]').forEach(el => {
+                    observer.observe(el, config);
+                    stripTime(el);
+                });
+            });
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('user-search-input');
+            const resultsDiv = document.getElementById('user-search-results');
+            const clearBtn = document.getElementById('user-search-clear');
+            let timeout = null;
+
+            if (input) {
+                input.addEventListener('input', function() {
+                    clearTimeout(timeout);
+                    const query = input.value;
+                    if (query.length < 3) {
+                        resultsDiv.style.display = 'none';
+                        return;
+                    }
+
+                    timeout = setTimeout(() => {
+                        fetch(`/api/users/search?query=${encodeURIComponent(query)}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                resultsDiv.innerHTML = '';
+                                if (data.users.length > 0) {
+                                    data.users.forEach(user => {
+                                        const item = document.createElement('a');
+                                        item.href = `?searchUserId=${user.id}`;
+                                        item.className = 'list-group-item list-group-item-action d-flex align-items-center';
+                                        item.innerHTML = `
+                                            <img src="${user.avatarUrl}" class="rounded-circle me-2" width="30" height="30" alt="${user.displayName}">
+                                            <div>
+                                                <strong>${user.displayName}</strong><br>
+                                                <small class="text-muted">@@${user.userName}</small>
+                                            </div>
+                                        `;
+                                        resultsDiv.appendChild(item);
+                                    });
+                                    resultsDiv.style.display = 'block';
+                                } else {
+                                    resultsDiv.innerHTML = '<div class="list-group-item">@Localizer["No users found"]</div>';
+                                    resultsDiv.style.display = 'block';
+                                }
+                            });
+                    }, 300);
+                });
+
+                clearBtn.addEventListener('click', function() {
+                    input.value = '';
+                    resultsDiv.style.display = 'none';
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!input.contains(e.target) && !resultsDiv.contains(e.target)) {
+                        resultsDiv.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+}

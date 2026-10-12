@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actual Payment" xml:space="preserve">
+    <value>Pagamento Effettivo</value>
+  </data>
+  <data name="Actual Salary (Net)" xml:space="preserve">
+    <value>Stipendio Netto</value>
+  </data>
+  <data name="Administrative Fines" xml:space="preserve">
+    <value>Multe Amministrative</value>
+  </data>
+  <data name="Are you absolutely sure?" xml:space="preserve">
+    <value>Sei sicuro al 100%?</value>
+  </data>
+  <data name="Attendance &amp; Penalties" xml:space="preserve">
+    <value>Presenze &amp; Sanzioni</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Torna all&apos;elenco</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Conto Bancario</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Nome della Banca</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Stipendio Base</value>
+  </data>
+  <data name="Bonus for no absence" xml:space="preserve">
+    <value>Bonus per piena presenza</value>
+  </data>
+  <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
+    <value>Cliccando su &apos;Conferma e Emetti&apos;, confermi che tutti i valori indicati sopra sono corretti e conformi alla politica aziendale.</value>
+  </data>
+  <data name="Calculated based on overtime hours" xml:space="preserve">
+    <value>Calcolato in base alle ore di straordinario</value>
+  </data>
+  <data name="Calculated pre-paid tax" xml:space="preserve">
+    <value>Imposta sul reddito precalcolata</value>
+  </data>
+  <data name="Calculation Formula Graph" xml:space="preserve">
+    <value>Grafico della Formula di Calcolo</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
+  <data name="Company Cost" xml:space="preserve">
+    <value>Costo Aziendale</value>
+  </data>
+  <data name="Company Paid Insurances" xml:space="preserve">
+    <value>Assicurazioni a Carico dell&apos;Azienda</value>
+  </data>
+  <data name="Compliance Payroll Table" xml:space="preserve">
+    <value>Tabella Stipendi Conformità</value>
+  </data>
+  <data name="Content (Markdown)" xml:space="preserve">
+    <value>Contenuto (Markdown)</value>
+  </data>
+  <data name="Contracted basic salary" xml:space="preserve">
+    <value>Stipendio base contrattuale</value>
+  </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>CONFERMA CRITICA RICHIESTA</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Currency:" xml:space="preserve">
+    <value>Valuta:</value>
+  </data>
+  <data name="Deductions" xml:space="preserve">
+    <value>Detrazioni</value>
+  </data>
+  <data name="Description / Formula" xml:space="preserve">
+    <value>Descrizione / Formula</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>Guadagni</value>
+  </data>
+  <data name="Education, housing, etc." xml:space="preserve">
+    <value>Istruzione, alloggio, ecc.</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Dipendente:</value>
+  </data>
+  <data name="Employee&apos;s account number" xml:space="preserve">
+    <value>Numero di conto del dipendente</value>
+  </data>
+  <data name="Employee&apos;s bank" xml:space="preserve">
+    <value>Banca del dipendente</value>
+  </data>
+  <data name="Enter as negative value" xml:space="preserve">
+    <value>Inserire come valore negativo</value>
+  </data>
+  <data name="Enter payroll details in Markdown format..." xml:space="preserve">
+    <value>Inserisci i dettagli della busta paga in formato Markdown...</value>
+  </data>
+  <data name="Full Attendance" xml:space="preserve">
+    <value>Presenza Completa</value>
+  </data>
+  <data name="Housing Fund" xml:space="preserve">
+    <value>Fondo Casa</value>
+  </data>
+  <data name="Housing Fund (Company)" xml:space="preserve">
+    <value>Fondo Casa (Azienda)</value>
+  </data>
+  <data name="Income Tax" xml:space="preserve">
+    <value>Imposta sul reddito</value>
+  </data>
+  <data name="Insurances (Personal)" xml:space="preserve">
+    <value>Assicurazioni (Personali)</value>
+  </data>
+  <data name="Issue New Payroll" xml:space="preserve">
+    <value>Emetti Nuova Bustapaga</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>Emetti Busta Paga</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Voce</value>
+  </data>
+  <data name="Job Salary" xml:space="preserve">
+    <value>Stipendio per la Posizione</value>
+  </data>
+  <data name="Late / Early Leave" xml:space="preserve">
+    <value>Ritardo / Uscita Anticipata</value>
+  </data>
+  <data name="Maternity (Company)" xml:space="preserve">
+    <value>Maternità (Azienda)</value>
+  </data>
+  <data name="Meal, transport, etc." xml:space="preserve">
+    <value>Pasti, trasporti, ecc.</value>
+  </data>
+  <data name="Medical" xml:space="preserve">
+    <value>Assistenza sanitaria</value>
+  </data>
+  <data name="Medical (Company)" xml:space="preserve">
+    <value>Sanitaria (Azienda)</value>
+  </data>
+  <data name="Month:" xml:space="preserve">
+    <value>Mese:</value>
+  </data>
+  <data name="Monthly performance evaluation" xml:space="preserve">
+    <value>Valutazione delle prestazioni mensili</value>
+  </data>
+  <data name="No, let me check again" xml:space="preserve">
+    <value>No, fammi controllare di nuovo</value>
+  </data>
+  <data name="Optional remarks..." xml:space="preserve">
+    <value>Note facoltative...</value>
+  </data>
+  <data name="Other Allowances" xml:space="preserve">
+    <value>Altri Indennizzi</value>
+  </data>
+  <data name="Overtime Pay" xml:space="preserve">
+    <value>Straordinari</value>
+  </data>
+  <data name="Payroll Configuration" xml:space="preserve">
+    <value>Configurazione della Retribuzione</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Dettagli della busta paga</value>
+  </data>
+  <data name="Payroll issuance is irreversible! Once issued, you cannot delete or modify it. Please verify the following information:" xml:space="preserve">
+    <value>La pubblicazione del pagamento è irreversibile! Una volta pubblicato, non è possibile eliminarlo o modificarlo. Verificare le informazioni seguenti:</value>
+  </data>
+  <data name="Payroll issuance will be sent to the employee. Please verify the following information:" xml:space="preserve">
+    <value>La emissione della busta paga verrà inviata all&apos;impiegato. Verifica le informazioni seguenti:</value>
+  </data>
+  <data name="Pension" xml:space="preserve">
+    <value>Pensione</value>
+  </data>
+  <data name="Pension (Company)" xml:space="preserve">
+    <value>Pensione (Azienda)</value>
+  </data>
+  <data name="Performance Bonus" xml:space="preserve">
+    <value>Bonus di Performance</value>
+  </data>
+  <data name="Personal Income Tax" xml:space="preserve">
+    <value>Imposta sul Reddito delle Persone Fisiche</value>
+  </data>
+  <data name="Personal Insurance" xml:space="preserve">
+    <value>Assicurazioni Personali</value>
+  </data>
+  <data name="Position-based salary" xml:space="preserve">
+    <value>Stipendio basato sulla posizione</value>
+  </data>
+  <data name="Remark / Content" xml:space="preserve">
+    <value>Osservazioni / Contenuto</value>
+  </data>
+  <data name="Select User" xml:space="preserve">
+    <value>Seleziona Utente</value>
+  </data>
+  <data name="Sick / Personal Leave" xml:space="preserve">
+    <value>Malattia / Permesso personale</value>
+  </data>
+  <data name="Special Additional Deduction" xml:space="preserve">
+    <value>Detrazione Addizionale Speciale</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Mese di Riferimento</value>
+  </data>
+  <data name="Tax Information" xml:space="preserve">
+    <value>Informazioni Fiscali</value>
+  </data>
+  <data name="Taxable Income" xml:space="preserve">
+    <value>Reddito imponibile</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Importo totale</value>
+  </data>
+  <data name="Total Company Cost" xml:space="preserve">
+    <value>Costo Totale Azienda</value>
+  </data>
+  <data name="Total Earnings" xml:space="preserve">
+    <value>Guadagni Totali</value>
+  </data>
+  <data name="Total Personal Insurances" xml:space="preserve">
+    <value>Totale Contributi Previdenziali a Carico del Dipendente</value>
+  </data>
+  <data name="Unemployment" xml:space="preserve">
+    <value>Disoccupazione</value>
+  </data>
+  <data name="Unemployment (Company)" xml:space="preserve">
+    <value>Disoccupazione (Azienda)</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>di solito</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valore</value>
+  </data>
+  <data name="Work Injury (Company)" xml:space="preserve">
+    <value>Infortunio sul Lavoro (Azienda)</value>
+  </data>
+  <data name="Yes, Confirm and Issue!" xml:space="preserve">
+    <value>Sì, Conferma e Emetti!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>L&apos;ora di registrazione dell&apos;evento è in UTC!</value>
+  </data>
+
+</root>

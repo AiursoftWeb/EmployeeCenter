@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>ดำเนินการ</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>ทั้งบริษัท</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>การลาพักร้อนประจำปี</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>ผู้สมัคร</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>คำขอที่ได้รับการอนุมัติ</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>คำขอที่ถูกปฏิเสธ</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>ศูนย์การอนุมัติ</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>ประวัติการอนุมัติ</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>อนุมัติ</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>อนุมัติแล้ว</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>ได้รับการอนุมัติในเดือนนี้</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>ผู้อนุมัติ</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>รอดำเนินการตรวจสอบทั่วทั้งบริษัท</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>รอดำเนินการตรวจสอบของคุณ</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>ปัจจุบันไม่อยู่ในสำนักงาน</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>วัน</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>การตัดสินใจ</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>หากถูกปฏิเสธโดยผิดพลาด:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>หากพนักงานต้องการยกเลิก:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>สำคัญ: คำตัดสินการอนุมัติถือเป็นที่สิ้นสุด</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>ทีมของฉัน</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>ไม่มีประวัติการอนุมัติ</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>ไม่มีคำขอที่อยู่ระหว่างการพิจารณา</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>เมื่อคุณอนุมัติหรือปฏิเสธคำขอลา คำตัดสินจะไม่สามารถย้อนกลับได้ กรุณาตรวจสอบอย่างรอบคอบก่อนดำเนินการ</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>รอดำเนินการอนุมัติ</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>การอนุมัติที่อยู่ระหว่างการรอ</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>ช่วงเวลา</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>เหตุผล</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>ปฏิเสธ</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>ถูกปฏิเสธ</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>ปฏิเสธในเดือนนี้</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>ถูกตรวจสอบแล้ว</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>ลาพักรักษาพยาบาล</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>ถูกส่งแล้ว</value>
+  </data>
+  <data name="Team on Leave" xml:space="preserve">
+    <value>ทีมที่ลาพักร้อน</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>พนักงานต้องส่งคำขอใหม่</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>พวกเขาสามารถถอนคำขอของตนเองก่อนที่จะเริ่มต้นได้</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>ถึง</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+
+</root>

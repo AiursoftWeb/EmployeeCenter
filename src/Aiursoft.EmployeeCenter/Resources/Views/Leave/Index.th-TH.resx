@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} วัน สำหรับการลาพักร้อนที่ได้รับค่าจ้างต่อปี</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>7 วัน สำหรับการลาป่วยที่ได้รับค่าจ้างต่อปี</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>ดำเนินการ</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>ลาพักร้อนประจำปี</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>ขออนุญาตลา</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>อนุมัติแล้ว</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>ผู้อนุมัติ</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>รอดำเนินการอนุมัติ</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>ถ่ายโอนมา</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>วัน</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>อีกจำนวนวัน</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>ขอให้พักผ่อนอย่างมีความสุข!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>ใน</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>ข้อมูลสำคัญเกี่ยวกับนโยบายการลาของบริษัทเรา</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>สรุปยอดลา</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>ประวัติการลา</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>นโยบายการลา</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>จำนวนสูงสุดที่สามารถนำวันลาไปใช้ต่อได้: {0} วัน (หมดอายุหลังจาก 1 ปี)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>สุขภาพจิต: ไม่ต้องใช้เอกสารประกอบ</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>ยอดคงเหลือการลาของฉัน</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>การลาถัดไป</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>ไม่ต้องขออนุมัติ ใช้งานได้ทันที</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>ไม่พบประวัติการลา</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>ไม่มีการลาที่จะมาถึง</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>ของ</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>รอดำเนินการ</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>คำขอที่อยู่ระหว่างการพิจารณา</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>ช่วงเวลา</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>โรคทางร่างกาย: ต้องใช้ใบรับรองแพทย์</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>กรุณาตรวจสอบให้แน่ใจว่าการลาของคุณสอดคล้องกับนโยบายของบริษัท งานทั้งหมดได้ถูกส่งมอบเรียบร้อยแล้ว และคุณได้ส่งอีเมลถึงทีมของคุณแล้ว</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>การกระทำเร็ว</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>ปฏิเสธ</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>คำขอ</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>ต้องได้รับการอนุมัติจากผู้จัดการก่อนใช้</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>ลาพักผ่อนป่วย</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>ถูกส่งแล้ว</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>เอกสารประกอบที่ต้องส่งหลังจากวันหยุดสิ้นสุด</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>การขาดงานโดยไม่ได้รับอนุญาตถือว่าเป็นการขาดงานโดยไม่ได้รับอนุญาต และจะส่งผลให้ต้องหักเงินเดือนและมีการลงโทษตามระเบียบ</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>วันที่ไม่ได้ใช้จะถูกนำมารวมในปีถัดไป</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>การลาที่จะมาถึง</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>ถอนคำขอ</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>ถูกถอนการขอ</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>ประวัติการขอลาของคุณและสถานะการอนุมัติ</value>
+  </data>
+
+</root>

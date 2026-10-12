@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A read-only Cloudflare API token used by DNS Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Токен Cloudflare API лише для читання, який використовується DNS Audit. Надішіть дозволи DNS Settings:Read для всіх облікових записів та DNS:Read для всіх зон.</value>
+  </data>
+  <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Токен API Cloudflare лише для читання, що використовується Service Audit. Надайте права DNS Settings:Read для всіх облікових записів та DNS:Read для всіх зон.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
+    <value>Системний промпт штучного інтелекту</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Дозволити користувачеві змінювати прізвисько</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Дозволити користувачам змінювати свій псевдонім на сторінці керування профілем.</value>
+  </data>
+  <data name="Annual Leave Per Year" xml:space="preserve">
+    <value>Річний відпустка на рік</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>URL домашньої сторінки бренду</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Назва бренду</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API Token</value>
+  </data>
+  <data name="Default Payroll Currency" xml:space="preserve">
+    <value>За замовчуванням валюта заробітної плати</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>Примусове призначення проекту</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>Номер ICP</value>
+  </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Системний запит протоколу засідання</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Логотип проекту</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Назва проекту</value>
+  </data>
+  <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
+    <value>Вимагати від співробітників пов’язати принаймні один проект під час подання тижневого звіту.</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Назва бренду компанії або проекту. Наприклад: Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>За замовчуванням використовувана валюта при видачі нової виплати заробітної плати.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Номер ліцензії ICP для користувачів материкового Китаю. Залиште порожнім, щоб приховати.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Логотип проекту, що відображається в навбарі та футері. Підтримується jpg, png, svg.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Назва проекту, яка відображається на фронтенді.</value>
+  </data>
+  <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
+    <value>Кількість оплачуваних днів щорічного відпустки, що виділяються кожному працівникові щорічно.</value>
+  </data>
+  <data name="The system prompt for the AI assistant." xml:space="preserve">
+    <value>Системне повідомлення для штучного інтелекту.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Системний запит, що використовується для створення протоколів засідань на основі стенограм.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL компанії або проекту. Наприклад, https://www.aiursoft.com</value>
+  </data>
+
+</root>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Nume cont</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Tip cont</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>Logica contabilă urmează un „Model de Pools”: banii curg dintr-un rezervor (sursă) într-un alt rezervor (destinație). Înțelegerea acestor cinci elemente este esențială pentru contabilitatea în înregistrare dublă.</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Activ</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Depuneri bancare, Creanțe (bani pe care alții îi datorează), Servere/Laptopuri.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Împrumut de la Director</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Împrumutarea banilor = Creștere; Rambursarea banilor = Scădere.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Numerar în casă, sau bunuri care pot fi convertite în numerar.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Cheltuieli suportate</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Creează</value>
+  </data>
+  <data name="Create New Account" xml:space="preserve">
+    <value>Creează un cont nou</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valută</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Datoriile pe care compania trebuie să le ramburseze în viitor.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Definiție:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Direcție:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Împrumuturi de la director (banii pe care i-ai împrumutat companiei), Facturi neachitate, Datorii la cardul de credit.</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>de ex. HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>de ex. Statrys Checking</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Echitate</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Exemple:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Cheltuială</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Din (Surse)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Venit</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Datorie</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Logica</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Bani câștigați</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Bani câștigați prin vânzarea produselor sau furnizarea de servicii. Crește profitul.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Banii curg din cont pentru a elimina datoria</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Banii curg din cont în cheltuieli</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Banii curg din datorie către contul bancar</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Banii curg din echitate în contul bancar</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Bani generați ca venit în cont bancar</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Bani intra = Creștere; Bani ieșire = Scădere.</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Cheltuielile efectuate pentru menținerea operațiunilor companiei. Scade profitul.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Plătire pentru servere</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Foaie rapidă de referință</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Rambursarea Directorului</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Venituri din vânzări, Taxe pentru servicii, Venituri din dobânzi</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Scenariu</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Vânzarea de software</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Taxe pentru gazdă server, Comisioane bancare, Salarii</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Capital social (investiție inițială), Profituri reținute (profit acumulat).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Investiția acționarilor</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Investiția acționarilor/profit = Creștere; Retragerea acționarilor/pierdere = Scădere.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Afișare în Panou</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Valoarea netă a companiei. Formulă: Active - Datorii = Capital propriu.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Ceea ce îi datoriți altora</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Lucruri de care deții</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>La (Destinație)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Înțelegerea Elementelor Contabile</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Valoarea care îți aparține cu adevărat</value>
+  </data>
+
+</root>

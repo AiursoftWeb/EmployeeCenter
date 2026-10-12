@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Adjusted to Rest Day (调休放假)" xml:space="preserve">
+    <value>Điều chỉnh thành ngày nghỉ (điều chỉnh nghỉ)</value>
+  </data>
+  <data name="Adjusted to Work Day (调休上班)" xml:space="preserve">
+    <value>Ngày làm việc bù (điều chỉnh làm việc)</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Tháng Tư</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Tháng Tám</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>Chú thích Lịch</value>
+  </data>
+  <data name="Changes affect leave calculations immediately" xml:space="preserve">
+    <value>Thay đổi ảnh hưởng đến tính toán nghỉ phép ngay lập tức</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Tháng Mười Hai</value>
+  </data>
+  <data name="Failed to update" xml:space="preserve">
+    <value>Thất bại khi cập nhật</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Tháng Hai</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>Thứ Bảy</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Điều chỉnh ngày lễ</value>
+  </data>
+  <data name="Holiday Calendar" xml:space="preserve">
+    <value>Lịch nghỉ lễ</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Hướng dẫn</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Tháng Một</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Tháng Bảy</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Tháng Sáu</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Tháng Ba</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Tháng Năm</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>Thứ Hai</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Tiếp theo</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Tháng Mười Một</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Tháng Mười</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Trước</value>
+  </data>
+  <data name="Rest" xml:space="preserve">
+    <value>Nghỉ</value>
+  </data>
+  <data name="Right-click any day to toggle its status" xml:space="preserve">
+    <value>Nhấp chuột phải vào bất kỳ ngày nào để chuyển đổi trạng thái của nó</value>
+  </data>
+  <data name="Right-click on any day to toggle between working day and rest day. Changes take effect immediately." xml:space="preserve">
+    <value>Nhấp chuột phải vào bất kỳ ngày nào để chuyển đổi giữa ngày làm việc và ngày nghỉ. Thay đổi có hiệu lực ngay lập tức.</value>
+  </data>
+  <data name="Right-click on any day to toggle its status." xml:space="preserve">
+    <value>Nhấp chuột phải vào bất kỳ ngày nào để chuyển đổi trạng thái của nó.</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>Thứ Bảy</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Tháng Chín</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>Chủ Nhật</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>Thứ Năm</value>
+  </data>
+  <data name="Toggle again to revert to normal" xml:space="preserve">
+    <value>Bấm lại để khôi phục về trạng thái bình thường</value>
+  </data>
+  <data name="Toggling" xml:space="preserve">
+    <value>Đang chuyển đổi</value>
+  </data>
+  <data name="Toggling a weekend/holiday makes it a work day" xml:space="preserve">
+    <value>Bấm chuyển đổi ngày cuối tuần/ngày lễ sẽ biến nó thành ngày làm việc</value>
+  </data>
+  <data name="Toggling a work day makes it a rest day" xml:space="preserve">
+    <value>Bấm chuyển đổi một ngày làm việc sẽ biến nó thành ngày nghỉ</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>Thứ Ba</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Đã cập nhật</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>Thứ Tư</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>Cuối tuần / Ngày lễ</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Làm việc</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>Ngày làm việc</value>
+  </data>
+
+</root>

@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Denied" xml:space="preserve">
+    <value>存取被拒</value>
+  </data>
+  <data name="Account Settings" xml:space="preserve">
+    <value>帳戶設定</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>帳號</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>新增 SSH 金鑰</value>
+  </data>
+  <data name="Additional Info (Mainland/HK)" xml:space="preserve">
+    <value>額外資訊（內地／香港）</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>管理員</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>管理</value>
+  </data>
+  <data name="Administrative Details" xml:space="preserve">
+    <value>管理細節</value>
+  </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI 助理</value>
+  </data>
+  <data name="Aiursoft Employee Center" xml:space="preserve">
+    <value>Aiursoft 員工中心</value>
+  </data>
+  <data name="Aiursoft Template" xml:space="preserve">
+    <value>Aiursoft 範本</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>匿名</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>申請休假</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>審核中心</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>核准紀錄</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>同意</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>已核准</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>已核准的專案</value>
+  </data>
+  <data name="Asset Categories" xml:space="preserve">
+    <value>資產分類</value>
+  </data>
+  <data name="Asset Models" xml:space="preserve">
+    <value>資產型號</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>資產</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>指派</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>分配資產</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>音訊</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>稽核服務</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>背景工作</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>錯誤的請求</value>
+  </data>
+  <data name="Bank Info" xml:space="preserve">
+    <value>銀行資訊</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>基本資訊</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>藍圖</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>藍圖</value>
+  </data>
+  <data name="Business License" xml:space="preserve">
+    <value>營業登記證</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>職涯</value>
+  </data>
+  <data name="Certificate of Employeement" xml:space="preserve">
+    <value>僱用證明</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>僱用證明</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>所得證明</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>列印證明</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>變更大頭貼</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>變更銀行資訊</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>變更密碼</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>變更個人資料</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>聊天</value>
+  </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>統一編號</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>點擊登入</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>代碼</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>收款渠道</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>評論</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>公司實體</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>公司實體詳細資訊</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>公司實體資訊</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>公司資訊諮詢</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>公司無形資產</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>公司名稱</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>公司公開合約</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>公司類型</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>確認刪除</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>合約財務詳情</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>合約財務統計</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>合約</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>建立</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>建立帳戶</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>建立資產</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>建立公司實體</value>
+  </data>
+  <data name="Create New" xml:space="preserve">
+    <value>建立新項目</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>建立新藍圖資料夾</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>建立新合約</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>建立新資料夾</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>建立入職任務</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>建立密碼</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>建立升遷</value>
+  </data>
+  <data name="Create Question" xml:space="preserve">
+    <value>建立問題</value>
+  </data>
+  <data name="Create Questionnaire" xml:space="preserve">
+    <value>建立問卷</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>建立角色</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>建立伺服器</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>建立服務</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>建立交易</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>建立使用者</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>客戶關係</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>客戶關係</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>儀表板</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>刪除角色</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>刪除使用者</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>詳細資料</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>開發</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>目錄</value>
+  </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS 稽核</value>
+  </data>
+  <data name="Download / View" xml:space="preserve">
+    <value>下載 / 查看</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>編輯帳戶</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>編輯資產</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>編輯藍圖</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>編輯藍圖資料夾</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>編輯公司實體</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>編輯合約</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>編輯客戶關係</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>編輯資料夾</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>編輯會議錄音</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>編輯入職任務</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>修改密碼</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>編輯薪資單</value>
+  </data>
+  <data name="Edit Question" xml:space="preserve">
+    <value>編輯問題</value>
+  </data>
+  <data name="Edit Questionnaire" xml:space="preserve">
+    <value>編輯問卷</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>編輯需求</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>編輯角色</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>編輯伺服器</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>編輯服務</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>編輯 SSH 金鑰</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>編輯交易</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>編輯逐字稿</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>編輯使用者</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>編輯週報</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>編輯器</value>
+  </data>
+  <data name="Employee Center" xml:space="preserve">
+    <value>員工中心</value>
+  </data>
+  <data name="Employee Signals" xml:space="preserve">
+    <value>員工訊號</value>
+  </data>
+  <data name="English Name" xml:space="preserve">
+    <value>英文名稱</value>
+  </data>
+  <data name="Entities List" xml:space="preserve">
+    <value>實體清單</value>
+  </data>
+  <data name="Entity Code" xml:space="preserve">
+    <value>單位代碼</value>
+  </data>
+  <data name="Entity Details" xml:space="preserve">
+    <value>實體詳細資訊</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>錯誤</value>
+  </data>
+  <data name="Establishment" xml:space="preserve">
+    <value>成立日期</value>
+  </data>
+  <data name="Expiry Date" xml:space="preserve">
+    <value>到期日</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>功能</value>
+  </data>
+  <data name="Fill Questionnaire" xml:space="preserve">
+    <value>填寫問卷</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>財務</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>全域設定</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>假期調整</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>人力資源</value>
+  </data>
+  <data name="Images &amp; Files" xml:space="preserve">
+    <value>圖片與檔案</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>從 Zip 匯入合約</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>請假通知</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>索引伺服器</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>資訊</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>基礎設施資料品質</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>內部伺服器錯誤</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>發票開立</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>發放薪資</value>
+  </data>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT資產</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>休假</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>休假管理</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>法律</value>
+  </data>
+  <data name="Legal Rep" xml:space="preserve">
+    <value>法定代理人</value>
+  </data>
+  <data name="Legal Rep / Director" xml:space="preserve">
+    <value>法定代理人 / 董事</value>
+  </data>
+  <data name="Locations" xml:space="preserve">
+    <value>地點</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>帳號鎖定</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>登入以使用所有功能。</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>維護個人檔案</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>管理</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>管理資產</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>管理音訊分享</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>管理藍圖</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>管理類別</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>管理公司實體</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>管理合約</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>管理客戶關係</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>管理 DNS 提供者</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>管理回饋</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>管理無形資產</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>管理 IT 資產</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>管理帳簿</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>管理地點</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>管理市場管道</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>管理模型</value>
+  </data>
+  <data name="Manage Onboarding" xml:space="preserve">
+    <value>管理入職流程</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>管理入職任務</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>管理密碼分享</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>薪資管理</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>管理列印</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>管理供應商</value>
+  </data>
+  <data name="Manage Questions" xml:space="preserve">
+    <value>管理問題</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>管理需求</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>管理共享</value>
+  </data>
+  <data name="Manage Tasks" xml:space="preserve">
+    <value>管理任務</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>管理供應商</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>市場管道</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>會議紀錄</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>會議記錄</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>會議記錄稿</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>任務</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>移動合約</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>我的資產</value>
+  </data>
+  <data name="My Contracts" xml:space="preserve">
+    <value>我的合約</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>我的資產</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>我的休假餘額</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>我的薪資</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>我的報銷</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>我的報告路線</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>我的需求</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>找不到</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>OCR 結果</value>
+  </data>
+  <data name="Official Seal" xml:space="preserve">
+    <value>官方印信</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>新進人員訓練</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>新進人員流程</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>密碼詳情</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>密碼管理</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>薪資明細</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>薪資</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>待審核</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>權限詳細資訊</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>權限</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>個人</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>預覽</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>列印</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>列印證明文件</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>個人檔案</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>檔案設定</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>專案需求</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>升遷紀錄</value>
+  </data>
+  <data name="Questionnaire Responses" xml:space="preserve">
+    <value>問卷回覆</value>
+  </data>
+  <data name="Reg Capital" xml:space="preserve">
+    <value>註冊資本</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>註冊</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>報銷</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>拒絕</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>拒絕</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>重新命名會議錄音</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>回覆</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>回覆至</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>報告路線</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>要求修改</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>要求修改</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>需求</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>需求細節</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>需求已成功儲存。</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>需求標題</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>資源</value>
+  </data>
+  <data name="Response Detail" xml:space="preserve">
+    <value>回應詳情</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>受限</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>角色詳細資訊</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>角色</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>儲存變更</value>
+  </data>
+  <data name="SCR Location" xml:space="preserve">
+    <value>SCR 地點</value>
+  </data>
+  <data name="Secretary" xml:space="preserve">
+    <value>秘書</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>伺服器</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>服務稽核</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>服務</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>服務儀表板</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Shared Info" xml:space="preserve">
+    <value>共用資訊</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>共用密碼</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH 金鑰</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>提交評論</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>提交審核</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>提交新需求</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>提交需求</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>系統</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>系統資訊</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>團隊行事曆</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>範本</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>交易</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>未經授權</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>上傳音訊</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>使用者詳細資料</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>使用者</value>
+  </data>
+  <data name="Vendors" xml:space="preserve">
+    <value>供應商</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>檢視藍圖</value>
+  </data>
+  <data name="View Contracts" xml:space="preserve">
+    <value>檢視合約</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>檢視客戶關係</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>檢視市場管道</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>週報</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>撰寫評論...</value>
+  </data>
+
+</root>

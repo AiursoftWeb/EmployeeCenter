@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} dni urlopu wypłaconego rocznie</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>7 dni urlopu chorobowego opłacanego rocznie</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Działania</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Urlop wypoczynkowy</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Złóż wniosek o urlop</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Zatwierdzone</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Zatwierdzający</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>oczekujące na zatwierdzenie</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>Przeniesione</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>dni</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>dni od wyjazdu</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>Miłego urlopu!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>w</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>Kluczowe informacje dotyczące naszych zasad dotyczących urlopów</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>Podsumowanie stanu urlopu</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>Historia urlopów</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>Polityka urlopowa</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>Maksymalne przenoszenie: {0} dni (wygasa po 1 roku)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>Zdrowie psychiczne: nie wymagane dokumenty</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Moje saldo urlopów</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>Następny urlop</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>Brak potrzeby zatwierdzenia, można od razu użyć</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>Brak historii urlopów.</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>brak nadchodzących urlopów</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>z</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>W trakcie rozpatrywania</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>Oczekujące wnioski</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Okres</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>Choroba fizyczna: wymagane potwierdzenie lekarskie</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>Upewnij się, że Twoje urlop spełnia politykę firmy, cała praca została przekazana i wysłałeś email do zespołu.</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>Szybkie działania</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Odrzucono</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>żądania</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>Wymaga zgody menedżera przed użyciem</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Urlop chorobowy</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Złożone</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>Dokumenty potwierdzające wymagane po zakończeniu urlopu</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>Nieuprawnione nieobecności uznawane są za nieobecność bez zezwolenia i skutkują obniżeniem wynagrodzenia oraz karnymi sankcjami.</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>Niewykorzystane dni przenoszone są na następny rok</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>Nadchodząca urlop</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Wycofaj</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Odwołane</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>Twoje wnioski o urlop i ich status</value>
+  </data>
+
+</root>

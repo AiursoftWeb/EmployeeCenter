@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Are you sure you want to reject asset" xml:space="preserve">
+    <value>확실하게 자산 수락을 거부하시겠습니까?</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>자산 태그</value>
+  </data>
+  <data name="Assets assigned to me" xml:space="preserve">
+    <value>내게 할당된 자산</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Confirm Receipt" xml:space="preserve">
+    <value>수령 확인</value>
+  </data>
+  <data name="Confirm Reject" xml:space="preserve">
+    <value>확인 후 거부</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>사용 중</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>여기가 비어있습니다!</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>위치</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>모델</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>내 자산</value>
+  </data>
+  <data name="No assets assigned to you yet." xml:space="preserve">
+    <value>아직 귀하에게 할당된 자산이 없습니다.</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>수락 대기</value>
+  </data>
+  <data name="Please explain why you are rejecting this asset (e.g. damaged, wrong model)..." xml:space="preserve">
+    <value>자산 수령을 거부하는 이유를 설명해 주세요 (예: 손상됨, 모델 오류 등)...</value>
+  </data>
+  <data name="Reason for rejection" xml:space="preserve">
+    <value>반려 사유</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>거부</value>
+  </data>
+  <data name="Reject Asset Receipt" xml:space="preserve">
+    <value>자산 수령 거부</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>아직 귀하에게 할당된 자산이 없습니다. 장비가 필요한 경우 HR 또는 IT 부서에 문의해 주세요.</value>
+  </data>
+
+</root>

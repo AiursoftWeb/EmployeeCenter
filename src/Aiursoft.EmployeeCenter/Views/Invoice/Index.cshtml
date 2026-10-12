@@ -1,0 +1,49 @@
+@model Aiursoft.EmployeeCenter.Models.InvoiceViewModels.IndexViewModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@Localizer["Issue Invoice"]</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">@Localizer["Step 1: Select Entities"]</h6>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="get">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">@Localizer["Seller (Payee)"]</label>
+                            <select name="sellerId" class="form-control" required>
+                                @foreach (var entity in Model.Entities)
+                                {
+                                    <option value="@entity.Id">@entity.CompanyName (@entity.EntityCode)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">@Localizer["Buyer (Payer)"]</label>
+                            <select name="buyerId" class="form-control">
+                                <option value="">-- @Localizer["Manual Input"] --</option>
+                                @foreach (var entity in Model.Entities)
+                                {
+                                    <option value="@entity.Id">@entity.CompanyName (@entity.EntityCode)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> @Localizer["Next Step"]
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

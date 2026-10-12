@@ -1,0 +1,103 @@
+@model Aiursoft.EmployeeCenter.Models.PromotionHistoryViewModels.CreateViewModel
+@{
+    // ReSharper disable once Razor.LayoutNotResolved
+    Layout = "~/Layout/UiStackLayout.cshtml";
+}
+
+<div class="container-fluid p-0">
+    <h1 class="h3 mb-3">@Localizer["Create Promotion"]</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">@Localizer["Promotion Details"]</h5>
+                    <h6 class="card-subtitle text-muted">@Localizer["Manually record a promotion for a user."]</h6>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        @await Html.PartialAsync("_UserSelector", ("UserId", "UserDisplayName", Model.UserId, Model.UserDisplayName))
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="OldJobLevel" class="form-label"></label>
+                                    <input asp-for="OldJobLevel" id="OldJobLevel" class="form-control" readonly />
+                                    <span asp-validation-for="OldJobLevel" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="NewJobLevel" class="form-label"></label>
+                                    <input asp-for="NewJobLevel" class="form-control" />
+                                    <span asp-validation-for="NewJobLevel" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="OldTitle" class="form-label"></label>
+                                    <input asp-for="OldTitle" id="OldTitle" class="form-control" readonly />
+                                    <span asp-validation-for="OldTitle" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="NewTitle" class="form-label"></label>
+                                    <input asp-for="NewTitle" class="form-control" />
+                                    <span asp-validation-for="NewTitle" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
+                            <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to List"]</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const userIdHidden = document.getElementById('user-id-hidden-UserId');
+        const oldJobLevelInput = document.getElementById('OldJobLevel');
+        const oldTitleInput = document.getElementById('OldTitle');
+        
+        let lastUserId = userIdHidden.value;
+        
+        // If we have an initial UserId, fetch it
+        if (lastUserId) {
+            fetchUserPromotionInfo(lastUserId);
+        }
+
+        setInterval(() => {
+            if (userIdHidden.value !== lastUserId) {
+                lastUserId = userIdHidden.value;
+                if (lastUserId) {
+                    fetchUserPromotionInfo(lastUserId);
+                } else {
+                    oldJobLevelInput.value = '';
+                    oldTitleInput.value = '';
+                }
+            }
+        }, 300);
+
+        function fetchUserPromotionInfo(userId) {
+            fetch(`/api/users/details/${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    oldJobLevelInput.value = data.jobLevel || '';
+                    oldTitleInput.value = data.title || '';
+                })
+                .catch(error => console.error('Error fetching user info:', error));
+        }
+    });
+</script>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>कार्यवाही</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>राशि</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>सूची में वापस</value>
+  </data>
+  <data name="Counterparty" xml:space="preserve">
+    <value>पक्षकार</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>व्यय</value>
+  </data>
+  <data name="Expense Summary" xml:space="preserve">
+    <value>व्यय सारांश</value>
+  </data>
+  <data name="Finance Details" xml:space="preserve">
+    <value>वित्त विवरण</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>आय</value>
+  </data>
+  <data name="Income Summary" xml:space="preserve">
+    <value>आय सारांश</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>आंतरिक</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>पद्धति</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>अन्य</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>रुका हुआ</value>
+  </data>
+  <data name="Pending Collection" xml:space="preserve">
+    <value>अदायगी बाकी</value>
+  </data>
+  <data name="Pending Payment" xml:space="preserve">
+    <value>लंबित भुगतान</value>
+  </data>
+  <data name="Related Collection Channels" xml:space="preserve">
+    <value>संबंधित संग्रह चैनल</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>अवस्था</value>
+  </data>
+  <data name="Terminated" xml:space="preserve">
+    <value>समाप्त</value>
+  </data>
+  <data name="Total Expected" xml:space="preserve">
+    <value>कुल अपेक्षित</value>
+  </data>
+  <data name="Total Paid" xml:space="preserve">
+    <value>कुल भुगतान</value>
+  </data>
+  <data name="Total Received" xml:space="preserve">
+    <value>कुल प्राप्त</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>दृश्य</value>
+  </data>
+
+</root>

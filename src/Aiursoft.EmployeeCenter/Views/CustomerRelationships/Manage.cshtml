@@ -1,0 +1,119 @@
+@model Aiursoft.EmployeeCenter.Models.CustomerRelationshipViewModels.IndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Manage Customer Relations"]</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="align-middle" data-lucide="plus"></i> @Localizer["Create Customer Relationship"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Customer Relationships"]</h5>
+    </div>
+    @if (!Model.CustomerRelationships.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                <div class="alert-message">
+                    @Localizer["No customer relationships found."]
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Name"]</th>
+                    <th>@Localizer["Job Title"]</th>
+                    <th>@Localizer["Company Entity"]</th>
+                    <th>@Localizer["Email"]</th>
+                    <th>@Localizer["Phone"]</th>
+                    <th>@Localizer["Last Updated"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var relationship in Model.CustomerRelationships)
+                {
+                    <tr>
+                        <td>
+                            @relationship.Name
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(relationship.JobTitle))
+                            {
+                                @relationship.JobTitle
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
+                        </td>
+                        <td>
+                            @if (relationship.CompanyEntity != null)
+                            {
+                                <a asp-controller="CompanyEntity" asp-action="Details" asp-route-id="@relationship.CompanyEntityId">
+                                    @relationship.CompanyEntity.CompanyName
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(relationship.Email))
+                            {
+                                <a href="mailto:@relationship.Email">@relationship.Email</a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
+                        </td>
+                        <td>
+                            @relationship.Phone
+                        </td>
+                        <td>
+                             <label class="text-muted" data-utc-time="@relationship.UpdateTime.ToHtmlDateTime()"></label>
+                        </td>
+                        <td class="text-end">
+                            <div class="dropdown">
+                                <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="align-middle" data-lucide="more-horizontal"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-action="Details" asp-route-id="@relationship.Id">@Localizer["Details"]</a></li>
+                                    <li><a class="dropdown-item" asp-action="Edit" asp-route-id="@relationship.Id">@Localizer["Edit"]</a></li>
+                                    <li>
+                                        <form asp-action="Delete" asp-route-id="@relationship.Id" method="post" onsubmit="return confirm(getLocalizedText('delete-confirm', 'Are you sure you want to delete this customer relationship?'));">
+                                            <button type="submit" class="dropdown-item text-danger">@Localizer["Delete"]</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<div id="loc-data" class="d-none">
+    <span data-key="delete-confirm">@Localizer["Are you sure you want to delete this customer relationship?"]</span>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+}

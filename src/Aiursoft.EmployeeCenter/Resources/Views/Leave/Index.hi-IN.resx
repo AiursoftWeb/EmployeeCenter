@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>वर्ष में {0} दिन वेतन वाले वार्षिक छुट्टी</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>वर्ष में 7 दिन वेतन युक्त बीमारी का छुट्टी</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>क्रियाएँ</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>वार्षिक छुट्टी</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>छुट्टी के लिए आवेदन करें</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>अनुमोदित</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>अनुमोदक</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>अनुमोदन का इंतजार</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>ले गया</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>दिनों के दूर</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>एक शानदार ब्रेक का आनंद लें!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>के अंदर</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>हमारी छुट्टी नीति के बारे में महत्वपूर्ण जानकारी</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>छुट्टी बैलेंस सारांश</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>छुट्टी इतिहास</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>छुट्टी नीति</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>अधिकतम कैरीओवर: {0} दिन (1 वर्ष के बाद समाप्त होता है)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>मानसिक स्वास्थ्य: कोई दस्तावेज आवश्यक नहीं</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>मेरा छुट्टी बैलेंस</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>अगला छुट्टी</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>अनुमोदन की आवश्यकता नहीं है, तुरंत उपयोग किया जा सकता है</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>कोई छुट्टी इतिहास नहीं मिला।</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>कोई आगामी छुट्टी नहीं</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>के</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>लंबित</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>लंबित अनुरोध</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>अवधि</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>शारीरिक बीमारी: चिकित्सा प्रमाणपत्र आवश्यक है</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>कृपया यह सुनिश्चित करें कि आपकी छुट्टी कंपनी की नीति के अनुसार है, सभी काम हस्तांतरित कर दिए गए हैं, और आपने अपनी टीम को ईमेल भेज दिया है।</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>त्वरित कार्रवाई</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>अस्वीकृत</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>अनुरोध</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>उपयोग से पहले प्रबंधक की अनुमति आवश्यक है</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>बीमारी का छुट्टी</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>दाखिल किया गया</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>छुट्टी के बाद समर्थन प्रलेख आवश्यक हैं</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>अनधिकृत अनुपस्थिति को अनुमति के बिना अनुपस्थिति के रूप में माना जाएगा और इसके परिणामस्वरूप वेतन कटौती और अनुशासनात्मक कार्रवाई होगी।</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>अनुपयोगी दिन अगले वर्ष में ले जाए जाते हैं</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>आगामी छुट्टी</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>वापस लें</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>वापस लिया गया</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>आपके छुट्टी के आवेदन और उनकी स्थिति</value>
+  </data>
+
+</root>

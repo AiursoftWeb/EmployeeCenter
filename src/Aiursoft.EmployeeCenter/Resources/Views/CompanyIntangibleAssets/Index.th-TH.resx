@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>การกระทำ</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>ใช้งานอยู่</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>กำลังดำเนินการ</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>ผู้รับมอบหมาย</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>สังกัดหน่วยงาน</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>สินทรัพย์ไม่มีตัวตนของบริษัท</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="My Assigned Assets" xml:space="preserve">
+    <value>สินทรัพย์ที่มอบหมายให้ผม</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>ไม่ระบุ</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="No assigned assets found." xml:space="preserve">
+    <value>ไม่พบสินทรัพย์ที่กำหนดให้</value>
+  </data>
+  <data name="No shared assets found." xml:space="preserve">
+    <value>ไม่พบทรัพย์สินร่วมกัน</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>ถูกเพิกถอน</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>กำลังทำงาน</value>
+  </data>
+  <data name="Shared Intangible Assets" xml:space="preserve">
+    <value>สินทรัพย์ไม่มีตัวตนที่แบ่งปัน</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>ผู้จัดหา</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>ถูกระงับ</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+
+</root>

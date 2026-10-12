@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Address" xml:space="preserve">
+    <value>Adress</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Tillbaka till listan</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Grundläggande information</value>
+  </data>
+  <data name="Company Entity" xml:space="preserve">
+    <value>Företagsentitet</value>
+  </data>
+  <data name="Customer Relationship Details" xml:space="preserve">
+    <value>Kundrelationer detaljer</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Redigera</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-post</value>
+  </data>
+  <data name="Job Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>Ej tillgängligt</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="No remark provided." xml:space="preserve">
+    <value>Ingen kommentar tillhandahållen.</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Anteckning</value>
+  </data>
+  <data name="WeChat ID" xml:space="preserve">
+    <value>WeChat-ID</value>
+  </data>
+
+</root>

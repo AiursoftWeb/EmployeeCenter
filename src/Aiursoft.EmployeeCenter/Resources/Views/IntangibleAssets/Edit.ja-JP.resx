@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account (Optional)" xml:space="preserve">
+    <value>アカウント（任意）</value>
+  </data>
+  <data name="Are you sure you want to delete this asset?" xml:space="preserve">
+    <value>この資産を削除してもよろしいですか？</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>担当者</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="Edit Intangible Asset" xml:space="preserve">
+    <value>無形資産の編集</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>有効期限</value>
+  </data>
+  <data name="Filing / Certificate Number" xml:space="preserve">
+    <value>出願 / 証明書番号</value>
+  </data>
+  <data name="Filing Query Method" xml:space="preserve">
+    <value>出願照会方法</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>出願対象</value>
+  </data>
+  <data name="Invoice File" xml:space="preserve">
+    <value>請求書ファイル</value>
+  </data>
+  <data name="Invoice URL" xml:space="preserve">
+    <value>請求書のURL</value>
+  </data>
+  <data name="Management System Entry URL" xml:space="preserve">
+    <value>管理システムエントリURL</value>
+  </data>
+  <data name="Name / Description" xml:space="preserve">
+    <value>名前 / 説明</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>新規</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="Password (Optional)" xml:space="preserve">
+    <value>パスワード（任意）</value>
+  </data>
+  <data name="Public Intangible Asset" xml:space="preserve">
+    <value>公開無形資産</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>購入価格</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>登録証明書</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>登録日</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>再読み込み</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>変更を保存</value>
+  </data>
+  <data name="Select Entity" xml:space="preserve">
+    <value>エンティティを選択</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="Supplier / Registrar" xml:space="preserve">
+    <value>納入元 / 登録機関</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>商標画像</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>種類</value>
+  </data>
+
+</root>

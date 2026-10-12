@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Are you sure you want to reject asset" xml:space="preserve">
+    <value>アセットの受領を拒否してもよろしいですか？</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>資産タグ</value>
+  </data>
+  <data name="Assets assigned to me" xml:space="preserve">
+    <value>私に割り当てられた資産</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Confirm Receipt" xml:space="preserve">
+    <value>受領を確認</value>
+  </data>
+  <data name="Confirm Reject" xml:space="preserve">
+    <value>確認して却下</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>使用中</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>ここには何もありません!</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>場所</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>モデル</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>マイアセット</value>
+  </data>
+  <data name="No assets assigned to you yet." xml:space="preserve">
+    <value>まだあなたの名に割り当てられた資産はありません。</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>受け取り待ち</value>
+  </data>
+  <data name="Please explain why you are rejecting this asset (e.g. damaged, wrong model)..." xml:space="preserve">
+    <value>この資産を拒否する理由を説明してください（例：破損、モデル違いなど）...</value>
+  </data>
+  <data name="Reason for rejection" xml:space="preserve">
+    <value>却下理由</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>却下</value>
+  </data>
+  <data name="Reject Asset Receipt" xml:space="preserve">
+    <value>資産受領の拒否</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>まだ資産が割り当てられていません。機器が必要な場合は、人事またはIT部門にお問い合わせください。</value>
+  </data>
+
+</root>

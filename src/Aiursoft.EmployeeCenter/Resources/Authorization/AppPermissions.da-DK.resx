@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Tilføj global adgangskode</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Tilføj nye roller</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Tilføj nye brugere</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Tillader godkendelse eller afvisning af enhver fraværsansøgning, uanset rapportlinje, og visning af fraværshistorikken for enhver bruger.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Tillader godkendelse eller afvisning af enhver fraværsansøgning, uanset rapportlinje.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Tillader godkendelse, anerkendelse eller afvisning af erstatningsanmodninger fra enhver ansat.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Tillader godkendelse, afvisning eller anmodning om ændringer af projektkrav. Alle kan indsende krav og kommentere på dem.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Giver mulighed for at tildele eller fjerne roller for enhver bruger.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Tillader oprettelse og håndtering af alle aftaler for virksomheden.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Tillader oprettelse og vedligeholdelse af påbegyndelsesopgave-mønstre til nye medarbejdere.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Tillader oprettelse af aftaler for virksomheden. Alle brugere kan se offentlige aftaler som standard.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Tillader oprettelse af nye kontrakter for enhver bruger.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Giver mulighed for at oprette nye globale adgangskoder, der kan deles med andre.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Tillader oprettelse af spørgsmål, spørgeskemaer og visning af feedback-svar.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Tillader oprettelse, redigering og sletning af ugentlige rapporter på vegne af enhver anden bruger.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Tillader oprettelse, opdatering og sletning af blueprints. Alle brugere kan se blueprints som standard.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Tillader oprettelse, opdatering og sletning af indsamlingsspor og deres poster.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Tillader oprettelse, opdatering og sletning af virksomhedsentitetsoplysninger.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Tillader oprettelse, opdatering og sletning af virksomhedsentytetsoplysninger. Alle brugere kan se virksomhedsentytetsoplysninger som standard.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Tillader oprettelse, opdatering og sletning af kundeforholdsinformation. Alle brugere kan se kundeforhold per standard.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Tillader oprettelse, opdatering og sletning af markedskanalinformation. Alle brugere kan se markedskanaler som standard.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Tillader oprettelse, opdatering og sletning af tjenester og DNS-udbydere. Alle brugere kan se tjenester som standard.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Giver mulighed for at oprette, opdatere, afskrive og vedligeholde servere, tjenester, udbydere, DNS-udbydere og domænealiaser.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Giver mulighed for at udstyre og administrere lønsedler for alle brugere.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Giver mulighed for at administrere og slette enhver global adgangskode oprettet af enhver bruger.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Tillader håndtering af virksomhedens finansielle konti og registrering af transaktioner.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Tillader administration af virksomhedens IT-aktiver og immaterielle aktiver (som f.eks. domæner, licenser), herunder kategorier, modeller og enkelte objekter. Kan også tildeles og genskabes aktiver til/frivirkede medarbejdere.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Tillader administration af virksomhedens IT-aktiver, herunder kategorier, modeller og enkelte emner.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Tillader håndtering af virksomhedens IT-aktiver, herunder kategorier, modeller og enkelte genstande. Kan også tildele og genskabe aktiver til/frivillige medarbejdere.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Gør det muligt manuelt at udløse DNS- og tilgængelighedsrevisionen af tjenesterne.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Tillader ændring af rollenavne og deres tildelte tilladelser.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Tillader ændring af brugeroplysninger som e-mail og roller, og kan også nulstille brugeradgangskoder.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Tillader ændring af brugeroplysninger som e-mail og roller, og kan også nulstille brugeradgangskoder.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Tillader udskrivning af ansættelses- og indkomstbeviser for enhver medarbejder.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Tillader udskrivning af ansættelses- og indkomstbeviser for sig selv.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Giver mulighed for at køre den læsebeskyttede Cloudflare DNS-audit og se dens resultater.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Giver tilladelse til at køre den læsebeskyttede serviceaudit og se dets resultater.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Tillader den permanente sletning af roller.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Giver mulighed for den permanente sletning af brugerkonti.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Tillader brugeren at chatte med AI-assistenten for at få oplysninger om virksomheden.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Giver brugeren mulighed for at oprette deres egne ugentlige rapporter.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Giver brugeren mulighed for at oprette ugentlige rapporter i stedet for enhver anden bruger.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Giver brugeren mulighed for at udfylde og indsende feedbackspørgeskemaer.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Brugeren kan indsende ansøgninger om refusion af udgifter.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Tillader upload, sletning af mødeoptagelser og genstart af tale-til-tekst-transskription.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Tillader visning af alle virksomhedskontrakter, herunder de, der er markeret som private.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Tillader visning af alle virksomhedskontrakter, herunder de, der er markeret som private. Alle kan se offentlige kontrakter som standard.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Tillader visning og ændring af globale programindstillinger.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Gør det muligt at se mødeudskrifter og lytte til eller læse udskrifter af optagelser.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Giver mulighed for at se overblik over tjenestens sundhed, observationer og detaljerede auditresultater.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Giver mulighed for at se systemniveauoplysninger og -indstillinger.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Tillader visning af baggrundsjob-dashboardet og administration af jobs.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Tillader visning af kontrakthistorikken for enhver bruger.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Tillader visning af listen over alle indbetalingskanaler og deres poster.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Tillader visning af listen over alle tilladelser og deres tilknytninger til roller og brugere.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Giver mulighed for at se listen over alle brugere.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Giver mulighed for at se listen over roller og deres tildelte tilladelser.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Tillader visning af operativlogfiler for enhver bruger, herunder deres ændringshistorik for bankkort.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Giver mulighed for at se enhver brugers rapporteringslinje, inklusive deres leder, underordnede og kolleger.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Giver adgang til at vise server- og serviceregisteret, deploymentsforbindelser og infrastrukturreferencedata.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Giver mulighed for at se, redigere og slette enhver brugers SSH-nøgler.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Godkend Alle Ferier</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Godkend projektkrav</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Godkend refusion</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Tildel roller til brugere</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Kontrollér DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Revider tjenester</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Revisér tjenester (Legacy)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Chat med AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Opret og administrer virksomhedskontrakter</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Opret virksomhedskontrakter</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Opret kontrakt</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Opret Ugentlig Rapport</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Opret ugentlig rapport for enhver</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>Standard tilladelse for HR.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Slet Roller</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Slet brugere</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Rediger brugeroplysninger</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Rediger rolleinformation</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Rediger brugerinformation</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Giver tilladelse til at oprette nye roller.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Giver tilladelse til at oprette nye brugerkonti.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Giver tilladelse til at genstarte applikationsinstansen. Kan forårsage afbrydelser i tilgængeligheden, men alle indstillinger og cache vil blive genindlæst.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Arveret tilladelse opretholdt for overgang. Tildel &apos;Administrér infrastruktur&apos; til roller, der stadig har brug for adgang.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Legacytilladelse bevaret til overgang. Tildel Vis serviceaudit og Kør serviceaudit efter behov.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Administrer enhver adgangskode</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Administrer hvem som helst ugentlige rapport</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Håndtér aktiver</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Håndtér skitser</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Administrer indkassationskanaler</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Håndtér virksomhedsenheder</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Håndtér kundeforhold</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Håndtér Feedback</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Administrer globale indstillinger</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Administrér infrastruktur</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Håndtér Ferie</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Håndtér Bogføring</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Administrer markedskanaler</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Administrer mødeudskrifter</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Håndtér påbegyndelsesopgaver</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Administrer Løn</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Håndtér tjenester</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Administrér tjenester (Lægacy)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Administrer SSH-nøgler</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Udskriv Certifikater</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Udskriv egne certifikater</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Læs tilladelser</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Læs Roller</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Læs brugere</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Genstart denne app</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Kør serviceaudit</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Indsend Feedback</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Indsend refusion</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Vis enhver virksomhedskontrakt, herunder private</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Vis baggrundstasker</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Se indkassationskanaler</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Vis kontrakthistorik</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Vis infrastruktur</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Vis mødeprotokoller</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Se Rapportlinje</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Vis tjenesteaudit</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Se Systemkontekst</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Vis brugerhandlingslog</value>
+  </data>
+
+</root>

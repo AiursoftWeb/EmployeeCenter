@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>Aiursoft.EmployeeCenter</AssemblyName>
+    <RootNamespace>Aiursoft.EmployeeCenter</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <IsPackable>false</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Company>Aiursoft</Company>
+    <Product>EmployeeCenter</Product>
+    <Description>Aiursoft Employee Center - A modern, feature-rich, and highly extensible foundation for your enterprise operations.</Description>
+    <PackageTags>employee-management enterprise office-center aiursoft</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/aiursoftweb/employeecenter</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/aiursoftweb/employeecenter.git</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Aiursoft.Canon.ScheduledTasks" Version="10.0.14" />
+    <PackageReference Include="Aiursoft.ClickhouseLoggerProvider" Version="10.0.25" />
+    <PackageReference Include="Aiursoft.DbTools.Switchable" Version="10.0.25" />
+    <PackageReference Include="Aiursoft.Scanner" Version="10.0.12" />
+    <PackageReference Include="Aiursoft.UiStack" Version="10.0.26" />
+    <PackageReference Include="HtmlSanitizer" Version="9.2.1039" />
+    <PackageReference Include="Markdig" Version="1.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="10.0.12" />
+    <PackageReference Include="SkiaSharp" Version="4.153.1" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="4.153.1" />
+    <None Include="../../README.md" Pack="true" PackagePath="." />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aiursoft.EmployeeCenter.InMemory\Aiursoft.EmployeeCenter.InMemory.csproj" />
+    <ProjectReference Include="..\Aiursoft.EmployeeCenter.MySql\Aiursoft.EmployeeCenter.MySql.csproj" />
+    <ProjectReference Include="..\Aiursoft.EmployeeCenter.Sqlite\Aiursoft.EmployeeCenter.Sqlite.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About EmployeeCenter" xml:space="preserve">
+    <value>Tietoja EmployeeCenterista</value>
+  </data>
+  <data name="Always create a personal fork before submitting PRs." xml:space="preserve">
+    <value>Luo aina henkilökohtainen forkki ennen kuin lähetät PR:ää.</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>ja oletussalasana on:</value>
+  </data>
+  <data name="Anywhere" xml:space="preserve">
+    <value>Mihin tahansa</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>Säiliöympäristö</value>
+  </data>
+  <data name="Contribute" xml:space="preserve">
+    <value>Osallistu</value>
+  </data>
+  <data name="Deploy" xml:space="preserve">
+    <value>Julkaise</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>Kehitys ja manuaalinen suoritus</value>
+  </data>
+  <data name="Employee Center is a free, open-source, and fully self-hostable enterprise office center. It is designed to empower organizations by providing complete control over their HR, finance, and asset management without any hidden costs or privacy concerns." xml:space="preserve">
+    <value>Employee Center on ilmainen, avoimen lähdekoodin ja täysin omistettavissa oleva yritys-toimistokeskus. Se on suunniteltu antamaan organisaatioille täyden hallinnan henkilöstö-, talous- ja varainhallinnasta ilman piilokuluja tai tietosuojaongelmia.</value>
+  </data>
+  <data name="Employee Center is a project for managing employee information, attendance, leaves, and more. It is built with ASP.NET Core and provides a user-friendly interface for both employees and administrators." xml:space="preserve">
+    <value>Työntekijäkeskus on projekti työntekijätietojen, läsnäolotilastojen, lomien ja muun hallintaan. Se on rakennettu ASP.NET Core -kehitysympäristöön ja tarjoaa käyttäjäystävällisen käyttöliittymän sekä työntekijöille että ylläpitäjille.</value>
+  </data>
+  <data name="Execute `dotnet run` to run the app." xml:space="preserve">
+    <value>Suorita `dotnet run` käynnistääksesi sovelluksen.</value>
+  </data>
+  <data name="Execute `npm install` at `wwwroot` folder." xml:space="preserve">
+    <value>Suorita `npm install` -komento kansiossa `wwwroot`.</value>
+  </data>
+  <data name="First, install Docker." xml:space="preserve">
+    <value>Asenna ensin Docker.</value>
+  </data>
+  <data name="Live Demo" xml:space="preserve">
+    <value>Live Demo</value>
+  </data>
+  <data name="Open the `.sln` file." xml:space="preserve">
+    <value>Avaa tiedosto `.sln`.</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>Tai mukautetulla portilla:</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>Edellytykset</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>Paina F5-näppäintä käynnistääksesi sovelluksen.</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Ominaisuus</value>
+  </data>
+  <data name="Pull Request" xml:space="preserve">
+    <value>Pull Request</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Suositeltu</value>
+  </data>
+  <data name="Report Issue" xml:space="preserve">
+    <value>Ilmoita ongelmasta</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Suorita Dockerissa</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Suorita Ubuntu:ssa</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Suorita Visual Studio -ympäristössä</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Suorita manuaalisesti</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Omalla palvelimella</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>Se käynnistää verkkopalvelimen osoitteessa http://localhost:5000, ja voit testata sovellusta.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>Oletus käyttäjätunnus on:</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>Seuraava skripti asentaa tai päivittää tämän sovelluksen Ubuntu-palvelimellesi. Tukee Ubuntua 25.04.</value>
+  </data>
+  <data name="Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>Suorita seuraavat komennot Linux-käyttöliittymässä:</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Arvo</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>Vieraile osoitteessa http://localhost:5000.</value>
+  </data>
+  <data name="We&apos;re interested in your feedback! You can submit a suggestion or feature request through the issue tracker." xml:space="preserve">
+    <value>Olemme kiinnostuneita palautteestasi! Voit lähettää ehdotuksen tai ominaisuuspyynnön ongelman seurantajärjestelmän kautta.</value>
+  </data>
+
+</root>

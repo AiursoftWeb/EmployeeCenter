@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- Select Category --" xml:space="preserve">
+    <value>-- Выберите категорию --</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Current file:" xml:space="preserve">
+    <value>Текущий файл:</value>
+  </data>
+  <data name="Edit Reimbursement Request" xml:space="preserve">
+    <value>Редактировать запрос на возмещение расходов</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="Keep as Draft" xml:space="preserve">
+    <value>Сохранить как черновик</value>
+  </data>
+  <data name="Meals (餐饮费)" xml:space="preserve">
+    <value>Питание (расходы на питание)</value>
+  </data>
+  <data name="Others (其他)" xml:space="preserve">
+    <value>Другое (Прочее)</value>
+  </data>
+  <data name="Paste supporting email content or other context here..." xml:space="preserve">
+    <value>Вставьте содержимое подтверждающего электронного письма или другой контекст здесь...</value>
+  </data>
+  <data name="Procurement (采购费)" xml:space="preserve">
+    <value>Закупки (расходы на закупки)</value>
+  </data>
+  <data name="Submit Request" xml:space="preserve">
+    <value>Отправить запрос</value>
+  </data>
+  <data name="Transport (交通费)" xml:space="preserve">
+    <value>Транспорт (транспортные расходы)</value>
+  </data>
+  <data name="Travel (差旅费)" xml:space="preserve">
+    <value>Поездка (командировочные расходы)</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>загрузка нового файла заменит его</value>
+  </data>
+  <data name="What was this expense for?" xml:space="preserve">
+    <value>Для чего эта трата?</value>
+  </data>
+
+</root>

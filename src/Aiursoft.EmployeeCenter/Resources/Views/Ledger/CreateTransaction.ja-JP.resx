@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Amount" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Default is 1. How much Destination currency equals 1 Source currency unit." xml:space="preserve">
+    <value>デフォルトは1です。1の送信通貨単位が受信通貨にいくら相当するか。</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="Destination Account" xml:space="preserve">
+    <value>宛先口座</value>
+  </data>
+  <data name="Destination Account (To)" xml:space="preserve">
+    <value>宛先口座（宛先）</value>
+  </data>
+  <data name="e.g. Pay Sleek for Professional Fee" xml:space="preserve">
+    <value>例：Sleek の専門手数料を支払う</value>
+  </data>
+  <data name="Exchange Rate" xml:space="preserve">
+    <value>為替レート</value>
+  </data>
+  <data name="Invoice Attachment" xml:space="preserve">
+    <value>請求書添付ファイル</value>
+  </data>
+  <data name="MT103 Attachment" xml:space="preserve">
+    <value>MT103添付ファイル</value>
+  </data>
+  <data name="New Transaction" xml:space="preserve">
+    <value>新規取引</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>オプション</value>
+  </data>
+  <data name="Payment Voucher Attachment" xml:space="preserve">
+    <value>支払い伝票添付</value>
+  </data>
+  <data name="Record Transaction" xml:space="preserve">
+    <value>取引を記録する</value>
+  </data>
+  <data name="Select Account" xml:space="preserve">
+    <value>アカウントを選択</value>
+  </data>
+  <data name="Source Account" xml:space="preserve">
+    <value>送金元口座</value>
+  </data>
+  <data name="Source Account (From)" xml:space="preserve">
+    <value>出金元口座</value>
+  </data>
+  <data name="Transaction Time" xml:space="preserve">
+    <value>取引時間</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>イベント記録時間は協定世界時です！</value>
+  </data>
+
+</root>

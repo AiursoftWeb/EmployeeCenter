@@ -1,0 +1,81 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function reloadDropdown(url, targetId, placeholder, groupByKey = null, nameKey = "Name", idKey = "Id") {
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            const originalValue = target.value;
+            const reloadBtn = document.querySelector(`.reload-dropdown[data-target="${targetId}"]`);
+            const icon = reloadBtn?.querySelector('i, svg');
+            
+            if (icon) {
+                icon.classList.add('spin');
+            }
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    target.innerHTML = '';
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = '-- ' + placeholder + ' --';
+                    target.appendChild(defaultOption);
+
+                    const getValue = (obj, key) => {
+                        if (obj[key] !== undefined) return obj[key];
+                        // Case-insensitive fallback
+                        const lowerKey = key.toLowerCase();
+                        for (const k in obj) {
+                            if (k.toLowerCase() === lowerKey) return obj[k];
+                        }
+                        return undefined;
+                    };
+
+                    const processItem = (item) => {
+                        const option = document.createElement('option');
+                        const val = getValue(item, idKey);
+                        option.value = val;
+                        option.textContent = getValue(item, nameKey);
+                        if (val != null && originalValue != null && val.toString() === originalValue.toString()) {
+                            option.selected = true;
+                        }
+                        return option;
+                    };
+
+                    if (groupByKey) {
+                        const groups = {};
+                        data.forEach(item => {
+                            const groupName = getValue(item, groupByKey) || 'Other';
+                            if (!groups[groupName]) {
+                                groups[groupName] = document.createElement('optgroup');
+                                groups[groupName].label = groupName;
+                                target.appendChild(groups[groupName]);
+                            }
+                            groups[groupName].appendChild(processItem(item));
+                        });
+                    } else {
+                        data.forEach(item => {
+                            target.appendChild(processItem(item));
+                        });
+                    }
+                })
+                .catch(error => console.error('Error reloading dropdown:', error))
+                .finally(() => {
+                    if (icon) {
+                        icon.classList.remove('spin');
+                    }
+                });
+        }
+
+        document.querySelectorAll('.reload-dropdown').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const url = this.dataset.url;
+                const target = this.dataset.target;
+                const placeholder = this.dataset.placeholder;
+                const groupByKey = this.dataset.groupBy;
+                const nameKey = this.dataset.nameKey || 'Name';
+                const idKey = this.dataset.idKey || 'Id';
+                reloadDropdown(url, target, placeholder, groupByKey, nameKey, idKey);
+            });
+        });
+    });
+</script>

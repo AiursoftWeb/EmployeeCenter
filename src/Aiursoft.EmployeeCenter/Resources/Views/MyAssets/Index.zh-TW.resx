@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Are you sure you want to reject asset" xml:space="preserve">
+    <value>確定要拒絕接收設備嗎？</value>
+  </data>
+  <data name="Asset Tag" xml:space="preserve">
+    <value>資產標籤</value>
+  </data>
+  <data name="Assets assigned to me" xml:space="preserve">
+    <value>指派給我的資源</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Confirm Receipt" xml:space="preserve">
+    <value>確認收貨</value>
+  </data>
+  <data name="Confirm Reject" xml:space="preserve">
+    <value>確認拒絕</value>
+  </data>
+  <data name="In Use" xml:space="preserve">
+    <value>使用中</value>
+  </data>
+  <data name="It&apos;s empty here!" xml:space="preserve">
+    <value>這裡是空的！</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>型號</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>我的資產</value>
+  </data>
+  <data name="No assets assigned to you yet." xml:space="preserve">
+    <value>尚無資產指派給您。</value>
+  </data>
+  <data name="Pending Accept" xml:space="preserve">
+    <value>待確認接收</value>
+  </data>
+  <data name="Please explain why you are rejecting this asset (e.g. damaged, wrong model)..." xml:space="preserve">
+    <value>請說明您拒絕此資產的原因（例如：損壞、型號錯誤）...</value>
+  </data>
+  <data name="Reason for rejection" xml:space="preserve">
+    <value>拒絕原因</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>拒絕</value>
+  </data>
+  <data name="Reject Asset Receipt" xml:space="preserve">
+    <value>拒絕資產接收</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department." xml:space="preserve">
+    <value>目前尚未有任何資產分配給您。如需任何設備，請聯繫 HR 或 IT 部門。</value>
+  </data>
+
+</root>

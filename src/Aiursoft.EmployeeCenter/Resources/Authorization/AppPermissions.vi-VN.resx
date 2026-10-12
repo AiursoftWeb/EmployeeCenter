@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Thêm Mật khẩu Chung</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Thêm Vai trò Mới</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Thêm Người Dùng Mới</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Cho phép phê duyệt hoặc từ chối bất kỳ đơn xin nghỉ nào, bất kể đường báo cáo, và xem lịch sử nghỉ phép của bất kỳ người dùng nào.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Cho phép phê duyệt hoặc từ chối bất kỳ đơn xin nghỉ nào, bất kể đường báo cáo.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Cho phép phê duyệt, ghi nhận hoặc từ chối các yêu cầu hoàn tiền từ bất kỳ nhân viên nào.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Cho phép phê duyệt, từ chối hoặc yêu cầu chỉnh sửa đối với các yêu cầu dự án. Mọi người đều có thể gửi yêu cầu và bình luận về chúng.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Cho phép gán hoặc gỡ bỏ vai trò cho bất kỳ người dùng nào.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Cho phép tạo và quản lý tất cả hợp đồng của công ty.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Cho phép tạo và quản lý các mẫu nhiệm vụ đưa vào làm việc cho nhân viên mới.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Cho phép tạo hợp đồng cho công ty. Mọi người dùng đều có thể xem hợp đồng công khai theo mặc định.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Cho phép tạo hợp đồng mới cho bất kỳ người dùng nào.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Cho phép tạo mật khẩu chung mới có thể được chia sẻ với người khác.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Cho phép tạo câu hỏi, bảng khảo sát và xem phản hồi phản hồi.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Cho phép tạo, chỉnh sửa và xóa báo cáo hàng tuần thay mặt bất kỳ người dùng nào khác.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật và xóa các bản thiết kế. Mọi người dùng đều có thể xem bản thiết kế theo mặc định.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật và xóa các kênh thu thập và hồ sơ của chúng.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật và xóa thông tin thực thể công ty.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật và xóa thông tin thực thể công ty. Mọi người dùng đều có thể xem thông tin thực thể công ty theo mặc định.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật và xóa thông tin quan hệ khách hàng. Mọi người dùng đều có thể xem thông tin quan hệ khách hàng theo mặc định.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật và xóa thông tin kênh thị trường. Mọi người dùng đều có thể xem các kênh thị trường theo mặc định.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật và xóa các dịch vụ và nhà cung cấp DNS. Mọi người dùng đều có thể xem dịch vụ theo mặc định.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Cho phép tạo, cập nhật, ngừng sử dụng và bảo trì các máy chủ, dịch vụ, nhà cung cấp, nhà cung cấp DNS và alias tên miền.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Cho phép phát hành và quản lý phiếu lương cho tất cả người dùng.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Cho phép quản lý và xóa bất kỳ mật khẩu toàn cầu nào được tạo bởi bất kỳ người dùng nào.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Cho phép quản lý các tài khoản tài chính của công ty và ghi nhận các giao dịch.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Cho phép quản lý các tài sản CNTT và tài sản vô hình của công ty (như tên miền, giấy phép), bao gồm danh mục, mẫu mã và các mục riêng lẻ. Cũng cho phép gán và thu hồi tài sản cho/từ nhân viên.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Cho phép quản lý các tài sản CNTT của công ty, bao gồm các danh mục, mẫu mã và các mục riêng lẻ.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Cho phép quản lý các tài sản CNTT của công ty, bao gồm danh mục, mẫu mã và các đơn vị tài sản riêng lẻ. Cũng cho phép gán và thu hồi tài sản cho/từ nhân viên.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Cho phép kích hoạt thủ công kiểm toán DNS và khả năng hoạt động của dịch vụ.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Cho phép sửa đổi tên vai trò và các quyền đã được gán.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Cho phép chỉnh sửa thông tin người dùng như địa chỉ email và vai trò, đồng thời cũng có thể đặt lại mật khẩu người dùng.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Cho phép sửa đổi thông tin chi tiết của người dùng như email và vai trò, đồng thời có thể đặt lại mật khẩu người dùng.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Cho phép in sao kê việc làm và thu nhập cho bất kỳ nhân viên nào.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Cho phép in chứng nhận việc làm và thu nhập cho bản thân.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Cho phép chạy kiểm toán DNS Cloudflare chỉ đọc và xem các phát hiện của nó.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Cho phép chạy kiểm toán dịch vụ chỉ đọc và xem kết quả phát hiện.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Cho phép xóa vĩnh viễn các vai trò.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Cho phép xóa vĩnh viễn tài khoản người dùng.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Cho phép người dùng trò chuyện với trợ lý AI để lấy thông tin về công ty.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Cho phép người dùng tạo báo cáo hàng tuần của riêng mình.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Cho phép người dùng tạo báo cáo hàng tuần thay mặt bất kỳ người dùng nào khác.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Cho phép người dùng điền vào và gửi các bảng khảo sát phản hồi.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Cho phép người dùng gửi yêu cầu hoàn trả chi phí cho các khoản chi tiêu của họ.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Cho phép tải lên, xóa bản ghi âm cuộc họp và kích hoạt lại quá trình chuyển đổi giọng nói sang văn bản.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Cho phép xem tất cả hợp đồng công ty, bao gồm cả những hợp đồng được đánh dấu là riêng tư.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Cho phép xem tất cả hợp đồng công ty, bao gồm cả những hợp đồng được đánh dấu là riêng tư. Mọi người đều có thể xem các hợp đồng công khai theo mặc định.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Cho phép xem và chỉnh sửa cài đặt ứng dụng toàn cục.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Cho phép xem bản ghi cuộc họp và nghe hoặc đọc bản ghi của bất kỳ bản ghi âm nào.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Cho phép xem bản tóm tắt sức khỏe dịch vụ, các quan sát và kết quả kiểm toán chi tiết.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Cho phép xem thông tin và cài đặt ở cấp hệ thống.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Cho phép xem bảng điều khiển công việc nền và quản lý các công việc.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Cho phép xem lịch sử hợp đồng của bất kỳ người dùng nào.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Cho phép xem danh sách tất cả các kênh thu thập và các bản ghi của chúng.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Cho phép xem danh sách tất cả các quyền và việc gán chúng cho vai trò và người dùng.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Cho phép xem danh sách tất cả người dùng.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Cho phép xem danh sách các vai trò và quyền đã được gán cho chúng.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Cho phép xem nhật ký hoạt động của bất kỳ người dùng nào, bao gồm lịch sử thay đổi thẻ ngân hàng của họ.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Cho phép xem tuyến báo cáo của bất kỳ người dùng nào, bao gồm quản lý, cấp dưới và đồng nghiệp của họ.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Cho phép xem sổ đăng ký máy chủ và dịch vụ, các mối quan hệ triển khai và dữ liệu tham chiếu hạ tầng.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Cho phép xem, chỉnh sửa và xóa khóa SSH của bất kỳ người dùng nào.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Duyệt đơn nghỉ phép nào cũng được</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Duyệt yêu cầu dự án</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Duyệt yêu cầu hoàn tiền</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Gán Vai trò cho Người dùng</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Kiểm toán DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Kiểm toán Dịch vụ</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Kiểm toán Dịch vụ (Cũ)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Trò chuyện với AI</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Tạo và quản lý hợp đồng công ty</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Tạo hợp đồng công ty</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Tạo hợp đồng</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Tạo báo cáo hàng tuần</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Tạo Báo cáo Hàng tuần cho Bất kỳ Ai</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>Quyền mặc định cho bộ phận nhân sự.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Xóa Vai trò</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Xóa Người Dùng</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Chỉnh sửa Thông tin Người dùng</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Chỉnh sửa Thông tin Vai trò</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Chỉnh sửa Thông tin Người dùng</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Cấp quyền tạo vai trò mới.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Cấp quyền tạo tài khoản người dùng mới.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Cấp quyền khởi động lại phiên bản ứng dụng. Có thể gây ra gián đoạn về tính khả dụng nhưng tất cả cài đặt và bộ nhớ đệm sẽ được tải lại.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Quyền kế thừa được giữ lại cho quá trình chuyển đổi. Gán Quản trị Hạ tầng cho các vai trò vẫn cần quyền truy cập.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Quyền kế thừa được giữ lại để chuyển đổi. Gán Xem Kiểm Thử Dịch Vụ và Chạy Kiểm Thử Dịch Vụ cho phù hợp.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Quản lý Mật khẩu Bất kỳ</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Quản lý báo cáo hàng tuần của bất kỳ ai</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Quản lý Tài sản</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Quản lý Bản thiết kế</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Quản lý Kênh Thu Thập</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Quản lý các thực thể công ty</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Quản lý Quan hệ Khách hàng</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Quản lý Phản hồi</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Quản lý Cài đặt Toàn cầu</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Quản trị Hạ tầng</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Quản lý nghỉ phép</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Quản lý sổ kế toán</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Quản lý Kênh Thị trường</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Quản lý Bản ghi Cuộc họp</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Quản lý Nhiệm vụ Đào tạo Nhân viên Mới</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Quản lý Bảng lương</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Quản lý Dịch vụ</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Quản lý Dịch vụ (Phiên bản cũ)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Quản lý SSH Keys</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>In chứng chỉ</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>In chứng chỉ của bản thân</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Xem Quyền Truy Cập</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Xem Vai trò</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Đọc Người Dùng</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Khởi Động Lại Ứng Dụng Này</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Chạy Kiểm toán Dịch vụ</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Gửi phản hồi</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Gửi yêu cầu hoàn tiền</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Xem bất kỳ hợp đồng công ty nào, bao gồm cả những hợp đồng riêng tư</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Xem các Nhiệm vụ nền</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Xem kênh thu thập</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Xem lịch sử hợp đồng</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Xem Hạ tầng</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Xem bản ghi cuộc họp</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Xem Dòng Báo Cáo</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Xem Kiểm Toán Dịch Vụ</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Xem Ngữ cảnh Hệ thống</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Xem Nhật ký Hoạt động Người dùng</value>
+  </data>
+
+</root>

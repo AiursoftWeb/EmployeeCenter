@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Agent failed to respond." xml:space="preserve">
+    <value>代理未能回應。</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI Assistant</value>
+  </data>
+  <data name="Ask anything..." xml:space="preserve">
+    <value>提問任何問題...</value>
+  </data>
+  <data name="Chat with EmployeeCenter AI" xml:space="preserve">
+    <value>與 EmployeeCenter AI 對話</value>
+  </data>
+  <data name="Clear Session" xml:space="preserve">
+    <value>清除會話</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>已複製</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="Error: " xml:space="preserve">
+    <value>錯誤：</value>
+  </data>
+  <data name="Failed to check status." xml:space="preserve">
+    <value>無法檢查狀態</value>
+  </data>
+  <data name="Hello! Ask me anything about employee handbook, blueprints or weekly reports." xml:space="preserve">
+    <value>你好！關於員工手冊、藍圖或每週報告，有任何問題都可以問我。</value>
+  </data>
+  <data name="Request timed out." xml:space="preserve">
+    <value>請求逾時。</value>
+  </data>
+  <data name="Session cleared. Ask me anything!" xml:space="preserve">
+    <value>會話已清除。請隨時向我提問！</value>
+  </data>
+  <data name="Unknown error occurred." xml:space="preserve">
+    <value>發生未知錯誤。</value>
+  </data>
+
+</root>

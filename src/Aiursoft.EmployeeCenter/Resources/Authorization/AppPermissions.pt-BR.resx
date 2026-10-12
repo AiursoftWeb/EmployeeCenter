@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Global Password" xml:space="preserve">
+    <value>Adicionar Senha Global</value>
+  </data>
+  <data name="Add New Roles" xml:space="preserve">
+    <value>Adicionar Novos Papéis</value>
+  </data>
+  <data name="Add New Users" xml:space="preserve">
+    <value>Adicionar Novos Usuários</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line, and viewing any user&apos;s leave history." xml:space="preserve">
+    <value>Permite aprovar ou rejeitar qualquer solicitação de férias, independentemente da linha de relatório, e visualizar o histórico de férias de qualquer usuário.</value>
+  </data>
+  <data name="Allows approving or rejecting any leave application, regardless of the reporting line." xml:space="preserve">
+    <value>Permite aprovar ou rejeitar qualquer solicitação de férias, independentemente da linha de relatório.</value>
+  </data>
+  <data name="Allows approving, acknowledging, or rejecting reimbursement requests from any employee." xml:space="preserve">
+    <value>Permite aprovar, reconhecer ou rejeitar solicitações de reembolso de qualquer funcionário.</value>
+  </data>
+  <data name="Allows approving, rejecting, or requesting changes for project requirements. Everyone can submit requirements and comment on them." xml:space="preserve">
+    <value>Permite aprovar, rejeitar ou solicitar alterações para os requisitos do projeto. Todos podem enviar requisitos e comentar sobre eles.</value>
+  </data>
+  <data name="Allows assigning or removing roles for any user." xml:space="preserve">
+    <value>Permite atribuir ou remover funções para qualquer usuário.</value>
+  </data>
+  <data name="Allows creating and managing all contracts for the company." xml:space="preserve">
+    <value>Permite criar e gerenciar todos os contratos da empresa.</value>
+  </data>
+  <data name="Allows creating and managing onboarding task templates for new employees." xml:space="preserve">
+    <value>Permite criar e gerenciar modelos de tarefas de integração para novos funcionários.</value>
+  </data>
+  <data name="Allows creating contracts for the company. Every user can view public contracts by default" xml:space="preserve">
+    <value>Permite criar contratos para a empresa. Todos os usuários podem visualizar contratos públicos por padrão.</value>
+  </data>
+  <data name="Allows creating new contracts for any user." xml:space="preserve">
+    <value>Permite criar novos contratos para qualquer usuário.</value>
+  </data>
+  <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
+    <value>Permite criar novas senhas globais que podem ser compartilhadas com outros.</value>
+  </data>
+  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
+    <value>Permite criar perguntas, questionários e visualizar respostas de feedback.</value>
+  </data>
+  <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Permite criar, editar e excluir relatórios semanais em nome de qualquer outro usuário.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting blueprints. Every user can view blueprints by default." xml:space="preserve">
+    <value>Permite criar, atualizar e excluir modelos. Todos os usuários podem visualizar modelos por padrão.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting collection channels and their records." xml:space="preserve">
+    <value>Permite criar, atualizar e excluir canais de cobrança e seus registros.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information." xml:space="preserve">
+    <value>Permite criar, atualizar e excluir informações de entidades da empresa.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting company entity information. Every user can view company entity information by default." xml:space="preserve">
+    <value>Permite criar, atualizar e excluir informações da entidade da empresa. Por padrão, todos os usuários podem visualizar informações da entidade da empresa.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting customer relationship information. Every user can view customer relationships by default." xml:space="preserve">
+    <value>Permite criar, atualizar e excluir informações sobre relacionamentos com clientes. Por padrão, todos os usuários podem visualizar os relacionamentos com clientes.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting market channel information. Every user can view market channels by default." xml:space="preserve">
+    <value>Permite criar, atualizar e excluir informações sobre canais de mercado. Por padrão, todos os usuários podem visualizar canais de mercado.</value>
+  </data>
+  <data name="Allows creating, updating, and deleting services and DNS providers. Every user can view services by default." xml:space="preserve">
+    <value>Permite criar, atualizar e excluir serviços e provedores de DNS. Por padrão, todos os usuários podem visualizar os serviços.</value>
+  </data>
+  <data name="Allows creating, updating, retiring, and maintaining servers, services, providers, DNS providers, and domain aliases." xml:space="preserve">
+    <value>Permite criar, atualizar, desativar e manter servidores, serviços, provedores, provedores DNS e aliases de domínio.</value>
+  </data>
+  <data name="Allows issuing and managing payroll slips for all users." xml:space="preserve">
+    <value>Permite emitir e gerenciar holerites para todos os usuários.</value>
+  </data>
+  <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
+    <value>Permite gerenciar e excluir qualquer senha global criada por qualquer usuário.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Permite gerenciar as contas financeiras da empresa e registrar transações.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Permite gerenciar os ativos de TI da empresa e ativos intangíveis (como domínios, licenças), incluindo categorias, modelos e itens individuais. Também permite atribuir e recuperar ativos de/para funcionários.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items." xml:space="preserve">
+    <value>Permite gerenciar os ativos de TI da empresa, incluindo categorias, modelos e itens individuais.</value>
+  </data>
+  <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
+    <value>Permite gerenciar os ativos de TI da empresa, incluindo categorias, modelos e itens individuais. Também permite atribuir e recuperar ativos de/para funcionários.</value>
+  </data>
+  <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
+    <value>Permite acionar manualmente a auditoria de DNS e disponibilidade do serviço.</value>
+  </data>
+  <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
+    <value>Permite a modificação dos nomes das funções e de suas permissões atribuídas.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, and can also reset user passwords." xml:space="preserve">
+    <value>Permite a modificação de detalhes do usuário, como e-mail e funções, e também permite redefinir senhas de usuários.</value>
+  </data>
+  <data name="Allows modification of user details like email and roles, resetting user passwords, and viewing sensitive user details like payroll." xml:space="preserve">
+    <value>Permite a modificação de detalhes do usuário, como e-mail e funções, e também pode redefinir senhas de usuário.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for any employee." xml:space="preserve">
+    <value>Permite imprimir certificados de emprego e renda para qualquer funcionário.</value>
+  </data>
+  <data name="Allows printing employment and income certificates for oneself." xml:space="preserve">
+    <value>Permite imprimir certificados de emprego e renda para si mesmo.</value>
+  </data>
+  <data name="Allows running the read-only Cloudflare DNS audit and viewing its findings." xml:space="preserve">
+    <value>Permite executar a auditoria de DNS do Cloudflare somente leitura e visualizar suas descobertas.</value>
+  </data>
+  <data name="Allows running the read-only service audit and viewing its findings." xml:space="preserve">
+    <value>Permite executar a auditoria de serviços somente leitura e visualizar suas constatações.</value>
+  </data>
+  <data name="Allows the permanent deletion of roles." xml:space="preserve">
+    <value>Permite a exclusão permanente de funções.</value>
+  </data>
+  <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
+    <value>Permite a exclusão permanente de contas de usuário.</value>
+  </data>
+  <data name="Allows the user to chat with the AI assistant for company information." xml:space="preserve">
+    <value>Permite ao usuário conversar com o assistente de IA para obter informações da empresa.</value>
+  </data>
+  <data name="Allows the user to create their own weekly reports." xml:space="preserve">
+    <value>Permite ao usuário criar seus próprios relatórios semanais.</value>
+  </data>
+  <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
+    <value>Permite ao usuário criar relatórios semanais em nome de qualquer outro usuário.</value>
+  </data>
+  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
+    <value>Permite ao usuário preencher e enviar questionários de feedback.</value>
+  </data>
+  <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
+    <value>Permite que o usuário envie solicitações de reembolso para suas despesas.</value>
+  </data>
+  <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
+    <value>Permite fazer upload, excluir gravações de reuniões e reativar a transcrição de fala para texto.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
+    <value>Permite visualizar todos os contratos da empresa, incluindo aqueles marcados como privados.</value>
+  </data>
+  <data name="Allows viewing all company contracts, including those marked as private. Everyone can view public contracts by default" xml:space="preserve">
+    <value>Permite visualizar todos os contratos da empresa, incluindo aqueles marcados como privados. Todos podem visualizar contratos públicos por padrão.</value>
+  </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Permite visualizar e modificar as configurações globais da aplicação.</value>
+  </data>
+  <data name="Allows viewing meeting transcripts and listening to or reading transcripts of any recording." xml:space="preserve">
+    <value>Permite visualizar transcrições de reuniões e ouvir ou ler transcrições de qualquer gravação.</value>
+  </data>
+  <data name="Allows viewing service health summaries, observations, and detailed audit findings." xml:space="preserve">
+    <value>Permite visualizar resumos de saúde dos serviços, observações e resultados detalhados de auditoria.</value>
+  </data>
+  <data name="Allows viewing system-level information and settings." xml:space="preserve">
+    <value>Permite visualizar informações e configurações em nível de sistema.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Permite visualizar o painel de controle de tarefas em segundo plano e gerenciar tarefas.</value>
+  </data>
+  <data name="Allows viewing the contract history of any user." xml:space="preserve">
+    <value>Permite visualizar o histórico de contratos de qualquer usuário.</value>
+  </data>
+  <data name="Allows viewing the list of all collection channels and their records." xml:space="preserve">
+    <value>Permite visualizar a lista de todos os canais de cobrança e seus registros.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Permite visualizar a lista de todas as permissões e suas atribuições a funções e usuários.</value>
+  </data>
+  <data name="Allows viewing the list of all users." xml:space="preserve">
+    <value>Permite visualizar a lista de todos os usuários.</value>
+  </data>
+  <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
+    <value>Permite visualizar a lista de funções e suas permissões atribuídas.</value>
+  </data>
+  <data name="Allows viewing the operation logs of any user, including their bank card change history." xml:space="preserve">
+    <value>Permite visualizar os logs de operações de qualquer usuário, incluindo o histórico de alterações do cartão bancário.</value>
+  </data>
+  <data name="Allows viewing the report line of any user, including their manager, subordinates, and peers." xml:space="preserve">
+    <value>Permite visualizar a linha de relatório de qualquer usuário, incluindo seu gerente, seus subordinados e seus colegas.</value>
+  </data>
+  <data name="Allows viewing the server and service registry, deployment relationships, and infrastructure reference data." xml:space="preserve">
+    <value>Permite visualizar o registro de servidores e serviços, relacionamentos de implantação e dados de referência da infraestrutura.</value>
+  </data>
+  <data name="Allows viewing, editing, and deleting any user&apos;s SSH keys." xml:space="preserve">
+    <value>Permite visualizar, editar e excluir as chaves SSH de qualquer usuário.</value>
+  </data>
+  <data name="Approve Any Leave" xml:space="preserve">
+    <value>Aprovar Licenças de Qualquer Pessoa</value>
+  </data>
+  <data name="Approve Project Requirements" xml:space="preserve">
+    <value>Aprovar Requisitos de Projeto</value>
+  </data>
+  <data name="Approve Reimbursement" xml:space="preserve">
+    <value>Aprovar Reembolso</value>
+  </data>
+  <data name="Assign Roles to Users" xml:space="preserve">
+    <value>Atribuir Funções a Usuários</value>
+  </data>
+  <data name="Audit DNS" xml:space="preserve">
+    <value>Auditar DNS</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Auditoria de Serviços</value>
+  </data>
+  <data name="Audit Services (Legacy)" xml:space="preserve">
+    <value>Auditoria de Serviços (Legado)</value>
+  </data>
+  <data name="Chat with AI" xml:space="preserve">
+    <value>Chat com IA</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Criar e gerenciar contratos da empresa</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Criar contratos da empresa</value>
+  </data>
+  <data name="Create Contract" xml:space="preserve">
+    <value>Criar Contrato</value>
+  </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>Criar Relatório Semanal</value>
+  </data>
+  <data name="Create Weekly Report for Anyone" xml:space="preserve">
+    <value>Criar Relatório Semanal para Qualquer Pessoa</value>
+  </data>
+  <data name="Default permission for HR." xml:space="preserve">
+    <value>Permissão padrão para RH.</value>
+  </data>
+  <data name="Delete Roles" xml:space="preserve">
+    <value>Excluir Funções</value>
+  </data>
+  <data name="Delete Users" xml:space="preserve">
+    <value>Excluir Usuários</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Editar Informações do Usuário</value>
+  </data>
+  <data name="Edit Role Information" xml:space="preserve">
+    <value>Editar Informações da Função</value>
+  </data>
+  <data name="Edit User Information" xml:space="preserve">
+    <value>Editar Informações do Usuário</value>
+  </data>
+  <data name="Grants permission to create new roles." xml:space="preserve">
+    <value>Concede permissão para criar novos cargos.</value>
+  </data>
+  <data name="Grants permission to create new user accounts." xml:space="preserve">
+    <value>Concede permissão para criar novas contas de usuário.</value>
+  </data>
+  <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
+    <value>Concede permissão para reiniciar a instância do aplicativo. Pode causar interrupções na disponibilidade, mas todas as configurações e o cache serão recarregados.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign Manage Infrastructure to roles that still need access." xml:space="preserve">
+    <value>Permissão legada mantida para transição. Atribua Gerenciar Infraestrutura às funções que ainda precisam de acesso.</value>
+  </data>
+  <data name="Legacy permission retained for transition. Assign View Service Audit and Run Service Audit as appropriate." xml:space="preserve">
+    <value>Permissão legada mantida para transição. Atribua Ver Auditoria de Serviço e Executar Auditoria de Serviço conforme apropriado.</value>
+  </data>
+  <data name="Manage Any Password" xml:space="preserve">
+    <value>Gerenciar Qualquer Senha</value>
+  </data>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Gerenciar o relatório semanal de qualquer pessoa</value>
+  </data>
+  <data name="Manage Assets" xml:space="preserve">
+    <value>Gerenciar Ativos</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Gerenciar Modelos</value>
+  </data>
+  <data name="Manage Collection Channels" xml:space="preserve">
+    <value>Gerenciar Canais de Cobrança</value>
+  </data>
+  <data name="Manage Company Entity Information" xml:space="preserve">
+    <value>Gerenciar Entidades da Empresa</value>
+  </data>
+  <data name="Manage Customer Relationships" xml:space="preserve">
+    <value>Gerenciar Relacionamentos com Clientes</value>
+  </data>
+  <data name="Manage Feedback" xml:space="preserve">
+    <value>Gerenciar Feedback</value>
+  </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Gerenciar Configurações Globais</value>
+  </data>
+  <data name="Manage Infrastructure" xml:space="preserve">
+    <value>Gerenciar Infraestrutura</value>
+  </data>
+  <data name="Manage Leave" xml:space="preserve">
+    <value>Gerenciar Licença</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Gerenciar Livro</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Gerenciar Canais de Mercado</value>
+  </data>
+  <data name="Manage Meeting Transcripts" xml:space="preserve">
+    <value>Gerenciar Transcrições de Reuniões</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Gerenciar Tarefas de Onboarding</value>
+  </data>
+  <data name="Manage Payroll" xml:space="preserve">
+    <value>Gerenciar Folha de Pagamento</value>
+  </data>
+  <data name="Manage Services" xml:space="preserve">
+    <value>Gerenciar Serviços</value>
+  </data>
+  <data name="Manage Services (Legacy)" xml:space="preserve">
+    <value>Gerenciar Serviços (Legado)</value>
+  </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Gerenciar Chaves SSH</value>
+  </data>
+  <data name="Print Certificates" xml:space="preserve">
+    <value>Imprimir Certificados</value>
+  </data>
+  <data name="Print Self Certificates" xml:space="preserve">
+    <value>Imprimir Certificados Próprios</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Ler Permissões</value>
+  </data>
+  <data name="Read Roles" xml:space="preserve">
+    <value>Ler Funções</value>
+  </data>
+  <data name="Read Users" xml:space="preserve">
+    <value>Ler Usuários</value>
+  </data>
+  <data name="Reboot This App" xml:space="preserve">
+    <value>Reiniciar Este Aplicativo</value>
+  </data>
+  <data name="Run Service Audit" xml:space="preserve">
+    <value>Executar Auditoria de Serviço</value>
+  </data>
+  <data name="Submit Feedback" xml:space="preserve">
+    <value>Enviar Feedback</value>
+  </data>
+  <data name="Submit Reimbursement" xml:space="preserve">
+    <value>Enviar Reembolso</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Visualizar qualquer contrato da empresa, incluindo os privados</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Visualizar Tarefas em Segundo Plano</value>
+  </data>
+  <data name="View Collection Channels" xml:space="preserve">
+    <value>Ver Canais de Cobrança</value>
+  </data>
+  <data name="View Contract History" xml:space="preserve">
+    <value>Visualizar Histórico de Contratos</value>
+  </data>
+  <data name="View Infrastructure" xml:space="preserve">
+    <value>Visualizar Infraestrutura</value>
+  </data>
+  <data name="View Meeting Transcripts" xml:space="preserve">
+    <value>Ver Transcrições de Reuniões</value>
+  </data>
+  <data name="View Report Line" xml:space="preserve">
+    <value>Visualizar Linha de Relatório</value>
+  </data>
+  <data name="View Service Audit" xml:space="preserve">
+    <value>Visualizar Auditoria de Serviço</value>
+  </data>
+  <data name="View System Context" xml:space="preserve">
+    <value>Visualizar Contexto do Sistema</value>
+  </data>
+  <data name="View User Operation Log" xml:space="preserve">
+    <value>Visualizar Log de Operações do Usuário</value>
+  </data>
+
+</root>

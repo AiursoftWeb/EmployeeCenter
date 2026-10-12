@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- No Signing Entity --" xml:space="preserve">
+    <value>-- Không có đơn vị ký kết --</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Quay lại Danh sách</value>
+  </data>
+  <data name="Bank Account" xml:space="preserve">
+    <value>Số tài khoản ngân hàng</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Bank Account Name</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Tên Ngân hàng</value>
+  </data>
+  <data name="Base Salary" xml:space="preserve">
+    <value>Lương cơ bản</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Tạo</value>
+  </data>
+  <data name="Create a new user" xml:space="preserve">
+    <value>Tạo người dùng mới</value>
+  </data>
+  <data name="Create a password for the new user" xml:space="preserve">
+    <value>Tạo mật khẩu cho người dùng mới</value>
+  </data>
+  <data name="Create New User" xml:space="preserve">
+    <value>Tạo Người Dùng Mới</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Tạo Người Dùng</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Thời gian tạo</value>
+  </data>
+  <data name="Display Name" xml:space="preserve">
+    <value>Tên hiển thị</value>
+  </data>
+  <data name="Email Address" xml:space="preserve">
+    <value>Địa chỉ Email</value>
+  </data>
+  <data name="Enter bank account" xml:space="preserve">
+    <value>Nhập số tài khoản ngân hàng</value>
+  </data>
+  <data name="Enter bank account name" xml:space="preserve">
+    <value>Enter bank account name</value>
+  </data>
+  <data name="Enter bank name" xml:space="preserve">
+    <value>Nhập tên ngân hàng</value>
+  </data>
+  <data name="Enter base salary" xml:space="preserve">
+    <value>Nhập mức lương cơ bản</value>
+  </data>
+  <data name="Enter display name" xml:space="preserve">
+    <value>Nhập tên hiển thị</value>
+  </data>
+  <data name="Enter email address" xml:space="preserve">
+    <value>Nhập địa chỉ email</value>
+  </data>
+  <data name="Enter job level" xml:space="preserve">
+    <value>Nhập cấp bậc công việc</value>
+  </data>
+  <data name="Enter legal name" xml:space="preserve">
+    <value>Nhập tên pháp lý</value>
+  </data>
+  <data name="Enter phone number" xml:space="preserve">
+    <value>Nhập số điện thoại</value>
+  </data>
+  <data name="Enter title" xml:space="preserve">
+    <value>Enter title</value>
+  </data>
+  <data name="Enter username" xml:space="preserve">
+    <value>Nhập tên đăng nhập</value>
+  </data>
+  <data name="Job Level" xml:space="preserve">
+    <value>Cấp bậc công việc</value>
+  </data>
+  <data name="Legal Name" xml:space="preserve">
+    <value>Tên pháp lý</value>
+  </data>
+  <data name="OpenID Connect (OIDC) is enabled. User accounts are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only account that exists solely within this application." xml:space="preserve">
+    <value>OpenID Connect (OIDC) đã được bật. Các tài khoản người dùng được đồng bộ từ một nhà cung cấp danh tính bên ngoài. Chúng tôi khuyến nghị nên tạo người dùng mới trên nhà cung cấp OIDC của bạn để đảm bảo họ được quản lý tập trung. Biểu mẫu này sẽ tạo một tài khoản chỉ tồn tại cục bộ và chỉ có trong ứng dụng này.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="Signing Entity" xml:space="preserve">
+    <value>Đơn vị ký kết</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="User Account Details" xml:space="preserve">
+    <value>Thông tin Tài khoản Người dùng</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="Warning!" xml:space="preserve">
+    <value>Cảnh báo!</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Thời gian ghi lại sự kiện là giờ UTC!</value>
+  </data>
+
+</root>

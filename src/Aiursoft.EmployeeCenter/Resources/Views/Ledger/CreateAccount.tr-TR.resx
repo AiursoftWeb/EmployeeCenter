@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Hesap Adı</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Hesap Türü</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>Muhasebe mantığı bir &apos;Havuz Modeli&apos; izler: para, bir havuzdan (kaynak) başka bir havuza (hedef) akar. Bu beş unsuru anlamak, iki yönlü muhasebe sisteminin anahtarıdır.</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Varlık</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Banka mevduatları, Alacaklar (başkalarının size borcu olan miktar), Sunucular/Notebook bilgisayarlar.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Direktöre Borç Almak</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Para almak = Artış; Para ödemek = Azalış.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Elde bulundurulan nakit veya nakite dönüştürülebilen şeyler.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Yapılan masraflar</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Oluştur</value>
+  </data>
+  <data name="Create New Account" xml:space="preserve">
+    <value>Yeni Hesap Oluştur</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Para Birimi</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Şirketin gelecekte ödemek zorunda olduğu borçlar.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Tanım:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Yön:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Yönetici kredileri (şirkete kullandığınız para), Ödenmemiş faturalar, Kredi kartı borcu.</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>Örn. HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>Örn. Statrys Checking</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Özsermaye</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Örnekler:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Gider</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Kaynak (From)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Gelir</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Borç</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Mantık</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Kazanılan para</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Ürün satışı veya hizmet sağlanmasıyla kazanılan para. Kârı artırır.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Borçları ortadan kaldırmak için bankadan para akışı olur</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Parayla bankadan giderlere akış</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Borçtan banka hesabına para akışı</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Serbest sermayeden banka hesabına para akışı</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Gelir olarak elde edilen para bankaya aktarılır</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Para girişi = Artış; Para çıkışı = Azalış.</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Şirket faaliyetlerini sürdürebilmek için harcanan para. Kârı azaltır.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Sunuculara Ödeme Yapmak</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Hızlı Hızlı Bilgi Kağıdı</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Direktöre Ödeme</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Satış Geliri, Hizmet Ücretleri, Faiz Geliri</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Senaryo</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Yazılım Satışı</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Sunucu barındırma ücretleri, Banka ücretleri, Maaşlar.</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Hisse Senedi Sermayesi (başlangıç yatırımı), Saklanan Kârlar (birikmiş kâr).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Hisse Sahibi Yatırımı</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Hisse senedi yatırımı/Kâr = Artış; Hisse senedi çekilmesi/ Zarar = Azalış.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Göster Panelde</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Şirketin net varlığı. Formül: Varlık - Borç = Özsermaye.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Başkalarına borcunuz olan şeyler</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Sahip olduğun şeyler</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>Şuna (Hedefe)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Muhasebe Unsurlarını Anlamak</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Gerçekten sizin olmayan değer</value>
+  </data>
+
+</root>

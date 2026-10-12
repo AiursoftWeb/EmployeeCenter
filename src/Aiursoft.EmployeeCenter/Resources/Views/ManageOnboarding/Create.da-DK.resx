@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="Controls the display sequence on the dashboard." xml:space="preserve">
+    <value>Styrer visningsekvensen på instrumentbrættet.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Opret</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Opret påbegyndelsesopgave</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beskrivelse</value>
+  </data>
+  <data name="Expected Duration" xml:space="preserve">
+    <value>Forventet varighed</value>
+  </data>
+  <data name="Gives employees an idea of how long the task might take." xml:space="preserve">
+    <value>Giver medarbejderne en fornemmelse af, hvor længe opgaven måske vil tage.</value>
+  </data>
+  <data name="How to create an onboarding task?" xml:space="preserve">
+    <value>Sådan opretter du en påbegyndelsesopgave?</value>
+  </data>
+  <data name="https://" xml:space="preserve">
+    <value>https://</value>
+  </data>
+  <data name="Markdown supported..." xml:space="preserve">
+    <value>Markdown understøttes...</value>
+  </data>
+  <data name="Onboarding tasks are designed to guide new employees through their first days." xml:space="preserve">
+    <value>Indarbejdelsesopgaver er designet til at guide nye medarbejdere igennem deres første dage.</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Rækkefølge</value>
+  </data>
+  <data name="Start Link" xml:space="preserve">
+    <value>Start-Link</value>
+  </data>
+  <data name="The URL where the employee will be redirected when they click &apos;Start Task&apos;." xml:space="preserve">
+    <value>URL&apos;en, hvor medarbejderen omdirigeres, når de klikker på &apos;Start opgave&apos;.</value>
+  </data>
+  <data name="Use Markdown to provide detailed instructions or context." xml:space="preserve">
+    <value>Brug Markdown til at give detaljerede instruktioner eller kontekst.</value>
+  </data>
+
+</root>

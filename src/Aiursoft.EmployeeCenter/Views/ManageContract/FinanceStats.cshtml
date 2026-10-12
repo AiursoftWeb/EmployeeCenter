@@ -1,0 +1,51 @@
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.FinanceStatsViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Contract Finance Statistics"]</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["Financial Summary by Contract"]</h5>
+        <h6 class="card-subtitle text-muted">@Localizer["Total income and expense for each contract."]</h6>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["Contract Name"]</th>
+                <th>@Localizer["Pending Income"]</th>
+                <th>@Localizer["Actual Income"]</th>
+                <th>@Localizer["Pending Expense"]</th>
+                <th>@Localizer["Actual Expense"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var summary in Model.Summaries)
+            {
+                <tr>
+                    <td>@summary.Contract.Name</td>
+                    <td class="@(summary.TotalPendingIncome > 0 ? "text-warning" : "text-muted")">@((summary.TotalPendingIncome / 100.0).ToString("N2")) @summary.Currency</td>
+                    <td class="text-success">@((summary.TotalActualIncome / 100.0).ToString("N2")) @summary.Currency</td>
+                    <td class="@(summary.TotalPendingExpense > 0 ? "text-warning" : "text-muted")">@((summary.TotalPendingExpense / 100.0).ToString("N2")) @summary.Currency</td>
+                    <td class="text-danger">@((summary.TotalActualExpense / 100.0).ToString("N2")) @summary.Currency</td>
+                    <td class="text-end">
+                        <a asp-action="Finance" asp-route-id="@summary.Contract.Id" class="btn btn-sm btn-outline-primary">
+                            <i class="align-middle" data-lucide="eye"></i> @Localizer["Details"]
+                        </a>
+                    </td>
+                </tr>
+            }
+            @if (!Model.Summaries.Any())
+            {
+                <tr>
+                    <td colspan="6" class="text-center">@Localizer["No contracts with financial data found."]</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

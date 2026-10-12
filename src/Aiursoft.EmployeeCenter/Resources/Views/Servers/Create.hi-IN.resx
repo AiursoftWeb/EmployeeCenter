@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add New Server" xml:space="preserve">
+    <value>नया सर्वर जोड़ें</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>मूल जानकारी</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="e.g. 192.168.1.10" xml:space="preserve">
+    <value>उदा. 192.168.1.10</value>
+  </data>
+  <data name="e.g. 2001:db8::10" xml:space="preserve">
+    <value>उदा. 2001:db8::10</value>
+  </data>
+  <data name="e.g. web-server-01" xml:space="preserve">
+    <value>उदा. web-server-01</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>नया</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>रीलोड</value>
+  </data>
+  <data name="Save Server" xml:space="preserve">
+    <value>सर्वर सहेजें</value>
+  </data>
+  <data name="Select Company Entity" xml:space="preserve">
+    <value>कंपनी एंटिटी चुनें</value>
+  </data>
+  <data name="Select Location" xml:space="preserve">
+    <value>स्थान चुनें</value>
+  </data>
+  <data name="Select Owner" xml:space="preserve">
+    <value>मालिक चुनें</value>
+  </data>
+  <data name="Select Provider" xml:space="preserve">
+    <value>प्रदाता चुनें</value>
+  </data>
+
+</root>

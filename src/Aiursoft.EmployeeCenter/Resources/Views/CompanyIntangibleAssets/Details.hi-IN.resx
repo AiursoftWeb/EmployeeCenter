@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Information" xml:space="preserve">
+    <value>प्रवेश जानकारी</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>खाता</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>असाइनी</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>एंटिटी के स्वामित्व में</value>
+  </data>
+  <data name="Company Intangible Asset Details" xml:space="preserve">
+    <value>कंपनी अभौतिक संपत्ति विवरण</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>मुदत समाप्ति तिथि</value>
+  </data>
+  <data name="Filing &amp; Registration" xml:space="preserve">
+    <value>दस्तावेज़ीकरण और पंजीकरण</value>
+  </data>
+  <data name="Filing Number" xml:space="preserve">
+    <value>दस्तावेज़ संख्या</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>फाइलिंग विषय</value>
+  </data>
+  <data name="Financial &amp; Assignment" xml:space="preserve">
+    <value>वित्तीय एवं नियुक्ति</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>सामान्य जानकारी</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>बिल</value>
+  </data>
+  <data name="Management URL" xml:space="preserve">
+    <value>प्रबंधन URL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>अभी तक नियुक्त नहीं किया गया</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>खरीद मूल्य</value>
+  </data>
+  <data name="Query Method" xml:space="preserve">
+    <value>प्रश्न विधि</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>पंजीकरण प्रमाणपत्र</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>पंजीकरण तिथि</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>आपूर्तिकर्ता</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>ट्रेडमार्क छवि</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="View Certificate" xml:space="preserve">
+    <value>प्रमाणपत्र देखें</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>इन्वॉइस देखें</value>
+  </data>
+  <data name="View Trademark Image" xml:space="preserve">
+    <value>ट्रेडमार्क छवि देखें</value>
+  </data>
+
+</root>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of all issued payroll records in the system." xml:space="preserve">
+    <value>Eine Liste aller ausgestellten Gehaltsabrechnungen im System.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Aktionen</value>
+  </data>
+  <data name="All History" xml:space="preserve">
+    <value>Alle Historie</value>
+  </data>
+  <data name="All Payrolls" xml:space="preserve">
+    <value>Alle Gehaltsabrechnungen</value>
+  </data>
+  <data name="All Users" xml:space="preserve">
+    <value>Alle Benutzer</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Erstellungszeit</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
+  <data name="Export payroll history to Excel (CSV)." xml:space="preserve">
+    <value>Gehaltsverlauf in Excel (CSV) exportieren.</value>
+  </data>
+  <data name="Export Payrolls" xml:space="preserve">
+    <value>Gehaltsabrechnungen exportieren</value>
+  </data>
+  <data name="Issue new payroll" xml:space="preserve">
+    <value>Neue Gehaltsabrechnung erstellen</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Gehaltsabrechnungen verwalten</value>
+  </data>
+  <data name="Target Month" xml:space="preserve">
+    <value>Zielmonat</value>
+  </data>
+  <data name="Total Amount" xml:space="preserve">
+    <value>Gesamtbetrag</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Jahr</value>
+  </data>
+
+</root>

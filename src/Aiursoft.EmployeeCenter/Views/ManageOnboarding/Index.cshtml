@@ -1,0 +1,131 @@
+@using Aiursoft.EmployeeCenter.Services.FileStorage
+@model Aiursoft.EmployeeCenter.Models.ManageOnboardingViewModels.IndexViewModel
+@inject StorageService StorageService
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Manage Onboarding Tasks"]</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <a asp-action="Create" class="btn btn-primary shadow-sm">
+            <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Task"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Tasks"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">@Localizer["Order"]</th>
+                            <th>@Localizer["Title"]</th>
+                            <th>@Localizer["Expected Duration"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var task in Model.Tasks)
+                        {
+                            <tr>
+                                <td>@task.Order</td>
+                                <td>@task.Title</td>
+                                <td>@TimeSpan.FromSeconds(task.ExpectedDurationSeconds).ToString(@"hh\:mm\:ss")</td>
+                                <td class="text-end">
+                                    <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-outline-primary me-1">@Localizer["Edit"]</a>
+                                    <form asp-action="Delete" asp-route-id="@task.Id" method="post" class="d-inline" onsubmit="return confirm(getLocalizedText('confirm-delete-task', '@Localizer["Are you sure you want to delete this task?"]'));">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">@Localizer["Delete"]</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        @if (!Model.Tasks.Any())
+                        {
+                            <tr>
+                                <td colspan="4" class="text-center text-muted py-4">@Localizer["No onboarding tasks created yet."]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loc-data" hidden>
+    <span data-key="confirm-delete-task">@Localizer["Are you sure you want to delete this task?"]</span>
+</div>
+
+@if (Model.EmployeeProgresses != null)
+{
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">@Localizer["Employee Onboarding Progress"]</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["Avatar"]</th>
+                                <th>@Localizer["Employee"]</th>
+                                <th>@Localizer["Progress"]</th>
+                                <th class="text-end">@Localizer["Completed"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var progress in Model.EmployeeProgresses)
+                            {
+                                <tr class="clickable-row" data-href="@Url.Action("Details", "Users", new { id = progress.User.Id })">
+                                    <td>
+                                        <a asp-controller="Users" asp-action="Details" asp-route-id="@progress.User.Id">
+                                            <img src="@StorageService.RelativePathToInternetUrl(progress.User.AvatarRelativePath)?w=72&square=true" alt="@progress.User.DisplayName" class="rounded-circle" width="36" height="36" />
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a asp-controller="Users" asp-action="Details" asp-route-id="@progress.User.Id">
+                                            @progress.User.DisplayName
+                                        </a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="progress" style="height: 10px;">
+                                            <div class="progress-bar @(progress.ProgressPercentage >= 100 ? "bg-success" : "")" role="progressbar" style="width: @progress.ProgressPercentage.ToString("F0")%;" aria-valuenow="@progress.ProgressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <small class="text-muted">@progress.ProgressPercentage.ToString("F1")%</small>
+                                    </td>
+                                    <td class="text-end">
+                                        @progress.CompletedTasksCount / @progress.TotalTasksCount
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_LocalizationHelper" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll(".clickable-row");
+            rows.forEach(row => {
+                row.addEventListener("click", function (event) {
+                    const target = event.target;
+                    if (!target.matches('a, a *, button, button *')) {
+                        window.location.href = row.dataset.href;
+                    }
+                });
+            });
+        });
+    </script>
+}

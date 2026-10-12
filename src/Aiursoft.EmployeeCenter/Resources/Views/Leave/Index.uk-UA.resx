@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} днів оплачуваного щорічного відпустки на рік</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>7 днів оплачуваного відпустки за хворобою на рік</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Відпустка за роком</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>Подати заявку на відпустку</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Затверджено</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Затверджувач</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>очікує підтвердження</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>Перенесено</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>днів</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>за днів</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>Насолоджуйтесь чудовими канікулами!</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>через</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>Ключова інформація про наші політики відпусток</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>Підсумок залишку відпустки</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>Історія відпусток</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>Політика відпусток</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>Максимальна перенесена кількість: {0} днів (термін дії закінчується через 1 рік)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>Психічне здоров&apos;я: документи не потрібні</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Мій залишок відпустки</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>Наступний відпустка</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>Не потрібна підтвердження, можна використовувати відразу</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>Історія відпусток не знайдена.</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>немає запланованого відпустки</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>з</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Очікує підтвердження</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>Очікуючі заявки</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Період</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>Фізичне захворювання: потрібен медичний довід прохід</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>Будь ласка, переконайтеся, що ваш відпустка відповідає політиці компанії, усі роботи передано, і ви надіслали електронний лист своїй команді.</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>Швидкі дії</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Відхилено</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>запити</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>Вимагає підтвердження керівника перед використанням</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Хворобовий відпустка</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Подано</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>Додаткові документи потрібно надати після закінчення відпустки</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>Невідповідальні відсутності вважаються відсутністю без дозволу і призведуть до вирахування заробітної плати та дисциплінарних заходів.</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>Невикористані дні переносяться на наступний рік</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>Наступний відпустка</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Відкликати</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Відкликано</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>Ваші заявки на відпустку та їхній статус</value>
+  </data>
+
+</root>

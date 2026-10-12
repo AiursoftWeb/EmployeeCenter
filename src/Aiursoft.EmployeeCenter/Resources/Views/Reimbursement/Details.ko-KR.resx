@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Acknowledged" xml:space="preserve">
+    <value>승인됨</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>금액</value>
+  </data>
+  <data name="Applying" xml:space="preserve">
+    <value>신청 중</value>
+  </data>
+  <data name="Are you sure you want to reject this request?" xml:space="preserve">
+    <value>이 요청을 거부하시겠습니까?</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>목록으로 돌아가기</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>카테고리</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>코멘트</value>
+  </data>
+  <data name="Confirm &amp; Issued" xml:space="preserve">
+    <value>확인 및 지급 완료</value>
+  </data>
+  <data name="Confirm Reimbursement" xml:space="preserve">
+    <value>재정 지급 확인</value>
+  </data>
+  <data name="Confirm Rejection" xml:space="preserve">
+    <value>거절 확인</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>초안</value>
+  </data>
+  <data name="Electronic Invoice" xml:space="preserve">
+    <value>전자 영수증</value>
+  </data>
+  <data name="Expense Time" xml:space="preserve">
+    <value>지출 일시</value>
+  </data>
+  <data name="Finalize" xml:space="preserve">
+    <value>완료</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>일반 정보</value>
+  </data>
+  <data name="Invoice Preview" xml:space="preserve">
+    <value>청구서 미리보기</value>
+  </data>
+  <data name="Invoice Source Website (发票来源网站)" xml:space="preserve">
+    <value>송장 출처 웹사이트 (发票来源网站)</value>
+  </data>
+  <data name="Mark as Acknowledged (知道了)" xml:space="preserve">
+    <value>인정함 (알겠습니다)</value>
+  </data>
+  <data name="No invoice attached." xml:space="preserve">
+    <value>첨부된 송장이 없습니다.</value>
+  </data>
+  <data name="Please leave a comment for the employee (e.g. transaction ID)." xml:space="preserve">
+    <value>사원에게 코멘트를 남겨주세요 (예: 거래 ID).</value>
+  </data>
+  <data name="Please provide a reason for the rejection." xml:space="preserve">
+    <value>거절 사유를 입력해 주세요.</value>
+  </data>
+  <data name="Purpose" xml:space="preserve">
+    <value>목적</value>
+  </data>
+  <data name="Really transferred via bank? (真的银行转账了吗？)" xml:space="preserve">
+    <value>실제로 은행으로 송금하셨습니까?</value>
+  </data>
+  <data name="Reason / Comment" xml:space="preserve">
+    <value>사유 / 코멘트</value>
+  </data>
+  <data name="Reimbursed" xml:space="preserve">
+    <value>환급됨</value>
+  </data>
+  <data name="Reimbursed (已经下发)" xml:space="preserve">
+    <value>환불됨 (지급 완료)</value>
+  </data>
+  <data name="Reimbursement Details" xml:space="preserve">
+    <value>보상금 세부 정보</value>
+  </data>
+  <data name="Reject (拒绝)" xml:space="preserve">
+    <value>거절 (거절)</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>거절됨</value>
+  </data>
+  <data name="Required..." xml:space="preserve">
+    <value>필수...</value>
+  </data>
+  <data name="Reviewed At" xml:space="preserve">
+    <value>검수 시각</value>
+  </data>
+  <data name="Reviewed By" xml:space="preserve">
+    <value>검토자</value>
+  </data>
+  <data name="Reviewer Comment" xml:space="preserve">
+    <value>검토자 코멘트</value>
+  </data>
+  <data name="Revoked" xml:space="preserve">
+    <value>취소됨</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="Submitted At" xml:space="preserve">
+    <value>제출일</value>
+  </data>
+  <data name="Submitter" xml:space="preserve">
+    <value>제출자</value>
+  </data>
+  <data name="Supporting Context / Email" xml:space="preserve">
+    <value>참고 자료 / 이메일</value>
+  </data>
+  <data name="View/Download Invoice" xml:space="preserve">
+    <value>송장 보기/다운로드</value>
+  </data>
+
+</root>

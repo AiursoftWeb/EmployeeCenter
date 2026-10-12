@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allows retroactive entry for leaves already taken" xml:space="preserve">
+    <value>允许对已休的假期进行追溯录入</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>年假</value>
+  </data>
+  <data name="Annual leave requires approval" xml:space="preserve">
+    <value>年假需要审批</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>申请休假</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>四月</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>八月</value>
+  </data>
+  <data name="Calendar Legend" xml:space="preserve">
+    <value>日历图例</value>
+  </data>
+  <data name="Calendar View" xml:space="preserve">
+    <value>日历视图</value>
+  </data>
+  <data name="Can apply for leave from 7 days ago to end of current year" xml:space="preserve">
+    <value>可申请从7天前到当前年度末的休假</value>
+  </data>
+  <data name="Can be up to 7 days in the past or future dates within current year" xml:space="preserve">
+    <value>可以在当前年度内选择最多提前7天或延后7天的日期</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Click on working days to select your leave period" xml:space="preserve">
+    <value>点击工作日以选择您的休假时段</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>十二月</value>
+  </data>
+  <data name="End Date" xml:space="preserve">
+    <value>结束日期</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>二月</value>
+  </data>
+  <data name="Fri" xml:space="preserve">
+    <value>周五</value>
+  </data>
+  <data name="Important Notes" xml:space="preserve">
+    <value>重要提示</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>一月</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>七月</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>六月</value>
+  </data>
+  <data name="Last day of your leave (inclusive)" xml:space="preserve">
+    <value>休假的最后一天（包含在内）</value>
+  </data>
+  <data name="Leave Application Form" xml:space="preserve">
+    <value>请假申请表</value>
+  </data>
+  <data name="Leave Type" xml:space="preserve">
+    <value>假期类型</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>三月</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>五月</value>
+  </data>
+  <data name="Mon" xml:space="preserve">
+    <value>周一</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>十一月</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>十月</value>
+  </data>
+  <data name="Only working days are counted (weekends and holidays excluded)" xml:space="preserve">
+    <value>仅计算工作日（周末和节假日除外）</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>上个月</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>原因</value>
+  </data>
+  <data name="Sat" xml:space="preserve">
+    <value>周六</value>
+  </data>
+  <data name="Select your leave dates and provide a reason for your leave." xml:space="preserve">
+    <value>选择您的休假日期并提供休假原因。</value>
+  </data>
+  <data name="Selected Leave Day" xml:space="preserve">
+    <value>已选择的休假日期</value>
+  </data>
+  <data name="Selected Period" xml:space="preserve">
+    <value>已选择时段</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>九月</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>病假</value>
+  </data>
+  <data name="Sick leave requires supporting documents after return" xml:space="preserve">
+    <value>病假需要在返回后提供支持性文件。</value>
+  </data>
+  <data name="Start Date" xml:space="preserve">
+    <value>开始日期</value>
+  </data>
+  <data name="Submit Application" xml:space="preserve">
+    <value>提交申请</value>
+  </data>
+  <data name="Sun" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="Thu" xml:space="preserve">
+    <value>周四</value>
+  </data>
+  <data name="total days" xml:space="preserve">
+    <value>总共天数</value>
+  </data>
+  <data name="Tue" xml:space="preserve">
+    <value>周二</value>
+  </data>
+  <data name="Wed" xml:space="preserve">
+    <value>周三</value>
+  </data>
+  <data name="Weekend / Holiday" xml:space="preserve">
+    <value>周末 / 节假日</value>
+  </data>
+  <data name="Working Day" xml:space="preserve">
+    <value>工作日</value>
+  </data>
+  <data name="working days" xml:space="preserve">
+    <value>工作日</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>事件记录时间是协调世界时！</value>
+  </data>
+
+</root>

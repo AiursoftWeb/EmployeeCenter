@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>1年あたり{0}日分の有給年次休暇</value>
+  </data>
+  <data name="7 days paid sick leave per year" xml:space="preserve">
+    <value>年間7日間の有給病欠勤</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>年次有給休暇</value>
+  </data>
+  <data name="Apply for Leave" xml:space="preserve">
+    <value>休暇を申請する</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>承認済み</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>承認者</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>承認待ち</value>
+  </data>
+  <data name="Carried Over" xml:space="preserve">
+    <value>繰り越し</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>日後</value>
+  </data>
+  <data name="Have a wonderful break!" xml:space="preserve">
+    <value>素晴らしい休暇を！</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>の</value>
+  </data>
+  <data name="Key information about our leave policies" xml:space="preserve">
+    <value>休暇ポリシーに関する重要な情報</value>
+  </data>
+  <data name="Leave Balance Summary" xml:space="preserve">
+    <value>休暇残高概要</value>
+  </data>
+  <data name="Leave History" xml:space="preserve">
+    <value>休暇履歴</value>
+  </data>
+  <data name="Leave Policy" xml:space="preserve">
+    <value>休暇ポリシー</value>
+  </data>
+  <data name="Maximum carryover: {0} days (expires after 1 year)" xml:space="preserve">
+    <value>最大繰越: {0}日間 (1年後に失効)</value>
+  </data>
+  <data name="Mental health: no documents required" xml:space="preserve">
+    <value>メンタルヘルス：書類は不要</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>休暇残高</value>
+  </data>
+  <data name="Next Leave" xml:space="preserve">
+    <value>次の休暇</value>
+  </data>
+  <data name="No approval required, can be used immediately" xml:space="preserve">
+    <value>承認は不要で、即座に利用可能</value>
+  </data>
+  <data name="No leave history found." xml:space="preserve">
+    <value>休暇履歴は見つかりませんでした。</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>次の休暇はありません</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>の</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>保留中</value>
+  </data>
+  <data name="Pending Requests" xml:space="preserve">
+    <value>保留中のリクエスト</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>期間</value>
+  </data>
+  <data name="Physical illness: medical certificate required" xml:space="preserve">
+    <value>身体の病気：医師の診断書が必要です</value>
+  </data>
+  <data name="Please ensure your leave complies with company policy, all work has been handed over, and you have sent an email to your team." xml:space="preserve">
+    <value>休暇が会社の方針に準拠していること、すべての業務が引き継がれていること、およびチームにメールを送信したことを確認してください。</value>
+  </data>
+  <data name="Quick Actions" xml:space="preserve">
+    <value>クイックアクション</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>却下</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>リクエスト</value>
+  </data>
+  <data name="Requires manager approval before use" xml:space="preserve">
+    <value>使用前に管理者の承認が必要です</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>病気休暇</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>提出済み</value>
+  </data>
+  <data name="Supporting documents required after leave ends" xml:space="preserve">
+    <value>有給休暇終了後、補助書類の提出が必要です</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>種類</value>
+  </data>
+  <data name="Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action." xml:space="preserve">
+    <value>未承認の欠勤は無断欠勤とみなされ、給与の控除および懲戒処分の対象となります。</value>
+  </data>
+  <data name="Unused days carry over to next year" xml:space="preserve">
+    <value>未使用の日数は翌年へ繰り越されます</value>
+  </data>
+  <data name="Upcoming Leave" xml:space="preserve">
+    <value>upcoming leave</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>取り下げられた</value>
+  </data>
+  <data name="Your leave applications and their status" xml:space="preserve">
+    <value>あなたの休暇申請およびその状態</value>
+  </data>
+
+</root>
