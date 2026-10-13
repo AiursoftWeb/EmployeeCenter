@@ -6,6 +6,31 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class AudioAsrConcurrencyTests
 {
     [TestMethod]
+    public async Task ManuallySavedMinutesRejectStaleGenerationWrites()
+    {
+        var options = new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase(Guid.NewGuid().ToString())
+            .Options;
+        await using var currentDb = new InMemoryContext(options);
+        var audio = new Audio { Name = "Manual minutes", FilePath = "audio/manual.mp3" };
+        currentDb.Audios.Add(audio);
+        await currentDb.SaveChangesAsync();
+        var currentResult = new AudioAsrResult { AudioId = audio.Id, PlainText = "Transcript" };
+        currentDb.AudioAsrResults.Add(currentResult);
+        await currentDb.SaveChangesAsync();
+
+        await using var staleDb = new InMemoryContext(options);
+        var staleResult = await staleDb.AudioAsrResults.SingleAsync();
+        currentResult.MeetingMinutesMarkdown = "Manually imported minutes";
+        await currentDb.SaveChangesAsync();
+        staleResult.MeetingMinutesMarkdown = "Generated before manual save";
+        await Assert.ThrowsExactlyAsync<DbUpdateConcurrencyException>(
+            async () => await staleDb.SaveChangesAsync());
+        await currentDb.Entry(currentResult).ReloadAsync();
+        Assert.AreEqual("Manually imported minutes", currentResult.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
     public async Task ProcessingTokenRejectsStaleAsrWrites()
     {
         var options = new DbContextOptionsBuilder<InMemoryContext>()

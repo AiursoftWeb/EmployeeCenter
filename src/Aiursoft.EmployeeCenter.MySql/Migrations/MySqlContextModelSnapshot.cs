@@ -322,6 +322,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MeetingMinutesMarkdown")
+                        .IsConcurrencyToken()
                         .HasColumnType("longtext");
 
                     b.Property<int>("MeetingMinutesTranscriptRevision")

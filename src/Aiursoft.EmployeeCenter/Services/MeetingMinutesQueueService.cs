@@ -8,17 +8,17 @@ public class MeetingMinutesQueueService(ServiceTaskQueue taskQueue) : ISingleton
     private const string QueueName = "meeting-minutes";
     private readonly Lock _queueLock = new();
     private readonly HashSet<MeetingMinutesTaskKey> _activeTasks = [];
-    private readonly HashSet<MeetingMinutesTaskKey> _deferredRetries = [];
+    private readonly Dictionary<MeetingMinutesTaskKey, string?> _deferredRetries = [];
 
-    public bool QueueRetry(int audioId, int transcriptRevision, DateTime transcriptCreateTime)
+    public bool QueueRetry(int audioId, int transcriptRevision, DateTime transcriptCreateTime, string? minutesToReplace = null)
     {
         var taskKey = new MeetingMinutesTaskKey(audioId, transcriptRevision, transcriptCreateTime);
         lock (_queueLock)
         {
-            if (_activeTasks.Contains(taskKey)) return _deferredRetries.Add(taskKey);
+            if (_activeTasks.Contains(taskKey)) return _deferredRetries.TryAdd(taskKey, minutesToReplace);
             if (IsQueued(taskKey)) return false;
 
-            QueueRetry(taskKey);
+            QueueRetry(taskKey, minutesToReplace);
             return true;
         }
     }
@@ -47,13 +47,13 @@ public class MeetingMinutesQueueService(ServiceTaskQueue taskQueue) : ISingleton
         }
     }
 
-    private async Task RunQueuedAsync(MeetingMinutesTaskKey taskKey, Func<Task> task)
+    private async Task RunQueuedAsync(MeetingMinutesTaskKey taskKey, string? minutesToReplace, Func<Task> task)
     {
         lock (_queueLock)
         {
             if (!_activeTasks.Add(taskKey))
             {
-                _deferredRetries.Add(taskKey);
+                _deferredRetries.TryAdd(taskKey, minutesToReplace);
                 return;
             }
         }
@@ -73,21 +73,23 @@ public class MeetingMinutesQueueService(ServiceTaskQueue taskQueue) : ISingleton
         lock (_queueLock)
         {
             _activeTasks.Remove(taskKey);
-            if (_deferredRetries.Remove(taskKey)) QueueRetry(taskKey);
+            if (_deferredRetries.Remove(taskKey, out var minutesToReplace)) QueueRetry(taskKey, minutesToReplace);
         }
     }
 
-    private void QueueRetry(MeetingMinutesTaskKey taskKey)
+    private void QueueRetry(MeetingMinutesTaskKey taskKey, string? minutesToReplace)
     {
         taskQueue.QueueWithDependency<MeetingMinutesService>(
             queueName: QueueName,
             taskName: GetTaskName(taskKey),
             task: service => RunQueuedAsync(
                 taskKey,
+                minutesToReplace,
                 () => service.RegenerateAsync(
                     taskKey.AudioId,
                     taskKey.TranscriptRevision,
-                    taskKey.TranscriptCreateTime)));
+                    taskKey.TranscriptCreateTime,
+                    minutesToReplace)));
     }
 
     private bool IsQueued(MeetingMinutesTaskKey taskKey)

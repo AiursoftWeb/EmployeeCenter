@@ -12,6 +12,191 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 public class AudioTests : TestBase
 {
     [TestMethod]
+    public async Task FailedMeetingMinutesCanBeImportedAndRegenerated()
+    {
+        await LoginAsAdmin();
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+        var audio = new Audio { Name = "Manual minutes", FilePath = "audio/manual.mp3", OwnerId = admin.Id };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            PlainText = "Transcript",
+            MeetingMinutesAttemptCount = 3
+        };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var page = await Http.GetAsync($"/Audio/Transcript/{audio.Id}");
+        StringAssert.Contains(await page.Content.ReadAsStringAsync(), $"/Audio/EditMeetingMinutes/{audio.Id}");
+        var form = await GetMeetingMinutesFormAsync(audio.Id);
+        form["MeetingMinutesMarkdown"] = "   ";
+        var response = await PostForm("/Audio/EditMeetingMinutes", form, $"/Audio/EditMeetingMinutes/{audio.Id}");
+        response.EnsureSuccessStatusCode();
+        await db.Entry(result).ReloadAsync();
+        Assert.IsNull(result.MeetingMinutesMarkdown);
+
+        form["MeetingMinutesMarkdown"] = "# Imported minutes\n\nDecision approved.";
+        response = await PostForm("/Audio/EditMeetingMinutes", form, $"/Audio/EditMeetingMinutes/{audio.Id}");
+        AssertRedirect(response, $"/Audio/Transcript/{audio.Id}");
+        await db.Entry(result).ReloadAsync();
+        Assert.AreEqual(form["MeetingMinutesMarkdown"], result.MeetingMinutesMarkdown);
+        Assert.AreEqual(result.TranscriptRevision, result.MeetingMinutesTranscriptRevision);
+
+        var service = scope.ServiceProvider.GetRequiredService<MeetingMinutesService>();
+        await service.GenerateAsync(result);
+        await service.RegenerateAsync(audio.Id, result.TranscriptRevision, result.CreateTime);
+        Assert.AreEqual(form["MeetingMinutesMarkdown"], result.MeetingMinutesMarkdown);
+        Assert.AreEqual(3, result.MeetingMinutesAttemptCount);
+
+        var queue = Server.Services.GetRequiredService<MeetingMinutesQueueService>();
+        var release = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var active = queue.ExecuteIfNotActiveAsync(audio.Id, result.TranscriptRevision, result.CreateTime, () => release.Task);
+        try
+        {
+            response = await PostForm("/Audio/RegenerateMeetingMinutes",
+                new Dictionary<string, string> { { "id", audio.Id.ToString() } },
+                $"/Audio/EditMeetingMinutes/{audio.Id}");
+            AssertRedirect(response, $"/Audio/Transcript/{audio.Id}");
+            await db.Entry(result).ReloadAsync();
+            Assert.AreEqual(form["MeetingMinutesMarkdown"], result.MeetingMinutesMarkdown);
+        }
+        finally
+        {
+            release.TrySetResult();
+            await active;
+        }
+    }
+
+    [TestMethod]
+    public async Task MeetingMinutesRejectStaleEditorAfterAnotherSave()
+    {
+        await LoginAsAdmin();
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+        var audio = new Audio { Name = "Concurrent minutes", FilePath = "audio/concurrent-minutes.mp3", OwnerId = admin.Id };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult { AudioId = audio.Id, PlainText = "Transcript" };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var firstForm = await GetMeetingMinutesFormAsync(audio.Id);
+        var staleForm = await GetMeetingMinutesFormAsync(audio.Id);
+        firstForm["MeetingMinutesMarkdown"] = "# First editor's decisions";
+        var response = await PostForm("/Audio/EditMeetingMinutes", firstForm);
+        AssertRedirect(response, $"/Audio/Transcript/{audio.Id}");
+
+        staleForm["MeetingMinutesMarkdown"] = "# Older draft";
+        response = await PostForm("/Audio/EditMeetingMinutes", staleForm);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        StringAssert.Contains(await response.Content.ReadAsStringAsync(), "The meeting minutes were changed by another user.");
+        await db.Entry(result).ReloadAsync();
+        Assert.AreEqual(firstForm["MeetingMinutesMarkdown"], result.MeetingMinutesMarkdown);
+
+        var currentForm = await GetMeetingMinutesFormAsync(audio.Id);
+        currentForm["MeetingMinutesMarkdown"] = "# Updated after reloading";
+        response = await PostForm("/Audio/EditMeetingMinutes", currentForm);
+        AssertRedirect(response, $"/Audio/Transcript/{audio.Id}");
+        await db.Entry(result).ReloadAsync();
+        Assert.AreEqual(currentForm["MeetingMinutesMarkdown"], result.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
+    public async Task MeetingMinutesRejectStaleEditorAfterTranscriptIsRecreated()
+    {
+        await LoginAsAdmin();
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+        var audio = new Audio { Name = "Replacement minutes", FilePath = "audio/replacement-minutes.mp3", OwnerId = admin.Id };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var original = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            PlainText = "Original transcript",
+            CreateTime = DateTime.UtcNow.AddMinutes(-1)
+        };
+        db.AudioAsrResults.Add(original);
+        await db.SaveChangesAsync();
+        var staleForm = await GetMeetingMinutesFormAsync(audio.Id);
+        db.AudioAsrResults.Remove(original);
+        await db.SaveChangesAsync();
+        var replacement = new AudioAsrResult
+        {
+            AudioId = audio.Id,
+            PlainText = "Replacement transcript",
+            CreateTime = original.CreateTime.AddSeconds(1)
+        };
+        db.AudioAsrResults.Add(replacement);
+        await db.SaveChangesAsync();
+
+        staleForm["MeetingMinutesMarkdown"] = "# Decisions from the removed recording";
+        var response = await PostForm("/Audio/EditMeetingMinutes", staleForm);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        StringAssert.Contains(await response.Content.ReadAsStringAsync(), "The transcript was changed by another user.");
+        await db.Entry(replacement).ReloadAsync();
+        Assert.IsNull(replacement.MeetingMinutesMarkdown);
+        Assert.AreEqual("Replacement transcript", replacement.PlainText);
+
+        var currentForm = await GetMeetingMinutesFormAsync(audio.Id);
+        currentForm["MeetingMinutesMarkdown"] = "# Replacement recording decisions";
+        response = await PostForm("/Audio/EditMeetingMinutes", currentForm);
+        AssertRedirect(response, $"/Audio/Transcript/{audio.Id}");
+        await db.Entry(replacement).ReloadAsync();
+        Assert.AreEqual(currentForm["MeetingMinutesMarkdown"], replacement.MeetingMinutesMarkdown);
+    }
+
+    [TestMethod]
+    public async Task MeetingMinutesRejectMissingSnapshotAndAntiforgeryToken()
+    {
+        await LoginAsAdmin();
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var admin = await db.Users.FirstAsync(user => user.Email == "admin@default.com");
+        var audio = new Audio { Name = "Required snapshot", FilePath = "audio/required-snapshot.mp3", OwnerId = admin.Id };
+        db.Audios.Add(audio);
+        await db.SaveChangesAsync();
+        var result = new AudioAsrResult { AudioId = audio.Id, PlainText = "Transcript" };
+        db.AudioAsrResults.Add(result);
+        await db.SaveChangesAsync();
+
+        var form = await GetMeetingMinutesFormAsync(audio.Id);
+        form["MeetingMinutesMarkdown"] = "# Unverified draft";
+        form.Remove("__RequestVerificationToken");
+        var response = await PostForm("/Audio/EditMeetingMinutes", form, includeToken: false);
+        Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
+
+        form = await GetMeetingMinutesFormAsync(audio.Id);
+        form["MeetingMinutesMarkdown"] = "# Draft without snapshot";
+        form.Remove("OriginalMeetingMinutesHash");
+        response = await PostForm("/Audio/EditMeetingMinutes", form);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        await db.Entry(result).ReloadAsync();
+        Assert.IsNull(result.MeetingMinutesMarkdown);
+    }
+
+    private async Task<Dictionary<string, string>> GetMeetingMinutesFormAsync(int audioId)
+    {
+        var response = await Http.GetAsync($"/Audio/EditMeetingMinutes/{audioId}");
+        response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync();
+        var fields = new Dictionary<string, string>();
+        foreach (var name in new[] { "Id", "TranscriptRevision", "TranscriptCreateTimeTicks", "OriginalMeetingMinutesHash", "__RequestVerificationToken" })
+        {
+            var match = Regex.Match(html, $"<input[^>]*name=\"{name}\"[^>]*value=\"([^\"]*)\"");
+            Assert.IsTrue(match.Success, $"Missing form field: {name}");
+            fields[name] = WebUtility.HtmlDecode(match.Groups[1].Value);
+        }
+        return fields;
+    }
+
+    [TestMethod]
     public async Task TranscriptPageShowsSeparateSpeechToTextAndSummaryProgress()
     {
         await LoginAsAdmin();
@@ -770,6 +955,7 @@ public class AudioTests : TestBase
         StringAssert.Contains(sharedTranscriptHtml, "data-effective-permission=\"ReadOnly\"");
         StringAssert.Contains(sharedTranscriptHtml, "id=\"copy-meeting-minutes\"");
         Assert.DoesNotContain("Edit Transcript", sharedTranscriptHtml);
+        Assert.DoesNotContain("Edit Meeting Minutes", sharedTranscriptHtml);
         Assert.DoesNotContain(">Rename<", sharedTranscriptHtml);
         Assert.DoesNotContain("Regenerate Meeting Minutes", sharedTranscriptHtml);
 
@@ -779,6 +965,11 @@ public class AudioTests : TestBase
         Assert.AreEqual(HttpStatusCode.Unauthorized, renameResponse.StatusCode);
         var editTranscriptResponse = await Http.GetAsync($"/Audio/EditTranscript/{audioId}");
         Assert.AreEqual(HttpStatusCode.Unauthorized, editTranscriptResponse.StatusCode);
+        var editMinutesResponse = await Http.GetAsync($"/Audio/EditMeetingMinutes/{audioId}");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, editMinutesResponse.StatusCode);
+        editMinutesResponse = await PostForm("/Audio/EditMeetingMinutes",
+            new Dictionary<string, string> { { "Id", audioId.ToString() }, { "MeetingMinutesMarkdown", "Unauthorized overwrite" } }, "/");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, editMinutesResponse.StatusCode);
         var regenerateResponse = await PostForm(
             "/Audio/RegenerateMeetingMinutes",
             new Dictionary<string, string> { { "id", audioId.ToString() } },
