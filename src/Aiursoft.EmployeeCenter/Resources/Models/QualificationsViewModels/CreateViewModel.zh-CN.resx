@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>公司主体</value>
+  </data>
+  <data name="Create a company entity before uploading qualifications." xml:space="preserve">
+    <value>请先创建公司主体，再上传关联的业务资质。</value>
+  </data>
+  <data name="Original Image" xml:space="preserve">
+    <value>原件图片</value>
+  </data>
+  <data name="Qualification Name" xml:space="preserve">
+    <value>资质名称</value>
+  </data>
+  <data name="Select Company" xml:space="preserve">
+    <value>请选择公司主体</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>添加资质</value>
+  </data>
+  <data name="Upload a PNG/JPEG original, at most 20 MB, with both dimensions at least 512 pixels. PDF is not supported in this version." xml:space="preserve">
+    <value>请上传 PNG/JPEG 原件，不超过 20 MB，宽高均至少 512 像素。首版不支持 PDF。</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+</root>

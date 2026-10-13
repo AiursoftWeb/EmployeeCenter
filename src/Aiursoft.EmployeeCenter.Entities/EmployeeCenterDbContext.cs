@@ -293,9 +293,27 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
 
     public DbSet<AudioAsrSegment> AudioAsrSegments => Set<AudioAsrSegment>();
 
+    public DbSet<BusinessQualification> BusinessQualifications => Set<BusinessQualification>();
+
+    public DbSet<QualificationDownload> QualificationDownloads => Set<QualificationDownload>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        builder.Entity<BusinessQualification>(entity =>
+        {
+            entity.HasOne(q => q.CompanyEntity).WithMany()
+                .HasForeignKey(q => q.CompanyEntityId).OnDelete(DeleteBehavior.Restrict);
+            entity.HasIndex(q => new { q.IsActive, q.CreatedAt });
+        });
+        builder.Entity<QualificationDownload>(entity =>
+        {
+            entity.HasOne(d => d.BusinessQualification).WithMany()
+                .HasForeignKey(d => d.BusinessQualificationId).OnDelete(DeleteBehavior.Restrict);
+            entity.HasIndex(d => new { d.ApplicantId, d.CreatedAt });
+            entity.HasIndex(d => d.CreatedAt);
+        });
 
         builder.Entity<ContractOcrResult>()
             .HasIndex(r => r.ContractId)

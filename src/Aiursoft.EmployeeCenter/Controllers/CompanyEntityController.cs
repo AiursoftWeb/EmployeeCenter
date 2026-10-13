@@ -378,11 +378,13 @@ public class CompanyEntityController(
         var collectionChannelsAsPayee = await dbContext.CollectionChannels.Where(c => c.PayeeId == id).ToListAsync();
         var servers = await dbContext.Servers.Where(s => s.CompanyEntityId == id).ToListAsync();
         var services = await dbContext.Services.Where(s => s.CompanyEntityId == id).ToListAsync();
+        var qualifications = await dbContext.BusinessQualifications.CountAsync(q => q.CompanyEntityId == id);
 
-        if (financeAccounts.Any() || collectionChannelsAsPayer.Any() || collectionChannelsAsPayee.Any() ||
+        if (qualifications > 0 || financeAccounts.Any() || collectionChannelsAsPayer.Any() || collectionChannelsAsPayee.Any() ||
             servers.Any() || services.Any())
         {
             var dependencies = new List<string>();
+            if (qualifications > 0) dependencies.Add($"{qualifications} business qualifications (retained for traceability)");
             if (financeAccounts.Any()) dependencies.Add($"{financeAccounts.Count} finance accounts (Ledger)");
             if (collectionChannelsAsPayer.Any()) dependencies.Add($"{collectionChannelsAsPayer.Count} collection channels as payer");
             if (collectionChannelsAsPayee.Any()) dependencies.Add($"{collectionChannelsAsPayee.Count} collection channels as payee");

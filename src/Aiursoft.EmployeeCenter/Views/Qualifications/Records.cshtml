@@ -1,0 +1,20 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.RecordsViewModel
+@inject IHtmlLocalizer<Aiursoft.EmployeeCenter.Models.QualificationsViewModels.RecordsViewModel> Localizer
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["My Download Records"]</h1>
+    <p>@Localizer["Only your own records are displayed."]</p>
+    <form asp-action="Records" method="get" class="d-flex mb-3">
+        <input name="query" value="@Model.Query" maxlength="120" class="form-control me-2" aria-label="@Localizer["Search"]" placeholder="@Localizer["Tracking ID, applicant, purpose or recipient"]" />
+        <button class="btn btn-secondary" type="submit">@Localizer["Search"]</button>
+    </form>
+    <div class="table-responsive"><table class="table">
+        <thead><tr><th>@Localizer["Qualification / Version"]</th><th>@Localizer["Applicant"]</th><th>@Localizer["Business Purpose"]</th><th>@Localizer["Recipient Company"]</th><th>@Localizer["Generated At (UTC)"]</th><th>@Localizer["Downloads"]</th><th>@Localizer["Tracking ID"]</th></tr></thead>
+        <tbody>@foreach (var record in Model.Records)
+        {
+            <tr><td>@record.CompanyName<br />@record.QualificationName / @record.Version</td><td>@record.ApplicantName</td><td>@record.Purpose</td><td>@record.Recipient</td><td>@record.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td><td>@record.DownloadCount</td><td><a asp-action="Preview" asp-route-id="@record.Id">@record.Id</a></td></tr>
+        }</tbody>
+    </table></div>
+    @if (Model.Page > 1) { <a asp-action="Records" asp-route-page="@(Model.Page - 1)" asp-route-query="@Model.Query" class="btn btn-secondary">@Localizer["Previous"]</a> }
+    @if (Model.HasNextPage) { <a asp-action="Records" asp-route-page="@(Model.Page + 1)" asp-route-query="@Model.Query" class="btn btn-secondary">@Localizer["Next"]</a> }
+    <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to Qualifications"]</a>
+</div>

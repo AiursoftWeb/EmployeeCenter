@@ -1,0 +1,20 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.ManageRecordViewModel
+@inject IHtmlLocalizer<Aiursoft.EmployeeCenter.Models.QualificationsViewModels.ManageRecordViewModel> Localizer
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["Qualification Issuance Record"]</h1>
+    <dl class="row">
+        <dt class="col-sm-3">@Localizer["Tracking ID"]</dt><dd class="col-sm-9">@Model.Record.Id</dd>
+        <dt class="col-sm-3">@Localizer["Company"]</dt><dd class="col-sm-9">@Model.Record.CompanyName</dd>
+        <dt class="col-sm-3">@Localizer["Qualification / Version"]</dt><dd class="col-sm-9">@Model.Record.QualificationName / @Model.Record.Version</dd>
+        <dt class="col-sm-3">@Localizer["Applicant"]</dt><dd class="col-sm-9">@Model.Record.ApplicantName (@Model.Record.ApplicantId)</dd>
+        <dt class="col-sm-3">@Localizer["Business Purpose"]</dt><dd class="col-sm-9">@Model.Record.Purpose</dd>
+        <dt class="col-sm-3">@Localizer["Recipient Company"]</dt><dd class="col-sm-9">@Model.Record.Recipient</dd>
+        <dt class="col-sm-3">@Localizer["Generated At (UTC)"]</dt><dd class="col-sm-9">@Model.Record.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+        <dt class="col-sm-3">@Localizer["Downloads"]</dt><dd class="col-sm-9">@Model.Record.DownloadCount</dd>
+        <dt class="col-sm-3">@Localizer["Last Downloaded At (UTC)"]</dt><dd class="col-sm-9">@Model.Record.LastDownloadedAt?.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+        <dt class="col-sm-3">@Localizer["Original SHA-256"]</dt><dd class="col-sm-9 text-break">@Model.Record.OriginalSha256</dd>
+        <dt class="col-sm-3">@Localizer["Copy SHA-256"]</dt><dd class="col-sm-9 text-break">@Model.Record.GeneratedSha256</dd>
+    </dl>
+    <a asp-action="Records" class="btn btn-secondary">@Localizer["All Download Records"]</a>
+    <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to Qualification Management"]</a>
+</div>

@@ -15,7 +15,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.11");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AdjustedHoliday", b =>
                 {
@@ -554,6 +554,55 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .IsUnique();
 
                     b.ToTable("BlueprintFolders");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BusinessQualification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CompanyEntityId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OriginalPath")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OriginalSha256")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Version")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyEntityId");
+
+                    b.HasIndex("IsActive", "CreatedAt");
+
+                    b.ToTable("BusinessQualifications");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.CollectionChannel", b =>
@@ -1810,6 +1859,85 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.ToTable("Providers");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.QualificationDownload", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ApplicantId")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ApplicantName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("BusinessQualificationId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("DownloadCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("GeneratedPath")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GeneratedSha256")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("LastDownloadedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OriginalSha256")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Purpose")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("QualificationName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Recipient")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Version")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessQualificationId");
+
+                    b.HasIndex("CreatedAt");
+
+                    b.HasIndex("ApplicantId", "CreatedAt");
+
+                    b.ToTable("QualificationDownloads");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Reimbursement", b =>
                 {
                     b.Property<int>("Id")
@@ -3018,6 +3146,17 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Navigation("ParentFolder");
                 });
 
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.BusinessQualification", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.CompanyEntity", "CompanyEntity")
+                        .WithMany()
+                        .HasForeignKey("CompanyEntityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("CompanyEntity");
+                });
+
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.CollectionChannel", b =>
                 {
                     b.HasOne("Aiursoft.EmployeeCenter.Entities.Contract", "Contract")
@@ -3301,6 +3440,17 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Navigation("Promoter");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.QualificationDownload", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.BusinessQualification", "BusinessQualification")
+                        .WithMany()
+                        .HasForeignKey("BusinessQualificationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("BusinessQualification");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Reimbursement", b =>

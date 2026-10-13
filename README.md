@@ -44,6 +44,25 @@ Requirements about how to run
 3. Execute `dotnet run` to run the app.
 4. Use your browser to view [http://localhost:5000](http://localhost:5000).
 
+## Business qualifications and watermarked copies
+
+- **Career → Resources → Business Qualifications**: authenticated employees specify a concrete business purpose and recipient company, then generate, preview and download a personalized PNG copy. No approval is required in this version. The applicant name is read server-side from `LegalName`, falling back to `DisplayName`.
+- **Administration → Legal → Manage Business Qualifications**: assign the `CanManageQualifications` permission to administrators who add originals, enable or disable versions, inspect all records and detect embedded tracking IDs. Existing deployments must grant this new permission through role management and sign in again; only a newly seeded administrator role automatically receives all permissions. Each addition is an immutable version associated with a company entity and is enabled by default. `/Qualifications` only offers **Generate Watermark and Download** and **My Download Records**, even for administrators; `/ManageQualifications` offers **Add Qualification**, **Stop Use / Enable**, **All Download Records** and watermark detection. Disabling blocks new generation and existing image previews/downloads while retaining originals and records; re-enabling restores both. Already downloaded files cannot be recalled.
+- Originals and generated copies are stored under the private vault's `qualifications/` directory. Generic download routes cannot serve this directory, even with file tokens. Copies are accessible only to their applicant and qualification administrators. Generation creates a durable issuance record before returning a preview; explicit downloads record a count and the last request time (not proof that transfer completed). Employee record lists always contain only the signed-in applicant's records; all-user records and read-only trace details live exclusively in the management area.
+- Inputs: PNG/JPEG, up to 20 MiB, both dimensions at least 512 pixels and at most 25 million decoded pixels. File pickers use `image/png,image/jpeg` MIME types for compatibility with UIStack's client-side file validator; the server independently validates extensions and image contents. PDF originals are not accepted. Output is a flattened PNG with no source EXIF; images whose longest side exceeds 2048 pixels are proportionally reduced, with both output dimensions still at least 512 pixels. Visible watermarks contain the purpose, recipient, account-derived name, UTC time and unique tracking ID. Invisible watermarks contain only the ID, which maps to the retained qualification/version, applicant, purpose, recipient, timestamps and SHA-256 hashes in the database.
+- Install a CJK font on non-container hosts (Ubuntu: `sudo apt install fonts-noto-cjk`). Docker installs it automatically. Set `Qualifications:WatermarkFontPath` (or environment variable `Qualifications__WatermarkFontPath`) to use a local CJK font file. A missing suitable font fails generation rather than returning an unwatermarked original.
+- The administrator detection form processes uploads locally without retaining them. A match identifies a generated copy, **not proof that its applicant misused it**. No match does not prove absence of a watermark. Resizing, cropping, screenshots, geometric transformations and printing/scanning may destroy the signal. This is a tracing aid, not DRM or a tamper-proof signature.
+- Back up the database, private vault and application data-protection keys. Generated records/copies are retained for tracing; establish an appropriate retention policy before production use.
+
+**Migration warning:** existing Company Entity license/certificate attachments and their old download URLs are not automatically moved or revoked. Before rollout, add the original into this feature, remove old attachment links and delete/restrict old publicly accessible files and copies. Do not commit actual certificates to the repository. Both SQLite and MySQL schema migrations are generated against the latest model (not copied from the old project) and applied through the existing startup migration mechanism.
+
+Run the focused validation suite with:
+
+```bash
+dotnet test tests/Aiursoft.EmployeeCenter.Tests.csproj \
+  --filter 'FullyQualifiedName~QualificationsTests|FullyQualifiedName~QualificationWatermarkServiceTests|FullyQualifiedName~QualificationPersistenceTests|FullyQualifiedName~MigrationTests'
+```
+
 ## Run in Microsoft Visual Studio
 
 1. Open the `.sln` file in the project path.

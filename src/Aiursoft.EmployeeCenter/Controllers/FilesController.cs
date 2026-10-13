@@ -165,6 +165,15 @@ public class FilesController(
 
     private async Task<IActionResult> ProcessDownload(string folderNames, bool isVault)
     {
+        // Qualification files must only pass through the authenticated, audited workflow.
+        if (string.IsNullOrWhiteSpace(folderNames)) return BadRequest("A relative path is required.");
+        var firstSegment = folderNames.Replace('\\', '/')
+            .Split('/', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();
+        if (string.Equals(firstSegment, "qualifications", StringComparison.OrdinalIgnoreCase))
+        {
+            return NotFound();
+        }
+
         string physicalPath;
         try
         {
