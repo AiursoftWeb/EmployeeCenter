@@ -36,7 +36,7 @@ public class QualificationsTests : TestBase
     }
 
     [TestMethod]
-    public async Task EmployeeCanGeneratePreviewDownloadAndAdminCanTraceWithoutExposingOriginal()
+    public async Task EmployeeCanDownloadZipAndAdminCanTraceWithoutExposingImages()
     {
         await LoginAsAdmin();
         var qualification = await UploadQualification();
@@ -73,12 +73,12 @@ public class QualificationsTests : TestBase
         var previewHtml = await preview.Content.ReadAsStringAsync();
         Assert.Contains("data-utc-time=", previewHtml);
         Assert.DoesNotContain(qualification.OriginalPath, previewHtml);
-        Assert.Contains(record.GeneratedPath, previewHtml);
-        var image = await PreviewImage(record.Id);
-        image.EnsureSuccessStatusCode();
-        var imageBytes = await image.Content.ReadAsByteArrayAsync();
-        using var imageStream = new MemoryStream(imageBytes);
-        Assert.AreEqual(record.Id, GetService<QualificationWatermarkService>().Detect(imageStream));
+        Assert.DoesNotContain(record.GeneratedPath, previewHtml);
+        Assert.DoesNotContain(record.ArchivePath!, previewHtml);
+        Assert.DoesNotContain("/download-private/qualifications/", previewHtml);
+        Assert.DoesNotContain("/Qualifications/Image/", previewHtml);
+        Assert.DoesNotContain("img-fluid mb-3", previewHtml);
+        Assert.AreEqual(0, (await SingleRecord()).LinkIssuedCount);
         var download = await PostForm($"/Qualifications/Download/{record.Id}", new(),
             tokenUrl: $"/Qualifications/Preview/{record.Id}");
         Assert.AreEqual(HttpStatusCode.Found, download.StatusCode);
@@ -144,7 +144,7 @@ public class QualificationsTests : TestBase
         await Http.GetAsync("/Culture/Set?culture=zh-CN&returnUrl=/ManageQualifications");
         var chineseDetail = await Http.GetAsync($"/ManageQualifications/Record/{record.Id}");
         Assert.Contains("资质生成记录详情", PageBody(WebUtility.HtmlDecode(await chineseDetail.Content.ReadAsStringAsync())));
-        var detected = await Upload("/ManageQualifications/Detect", "ImagePath", "copy.png", imageBytes, new());
+        var detected = await Upload("/ManageQualifications/Detect", "ImagePath", "copy.png", archivedPng, new());
         detected.EnsureSuccessStatusCode();
         Assert.Contains(record.Id.ToString(), await detected.Content.ReadAsStringAsync());
         Assert.AreEqual(1, (await SingleRecord()).LinkIssuedCount);
@@ -269,7 +269,9 @@ public class QualificationsTests : TestBase
         Assert.AreEqual(HttpStatusCode.BadRequest, (await PostForm($"/ManageQualifications/Enable/{qualification.Id}", new(), includeToken: false)).StatusCode);
         AssertRedirect(await PostForm($"/ManageQualifications/Enable/{qualification.Id}", new(), tokenUrl: "/ManageQualifications"), "/ManageQualifications");
         (await Http.GetAsync($"/Qualifications/Apply/{qualification.Id}")).EnsureSuccessStatusCode();
-        (await PreviewImage(record.Id)).EnsureSuccessStatusCode();
+        var downloadPage = await Http.GetAsync($"/Qualifications/Preview/{record.Id}");
+        downloadPage.EnsureSuccessStatusCode();
+        Assert.DoesNotContain(record.GeneratedPath, await downloadPage.Content.ReadAsStringAsync());
         Assert.AreEqual(HttpStatusCode.Found, (await PostForm($"/Qualifications/Download/{record.Id}", new(), tokenUrl: $"/Qualifications/Preview/{record.Id}")).StatusCode);
         Assert.AreEqual(1, (await SingleRecord()).LinkIssuedCount);
         Assert.AreEqual(record.Id, (await SingleRecord()).Id);
@@ -598,14 +600,6 @@ public class QualificationsTests : TestBase
     {
         using var scope = Server!.Services.CreateScope();
         return await scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>().QualificationDownloads.SingleAsync(d => d.BusinessQualificationId == qualificationId);
-    }
-
-    private async Task<HttpResponseMessage> PreviewImage(Guid id)
-    {
-        var html = await (await Http.GetAsync($"/Qualifications/Preview/{id}")).Content.ReadAsStringAsync();
-        var match = Regex.Match(html, "<img src=\"([^\"]+)\" class=\"img-fluid mb-3\"");
-        Assert.IsTrue(match.Success);
-        return await Http.GetAsync(WebUtility.HtmlDecode(match.Groups[1].Value));
     }
 
     private static byte[] ExtractPng(byte[] bytes)

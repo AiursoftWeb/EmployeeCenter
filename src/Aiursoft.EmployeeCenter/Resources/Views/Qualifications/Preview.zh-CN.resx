@@ -30,8 +30,8 @@
   <data name="Recipient Company" xml:space="preserve">
     <value>接收单位</value>
   </data>
-  <data name="This qualification is disabled. Preview and download are unavailable until an administrator enables it." xml:space="preserve">
-    <value>该资质已停用，无法预览或下载，管理员重新启用后即可恢复使用。</value>
+  <data name="This qualification is disabled. New download links are unavailable until an administrator enables it." xml:space="preserve">
+    <value>该资质已停用，无法签发新的下载链接，管理员重新启用后即可恢复使用。</value>
   </data>
   <data name="Tracking ID" xml:space="preserve">
     <value>追踪编号</value>
@@ -39,13 +39,13 @@
   <data name="Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation." xml:space="preserve">
     <value>对外发送前请核对用途和接收单位。水印辅助追溯，但不能阻止所有滥用，也不能保证经过任意图像处理后仍可检测。</value>
   </data>
-  <data name="Watermarked Preview" xml:space="preserve">
-    <value>水印预览</value>
+  <data name="Download Watermarked Qualification" xml:space="preserve">
+    <value>下载水印资质</value>
   </data>
   <data name="Watermarked qualification copy" xml:space="preserve">
     <value>带水印的资质副本</value>
   </data>
-  <data name="Download the ZIP and extract its PNG. The archived image is delivered unchanged; preview resizing does not alter it." xml:space="preserve"><value>下载 ZIP 并解压其中的 PNG。归档图片原样交付，预览缩放不会修改它。</value></data>
+  <data name="Images are not previewed online. Download the ZIP and extract the original watermarked PNG to preserve its embedded tracking ID." xml:space="preserve"><value>不提供在线图片预览。请下载 ZIP 并解压其中未经再次处理的水印 PNG，以保留暗水印追踪编号。</value></data>
   <data name="Generate ZIP download link" xml:space="preserve"><value>签发 ZIP 下载链接</value></data>
   <data name="ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry." xml:space="preserve"><value>ZIP 链接 60 分钟后过期。仅记录链接签发，重复下载不计数；已签发链接在过期前仍可使用。</value></data>
 </root>

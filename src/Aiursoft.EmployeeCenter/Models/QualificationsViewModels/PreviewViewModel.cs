@@ -5,6 +5,6 @@ namespace Aiursoft.EmployeeCenter.Models.QualificationsViewModels;
 
 public class PreviewViewModel : UiStackLayoutViewModel
 {
-    public PreviewViewModel() => PageTitle = "Watermarked Qualification Preview";
+    public PreviewViewModel() => PageTitle = "Watermarked Qualification Download";
     public required QualificationDownload Record { get; set; }
 }
