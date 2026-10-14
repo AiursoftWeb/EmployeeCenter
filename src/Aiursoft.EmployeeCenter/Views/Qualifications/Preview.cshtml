@@ -1,0 +1,46 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.PreviewViewModel
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["Download Watermarked Qualification"]</h1>
+    <p>@Model.Record.QualificationName — @Model.Record.Version</p>
+    <dl class="row">
+        <dt class="col-sm-3">@Localizer["Applicant"]</dt><dd class="col-sm-9">@Model.Record.ApplicantName</dd>
+        <dt class="col-sm-3">@Localizer["Business Purpose"]</dt><dd class="col-sm-9">@Model.Record.Purpose</dd>
+        <dt class="col-sm-3">@Localizer["Recipient Company"]</dt><dd class="col-sm-9">@Model.Record.Recipient</dd>
+        <dt class="col-sm-3">@Localizer["Tracking ID"]</dt><dd class="col-sm-9">@Model.Record.Id</dd>
+        <dt class="col-sm-3">@Localizer["Generated At"]</dt><dd class="col-sm-9"><label data-utc-time="@Model.Record.CreatedAt.ToHtmlDateTime()"></label></dd>
+    </dl>
+    <div class="mb-3">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation."]
+            </div>
+        </div>
+    </div>
+    @if (Model.Record.BusinessQualification.IsActive)
+    {
+        <p>@Localizer["Images are not previewed online. Download the ZIP and extract the original watermarked PNG to preserve its embedded tracking ID."]</p>
+        <form asp-action="Download" asp-route-id="@Model.Record.Id" method="post" class="mb-3">
+            <button type="submit" class="btn btn-primary">@Localizer["Generate ZIP download link"]</button>
+        </form>
+        <p class="text-muted">@Localizer["ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry."]</p>
+    }
+    else
+    {
+        <div class="mb-3">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    @Localizer["This qualification is disabled. New download links are unavailable until an administrator enables it."]
+                </div>
+            </div>
+        </div>
+    }
+    <a asp-action="Records" class="btn btn-secondary">@Localizer["My Download Records"]</a>
+</div>

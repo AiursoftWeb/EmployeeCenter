@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="Applicant" xml:space="preserve">
+    <value>申请人</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>业务用途</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>生成水印并下载</value>
+  </data>
+  <data name="Generate and Preview" xml:space="preserve">
+    <value>生成并预览</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>接收单位</value>
+  </data>
+  <data name="Specify the actual transaction, for example supplier onboarding or a named project tender." xml:space="preserve">
+    <value>请填写具体业务，例如供应商入驻或某项目投标。</value>
+  </data>
+  <data name="The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form." xml:space="preserve">
+    <value>服务端添加明水印和隐形追踪水印。申请人姓名来自登录账号，无法在此修改。</value>
+  </data>
+  <data name="Watermark Language" xml:space="preserve"><value>水印语言</value></data>
+  <data name="Follow Interface Language" xml:space="preserve"><value>跟随界面语言</value></data>
+  <data name="Simplified Chinese" xml:space="preserve"><value>简体中文</value></data>
+  <data name="Traditional Chinese (Hong Kong)" xml:space="preserve"><value>繁體中文（香港）</value></data>
+  <data name="Only the watermark labels change language. The purpose, recipient and account name are not translated. Choose English and enter the purpose and recipient in English for an English copy. Existing copies do not change." xml:space="preserve"><value>此选项只改变水印固定文案，业务用途、接收单位和账号姓名不会自动翻译。如需英文副本，请选择 English 并用英文填写用途和接收单位。已生成的副本不会改变。</value></data>
+</root>

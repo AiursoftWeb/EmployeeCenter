@@ -267,12 +267,15 @@
                     </div>
                 </div>
 
-                <div class="alert alert-warning" role="alert">
-                    <div class="alert-icon">
-                        <i class="align-middle" data-lucide="info"></i>
-                    </div>
-                    <div class="alert-message">
-                        @Localizer["By clicking 'Confirm and Issue', you confirm that all values above are correct and compliant with the company policy."]
+                <div class="mb-3">
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                        <div class="alert-icon">
+                            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                        </div>
+                        <div class="alert-message">
+                            @Localizer["By clicking 'Confirm and Issue', you confirm that all values above are correct and compliant with the company policy."]
+                        </div>
                     </div>
                 </div>
             </div>
@@ -291,26 +294,32 @@
         <h5 class="card-title mb-0">@Localizer["Calculation Formula Graph"]</h5>
     </div>
     <div class="card-body">
-        <div class="alert alert-info mb-0" role="alert">
-            <div class="alert-message">
-                <div class="d-flex align-items-center justify-content-center flex-wrap text-center">
-                    <div class="p-2 border rounded bg-white m-1">@Localizer["Total Earnings"]</div>
-                    <div class="p-2 m-1 fw-bold">+</div>
-                    <div class="p-2 border rounded bg-danger text-white m-1">@Localizer["Deductions"]</div>
-                    <div class="p-2 m-1 fw-bold">-</div>
-                    <div class="p-2 border rounded bg-warning m-1">@Localizer["Personal Insurance"]</div>
-                    <div class="p-2 m-1 fw-bold">-</div>
-                    <div class="p-2 border rounded bg-secondary text-white m-1">@Localizer["Income Tax"]</div>
-                    <div class="p-2 m-1 fw-bold">=</div>
-                    <div class="p-2 border rounded bg-success text-white m-1 fw-bold">@Localizer["Actual Salary (Net)"]</div>
+        <div class="mb-3">
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
                 </div>
-                <hr />
-                <div class="d-flex align-items-center justify-content-center flex-wrap text-center mt-2">
-                    <div class="p-2 border rounded bg-white m-1">@Localizer["Total Earnings"]</div>
-                    <div class="p-2 m-1 fw-bold">+</div>
-                    <div class="p-2 border rounded bg-info m-1">@Localizer["Company Paid Insurances"]</div>
-                    <div class="p-2 m-1 fw-bold">=</div>
-                    <div class="p-2 border rounded bg-dark text-white m-1 fw-bold">@Localizer["Total Company Cost"]</div>
+                <div class="alert-message">
+                    <div class="d-flex align-items-center justify-content-center flex-wrap text-center">
+                        <div class="p-2 border rounded bg-white m-1">@Localizer["Total Earnings"]</div>
+                        <div class="p-2 m-1 fw-bold">+</div>
+                        <div class="p-2 border rounded bg-danger text-white m-1">@Localizer["Deductions"]</div>
+                        <div class="p-2 m-1 fw-bold">-</div>
+                        <div class="p-2 border rounded bg-warning m-1">@Localizer["Personal Insurance"]</div>
+                        <div class="p-2 m-1 fw-bold">-</div>
+                        <div class="p-2 border rounded bg-secondary text-white m-1">@Localizer["Income Tax"]</div>
+                        <div class="p-2 m-1 fw-bold">=</div>
+                        <div class="p-2 border rounded bg-success text-white m-1 fw-bold">@Localizer["Actual Salary (Net)"]</div>
+                    </div>
+                    <hr />
+                    <div class="d-flex align-items-center justify-content-center flex-wrap text-center mt-2">
+                        <div class="p-2 border rounded bg-white m-1">@Localizer["Total Earnings"]</div>
+                        <div class="p-2 m-1 fw-bold">+</div>
+                        <div class="p-2 border rounded bg-info m-1">@Localizer["Company Paid Insurances"]</div>
+                        <div class="p-2 m-1 fw-bold">=</div>
+                        <div class="p-2 border rounded bg-dark text-white m-1 fw-bold">@Localizer["Total Company Cost"]</div>
+                    </div>
                 </div>
             </div>
         </div>

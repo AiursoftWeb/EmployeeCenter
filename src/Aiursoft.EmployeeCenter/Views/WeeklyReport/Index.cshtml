@@ -13,23 +13,33 @@
                     <div class="card-body">
                         @if (Model.CriticalMissingReports)
                         {
-                            <div class="alert alert-danger d-flex align-items-center mb-3">
-                                <i class="align-middle me-2" data-lucide="alert-octagon"></i>
-                                <div>
-                                    <strong>@Localizer["CRITICAL: Missing Reports"]</strong>
-                                    <span class="d-block small">@Localizer["You have missed ALL weekly reports in the last 4 weeks! This is a serious issue. Please submit them immediately!"]</span>
+                            <div class="mb-3">
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                    <div class="alert-icon">
+                                        <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        <div>
+                                            <strong>@Localizer["CRITICAL: Missing Reports"]</strong>
+                                            <span class="d-block small">@Localizer["You have missed ALL weekly reports in the last 4 weeks! This is a serious issue. Please submit them immediately!"]</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         }
                         else if (Model.HasRecentMissingReports)
                         {
-                            <div class="alert alert-warning mb-3" role="alert">
-                                <div class="alert-icon">
-                                    <i class="align-middle" data-lucide="alert-triangle"></i>
-                                </div>
-                                <div class="alert-message">
-                                    <strong>@Localizer["Missing Reports"]</strong>
-                                    <span class="d-block small">@Localizer["You have missed submitting some weekly reports in the last 4 weeks. Please catch up!"]</span>
+                            <div class="mb-3">
+                                <div class="alert alert-warning alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                    <div class="alert-icon">
+                                        <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        <strong>@Localizer["Missing Reports"]</strong>
+                                        <span class="d-block small">@Localizer["You have missed submitting some weekly reports in the last 4 weeks. Please catch up!"]</span>
+                                    </div>
                                 </div>
                             </div>
                         }
@@ -104,17 +114,20 @@
 
             @if (Model.FilterUser != null)
             {
-                <div class="alert alert-info mb-4 shadow-sm" role="alert">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <div class="alert-icon me-3">
-                                <i class="align-middle" data-lucide="filter"></i>
-                            </div>
-                            <div class="alert-message">
-                                @Localizer["Showing weekly reports from"]: <strong><a asp-controller="Users" asp-action="Details" asp-route-id="@Model.FilterUser.Id" class="text-body">@Model.FilterUser.DisplayName</a></strong>
+                <div class="mb-3">
+                    <div class="alert alert-info shadow-sm alert-dismissible" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                        <div class="alert-icon">
+                            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                        </div>
+                        <div class="alert-message">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                        @Localizer["Showing weekly reports from"]: <strong><a asp-controller="Users" asp-action="Details" asp-route-id="@Model.FilterUser.Id" class="text-body">@Model.FilterUser.DisplayName</a></strong>
+                                </div>
+                                <a asp-action="Index" asp-route-userId="" class="btn btn-sm btn-outline-info">@Localizer["Show All"]</a>
                             </div>
                         </div>
-                        <a asp-action="Index" asp-route-userId="" class="btn btn-sm btn-outline-info">@Localizer["Show All"]</a>
                     </div>
                 </div>
             }

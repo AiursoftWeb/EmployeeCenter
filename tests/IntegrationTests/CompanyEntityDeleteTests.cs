@@ -5,6 +5,49 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 public class CompanyEntityDeleteTests : TestBase
 {
     [TestMethod]
+    public async Task DeleteCompanyEntity_WithRetiredQualification_PreservesTraceability()
+    {
+        await LoginAsAdmin();
+
+        int entityId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var entity = new CompanyEntity
+            {
+                CompanyName = "Qualification retention test",
+                EntityCode = "QUALIFICATION-RETENTION"
+            };
+            db.CompanyEntities.Add(entity);
+            await db.SaveChangesAsync();
+            entityId = entity.Id;
+            db.BusinessQualifications.Add(new BusinessQualification
+            {
+                CompanyEntityId = entityId,
+                Name = "Business license",
+                Version = "v1",
+                OriginalPath = "qualifications/originals/retained.png",
+                OriginalSha256 = new string('a', 64),
+                CreatedById = "qualification-admin",
+                IsActive = false
+            });
+            await db.SaveChangesAsync();
+        }
+
+        var response = await PostForm($"/CompanyEntity/Delete/{entityId}", new Dictionary<string, string>());
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        StringAssert.Contains(await response.Content.ReadAsStringAsync(),
+            "1 business qualifications (retained for traceability)");
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            Assert.IsNotNull(await db.CompanyEntities.FindAsync(entityId));
+            Assert.AreEqual(1, await db.BusinessQualifications.CountAsync(q => q.CompanyEntityId == entityId));
+        }
+    }
+
+    [TestMethod]
     public async Task DeleteCompanyEntity_WithDependencies_HandlesCorrectly()
     {
         // 1. Login as admin

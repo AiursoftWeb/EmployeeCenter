@@ -36,16 +36,22 @@
     @if (!Model.SubFolders.Any() && !Model.Contracts.Any())
     {
         <div class="card-body">
-            <div class="alert alert-info mb-0" role="alert">
-                <div class="alert-message">
-                    <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
-                    <p class="mb-0">
-                        @Localizer["This folder is currently empty."]
-                        @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanCreateContract)).Succeeded)
-                        {
-                            <a asp-controller="ManageContract" asp-action="Index" asp-route-folderId="@Model.FolderId">@Localizer["Click here to manage contents."]</a>
-                        }
-                    </p>
+            <div class="mb-3">
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                    <div class="alert-icon">
+                        <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                    </div>
+                    <div class="alert-message">
+                        <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
+                        <p class="mb-0">
+                            @Localizer["This folder is currently empty."]
+                            @if ((await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanCreateContract)).Succeeded)
+                            {
+                                <a asp-controller="ManageContract" asp-action="Index" asp-route-folderId="@Model.FolderId">@Localizer["Click here to manage contents."]</a>
+                            }
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,29 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.ManageRecordViewModel
+@inject IHtmlLocalizer<Aiursoft.EmployeeCenter.Models.QualificationsViewModels.ManageRecordViewModel> Localizer
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["Qualification Issuance Record"]</h1>
+    <dl class="row">
+        <dt class="col-sm-3">@Localizer["Tracking ID"]</dt><dd class="col-sm-9">@Model.Record.Id</dd>
+        <dt class="col-sm-3">@Localizer["Company"]</dt><dd class="col-sm-9">@Model.Record.CompanyName</dd>
+        <dt class="col-sm-3">@Localizer["Qualification / Version"]</dt><dd class="col-sm-9">@Model.Record.QualificationName / @Model.Record.Version</dd>
+        <dt class="col-sm-3">@Localizer["Applicant"]</dt><dd class="col-sm-9">@Model.Record.ApplicantName (@Model.Record.ApplicantId)</dd>
+        <dt class="col-sm-3">@Localizer["Business Purpose"]</dt><dd class="col-sm-9">@Model.Record.Purpose</dd>
+        <dt class="col-sm-3">@Localizer["Recipient Company"]</dt><dd class="col-sm-9">@Model.Record.Recipient</dd>
+        <dt class="col-sm-3">@Localizer["Generated At"]</dt><dd class="col-sm-9"><label data-utc-time="@Model.Record.CreatedAt.ToHtmlDateTime()"></label></dd>
+        <dt class="col-sm-3">@Localizer["ZIP links issued"]</dt><dd class="col-sm-9">@Model.Record.LinkIssuedCount</dd>
+        <dt class="col-sm-3">@Localizer["Last link issued at"]</dt><dd class="col-sm-9"><label data-utc-time="@Model.Record.LastLinkIssuedAt?.ToHtmlDateTime()"></label></dd>
+        <dt class="col-sm-3">@Localizer["Original SHA-256"]</dt><dd class="col-sm-9 text-break">@Model.Record.OriginalSha256</dd>
+        <dt class="col-sm-3">@Localizer["Copy SHA-256"]</dt><dd class="col-sm-9 text-break">@Model.Record.GeneratedSha256</dd>
+        <dt class="col-sm-3">@Localizer["ZIP SHA-256"]</dt><dd class="col-sm-9 text-break">@Model.Record.ArchiveSha256</dd>
+    </dl>
+    <p>@Localizer["Link issuance records identify who requested a ZIP link, not who completed a download. Preview links are not counted. Latest 100 issuances are shown."]</p>
+    <div class="table-responsive"><table class="table">
+        <thead><tr><th>@Localizer["Link issued to"]</th><th>@Localizer["Issued at"]</th></tr></thead>
+        <tbody>@foreach (var issue in Model.LinkIssues)
+        {
+            <tr><td>@issue.IssuedToName (@issue.IssuedToId)</td><td><label data-utc-time="@issue.IssuedAt.ToHtmlDateTime()"></label></td></tr>
+        }</tbody>
+    </table></div>
+    <a asp-action="Records" class="btn btn-secondary">@Localizer["All Download Records"]</a>
+    <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to Qualification Management"]</a>
+</div>

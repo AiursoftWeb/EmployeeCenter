@@ -42,25 +42,35 @@
     
     @if (!tasks.Any())
     {
-        <div class="alert alert-info alert-dismissible" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div class="alert-message">
-                <h4 class="alert-heading">@Localizer["No Tasks Available"]</h4>
-                <p class="mb-0">
-                    @Localizer["You currently have no onboarding tasks assigned. You may explore other features from the sidebar."]
-                </p>
+        <div class="mb-3">
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    <h4 class="alert-heading">@Localizer["No Tasks Available"]</h4>
+                    <p class="mb-0">
+                        @Localizer["You currently have no onboarding tasks assigned. You may explore other features from the sidebar."]
+                    </p>
+                </div>
             </div>
         </div>
     }
     else if (allCompleted)
     {
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div class="alert-message">
-                <h4 class="alert-heading">@Localizer["Congratulations!"]</h4>
-                <p class="mb-0">
-                    @Localizer["You have completed all onboarding tasks. You are now a fully qualified official employee!"]
-                </p>
+        <div class="mb-3">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    <h4 class="alert-heading">@Localizer["Congratulations!"]</h4>
+                    <p class="mb-0">
+                        @Localizer["You have completed all onboarding tasks. You are now a fully qualified official employee!"]
+                    </p>
+                </div>
             </div>
         </div>
     }
@@ -112,12 +122,15 @@
 
                             @if (isCompleted)
                             {
-                                <div class="alert alert-success" role="alert">
-                                    <div class="alert-icon">
-                                        <i class="align-middle" data-lucide="check-circle"></i>
-                                    </div>
-                                    <div class="alert-message">
-                                        @Localizer["Completed at"] <label class="text-muted" data-utc-time="@completedLog!.CompletionTime?.ToHtmlDateTime()"></label>
+                                <div class="mb-3">
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                        <div class="alert-icon">
+                                            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="alert-message">
+                                            @Localizer["Completed at"] <label class="text-muted" data-utc-time="@completedLog!.CompletionTime?.ToHtmlDateTime()"></label>
+                                        </div>
                                     </div>
                                 </div>
                             }
@@ -127,12 +140,15 @@
                                 var canComplete = secondsSinceStart >= 30;
                                 var remaining = Math.Max(0, 30 - secondsSinceStart);
 
-                                <div class="alert alert-info" role="alert">
-                                    <div class="alert-icon">
-                                        <i class="align-middle" data-lucide="loader"></i>
-                                    </div>
-                                    <div class="alert-message">
-                                        @Localizer["Task in progress..."]
+                                <div class="mb-3">
+                                    <div class="alert alert-info alert-dismissible" role="alert">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                        <div class="alert-icon">
+                                            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="alert-message">
+                                            @Localizer["Task in progress..."]
+                                        </div>
                                     </div>
                                 </div>
 
@@ -161,12 +177,15 @@
                             }
                             else
                             {
-                                <div class="alert alert-warning" role="alert">
-                                    <div class="alert-icon">
-                                        <i class="align-middle" data-lucide="alert-circle"></i>
-                                    </div>
-                                    <div class="alert-message">
-                                        @Localizer["This task is pending."]
+                                <div class="mb-3">
+                                    <div class="alert alert-warning alert-dismissible" role="alert">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                        <div class="alert-icon">
+                                            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="alert-message">
+                                            @Localizer["This task is pending."]
+                                        </div>
                                     </div>
                                 </div>
                                 

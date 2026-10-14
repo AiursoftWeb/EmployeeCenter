@@ -34,7 +34,17 @@
             <div class="tab-pane fade show active" id="plain-text" role="tabpanel">
                 @if (string.IsNullOrEmpty(Model.PlainText))
                 {
-                    <div class="alert alert-info">@Localizer["No preview text available for this contract."]</div>
+                    <div class="mb-3">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                            <div class="alert-icon">
+                                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                            </div>
+                            <div class="alert-message">
+                                @Localizer["No preview text available for this contract."]
+                            </div>
+                        </div>
+                    </div>
                 }
                 else
                 {
@@ -46,7 +56,17 @@
                 <div class="tab-pane fade" id="json-result" role="tabpanel">
                     @if (string.IsNullOrEmpty(Model.JsonResult))
                     {
-                        <div class="alert alert-info">@Localizer["No raw JSON data available."]</div>
+                        <div class="mb-3">
+                            <div class="alert alert-info alert-dismissible" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                <div class="alert-icon">
+                                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                </div>
+                                <div class="alert-message">
+                                    @Localizer["No raw JSON data available."]
+                                </div>
+                            </div>
+                        </div>
                     }
                     else
                     {

@@ -277,6 +277,10 @@
                         </div>
                     }
 
+                    <div class="mb-3">
+                        <a asp-controller="Qualifications" asp-action="Index" asp-route-companyEntityId="@Model.Entity.Id" class="btn btn-primary btn-sm">@Localizer["Business Qualifications"]</a>
+                    </div>
+
                     @if (!string.IsNullOrEmpty(Model.Entity.LicensePath))
                     {
                         <div class="mb-3">

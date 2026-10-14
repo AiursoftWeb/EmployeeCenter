@@ -36,9 +36,15 @@
 
 @if (Model.Error != null)
 {
-    <div class="alert alert-danger" role="alert">
-        <div class="alert-message">
-            @Model.Error
+    <div class="mb-3">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Model.Error
+            </div>
         </div>
     </div>
 }

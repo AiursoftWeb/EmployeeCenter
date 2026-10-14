@@ -14,6 +14,58 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 public class MigrationTests
 {
     [TestMethod]
+    public async Task QualificationMigrationPreservesExistingCompanyAndManualMeetingMinutes()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:");
+        await connection.OpenAsync();
+        var options = new DbContextOptionsBuilder<SqliteContext>().UseSqlite(connection).Options;
+        await using var context = new SqliteContext(options);
+        var migrator = context.Database.GetService<IMigrator>();
+        await migrator.MigrateAsync("20260901231224_InfrastructureRegistryValidatedConstraints");
+
+        var company = new CompanyEntity
+        {
+            CompanyName = "Existing company",
+            EntityCode = "EXISTING-COMPANY"
+        };
+        var audio = new Audio
+        {
+            Name = "Existing recording",
+            FilePath = "audio/existing.mp3",
+            AsrResult = new AudioAsrResult
+            {
+                PlainText = "Existing transcript",
+                TranscriptRevision = 3,
+                MeetingMinutesMarkdown = "# Manually edited minutes\n\nRetain this text.",
+                MeetingMinutesTranscriptRevision = 3
+            }
+        };
+        context.CompanyEntities.Add(company);
+        context.Audios.Add(audio);
+        await context.SaveChangesAsync();
+        context.ChangeTracker.Clear();
+
+        await migrator.MigrateAsync();
+        context.ChangeTracker.Clear();
+
+        var retainedCompany = await context.CompanyEntities.SingleAsync();
+        Assert.AreEqual(company.Id, retainedCompany.Id);
+        Assert.AreEqual(company.CompanyName, retainedCompany.CompanyName);
+        Assert.AreEqual(company.EntityCode, retainedCompany.EntityCode);
+        var retainedAudio = await context.Audios.Include(a => a.AsrResult).SingleAsync();
+        Assert.AreEqual(audio.FilePath, retainedAudio.FilePath);
+        Assert.AreEqual(audio.AsrResult.PlainText, retainedAudio.AsrResult?.PlainText);
+        Assert.AreEqual(audio.AsrResult.MeetingMinutesMarkdown, retainedAudio.AsrResult?.MeetingMinutesMarkdown);
+        Assert.AreEqual(3, retainedAudio.AsrResult?.TranscriptRevision);
+        Assert.AreEqual(3, retainedAudio.AsrResult?.MeetingMinutesTranscriptRevision);
+        Assert.AreEqual(0, await context.BusinessQualifications.CountAsync());
+        Assert.AreEqual(0, await context.QualificationDownloads.CountAsync());
+        Assert.IsTrue(context.Model.FindEntityType(typeof(AudioAsrResult))!
+            .FindProperty(nameof(AudioAsrResult.MeetingMinutesMarkdown))!.IsConcurrencyToken);
+        Assert.IsFalse(context.Database.HasPendingModelChanges());
+    }
+
+    [TestMethod]
     public void TestSqliteMigrations()
     {
         var options = new DbContextOptionsBuilder<SqliteContext>()

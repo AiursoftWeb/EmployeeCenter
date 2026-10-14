@@ -4,12 +4,15 @@
 
 <div class="row mb-3">
     <div class="col">
-        <div class="alert alert-primary alert-outline" role="alert">
-            <div class="alert-icon">
-                <i class="align-middle" data-lucide="file-text"></i>
-            </div>
-            <div class="alert-message">
-                <strong>@Localizer["Moving:"]</strong> @Model.ContractName
+        <div class="mb-3">
+            <div class="alert alert-primary alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    <strong>@Localizer["Moving:"]</strong> @Model.ContractName
+                </div>
             </div>
         </div>
     </div>

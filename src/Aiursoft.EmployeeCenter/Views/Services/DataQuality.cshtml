@@ -10,8 +10,16 @@
     </div>
 </div>
 
-<div class="alert alert-info">
-    @Localizer["Legacy rows are not changed automatically. Review and save each row to opt it into normalized uniqueness and validation."]
+<div class="mb-3">
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+        <div class="alert-icon">
+            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+        </div>
+        <div class="alert-message">
+            @Localizer["Legacy rows are not changed automatically. Review and save each row to opt it into normalized uniqueness and validation."]
+        </div>
+    </div>
 </div>
 
 <div class="card">

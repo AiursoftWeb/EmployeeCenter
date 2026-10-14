@@ -45,25 +45,49 @@
 
 @if (!Model.IsInitialized)
 {
-    <div class="alert alert-info">
-        <h5 class="alert-heading">@Localizer["Service audit is starting"]</h5>
-        <p class="mb-0">@Localizer["The first background audit has not completed yet. Results will be stored in the database when it finishes."]</p>
+    <div class="mb-3">
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                <h5 class="alert-heading">@Localizer["Service audit is starting"]</h5>
+                <p class="mb-0">@Localizer["The first background audit has not completed yet. Results will be stored in the database when it finishes."]</p>
+            </div>
+        </div>
     </div>
 }
 else if (!Model.IsConfigured)
 {
-    <div class="alert alert-warning">
-        <h5 class="alert-heading">@Localizer["Cloudflare API token is not configured"]</h5>
-        <p class="mb-0">
-            @Localizer["Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token."]
-        </p>
+    <div class="mb-3">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                <h5 class="alert-heading">@Localizer["Cloudflare API token is not configured"]</h5>
+                <p class="mb-0">
+                    @Localizer["Ask an administrator with Global Settings permission to configure the read-only Cloudflare API token."]
+                </p>
+            </div>
+        </div>
     </div>
 }
 else if (Model.Report == null && !string.IsNullOrWhiteSpace(Model.ErrorMessage))
 {
-    <div class="alert alert-danger">
-        <h5 class="alert-heading">@Localizer["Audit failed"]</h5>
-        <p class="mb-0">@Model.ErrorMessage</p>
+    <div class="mb-3">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                <h5 class="alert-heading">@Localizer["Audit failed"]</h5>
+                <p class="mb-0">@Model.ErrorMessage</p>
+            </div>
+        </div>
     </div>
 }
 else if (Model.Report != null)
@@ -71,10 +95,18 @@ else if (Model.Report != null)
     var report = Model.Report;
     @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
     {
-        <div class="alert alert-warning">
-            <h5 class="alert-heading">@Localizer["Latest refresh failed"]</h5>
-            <p class="mb-1">@Model.ErrorMessage</p>
-            <p class="mb-0">@Localizer["The last successful cached audit is shown below."]</p>
+        <div class="mb-3">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    <h5 class="alert-heading">@Localizer["Latest refresh failed"]</h5>
+                    <p class="mb-1">@Model.ErrorMessage</p>
+                    <p class="mb-0">@Localizer["The last successful cached audit is shown below."]</p>
+                </div>
+            </div>
         </div>
     }
     <div class="row g-3 mb-3">
@@ -120,9 +152,16 @@ else if (Model.Report != null)
 
     @if (report.Issues.Count == 0)
     {
-        <div class="alert alert-success">
-            <i class="align-middle" data-lucide="check-circle"></i>
-            @Localizer["No service audit issues were found."]
+        <div class="mb-3">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    @Localizer["No service audit issues were found."]
+                </div>
+            </div>
         </div>
     }
     else

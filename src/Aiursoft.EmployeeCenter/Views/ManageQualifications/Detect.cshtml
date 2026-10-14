@@ -1,0 +1,61 @@
+@model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.DetectViewModel
+@inject IHtmlLocalizer<Aiursoft.EmployeeCenter.Models.QualificationsViewModels.DetectViewModel> Localizer
+<div class="container-fluid">
+    <h1 class="h3">@Localizer["Detect Watermark"]</h1>
+    <p>@Localizer["Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are uploaded to a private temporary folder and deleted after inspection; abandoned uploads are cleaned after one hour."]</p>
+    <div class="mb-3">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked."]
+            </div>
+        </div>
+    </div>
+    <form asp-action="Detect" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <label asp-for="ImagePath" class="form-label">@Localizer["Image to Inspect"]</label>
+        <vc:file-upload asp-for="ImagePath" subfolder="@Model.UploadSubfolder" is-vault="true" allowed-extensions="png jpg jpeg" max-size-in-mb="20"></vc:file-upload>
+        <span asp-validation-for="ImagePath" class="text-danger"></span>
+        <button type="submit" class="btn btn-primary">@Localizer["Inspect"]</button>
+        <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+    </form>
+    @if (Model.Message is not null)
+    {
+        <div class="mb-3 mt-3">
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    @Localizer[Model.Message]
+                </div>
+            </div>
+        </div>
+    }
+    @if (Model.Record is not null)
+    {
+        <dl class="row mt-3">
+            <dt class="col-sm-3">@Localizer["Tracking ID"]</dt><dd class="col-sm-9"><a asp-action="Record" asp-route-id="@Model.Record.Id">@Model.Record.Id</a></dd>
+            <dt class="col-sm-3">@Localizer["Applicant"]</dt><dd class="col-sm-9">@Model.Record.ApplicantName (@Model.Record.ApplicantId)</dd>
+            <dt class="col-sm-3">@Localizer["Qualification / Version"]</dt><dd class="col-sm-9">@Model.Record.CompanyName — @Model.Record.QualificationName / @Model.Record.Version</dd>
+            <dt class="col-sm-3">@Localizer["Business Purpose"]</dt><dd class="col-sm-9">@Model.Record.Purpose</dd>
+            <dt class="col-sm-3">@Localizer["Recipient Company"]</dt><dd class="col-sm-9">@Model.Record.Recipient</dd>
+            <dt class="col-sm-3">@Localizer["Generated At"]</dt><dd class="col-sm-9"><label data-utc-time="@Model.Record.CreatedAt.ToHtmlDateTime()"></label></dd>
+        </dl>
+    }
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

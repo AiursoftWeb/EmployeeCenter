@@ -77,6 +77,15 @@ public class ViewModelArgsInjector(
         _ = localizer["Certificate of Income"];
         _ = localizer["Certificate Print"];
         _ = localizer["Company Entity Info"];
+        _ = localizer["Business Qualifications"];
+        _ = localizer["Manage Business Qualifications"];
+        _ = localizer["Add Business Qualification"];
+        _ = localizer["Generate Watermark and Download"];
+        _ = localizer["Watermarked Qualification Preview"];
+        _ = localizer["Qualification Download Records"];
+        _ = localizer["All Qualification Download Records"];
+        _ = localizer["Qualification Issuance Record"];
+        _ = localizer["Detect Qualification Watermark"];
         _ = localizer["Company Public Contracts"];
         _ = localizer["Development"];
         _ = localizer["Finance"];
@@ -275,7 +284,7 @@ public class ViewModelArgsInjector(
         _ = localizer["Services Dashboard"];
     
         _ = localizer["Infrastructure data quality"];
-    
+
         _ = localizer["Edit Meeting Minutes"];
     }
 

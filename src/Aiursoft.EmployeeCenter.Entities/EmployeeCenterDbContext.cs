@@ -293,9 +293,36 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
 
     public DbSet<AudioAsrSegment> AudioAsrSegments => Set<AudioAsrSegment>();
 
+    public DbSet<BusinessQualification> BusinessQualifications => Set<BusinessQualification>();
+
+    public DbSet<QualificationDownload> QualificationDownloads => Set<QualificationDownload>();
+
+    public DbSet<QualificationLinkIssue> QualificationLinkIssues => Set<QualificationLinkIssue>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        builder.Entity<BusinessQualification>(entity =>
+        {
+            entity.HasOne(q => q.CompanyEntity).WithMany()
+                .HasForeignKey(q => q.CompanyEntityId).OnDelete(DeleteBehavior.Restrict);
+            entity.HasIndex(q => new { q.IsActive, q.CreatedAt });
+        });
+        builder.Entity<QualificationDownload>(entity =>
+        {
+            entity.HasOne(d => d.BusinessQualification).WithMany()
+                .HasForeignKey(d => d.BusinessQualificationId).OnDelete(DeleteBehavior.Restrict);
+            entity.HasIndex(d => new { d.ApplicantId, d.CreatedAt });
+            entity.HasIndex(d => d.CreatedAt);
+        });
+        builder.Entity<QualificationLinkIssue>(entity =>
+        {
+            entity.HasOne(i => i.QualificationDownload).WithMany()
+                .HasForeignKey(i => i.QualificationDownloadId).OnDelete(DeleteBehavior.Cascade);
+            entity.HasIndex(i => new { i.QualificationDownloadId, i.IssuedAt });
+            entity.HasIndex(i => new { i.IssuedToId, i.IssuedAt });
+        });
 
         builder.Entity<ContractOcrResult>()
             .HasIndex(r => r.ContractId)

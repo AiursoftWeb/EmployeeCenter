@@ -260,17 +260,23 @@
                 </div>
             </div>
             <div class="card-footer d-print-none">
-                <div class="alert alert-info mb-0" role="alert">
-                    <div class="alert-message">
-                        <h5 class="alert-heading">@Localizer["How is your salary calculated?"]</h5>
-                        <p class="mb-0">
-                            @Localizer["Your actual salary is calculated as:"]<br/>
-                            <strong>@Localizer["Total Earnings"] (@totalEarnings.ToString("N2"))</strong> 
-                            <span class="text-danger"> + @Localizer["Deductions"] (@((Model.Payroll.LateEarly + Model.Payroll.SickLeave + Model.Payroll.AdministrativeFines).ToString("N2")))</span>
-                            <span class="text-warning"> - @Localizer["Personal Insurance"] (@totalPersonalInsurance.ToString("N2"))</span>
-                            <span class="text-secondary"> - @Localizer["Income Tax"] (@Model.Payroll.PersonalIncomeTax.ToString("N2"))</span>
-                            = <strong class="text-success">@Model.Payroll.TotalAmount.ToString("N2")</strong>
-                        </p>
+                <div class="mb-3">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                        <div class="alert-icon">
+                            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                        </div>
+                        <div class="alert-message">
+                            <h5 class="alert-heading">@Localizer["How is your salary calculated?"]</h5>
+                            <p class="mb-0">
+                                @Localizer["Your actual salary is calculated as:"]<br/>
+                                <strong>@Localizer["Total Earnings"] (@totalEarnings.ToString("N2"))</strong>
+                                <span class="text-danger"> + @Localizer["Deductions"] (@((Model.Payroll.LateEarly + Model.Payroll.SickLeave + Model.Payroll.AdministrativeFines).ToString("N2")))</span>
+                                <span class="text-warning"> - @Localizer["Personal Insurance"] (@totalPersonalInsurance.ToString("N2"))</span>
+                                <span class="text-secondary"> - @Localizer["Income Tax"] (@Model.Payroll.PersonalIncomeTax.ToString("N2"))</span>
+                                = <strong class="text-success">@Model.Payroll.TotalAmount.ToString("N2")</strong>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
