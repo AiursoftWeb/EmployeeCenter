@@ -106,12 +106,20 @@
 
     @if (canManage && Model.CanViewAudit && Model.AvailableSourceDomains.Count > 0)
     {
-        <div class="alert alert-info d-flex align-items-center justify-content-between">
-            <div>
-                <i class="align-middle me-2" data-lucide="info"></i>
-                @Localizer["There are {0} audited DNS hostnames ready to be registered as aliases.", Model.AvailableSourceDomains.Count]
+        <div class="mb-3">
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    <div>
+                        <i class="align-middle me-2" data-lucide="info"></i>
+                        @Localizer["There are {0} audited DNS hostnames ready to be registered as aliases.", Model.AvailableSourceDomains.Count]
+                    </div>
+                    <a asp-action="Create" class="btn btn-sm btn-info text-white">@Localizer["Create alias"]</a>
+                </div>
             </div>
-            <a asp-action="Create" class="btn btn-sm btn-info text-white">@Localizer["Create alias"]</a>
         </div>
     }
 

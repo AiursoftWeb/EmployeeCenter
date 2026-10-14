@@ -9,12 +9,18 @@
     @if (!Model.Assets.Any())
     {
         <div class="card-body">
-            <div class="alert alert-info mb-0" role="alert">
-                <div class="alert-message">
-                    <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
-                    <p class="mb-0">
-                        @Localizer["There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department."]
-                    </p>
+            <div class="mb-3">
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                    <div class="alert-icon">
+                        <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                    </div>
+                    <div class="alert-message">
+                        <h4 class="alert-heading"><i class="align-middle" data-lucide="info"></i> @Localizer["It's empty here!"]</h4>
+                        <p class="mb-0">
+                            @Localizer["There are no assets assigned to you yet. If you need any equipment, please contact the HR or IT department."]
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -145,12 +145,15 @@
                         </ul>
                     </div>
                 </div>
-                <div class="alert alert-info mb-0" role="alert">
-                    <div class="alert-icon">
-                        <i class="align-middle" data-lucide="info"></i>
-                    </div>
-                    <div class="alert-message">
-                        @Localizer["Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action."]
+                <div class="mb-3">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                        <div class="alert-icon">
+                            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                        </div>
+                        <div class="alert-message">
+                            @Localizer["Unauthorized absences are considered absence without leave and will result in salary deductions and disciplinary action."]
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,8 +7,28 @@
         <a asp-action="Records" class="btn btn-secondary">@Localizer["All Download Records"]</a>
         <a asp-action="Detect" class="btn btn-secondary">@Localizer["Detect Watermark"]</a>
     </div>
-    <div class="alert alert-info">@Localizer["Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained."]</div>
-    <div class="alert alert-warning">@Localizer["Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout."]</div>
+    <div class="mb-3">
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained."]
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout."]
+            </div>
+        </div>
+    </div>
     <div class="card"><div class="card-body table-responsive">
         <table class="table">
             <thead><tr><th>@Localizer["Company"]</th><th>@Localizer["Qualification"]</th><th>@Localizer["Version"]</th><th>@Localizer["Status"]</th><th>@Localizer["Actions"]</th></tr></thead>

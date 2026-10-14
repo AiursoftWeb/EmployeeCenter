@@ -107,9 +107,16 @@
 
         <form asp-action="Comment" asp-route-id="@Model.Requirement.Id" method="post" id="comment-form">
             <input type="hidden" name="replyToId" id="replyToId" />
-            <div id="reply-info" class="alert alert-info py-1 px-2 mb-2 d-none">
-                @Localizer["Replying to"] <span id="reply-author"></span>
-                <button type="button" class="btn-close btn-sm float-end" id="cancel-reply"></button>
+            <div id="reply-info" class="mb-3 d-none">
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" id="cancel-reply" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                    <div class="alert-icon">
+                        <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                    </div>
+                    <div class="alert-message">
+                        @Localizer["Replying to"] <span id="reply-author"></span>
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <textarea name="content" class="form-control" rows="3" placeholder="@Localizer["Write a comment..."]" required></textarea>
@@ -157,10 +164,14 @@
                 });
             });
 
-            document.getElementById('cancel-reply')?.addEventListener('click', function() {
+            // Keep this reusable notice instead of letting Bootstrap remove it.
+            window.addEventListener('click', function(event) {
+                if (!(event.target instanceof Element) || !event.target.closest('#cancel-reply')) return;
+                event.preventDefault();
+                event.stopPropagation();
                 document.getElementById('replyToId').value = '';
                 document.getElementById('reply-info').classList.add('d-none');
-            });
+            }, true);
         });
     </script>
     @{

@@ -17,15 +17,23 @@
 
         @if (Model.AvailableSourceDomains.Count == 0)
         {
-            <div class="alert alert-info">
-                <h5 class="alert-heading">@Localizer["No alias candidates are available"]</h5>
-                <p>@Localizer["Run a service audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases."]</p>
-                @if (canRunAudit)
-                {
-                    <form asp-action="RefreshAudit" method="post">
-                        <button type="submit" class="btn btn-primary"><i class="align-middle me-1" data-lucide="refresh-cw"></i>@Localizer["Audit Now"]</button>
-                    </form>
-                }
+            <div class="mb-3">
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                    <div class="alert-icon">
+                        <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                    </div>
+                    <div class="alert-message">
+                        <h5 class="alert-heading">@Localizer["No alias candidates are available"]</h5>
+                        <p>@Localizer["Run a service audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases."]</p>
+                        @if (canRunAudit)
+                        {
+                            <form asp-action="RefreshAudit" method="post">
+                                <button type="submit" class="btn btn-primary"><i class="align-middle me-1" data-lucide="refresh-cw"></i>@Localizer["Audit Now"]</button>
+                            </form>
+                        }
+                    </div>
+                </div>
             </div>
         }
         else

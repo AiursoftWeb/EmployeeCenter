@@ -13,14 +13,16 @@
 
 @if (Model.SavedSuccessfully)
 {
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        <div class="alert-icon">
-            <i class="align-middle" data-lucide="check-circle"></i>
-        </div>
-        <div class="alert-message">
-            <strong>@Localizer["Success!"]</strong>
-            @Localizer["Blueprint saved successfully."]
+    <div class="mb-3">
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Success!"]</strong>
+                @Localizer["Blueprint saved successfully."]
+            </div>
         </div>
     </div>
 }

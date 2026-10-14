@@ -120,22 +120,24 @@
 {
     <div class="row mb-3">
         <div class="col-12">
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                <div class="alert-icon">
-                    <i class="align-middle" data-lucide="alert-triangle"></i>
-                </div>
-                <div class="alert-message">
-                    <h5 class="alert-heading mb-2">
-                        @Localizer["Important: Approval Decisions Are Final"]
-                    </h5>
-                    <p class="mb-2">
-                        @Localizer["Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action."]
-                    </p>
-                    <small class="text-muted">
-                        <strong>@Localizer["If the employee wishes to cancel:"]</strong> @Localizer["They can withdraw their own application before it starts."]
-                        • <strong>@Localizer["If rejected by mistake:"]</strong> @Localizer["The employee must submit a new application."]
-                    </small>
+            <div class="mb-3">
+                <div class="alert alert-warning fade show alert-dismissible" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                    <div class="alert-icon">
+                        <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                    </div>
+                    <div class="alert-message">
+                        <h5 class="alert-heading mb-2">
+                            @Localizer["Important: Approval Decisions Are Final"]
+                        </h5>
+                        <p class="mb-2">
+                            @Localizer["Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action."]
+                        </p>
+                        <small class="text-muted">
+                            <strong>@Localizer["If the employee wishes to cancel:"]</strong> @Localizer["They can withdraw their own application before it starts."]
+                            • <strong>@Localizer["If rejected by mistake:"]</strong> @Localizer["The employee must submit a new application."]
+                        </small>
+                    </div>
                 </div>
             </div>
         </div>

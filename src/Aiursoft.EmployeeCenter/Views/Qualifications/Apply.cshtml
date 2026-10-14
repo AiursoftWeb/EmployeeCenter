@@ -2,7 +2,17 @@
 <div class="container-fluid">
     <h1 class="h3">@Localizer["Generate Watermark and Download"]</h1>
     <p>@Model.Qualification?.CompanyEntity.CompanyName — @Model.Qualification?.Name (@Model.Qualification?.Version)</p>
-    <div class="alert alert-info">@Localizer["The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form."]</div>
+    <div class="mb-3">
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form."]
+            </div>
+        </div>
+    </div>
     <form asp-action="Apply" method="post">
         <input asp-for="Id" type="hidden" />
         <div asp-validation-summary="All" class="text-danger"></div>

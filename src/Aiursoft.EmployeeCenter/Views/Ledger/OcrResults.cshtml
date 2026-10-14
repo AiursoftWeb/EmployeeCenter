@@ -15,8 +15,16 @@
 
 @if (!Model.OcrResults.Any())
 {
-    <div class="alert alert-info">
-        @Localizer["No OCR results found for this transaction. OCR might still be processing or failed. Note: only PDF files are supported."]
+    <div class="mb-3">
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["No OCR results found for this transaction. OCR might still be processing or failed. Note: only PDF files are supported."]
+            </div>
+        </div>
     </div>
 }
 else

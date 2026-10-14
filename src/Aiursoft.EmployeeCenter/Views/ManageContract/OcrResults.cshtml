@@ -34,7 +34,17 @@
             <div class="tab-pane fade show active" id="plain-text" role="tabpanel">
                 @if (string.IsNullOrEmpty(Model.PlainText))
                 {
-                    <div class="alert alert-info">@Localizer["No OCR text available for this contract. It might still be processing or failed."]</div>
+                    <div class="mb-3">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                            <div class="alert-icon">
+                                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                            </div>
+                            <div class="alert-message">
+                                @Localizer["No OCR text available for this contract. It might still be processing or failed."]
+                            </div>
+                        </div>
+                    </div>
                 }
                 else
                 {
@@ -44,7 +54,17 @@
             <div class="tab-pane fade" id="json-result" role="tabpanel">
                 @if (string.IsNullOrEmpty(Model.JsonResult))
                 {
-                    <div class="alert alert-info">@Localizer["No raw JSON data available."]</div>
+                    <div class="mb-3">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                            <div class="alert-icon">
+                                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                            </div>
+                            <div class="alert-message">
+                                @Localizer["No raw JSON data available."]
+                            </div>
+                        </div>
+                    </div>
                 }
                 else
                 {
@@ -71,20 +91,28 @@
                         </td>
                     </tr>
                 </table>
-                <div class="alert alert-warning mt-3">
-                    @if (string.IsNullOrEmpty(Model.PlainText) && Model.Contract.OcrAttemptCount >= OcrSettings.Value.ContractOcrMaxRetryCount)
-                    {
-                        <p>@Localizer["OCR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Contract.OcrAttemptCount]</p>
-                    }
-                    else
-                    {
-                        <p>@Localizer["If the OCR result is not ideal, you can reset the retry counter and re-trigger OCR."]</p>
-                    }
-                    <form asp-action="ResetOcr" method="post">
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" name="id" value="@Model.Contract.Id" />
-                        <button type="submit" class="btn btn-warning">@Localizer["Reset & Retry OCR"]</button>
-                    </form>
+                <div class="mb-3 mt-3">
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                        <div class="alert-icon">
+                            <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                        </div>
+                        <div class="alert-message">
+                            @if (string.IsNullOrEmpty(Model.PlainText) && Model.Contract.OcrAttemptCount >= OcrSettings.Value.ContractOcrMaxRetryCount)
+                            {
+                                <p>@Localizer["OCR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Contract.OcrAttemptCount]</p>
+                            }
+                            else
+                            {
+                                <p>@Localizer["If the OCR result is not ideal, you can reset the retry counter and re-trigger OCR."]</p>
+                            }
+                            <form asp-action="ResetOcr" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@Model.Contract.Id" />
+                                <button type="submit" class="btn btn-warning">@Localizer["Reset & Retry OCR"]</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

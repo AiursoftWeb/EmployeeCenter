@@ -25,44 +25,59 @@
 
 @if (Model.Audio.MediaStatus is AudioMediaStatus.Uploaded or AudioMediaStatus.Processing)
 {
-    <div class="alert alert-info alert-outline-coloured" role="alert">
-        <div class="alert-icon"><i class="align-middle" data-lucide="loader"></i></div>
-        <div class="alert-message">
-            <strong>@Localizer["Processing uploaded media"]</strong>
-            <div class="mt-1">@Localizer["The recording is being prepared in the background. The existing recording remains available during replacement."]</div>
+    <div class="mb-3">
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Processing uploaded media"]</strong>
+                <div class="mt-1">@Localizer["The recording is being prepared in the background. The existing recording remains available during replacement."]</div>
+            </div>
         </div>
     </div>
 }
 else if (Model.Audio.MediaStatus == AudioMediaStatus.Failed)
 {
-    <div class="alert alert-danger alert-outline-coloured" role="alert">
-        <div class="alert-icon"><i class="align-middle" data-lucide="x-circle"></i></div>
-        <div class="alert-message">
-            <strong>@Localizer["Media processing failed"]</strong>
-            <div class="mt-1">@Model.Audio.MediaProcessingError</div>
-            <div class="mt-1">@Localizer[Model.HasFailedMediaFile
-                ? "The original uploaded file is preserved for download and retry."
-                : "The original uploaded file is no longer available. Replace the recording to continue."]</div>
-            @if (Model.HasFailedMediaFile && Model.CanManageShares)
-            {
-                <form asp-action="RetryMedia" method="post" class="mt-2">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" name="id" value="@Model.Audio.Id" />
-                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                        <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Retry Media Processing"]
-                    </button>
-                </form>
-            }
+    <div class="mb-3">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Media processing failed"]</strong>
+                <div class="mt-1">@Model.Audio.MediaProcessingError</div>
+                <div class="mt-1">@Localizer[Model.HasFailedMediaFile
+                    ? "The original uploaded file is preserved for download and retry."
+                    : "The original uploaded file is no longer available. Replace the recording to continue."]</div>
+                @if (Model.HasFailedMediaFile && Model.CanManageShares)
+                {
+                    <form asp-action="RetryMedia" method="post" class="mt-2">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@Model.Audio.Id" />
+                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                            <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Retry Media Processing"]
+                        </button>
+                    </form>
+                }
+            </div>
         </div>
     </div>
 }
 else if (Model.Audio.MediaProcessingError != null)
 {
-    <div class="alert alert-warning alert-outline-coloured" role="alert">
-        <div class="alert-icon"><i class="align-middle" data-lucide="alert-triangle"></i></div>
-        <div class="alert-message">
-            <strong>@Localizer["Media replacement failed"]</strong>
-            <div class="mt-1">@Model.Audio.MediaProcessingError</div>
+    <div class="mb-3">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Media replacement failed"]</strong>
+                <div class="mt-1">@Model.Audio.MediaProcessingError</div>
+            </div>
         </div>
     </div>
 }
@@ -104,61 +119,91 @@ else if (Model.Audio.MediaProcessingError != null)
 
 @if (TempData["AsrTaskQueued"] is true)
 {
-    <div class="alert alert-success alert-outline-coloured" role="alert">
-        <div class="alert-icon">
-            <i class="align-middle" data-lucide="check-circle"></i>
-        </div>
-        <div class="alert-message">
-            @Localizer["An offline ASR task has been created. Please do not create it again."]
+    <div class="mb-3">
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["An offline ASR task has been created. Please do not create it again."]
+            </div>
         </div>
     </div>
 }
 
 @if (TempData["MeetingMinutesRegenerationQueued"] is true)
 {
-    <div class="alert alert-success alert-outline-coloured" role="alert">
-        <div class="alert-icon"><i class="align-middle" data-lucide="check-circle"></i></div>
-        <div class="alert-message">@Localizer["Meeting minutes regeneration has been queued."]</div>
+    <div class="mb-3">
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["Meeting minutes regeneration has been queued."]
+            </div>
+        </div>
     </div>
 }
 
 @if (TempData["AsrResetError"] is true)
 {
-    <div class="alert alert-danger alert-outline-coloured" role="alert">
-        <div class="alert-icon">
-            <i class="align-middle" data-lucide="alert-circle"></i>
-        </div>
-        <div class="alert-message">
-            @Localizer["The active ASR task could not be cancelled. No changes were made. Please try again."]
+    <div class="mb-3">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["The active ASR task could not be cancelled. No changes were made. Please try again."]
+            </div>
         </div>
     </div>
 }
 
 @if (TempData["AsrResetUnavailable"] is true)
 {
-    <div class="alert alert-warning alert-outline-coloured" role="alert">
-        <div class="alert-icon">
-            <i class="align-middle" data-lucide="alert-triangle"></i>
-        </div>
-        <div class="alert-message">
-            @Localizer["ASR can only be reset after media processing succeeds."]
+    <div class="mb-3">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["ASR can only be reset after media processing succeeds."]
+            </div>
         </div>
     </div>
 }
 
 @if (TempData["MediaRetryQueued"] is true)
 {
-    <div class="alert alert-success alert-outline-coloured" role="alert">
-        <div class="alert-icon"><i class="align-middle" data-lucide="check-circle"></i></div>
-        <div class="alert-message">@Localizer["Media processing has been queued again."]</div>
+    <div class="mb-3">
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["Media processing has been queued again."]
+            </div>
+        </div>
     </div>
 }
 
 @if (TempData["MediaRetrySourceMissing"] is true)
 {
-    <div class="alert alert-warning alert-outline-coloured" role="alert">
-        <div class="alert-icon"><i class="align-middle" data-lucide="alert-triangle"></i></div>
-        <div class="alert-message">@Localizer["The original uploaded file is no longer available. Replace the recording to continue."]</div>
+    <div class="mb-3">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                @Localizer["The original uploaded file is no longer available. Replace the recording to continue."]
+            </div>
+        </div>
     </div>
 }
 
@@ -209,32 +254,44 @@ else if (Model.Audio.MediaProcessingError != null)
                 <div class="card-body">
                     @if (Model.MeetingMinutesOutdated)
                     {
-                        <div class="alert alert-warning alert-outline-coloured" role="alert">
-                            <div class="alert-icon"><i class="align-middle" data-lucide="alert-triangle"></i></div>
-                            <div class="alert-message">
-                                <strong>@Localizer[hasMeetingMinutes ? "Meeting minutes may be outdated" : "Meeting minutes require manual generation"]</strong>
-                                <div class="mt-1">
-                                    @Localizer[hasMeetingMinutes
-                                        ? "The transcript was edited after these meeting minutes were generated. Review the changes before regenerating."
-                                        : "The transcript was edited. Generate meeting minutes manually when the text is ready."]
+                        <div class="mb-3">
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                <div class="alert-icon">
+                                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
                                 </div>
-                                @if (Model.Permission == SharePermission.Editable)
-                                {
-                                    <form asp-action="RegenerateMeetingMinutes" method="post" class="mt-3" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
-                                        <input type="hidden" name="id" value="@Model.Audio.Id" />
-                                        <button type="submit" class="btn btn-sm btn-warning">
-                                            <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer[hasMeetingMinutes ? "Regenerate Meeting Minutes" : "Generate Meeting Minutes"]
-                                        </button>
-                                    </form>
-                                }
+                                <div class="alert-message">
+                                    <strong>@Localizer[hasMeetingMinutes ? "Meeting minutes may be outdated" : "Meeting minutes require manual generation"]</strong>
+                                    <div class="mt-1">
+                                        @Localizer[hasMeetingMinutes
+                                            ? "The transcript was edited after these meeting minutes were generated. Review the changes before regenerating."
+                                            : "The transcript was edited. Generate meeting minutes manually when the text is ready."]
+                                    </div>
+                                    @if (Model.Permission == SharePermission.Editable)
+                                    {
+                                        <form asp-action="RegenerateMeetingMinutes" method="post" class="mt-3" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
+                                            <input type="hidden" name="id" value="@Model.Audio.Id" />
+                                            <button type="submit" class="btn btn-sm btn-warning">
+                                                <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer[hasMeetingMinutes ? "Regenerate Meeting Minutes" : "Generate Meeting Minutes"]
+                                            </button>
+                                        </form>
+                                    }
+                                </div>
                             </div>
                         </div>
                     }
                     @if (mediaFailed)
                     {
-                        <div class="alert alert-danger alert-outline-coloured mb-0" role="alert">
-                            <div class="alert-icon"><i class="align-middle me-1" data-lucide="x-circle"></i></div>
-                            <div class="alert-message">@Localizer["Media processing must succeed before speech-to-text and meeting minutes can begin."]</div>
+                        <div class="mb-3">
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                <div class="alert-icon">
+                                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                </div>
+                                <div class="alert-message">
+                                    @Localizer["Media processing must succeed before speech-to-text and meeting minutes can begin."]
+                                </div>
+                            </div>
                         </div>
                     }
                     else if (hasMeetingMinutes)
@@ -243,45 +300,60 @@ else if (Model.Audio.MediaProcessingError != null)
                     }
                     else if (!Model.MeetingMinutesOutdated && meetingMinutesFailed)
                     {
-                        <div class="alert alert-danger alert-outline-coloured mb-0" role="alert">
-                            <div class="alert-icon"><i class="align-middle" data-lucide="x-circle"></i></div>
-                            <div class="alert-message">
-                                <strong>@Localizer["Minutes Generation Failed"]</strong>
-                                <div class="mt-1">@Localizer["Meeting minutes could not be generated after {0} attempts.", Model.MeetingMinutesAttemptCount]</div>
-                                @if (Model.Permission == SharePermission.Editable)
-                                {
-                                    <form asp-action="RegenerateMeetingMinutes" method="post" class="mt-3" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
-                                        <input type="hidden" name="id" value="@Model.Audio.Id" />
-                                        <button type="submit" class="btn btn-sm btn-danger">
-                                            <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Retry Meeting Minutes"]
-                                        </button>
-                                    </form>
-                                }
+                        <div class="mb-3">
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                <div class="alert-icon">
+                                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                </div>
+                                <div class="alert-message">
+                                    <strong>@Localizer["Minutes Generation Failed"]</strong>
+                                    <div class="mt-1">@Localizer["Meeting minutes could not be generated after {0} attempts.", Model.MeetingMinutesAttemptCount]</div>
+                                    @if (Model.Permission == SharePermission.Editable)
+                                    {
+                                        <form asp-action="RegenerateMeetingMinutes" method="post" class="mt-3" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
+                                            <input type="hidden" name="id" value="@Model.Audio.Id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Retry Meeting Minutes"]
+                                            </button>
+                                        </form>
+                                    }
+                                </div>
                             </div>
                         </div>
                     }
                     else if (!Model.MeetingMinutesOutdated && hasTranscript)
                     {
-                        <div class="alert alert-info alert-outline-coloured mb-0" role="alert">
-                            <div class="alert-icon"><i class="align-middle" data-lucide="loader"></i></div>
-                            <div class="alert-message">
-                                <strong>@Localizer["Generating meeting summary"]</strong>
-                                <div class="mt-1">@Localizer["Speech-to-text is complete. The meeting summary is now being prepared."]</div>
-                                <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer["Generating meeting summary"]">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated w-100"></div>
+                        <div class="mb-3">
+                            <div class="alert alert-info alert-dismissible" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                <div class="alert-icon">
+                                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                </div>
+                                <div class="alert-message">
+                                    <strong>@Localizer["Generating meeting summary"]</strong>
+                                    <div class="mt-1">@Localizer["Speech-to-text is complete. The meeting summary is now being prepared."]</div>
+                                    <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer["Generating meeting summary"]">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated w-100"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     }
                     else
                     {
-                        <div class="alert alert-secondary alert-outline-coloured mb-0" role="alert">
-                            <div class="alert-icon"><i class="align-middle" data-lucide="clock"></i></div>
-                            <div class="alert-message">
-                                <strong>@Localizer["Waiting for speech-to-text to finish"]</strong>
-                                <div class="mt-1">@Localizer["The meeting summary will start automatically after speech-to-text is complete."]</div>
-                                <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer["Waiting for speech-to-text to finish"]">
-                                    <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated w-100"></div>
+                        <div class="mb-3">
+                            <div class="alert alert-secondary alert-dismissible" role="alert">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                                <div class="alert-icon">
+                                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                                </div>
+                                <div class="alert-message">
+                                    <strong>@Localizer["Waiting for speech-to-text to finish"]</strong>
+                                    <div class="mt-1">@Localizer["The meeting summary will start automatically after speech-to-text is complete."]</div>
+                                    <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer["Waiting for speech-to-text to finish"]">
+                                        <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated w-100"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -318,33 +390,36 @@ else if (Model.Audio.MediaProcessingError != null)
             <div class="card-body">
                 @if (!hasTranscript)
                 {
-                    <div class="alert @(hasFailed ? "alert-danger" : "alert-info") alert-outline-coloured mb-0" role="alert">
-                        <div class="alert-icon">
-                            <i class="align-middle" data-lucide="@(hasFailed ? "x-circle" : "info")"></i>
-                        </div>
-                        <div class="alert-message">
-                            @if (mediaFailed)
-                            {
-                                <strong>@Localizer["Media processing failed"]</strong>
-                                <div class="mt-1">@Localizer["Media processing must succeed before speech-to-text and meeting minutes can begin."]</div>
-                            }
-                            else if (asrFailed)
-                            {
-                                <strong>@Localizer["Processing Failed"]</strong>
-                                <div class="mt-1">@Localizer["ASR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Audio.AsrAttemptCount]</div>
-                            }
-                            else
-                            {
-                                <strong>@Localizer[isTranscribing ? "Transcribing audio" : "Waiting to transcribe audio"]</strong>
-                                <div class="mt-1">
-                                    @Localizer[isTranscribing
-                                        ? "Speech-to-text is processing the recording. The transcript will appear here automatically when it is ready."
-                                        : "The speech-to-text task is queued and will begin shortly."]
-                                </div>
-                                <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer[isTranscribing ? "Transcribing audio" : "Waiting to transcribe audio"]">
-                                    <div class="progress-bar @(isTranscribing ? "" : "bg-secondary") progress-bar-striped progress-bar-animated w-100"></div>
-                                </div>
-                            }
+                    <div class="mb-3">
+                        <div class="alert @(hasFailed ? "alert-danger" : "alert-info") alert-dismissible" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                            <div class="alert-icon">
+                                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                            </div>
+                            <div class="alert-message">
+                                @if (mediaFailed)
+                                {
+                                    <strong>@Localizer["Media processing failed"]</strong>
+                                    <div class="mt-1">@Localizer["Media processing must succeed before speech-to-text and meeting minutes can begin."]</div>
+                                }
+                                else if (asrFailed)
+                                {
+                                    <strong>@Localizer["Processing Failed"]</strong>
+                                    <div class="mt-1">@Localizer["ASR processing has failed after {0} attempts. You can reset the retry counter and try again.", Model.Audio.AsrAttemptCount]</div>
+                                }
+                                else
+                                {
+                                    <strong>@Localizer[isTranscribing ? "Transcribing audio" : "Waiting to transcribe audio"]</strong>
+                                    <div class="mt-1">
+                                        @Localizer[isTranscribing
+                                            ? "Speech-to-text is processing the recording. The transcript will appear here automatically when it is ready."
+                                            : "The speech-to-text task is queued and will begin shortly."]
+                                    </div>
+                                    <div class="progress mt-3" style="height: 0.4rem;" role="progressbar" aria-label="@Localizer[isTranscribing ? "Transcribing audio" : "Waiting to transcribe audio"]">
+                                        <div class="progress-bar @(isTranscribing ? "" : "bg-secondary") progress-bar-striped progress-bar-animated w-100"></div>
+                                    </div>
+                                }
+                            </div>
                         </div>
                     </div>
                 }

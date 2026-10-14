@@ -5,7 +5,17 @@
     <p>@Localizer["Upload a PNG/JPEG original, at most 20 MB, with both dimensions at least 512 pixels. PDF is not supported in this version."]</p>
     @if (Model.Companies.Count == 0)
     {
-        <div class="alert alert-warning">@Localizer["Create a company entity before uploading qualifications."]</div>
+        <div class="mb-3">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+                <div class="alert-icon">
+                    <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="alert-message">
+                    @Localizer["Create a company entity before uploading qualifications."]
+                </div>
+            </div>
+        </div>
     }
     <form asp-action="Create" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
