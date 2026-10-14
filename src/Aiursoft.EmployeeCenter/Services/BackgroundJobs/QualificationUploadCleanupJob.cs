@@ -1,5 +1,4 @@
 using Aiursoft.Canon.BackgroundJobs;
-using Aiursoft.EmployeeCenter.Services.FileStorage;
 
 namespace Aiursoft.EmployeeCenter.Services.BackgroundJobs;
 

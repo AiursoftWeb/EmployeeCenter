@@ -7,7 +7,7 @@
     <form asp-action="Detect" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
         <label asp-for="ImagePath" class="form-label">@Localizer["Image to Inspect"]</label>
-        <vc:file-upload asp-for="ImagePath" subfolder="@Model.UploadSubfolder" is-vault="true" allowed-extensions="png jpg jpeg" max-size-in-mb="20" show-existing-file="false"></vc:file-upload>
+        <vc:file-upload asp-for="ImagePath" subfolder="@Model.UploadSubfolder" is-vault="true" allowed-extensions="png jpg jpeg" max-size-in-mb="20"></vc:file-upload>
         <span asp-validation-for="ImagePath" class="text-danger"></span>
         <button type="submit" class="btn btn-primary">@Localizer["Inspect"]</button>
         <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>

@@ -10,7 +10,7 @@ public class DetectViewModel : UiStackLayoutViewModel
     public DetectViewModel() => PageTitle = "Detect Qualification Watermark";
     [Required(ErrorMessage = "The image to inspect is required.")]
     [MaxLength(500)]
-    [RegularExpression(@"^qualifications/detections/[a-f0-9]{64}/[a-f0-9]{32}\.(png|jpg|jpeg)$", ErrorMessage = "Please upload a valid image to inspect.")]
+    [RegularExpression(@"^qualifications/detections/[a-f0-9]{64}/(?:[a-f0-9]{32}/)?[^/\\]+\.(?i:png|jpg|jpeg)$", ErrorMessage = "Please upload a valid image to inspect.")]
     [Display(Name = "Image to Inspect")]
     public string? ImagePath { get; set; }
 

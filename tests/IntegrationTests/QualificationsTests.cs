@@ -1,4 +1,6 @@
 using System.Net.Http.Headers;
+using System.IO.Compression;
+using System.Security.Cryptography;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
 using SkiaSharp;
@@ -20,10 +22,11 @@ public class QualificationsTests : TestBase
         {
             using var scope = Server.Services.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-            var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
             var records = await db.QualificationDownloads.Where(d => d.BusinessQualificationId == qualificationId).ToListAsync();
             foreach (var record in records)
-                File.Delete(storage.GetFilePhysicalPath(record.GeneratedPath, isVault: true));
+                scope.ServiceProvider.GetRequiredService<QualificationFileService>().DeleteCopy(record);
+            db.QualificationLinkIssues.RemoveRange(await db.QualificationLinkIssues
+                .Where(i => records.Select(r => r.Id).Contains(i.QualificationDownloadId)).ToListAsync());
             db.QualificationDownloads.RemoveRange(records);
             db.BusinessQualifications.RemoveRange(await db.BusinessQualifications.Where(q => companyIds.Contains(q.CompanyEntityId)).ToListAsync());
             db.CompanyEntities.RemoveRange(await db.CompanyEntities.Where(c => companyIds.Contains(c.Id)).ToListAsync());
@@ -63,34 +66,55 @@ public class QualificationsTests : TestBase
         Assert.AreEqual("张三", record.ApplicantName);
         Assert.AreEqual("供应商入驻登记", record.Purpose);
         Assert.AreEqual(qualification.OriginalSha256, record.OriginalSha256);
-        Assert.AreEqual(0, record.DownloadCount);
+        Assert.AreEqual(0, record.LinkIssuedCount);
         var preview = await Http.GetAsync(generate.Headers.Location);
         preview.EnsureSuccessStatusCode();
         Assert.IsTrue(preview.Headers.CacheControl?.NoStore);
         var previewHtml = await preview.Content.ReadAsStringAsync();
         Assert.Contains("data-utc-time=", previewHtml);
         Assert.DoesNotContain(qualification.OriginalPath, previewHtml);
-        Assert.DoesNotContain(record.GeneratedPath, previewHtml);
-        var image = await Http.GetAsync($"/Qualifications/Image/{record.Id}");
+        Assert.Contains(record.GeneratedPath, previewHtml);
+        var image = await PreviewImage(record.Id);
         image.EnsureSuccessStatusCode();
         var imageBytes = await image.Content.ReadAsByteArrayAsync();
         using var imageStream = new MemoryStream(imageBytes);
         Assert.AreEqual(record.Id, GetService<QualificationWatermarkService>().Detect(imageStream));
         var download = await PostForm($"/Qualifications/Download/{record.Id}", new(),
             tokenUrl: $"/Qualifications/Preview/{record.Id}");
-        download.EnsureSuccessStatusCode();
-        Assert.AreEqual("attachment", download.Content.Headers.ContentDisposition?.DispositionType);
-        CollectionAssert.AreEqual(imageBytes, await download.Content.ReadAsByteArrayAsync());
-        Assert.AreEqual(1, (await SingleRecord()).DownloadCount);
+        Assert.AreEqual(HttpStatusCode.Found, download.StatusCode);
+        Assert.Contains(".zip?token=", download.Headers.Location!.OriginalString);
+        using var anonymous = GetService<IHttpClientFactory>().CreateClient();
+        var archiveResponse = await anonymous.GetAsync(download.Headers.Location);
+        archiveResponse.EnsureSuccessStatusCode();
+        Assert.AreEqual("attachment", archiveResponse.Content.Headers.ContentDisposition?.DispositionType);
+        Assert.AreEqual("application/octet-stream", archiveResponse.Content.Headers.ContentType?.MediaType);
+        var zipBytes = await archiveResponse.Content.ReadAsByteArrayAsync();
+        record = await SingleRecord();
+        Assert.AreEqual(record.ArchiveSha256, Convert.ToHexString(SHA256.HashData(zipBytes)));
+        var archivedPng = ExtractPng(zipBytes);
+        Assert.AreEqual(record.GeneratedSha256, Convert.ToHexString(SHA256.HashData(archivedPng)));
+        using var pngStream = new MemoryStream(archivedPng);
+        Assert.AreEqual(record.Id, GetService<QualificationWatermarkService>().Detect(pngStream));
+        var generatedPng = await File.ReadAllBytesAsync(GetService<StorageService>().GetFilePhysicalPath(record.GeneratedPath, isVault: true));
+        CollectionAssert.AreEqual(generatedPng, archivedPng);
+        var repeated = await anonymous.GetByteArrayAsync(download.Headers.Location + "&w=200&square=true");
+        CollectionAssert.AreEqual(zipBytes, repeated);
+        Assert.AreEqual(1, (await SingleRecord()).LinkIssuedCount);
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var issue = await scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>()
+                .QualificationLinkIssues.SingleAsync(i => i.QualificationDownloadId == record.Id);
+            Assert.AreEqual(record.ApplicantId, issue.IssuedToId);
+            Assert.AreEqual("张三", issue.IssuedToName);
+        }
         var downloadWithoutToken = await PostForm($"/Qualifications/Download/{record.Id}", new(), includeToken: false);
         Assert.AreEqual(HttpStatusCode.BadRequest, downloadWithoutToken.StatusCode);
         using (var scope = Server!.Services.CreateScope())
         {
             var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
-            var sourceToken = storage.GetToken(qualification.OriginalPath, FilePermission.Download, isVault: true);
-            var copyToken = storage.GetToken(record.GeneratedPath, FilePermission.Download, isVault: true);
-            Assert.AreEqual(HttpStatusCode.NotFound, (await Http.GetAsync($"/download-private/{qualification.OriginalPath}?token={Uri.EscapeDataString(sourceToken)}")).StatusCode);
-            Assert.AreEqual(HttpStatusCode.NotFound, (await Http.GetAsync($"/download-private/{record.GeneratedPath}?token={Uri.EscapeDataString(copyToken)}")).StatusCode);
+            var copyToken = storage.GetToken(record.ArchivePath!, FilePermission.Download, isVault: true);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, (await Http.GetAsync($"/download-private/{qualification.OriginalPath}?token={Uri.EscapeDataString(copyToken)}")).StatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, (await Http.GetAsync($"/download-private/{qualification.OriginalPath}")).StatusCode);
             Assert.AreEqual(HttpStatusCode.NotFound, (await Http.GetAsync($"/download/{qualification.OriginalPath}")).StatusCode);
         }
         await Http.GetAsync("/Account/LogOff");
@@ -123,7 +147,47 @@ public class QualificationsTests : TestBase
         var detected = await Upload("/ManageQualifications/Detect", "ImagePath", "copy.png", imageBytes, new());
         detected.EnsureSuccessStatusCode();
         Assert.Contains(record.Id.ToString(), await detected.Content.ReadAsStringAsync());
-        Assert.AreEqual(1, (await SingleRecord()).DownloadCount);
+        Assert.AreEqual(1, (await SingleRecord()).LinkIssuedCount);
+    }
+
+    [TestMethod]
+    public async Task LegacyPngGetsZipWithoutRegeneratingWatermarkAndIssuanceTracksActualRequester()
+    {
+        await LoginAsAdmin();
+        var qualification = await UploadQualification();
+        await Http.GetAsync("/Account/LogOff");
+        await RegisterAndLoginAsync();
+        await PostForm("/Qualifications/Apply", new()
+        {
+            ["Id"] = qualification.Id.ToString(), ["Purpose"] = "Supplier registration",
+            ["Recipient"] = "Test company"
+        }, tokenUrl: $"/Qualifications/Apply/{qualification.Id}");
+        var record = await SingleRecord();
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var tracked = await db.QualificationDownloads.SingleAsync(d => d.Id == record.Id);
+            File.Delete(GetService<StorageService>().GetFilePhysicalPath(tracked.ArchivePath!, isVault: true));
+            tracked.ArchivePath = null;
+            tracked.ArchiveSha256 = null;
+            tracked.DownloadCount = 7; // Old download statistics must not become link issuances.
+            await db.SaveChangesAsync();
+        }
+        var first = await PostForm($"/Qualifications/Download/{record.Id}", new(), tokenUrl: $"/Qualifications/Preview/{record.Id}");
+        Assert.AreEqual(HttpStatusCode.Found, first.StatusCode);
+        var image = ExtractPng(await Http.GetByteArrayAsync(first.Headers.Location));
+        Assert.AreEqual(record.GeneratedSha256, Convert.ToHexString(SHA256.HashData(image)));
+        await Http.GetAsync("/Account/LogOff");
+        await LoginAsAdmin();
+        var second = await PostForm($"/Qualifications/Download/{record.Id}", new(), tokenUrl: $"/Qualifications/Preview/{record.Id}");
+        Assert.AreEqual(HttpStatusCode.Found, second.StatusCode);
+        Assert.AreEqual(2, (await SingleRecord()).LinkIssuedCount);
+        Assert.AreEqual(7, (await SingleRecord()).DownloadCount);
+        using var finalScope = Server!.Services.CreateScope();
+        var context = finalScope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var issuances = await context.QualificationLinkIssues.Where(i => i.QualificationDownloadId == record.Id).ToListAsync();
+        Assert.AreEqual(2, issuances.Select(i => i.IssuedToId).Distinct().Count());
+        Assert.IsTrue(issuances.Any(i => i.IssuedToId == record.ApplicantId));
     }
 
     [TestMethod]
@@ -205,9 +269,9 @@ public class QualificationsTests : TestBase
         Assert.AreEqual(HttpStatusCode.BadRequest, (await PostForm($"/ManageQualifications/Enable/{qualification.Id}", new(), includeToken: false)).StatusCode);
         AssertRedirect(await PostForm($"/ManageQualifications/Enable/{qualification.Id}", new(), tokenUrl: "/ManageQualifications"), "/ManageQualifications");
         (await Http.GetAsync($"/Qualifications/Apply/{qualification.Id}")).EnsureSuccessStatusCode();
-        (await Http.GetAsync($"/Qualifications/Image/{record.Id}")).EnsureSuccessStatusCode();
-        (await PostForm($"/Qualifications/Download/{record.Id}", new(), tokenUrl: $"/Qualifications/Preview/{record.Id}")).EnsureSuccessStatusCode();
-        Assert.AreEqual(1, (await SingleRecord()).DownloadCount);
+        (await PreviewImage(record.Id)).EnsureSuccessStatusCode();
+        Assert.AreEqual(HttpStatusCode.Found, (await PostForm($"/Qualifications/Download/{record.Id}", new(), tokenUrl: $"/Qualifications/Preview/{record.Id}")).StatusCode);
+        Assert.AreEqual(1, (await SingleRecord()).LinkIssuedCount);
         Assert.AreEqual(record.Id, (await SingleRecord()).Id);
         var reEnabledManage = await Http.GetAsync("/ManageQualifications");
         var reEnabledHtml = await reEnabledManage.Content.ReadAsStringAsync();
@@ -372,9 +436,9 @@ public class QualificationsTests : TestBase
         }, tokenUrl: applyUrl);
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
         var record = await SingleRecord();
-        var image = await Http.GetAsync($"/Qualifications/Image/{record.Id}");
-        image.EnsureSuccessStatusCode();
-        var actual = await image.Content.ReadAsByteArrayAsync();
+        var download = await PostForm($"/Qualifications/Download/{record.Id}", new(), tokenUrl: $"/Qualifications/Preview/{record.Id}");
+        Assert.AreEqual(HttpStatusCode.Found, download.StatusCode);
+        var actual = ExtractPng(await Http.GetByteArrayAsync(download.Headers.Location));
         var originalCulture = System.Globalization.CultureInfo.CurrentUICulture;
         try
         {
@@ -437,7 +501,7 @@ public class QualificationsTests : TestBase
     }
 
     [TestMethod]
-    public async Task QualificationUploadsRequireManagementPermissionAndRemainPrivate()
+    public async Task BusinessIssuesUploadGrantsOnlyToManagersAndScopesSubmittedPaths()
     {
         await LoginAsAdmin();
         using var scope = Server!.Services.CreateScope();
@@ -446,19 +510,13 @@ public class QualificationsTests : TestBase
         var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
         var ownerFolder = QualificationFileService.UploadSubfolder(adminId);
         var url = storage.GetUploadUrl(ownerFolder, isVault: true, maxSizeInMb: 20, allowedExtensions: "png jpg jpeg");
-        var badFolders = new[] { "qualifications/originals", "qualifications/copies", "qualifications/uploads/" + new string('a', 64) };
-        foreach (var folder in badFolders)
-        {
-            using var content = ImageContent();
-            var denied = await Http.PostAsync(storage.GetUploadUrl(folder, isVault: true, maxSizeInMb: 20, allowedExtensions: "png jpg jpeg"), content);
-            Assert.AreEqual(HttpStatusCode.NotFound, denied.StatusCode);
-        }
+        Assert.DoesNotContain("qualifications/originals", await (await Http.GetAsync("/ManageQualifications/Create")).Content.ReadAsStringAsync());
         await Http.GetAsync("/Account/LogOff");
         using (var content = ImageContent())
-            Assert.AreEqual(HttpStatusCode.NotFound, (await Http.PostAsync(url, content)).StatusCode);
+            Assert.AreEqual(HttpStatusCode.Unauthorized, (await Http.PostAsync(url.Replace("token=", "token=invalid"), content)).StatusCode);
         await RegisterAndLoginAsync();
-        using (var content = ImageContent())
-            Assert.AreEqual(HttpStatusCode.NotFound, (await Http.PostAsync(url, content)).StatusCode);
+        AssertForbidden(await Http.GetAsync("/ManageQualifications/Create"));
+        AssertForbidden(await Http.GetAsync("/ManageQualifications/Detect"));
     }
 
     [TestMethod]
@@ -542,6 +600,25 @@ public class QualificationsTests : TestBase
         return await scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>().QualificationDownloads.SingleAsync(d => d.BusinessQualificationId == qualificationId);
     }
 
+    private async Task<HttpResponseMessage> PreviewImage(Guid id)
+    {
+        var html = await (await Http.GetAsync($"/Qualifications/Preview/{id}")).Content.ReadAsStringAsync();
+        var match = Regex.Match(html, "<img src=\"([^\"]+)\" class=\"img-fluid mb-3\"");
+        Assert.IsTrue(match.Success);
+        return await Http.GetAsync(WebUtility.HtmlDecode(match.Groups[1].Value));
+    }
+
+    private static byte[] ExtractPng(byte[] bytes)
+    {
+        using var zip = new ZipArchive(new MemoryStream(bytes), ZipArchiveMode.Read);
+        Assert.AreEqual(1, zip.Entries.Count);
+        Assert.EndsWith(".png", zip.Entries[0].Name);
+        using var input = zip.Entries[0].Open();
+        using var output = new MemoryStream();
+        input.CopyTo(output);
+        return output.ToArray();
+    }
+
     private async Task<HttpResponseMessage> Upload(string url, string field, string fileName, byte[] image, Dictionary<string, string> fields)
     {
         var uploaded = await UploadFile(url, fileName, image);
@@ -568,7 +645,8 @@ public class QualificationsTests : TestBase
         {
             var result = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(
                 await response.Content.ReadAsStringAsync())!;
-            Assert.AreEqual(string.Empty, result["InternetPath"], "Qualification uploads must not expose a download token.");
+            Assert.Contains("/download-private/qualifications/", result["InternetPath"]);
+            Assert.DoesNotContain("qualifications/originals", result["InternetPath"]);
             savedFiles.Add(GetService<StorageService>().GetFilePhysicalPath(result["Path"], isVault: true));
         }
         return response;

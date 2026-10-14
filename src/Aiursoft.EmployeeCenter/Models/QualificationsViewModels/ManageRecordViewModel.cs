@@ -7,4 +7,5 @@ public class ManageRecordViewModel : UiStackLayoutViewModel
 {
     public ManageRecordViewModel() => PageTitle = "Qualification Issuance Record";
     public required QualificationDownload Record { get; set; }
+    public List<QualificationLinkIssue> LinkIssues { get; set; } = [];
 }

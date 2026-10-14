@@ -17,7 +17,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.12")
+                .HasAnnotation("ProductVersion", "10.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -1944,6 +1944,14 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("ArchivePath")
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("ArchiveSha256")
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)");
+
                     b.Property<int>("BusinessQualificationId")
                         .HasColumnType("int");
 
@@ -1970,6 +1978,12 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
 
                     b.Property<DateTime?>("LastDownloadedAt")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("LastLinkIssuedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("LinkIssuedCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("OriginalSha256")
                         .IsRequired()
@@ -2005,6 +2019,37 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.HasIndex("ApplicantId", "CreatedAt");
 
                     b.ToTable("QualificationDownloads");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.QualificationLinkIssue", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("IssuedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("IssuedToId")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("IssuedToName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<Guid>("QualificationDownloadId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IssuedToId", "IssuedAt");
+
+                    b.HasIndex("QualificationDownloadId", "IssuedAt");
+
+                    b.ToTable("QualificationLinkIssues");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Reimbursement", b =>
@@ -3560,6 +3605,17 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .IsRequired();
 
                     b.Navigation("BusinessQualification");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.QualificationLinkIssue", b =>
+                {
+                    b.HasOne("Aiursoft.EmployeeCenter.Entities.QualificationDownload", "QualificationDownload")
+                        .WithMany()
+                        .HasForeignKey("QualificationDownloadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("QualificationDownload");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.Reimbursement", b =>

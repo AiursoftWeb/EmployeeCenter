@@ -38,7 +38,7 @@ public class CreateViewModel : UiStackLayoutViewModel
     }
     [Required(ErrorMessage = "The original image is required.")]
     [MaxLength(500)]
-    [RegularExpression(@"^qualifications/uploads/[a-f0-9]{64}/[a-f0-9]{32}\.(png|jpg|jpeg)$", ErrorMessage = "Please upload a valid qualification original.")]
+    [RegularExpression(@"^qualifications/uploads/[a-f0-9]{64}/(?:[a-f0-9]{32}/)?[^/\\]+\.(?i:png|jpg|jpeg)$", ErrorMessage = "Please upload a valid qualification original.")]
     [Display(Name = "Original Image")]
     public string? OriginalPath { get; set; }
 

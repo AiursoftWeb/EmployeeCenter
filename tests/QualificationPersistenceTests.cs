@@ -7,7 +7,7 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class QualificationPersistenceTests
 {
     [TestMethod]
-    public async Task SqliteMigrationPersistsSnapshotsAndSupportsAtomicDownloadCounter()
+    public async Task SqliteMigrationPersistsSnapshotsAndSupportsAtomicLinkIssuanceCounter()
     {
         await using var connection = new SqliteConnection("DataSource=:memory:");
         await connection.OpenAsync();
@@ -45,17 +45,25 @@ public class QualificationPersistenceTests
             Recipient = "接收公司"
         });
         await db.SaveChangesAsync();
-        var downloadedAt = DateTime.UtcNow;
+        var issuedAt = DateTime.UtcNow;
         for (var i = 0; i < 2; i++)
         {
             Assert.AreEqual(1, await db.QualificationDownloads.Where(d => d.Id == id).ExecuteUpdateAsync(update => update
-                .SetProperty(d => d.DownloadCount, d => d.DownloadCount + 1)
-                .SetProperty(d => d.LastDownloadedAt, downloadedAt)));
+                .SetProperty(d => d.LinkIssuedCount, d => d.LinkIssuedCount + 1)
+                .SetProperty(d => d.LastLinkIssuedAt, issuedAt)));
+            db.QualificationLinkIssues.Add(new QualificationLinkIssue
+            {
+                QualificationDownloadId = id, IssuedToId = "actual-link-requester",
+                IssuedToName = "签发申请人", IssuedAt = issuedAt
+            });
+            await db.SaveChangesAsync();
         }
         db.ChangeTracker.Clear();
         var stored = await db.QualificationDownloads.SingleAsync();
-        Assert.AreEqual(2, stored.DownloadCount);
-        Assert.AreEqual(downloadedAt, stored.LastDownloadedAt);
+        Assert.AreEqual(2, stored.LinkIssuedCount);
+        Assert.AreEqual(issuedAt, stored.LastLinkIssuedAt);
+        Assert.AreEqual(0, stored.DownloadCount);
+        Assert.AreEqual(2, await db.QualificationLinkIssues.CountAsync());
         Assert.AreEqual("张三", stored.ApplicantName);
         Assert.AreEqual("deleted-account-id", stored.ApplicantId);
         Assert.AreEqual(0, (await db.Database.GetPendingMigrationsAsync()).Count());

@@ -1,4 +1,5 @@
 @model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.PreviewViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
 <div class="container-fluid">
     <h1 class="h3">@Localizer["Watermarked Preview"]</h1>
     <p>@Model.Record.QualificationName — @Model.Record.Version</p>
@@ -12,10 +13,12 @@
     <div class="alert alert-warning">@Localizer["Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation."]</div>
     @if (Model.Record.BusinessQualification.IsActive)
     {
-        <img src="@Url.Action("QualificationImage", "Files", new { id = Model.Record.Id })" class="img-fluid mb-3" alt="@Localizer["Watermarked qualification copy"]" />
-        <form asp-controller="Files" asp-action="QualificationDownload" asp-route-id="@Model.Record.Id" method="post" class="mb-3">
-            <button type="submit" class="btn btn-primary">@Localizer["Download Watermarked PNG"]</button>
+        <img src="@Storage.RelativePathToInternetUrl(Model.Record.GeneratedPath, Context, isVault: true)" class="img-fluid mb-3" alt="@Localizer["Watermarked qualification copy"]" />
+        <p>@Localizer["Download the ZIP and extract its PNG. The archived image is delivered unchanged; preview resizing does not alter it."]</p>
+        <form asp-action="Download" asp-route-id="@Model.Record.Id" method="post" class="mb-3">
+            <button type="submit" class="btn btn-primary">@Localizer["Generate ZIP download link"]</button>
         </form>
+        <p class="text-muted">@Localizer["ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry."]</p>
     }
     else { <div class="alert alert-warning">@Localizer["This qualification is disabled. Preview and download are unavailable until an administrator enables it."]</div> }
     <a asp-action="Records" class="btn btn-secondary">@Localizer["My Download Records"]</a>

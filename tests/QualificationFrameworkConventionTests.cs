@@ -14,6 +14,7 @@ public class QualificationFrameworkConventionTests
     [TestMethod]
     [DataRow(typeof(BusinessQualification), nameof(BusinessQualification.CompanyEntityId), nameof(BusinessQualification.CompanyEntity))]
     [DataRow(typeof(QualificationDownload), nameof(QualificationDownload.BusinessQualificationId), nameof(QualificationDownload.BusinessQualification))]
+    [DataRow(typeof(QualificationLinkIssue), nameof(QualificationLinkIssue.QualificationDownloadId), nameof(QualificationLinkIssue.QualificationDownload))]
     public void EntitiesDeclareImmutableKeysAndExplicitRequiredRelationships(Type type, string foreignKey, string navigation)
     {
         var key = type.GetProperty("Id")!;

@@ -14,7 +14,7 @@
         extensionAttributes += $"data-allowed-file-extensions=\"{Model.AllowedExtensions}\" ";
     }
     var defaultValue = Model.AspFor.Model as string;
-    if (Model.ShowExistingFile && !string.IsNullOrWhiteSpace(defaultValue))
+    if (!string.IsNullOrWhiteSpace(defaultValue))
     {
         extensionAttributes += $"data-default-file=\"{Storage.RelativePathToInternetUrl(defaultValue, Model.ExistingFileIsVault)}\" ";
     }

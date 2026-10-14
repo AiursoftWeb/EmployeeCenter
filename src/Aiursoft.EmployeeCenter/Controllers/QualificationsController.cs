@@ -3,7 +3,6 @@ using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.QualificationsViewModels;
 using Aiursoft.EmployeeCenter.Services;
-using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -20,6 +19,7 @@ public class QualificationsController(
     EmployeeCenterDbContext db,
     UserManager<User> users,
     QualificationFileService files,
+    QualificationLinkService links,
     IAuthorizationService authorization,
     IStringLocalizer<QualificationsController> localizer,
     ILogger<QualificationsController> logger) : Controller
@@ -98,6 +98,14 @@ public class QualificationsController(
         var record = await FindAccessibleRecord(id);
         if (record is null) return NotFound();
         return this.StackView(new PreviewViewModel { Record = record });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Download(Guid id)
+    {
+        var url = await links.IssueAsync(id, User, HttpContext, HttpContext.RequestAborted);
+        return url == null ? NotFound() : Redirect(url);
     }
 
     [HttpGet]

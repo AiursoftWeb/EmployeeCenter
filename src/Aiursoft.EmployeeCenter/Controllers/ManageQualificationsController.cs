@@ -3,7 +3,6 @@ using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.QualificationsViewModels;
 using Aiursoft.EmployeeCenter.Services;
-using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -129,13 +128,18 @@ public class ManageQualificationsController(
     {
         var record = await db.QualificationDownloads.AsNoTracking().FirstOrDefaultAsync(d => d.Id == id);
         if (record is null) return NotFound();
-        return this.StackView(new ManageRecordViewModel { Record = record });
+        return this.StackView(new ManageRecordViewModel
+        {
+            Record = record,
+            LinkIssues = await db.QualificationLinkIssues.AsNoTracking()
+                .Where(i => i.QualificationDownloadId == id).OrderByDescending(i => i.IssuedAt).Take(100).ToListAsync()
+        });
     }
 
     [HttpGet]
     public IActionResult Detect() => this.StackView(new DetectViewModel
     {
-        UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!, detection: true)
+        UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!, detection: true, unique: true)
     });
 
     [HttpPost]
@@ -143,8 +147,12 @@ public class ManageQualificationsController(
     [Authorize(Policy = AppPermissionNames.CanManageQualifications)]
     public async Task<IActionResult> Detect(DetectViewModel model)
     {
-        model.UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!, detection: true);
-        if (!ModelState.IsValid) return this.StackView(model);
+        model.UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!, detection: true, unique: true);
+        if (!ModelState.IsValid)
+        {
+            ClearDetectionPath(model);
+            return this.StackView(model);
+        }
         try
         {
             var trace = files.Detect(model.ImagePath!, users.GetUserId(User)!);
@@ -159,6 +167,7 @@ public class ManageQualificationsController(
         catch (Exception exception) when (exception is IOException or InvalidDataException or ArgumentException)
         {
             ModelState.AddModelError(nameof(model.ImagePath), localizer["The image to inspect is invalid or missing. Please upload a PNG or JPEG image again."]);
+            ClearDetectionPath(model);
         }
         return this.StackView(model);
     }
@@ -167,8 +176,17 @@ public class ManageQualificationsController(
 
     private async Task<CreateViewModel> WithCompanies(CreateViewModel model)
     {
+        // Never let the generic uploader turn an untrusted posted path into a download token.
+        model.OriginalPath = null;
+        ModelState.SetModelValue(nameof(model.OriginalPath), string.Empty, string.Empty);
         model.Companies = await Companies();
-        model.UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!);
+        model.UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!, unique: true);
         return model;
+    }
+
+    private void ClearDetectionPath(DetectViewModel model)
+    {
+        model.ImagePath = null;
+        ModelState.SetModelValue(nameof(model.ImagePath), string.Empty, string.Empty);
     }
 }

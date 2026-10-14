@@ -54,4 +54,10 @@
   <data name="Tracking ID" xml:space="preserve">
     <value>追踪编号</value>
   </data>
+  <data name="ZIP links issued" xml:space="preserve"><value>ZIP 链接签发次数</value></data>
+  <data name="Last link issued at" xml:space="preserve"><value>最后签发时间</value></data>
+  <data name="ZIP SHA-256" xml:space="preserve"><value>ZIP SHA-256</value></data>
+  <data name="Link issuance records identify who requested a ZIP link, not who completed a download. Preview links are not counted. Latest 100 issuances are shown." xml:space="preserve"><value>日志记录谁申请了 ZIP 链接，不证明下载完成。预览链接不计数，下方显示最近 100 次签发。</value></data>
+  <data name="Link issued to" xml:space="preserve"><value>链接申请人</value></data>
+  <data name="Issued at" xml:space="preserve"><value>签发时间</value></data>
 </root>

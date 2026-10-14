@@ -10,7 +10,6 @@ public class FileUploadViewModel
     public required string? AllowedExtensions { get; init; }
     public bool IsVault { get; init; }
     public bool ExistingFileIsVault { get; init; }
-    public bool ShowExistingFile { get; init; } = true;
     public string? FieldName { get; init; } // Optional: override the name attribute
     public string UniqueId { get; } = "uploader-" + Guid.NewGuid().ToString("N");
 }

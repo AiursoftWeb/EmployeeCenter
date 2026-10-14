@@ -10,10 +10,10 @@
         <button class="btn btn-secondary" type="submit">@Localizer["Search"]</button>
     </form>
     <div class="table-responsive"><table class="table">
-        <thead><tr><th>@Localizer["Qualification / Version"]</th><th>@Localizer["Applicant"]</th><th>@Localizer["Business Purpose"]</th><th>@Localizer["Recipient Company"]</th><th>@Localizer["Generated At"]</th><th>@Localizer["Downloads"]</th><th>@Localizer["Tracking ID"]</th></tr></thead>
+        <thead><tr><th>@Localizer["Qualification / Version"]</th><th>@Localizer["Applicant"]</th><th>@Localizer["Business Purpose"]</th><th>@Localizer["Recipient Company"]</th><th>@Localizer["Generated At"]</th><th>@Localizer["ZIP links issued"]</th><th>@Localizer["Tracking ID"]</th></tr></thead>
         <tbody>@foreach (var record in Model.Records)
         {
-            <tr><td>@record.CompanyName<br />@record.QualificationName / @record.Version</td><td>@record.ApplicantName</td><td>@record.Purpose</td><td>@record.Recipient</td><td><label data-utc-time="@record.CreatedAt.ToHtmlDateTime()"></label></td><td>@record.DownloadCount</td><td><a asp-action="Record" asp-route-id="@record.Id">@record.Id</a></td></tr>
+            <tr><td>@record.CompanyName<br />@record.QualificationName / @record.Version</td><td>@record.ApplicantName</td><td>@record.Purpose</td><td>@record.Recipient</td><td><label data-utc-time="@record.CreatedAt.ToHtmlDateTime()"></label></td><td>@record.LinkIssuedCount</td><td><a asp-action="Record" asp-route-id="@record.Id">@record.Id</a></td></tr>
         }</tbody>
     </table></div>
     @if (Model.Page > 1) { <a asp-action="Records" asp-route-page="@(Model.Page - 1)" asp-route-query="@Model.Query" class="btn btn-secondary">@Localizer["Previous"]</a> }

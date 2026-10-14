@@ -297,6 +297,8 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
 
     public DbSet<QualificationDownload> QualificationDownloads => Set<QualificationDownload>();
 
+    public DbSet<QualificationLinkIssue> QualificationLinkIssues => Set<QualificationLinkIssue>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -313,6 +315,13 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
                 .HasForeignKey(d => d.BusinessQualificationId).OnDelete(DeleteBehavior.Restrict);
             entity.HasIndex(d => new { d.ApplicantId, d.CreatedAt });
             entity.HasIndex(d => d.CreatedAt);
+        });
+        builder.Entity<QualificationLinkIssue>(entity =>
+        {
+            entity.HasOne(i => i.QualificationDownload).WithMany()
+                .HasForeignKey(i => i.QualificationDownloadId).OnDelete(DeleteBehavior.Cascade);
+            entity.HasIndex(i => new { i.QualificationDownloadId, i.IssuedAt });
+            entity.HasIndex(i => new { i.IssuedToId, i.IssuedAt });
         });
 
         builder.Entity<ContractOcrResult>()

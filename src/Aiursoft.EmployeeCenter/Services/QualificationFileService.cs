@@ -1,9 +1,11 @@
 using System.Security.Cryptography;
 using System.Text;
+using System.IO.Compression;
 using Aiursoft.EmployeeCenter.Entities;
+using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Aiursoft.Scanner.Abstractions;
 
-namespace Aiursoft.EmployeeCenter.Services.FileStorage;
+namespace Aiursoft.EmployeeCenter.Services;
 
 public sealed class QualificationFileService(
     StorageService storage,
@@ -15,20 +17,13 @@ public sealed class QualificationFileService(
     private const string UploadsFolder = "qualifications/uploads";
     private const string DetectionsFolder = "qualifications/detections";
 
-    public static bool IsQualificationPath(string path) => string.Equals(
-        path.Replace('\\', '/').Split('/', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault(),
-        "qualifications", StringComparison.OrdinalIgnoreCase);
-
-    public static string UploadSubfolder(string userId, bool detection = false)
+    public static string UploadSubfolder(string userId, bool detection = false, bool unique = false)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(userId);
         var owner = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(userId))).ToLowerInvariant();
-        return $"{(detection ? DetectionsFolder : UploadsFolder)}/{owner}";
+        var folder = $"{(detection ? DetectionsFolder : UploadsFolder)}/{owner}";
+        return unique ? $"{folder}/{Guid.NewGuid():N}" : folder;
     }
-
-    public static bool CanUploadTo(string subfolder, string userId) =>
-        string.Equals(subfolder, UploadSubfolder(userId), StringComparison.Ordinal) ||
-        string.Equals(subfolder, UploadSubfolder(userId, detection: true), StringComparison.Ordinal);
 
     public async Task<BusinessQualification> PrepareOriginalAsync(
         string uploadedPath, string userId, int companyId, string name, string version,
@@ -73,7 +68,7 @@ public sealed class QualificationFileService(
         await using var output = new MemoryStream(generated);
         var generatedPath = await storage.SaveFromStream($"{CopiesFolder}/{traceId:N}.png", output,
             isVault: true, cancellationToken);
-        return new QualificationDownload
+        var record = new QualificationDownload
         {
             Id = traceId,
             BusinessQualificationId = qualification.Id,
@@ -89,6 +84,37 @@ public sealed class QualificationFileService(
             GeneratedSha256 = Convert.ToHexString(SHA256.HashData(generated)),
             CreatedAt = createdAt
         };
+        try
+        {
+            await EnsureArchiveAsync(record, cancellationToken);
+            return record;
+        }
+        catch
+        {
+            DeleteCopy(record);
+            throw;
+        }
+    }
+
+    public async Task EnsureArchiveAsync(QualificationDownload record, CancellationToken cancellationToken)
+    {
+        if (record.ArchivePath != null && File.Exists(storage.GetVaultSubfolderFilePhysicalPath(record.ArchivePath, CopiesFolder)))
+            return;
+        var source = CopyPhysicalPath(record) ?? throw new FileNotFoundException("The generated image is missing.");
+        var bytes = await File.ReadAllBytesAsync(source, cancellationToken);
+        if (!string.Equals(Convert.ToHexString(SHA256.HashData(bytes)), record.GeneratedSha256, StringComparison.Ordinal))
+            throw new InvalidDataException("The generated image failed its integrity check.");
+        await using var archiveBytes = new MemoryStream();
+        using (var archive = new ZipArchive(archiveBytes, ZipArchiveMode.Create, leaveOpen: true))
+        {
+            var entry = archive.CreateEntry($"qualification-{record.Id:N}.png", CompressionLevel.Optimal);
+            await using var entryStream = entry.Open();
+            await entryStream.WriteAsync(bytes, cancellationToken);
+        }
+        archiveBytes.Position = 0;
+        record.ArchivePath = await storage.SaveFromStream($"{CopiesFolder}/{record.Id:N}.zip", archiveBytes,
+            isVault: true, cancellationToken);
+        record.ArchiveSha256 = Convert.ToHexString(SHA256.HashData(archiveBytes.ToArray()));
     }
 
     public Guid? Detect(string uploadedPath, string userId)
@@ -116,8 +142,11 @@ public sealed class QualificationFileService(
     public void DeleteOriginal(BusinessQualification qualification) =>
         DeletePrivateFile(qualification.OriginalPath, OriginalsFolder);
 
-    public void DeleteCopy(QualificationDownload record) =>
+    public void DeleteCopy(QualificationDownload record)
+    {
         DeletePrivateFile(record.GeneratedPath, CopiesFolder);
+        if (record.ArchivePath != null) DeletePrivateFile(record.ArchivePath, CopiesFolder);
+    }
 
     public void DeleteExpiredUploads(DateTime cutoff)
     {

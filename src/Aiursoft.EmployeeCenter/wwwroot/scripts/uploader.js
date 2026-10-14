@@ -92,7 +92,7 @@ class Uploader {
                 that.progressbar.css('width', '100%');
                 that.onUploaded(data);
             },
-            error: () => that.reset(that)
+            error: that.reset
         });
     }
 

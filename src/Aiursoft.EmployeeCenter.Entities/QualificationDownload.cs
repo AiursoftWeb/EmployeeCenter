@@ -48,9 +48,19 @@ public class QualificationDownload
     [MaxLength(64)]
     public required string GeneratedSha256 { get; init; }
 
+    [MaxLength(500)]
+    public string? ArchivePath { get; set; }
+
+    [MaxLength(64)]
+    public string? ArchiveSha256 { get; set; }
+
+    public int LinkIssuedCount { get; set; }
+
+    public DateTime? LastLinkIssuedAt { get; set; }
+
     public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 
-    /// <summary>Null means no explicit download has been requested.</summary>
+    /// <summary>Legacy download statistics retained for existing data; no longer updated.</summary>
     public DateTime? LastDownloadedAt { get; set; }
 
     public int DownloadCount { get; set; }

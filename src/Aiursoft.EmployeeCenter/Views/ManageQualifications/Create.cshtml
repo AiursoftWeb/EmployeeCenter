@@ -28,7 +28,7 @@
         </div>
         <div class="mb-3">
             <label asp-for="OriginalPath" class="form-label">@Localizer["Original Image"]</label>
-            <vc:file-upload asp-for="OriginalPath" subfolder="@Model.UploadSubfolder" is-vault="true" allowed-extensions="png jpg jpeg" max-size-in-mb="20" show-existing-file="false"></vc:file-upload>
+            <vc:file-upload asp-for="OriginalPath" subfolder="@Model.UploadSubfolder" is-vault="true" allowed-extensions="png jpg jpeg" max-size-in-mb="20"></vc:file-upload>
             <span asp-validation-for="OriginalPath" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">@Localizer["Add Qualification"]</button>

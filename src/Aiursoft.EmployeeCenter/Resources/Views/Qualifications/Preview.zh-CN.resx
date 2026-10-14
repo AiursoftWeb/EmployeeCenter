@@ -45,4 +45,7 @@
   <data name="Watermarked qualification copy" xml:space="preserve">
     <value>带水印的资质副本</value>
   </data>
+  <data name="Download the ZIP and extract its PNG. The archived image is delivered unchanged; preview resizing does not alter it." xml:space="preserve"><value>下载 ZIP 并解压其中的 PNG。归档图片原样交付，预览缩放不会修改它。</value></data>
+  <data name="Generate ZIP download link" xml:space="preserve"><value>签发 ZIP 下载链接</value></data>
+  <data name="ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry." xml:space="preserve"><value>ZIP 链接 60 分钟后过期。仅记录链接签发，重复下载不计数；已签发链接在过期前仍可使用。</value></data>
 </root>
