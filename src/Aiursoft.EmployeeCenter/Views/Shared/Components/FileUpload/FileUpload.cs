@@ -13,7 +13,8 @@ public class FileUpload(StorageService storage) : ViewComponent
         string? allowedExtensions = null,
         bool isVault = false,
         bool? existingFileIsVault = null,
-        string? fieldName = null)
+        string? fieldName = null,
+        bool showExistingFile = true)
     {
         var uploadEndpoint = storage.GetUploadUrl(
             subfolder.TrimEnd('/', '\\'),
@@ -28,7 +29,8 @@ public class FileUpload(StorageService storage) : ViewComponent
             AllowedExtensions = allowedExtensions,
             IsVault = isVault,
             ExistingFileIsVault = existingFileIsVault ?? isVault,
-            FieldName = fieldName
+            FieldName = fieldName,
+            ShowExistingFile = showExistingFile
         });
     }
 }

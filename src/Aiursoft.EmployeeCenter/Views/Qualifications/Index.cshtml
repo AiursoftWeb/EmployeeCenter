@@ -13,7 +13,7 @@
             @foreach (var item in Model.Qualifications)
             {
                 <tr>
-                    <td>@item.CompanyEntity?.CompanyName</td><td>@item.Name</td><td>@item.Version</td>
+                    <td>@item.CompanyEntity.CompanyName</td><td>@item.Name</td><td>@item.Version</td>
                     <td>@Localizer["Enabled"]</td>
                     <td>
                     @if (item.IsActive)

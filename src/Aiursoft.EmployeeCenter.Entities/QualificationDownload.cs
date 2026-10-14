@@ -1,24 +1,57 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
+using Newtonsoft.Json;
 
 namespace Aiursoft.EmployeeCenter.Entities;
 
 public class QualificationDownload
 {
-    public Guid Id { get; set; }
-    public int BusinessQualificationId { get; set; }
+    [Key]
+    public Guid Id { get; init; }
+
+    public required int BusinessQualificationId { get; init; }
+
+    [JsonIgnore]
+    [ForeignKey(nameof(BusinessQualificationId))]
+    [NotNull]
     public BusinessQualification? BusinessQualification { get; set; }
+
     // Snapshots deliberately survive account deletion and subsequent profile/company changes.
-    [MaxLength(255)] public required string ApplicantId { get; set; }
-    [MaxLength(100)] public required string ApplicantName { get; set; }
-    [MaxLength(100)] public required string QualificationName { get; set; }
-    [MaxLength(200)] public required string CompanyName { get; set; }
-    [MaxLength(50)] public required string Version { get; set; }
-    [MaxLength(64)] public required string OriginalSha256 { get; set; }
-    [MaxLength(120)] public required string Purpose { get; set; }
-    [MaxLength(100)] public required string Recipient { get; set; }
-    [MaxLength(500)] public required string GeneratedPath { get; set; }
-    [MaxLength(64)] public required string GeneratedSha256 { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    [MaxLength(255)]
+    public required string ApplicantId { get; init; }
+
+    [MaxLength(100)]
+    public required string ApplicantName { get; init; }
+
+    [MaxLength(100)]
+    public required string QualificationName { get; init; }
+
+    [MaxLength(200)]
+    public required string CompanyName { get; init; }
+
+    [MaxLength(50)]
+    public required string Version { get; init; }
+
+    [MaxLength(64)]
+    public required string OriginalSha256 { get; init; }
+
+    [MaxLength(120)]
+    public required string Purpose { get; init; }
+
+    [MaxLength(100)]
+    public required string Recipient { get; init; }
+
+    [MaxLength(500)]
+    public required string GeneratedPath { get; init; }
+
+    [MaxLength(64)]
+    public required string GeneratedSha256 { get; init; }
+
+    public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
+
+    /// <summary>Null means no explicit download has been requested.</summary>
     public DateTime? LastDownloadedAt { get; set; }
+
     public int DownloadCount { get; set; }
 }

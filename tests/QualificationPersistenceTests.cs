@@ -14,20 +14,25 @@ public class QualificationPersistenceTests
         var options = new DbContextOptionsBuilder<SqliteContext>().UseSqlite(connection).Options;
         await using var db = new SqliteContext(options);
         await db.Database.MigrateAsync();
+        var company = new CompanyEntity { CompanyName = "测试主体", EntityCode = "persistence-test" };
+        db.CompanyEntities.Add(company);
+        await db.SaveChangesAsync();
         var qualification = new BusinessQualification
         {
-            CompanyEntity = new CompanyEntity { CompanyName = "测试主体", EntityCode = "persistence-test" },
+            CompanyEntityId = company.Id,
             Name = "营业执照",
             Version = "v1",
             OriginalPath = "qualifications/originals/test.png",
             OriginalSha256 = new string('A', 64),
             CreatedById = "administrator-id"
         };
+        db.BusinessQualifications.Add(qualification);
+        await db.SaveChangesAsync();
         var id = Guid.NewGuid();
         db.QualificationDownloads.Add(new QualificationDownload
         {
             Id = id,
-            BusinessQualification = qualification,
+            BusinessQualificationId = qualification.Id,
             ApplicantId = "deleted-account-id",
             ApplicantName = "张三",
             QualificationName = "营业执照",

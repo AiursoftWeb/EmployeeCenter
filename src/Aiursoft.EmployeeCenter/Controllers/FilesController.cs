@@ -1,6 +1,9 @@
 using Aiursoft.CSTools.Models;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.EmployeeCenter.Services;
+using Aiursoft.EmployeeCenter.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Http.Features;
@@ -16,6 +19,8 @@ public class FilesController(
     ImageProcessingService imageCompressor,
     FileDeliveryPolicy deliveryPolicy,
     ILogger<FilesController> logger,
+    IAuthorizationService authorization,
+    QualificationDeliveryService qualifications,
     StorageService storage) : ControllerBase
 {
     private const long MultipartOverheadAllowance = 64 * 1024;
@@ -51,6 +56,15 @@ public class FilesController(
                 out var grant))
         {
             return Unauthorized("Invalid or expired token.");
+        }
+
+        if (QualificationFileService.IsQualificationPath(subfolder))
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!isVault || userId is null ||
+                !QualificationFileService.CanUploadTo(subfolder, userId) ||
+                !(await authorization.AuthorizeAsync(User, AppPermissionNames.CanManageQualifications)).Succeeded)
+                return NotFound();
         }
 
         var uploadPolicy = grant.UploadPolicy!;
@@ -126,18 +140,43 @@ public class FilesController(
             return BadRequest("The uploaded file is not a valid raster image.");
         }
 
-        if (string.Equals(subfolder, "markdown-images", StringComparison.Ordinal))
+        if (string.Equals(subfolder, "markdown-images", StringComparison.Ordinal) ||
+            QualificationFileService.IsQualificationPath(subfolder))
         {
-            fileName = $"{Guid.NewGuid():N}{Path.GetExtension(fileName)}";
+            fileName = $"{Guid.NewGuid():N}{Path.GetExtension(fileName).ToLowerInvariant()}";
         }
 
         var storePath = Path.Combine(subfolder, fileName);
         var relativePath = await storage.Save(storePath, file, isVault, HttpContext.RequestAborted);
+        if (QualificationFileService.IsQualificationPath(subfolder))
+            return Ok(new { Path = relativePath, InternetPath = string.Empty });
         return Ok(new
         {
             Path = relativePath,
             InternetPath = storage.RelativePathToInternetUrl(relativePath, HttpContext, isVault)
         });
+    }
+
+    [Authorize]
+    [HttpGet("Qualifications/Image/{id:guid}")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+    public async Task<IActionResult> QualificationImage(Guid id)
+    {
+        var path = await qualifications.ResolveCopyAsync(id, User, download: false, HttpContext.RequestAborted);
+        if (path is null) return NotFound();
+        return this.VerifiedInlineFile(path, "image/png", isPrivate: true);
+    }
+
+    [Authorize]
+    [HttpPost("Qualifications/Download/{id:guid}")]
+    [ValidateAntiForgeryToken]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+    public async Task<IActionResult> QualificationDownload(Guid id)
+    {
+        var path = await qualifications.ResolveCopyAsync(id, User, download: true, HttpContext.RequestAborted);
+        if (path is null) return NotFound();
+        Response.Headers.XContentTypeOptions = "nosniff";
+        return PhysicalFile(path, "image/png", $"qualification-{id:N}.png");
     }
 
     [Route("download/{**folderNames}")]
@@ -167,9 +206,7 @@ public class FilesController(
     {
         // Qualification files must only pass through the authenticated, audited workflow.
         if (string.IsNullOrWhiteSpace(folderNames)) return BadRequest("A relative path is required.");
-        var firstSegment = folderNames.Replace('\\', '/')
-            .Split('/', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();
-        if (string.Equals(firstSegment, "qualifications", StringComparison.OrdinalIgnoreCase))
+        if (QualificationFileService.IsQualificationPath(folderNames))
         {
             return NotFound();
         }

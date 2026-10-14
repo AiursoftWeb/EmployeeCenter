@@ -27,8 +27,8 @@
   <data name="Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked." xml:space="preserve">
     <value>检测仅辅助追溯，不是滥用行为的证据。裁剪、缩放、截图和打印扫描可能破坏水印。没有检测结果不能说明图片没有水印。</value>
   </data>
-  <data name="Generated At (UTC)" xml:space="preserve">
-    <value>生成时间（UTC）</value>
+  <data name="Generated At" xml:space="preserve">
+    <value>生成时间</value>
   </data>
   <data name="Image to Inspect" xml:space="preserve">
     <value>待检测图片</value>
@@ -45,7 +45,11 @@
   <data name="Tracking ID" xml:space="preserve">
     <value>追踪编号</value>
   </data>
-  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are processed locally and are not retained." xml:space="preserve">
-    <value>上传 PNG/JPEG 副本（不超过 20 MB），检测其中的隐形追踪编号。图片仅在本地处理，不保存检测原图。</value>
+  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are uploaded to a private temporary folder and deleted after inspection; abandoned uploads are cleaned after one hour." xml:space="preserve">
+    <value>上传 PNG/JPEG 副本（不超过 20 MB），检测其中的隐形追踪编号。图片先存入私有临时目录，检测后即删除；放弃使用的上传文件超过一小时后定期清理。</value>
   </data>
+  <data name="The image to inspect is required." xml:space="preserve"><value>请上传待检测图片。</value></data>
+  <data name="Please upload a valid image to inspect." xml:space="preserve"><value>请上传有效的待检测图片。</value></data>
+  <data name="A tracking ID matches an issuance record. This result alone is not proof of misuse by the applicant." xml:space="preserve"><value>检测到追踪编号并找到对应生成记录。该结果不能单独证明申请人实施了滥用。</value></data>
+  <data name="No verifiable issuance record was found. An unmarked image, image transformations or damage may prevent detection; no match does not establish its origin." xml:space="preserve"><value>未找到可验证的对应记录。无水印、图像变换或水印损坏都可能导致检测失败，不能据此判断来源。</value></data>
 </root>

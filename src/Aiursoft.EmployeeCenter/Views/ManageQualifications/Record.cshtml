@@ -9,9 +9,9 @@
         <dt class="col-sm-3">@Localizer["Applicant"]</dt><dd class="col-sm-9">@Model.Record.ApplicantName (@Model.Record.ApplicantId)</dd>
         <dt class="col-sm-3">@Localizer["Business Purpose"]</dt><dd class="col-sm-9">@Model.Record.Purpose</dd>
         <dt class="col-sm-3">@Localizer["Recipient Company"]</dt><dd class="col-sm-9">@Model.Record.Recipient</dd>
-        <dt class="col-sm-3">@Localizer["Generated At (UTC)"]</dt><dd class="col-sm-9">@Model.Record.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+        <dt class="col-sm-3">@Localizer["Generated At"]</dt><dd class="col-sm-9"><label data-utc-time="@Model.Record.CreatedAt.ToHtmlDateTime()"></label></dd>
         <dt class="col-sm-3">@Localizer["Downloads"]</dt><dd class="col-sm-9">@Model.Record.DownloadCount</dd>
-        <dt class="col-sm-3">@Localizer["Last Downloaded At (UTC)"]</dt><dd class="col-sm-9">@Model.Record.LastDownloadedAt?.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+        <dt class="col-sm-3">@Localizer["Last Downloaded At"]</dt><dd class="col-sm-9"><label data-utc-time="@Model.Record.LastDownloadedAt?.ToHtmlDateTime()"></label></dd>
         <dt class="col-sm-3">@Localizer["Original SHA-256"]</dt><dd class="col-sm-9 text-break">@Model.Record.OriginalSha256</dd>
         <dt class="col-sm-3">@Localizer["Copy SHA-256"]</dt><dd class="col-sm-9 text-break">@Model.Record.GeneratedSha256</dd>
     </dl>

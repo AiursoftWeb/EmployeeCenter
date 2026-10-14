@@ -5,16 +5,10 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using Aiursoft.Scanner.Abstractions;
+using Microsoft.Extensions.Localization;
 using SkiaSharp;
 
 namespace Aiursoft.EmployeeCenter.Services;
-
-public record QualificationWatermarkRequest(
-    string Purpose,
-    string Recipient,
-    string ApplicantName,
-    DateTime CreatedAt,
-    Guid TraceId);
 
 /// <summary>
 /// V1 accepts PNG and 8-bit Huffman-coded baseline/progressive JPEG up to 20 MiB
@@ -26,7 +20,9 @@ public record QualificationWatermarkRequest(
 /// cropping, resizing, printing and adversarial removal are not supported. The checksum
 /// prevents accidental matches, but is not a cryptographic proof of authenticity.
 /// </summary>
-public sealed class QualificationWatermarkService(IConfiguration configuration) : ITransientDependency
+public sealed class QualificationWatermarkService(
+    IConfiguration configuration,
+    IStringLocalizer<QualificationWatermarkService> localizer) : ITransientDependency
 {
     public const int MinimumDimension = 512;
     public const int MaximumOutputDimension = 2048;
@@ -53,6 +49,7 @@ public sealed class QualificationWatermarkService(IConfiguration configuration) 
         using var decoded = Decode(source, detection: false);
     }
 
+    /// <summary>Uses the selected label language, defaulting to the UI culture, without translating user-provided fields.</summary>
     public byte[] Generate(Stream source, QualificationWatermarkRequest request)
     {
         ArgumentNullException.ThrowIfNull(request);
@@ -68,14 +65,7 @@ public sealed class QualificationWatermarkService(IConfiguration configuration) 
         var utc = request.CreatedAt.Kind == DateTimeKind.Local
             ? request.CreatedAt.ToUniversalTime()
             : DateTime.SpecifyKind(request.CreatedAt, DateTimeKind.Utc);
-        string[] lines =
-        [
-            $"仅供{purpose}使用 / 禁止他用",
-            $"接收方：{recipient}",
-            $"申请人：{applicant}",
-            $"UTC：{utc.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)} UTC",
-            $"追踪ID：{request.TraceId:D}"
-        ];
+        var lines = LocalizedLines(request, purpose, recipient, applicant, utc);
 
         using var bitmap = Decode(source, detection: false);
         using var typeface = ResolveTypeface(string.Join(string.Empty, lines));
@@ -85,6 +75,35 @@ public sealed class QualificationWatermarkService(IConfiguration configuration) 
         using var png = image.Encode(SKEncodedImageFormat.Png, 100)
             ?? throw new InvalidDataException("Unable to encode the watermarked PNG.");
         return png.ToArray();
+    }
+
+    private string[] LocalizedLines(QualificationWatermarkRequest request, string purpose, string recipient,
+        string applicant, DateTime utc)
+    {
+        var originalCulture = CultureInfo.CurrentUICulture;
+        var culture = request.WatermarkLanguage switch
+        {
+            "auto" => originalCulture,
+            "en-US" or "zh-CN" or "zh-HK" => CultureInfo.GetCultureInfo(request.WatermarkLanguage),
+            _ => throw new ArgumentException("Select a supported watermark language.", nameof(request))
+        };
+        try
+        {
+            // Scope the override to synchronous label lookup; never change the surrounding request's language.
+            CultureInfo.CurrentUICulture = culture;
+            return
+            [
+                localizer["For {0} only / No other use", purpose].Value,
+                localizer["Recipient: {0}", recipient].Value,
+                localizer["Applicant: {0}", applicant].Value,
+                localizer["UTC: {0} UTC", utc.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)].Value,
+                localizer["Trace ID: {0}", request.TraceId.ToString("D")].Value
+            ];
+        }
+        finally
+        {
+            CultureInfo.CurrentUICulture = originalCulture;
+        }
     }
 
     /// <summary>Returns null for unmarked, unsupported, over-limit or malformed images.</summary>
@@ -165,20 +184,34 @@ public sealed class QualificationWatermarkService(IConfiguration configuration) 
         }
         else
         {
-            typeface = SKFontManager.Default.MatchCharacter('中');
+            typeface = SKFontManager.Default.MatchFamily("sans-serif");
             if (typeface == null || !ContainsGlyphs(typeface, text))
             {
                 typeface?.Dispose();
                 typeface = null;
-                foreach (var candidate in LinuxFontPaths.Where(File.Exists))
+                foreach (var character in text.EnumerateRunes().Select(rune => rune.Value).Distinct())
                 {
-                    var fallback = SKTypeface.FromFile(candidate);
-                    if (fallback != null && ContainsGlyphs(fallback, text))
+                    var candidate = SKFontManager.Default.MatchCharacter(null,
+                        [CultureInfo.CurrentUICulture.Name], character);
+                    if (candidate != null && ContainsGlyphs(candidate, text))
                     {
-                        typeface = fallback;
+                        typeface = candidate;
                         break;
                     }
-                    fallback?.Dispose();
+                    candidate?.Dispose();
+                }
+                if (typeface == null)
+                {
+                    foreach (var pathCandidate in LinuxFontPaths.Where(File.Exists))
+                    {
+                        var fallback = SKTypeface.FromFile(pathCandidate);
+                        if (fallback != null && ContainsGlyphs(fallback, text))
+                        {
+                            typeface = fallback;
+                            break;
+                        }
+                        fallback?.Dispose();
+                    }
                 }
             }
         }
@@ -203,7 +236,9 @@ public sealed class QualificationWatermarkService(IConfiguration configuration) 
     {
         using var canvas = new SKCanvas(bitmap);
         using var font = new SKFont(typeface, Math.Clamp(bitmap.Width / 40f, 16f, 28f));
-        using var paint = new SKPaint { Color = new SKColor(155, 30, 40, 100), IsAntialias = true };
+        using var paint = new SKPaint();
+        paint.Color = new SKColor(155, 30, 40, 100);
+        paint.IsAntialias = true;
         var wrappingWidth = Math.Min(900f, bitmap.Width * .72f);
         List<string> lines;
         float tileWidth;
@@ -256,7 +291,7 @@ public sealed class QualificationWatermarkService(IConfiguration configuration) 
             foreach (var rune in line.EnumerateRunes())
             {
                 var next = rune.ToString();
-                if (current.Length > 0 && font.MeasureText(current.ToString() + next) > maximumWidth)
+                if (current.Length > 0 && font.MeasureText(current + next) > maximumWidth)
                 {
                     wrapped.Add(current.ToString());
                     current.Clear();

@@ -7,18 +7,42 @@
     {
         <div class="alert alert-warning">@Localizer["Create a company entity before uploading qualifications."]</div>
     }
-    <form asp-action="Create" method="post" enctype="multipart/form-data">
+    <form asp-action="Create" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="mb-3"><label asp-for="CompanyEntityId" class="form-label">@Localizer["Company"]</label>
-            <select asp-for="CompanyEntityId" class="form-select" required>
+            <select asp-for="CompanyEntityId" class="form-select">
                 <option value="">@Localizer["Select Company"]</option>
                 @foreach (var company in Model.Companies) { <option value="@company.Id">@company.CompanyName</option> }
             </select>
+            <span asp-validation-for="CompanyEntityId" class="text-danger"></span>
         </div>
-        <div class="mb-3"><label asp-for="Name" class="form-label">@Localizer["Qualification Name"]</label><input asp-for="Name" class="form-control" maxlength="100" required /></div>
-        <div class="mb-3"><label asp-for="Version" class="form-label">@Localizer["Version"]</label><input asp-for="Version" class="form-control" maxlength="50" required /></div>
-        <div class="mb-3"><label asp-for="Original" class="form-label">@Localizer["Original Image"]</label><input asp-for="Original" type="file" accept="image/png,image/jpeg" class="form-control" required /></div>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">@Localizer["Qualification Name"]</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Version" class="form-label">@Localizer["Version"]</label>
+            <input asp-for="Version" class="form-control" />
+            <span asp-validation-for="Version" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="OriginalPath" class="form-label">@Localizer["Original Image"]</label>
+            <vc:file-upload asp-for="OriginalPath" subfolder="@Model.UploadSubfolder" is-vault="true" allowed-extensions="png jpg jpeg" max-size-in-mb="20" show-existing-file="false"></vc:file-upload>
+            <span asp-validation-for="OriginalPath" class="text-danger"></span>
+        </div>
         <button type="submit" class="btn btn-primary">@Localizer["Add Qualification"]</button>
         <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
     </form>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

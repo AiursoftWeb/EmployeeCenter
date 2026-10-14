@@ -16,7 +16,7 @@
             @foreach (var item in Model.Qualifications)
             {
                 <tr>
-                    <td>@item.CompanyEntity?.CompanyName</td><td>@item.Name</td><td>@item.Version</td>
+                    <td>@item.CompanyEntity.CompanyName</td><td>@item.Name</td><td>@item.Version</td>
                     <td>@Localizer[item.IsActive ? "Enabled" : "Disabled"]</td>
                     <td>
                         <form asp-action="@(item.IsActive ? "Retire" : "Enable")" asp-route-id="@item.Id" method="post" class="d-inline">

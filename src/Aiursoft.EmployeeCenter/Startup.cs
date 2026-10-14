@@ -125,6 +125,8 @@ public class Startup : IWebStartup
         services.AddTaskQueueEngine();
         services.AddScheduledTaskEngine();
         services.RegisterBackgroundJob<Services.BackgroundJobs.DummyJob>();
+        var qualificationUploadCleanupJob = services.RegisterBackgroundJob<Services.BackgroundJobs.QualificationUploadCleanupJob>();
+        services.RegisterScheduledTask(registration: qualificationUploadCleanupJob, period: TimeSpan.FromMinutes(10), startDelay: TimeSpan.FromMinutes(1));
         var orphanAvatarCleanupJob = services.RegisterBackgroundJob<Services.BackgroundJobs.OrphanAvatarCleanupJob>();
         services.RegisterScheduledTask(registration: orphanAvatarCleanupJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(5));
         var annualLeaveJob = services.RegisterBackgroundJob<Services.BackgroundJobs.AnnualLeaveAllocationJob>();

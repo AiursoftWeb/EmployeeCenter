@@ -1,4 +1,4 @@
-using System.Security.Cryptography;
+using Microsoft.Extensions.Localization;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.QualificationsViewModels;
@@ -19,13 +19,9 @@ namespace Aiursoft.EmployeeCenter.Controllers;
 public class ManageQualificationsController(
     EmployeeCenterDbContext db,
     UserManager<User> users,
-    StorageService storage,
-    QualificationWatermarkService watermark,
-    ILogger<ManageQualificationsController> logger) : Controller
+    QualificationFileService files,
+    IStringLocalizer<ManageQualificationsController> localizer) : Controller
 {
-    private const long MaxFileBytes = 20 * 1024 * 1024;
-    private const long MaxRequestBytes = MaxFileBytes + 64 * 1024;
-
     [HttpGet]
     [Authorize(Policy = AppPermissionNames.CanManageQualifications)]
     [RenderInNavBar(NavGroupName = "Administration", NavGroupOrder = 3,
@@ -44,53 +40,30 @@ public class ManageQualificationsController(
     [Authorize(Policy = AppPermissionNames.CanManageQualifications)]
     public async Task<IActionResult> Create()
     {
-        return this.StackView(new CreateViewModel { Companies = await Companies() });
+        return this.StackView(await WithCompanies(new CreateViewModel()));
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     [Authorize(Policy = AppPermissionNames.CanManageQualifications)]
-    [RequestSizeLimit(MaxRequestBytes)]
-    [RequestFormLimits(MultipartBodyLengthLimit = MaxFileBytes)]
     public async Task<IActionResult> Create(CreateViewModel model)
     {
-        model.Name = model.Name?.Trim() ?? string.Empty;
-        model.Version = model.Version?.Trim() ?? string.Empty;
-        ValidateText(nameof(model.Name), model.Name);
-        ValidateText(nameof(model.Version), model.Version);
         if (!await db.CompanyEntities.AnyAsync(c => c.Id == model.CompanyEntityId))
-            ModelState.AddModelError(nameof(model.CompanyEntityId), "请选择有效的公司主体。");
-        ValidateImage(nameof(model.Original), model.Original);
+            ModelState.AddModelError(nameof(model.CompanyEntityId), localizer["Please select a valid company entity."]);
         if (!ModelState.IsValid)
             return this.StackView(await WithCompanies(model));
 
-        await using var source = new MemoryStream();
-        await model.Original!.CopyToAsync(source, HttpContext.RequestAborted);
-        source.Position = 0;
+        BusinessQualification qualification;
         try
         {
-            watermark.ValidateSource(source);
+            qualification = await files.PrepareOriginalAsync(model.OriginalPath!, users.GetUserId(User)!,
+                model.CompanyEntityId, model.Name, model.Version, HttpContext.RequestAborted);
         }
-        catch (InvalidDataException exception)
+        catch (Exception exception) when (exception is IOException or InvalidDataException or ArgumentException)
         {
-            ModelState.AddModelError(nameof(model.Original), exception.Message);
+            ModelState.AddModelError(nameof(model.OriginalPath), localizer["The uploaded original is invalid or missing. Please upload a PNG or JPEG image again."]);
             return this.StackView(await WithCompanies(model));
         }
-        source.Position = 0;
-        var originalHash = Convert.ToHexString(SHA256.HashData(source));
-        source.Position = 0;
-        var extension = Path.GetExtension(model.Original.FileName).ToLowerInvariant();
-        var path = await storage.SaveFromStream($"qualifications/originals/{Guid.NewGuid():N}{extension}",
-            source, isVault: true, cancellationToken: HttpContext.RequestAborted);
-        var qualification = new BusinessQualification
-        {
-            CompanyEntityId = model.CompanyEntityId,
-            Name = model.Name,
-            Version = model.Version,
-            OriginalPath = path,
-            OriginalSha256 = originalHash,
-            CreatedById = users.GetUserId(User)!
-        };
         try
         {
             db.BusinessQualifications.Add(qualification);
@@ -98,7 +71,7 @@ public class ManageQualificationsController(
         }
         catch
         {
-            DeleteSavedFile(path);
+            files.DeleteOriginal(qualification);
             throw;
         }
         return RedirectToAction(nameof(Index));
@@ -160,30 +133,32 @@ public class ManageQualificationsController(
     }
 
     [HttpGet]
-    public IActionResult Detect() => this.StackView(new DetectViewModel());
+    public IActionResult Detect() => this.StackView(new DetectViewModel
+    {
+        UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!, detection: true)
+    });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     [Authorize(Policy = AppPermissionNames.CanManageQualifications)]
-    [RequestSizeLimit(MaxRequestBytes)]
-    [RequestFormLimits(MultipartBodyLengthLimit = MaxFileBytes)]
     public async Task<IActionResult> Detect(DetectViewModel model)
     {
-        ValidateImage(nameof(model.Image), model.Image);
+        model.UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!, detection: true);
         if (!ModelState.IsValid) return this.StackView(model);
         try
         {
-            using var stream = model.Image!.OpenReadStream();
-            var trace = watermark.Detect(stream);
+            var trace = files.Detect(model.ImagePath!, users.GetUserId(User)!);
             model.Record = trace.HasValue ? await db.QualificationDownloads.AsNoTracking()
                 .FirstOrDefaultAsync(d => d.Id == trace.Value) : null;
             model.Message = model.Record is not null
-                ? "检测到追踪编号并找到对应生成记录。该结果不能单独证明申请人实施了滥用。"
-                : "未找到可验证的对应记录。无水印、图像变换或水印损坏都可能导致检测失败，不能据此判断来源。";
+                ? "A tracking ID matches an issuance record. This result alone is not proof of misuse by the applicant."
+                : "No verifiable issuance record was found. An unmarked image, image transformations or damage may prevent detection; no match does not establish its origin.";
+            ModelState.Remove(nameof(model.ImagePath));
+            model.ImagePath = null;
         }
-        catch (InvalidDataException exception)
+        catch (Exception exception) when (exception is IOException or InvalidDataException or ArgumentException)
         {
-            ModelState.AddModelError(nameof(model.Image), exception.Message);
+            ModelState.AddModelError(nameof(model.ImagePath), localizer["The image to inspect is invalid or missing. Please upload a PNG or JPEG image again."]);
         }
         return this.StackView(model);
     }
@@ -193,27 +168,7 @@ public class ManageQualificationsController(
     private async Task<CreateViewModel> WithCompanies(CreateViewModel model)
     {
         model.Companies = await Companies();
+        model.UploadSubfolder = QualificationFileService.UploadSubfolder(users.GetUserId(User)!);
         return model;
-    }
-
-    private void ValidateText(string key, string value)
-    {
-        if (string.IsNullOrWhiteSpace(value) || value.Any(char.IsControl) ||
-            value.Any(c => char.GetUnicodeCategory(c) == System.Globalization.UnicodeCategory.Format))
-            ModelState.AddModelError(key, "请输入有效的单行文本，不允许控制字符。");
-    }
-
-    private void ValidateImage(string key, IFormFile? file)
-    {
-        if (file is null || file.Length <= 0 || file.Length > MaxFileBytes)
-            ModelState.AddModelError(key, "请选择不超过 20 MB 的 PNG 或 JPEG 图片。");
-        else if (Path.GetExtension(file.FileName).ToLowerInvariant() is not (".png" or ".jpg" or ".jpeg"))
-            ModelState.AddModelError(key, "首版仅支持 PNG 和 JPEG，请先将 PDF 转为图片。");
-    }
-
-    private void DeleteSavedFile(string path)
-    {
-        try { System.IO.File.Delete(storage.GetFilePhysicalPath(path, isVault: true)); }
-        catch (IOException exception) { logger.LogError(exception, "Unable to clean up qualification file {Path}", path); }
     }
 }

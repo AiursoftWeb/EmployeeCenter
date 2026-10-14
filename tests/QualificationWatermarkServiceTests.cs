@@ -1,6 +1,9 @@
 using System.Buffers.Binary;
+using System.Globalization;
+using System.Reflection;
+using System.Security.Cryptography;
 using Aiursoft.EmployeeCenter.Services;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Localization;
 using SkiaSharp;
 
 namespace Aiursoft.EmployeeCenter.Tests;
@@ -9,14 +12,25 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class QualificationWatermarkServiceTests
 {
     private static readonly QualificationWatermarkRequest Request = new(
-        "资质审核", "测试接收单位", "测试申请人", new DateTime(2026, 10, 12, 5, 23, 17, DateTimeKind.Utc),
+        "Qualification review", "Test recipient", "Test applicant", new DateTime(2026, 10, 12, 5, 23, 17, DateTimeKind.Utc),
         Guid.Parse("ebd2caa5-7e7e-4cc3-a779-3c44e2928ba7"));
+    private ServiceProvider _localizationServices = null!;
     private QualificationWatermarkService _service = null!;
+    private CultureInfo _originalCulture = null!;
+    private CultureInfo _originalUiCulture = null!;
     private string? _fontPath;
 
     [TestInitialize]
     public void Initialize()
     {
+        _originalCulture = CultureInfo.CurrentCulture;
+        _originalUiCulture = CultureInfo.CurrentUICulture;
+        CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-GB");
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("en-GB");
+        _localizationServices = new ServiceCollection()
+            .AddLogging()
+            .AddLocalization(options => options.ResourcesPath = "Resources")
+            .BuildServiceProvider();
         _fontPath = new[]
         {
             Environment.GetEnvironmentVariable("QUALIFICATION_TEST_FONT_PATH"),
@@ -27,10 +41,18 @@ public class QualificationWatermarkServiceTests
         _service = CreateService(_fontPath);
     }
 
+    [TestCleanup]
+    public void Cleanup()
+    {
+        CultureInfo.CurrentCulture = _originalCulture;
+        CultureInfo.CurrentUICulture = _originalUiCulture;
+        _localizationServices.Dispose();
+    }
+
     [TestMethod]
     public void PngContainsBlindlyRecoverableTraceIdAndIsDeterministic()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512);
         var output = _service.Generate(source, Request);
         using var downloaded = new MemoryStream(output);
@@ -51,7 +73,7 @@ public class QualificationWatermarkServiceTests
     [DataRow(2048, 512, "gradient", 85)]
     public void JpegRecompressionPreservesTraceId(int width, int height, string pattern, int quality)
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(width, height, pattern);
         var marked = _service.Generate(source, Request);
         using var downloadedPng = new MemoryStream(marked);
@@ -66,7 +88,7 @@ public class QualificationWatermarkServiceTests
     [TestMethod]
     public void EveryJpegQualityFrom85Through100PreservesMinimumSizeSignal()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512, "noise");
         using var bitmap = SKBitmap.Decode(_service.Generate(source, Request));
         using var image = SKImage.FromBitmap(bitmap);
@@ -79,16 +101,168 @@ public class QualificationWatermarkServiceTests
     }
 
     [TestMethod]
+    [DataRow("en-GB")]
+    [DataRow("zh-CN")]
+    [DataRow("zh-HK")]
+    [DataRow("zh-TW")]
+    [DataRow("fr-FR")]
+    public void CurrentUiCultureRendersExactLocalizedTextAndPreservesTrace(string culture)
+    {
+        CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(culture.StartsWith("zh-", StringComparison.Ordinal) ? "en-GB" : "zh-CN");
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(culture);
+        var request = Request with
+        {
+            Purpose = "Purpose {0} / 100%",
+            Recipient = "Recipient {1}",
+            ApplicantName = "Applicant {2}"
+        };
+        var localizer = CreateLocalizer();
+        Assert.IsFalse(localizer["For {0} only / No other use"].ResourceNotFound,
+            "The service must use its embedded localization resources, including the English fallback.");
+        string[] expectedLines =
+        [
+            localizer["For {0} only / No other use", request.Purpose].Value,
+            localizer["Recipient: {0}", request.Recipient].Value,
+            localizer["Applicant: {0}", request.ApplicantName].Value,
+            localizer["UTC: {0} UTC", "2026-10-12 05:23:17"].Value,
+            localizer["Trace ID: {0}", request.TraceId.ToString("D")].Value
+        ];
+        if (culture == "zh-CN")
+        {
+            CollectionAssert.AreEqual(new[] { 0x4ec5, 0x4f9b }, expectedLines[0].EnumerateRunes().Take(2).Select(rune => rune.Value).ToArray());
+            CollectionAssert.AreEqual(new[] { 0x7533, 0x8bf7, 0x4eba }, expectedLines[2].EnumerateRunes().Take(3).Select(rune => rune.Value).ToArray());
+            CollectionAssert.AreEqual(new[] { 0x8ffd, 0x8e2a }, expectedLines[4].EnumerateRunes().Take(2).Select(rune => rune.Value).ToArray());
+        }
+        else if (culture is "zh-HK" or "zh-TW")
+        {
+            CollectionAssert.AreEqual(new[] { 0x50c5, 0x4f9b }, expectedLines[0].EnumerateRunes().Take(2).Select(rune => rune.Value).ToArray());
+            CollectionAssert.AreEqual(new[] { 0x7533, 0x8acb, 0x4eba }, expectedLines[2].EnumerateRunes().Take(3).Select(rune => rune.Value).ToArray());
+            CollectionAssert.AreEqual(new[] { 0x8ffd, 0x8e64 }, expectedLines[4].EnumerateRunes().Take(2).Select(rune => rune.Value).ToArray());
+        }
+        else
+        {
+            CollectionAssert.AreEqual(new[]
+            {
+                "For Purpose {0} / 100% only / No other use",
+                "Recipient: Recipient {1}",
+                "Applicant: Applicant {2}",
+                "UTC: 2026-10-12 05:23:17 UTC",
+                $"Trace ID: {request.TraceId:D}"
+            }, expectedLines);
+        }
+        StringAssert.Contains(expectedLines[0], request.Purpose);
+        StringAssert.Contains(expectedLines[1], request.Recipient);
+        StringAssert.Contains(expectedLines[2], request.ApplicantName);
+        RequireRenderingFont(string.Concat(expectedLines));
+        using var source = CreateSource(768, 768, "white");
+        var output = _service.Generate(source, request);
+        CollectionAssert.AreEqual(RenderExpectedWatermark(expectedLines, request.TraceId), output,
+            "The actual PNG must contain the expected localized glyphs, not merely different pixels.");
+        using var download = new MemoryStream(output);
+        Assert.AreEqual(request.TraceId, _service.Detect(download));
+    }
+
+    [TestMethod]
+    [DataRow("zh-CN", "en-US")]
+    [DataRow("zh-CN", "zh-HK")]
+    [DataRow("en-US", "zh-CN")]
+    [DataRow("zh-HK", "en-US")]
+    [DataRow("zh-HK", "auto")]
+    [DataRow("en-GB", "auto")]
+    public void SelectedLanguageOverridesOnlyWatermarkLabelsAndPreservesRequestCulture(string uiCulture, string language)
+    {
+        var originalUiCulture = CultureInfo.GetCultureInfo(uiCulture);
+        CultureInfo.CurrentUICulture = originalUiCulture;
+        var originalCulture = CultureInfo.CurrentCulture;
+        var request = Request with { WatermarkLanguage = language };
+        RequireRenderingFont();
+        using var source = CreateSource(768, 768, "white");
+        var actual = _service.Generate(source, request);
+        Assert.AreSame(originalUiCulture, CultureInfo.CurrentUICulture);
+        Assert.AreSame(originalCulture, CultureInfo.CurrentCulture);
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(language == "auto" ? uiCulture : language);
+        var expected = _service.Generate(source, Request);
+        CollectionAssert.AreEqual(expected, actual,
+            "Explicit language must render exactly like that interface language without translating fields.");
+        using var download = new MemoryStream(actual);
+        Assert.AreEqual(request.TraceId, _service.Detect(download));
+    }
+
+    [TestMethod]
+    [DataRow("fr-FR")]
+    [DataRow("en")]
+    [DataRow("")]
+    [DataRow(null)]
+    public void UnsupportedWatermarkLanguageFailsWithoutChangingCulture(string? language)
+    {
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
+        var originalCulture = CultureInfo.CurrentUICulture;
+        using var source = CreateSource(512, 512);
+        AssertImageRejected<ArgumentException>(source, Request with { WatermarkLanguage = language! });
+        Assert.AreSame(originalCulture, CultureInfo.CurrentUICulture);
+        Assert.IsTrue(source.CanRead);
+    }
+
+    [TestMethod]
+    [DataRow("en-GB")]
+    [DataRow("zh-CN")]
+    [DataRow("zh-HK")]
+    [DataRow("zh-TW")]
+    public void MixedLanguageUserFieldsAreRenderedVerbatim(string culture)
+    {
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
+        var purpose = CreateLocalizer()["Applicant: {0}", "Review {0}"].Value;
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("zh-HK");
+        var recipient = CreateLocalizer()["Trace ID: {0}", "Recipient {1}"].Value;
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(culture);
+        var request = Request with { Purpose = purpose, Recipient = recipient, ApplicantName = "Ren\u00e9e {2}" };
+        var localizer = CreateLocalizer();
+        string[] expectedLines =
+        [
+            localizer["For {0} only / No other use", request.Purpose].Value,
+            localizer["Recipient: {0}", request.Recipient].Value,
+            localizer["Applicant: {0}", request.ApplicantName].Value,
+            localizer["UTC: {0} UTC", "2026-10-12 05:23:17"].Value,
+            localizer["Trace ID: {0}", request.TraceId.ToString("D")].Value
+        ];
+        StringAssert.Contains(expectedLines[0], request.Purpose);
+        StringAssert.Contains(expectedLines[1], request.Recipient);
+        StringAssert.Contains(expectedLines[2], request.ApplicantName);
+        RequireRenderingFont(string.Concat(expectedLines));
+        using var source = CreateSource(768, 768, "white");
+        var output = _service.Generate(source, request);
+        CollectionAssert.AreEqual(RenderExpectedWatermark(expectedLines, request.TraceId), output);
+        using var download = new MemoryStream(output);
+        Assert.AreEqual(request.TraceId, _service.Detect(download));
+    }
+
+    [TestMethod]
+    public void PayloadProtocolAndGuidByteLayoutRemainV1()
+    {
+        var payloadFactory = typeof(QualificationWatermarkService).GetMethod("CreatePayload", BindingFlags.NonPublic | BindingFlags.Static)!;
+        var payload = (byte[])payloadFactory.Invoke(null, [Request.TraceId])!;
+        Assert.AreEqual(29, payload.Length);
+        CollectionAssert.AreEqual("QWM1"u8.ToArray(), payload[..4]);
+        Assert.AreEqual((byte)1, payload[4]);
+        CollectionAssert.AreEqual(new byte[]
+        {
+            0xa5, 0xca, 0xd2, 0xeb, 0x7e, 0x7e, 0xc3, 0x4c,
+            0xa7, 0x79, 0x3c, 0x44, 0xe2, 0x92, 0x8b, 0xa7
+        }, payload[5..21]);
+        CollectionAssert.AreEqual(SHA256.HashData(payload[..21])[..8], payload[21..]);
+    }
+
+    [TestMethod]
     public void AllVisibleFieldsChangePixelsWithoutChangingHiddenTraceId()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(768, 768, "white");
         var original = _service.Generate(source, Request);
         var changedRequests = new[]
         {
-            Request with { Purpose = "银行开户" },
-            Request with { Recipient = "另一接收单位" },
-            Request with { ApplicantName = "另一申请人" },
+            Request with { Purpose = "Bank account opening" },
+            Request with { Recipient = "Another recipient" },
+            Request with { ApplicantName = "Another applicant" },
             Request with { CreatedAt = Request.CreatedAt.AddSeconds(1) }
         };
         foreach (var changed in changedRequests)
@@ -105,26 +279,37 @@ public class QualificationWatermarkServiceTests
     }
 
     [TestMethod]
-    [DataRow(512, 512)]
-    [DataRow(1311, 927)]
-    public void ControllerMaximumLengthFieldsFitWithoutTruncation(int width, int height)
+    [DataRow(512, 512, "en-GB")]
+    [DataRow(1311, 927, "en-GB")]
+    [DataRow(512, 512, "zh-CN")]
+    [DataRow(1311, 927, "zh-CN")]
+    [DataRow(512, 512, "zh-HK")]
+    [DataRow(1311, 927, "zh-HK")]
+    public void ControllerMaximumLengthFieldsFitWithoutTruncation(int width, int height, string culture)
     {
-        RequireCjkFont();
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(culture);
+        var localizer = CreateLocalizer();
+        var fieldGlyphs = string.Concat(
+            localizer["For {0} only / No other use"].Value,
+            localizer["Recipient: {0}"].Value,
+            localizer["Applicant: {0}"].Value,
+            localizer["Trace ID: {0}"].Value);
+        RequireRenderingFont(fieldGlyphs);
         using var source = CreateSource(width, height, "white");
         var maximum = Request with
         {
-            Purpose = new string('审', 120),
-            Recipient = new string('单', 100),
-            ApplicantName = new string('人', 100)
+            Purpose = new string(localizer["For {0} only / No other use"].Value[0], 120),
+            Recipient = new string(localizer["Recipient: {0}"].Value[0], 100),
+            ApplicantName = new string(localizer["Applicant: {0}"].Value[0], 100)
         };
         var output = _service.Generate(source, maximum);
         using var downloaded = new MemoryStream(output);
         Assert.AreEqual(maximum.TraceId, _service.Detect(downloaded));
         var changed = _service.Generate(source, maximum with
         {
-            Purpose = maximum.Purpose[..^1] + "核",
-            Recipient = maximum.Recipient[..^1] + "位",
-            ApplicantName = maximum.ApplicantName[..^1] + "员"
+            Purpose = maximum.Purpose[..^1] + "D",
+            Recipient = maximum.Recipient[..^1] + "E",
+            ApplicantName = maximum.ApplicantName[..^1] + "F"
         });
         Assert.IsFalse(output.AsSpan().SequenceEqual(changed), "Field suffixes must not be silently truncated.");
     }
@@ -132,7 +317,7 @@ public class QualificationWatermarkServiceTests
     [TestMethod]
     public void DifferentTraceIdsAreRecoveredSeparately()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512);
         var secondId = Guid.Parse("8872370f-8e10-4902-b018-e8549ce41b79");
         var first = _service.Generate(source, Request);
@@ -165,7 +350,7 @@ public class QualificationWatermarkServiceTests
     [TestMethod]
     public void DamagingTheSignalCannotProduceAnotherValidTraceId()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512, "white");
         using var bitmap = SKBitmap.Decode(_service.Generate(source, Request));
         using (var canvas = new SKCanvas(bitmap))
@@ -185,7 +370,7 @@ public class QualificationWatermarkServiceTests
     [DataRow(168)]
     public void PayloadMagicVersionAndChecksumRejectAlteredSignal(int bit)
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512, "white");
         using var bitmap = SKBitmap.Decode(_service.Generate(source, Request));
         FlipSignalBits(bitmap, sample => sample % 232 == bit);
@@ -198,7 +383,7 @@ public class QualificationWatermarkServiceTests
     [TestMethod]
     public void MajorityRecoversIdDespiteTwoDamagedPayloadRepetitions()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512, "white");
         using var bitmap = SKBitmap.Decode(_service.Generate(source, Request));
         FlipSignalBits(bitmap, sample => sample / 232 < 2);
@@ -209,9 +394,20 @@ public class QualificationWatermarkServiceTests
     }
 
     [TestMethod]
-    public void DefaultFontResolutionRendersReadableChinese()
+    [DataRow("en-GB")]
+    [DataRow("zh-CN")]
+    [DataRow("zh-HK")]
+    [DataRow("zh-TW")]
+    public void DefaultFontResolutionRendersCurrentLanguage(string culture)
     {
-        RequireCjkFont();
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(culture);
+        var localizer = CreateLocalizer();
+        RequireRenderingFont(string.Concat(
+            localizer["For {0} only / No other use", Request.Purpose].Value,
+            localizer["Recipient: {0}", Request.Recipient].Value,
+            localizer["Applicant: {0}", Request.ApplicantName].Value,
+            localizer["UTC: {0} UTC", "2026-10-12 05:23:17"].Value,
+            localizer["Trace ID: {0}", Request.TraceId.ToString("D")].Value));
         using var source = CreateSource(512, 512);
         var output = CreateService(null).Generate(source, Request);
         using var downloaded = new MemoryStream(output);
@@ -221,7 +417,7 @@ public class QualificationWatermarkServiceTests
     [TestMethod]
     public void TransparencyIsFlattenedOntoWhiteAndPngHasNoSourceMetadata()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var bitmap = new SKBitmap(768, 768, SKColorType.Rgba8888, SKAlphaType.Premul);
         bitmap.Erase(SKColors.Transparent);
         using var image = SKImage.FromBitmap(bitmap);
@@ -230,7 +426,7 @@ public class QualificationWatermarkServiceTests
         var output = _service.Generate(source, Request);
         using var decoded = SKBitmap.Decode(output);
         Assert.IsTrue(decoded.Pixels.All(pixel => pixel.Alpha == 255));
-        Assert.IsTrue(decoded.Pixels.Count(pixel => pixel.Red >= 245 && pixel.Green >= 245 && pixel.Blue >= 245) > 100_000);
+        Assert.IsTrue(decoded.Pixels.Count(pixel => pixel is { Red: >= 245, Green: >= 245, Blue: >= 245 }) > 100_000);
         CollectionAssert.DoesNotContain(PngChunkTypes(output), "tEXt");
         CollectionAssert.DoesNotContain(PngChunkTypes(output), "eXIf");
         Assert.IsFalse(System.Text.Encoding.UTF8.GetString(output).Contains("private-source-metadata"));
@@ -249,7 +445,7 @@ public class QualificationWatermarkServiceTests
     [DataRow(8)]
     public void AllExifOrientationsAreAppliedAndRemoved(int orientation)
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var bitmap = new SKBitmap(768, 512);
         using (var canvas = new SKCanvas(bitmap))
         {
@@ -298,7 +494,7 @@ public class QualificationWatermarkServiceTests
     [TestMethod]
     public void LongSideIsBoundedAndAspectRatioIsPreserved()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(4096, 2048, "white");
         _service.ValidateSource(source);
         var output = _service.Generate(source, Request);
@@ -317,7 +513,7 @@ public class QualificationWatermarkServiceTests
     public void DimensionLimitsAreCheckedBeforeDecode(int width, int height)
     {
         using var source = new MemoryStream(PngHeader(width, height));
-        var exception = Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(source));
+        var exception = AssertImageRejected<InvalidDataException>(source);
         StringAssert.Contains(exception.Message, width == 4096 ? "maximum output long side of 2048" : "25 million decoded pixels");
         source.Position = 0;
         Assert.IsNull(_service.Detect(source));
@@ -326,24 +522,24 @@ public class QualificationWatermarkServiceTests
     [TestMethod]
     public void MissingPngEndAndJpegEndMarkersAreRejected()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512);
         var marked = _service.Generate(source, Request);
         using var truncatedPng = new MemoryStream(marked[..^12]);
-        Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(truncatedPng));
+        AssertImageRejected<InvalidDataException>(truncatedPng);
         Assert.IsNull(_service.Detect(truncatedPng));
         using var bitmap = SKBitmap.Decode(marked);
         using var image = SKImage.FromBitmap(bitmap);
         using var jpeg = image.Encode(SKEncodedImageFormat.Jpeg, 85);
         using var truncatedJpeg = new MemoryStream(jpeg.ToArray()[..^2]);
-        Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(truncatedJpeg));
+        AssertImageRejected<InvalidDataException>(truncatedJpeg);
         Assert.IsNull(_service.Detect(truncatedJpeg));
     }
 
     [TestMethod]
     public void ProgressiveJpegWithRefinementScansIsSupported()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = new MemoryStream(CreateProgressiveJpeg());
         _service.ValidateSource(source);
         using var decoded = SKBitmap.Decode(source.ToArray());
@@ -354,8 +550,8 @@ public class QualificationWatermarkServiceTests
         using var png = new MemoryStream(output);
         Assert.AreEqual(Request.TraceId, _service.Detect(png));
         var truncated = source.ToArray()[..^22];
-        using var badBody = new MemoryStream(truncated.Concat(new byte[] { 255, 217 }).ToArray());
-        Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(badBody));
+        using var badBody = new MemoryStream(truncated.Concat<byte>([255, 217]).ToArray());
+        AssertImageRejected<InvalidDataException>(badBody);
     }
 
     [TestMethod]
@@ -370,7 +566,7 @@ public class QualificationWatermarkServiceTests
             WritePngChunk(container, "IDAT", corruptPayload);
             WritePngChunk(container, "IEND", []);
             container.Position = 0;
-            Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(container));
+            AssertImageRejected<InvalidDataException>(container);
             Assert.IsNull(_service.Detect(container));
         }
         using var bitmap = SKBitmap.Decode(original);
@@ -381,7 +577,7 @@ public class QualificationWatermarkServiceTests
         truncated.Write(bytes.AsSpan(0, bytes.Length / 2));
         truncated.Write([255, 217]);
         truncated.Position = 0;
-        Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(truncated));
+        AssertImageRejected<InvalidDataException>(truncated);
         Assert.IsNull(_service.Detect(truncated));
     }
 
@@ -389,28 +585,28 @@ public class QualificationWatermarkServiceTests
     public void UnsupportedEmptyMalformedAndTruncatedFilesAreRejected()
     {
         using var valid = CreateSource(512, 512);
-        var files = new[]
-        {
+        byte[][] files =
+        [
             Array.Empty<byte>(),
             "not an image"u8.ToArray(),
             "GIF89a"u8.ToArray(),
-            new byte[] { 255, 216, 255, 217 },
-            new byte[] { 255, 216, 255, 196, 0, 255, 217 },
+            [255, 216, 255, 217],
+            [255, 216, 255, 196, 0, 255, 217],
             valid.ToArray()[..60],
             PngHeader(512, 512)
-        };
+        ];
         foreach (var file in files)
         {
             using var stream = new MemoryStream(file);
-            Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(stream));
-            Assert.ThrowsExactly<InvalidDataException>(() => _service.Generate(stream, Request));
+            AssertImageRejected<InvalidDataException>(stream);
+            AssertImageRejected<InvalidDataException>(stream, Request);
             Assert.IsNull(_service.Detect(stream));
         }
         using var bitmap = new SKBitmap(512, 512);
         using var image = SKImage.FromBitmap(bitmap);
         using var webp = image.Encode(SKEncodedImageFormat.Webp, 90);
         using var unsupported = new MemoryStream(webp.ToArray());
-        Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(unsupported));
+        AssertImageRejected<InvalidDataException>(unsupported);
         Assert.IsNull(_service.Detect(unsupported));
     }
 
@@ -418,10 +614,10 @@ public class QualificationWatermarkServiceTests
     public void OversizedSeekableAndNonSeekableStreamsAreBounded()
     {
         using var oversized = new MemoryStream(new byte[QualificationWatermarkService.MaximumEncodedBytes + 1]);
-        Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(oversized));
+        AssertImageRejected<InvalidDataException>(oversized);
         Assert.IsNull(_service.Detect(oversized));
         using var nonSeekable = new GeneratedNonSeekableStream(QualificationWatermarkService.MaximumEncodedBytes + 81920);
-        Assert.ThrowsExactly<InvalidDataException>(() => _service.ValidateSource(nonSeekable));
+        AssertImageRejected<InvalidDataException>(nonSeekable);
         Assert.AreEqual(QualificationWatermarkService.MaximumEncodedBytes + 1, nonSeekable.BytesRead);
         Assert.IsFalse(nonSeekable.Disposed, "Caller owns source streams.");
     }
@@ -429,7 +625,7 @@ public class QualificationWatermarkServiceTests
     [TestMethod]
     public void StreamsAreNotClosedAndSeekablePositionIsRestored()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512);
         source.Position = 10;
         _service.ValidateSource(source);
@@ -445,12 +641,65 @@ public class QualificationWatermarkServiceTests
     }
 
     [TestMethod]
-    public void MissingConfiguredFontFailsClearly()
+    [DataRow("en-GB")]
+    [DataRow("zh-CN")]
+    [DataRow("zh-HK")]
+    public void MissingConfiguredFontFailsClearly(string culture)
     {
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(culture);
         using var source = CreateSource(512, 512);
         var service = CreateService(Path.Combine(Environment.CurrentDirectory, $"missing-font-{Guid.NewGuid():N}.ttf"));
-        var exception = Assert.ThrowsExactly<InvalidOperationException>(() => service.Generate(source, Request));
+        var exception = AssertImageRejected<InvalidOperationException>(source, Request, service);
         StringAssert.Contains(exception.Message, "font", StringComparison.OrdinalIgnoreCase);
+    }
+
+    [TestMethod]
+    [DataRow("en-GB", "Purpose")]
+    [DataRow("zh-CN", "Recipient")]
+    [DataRow("zh-HK", "ApplicantName")]
+    [DataRow("zh-TW", "Purpose")]
+    public void FontMissingAnyUserFieldGlyphFailsClosed(string culture, string field)
+    {
+        RequireRenderingFont();
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(culture);
+        var unsupported = char.ConvertFromUtf32(0x10ffff);
+        var request = field switch
+        {
+            "Purpose" => Request with { Purpose = unsupported },
+            "Recipient" => Request with { Recipient = unsupported },
+            _ => Request with { ApplicantName = unsupported }
+        };
+        using var source = CreateSource(512, 512);
+        var exception = AssertImageRejected<InvalidOperationException>(source, request);
+        StringAssert.Contains(exception.Message, "font covering all watermark characters");
+    }
+
+    [TestMethod]
+    public void EnglishWatermarkDoesNotRequireCjkGlyphs()
+    {
+        string[] expectedLines =
+        [
+            "For Qualification review only / No other use",
+            "Recipient: Test recipient",
+            "Applicant: Test applicant",
+            "UTC: 2026-10-12 05:23:17 UTC",
+            $"Trace ID: {Request.TraceId:D}"
+        ];
+        var visibleText = string.Concat(expectedLines);
+        Assert.IsTrue(visibleText.All(character => character is >= ' ' and <= '~'));
+        var service = CreateService(null);
+        var resolver = typeof(QualificationWatermarkService)
+            .GetMethod("ResolveTypeface", BindingFlags.NonPublic | BindingFlags.Instance)!;
+        using var typeface = (SKTypeface)resolver.Invoke(service, [visibleText])!;
+        using var font = new SKFont(typeface);
+        Assert.IsTrue(font.ContainsGlyphs(visibleText),
+            "The system font must cover English text; CJK glyph coverage is not a prerequisite.");
+        using var source = CreateSource(768, 768, "white");
+        var output = service.Generate(source, Request);
+        CollectionAssert.AreEqual(RenderExpectedWatermark(expectedLines, Request.TraceId, typeface), output,
+            "Every visible glyph must be English even when the available system font also supports CJK.");
+        using var download = new MemoryStream(output);
+        Assert.AreEqual(Request.TraceId, service.Detect(download));
     }
 
     [TestMethod]
@@ -461,19 +710,19 @@ public class QualificationWatermarkServiceTests
                  {
                      Request with { TraceId = Guid.Empty },
                      Request with { Purpose = "" },
-                     Request with { Purpose = new string('中', 201) },
+                     Request with { Purpose = new string('A', 201) },
                      Request with { Recipient = "line\nbreak" },
                      Request with { ApplicantName = "\u202ehidden" }
                  })
         {
-            Assert.ThrowsExactly<ArgumentException>(() => _service.Generate(source, invalid));
+            AssertImageRejected<ArgumentException>(source, invalid);
         }
     }
 
     [TestMethod]
     public void UnspecifiedTimestampIsInterpretedAsUtc()
     {
-        RequireCjkFont();
+        RequireRenderingFont();
         using var source = CreateSource(512, 512);
         CollectionAssert.AreEqual(_service.Generate(source, Request), _service.Generate(source,
             Request with { CreatedAt = DateTime.SpecifyKind(Request.CreatedAt, DateTimeKind.Unspecified) }));
@@ -481,20 +730,77 @@ public class QualificationWatermarkServiceTests
             Request with { CreatedAt = Request.CreatedAt.ToLocalTime() }));
     }
 
-    private static QualificationWatermarkService CreateService(string? fontPath) => new(
+    private TException AssertImageRejected<TException>(Stream source,
+        QualificationWatermarkRequest? request = null, QualificationWatermarkService? service = null)
+        where TException : Exception
+    {
+        var target = service ?? _service;
+        try
+        {
+            if (request == null)
+            {
+                target.ValidateSource(source);
+            }
+            else
+            {
+                target.Generate(source, request);
+            }
+        }
+        catch (Exception exception)
+        {
+            Assert.AreEqual(typeof(TException), exception.GetType(),
+                "The image operation must throw the exact expected exception type.");
+            return (TException)exception;
+        }
+        throw new AssertFailedException($"Expected {typeof(TException).Name}, but the image operation succeeded.");
+    }
+
+    private QualificationWatermarkService CreateService(string? fontPath) => new(
         new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?>
         {
             ["Qualifications:WatermarkFontPath"] = fontPath
-        }).Build());
+        }).Build(), CreateLocalizer());
 
-    private void RequireCjkFont()
+    private IStringLocalizer<QualificationWatermarkService> CreateLocalizer() =>
+        _localizationServices.GetRequiredService<IStringLocalizer<QualificationWatermarkService>>();
+
+    private void RequireRenderingFont(string? text = null)
     {
-        using var font = _fontPath == null ? SKFontManager.Default.MatchCharacter('中') : SKTypeface.FromFile(_fontPath);
-        using var glyphFont = font == null ? null : new SKFont(font);
-        if (glyphFont == null || !glyphFont.ContainsGlyphs("仅供资质审核使用禁止他用接收方测试单位申请人追踪银行开户另一"))
-        {
-            Assert.Inconclusive("Install Noto Sans CJK or set QUALIFICATION_TEST_FONT_PATH to run rendering tests.");
-        }
+        using var typeface = _fontPath == null
+            ? SKFontManager.Default.MatchFamily("sans-serif")
+            : SKTypeface.FromFile(_fontPath);
+        Assert.IsNotNull(typeface,
+            "Install a font covering the watermark or set QUALIFICATION_TEST_FONT_PATH to run rendering tests.");
+        using var font = new SKFont(typeface);
+        Assert.IsTrue(font.ContainsGlyphs(text ??
+            "For qualification review only / No other use Recipient: Applicant: UTC Trace ID 0123456789"),
+            "The rendering-test font must cover every character in the visible watermark.");
+    }
+
+    private byte[] RenderExpectedWatermark(string[] lines, Guid traceId)
+    {
+        using var typeface = _fontPath == null
+            ? SKFontManager.Default.MatchFamily("sans-serif")
+            : SKTypeface.FromFile(_fontPath);
+        Assert.IsNotNull(typeface);
+        return RenderExpectedWatermark(lines, traceId, typeface);
+    }
+
+    private static byte[] RenderExpectedWatermark(string[] lines, Guid traceId, SKTypeface typeface)
+    {
+        using var bitmap = new SKBitmap(new SKImageInfo(768, 768, SKColorType.Rgba8888, SKAlphaType.Opaque));
+        bitmap.Erase(SKColors.White);
+        var draw = typeof(QualificationWatermarkService)
+            .GetMethod("DrawVisibleWatermark", BindingFlags.NonPublic | BindingFlags.Static)!;
+        var payloadFactory = typeof(QualificationWatermarkService)
+            .GetMethod("CreatePayload", BindingFlags.NonPublic | BindingFlags.Static)!;
+        var embed = typeof(QualificationWatermarkService)
+            .GetMethod("Embed", BindingFlags.NonPublic | BindingFlags.Static)!;
+        draw.Invoke(null, [bitmap, typeface, lines]);
+        embed.Invoke(null, [bitmap, payloadFactory.Invoke(null, [traceId])!]);
+        using var image = SKImage.FromBitmap(bitmap);
+        using var png = image.Encode(SKEncodedImageFormat.Png, 100);
+        return png.ToArray();
     }
 
     private static MemoryStream CreateSource(int width, int height, string pattern = "gradient", int seed = 123)
@@ -522,7 +828,8 @@ public class QualificationWatermarkServiceTests
             {
                 using var canvas = new SKCanvas(bitmap);
                 canvas.Clear(SKColors.White);
-                using var paint = new SKPaint { Color = SKColors.Black };
+                using var paint = new SKPaint();
+                paint.Color = SKColors.Black;
                 for (var y = 30; y < height - 20; y += 27)
                 {
                     for (var x = 24; x < width - 20; x += 16)
@@ -547,7 +854,7 @@ public class QualificationWatermarkServiceTests
             stream.Write([255, (byte)marker, (byte)((content.Length + 2) >> 8), (byte)(content.Length + 2)]);
             stream.Write(content);
         }
-        Segment(219, new byte[] { 0 }.Concat(Enumerable.Repeat((byte)1, 64)).ToArray());
+        Segment(219, [0, .. Enumerable.Repeat((byte)1, 64)]);
         Segment(194, [8, 2, 0, 2, 0, 1, 1, 17, 0]);
         var dc = new byte[18];
         dc[1] = 1;
@@ -693,32 +1000,5 @@ public class QualificationWatermarkServiceTests
             offset += length + 12;
         }
         return types.ToArray();
-    }
-
-    private sealed class GeneratedNonSeekableStream(int length) : Stream
-    {
-        public int BytesRead { get; private set; }
-        public bool Disposed { get; private set; }
-        public override bool CanRead => true;
-        public override bool CanSeek => false;
-        public override bool CanWrite => false;
-        public override long Length => throw new NotSupportedException();
-        public override long Position { get => throw new NotSupportedException(); set => throw new NotSupportedException(); }
-        public override int Read(byte[] buffer, int offset, int count)
-        {
-            var read = Math.Min(count, length - BytesRead);
-            buffer.AsSpan(offset, read).Clear();
-            BytesRead += read;
-            return read;
-        }
-        public override void Flush() => throw new NotSupportedException();
-        public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
-        public override void SetLength(long value) => throw new NotSupportedException();
-        public override void Write(byte[] buffer, int offset, int count) => throw new NotSupportedException();
-        protected override void Dispose(bool disposing)
-        {
-            Disposed = true;
-            base.Dispose(disposing);
-        }
     }
 }
