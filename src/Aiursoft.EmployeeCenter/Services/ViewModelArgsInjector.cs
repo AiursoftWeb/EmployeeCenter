@@ -286,6 +286,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Infrastructure data quality"];
 
         _ = localizer["Edit Meeting Minutes"];
+    
+        _ = localizer["Watermarked Qualification Download"];
     }
 
     public void InjectSimple(
