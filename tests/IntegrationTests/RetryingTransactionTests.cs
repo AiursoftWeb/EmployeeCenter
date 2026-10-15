@@ -1,3 +1,4 @@
+using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.EmployeeCenter.Controllers;
 using Aiursoft.EmployeeCenter.Models.ServicesViewModels;
 using Aiursoft.EmployeeCenter.Models.ServersViewModels;
@@ -9,7 +10,6 @@ using Aiursoft.EmployeeCenter.Sqlite;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
@@ -73,7 +73,7 @@ public class RetryingTransactionTests : TestBase
                 snapshot.SetSuccess(new DnsAuditReport { Issues = [new DnsAuditIssue
                     { Type = DnsAuditIssueType.UnknownDns, Domain = "created.example.com", Details = "Unknown", Severity = DnsAuditSeverity.Warning }] }, DateTime.UtcNow);
                 var aliases = new DomainAliasesController(db, snapshot, new ServiceAuditStore(db), null!, log,
-                    manager, GetService<Aiursoft.Canon.BackgroundJobs.BackgroundJobRegistry>())
+                    manager, GetService<BackgroundJobRegistry>())
                     { ControllerContext = new ControllerContext { HttpContext = http } };
                 result = await aliases.Create(new CreateDomainAliasViewModel
                     { Domain = "created.example.com", TargetServiceId = target.Id, Type = DomainAliasType.Cname });
