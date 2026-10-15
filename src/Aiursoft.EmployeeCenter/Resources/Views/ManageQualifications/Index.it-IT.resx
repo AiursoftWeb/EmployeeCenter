@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Azioni</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>Aggiungi qualifica</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>Tutti i registri dei download</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Azienda</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Rileva filigrana</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>Ogni caricamento costituisce una versione immutabile. Carica una nuova versione e disattiva quella precedente. Le qualifiche disattivate possono essere riattivate. I link ai documenti aziendali esistenti non vengono migrati automaticamente; prima del rilascio, rimuovi eventuali originali accessibili pubblicamente.</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>Abilita una qualifica per consentirne l’utilizzo da parte dei dipendenti. Disattivala per impedire la generazione, l’anteprima e il download; i record esistenti vengono mantenuti.</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Gestisci le qualifiche aziendali</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>Nessuna qualifica disponibile.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Qualifica</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stato</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versione</value>
+  </data>
+
+</root>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Aanvrager</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Zakelijk doel</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="Follow Interface Language" xml:space="preserve">
+    <value>Volg de interfacetaal</value>
+  </data>
+  <data name="Generate and Preview" xml:space="preserve">
+    <value>Genereren en bekijken</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Watermerk genereren en downloaden</value>
+  </data>
+  <data name="Only the watermark labels change language. The purpose, recipient and account name are not translated. Choose English and enter the purpose and recipient in English for an English copy. Existing copies do not change." xml:space="preserve">
+    <value>Alleen de watermerklabels veranderen van taal. Het doel, de ontvanger en de accountnaam worden niet vertaald. Kies Engels en voer het doel en de ontvanger in het Engels in voor een Engelse kopie. Bestaande kopieën veranderen niet.</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Bedrijf van de ontvanger</value>
+  </data>
+  <data name="Simplified Chinese" xml:space="preserve">
+    <value>Vereenvoudigd Chinees</value>
+  </data>
+  <data name="Specify the actual transaction, for example supplier onboarding or a named project tender." xml:space="preserve">
+    <value>Vermeld de daadwerkelijke transactie, bijvoorbeeld de onboarding van een leverancier of een aanbesteding voor een specifiek project.</value>
+  </data>
+  <data name="The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form." xml:space="preserve">
+    <value>De server voegt zichtbare en onzichtbare traceerwatermerken toe. De identiteit van de aanvrager is afkomstig van je account en kan niet in dit formulier worden gewijzigd.</value>
+  </data>
+  <data name="Traditional Chinese (Hong Kong)" xml:space="preserve">
+    <value>Traditioneel Chinees (Hongkong)</value>
+  </data>
+  <data name="Watermark Language" xml:space="preserve">
+    <value>Taal van het watermerk</value>
+  </data>
+
+</root>

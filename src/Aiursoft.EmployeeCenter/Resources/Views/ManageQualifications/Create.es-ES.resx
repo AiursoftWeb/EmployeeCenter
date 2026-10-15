@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Qualification" xml:space="preserve">
+    <value>Añadir titulación</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="Create a company entity before uploading qualifications." xml:space="preserve">
+    <value>Crea una entidad empresarial antes de subir acreditaciones.</value>
+  </data>
+  <data name="Original Image" xml:space="preserve">
+    <value>Imagen original</value>
+  </data>
+  <data name="Qualification Name" xml:space="preserve">
+    <value>Nombre de la cualificación</value>
+  </data>
+  <data name="Select Company" xml:space="preserve">
+    <value>Selecciona una empresa</value>
+  </data>
+  <data name="Upload a PNG/JPEG original, at most 20 MB, with both dimensions at least 512 pixels. PDF is not supported in this version." xml:space="preserve">
+    <value>Sube el archivo original en formato PNG/JPEG, de un máximo de 20 MB y con ambas dimensiones de al menos 512 píxeles. En esta versión no se admite el formato PDF.</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versión</value>
+  </data>
+
+</root>

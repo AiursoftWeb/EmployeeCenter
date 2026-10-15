@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>Ajouter une qualification</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>Tous les téléchargements</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Entreprise</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Détecter le filigrane</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>Chaque téléversement constitue une version immuable. Téléversez une nouvelle version et désactivez l’ancienne. Les qualifications désactivées peuvent être réactivées. Les anciens liens vers les documents de l’entreprise ne sont pas migrés automatiquement ; supprimez tout ancien document original accessible publiquement avant le déploiement.</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>Activez une habilitation pour permettre aux employés de l’utiliser. Désactivez-la pour bloquer la génération, l’aperçu et le téléchargement ; les enregistrements existants sont conservés.</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Gérer les agréments de l’entreprise</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>Aucune qualification disponible.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Qualification</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+
+</root>

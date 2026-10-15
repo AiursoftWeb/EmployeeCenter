@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Richiedente</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Finalità commerciale</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="Follow Interface Language" xml:space="preserve">
+    <value>Segui la lingua dell’interfaccia</value>
+  </data>
+  <data name="Generate and Preview" xml:space="preserve">
+    <value>Genera e visualizza l’anteprima</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Genera filigrana e scarica</value>
+  </data>
+  <data name="Only the watermark labels change language. The purpose, recipient and account name are not translated. Choose English and enter the purpose and recipient in English for an English copy. Existing copies do not change." xml:space="preserve">
+    <value>Cambia lingua solo il testo delle filigrane. Lo scopo, il destinatario e il nome dell&apos;account non vengono tradotti. Per una copia in inglese, seleziona l&apos;inglese e inserisci lo scopo e il destinatario in inglese. Le copie esistenti non vengono modificate.</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Azienda destinataria</value>
+  </data>
+  <data name="Simplified Chinese" xml:space="preserve">
+    <value>Cinese semplificato</value>
+  </data>
+  <data name="Specify the actual transaction, for example supplier onboarding or a named project tender." xml:space="preserve">
+    <value>Specifica la transazione effettiva, ad esempio l’inserimento di un fornitore o una gara d’appalto per un progetto specifico.</value>
+  </data>
+  <data name="The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form." xml:space="preserve">
+    <value>Il server aggiunge filigrane di tracciamento visibili e invisibili. L’identità del richiedente deriva dal tuo account e non può essere modificata in questo modulo.</value>
+  </data>
+  <data name="Traditional Chinese (Hong Kong)" xml:space="preserve">
+    <value>Cinese tradizionale (Hong Kong)</value>
+  </data>
+  <data name="Watermark Language" xml:space="preserve">
+    <value>Lingua della filigrana</value>
+  </data>
+
+</root>
