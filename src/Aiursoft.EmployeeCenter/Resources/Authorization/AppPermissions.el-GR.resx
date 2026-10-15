@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Επιτρέπει την ανάρτηση, τη διαγραφή ηχογραφήσεων συνεδριάσεων και την επαναφορά της μετάφρασης ομιλίας σε κείμενο.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Επιτρέπει τη μεταφόρτωση, την ενεργοποίηση και την απενεργοποίηση πρωτότυπων εγγράφων ιδιωτικών επαγγελματικών προσόντων, την προβολή όλων των αρχείων καταγραφής λήψεων και τον εντοπισμό υδατογραφημάτων παρακολούθησης.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Επιτρέπει την προβολή όλων των συμβάσεων της εταιρείας, συμπεριλαμβανομένων εκείνων που έχουν σημειωθεί ως ιδιωτικές.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Διαχείριση Σχεδίων</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Διαχείριση Επαγγελματικών Προσόντων</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Διαχείριση Καναλιών Συλλογής</value>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>申请人</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>业务用途</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>检测水印</value>
+  </data>
+  <data name="Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked." xml:space="preserve">
+    <value>检测结果仅供追踪参考，不能作为违规行为的证据。裁剪、调整大小、截图以及打印/扫描都可能破坏水印。未能匹配到水印，并不能证明图像没有水印。</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>生成时间</value>
+  </data>
+  <data name="Image to Inspect" xml:space="preserve">
+    <value>待检查的图片</value>
+  </data>
+  <data name="Inspect" xml:space="preserve">
+    <value>检查</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>资质 / 版本</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>收件公司</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>追踪 ID</value>
+  </data>
+  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are uploaded to a private temporary folder and deleted after inspection; abandoned uploads are cleaned after one hour." xml:space="preserve">
+    <value>上传 PNG/JPEG 副本（最大 20 MB），以查看其中嵌入的追踪 ID。图片会上传到私有临时文件夹，并在检查后删除；超过一小时未处理的上传文件会被清理。</value>
+  </data>
+
+</root>

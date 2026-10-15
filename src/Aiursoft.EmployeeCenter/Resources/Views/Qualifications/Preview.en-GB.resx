@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Applicant</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Business purpose</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Download Watermarked Qualification" xml:space="preserve">
+    <value>Download watermarked qualification</value>
+  </data>
+  <data name="Generate ZIP download link" xml:space="preserve">
+    <value>Generate ZIP download link</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>Generated at</value>
+  </data>
+  <data name="Images are not previewed online. Download the ZIP and extract the original watermarked PNG to preserve its embedded tracking ID." xml:space="preserve">
+    <value>Images are not previewed online. Download the ZIP file and extract the original watermarked PNG to preserve its embedded tracking ID.</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>My download records</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Recipient company</value>
+  </data>
+  <data name="This qualification is disabled. New download links are unavailable until an administrator enables it." xml:space="preserve">
+    <value>This qualification is disabled. New download links are unavailable until an administrator enables it.</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>Tracking ID</value>
+  </data>
+  <data name="Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation." xml:space="preserve">
+    <value>Check the purpose and recipient before sharing. Watermarks help trace copies, but cannot prevent all misuse or withstand every image transformation.</value>
+  </data>
+  <data name="ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry." xml:space="preserve">
+    <value>ZIP links expire after 60 minutes. Issuing a link is recorded; repeat downloads are not counted. Links already issued remain valid until they expire.</value>
+  </data>
+
+</root>

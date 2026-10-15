@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Company Entity" xml:space="preserve">
+    <value>นิติบุคคล</value>
+  </data>
+  <data name="Original Image" xml:space="preserve">
+    <value>รูปภาพต้นฉบับ</value>
+  </data>
+  <data name="Please select a valid company entity." xml:space="preserve">
+    <value>โปรดเลือกนิติบุคคลของบริษัทที่ถูกต้อง</value>
+  </data>
+  <data name="Please upload a valid qualification original." xml:space="preserve">
+    <value>โปรดอัปโหลดรูปภาพต้นฉบับของคุณสมบัติที่ถูกต้อง</value>
+  </data>
+  <data name="Qualification Name" xml:space="preserve">
+    <value>ชื่อคุณสมบัติ</value>
+  </data>
+  <data name="The original image is required." xml:space="preserve">
+    <value>ต้องระบุรูปภาพต้นฉบับ</value>
+  </data>
+  <data name="The qualification name is required." xml:space="preserve">
+    <value>จำเป็นต้องระบุชื่อคุณสมบัติ</value>
+  </data>
+  <data name="The version is required." xml:space="preserve">
+    <value>จำเป็นต้องระบุเวอร์ชัน</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>เวอร์ชัน</value>
+  </data>
+
+</root>

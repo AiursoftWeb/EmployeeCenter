@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Tillader upload, sletning af mødeoptagelser og genstart af tale-til-tekst-transskription.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Giver mulighed for at uploade private originaler af erhvervskvalifikationer, aktivere og deaktivere dem, se alle downloadregistreringer og registrere sporingsvandmærker.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Tillader visning af alle virksomhedskontrakter, herunder de, der er markeret som private.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Håndtér skitser</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Administrér erhvervskvalifikationer</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Administrer indkassationskanaler</value>

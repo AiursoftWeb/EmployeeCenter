@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Permite încărcarea și ștergerea înregistrărilor de întâlniri, precum și reactivarea transcrierii vocal-text.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Permite încărcarea, activarea și dezactivarea documentelor originale de calificare private, vizualizarea tuturor înregistrărilor de descărcare și detectarea filigranelor de urmărire.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Permite vizualizarea tuturor contractelor companiei, inclusiv a celor marcate ca private.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Gestionează modelele</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Gestionarea calificărilor profesionale</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Gestionați canalele de colectare</value>

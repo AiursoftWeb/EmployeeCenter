@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>会議録音のアップロード、削除、および音声からテキストへの文字起こしの再トリガーを許可します。</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>資格証明書の原本（非公開）のアップロード、有効化・無効化、すべてのダウンロード記録の閲覧、およびトラッキング用透かしの検出を許可します。</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>すべての会社契約（プライベートとしてマークされたものも含む）を閲覧できるようにします。</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>ブループリントの管理</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>事業資格を管理</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>コレクションチャンネルの管理</value>

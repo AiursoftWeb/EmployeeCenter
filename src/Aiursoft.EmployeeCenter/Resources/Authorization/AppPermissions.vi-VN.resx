@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Cho phép tải lên, xóa bản ghi âm cuộc họp và kích hoạt lại quá trình chuyển đổi giọng nói sang văn bản.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Cho phép tải lên, bật và tắt các bản gốc giấy tờ chứng minh năng lực kinh doanh ở chế độ riêng tư, xem tất cả lịch sử tải xuống và phát hiện hình mờ theo dõi.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Cho phép xem tất cả hợp đồng công ty, bao gồm cả những hợp đồng được đánh dấu là riêng tư.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Quản lý Bản thiết kế</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Quản lý giấy phép kinh doanh</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Quản lý Kênh Thu Thập</value>

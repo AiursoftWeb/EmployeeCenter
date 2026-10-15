@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>미팅 녹음 파일 업로드, 삭제 및 음성-텍스트 변환 다시 실행을 허용합니다.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>비공개 자격 증빙 원본을 업로드하고 활성화하거나 비활성화할 수 있으며, 모든 다운로드 기록을 조회하고 추적 워터마크를 감지할 수 있습니다.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>모든 회사 계약서를 포함하여 비공개로 표시된 계약서도 볼 수 있도록 허용합니다.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>블루프린트 관리</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>사업자 자격 요건 관리</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>집합 채널 관리</value>

@@ -27,6 +27,9 @@
   <data name="Actions" xml:space="preserve">
     <value>Действия</value>
   </data>
+  <data name="Add Business Qualification" xml:space="preserve">
+    <value>Добавить квалификацию компании</value>
+  </data>
   <data name="Add SSH Key" xml:space="preserve">
     <value>Добавить ключ SSH</value>
   </data>
@@ -56,6 +59,9 @@
   </data>
   <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
+  </data>
+  <data name="All Qualification Download Records" xml:space="preserve">
+    <value>Все записи о скачивании квалификационных документов</value>
   </data>
   <data name="Anonymous" xml:space="preserve">
     <value>Аноним</value>
@@ -119,6 +125,9 @@
   </data>
   <data name="Business License" xml:space="preserve">
     <value>Свидетельство о регистрации бизнеса</value>
+  </data>
+  <data name="Business Qualifications" xml:space="preserve">
+    <value>Квалификационные документы компании</value>
   </data>
   <data name="Career" xml:space="preserve">
     <value>Карьера</value>
@@ -273,6 +282,9 @@
   <data name="Details" xml:space="preserve">
     <value>Сведения</value>
   </data>
+  <data name="Detect Qualification Watermark" xml:space="preserve">
+    <value>Обнаружение водяного знака квалификационного документа</value>
+  </data>
   <data name="Development" xml:space="preserve">
     <value>Разработка</value>
   </data>
@@ -311,6 +323,9 @@
   </data>
   <data name="Edit Folder" xml:space="preserve">
     <value>Редактировать папку</value>
+  </data>
+  <data name="Edit Meeting Minutes" xml:space="preserve">
+    <value>Редактировать протоколы встреч</value>
   </data>
   <data name="Edit Meeting Recording" xml:space="preserve">
     <value>Редактировать запись собрания</value>
@@ -395,6 +410,9 @@
   </data>
   <data name="Finance" xml:space="preserve">
     <value>Финансы</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Сформировать водяной знак и скачать</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Глобальные настройки</value>
@@ -485,6 +503,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Управление чертежами</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Управление квалификационными документами компании</value>
   </data>
   <data name="Manage Categories" xml:space="preserve">
     <value>Управление категориями</value>
@@ -660,6 +681,12 @@
   <data name="Promotion History" xml:space="preserve">
     <value>История повышений</value>
   </data>
+  <data name="Qualification Download Records" xml:space="preserve">
+    <value>Записи о скачивании документов, подтверждающих квалификацию</value>
+  </data>
+  <data name="Qualification Issuance Record" xml:space="preserve">
+    <value>Запись о выдаче квалификации</value>
+  </data>
   <data name="Questionnaire Responses" xml:space="preserve">
     <value>Ответы на анкету</value>
   </data>
@@ -815,6 +842,12 @@
   </data>
   <data name="View Market Channels" xml:space="preserve">
     <value>Просмотр каналов продаж</value>
+  </data>
+  <data name="Watermarked Qualification Download" xml:space="preserve">
+    <value>Скачивание квалификационного документа с водяным знаком</value>
+  </data>
+  <data name="Watermarked Qualification Preview" xml:space="preserve">
+    <value>Предпросмотр квалификационного документа с водяным знаком</value>
   </data>
   <data name="Weekly Report" xml:space="preserve">
     <value>Еженедельный отчет</value>

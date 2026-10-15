@@ -147,6 +147,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Allows uploading and deleting meeting recordings, and re-triggering speech-to-text transcription.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Allows uploading, enabling and disabling private originals of business qualifications, viewing all download records, and detecting tracking watermarks.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Allows viewing all company contracts, including those marked as private.</value>
   </data>
@@ -266,6 +269,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Manage Blueprints</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Manage Business Qualifications</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Manage Collection Channels</value>

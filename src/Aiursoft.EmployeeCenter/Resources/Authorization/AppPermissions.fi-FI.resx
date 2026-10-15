@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Mahdollistaa kokousnauhojen lataamisen, poistamisen ja puheesta tekstiksi -muunnoksen uudelleen aloittamisen.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Mahdollistaa yksityisten pätevyysasiakirjojen alkuperäiskappaleiden lataamisen palveluun, käyttöönoton ja käytöstä poistamisen, kaikkien lataustietojen tarkastelun sekä seurantavesileimojen tunnistamisen.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Sallii kaikkien yrityksen sopimusten tarkastelun, mukaan lukien ne, jotka on merkitty yksityisiksi.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Hallinnoi luonnoksia</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Liiketoiminnan pätevyyksien hallinta</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Hallitse perintäkanavia</value>

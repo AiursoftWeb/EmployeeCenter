@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Consente di caricare e eliminare le registrazioni delle riunioni e di rilanciare la trascrizione da voce a testo.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Consente di caricare, abilitare e disabilitare gli originali delle qualifiche aziendali riservati, visualizzare tutti i registri dei download e rilevare le filigrane di tracciamento.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Consente la visualizzazione di tutti i contratti aziendali, inclusi quelli contrassegnati come privati.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Gestisci i Blueprint</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Gestire le qualifiche aziendali</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Gestisci canali di raccolta</value>

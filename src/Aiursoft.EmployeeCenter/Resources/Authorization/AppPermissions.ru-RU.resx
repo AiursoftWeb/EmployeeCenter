@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Позволяет загружать и удалять записи встреч, а также повторно запускать транскрибацию речи в текст.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Позволяет загружать, активировать и деактивировать оригиналы документов о квалификации с ограниченным доступом, просматривать все записи о скачивании и обнаруживать водяные знаки для отслеживания.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Позволяет просматривать все корпоративные контракты, включая те, которые помечены как приватные.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Управление шаблонами</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Управление разрешительной документацией компании</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Управление каналами инкассации</value>

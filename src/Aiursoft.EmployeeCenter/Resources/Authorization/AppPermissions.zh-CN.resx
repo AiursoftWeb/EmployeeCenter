@@ -147,6 +147,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>允许上传、删除会议录音，并重新触发语音转文字转录。</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>允许上传、启用和停用私有资质原件、查看所有下载记录及检测追踪水印。</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>允许查看公司的所有合同，包括标记为私密的合同。</value>
   </data>
@@ -267,6 +270,9 @@
   <data name="Manage Blueprints" xml:space="preserve">
     <value>管理蓝图</value>
   </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>管理业务资质</value>
+  </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>管理收款渠道</value>
   </data>
@@ -367,6 +373,4 @@
     <value>查看用户操作日志</value>
   </data>
 
-  <data name="Manage Business Qualifications" xml:space="preserve"><value>管理业务资质</value></data>
-  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve"><value>允许上传、启用和停用私有资质原件、查看所有下载记录及检测追踪水印。</value></data>
 </root>
