@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>Додати кваліфікацію</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>Усі записи завантажень</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Закрити</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Компанія</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Виявити водяний знак</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>Кожне завантаження створює незмінну версію. Завантажте нову версію та вимкніть стару. Вимкнені кваліфікації можна знову ввімкнути. Посилання на документи компанії, створені раніше, не переносяться автоматично; перед запуском видаліть усі старі оригінали, доступні публічно.</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>Увімкніть кваліфікацію, щоб дозволити її використання працівниками. Вимкніть її, щоб заблокувати створення, попередній перегляд і завантаження; наявні записи збережуться.</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Керування діловими кваліфікаціями</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>Немає доступних кваліфікацій.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Кваліфікація</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версія</value>
+  </data>
+
+</root>

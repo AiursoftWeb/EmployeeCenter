@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>रद्द किया गया</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>अलग-अलग कतारों में परीक्षण कार्य बनाता है (15-30 सेकंड सोना, 10% असफलता दर)। अलग-अलग कतारों में कार्य समानांतर रूप से चलते हैं।</value>
   </data>

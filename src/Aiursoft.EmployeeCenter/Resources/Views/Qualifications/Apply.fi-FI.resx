@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Hakija</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Yrityskäytön tarkoitus</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Peruuta</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Sulje</value>
+  </data>
+  <data name="Follow Interface Language" xml:space="preserve">
+    <value>Noudata käyttöliittymän kieltä</value>
+  </data>
+  <data name="Generate and Preview" xml:space="preserve">
+    <value>Luo ja esikatsele</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Luo vesileima ja lataa</value>
+  </data>
+  <data name="Only the watermark labels change language. The purpose, recipient and account name are not translated. Choose English and enter the purpose and recipient in English for an English copy. Existing copies do not change." xml:space="preserve">
+    <value>Vain vesileiman tekstit vaihtavat kieltä. Tarkoitusta, vastaanottajaa ja tilin nimeä ei käännetä. Valitse englanti ja kirjoita tarkoitus ja vastaanottaja englanniksi, jos haluat englanninkielisen kopion. Olemassa olevat kopiot eivät muutu.</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Vastaanottajayritys</value>
+  </data>
+  <data name="Simplified Chinese" xml:space="preserve">
+    <value>yksinkertaistettu kiina</value>
+  </data>
+  <data name="Specify the actual transaction, for example supplier onboarding or a named project tender." xml:space="preserve">
+    <value>Ilmoita varsinainen liiketoimi, esimerkiksi toimittajan käyttöönotto tai tiettyyn hankkeeseen liittyvä tarjouskilpailu.</value>
+  </data>
+  <data name="The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form." xml:space="preserve">
+    <value>Palvelin lisää näkyviä ja näkymättömiä seurantavesileimoja. Hakijan tiedot haetaan tililtäsi, eikä niitä voi muuttaa tässä lomakkeessa.</value>
+  </data>
+  <data name="Traditional Chinese (Hong Kong)" xml:space="preserve">
+    <value>Perinteinen kiina (Hongkong)</value>
+  </data>
+  <data name="Watermark Language" xml:space="preserve">
+    <value>Vesileiman kieli</value>
+  </data>
+
+</root>

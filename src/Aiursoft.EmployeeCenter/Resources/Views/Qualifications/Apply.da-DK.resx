@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Ansøger</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Forretningsmæssigt formål</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Luk</value>
+  </data>
+  <data name="Follow Interface Language" xml:space="preserve">
+    <value>Følg grænsefladens sprog</value>
+  </data>
+  <data name="Generate and Preview" xml:space="preserve">
+    <value>Generér og forhåndsvis</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Generér vandmærke og download</value>
+  </data>
+  <data name="Only the watermark labels change language. The purpose, recipient and account name are not translated. Choose English and enter the purpose and recipient in English for an English copy. Existing copies do not change." xml:space="preserve">
+    <value>Det er kun vandmærkernes etiketter, der skifter sprog. Formålet, modtageren og kontonavnet oversættes ikke. Vælg engelsk, og angiv formålet og modtageren på engelsk, hvis kopien skal være på engelsk. Eksisterende kopier ændres ikke.</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Modtagende virksomhed</value>
+  </data>
+  <data name="Simplified Chinese" xml:space="preserve">
+    <value>Forenklet kinesisk</value>
+  </data>
+  <data name="Specify the actual transaction, for example supplier onboarding or a named project tender." xml:space="preserve">
+    <value>Angiv den konkrete transaktion, f.eks. onboarding af en leverandør eller et udbud for et navngivet projekt.</value>
+  </data>
+  <data name="The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form." xml:space="preserve">
+    <value>Serveren tilføjer synlige og usynlige sporingsvandmærker. Ansøgerens identitet hentes fra din konto og kan ikke ændres i denne formular.</value>
+  </data>
+  <data name="Traditional Chinese (Hong Kong)" xml:space="preserve">
+    <value>Traditionelt kinesisk (Hongkong)</value>
+  </data>
+  <data name="Watermark Language" xml:space="preserve">
+    <value>Vandmærkesprog</value>
+  </data>
+
+</root>

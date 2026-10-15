@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Sökande</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Affärssyfte</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Stäng</value>
+  </data>
+  <data name="Download Watermarked Qualification" xml:space="preserve">
+    <value>Ladda ned vattenmärkt intyg</value>
+  </data>
+  <data name="Generate ZIP download link" xml:space="preserve">
+    <value>Skapa en nedladdningslänk för ZIP-filen</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>Skapad den</value>
+  </data>
+  <data name="Images are not previewed online. Download the ZIP and extract the original watermarked PNG to preserve its embedded tracking ID." xml:space="preserve">
+    <value>Bilder förhandsvisas inte online. Ladda ner ZIP-filen och packa upp den ursprungliga vattenmärkta PNG-filen för att bevara dess inbäddade spårnings-ID.</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>Mina nedladdningar</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Mottagande företag</value>
+  </data>
+  <data name="This qualification is disabled. New download links are unavailable until an administrator enables it." xml:space="preserve">
+    <value>Den här behörigheten är inaktiverad. Det går inte att skapa nya nedladdningslänkar förrän en administratör aktiverar den.</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>Spårnings-ID</value>
+  </data>
+  <data name="Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation." xml:space="preserve">
+    <value>Kontrollera syftet och mottagaren innan du delar. Vattenstämplar hjälper till att spåra kopior, men kan inte förhindra all otillåten användning eller bevaras vid alla bildtransformationer.</value>
+  </data>
+  <data name="ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry." xml:space="preserve">
+    <value>ZIP-länkar upphör att gälla efter 60 minuter. Utfärdandet registreras; upprepade nedladdningar räknas inte. Redan utfärdade länkar förblir giltiga tills de upphör att gälla.</value>
+  </data>
+
+</root>

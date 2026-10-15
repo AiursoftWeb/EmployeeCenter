@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Solicitant</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Scopul activității</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Închide</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Detectare filigran</value>
+  </data>
+  <data name="Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked." xml:space="preserve">
+    <value>Detectarea este un instrument de urmărire, nu o dovadă de abatere. Decuparea, redimensionarea, capturile de ecran și imprimarea/scanarea pot distruge filigranul. Faptul că nu se găsește nicio potrivire nu dovedește că imaginea nu este marcată.</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>Generat la</value>
+  </data>
+  <data name="Image to Inspect" xml:space="preserve">
+    <value>Imagine de inspectat</value>
+  </data>
+  <data name="Inspect" xml:space="preserve">
+    <value>Inspectează</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>Calificare / Versiune</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Compania destinatară</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>ID de urmărire</value>
+  </data>
+  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are uploaded to a private temporary folder and deleted after inspection; abandoned uploads are cleaned after one hour." xml:space="preserve">
+    <value>Încarcă o copie PNG/JPEG (de cel mult 20 MB) pentru a verifica ID-ul de urmărire încorporat. Imaginile sunt încărcate într-un folder temporar privat și șterse după verificare; încărcările abandonate sunt eliminate după o oră.</value>
+  </data>
+
+</root>

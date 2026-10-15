@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Download Records" xml:space="preserve">
+    <value>Alle downloadrecords</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Aanvrager</value>
+  </data>
+  <data name="Back to Qualification Management" xml:space="preserve">
+    <value>Terug naar kwalificatiebeheer</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Zakelijk doel</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Bedrijf</value>
+  </data>
+  <data name="Copy SHA-256" xml:space="preserve">
+    <value>SHA-256 van de kopie</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>Gegenereerd op</value>
+  </data>
+  <data name="Issued at" xml:space="preserve">
+    <value>Uitgegeven op</value>
+  </data>
+  <data name="Last link issued at" xml:space="preserve">
+    <value>Tijdstip van laatste linkuitgifte</value>
+  </data>
+  <data name="Link issuance records identify who requested a ZIP link, not who completed a download. Preview links are not counted. Latest 100 issuances are shown." xml:space="preserve">
+    <value>De registraties van uitgegeven links laten zien wie een ZIP-link heeft aangevraagd, niet wie de download heeft voltooid. Previewlinks worden niet meegeteld. De 100 meest recente uitgiften worden weergegeven.</value>
+  </data>
+  <data name="Link issued to" xml:space="preserve">
+    <value>Link verstrekt aan</value>
+  </data>
+  <data name="Original SHA-256" xml:space="preserve">
+    <value>Oorspronkelijke SHA-256</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>Kwalificatie / versie</value>
+  </data>
+  <data name="Qualification Issuance Record" xml:space="preserve">
+    <value>Uitgiftedossier van de kwalificatie</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Ontvangend bedrijf</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>Tracking-ID</value>
+  </data>
+  <data name="ZIP links issued" xml:space="preserve">
+    <value>Uitgegeven ZIP-links</value>
+  </data>
+  <data name="ZIP SHA-256" xml:space="preserve">
+    <value>SHA-256 van het ZIP-bestand</value>
+  </data>
+
+</root>
