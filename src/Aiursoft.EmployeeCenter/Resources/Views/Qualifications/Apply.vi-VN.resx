@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Người nộp đơn</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Mục đích kinh doanh</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="Follow Interface Language" xml:space="preserve">
+    <value>Theo ngôn ngữ giao diện</value>
+  </data>
+  <data name="Generate and Preview" xml:space="preserve">
+    <value>Tạo và xem trước</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Tạo dấu chìm và tải xuống</value>
+  </data>
+  <data name="Only the watermark labels change language. The purpose, recipient and account name are not translated. Choose English and enter the purpose and recipient in English for an English copy. Existing copies do not change." xml:space="preserve">
+    <value>Chỉ các nhãn hình mờ thay đổi ngôn ngữ. Mục đích, người nhận và tên tài khoản không được dịch. Để tạo bản sao bằng tiếng Anh, hãy chọn tiếng Anh và nhập mục đích cũng như người nhận bằng tiếng Anh. Các bản sao hiện có không thay đổi.</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Công ty nhận</value>
+  </data>
+  <data name="Simplified Chinese" xml:space="preserve">
+    <value>Tiếng Trung giản thể</value>
+  </data>
+  <data name="Specify the actual transaction, for example supplier onboarding or a named project tender." xml:space="preserve">
+    <value>Nêu rõ giao dịch thực tế, chẳng hạn như việc tiếp nhận nhà cung cấp mới hoặc tham gia đấu thầu một dự án cụ thể.</value>
+  </data>
+  <data name="The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form." xml:space="preserve">
+    <value>Máy chủ thêm các hình mờ theo dõi hiển thị và vô hình. Danh tính người nộp đơn được lấy từ tài khoản của bạn và không thể thay đổi trong biểu mẫu này.</value>
+  </data>
+  <data name="Traditional Chinese (Hong Kong)" xml:space="preserve">
+    <value>Tiếng Trung phồn thể (Hồng Kông)</value>
+  </data>
+  <data name="Watermark Language" xml:space="preserve">
+    <value>Ngôn ngữ hình mờ</value>
+  </data>
+
+</root>

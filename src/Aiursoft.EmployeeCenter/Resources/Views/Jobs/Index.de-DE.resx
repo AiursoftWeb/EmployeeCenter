@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>Abgebrochen</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Erstellt Testaufträge in verschiedenen Warteschlangen (15-30 Sekunden Schlaf, 10 % Fehlerquote). Aufträge in verschiedenen Warteschlangen werden parallel ausgeführt.</value>
   </data>

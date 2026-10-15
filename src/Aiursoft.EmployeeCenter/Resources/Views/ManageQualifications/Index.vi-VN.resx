@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>Thêm chứng nhận</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>Tất cả bản ghi tải xuống</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Công ty</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Phát hiện hình mờ</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>Mỗi lần tải lên tạo thành một phiên bản không thể thay đổi. Hãy tải lên phiên bản mới và vô hiệu hóa phiên bản cũ. Có thể kích hoạt lại các chứng chỉ đã bị vô hiệu hóa. Các liên kết tài liệu công ty cũ sẽ không được tự động chuyển đổi; hãy xóa mọi bản gốc cũ có thể truy cập công khai trước khi triển khai.</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>Bật một chứng nhận để nhân viên có thể sử dụng. Ngừng sử dụng để chặn việc tạo, xem trước và tải xuống; các hồ sơ hiện có vẫn được giữ lại.</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Quản lý văn bằng doanh nghiệp</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>Không có chứng chỉ nào.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Chứng chỉ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Phiên bản</value>
+  </data>
+
+</root>

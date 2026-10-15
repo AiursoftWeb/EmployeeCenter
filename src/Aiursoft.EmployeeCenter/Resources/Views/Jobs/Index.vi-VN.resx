@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>Đã hủy</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Tạo các công việc kiểm thử trong các hàng đợi khác nhau (ngủ 15-30 giây, tỷ lệ lỗi 10%). Các công việc trong các hàng đợi khác nhau chạy song song.</value>
   </data>

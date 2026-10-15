@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>신청자</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>업무 목적</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="Download Watermarked Qualification" xml:space="preserve">
+    <value>워터마크가 삽입된 자격 증명서 다운로드</value>
+  </data>
+  <data name="Generate ZIP download link" xml:space="preserve">
+    <value>ZIP 다운로드 링크 생성</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>생성 시각</value>
+  </data>
+  <data name="Images are not previewed online. Download the ZIP and extract the original watermarked PNG to preserve its embedded tracking ID." xml:space="preserve">
+    <value>이미지는 온라인에서 미리 볼 수 없습니다. 내장된 추적 ID를 보존하려면 ZIP 파일을 다운로드한 후 원본 워터마크 PNG 파일의 압축을 푸세요.</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>내 다운로드 기록</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>수령 회사</value>
+  </data>
+  <data name="This qualification is disabled. New download links are unavailable until an administrator enables it." xml:space="preserve">
+    <value>이 자격은 비활성화되어 있습니다. 관리자가 활성화할 때까지 새 다운로드 링크를 사용할 수 없습니다.</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>추적 ID</value>
+  </data>
+  <data name="Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation." xml:space="preserve">
+    <value>공유하기 전에 사용 목적과 수신자를 확인하세요. 워터마크는 사본을 추적하는 데 도움이 되지만, 모든 오용을 방지하거나 모든 이미지 변환 후에도 유지되는 것은 아닙니다.</value>
+  </data>
+  <data name="ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry." xml:space="preserve">
+    <value>ZIP 다운로드 링크는 60분 후 만료됩니다. 링크 발급 내역은 기록되며, 재다운로드는 횟수에 포함되지 않습니다. 이미 발급된 링크는 만료 시점까지 유효합니다.</value>
+  </data>
+
+</root>

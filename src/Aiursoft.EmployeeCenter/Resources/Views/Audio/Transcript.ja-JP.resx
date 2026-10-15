@@ -81,6 +81,9 @@
   <data name="Edit" xml:space="preserve">
     <value>編集</value>
   </data>
+  <data name="Edit Meeting Minutes" xml:space="preserve">
+    <value>議事録を編集</value>
+  </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>文字起こしを編集</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="Read-only" xml:space="preserve">
     <value>読み取り専用</value>
+  </data>
+  <data name="Regenerate Meeting Minutes" xml:space="preserve">
+    <value>議事録を再生成</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>名前の変更</value>

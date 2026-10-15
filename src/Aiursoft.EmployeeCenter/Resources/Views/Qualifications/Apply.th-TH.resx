@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>ผู้ยื่นคำขอ</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>วัตถุประสงค์ทางธุรกิจ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Follow Interface Language" xml:space="preserve">
+    <value>ใช้ภาษาตามอินเทอร์เฟซ</value>
+  </data>
+  <data name="Generate and Preview" xml:space="preserve">
+    <value>สร้างและดูตัวอย่าง</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>สร้างลายน้ำและดาวน์โหลด</value>
+  </data>
+  <data name="Only the watermark labels change language. The purpose, recipient and account name are not translated. Choose English and enter the purpose and recipient in English for an English copy. Existing copies do not change." xml:space="preserve">
+    <value>เปลี่ยนภาษาเฉพาะข้อความลายน้ำเท่านั้น วัตถุประสงค์ ผู้รับ และชื่อบัญชีจะไม่ถูกแปล หากต้องการสำเนาภาษาอังกฤษ ให้เลือก English และกรอกวัตถุประสงค์กับผู้รับเป็นภาษาอังกฤษ สำเนาที่มีอยู่แล้วจะไม่เปลี่ยนแปลง</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>บริษัทผู้รับ</value>
+  </data>
+  <data name="Simplified Chinese" xml:space="preserve">
+    <value>ภาษาจีนตัวย่อ</value>
+  </data>
+  <data name="Specify the actual transaction, for example supplier onboarding or a named project tender." xml:space="preserve">
+    <value>ระบุธุรกรรมที่เกิดขึ้นจริง เช่น การลงทะเบียนผู้ขายรายใหม่ หรือการยื่นประมูลโครงการที่ระบุชื่อ</value>
+  </data>
+  <data name="The server adds visible and invisible tracking watermarks. The applicant identity comes from your account and cannot be changed in this form." xml:space="preserve">
+    <value>เซิร์ฟเวอร์จะเพิ่มลายน้ำติดตามทั้งแบบที่มองเห็นและมองไม่เห็น ข้อมูลระบุตัวตนของผู้สมัครมาจากบัญชีของคุณ และไม่สามารถเปลี่ยนแปลงได้ในแบบฟอร์มนี้</value>
+  </data>
+  <data name="Traditional Chinese (Hong Kong)" xml:space="preserve">
+    <value>ภาษาจีนตัวเต็ม (ฮ่องกง)</value>
+  </data>
+  <data name="Watermark Language" xml:space="preserve">
+    <value>ภาษาของลายน้ำ</value>
+  </data>
+
+</root>
