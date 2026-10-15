@@ -116,7 +116,7 @@ public class DnsAuditControllerTests : TestBase
         db.Services.Add(targetService);
         await db.SaveChangesAsync();
 
-        GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport
+        await SaveAuditReportAsync(new DnsAuditReport
         {
             ZoneCount = 1,
             RecordCount = 1,
@@ -131,7 +131,7 @@ public class DnsAuditControllerTests : TestBase
                     Details = "Unknown DNS"
                 }
             ]
-        }, DateTime.UtcNow);
+        });
 
         var auditResponse = await Http.GetAsync("/ServiceAudit");
         auditResponse.EnsureSuccessStatusCode();
@@ -172,7 +172,7 @@ public class DnsAuditControllerTests : TestBase
         db.Services.Add(targetService);
         await db.SaveChangesAsync();
 
-        GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport
+        await SaveAuditReportAsync(new DnsAuditReport
         {
             ZoneCount = 1,
             RecordCount = 1,
@@ -187,7 +187,7 @@ public class DnsAuditControllerTests : TestBase
                     Details = "Unknown DNS"
                 }
             ]
-        }, DateTime.UtcNow);
+        });
 
         var response = await PostForm(
             "/DomainAliases/Create",
@@ -220,7 +220,7 @@ public class DnsAuditControllerTests : TestBase
             TargetUrl = "https://dashboard-target.example.com/"
         });
         await db.SaveChangesAsync();
-        GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport
+        await SaveAuditReportAsync(new DnsAuditReport
         {
             ZoneCount = 1,
             RecordCount = 2,
@@ -235,7 +235,7 @@ public class DnsAuditControllerTests : TestBase
                     Details = "Unknown DNS"
                 }
             ]
-        }, DateTime.UtcNow.AddMinutes(1));
+        });
 
         var response = await Http.GetAsync("/DomainAliases/Index");
 
@@ -253,7 +253,7 @@ public class DnsAuditControllerTests : TestBase
     public async Task CentralCreatePageListsCurrentUnknownDnsFindings()
     {
         await LoginAsAdmin();
-        GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport
+        await SaveAuditReportAsync(new DnsAuditReport
         {
             ZoneCount = 1,
             RecordCount = 1,
@@ -268,7 +268,7 @@ public class DnsAuditControllerTests : TestBase
                     Details = "Unknown DNS"
                 }
             ]
-        }, DateTime.UtcNow);
+        });
 
         var response = await Http.GetAsync("/DomainAliases/Create");
 
@@ -286,7 +286,7 @@ public class DnsAuditControllerTests : TestBase
         var targetService = new Service { PrimaryDomain = "target.example.com" };
         db.Services.Add(targetService);
         await db.SaveChangesAsync();
-        GetService<DnsAuditSnapshotCache>().SetSuccess(new DnsAuditReport
+        await SaveAuditReportAsync(new DnsAuditReport
         {
             ZoneCount = 1,
             RecordCount = 1,
@@ -301,7 +301,7 @@ public class DnsAuditControllerTests : TestBase
                     Details = "Unknown DNS"
                 }
             ]
-        }, DateTime.UtcNow);
+        });
 
         var response = await PostForm(
             "/DomainAliases/Create",
@@ -399,4 +399,12 @@ public class DnsAuditControllerTests : TestBase
         Assert.Contains(SettingsMap.CloudflareApiToken, html);
         Assert.Contains("Configured", html);
     }
+    private async Task SaveAuditReportAsync(DnsAuditReport report)
+    {
+        // Candidate hostnames come from the persisted snapshot whenever audit history exists.
+        var store = GetService<ServiceAuditStore>();
+        var runId = await store.BeginRunAsync();
+        await store.CompleteSuccessAsync(runId, report);
+    }
+
 }

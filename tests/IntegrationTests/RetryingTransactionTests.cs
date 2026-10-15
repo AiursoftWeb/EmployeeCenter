@@ -1,4 +1,9 @@
 using Aiursoft.Canon.BackgroundJobs;
+using Aiursoft.Canon.TaskQueue;
+using Aiursoft.EmployeeCenter.Services.BackgroundJobs;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.Extensions.Logging.Abstractions;
 using Aiursoft.EmployeeCenter.Controllers;
 using Aiursoft.EmployeeCenter.Models.ServicesViewModels;
 using Aiursoft.EmployeeCenter.Models.ServersViewModels;
@@ -15,7 +20,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
 [TestClass]
-public class RetryingTransactionTests : TestBase
+public class RetryingTransactionTests
 {
     [TestMethod]
     [DataRow("service", false)]
@@ -37,12 +42,13 @@ public class RetryingTransactionTests : TestBase
             .ReplaceService<IExecutionStrategyFactory, RetryFactory>().AddInterceptors(failure).Options;
         await using var db = new SqliteContext(options);
         await db.Database.EnsureCreatedAsync();
+        using var provider = CreateServices(db);
         var target = new Service { PrimaryDomain = "target.example.com", Name = "Target" };
         db.Services.Add(target);
         await db.SaveChangesAsync();
         failure.FailOnSave = failOnce ? 2 : 0;
         failure.SaveCount = 0;
-        var manager = GetService<UserManager<User>>();
+        var manager = provider.GetRequiredService<UserManager<User>>();
         var log = new InfrastructureChangeLogService(db);
         var http = new DefaultHttpContext();
         var services = new ServicesController(db, null!, null!, null!, log, null!, manager, null!)
@@ -73,7 +79,7 @@ public class RetryingTransactionTests : TestBase
                 snapshot.SetSuccess(new DnsAuditReport { Issues = [new DnsAuditIssue
                     { Type = DnsAuditIssueType.UnknownDns, Domain = "created.example.com", Details = "Unknown", Severity = DnsAuditSeverity.Warning }] }, DateTime.UtcNow);
                 var aliases = new DomainAliasesController(db, snapshot, new ServiceAuditStore(db), null!, log,
-                    manager, GetService<BackgroundJobRegistry>())
+                    manager, provider.GetRequiredService<BackgroundJobRegistry>())
                     { ControllerContext = new ControllerContext { HttpContext = http } };
                 result = await aliases.Create(new CreateDomainAliasViewModel
                     { Domain = "created.example.com", TargetServiceId = target.Id, Type = DomainAliasType.Cname });
@@ -97,9 +103,10 @@ public class RetryingTransactionTests : TestBase
             .ReplaceService<IExecutionStrategyFactory, RetryFactory>().AddInterceptors(failure).Options;
         await using var db = new SqliteContext(options);
         await db.Database.EnsureCreatedAsync();
+        using var provider = CreateServices(db);
         failure.FailOnSave = 2;
         var controller = new ServicesController(db, null!, null!, null!, new InfrastructureChangeLogService(db),
-            null!, GetService<UserManager<User>>(), null!)
+            null!, provider.GetRequiredService<UserManager<User>>(), null!)
             { ControllerContext = new ControllerContext { HttpContext = new DefaultHttpContext() } };
         await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => controller.Create(
             new CreateServiceViewModel { Name = "Rollback", PrimaryDomain = "rollback.example.com" }));
@@ -121,8 +128,10 @@ public class RetryingTransactionTests : TestBase
             .ReplaceService<IExecutionStrategyFactory, RetryFactory>().AddInterceptors(failure).Options;
         await using var db = new SqliteContext(options);
         await db.Database.EnsureCreatedAsync();
-        var manager = GetService<UserManager<User>>();
-        var user = (await manager.FindByEmailAsync("admin@default.com"))!;
+        using var provider = CreateServices(db);
+        var manager = provider.GetRequiredService<UserManager<User>>();
+        var user = new User { UserName = "admin", DisplayName = "Admin", AvatarRelativePath = User.DefaultAvatarPath };
+        Assert.IsTrue((await manager.CreateAsync(user)).Succeeded);
         var record = new QualificationDownload
         {
             Id = Guid.NewGuid(), BusinessQualificationId = 0,
@@ -135,7 +144,11 @@ public class RetryingTransactionTests : TestBase
             Version = "1", OriginalSha256 = new string('a', 64), Purpose = "Test", Recipient = "Test",
             GeneratedPath = "unused.png", GeneratedSha256 = new string('a', 64)
         };
-        var storage = GetService<StorageService>();
+        var storageRoot = Path.Combine(Path.GetTempPath(), "qualification-retry-" + Guid.NewGuid().ToString("N"));
+        var configuration = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?>
+            { ["Storage:Path"] = storageRoot }).Build();
+        var storage = new StorageService(new FeatureFoldersProvider(new StorageRootPathProvider(configuration)),
+            null!, new EphemeralDataProtectionProvider());
         record.ArchivePath = $"{QualificationFileService.CopiesFolder}/{record.Id:N}.zip";
         var path = storage.GetVaultSubfolderFilePhysicalPath(record.ArchivePath, QualificationFileService.CopiesFolder);
         Directory.CreateDirectory(Path.GetDirectoryName(path)!);
@@ -147,7 +160,7 @@ public class RetryingTransactionTests : TestBase
             failure.SaveCount = 0;
             failure.FailOnSave = failOnce ? 1 : 0;
             var service = new QualificationLinkService(db, manager,
-                GetService<Microsoft.AspNetCore.Authorization.IAuthorizationService>(), GetService<QualificationFileService>(), storage);
+                new AuthorizeAll(), new QualificationFileService(storage, null!, NullLogger<QualificationFileService>.Instance), storage);
             var principal = new ClaimsPrincipal(new ClaimsIdentity([new Claim(ClaimTypes.NameIdentifier, user.Id)], "Test"));
             var http = new DefaultHttpContext();
             http.Request.Scheme = "https";
@@ -160,8 +173,30 @@ public class RetryingTransactionTests : TestBase
         }
         finally
         {
-            File.Delete(path);
+            Directory.Delete(storageRoot, recursive: true);
         }
+    }
+
+    private static ServiceProvider CreateServices(SqliteContext db)
+    {
+        var services = new ServiceCollection();
+        services.AddLogging();
+        services.AddSingleton(db);
+        services.AddIdentityCore<User>().AddRoles<IdentityRole>().AddEntityFrameworkStores<SqliteContext>();
+        // Queue the follow-up job without a hosted worker or an unrelated InMemory application database.
+        services.AddSingleton<ServiceTaskQueue>();
+        services.AddTransient<DnsAuditJob>(_ => new DnsAuditJob(null!, null!, null!, NullLogger<DnsAuditJob>.Instance));
+        services.AddSingleton(new RegisteredJob { JobType = typeof(DnsAuditJob) });
+        services.AddSingleton<BackgroundJobRegistry>();
+        return services.BuildServiceProvider();
+    }
+
+    private sealed class AuthorizeAll : IAuthorizationService
+    {
+        public Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object? resource,
+            IEnumerable<IAuthorizationRequirement> requirements) => Task.FromResult(AuthorizationResult.Success());
+        public Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, object? resource,
+            string policyName) => Task.FromResult(AuthorizationResult.Success());
     }
 
     public sealed class RetryFactory(ExecutionStrategyDependencies dependencies) : IExecutionStrategyFactory
