@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>已取消</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>创建测试任务到不同的队列中（睡眠 15-30 秒，10% 失败率）。不同队列中的任务并行运行。</value>
   </data>

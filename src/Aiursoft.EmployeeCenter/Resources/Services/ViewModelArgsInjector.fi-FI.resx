@@ -27,6 +27,9 @@
   <data name="Actions" xml:space="preserve">
     <value>Toiminnot</value>
   </data>
+  <data name="Add Business Qualification" xml:space="preserve">
+    <value>Lisää yrityksen pätevyys</value>
+  </data>
   <data name="Add SSH Key" xml:space="preserve">
     <value>Lisää SSH-avain</value>
   </data>
@@ -56,6 +59,9 @@
   </data>
   <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft-malli</value>
+  </data>
+  <data name="All Qualification Download Records" xml:space="preserve">
+    <value>Kaikki pätevyysasiakirjojen lataustiedot</value>
   </data>
   <data name="Anonymous" xml:space="preserve">
     <value>Anonyymi</value>
@@ -119,6 +125,9 @@
   </data>
   <data name="Business License" xml:space="preserve">
     <value>Yrityslupa</value>
+  </data>
+  <data name="Business Qualifications" xml:space="preserve">
+    <value>Yrityksen pätevyydet</value>
   </data>
   <data name="Career" xml:space="preserve">
     <value>Urheilu</value>
@@ -273,6 +282,9 @@
   <data name="Details" xml:space="preserve">
     <value>Yksityiskohdat</value>
   </data>
+  <data name="Detect Qualification Watermark" xml:space="preserve">
+    <value>Tarkista pätevyysasiakirjan vesileima</value>
+  </data>
   <data name="Development" xml:space="preserve">
     <value>Kehitys</value>
   </data>
@@ -311,6 +323,9 @@
   </data>
   <data name="Edit Folder" xml:space="preserve">
     <value>Muokkaa kansiota</value>
+  </data>
+  <data name="Edit Meeting Minutes" xml:space="preserve">
+    <value>Muokkaa kokouspöytäkirjaa</value>
   </data>
   <data name="Edit Meeting Recording" xml:space="preserve">
     <value>Muokkaa kokousnauhdannetta</value>
@@ -395,6 +410,9 @@
   </data>
   <data name="Finance" xml:space="preserve">
     <value>Rahoitus</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Luo vesileima ja lataa</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Globaali asetukset</value>
@@ -485,6 +503,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Hallinnoi luonnoksia</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Yrityspätevyyksien hallinta</value>
   </data>
   <data name="Manage Categories" xml:space="preserve">
     <value>Hallitse kategorioita</value>
@@ -660,6 +681,12 @@
   <data name="Promotion History" xml:space="preserve">
     <value>Edistymisen historia</value>
   </data>
+  <data name="Qualification Download Records" xml:space="preserve">
+    <value>Kelpoisuusasiakirjojen lataustiedot</value>
+  </data>
+  <data name="Qualification Issuance Record" xml:space="preserve">
+    <value>Pätevyyden myöntämisrekisteri</value>
+  </data>
   <data name="Questionnaire Responses" xml:space="preserve">
     <value>Lomakkeen vastaukset</value>
   </data>
@@ -815,6 +842,12 @@
   </data>
   <data name="View Market Channels" xml:space="preserve">
     <value>Näytä markkina-kanavat</value>
+  </data>
+  <data name="Watermarked Qualification Download" xml:space="preserve">
+    <value>Vesileimalla varustetun pätevyyden lataus</value>
+  </data>
+  <data name="Watermarked Qualification Preview" xml:space="preserve">
+    <value>Vesileimallisen pätevyyden esikatselu</value>
   </data>
   <data name="Weekly Report" xml:space="preserve">
     <value>Viikko raportti</value>

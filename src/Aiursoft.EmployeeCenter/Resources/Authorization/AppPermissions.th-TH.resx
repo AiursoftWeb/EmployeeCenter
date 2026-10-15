@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>อนุญาตให้อัปโหลด ลบการบันทึกการประชุม และเรียกใช้งานการแปลงเสียงเป็นข้อความใหม่ได้</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>อนุญาตให้อัปโหลด เปิดใช้งาน และปิดใช้งานเอกสารคุณสมบัติทางธุรกิจฉบับจริงที่เป็นข้อมูลส่วนตัว ดูบันทึกการดาวน์โหลดทั้งหมด และตรวจจับลายน้ำติดตาม</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>อนุญาตให้ดูสัญญาบริษัททั้งหมด รวมถึงสัญญาที่ระบุว่าเป็นส่วนตัว</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>จัดการแบบร่าง</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>จัดการคุณสมบัติทางธุรกิจ</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>จัดการช่องทางเรียกเก็บเงิน</value>

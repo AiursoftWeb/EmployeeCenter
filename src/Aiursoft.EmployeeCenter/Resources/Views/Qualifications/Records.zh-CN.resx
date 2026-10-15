@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>申请人</value>
+  </data>
+  <data name="Back to Qualifications" xml:space="preserve">
+    <value>返回资质列表</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>业务用途</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>生成时间</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>我的下载记录</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>下一页</value>
+  </data>
+  <data name="Only your own records are displayed." xml:space="preserve">
+    <value>仅显示您自己的记录。</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>上一页</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>资质 / 版本</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>收件公司</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>跟踪 ID</value>
+  </data>
+  <data name="Tracking ID, applicant, purpose or recipient" xml:space="preserve">
+    <value>追踪编号、申请人、用途或接收方</value>
+  </data>
+  <data name="ZIP links issued" xml:space="preserve">
+    <value>已发放的 ZIP 链接</value>
+  </data>
+
+</root>

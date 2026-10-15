@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>Toplantı kayıtlarını yükleme, silme ve konuşmadan metne dönüştürmeyi yeniden tetikleme izni verir.</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>Özel yeterlilik belgelerinin asıllarını yüklemeye, etkinleştirip devre dışı bırakmaya, tüm indirme kayıtlarını görüntülemeye ve izleme filigranlarını tespit etmeye olanak tanır.</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>Tüm şirket sözleşmelerinin, özel olarak işaretlenmiş olanların da dahil olmak üzere görüntülenmesine izin verir.</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>Mimariyi Yönet</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Mesleki Yeterlilikleri Yönet</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>Koleksiyon Kanallarını Yönet</value>

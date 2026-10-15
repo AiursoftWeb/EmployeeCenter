@@ -153,6 +153,9 @@
   <data name="Allows uploading, deleting meeting recordings, and re-triggering speech-to-text transcription." xml:space="preserve">
     <value>允許上傳、刪除會議錄音，以及重新觸發語音轉文字 transcription。</value>
   </data>
+  <data name="Allows uploading, enabling and disabling private qualification originals, viewing all download records, and detecting tracking watermarks." xml:space="preserve">
+    <value>允許上傳、啟用及停用私人資格文件原件、檢視所有下載紀錄，以及偵測追蹤浮水印。</value>
+  </data>
   <data name="Allows viewing all company contracts, including those marked as private." xml:space="preserve">
     <value>允許檢視所有公司合約，包含標記為私人之合約。</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="Manage Blueprints" xml:space="preserve">
     <value>管理藍圖</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>管理營業資格</value>
   </data>
   <data name="Manage Collection Channels" xml:space="preserve">
     <value>管理收款渠道</value>
