@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Azioni</value>
+  </data>
+  <data name="Business Qualifications" xml:space="preserve">
+    <value>Requisiti aziendali</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Azienda</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Abilitato</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Genera filigrana e scarica</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>I miei download</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>Nessuna qualifica disponibile.</value>
+  </data>
+  <data name="Originals are private. Specify the business purpose and recipient to generate a personalized watermarked copy." xml:space="preserve">
+    <value>Gli originali sono riservati. Specifica lo scopo aziendale e il destinatario per generare una copia personalizzata con filigrana.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Qualifica</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stato</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versione</value>
+  </data>
+
+</root>

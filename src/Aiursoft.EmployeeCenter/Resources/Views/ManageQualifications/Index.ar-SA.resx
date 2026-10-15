@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>إضافة مؤهل</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>سجلات التنزيلات كافة</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>الشركة</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>اكتشاف العلامة المائية</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>كل عملية رفع تُنشئ إصدارًا غير قابل للتعديل. ارفع إصدارًا جديدًا وعطّل الإصدار القديم. يمكن إعادة تفعيل المؤهلات المعطّلة. لا تُنقل روابط مستندات الشركة القديمة تلقائيًا؛ أزل أي نسخ أصلية قديمة متاحة للعامة قبل الإطلاق.</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>فعّل مؤهلًا للسماح للموظفين باستخدامه. أوقف استخدامه لمنع الإنشاء والمعاينة والتنزيل؛ وستظل السجلات الحالية محفوظة.</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>إدارة مؤهلات الأعمال</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>لا توجد مؤهلات متاحة.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>مؤهل</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>الإصدار</value>
+  </data>
+
+</root>

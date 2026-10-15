@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>ملغى</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>يُنشئ وظائف اختبار في طوابير مختلفة (استراحة 15-30 ثانية، معدل فشل 10٪). تعمل الوظائف في الطوابير المختلفة بالتوازي.</value>
   </data>
