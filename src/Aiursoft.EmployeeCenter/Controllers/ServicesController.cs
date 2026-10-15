@@ -233,48 +233,53 @@ public class ServicesController(
         var normalizedDomain = await ValidateServiceModelAsync(model, null);
         if (ModelState.IsValid)
         {
-            var now = DateTime.UtcNow;
-            var service = new Service
+            var attempt = 0;
+            await context.Database.CreateExecutionStrategy().ExecuteAsync(async () =>
             {
-                Name = model.Name.Trim(),
-                PrimaryDomain = normalizedDomain!,
-                NormalizedPrimaryDomain = normalizedDomain,
-                CompanyEntityId = model.CompanyEntityId,
-                AlternativeServiceId = model.AlternativeServiceId,
-                Protocols = model.Protocols,
-                ServerId = model.ServerId,
-                FrpsServerId = model.IsViaFrps ? model.FrpsServerId : null,
-                DnsProviderId = model.DnsProviderId,
-                IsViaFrps = model.IsViaFrps,
-                IsCloudflareProxied = model.IsCloudflareProxied,
-                IsAvailabilityAuditEnabled = model.IsAvailabilityAuditEnabled,
-                Status = model.Status,
-                Purpose = model.Purpose,
-                AuthentikIntegrated = model.AuthentikIntegrated,
-                IsSelfDeveloped = model.IsSelfDeveloped,
-                Remark = model.Remark,
-                IsRegistryValidated = true,
-                ConcurrencyToken = Guid.NewGuid().ToString(),
-                CreatedAt = now,
-                UpdatedAt = now
-            };
-            await using var transaction = context.Database.IsRelational()
-                ? await context.Database.BeginTransactionAsync()
-                : null;
-            context.Services.Add(service);
-            await context.SaveChangesAsync();
-            changeLog.Add(
-                nameof(Service),
-                service.Id,
-                "Created",
-                null,
-                InfrastructureChangeLogService.Snapshot(service),
-                userManager.GetUserId(User));
-            await context.SaveChangesAsync();
-            if (transaction != null)
-            {
-                await transaction.CommitAsync();
-            }
+                if (attempt++ > 0) context.ChangeTracker.Clear();
+                var now = DateTime.UtcNow;
+                var service = new Service
+                {
+                    Name = model.Name.Trim(),
+                    PrimaryDomain = normalizedDomain!,
+                    NormalizedPrimaryDomain = normalizedDomain,
+                    CompanyEntityId = model.CompanyEntityId,
+                    AlternativeServiceId = model.AlternativeServiceId,
+                    Protocols = model.Protocols,
+                    ServerId = model.ServerId,
+                    FrpsServerId = model.IsViaFrps ? model.FrpsServerId : null,
+                    DnsProviderId = model.DnsProviderId,
+                    IsViaFrps = model.IsViaFrps,
+                    IsCloudflareProxied = model.IsCloudflareProxied,
+                    IsAvailabilityAuditEnabled = model.IsAvailabilityAuditEnabled,
+                    Status = model.Status,
+                    Purpose = model.Purpose,
+                    AuthentikIntegrated = model.AuthentikIntegrated,
+                    IsSelfDeveloped = model.IsSelfDeveloped,
+                    Remark = model.Remark,
+                    IsRegistryValidated = true,
+                    ConcurrencyToken = Guid.NewGuid().ToString(),
+                    CreatedAt = now,
+                    UpdatedAt = now
+                };
+                await using var transaction = context.Database.IsRelational()
+                    ? await context.Database.BeginTransactionAsync()
+                    : null;
+                context.Services.Add(service);
+                await context.SaveChangesAsync();
+                changeLog.Add(
+                    nameof(Service),
+                    service.Id,
+                    "Created",
+                    null,
+                    InfrastructureChangeLogService.Snapshot(service),
+                    userManager.GetUserId(User));
+                await context.SaveChangesAsync();
+                if (transaction != null)
+                {
+                    await transaction.CommitAsync();
+                }
+            });
             return RedirectToAction(nameof(List));
         }
 
@@ -452,24 +457,29 @@ public class ServicesController(
                 return this.StackView(model, nameof(DnsProviders));
             }
 
-            var provider = new DnsProvider
+            var attempt = 0;
+            await context.Database.CreateExecutionStrategy().ExecuteAsync(async () =>
             {
-                Name = model.NewName.Trim(),
-                NormalizedName = normalizedName,
-                Description = model.NewDescription
-            };
-            await using var transaction = context.Database.IsRelational()
-                ? await context.Database.BeginTransactionAsync()
-                : null;
-            context.DnsProviders.Add(provider);
-            await context.SaveChangesAsync();
-            changeLog.Add(nameof(DnsProvider), provider.Id, "Created", null,
-                new { provider.Name, provider.Description }, userManager.GetUserId(User));
-            await context.SaveChangesAsync();
-            if (transaction != null)
-            {
-                await transaction.CommitAsync();
-            }
+                if (attempt++ > 0) context.ChangeTracker.Clear();
+                var provider = new DnsProvider
+                {
+                    Name = model.NewName.Trim(),
+                    NormalizedName = normalizedName,
+                    Description = model.NewDescription
+                };
+                await using var transaction = context.Database.IsRelational()
+                    ? await context.Database.BeginTransactionAsync()
+                    : null;
+                context.DnsProviders.Add(provider);
+                await context.SaveChangesAsync();
+                changeLog.Add(nameof(DnsProvider), provider.Id, "Created", null,
+                    new { provider.Name, provider.Description }, userManager.GetUserId(User));
+                await context.SaveChangesAsync();
+                if (transaction != null)
+                {
+                    await transaction.CommitAsync();
+                }
+            });
         }
         return RedirectToAction(nameof(DnsProviders));
     }
@@ -539,23 +549,28 @@ public class ServicesController(
                 return this.StackView(model, nameof(Providers));
             }
 
-            var provider = new Provider
+            var attempt = 0;
+            await context.Database.CreateExecutionStrategy().ExecuteAsync(async () =>
             {
-                Name = model.NewName.Trim(),
-                NormalizedName = normalizedName
-            };
-            await using var transaction = context.Database.IsRelational()
-                ? await context.Database.BeginTransactionAsync()
-                : null;
-            context.Providers.Add(provider);
-            await context.SaveChangesAsync();
-            changeLog.Add(nameof(Provider), provider.Id, "Created", null,
-                new { provider.Name }, userManager.GetUserId(User));
-            await context.SaveChangesAsync();
-            if (transaction != null)
-            {
-                await transaction.CommitAsync();
-            }
+                if (attempt++ > 0) context.ChangeTracker.Clear();
+                var provider = new Provider
+                {
+                    Name = model.NewName.Trim(),
+                    NormalizedName = normalizedName
+                };
+                await using var transaction = context.Database.IsRelational()
+                    ? await context.Database.BeginTransactionAsync()
+                    : null;
+                context.Providers.Add(provider);
+                await context.SaveChangesAsync();
+                changeLog.Add(nameof(Provider), provider.Id, "Created", null,
+                    new { provider.Name }, userManager.GetUserId(User));
+                await context.SaveChangesAsync();
+                if (transaction != null)
+                {
+                    await transaction.CommitAsync();
+                }
+            });
         }
         return RedirectToAction(nameof(Providers));
     }

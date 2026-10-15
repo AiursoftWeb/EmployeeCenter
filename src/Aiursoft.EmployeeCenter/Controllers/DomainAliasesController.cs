@@ -116,28 +116,33 @@ public sealed class DomainAliasesController(
             return this.StackView(model);
         }
 
-        var normalizedTargetUrl = NormalizeTargetUrl(model);
-        var alias = new DomainAlias
+        var attempt = 0;
+        await context.Database.CreateExecutionStrategy().ExecuteAsync(async () =>
         {
-            Domain = domain,
-            TargetServiceId = model.TargetServiceId,
-            Type = model.Type,
-            TargetUrl = normalizedTargetUrl,
-            CreatedAt = DateTime.UtcNow,
-            UpdatedAt = DateTime.UtcNow
-        };
-        await using var transaction = context.Database.IsRelational()
-            ? await context.Database.BeginTransactionAsync()
-            : null;
-        context.DomainAliases.Add(alias);
-        await context.SaveChangesAsync();
-        changeLog.Add(nameof(DomainAlias), alias.Id, "Created", null,
-            Snapshot(alias), userManager.GetUserId(User));
-        await context.SaveChangesAsync();
-        if (transaction != null)
-        {
-            await transaction.CommitAsync();
-        }
+            if (attempt++ > 0) context.ChangeTracker.Clear();
+            var normalizedTargetUrl = NormalizeTargetUrl(model);
+            var alias = new DomainAlias
+            {
+                Domain = domain,
+                TargetServiceId = model.TargetServiceId,
+                Type = model.Type,
+                TargetUrl = normalizedTargetUrl,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            };
+            await using var transaction = context.Database.IsRelational()
+                ? await context.Database.BeginTransactionAsync()
+                : null;
+            context.DomainAliases.Add(alias);
+            await context.SaveChangesAsync();
+            changeLog.Add(nameof(DomainAlias), alias.Id, "Created", null,
+                Snapshot(alias), userManager.GetUserId(User));
+            await context.SaveChangesAsync();
+            if (transaction != null)
+            {
+                await transaction.CommitAsync();
+            }
+        });
         TriggerAudit();
         return RedirectToAction(nameof(Index));
     }

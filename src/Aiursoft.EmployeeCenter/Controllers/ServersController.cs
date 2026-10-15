@@ -93,42 +93,47 @@ public class ServersController(
         var normalizedHostname = await ValidateServerModelAsync(model, null);
         if (ModelState.IsValid)
         {
-            var now = DateTime.UtcNow;
-            var server = new Server
+            var attempt = 0;
+            await context.Database.CreateExecutionStrategy().ExecuteAsync(async () =>
             {
-                ServerIp = InfrastructureValueNormalizer.NormalizeOptionalIp(
-                    model.ServerIp, System.Net.Sockets.AddressFamily.InterNetwork),
-                Ipv6Address = InfrastructureValueNormalizer.NormalizeOptionalIp(
-                    model.Ipv6Address, System.Net.Sockets.AddressFamily.InterNetworkV6),
-                DetailLink = model.DetailLink,
-                LocationId = model.LocationId,
-                Hostname = normalizedHostname,
-                NormalizedHostname = normalizedHostname,
-                TechnicalOwnerId = model.TechnicalOwnerId,
-                ProviderId = model.ProviderId,
-                CompanyEntityId = model.CompanyEntityId,
-                IsRegistryValidated = true,
-                ConcurrencyToken = Guid.NewGuid().ToString(),
-                CreatedAt = now,
-                UpdatedAt = now
-            };
-            await using var transaction = context.Database.IsRelational()
-                ? await context.Database.BeginTransactionAsync()
-                : null;
-            context.Servers.Add(server);
-            await context.SaveChangesAsync();
-            changeLog.Add(
-                nameof(Server),
-                server.Id,
-                "Created",
-                null,
-                InfrastructureChangeLogService.Snapshot(server),
-                userManager.GetUserId(User));
-            await context.SaveChangesAsync();
-            if (transaction != null)
-            {
-                await transaction.CommitAsync();
-            }
+                if (attempt++ > 0) context.ChangeTracker.Clear();
+                var now = DateTime.UtcNow;
+                var server = new Server
+                {
+                    ServerIp = InfrastructureValueNormalizer.NormalizeOptionalIp(
+                        model.ServerIp, System.Net.Sockets.AddressFamily.InterNetwork),
+                    Ipv6Address = InfrastructureValueNormalizer.NormalizeOptionalIp(
+                        model.Ipv6Address, System.Net.Sockets.AddressFamily.InterNetworkV6),
+                    DetailLink = model.DetailLink,
+                    LocationId = model.LocationId,
+                    Hostname = normalizedHostname,
+                    NormalizedHostname = normalizedHostname,
+                    TechnicalOwnerId = model.TechnicalOwnerId,
+                    ProviderId = model.ProviderId,
+                    CompanyEntityId = model.CompanyEntityId,
+                    IsRegistryValidated = true,
+                    ConcurrencyToken = Guid.NewGuid().ToString(),
+                    CreatedAt = now,
+                    UpdatedAt = now
+                };
+                await using var transaction = context.Database.IsRelational()
+                    ? await context.Database.BeginTransactionAsync()
+                    : null;
+                context.Servers.Add(server);
+                await context.SaveChangesAsync();
+                changeLog.Add(
+                    nameof(Server),
+                    server.Id,
+                    "Created",
+                    null,
+                    InfrastructureChangeLogService.Snapshot(server),
+                    userManager.GetUserId(User));
+                await context.SaveChangesAsync();
+                if (transaction != null)
+                {
+                    await transaction.CommitAsync();
+                }
+            });
             return RedirectToAction(nameof(Index));
         }
 
