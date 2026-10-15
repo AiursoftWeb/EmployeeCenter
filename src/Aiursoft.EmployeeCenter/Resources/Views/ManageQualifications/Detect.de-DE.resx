@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Antragsteller</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Geschäftszweck</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Wasserzeichen erkennen</value>
+  </data>
+  <data name="Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked." xml:space="preserve">
+    <value>Die Erkennung dient der Nachverfolgung und ist kein Beweis für Fehlverhalten. Zuschneiden, Größenänderungen, Screenshots sowie Drucken und Scannen können das Wasserzeichen zerstören. Wird kein Treffer gefunden, beweist das nicht, dass das Bild kein Wasserzeichen enthält.</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>Erstellt am</value>
+  </data>
+  <data name="Image to Inspect" xml:space="preserve">
+    <value>Zu prüfendes Bild</value>
+  </data>
+  <data name="Inspect" xml:space="preserve">
+    <value>Prüfen</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>Qualifikation / Version</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Empfängerunternehmen</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>Nachverfolgungs-ID</value>
+  </data>
+  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are uploaded to a private temporary folder and deleted after inspection; abandoned uploads are cleaned after one hour." xml:space="preserve">
+    <value>Laden Sie eine PNG-/JPEG-Kopie (maximal 20 MB) hoch, um die darin eingebettete Tracking-ID zu prüfen. Die Bilder werden in einen privaten temporären Ordner hochgeladen und nach der Prüfung gelöscht. Nicht abgeschlossene Uploads werden nach einer Stunde entfernt.</value>
+  </data>
+
+</root>

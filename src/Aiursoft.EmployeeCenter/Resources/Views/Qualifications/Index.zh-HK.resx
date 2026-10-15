@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Business Qualifications" xml:space="preserve">
+    <value>商業資格</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>公司</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已啟用</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>產生浮水印並下載</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>我的下載記錄</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>沒有可用的資格。</value>
+  </data>
+  <data name="Originals are private. Specify the business purpose and recipient to generate a personalized watermarked copy." xml:space="preserve">
+    <value>正本屬私人文件。請註明商業用途及收件人，以產生附有個人化浮水印的副本。</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>資歷</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+
+</root>

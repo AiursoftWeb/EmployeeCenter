@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>เพิ่มคุณสมบัติ</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>บันทึกการดาวน์โหลดทั้งหมด</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>บริษัท</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>ตรวจหาลายน้ำ</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>การอัปโหลดแต่ละครั้งจะเป็นเวอร์ชันที่แก้ไขไม่ได้ หากต้องการเปลี่ยนแปลง ให้อัปโหลดเวอร์ชันใหม่และปิดใช้งานเวอร์ชันเดิม คุณสามารถเปิดใช้งานคุณสมบัติที่ปิดใช้งานแล้วได้อีกครั้ง ลิงก์เอกสารบริษัทแบบเดิมจะไม่ถูกย้ายข้อมูลโดยอัตโนมัติ โปรดลบไฟล์ต้นฉบับเก่าที่เข้าถึงได้แบบสาธารณะทั้งหมดก่อนเริ่มใช้งาน</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>เปิดใช้งานคุณสมบัติเพื่อให้พนักงานใช้งานได้ ปิดใช้งานเพื่อระงับการสร้าง การแสดงตัวอย่าง และการดาวน์โหลด โดยยังคงเก็บบันทึกที่มีอยู่ไว้</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>จัดการคุณสมบัติทางธุรกิจ</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>ไม่มีคุณสมบัติที่พร้อมใช้งาน</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>คุณสมบัติ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>เวอร์ชัน</value>
+  </data>
+
+</root>

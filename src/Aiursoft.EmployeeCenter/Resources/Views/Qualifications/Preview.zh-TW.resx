@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>申請人</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>業務用途</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Download Watermarked Qualification" xml:space="preserve">
+    <value>下載加上浮水印的資格證明</value>
+  </data>
+  <data name="Generate ZIP download link" xml:space="preserve">
+    <value>產生 ZIP 下載連結</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>產生時間</value>
+  </data>
+  <data name="Images are not previewed online. Download the ZIP and extract the original watermarked PNG to preserve its embedded tracking ID." xml:space="preserve">
+    <value>圖片不會在線上預覽。請下載 ZIP 檔，並解壓縮原始加上浮水印的 PNG 檔，以保留其中嵌入的追蹤 ID。</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>我的下載紀錄</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>收件公司</value>
+  </data>
+  <data name="This qualification is disabled. New download links are unavailable until an administrator enables it." xml:space="preserve">
+    <value>此資格目前已停用。管理員啟用後，才能產生新的下載連結。</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>追蹤 ID</value>
+  </data>
+  <data name="Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation." xml:space="preserve">
+    <value>分享前請確認用途及接收對象。浮水印有助於追蹤複製品，但無法防止所有不當使用，也無法在每種影像轉換後保留下來。</value>
+  </data>
+  <data name="ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry." xml:space="preserve">
+    <value>ZIP 下載連結會在 60 分鐘後失效。連結核發情形會予以記錄；重複下載不會重複計數。已核發的連結在失效前仍可使用。</value>
+  </data>
+
+</root>

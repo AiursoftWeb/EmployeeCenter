@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>キャンセル済み</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>異なるキューにテストジョブを作成します（15〜30秒のスリープ、10%の失敗率）。異なるキュー内のジョブは並列で実行されます。</value>
   </data>

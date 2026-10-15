@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>신청자</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>사업 목적</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>워터마크 감지</value>
+  </data>
+  <data name="Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked." xml:space="preserve">
+    <value>탐지는 추적을 돕기 위한 수단일 뿐, 부정행위의 증거는 아닙니다. 자르기, 크기 조정, 스크린샷 촬영, 인쇄 및 스캔으로 워터마크가 손상될 수 있습니다. 일치하는 항목이 없다고 해서 이미지에 워터마크가 없다는 뜻은 아닙니다.</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>생성 일시</value>
+  </data>
+  <data name="Image to Inspect" xml:space="preserve">
+    <value>검사할 이미지</value>
+  </data>
+  <data name="Inspect" xml:space="preserve">
+    <value>검사</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>자격 / 버전</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>수령 회사</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>추적 ID</value>
+  </data>
+  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are uploaded to a private temporary folder and deleted after inspection; abandoned uploads are cleaned after one hour." xml:space="preserve">
+    <value>내장된 추적 ID를 확인하려면 PNG/JPEG 사본을 업로드하세요(최대 20MB). 이미지는 비공개 임시 폴더에 업로드되며 확인 후 삭제됩니다. 업로드 후 한 시간 동안 사용되지 않은 파일은 자동으로 정리됩니다.</value>
+  </data>
+
+</root>

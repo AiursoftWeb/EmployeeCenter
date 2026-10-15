@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>자격 요건 추가</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>전체 다운로드 기록</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>회사</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>워터마크 감지</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>업로드할 때마다 수정할 수 없는 새 버전이 생성됩니다. 새 버전을 업로드하고 이전 버전은 비활성화하세요. 비활성화된 자격 요건은 다시 활성화할 수 있습니다. 기존 회사 문서 링크는 자동으로 이전되지 않으므로, 배포 전에 공개적으로 접근할 수 있는 기존 원본 파일을 삭제하세요.</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>자격을 활성화하면 직원이 사용할 수 있습니다. 사용을 중지하면 생성, 미리보기 및 다운로드가 차단되며 기존 기록은 유지됩니다.</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>사업자 자격 관리</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>사용 가능한 자격 요건이 없습니다.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>자격</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>버전</value>
+  </data>
+
+</root>

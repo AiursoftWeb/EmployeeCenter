@@ -81,6 +81,9 @@
   <data name="Edit" xml:space="preserve">
     <value>แก้ไข</value>
   </data>
+  <data name="Edit Meeting Minutes" xml:space="preserve">
+    <value>แก้ไขรายงานการประชุม</value>
+  </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>แก้ไขบันทึก</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="Read-only" xml:space="preserve">
     <value>อ่านอย่างเดียว</value>
+  </data>
+  <data name="Regenerate Meeting Minutes" xml:space="preserve">
+    <value>สร้างรายงานการประชุมใหม่</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>เปลี่ยนชื่อ</value>
