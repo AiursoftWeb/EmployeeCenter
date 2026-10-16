@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>Peruutettu</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Sulje</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Luo testityötehtäviä eri jonoihin (15–30 sekunnin odotusaika, 10 % epäonnistumisprosentti). Työtehtävät eri jonoissa suoritetaan rinnakkain.</value>
   </data>

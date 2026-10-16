@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Qualification" xml:space="preserve">
+    <value>Yeterlilik Ekle</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Şirket</value>
+  </data>
+  <data name="Create a company entity before uploading qualifications." xml:space="preserve">
+    <value>Nitelik yüklemeden önce bir şirket oluşturun.</value>
+  </data>
+  <data name="Original Image" xml:space="preserve">
+    <value>Orijinal Görsel</value>
+  </data>
+  <data name="Qualification Name" xml:space="preserve">
+    <value>Yeterlilik Adı</value>
+  </data>
+  <data name="Select Company" xml:space="preserve">
+    <value>Şirket Seçin</value>
+  </data>
+  <data name="Upload a PNG/JPEG original, at most 20 MB, with both dimensions at least 512 pixels. PDF is not supported in this version." xml:space="preserve">
+    <value>Her iki boyutu da en az 512 piksel olan, en fazla 20 MB boyutunda bir PNG/JPEG dosyası yükleyin. Bu sürümde PDF desteklenmiyor.</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+
+</root>

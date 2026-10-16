@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Akcje</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>Dodaj kwalifikację</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>Wszystkie rejestry pobrań</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Wykryj znak wodny</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>Każde przesłanie tworzy niezmienną wersję. Prześlij nową wersję i wyłącz starą. Wyłączone uprawnienia można ponownie włączyć. Linki do starszych dokumentów firmowych nie są migrowane automatycznie; przed wdrożeniem usuń wszystkie stare, publicznie dostępne oryginały.</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>Włącz kwalifikację, aby umożliwić jej używanie przez pracowników. Wyłącz ją, aby zablokować generowanie, podgląd i pobieranie; istniejące rekordy zostaną zachowane.</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Zarządzanie kwalifikacjami firmy</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>Brak dostępnych kwalifikacji.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Kwalifikacja</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Wersja</value>
+  </data>
+
+</root>

@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>İptal Edildi</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Farklı kuyruklarda test işleri oluşturur (15-30 saniye bekleme, %10 hata oranı). Farklı kuyruklardaki işler paralel olarak çalışır.</value>
   </data>

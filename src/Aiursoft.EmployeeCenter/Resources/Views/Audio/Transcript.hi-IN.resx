@@ -81,6 +81,9 @@
   <data name="Edit" xml:space="preserve">
     <value>संपादित करें</value>
   </data>
+  <data name="Edit Meeting Minutes" xml:space="preserve">
+    <value>बैठक के कार्यवृत्त संपादित करें</value>
+  </data>
   <data name="Edit Transcript" xml:space="preserve">
     <value>ट्रांसक्रिप्ट संपादित करें</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="Read-only" xml:space="preserve">
     <value>केवल-पठन</value>
+  </data>
+  <data name="Regenerate Meeting Minutes" xml:space="preserve">
+    <value>बैठक की कार्यवाही फिर से तैयार करें</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>पुनः नामकरण करें</value>

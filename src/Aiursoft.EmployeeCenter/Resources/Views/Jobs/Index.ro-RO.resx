@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>Anulat</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Închideți</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Creează sarcini de test în cozi diferite (oprire de 15-30 secunde, rată de eșec de 10%). Sarcinile din cozi diferite se execută în paralel.</value>
   </data>

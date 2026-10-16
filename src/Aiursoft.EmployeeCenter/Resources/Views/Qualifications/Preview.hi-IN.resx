@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>आवेदक</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>व्यावसायिक उद्देश्य</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
+  <data name="Download Watermarked Qualification" xml:space="preserve">
+    <value>वॉटरमार्कयुक्त योग्यता डाउनलोड करें</value>
+  </data>
+  <data name="Generate ZIP download link" xml:space="preserve">
+    <value>ZIP डाउनलोड लिंक बनाएँ</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>निर्माण की तिथि</value>
+  </data>
+  <data name="Images are not previewed online. Download the ZIP and extract the original watermarked PNG to preserve its embedded tracking ID." xml:space="preserve">
+    <value>छवियों का ऑनलाइन पूर्वावलोकन उपलब्ध नहीं है। ZIP डाउनलोड करें और उसमें से मूल वॉटरमार्कयुक्त PNG निकालें, ताकि उसमें एम्बेड की गई ट्रैकिंग ID सुरक्षित रहे।</value>
+  </data>
+  <data name="My Download Records" xml:space="preserve">
+    <value>मेरे डाउनलोड रिकॉर्ड</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>प्राप्तकर्ता कंपनी</value>
+  </data>
+  <data name="This qualification is disabled. New download links are unavailable until an administrator enables it." xml:space="preserve">
+    <value>यह योग्यता अक्षम है। व्यवस्थापक द्वारा इसे सक्षम किए जाने तक नए डाउनलोड लिंक उपलब्ध नहीं होंगे।</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>ट्रैकिंग आईडी</value>
+  </data>
+  <data name="Verify the purpose and recipient before sharing. Watermarks help trace copies but cannot prevent all misuse or survive every image transformation." xml:space="preserve">
+    <value>साझा करने से पहले उद्देश्य और प्राप्तकर्ता की पुष्टि करें। वॉटरमार्क प्रतियों का पता लगाने में मदद करते हैं, लेकिन हर तरह के दुरुपयोग को रोक नहीं सकते और न ही छवि में किए गए हर बदलाव के बाद बने रह सकते हैं।</value>
+  </data>
+  <data name="ZIP links expire after 60 minutes. Issuance is recorded; repeat downloads are not counted. Already issued links remain valid until expiry." xml:space="preserve">
+    <value>ZIP लिंक 60 मिनट बाद समाप्त हो जाते हैं। जारी करने का रिकॉर्ड रखा जाता है; दोबारा डाउनलोड की गणना नहीं की जाती। पहले से जारी लिंक समाप्ति तक मान्य रहते हैं।</value>
+  </data>
+
+</root>
