@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>क्रियाएँ</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>योग्यता जोड़ें</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>सभी डाउनलोड रिकॉर्ड</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>कंपनी</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>वॉटरमार्क का पता लगाएँ</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>हर अपलोड एक अपरिवर्तनीय संस्करण होता है। नया संस्करण अपलोड करें और पुराने संस्करण को निष्क्रिय करें। निष्क्रिय योग्यताओं को फिर से सक्रिय किया जा सकता है। कंपनी के पुराने दस्तावेज़ों के लिंक अपने आप स्थानांतरित नहीं होते; लॉन्च से पहले सार्वजनिक रूप से उपलब्ध पुराने मूल दस्तावेज़ हटा दें।</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>कर्मचारियों को उपयोग की अनुमति देने के लिए किसी योग्यता को सक्षम करें। दस्तावेज़ बनाना, उसका पूर्वावलोकन और डाउनलोड रोकने के लिए उसका उपयोग बंद करें; मौजूदा रिकॉर्ड सुरक्षित रहेंगे।</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>व्यावसायिक योग्यताओं का प्रबंधन</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>कोई योग्यता उपलब्ध नहीं है।</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>योग्यता</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+
+</root>

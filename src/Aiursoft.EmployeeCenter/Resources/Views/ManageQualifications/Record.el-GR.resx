@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Download Records" xml:space="preserve">
+    <value>Όλα τα αρχεία καταγραφής λήψεων</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Αιτών/ούσα</value>
+  </data>
+  <data name="Back to Qualification Management" xml:space="preserve">
+    <value>Επιστροφή στη διαχείριση προσόντων</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Επιχειρηματικός σκοπός</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Εταιρεία</value>
+  </data>
+  <data name="Copy SHA-256" xml:space="preserve">
+    <value>SHA-256 του αντιγράφου</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>Ημερομηνία δημιουργίας</value>
+  </data>
+  <data name="Issued at" xml:space="preserve">
+    <value>Εκδόθηκε στις</value>
+  </data>
+  <data name="Last link issued at" xml:space="preserve">
+    <value>Τελευταίος σύνδεσμος εκδόθηκε στις</value>
+  </data>
+  <data name="Link issuance records identify who requested a ZIP link, not who completed a download. Preview links are not counted. Latest 100 issuances are shown." xml:space="preserve">
+    <value>Τα αρχεία καταγραφής έκδοσης συνδέσμων δείχνουν ποιος ζήτησε έναν σύνδεσμο ZIP, όχι ποιος ολοκλήρωσε τη λήψη. Οι σύνδεσμοι προεπισκόπησης δεν προσμετρώνται. Εμφανίζονται οι 100 πιο πρόσφατες εκδόσεις.</value>
+  </data>
+  <data name="Link issued to" xml:space="preserve">
+    <value>Σύνδεσμος που εκδόθηκε προς</value>
+  </data>
+  <data name="Original SHA-256" xml:space="preserve">
+    <value>Αρχικό SHA-256</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>Προσόν / Έκδοση</value>
+  </data>
+  <data name="Qualification Issuance Record" xml:space="preserve">
+    <value>Αρχείο έκδοσης πιστοποιητικού</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Εταιρεία Παραλήπτης</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>Αναγνωριστικό παρακολούθησης</value>
+  </data>
+  <data name="ZIP links issued" xml:space="preserve">
+    <value>Εκδοθέντες σύνδεσμοι ZIP</value>
+  </data>
+  <data name="ZIP SHA-256" xml:space="preserve">
+    <value>SHA-256 του αρχείου ZIP</value>
+  </data>
+
+</root>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Ενέργειες</value>
+  </data>
+  <data name="Add Qualification" xml:space="preserve">
+    <value>Προσθήκη προσόντος</value>
+  </data>
+  <data name="All Download Records" xml:space="preserve">
+    <value>Όλες οι εγγραφές λήψεων</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Εταιρεία</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Εντοπισμός υδατογραφήματος</value>
+  </data>
+  <data name="Each upload is an immutable version. Upload a new version and disable the old one. Disabled qualifications can be re-enabled. Legacy company document links are not automatically migrated; remove any old publicly accessible originals before rollout." xml:space="preserve">
+    <value>Κάθε μεταφόρτωση αποτελεί αμετάβλητη έκδοση. Μεταφορτώστε μια νέα έκδοση και απενεργοποιήστε την παλιά. Οι απενεργοποιημένες πιστοποιήσεις μπορούν να ενεργοποιηθούν ξανά. Οι παλιοί σύνδεσμοι προς εταιρικά έγγραφα δεν μεταφέρονται αυτόματα· αφαιρέστε τυχόν παλιά πρωτότυπα έγγραφα που είναι δημόσια προσβάσιμα πριν από την έναρξη λειτουργίας.</value>
+  </data>
+  <data name="Enable a qualification to allow employee use. Stop use to block generation, preview and download; existing records are retained." xml:space="preserve">
+    <value>Ενεργοποιήστε ένα προσόν για να επιτρέψετε τη χρήση του από τους εργαζομένους. Διακόψτε τη χρήση του για να αποκλείσετε τη δημιουργία, την προεπισκόπηση και τη λήψη· οι υπάρχουσες εγγραφές διατηρούνται.</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Διαχείριση Επαγγελματικών Προσόντων</value>
+  </data>
+  <data name="No qualifications available." xml:space="preserve">
+    <value>Δεν υπάρχουν διαθέσιμα προσόντα.</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Πιστοποίηση</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Έκδοση</value>
+  </data>
+
+</root>

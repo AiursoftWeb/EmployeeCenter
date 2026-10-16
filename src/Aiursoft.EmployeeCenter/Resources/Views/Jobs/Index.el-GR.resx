@@ -30,6 +30,9 @@
   <data name="Cancelled" xml:space="preserve">
     <value>Ακυρώθηκε</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Δημιουργεί δοκιμαστικές εργασίες σε διαφορετικές ουρές (15-30 δευτερόλεπτα ύπνου, 10% ρυθμός αποτυχίας). Οι εργασίες σε διαφορετικές ουρές εκτελούνται παράλληλα.</value>
   </data>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>Αιτών</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>Επιχειρηματικός σκοπός</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>Εντοπισμός υδατογραφήματος</value>
+  </data>
+  <data name="Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked." xml:space="preserve">
+    <value>Η ανίχνευση είναι ένα βοήθημα ιχνηλάτησης, όχι απόδειξη παραπτώματος. Η περικοπή, η αλλαγή μεγέθους, τα στιγμιότυπα οθόνης και η εκτύπωση/σάρωση μπορούν να καταστρέψουν το υδατογράφημα. Η μη εύρεση αντιστοιχίας δεν αποδεικνύει ότι η εικόνα δεν φέρει υδατογράφημα.</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>Ημερομηνία δημιουργίας</value>
+  </data>
+  <data name="Image to Inspect" xml:space="preserve">
+    <value>Εικόνα προς έλεγχο</value>
+  </data>
+  <data name="Inspect" xml:space="preserve">
+    <value>Έλεγχος</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>Πιστοποίηση / Έκδοση</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>Εταιρεία παραλήπτη</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>Κωδικός παρακολούθησης</value>
+  </data>
+  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are uploaded to a private temporary folder and deleted after inspection; abandoned uploads are cleaned after one hour." xml:space="preserve">
+    <value>Ανεβάστε ένα αντίγραφο PNG/JPEG (έως 20 MB) για να ελέγξετε το ενσωματωμένο αναγνωριστικό ιχνηλάτησης. Οι εικόνες μεταφορτώνονται σε έναν ιδιωτικό προσωρινό φάκελο και διαγράφονται μετά τον έλεγχο· οι μεταφορτώσεις που δεν χρησιμοποιούνται διαγράφονται μετά από μία ώρα.</value>
+  </data>
+
+</root>
