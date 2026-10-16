@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Applicant" xml:space="preserve">
+    <value>आवेदक</value>
+  </data>
+  <data name="Business Purpose" xml:space="preserve">
+    <value>व्यावसायिक उद्देश्य</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
+  <data name="Detect Watermark" xml:space="preserve">
+    <value>वॉटरमार्क का पता लगाएँ</value>
+  </data>
+  <data name="Detection is a tracing aid, not proof of misconduct. Cropping, resizing, screenshots and print/scan can destroy the watermark. No match does not prove the image is unmarked." xml:space="preserve">
+    <value>पता लगाना केवल ट्रेस करने में सहायता करता है, यह कदाचार का प्रमाण नहीं है। क्रॉप करने, आकार बदलने, स्क्रीनशॉट लेने और प्रिंट/स्कैन करने से वॉटरमार्क नष्ट हो सकता है। कोई मिलान न मिलने का अर्थ यह साबित होना नहीं है कि छवि पर वॉटरमार्क नहीं है।</value>
+  </data>
+  <data name="Generated At" xml:space="preserve">
+    <value>निर्मित होने का समय</value>
+  </data>
+  <data name="Image to Inspect" xml:space="preserve">
+    <value>निरीक्षण के लिए छवि</value>
+  </data>
+  <data name="Inspect" xml:space="preserve">
+    <value>जाँचें</value>
+  </data>
+  <data name="Qualification / Version" xml:space="preserve">
+    <value>योग्यता / संस्करण</value>
+  </data>
+  <data name="Recipient Company" xml:space="preserve">
+    <value>प्राप्तकर्ता कंपनी</value>
+  </data>
+  <data name="Tracking ID" xml:space="preserve">
+    <value>ट्रैकिंग आईडी</value>
+  </data>
+  <data name="Upload a PNG/JPEG copy (at most 20 MB) to inspect its embedded tracking ID. Images are uploaded to a private temporary folder and deleted after inspection; abandoned uploads are cleaned after one hour." xml:space="preserve">
+    <value>इसमें एम्बेड की गई ट्रैकिंग ID देखने के लिए PNG/JPEG की एक कॉपी अपलोड करें (अधिकतम 20 MB)। इमेज एक निजी अस्थायी फ़ोल्डर में अपलोड की जाती हैं और जाँच के बाद हटा दी जाती हैं; एक घंटे बाद तक इस्तेमाल न किए गए अपलोड हटा दिए जाते हैं।</value>
+  </data>
+
+</root>

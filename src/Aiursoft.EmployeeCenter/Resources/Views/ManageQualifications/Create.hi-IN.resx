@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add Qualification" xml:space="preserve">
+    <value>योग्यता जोड़ें</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>बंद करें</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>कंपनी</value>
+  </data>
+  <data name="Create a company entity before uploading qualifications." xml:space="preserve">
+    <value>योग्यता अपलोड करने से पहले एक कंपनी इकाई बनाएँ।</value>
+  </data>
+  <data name="Original Image" xml:space="preserve">
+    <value>मूल छवि</value>
+  </data>
+  <data name="Qualification Name" xml:space="preserve">
+    <value>योग्यता का नाम</value>
+  </data>
+  <data name="Select Company" xml:space="preserve">
+    <value>कंपनी चुनें</value>
+  </data>
+  <data name="Upload a PNG/JPEG original, at most 20 MB, with both dimensions at least 512 pixels. PDF is not supported in this version." xml:space="preserve">
+    <value>कम से कम 512 पिक्सेल की दोनों विमाओं वाली, अधिकतम 20 MB की मूल PNG/JPEG फ़ाइल अपलोड करें। इस संस्करण में PDF समर्थित नहीं है।</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+
+</root>
