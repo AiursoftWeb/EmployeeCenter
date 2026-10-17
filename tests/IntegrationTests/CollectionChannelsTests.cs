@@ -3,7 +3,6 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class CollectionChannelsTests
 {
-    private readonly int _port;
     private readonly HttpClient _http;
     private IHost? _server;
 
@@ -15,24 +14,31 @@ public class CollectionChannelsTests
             CookieContainer = cookieContainer,
             AllowAutoRedirect = false
         };
-        _port = Network.GetAvailablePort();
-        _http = new HttpClient(handler)
-        {
-            BaseAddress = new Uri($"http://localhost:{_port}")
-        };
+        _http = new HttpClient(handler);
     }
 
     [TestInitialize]
     public async Task CreateServer()
     {
-        _server = await AppAsync<Startup>([], port: _port);
-        using (var scope = _server.Services.CreateScope())
+        using var reservation = new TestPortReservation();
+        _http.BaseAddress = new Uri($"http://localhost:{reservation.Port}");
+        _server = await AppAsync<Startup>([], port: reservation.Port);
+        try
         {
-            var context = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
-            await context.Database.EnsureCreatedAsync();
-            await _server.SeedAsync();
+            reservation.ConfigureServer(_server);
+            using (var scope = _server.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+                await context.Database.EnsureCreatedAsync();
+                await _server.SeedAsync();
+            }
+            await _server.StartAsync();
         }
-        await _server.StartAsync();
+        catch
+        {
+            _server.Dispose();
+            throw;
+        }
     }
 
     [TestCleanup]

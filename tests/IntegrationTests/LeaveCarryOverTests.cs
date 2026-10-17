@@ -5,21 +5,25 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class LeaveCarryOverTests
 {
-    private readonly int _port;
     private IHost? _server;
-
-    public LeaveCarryOverTests()
-    {
-        _port = Network.GetAvailablePort();
-    }
 
     [TestInitialize]
     public async Task CreateServer()
     {
-        _server = await AppAsync<Startup>([], port: _port);
-        await _server.UpdateDbAsync<EmployeeCenterDbContext>();
-        await _server.SeedAsync();
-        await _server.StartAsync();
+        using var reservation = new TestPortReservation();
+        _server = await AppAsync<Startup>([], port: reservation.Port);
+        try
+        {
+            reservation.ConfigureServer(_server);
+            await _server.UpdateDbAsync<EmployeeCenterDbContext>();
+            await _server.SeedAsync();
+            await _server.StartAsync();
+        }
+        catch
+        {
+            _server.Dispose();
+            throw;
+        }
     }
 
     [TestCleanup]
