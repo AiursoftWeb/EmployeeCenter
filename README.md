@@ -74,6 +74,35 @@ The docker image has the following context:
 | Data path   | /data                           |
 | Config path | /data/appsettings.json          |
 
+## Service audit incidents
+
+The existing scheduled and manual service audit can synchronize its findings with AlertCenter
+using SDK 10.2.0. Configure a dedicated AlertCenter application and its on-call routing, then set
+`AlertCenter__Enabled=true`, `AlertCenter__Endpoint`, `AlertCenter__ApiKey`, and
+`AlertCenter__PublicBaseUrl` (this EmployeeCenter instance's public base URL). Keep the key in
+private deployment configuration. Synchronization is disabled by default; an enabled integration
+requires a valid API key and an AlertCenter deployment that supports queries and resolution.
+
+Critical, Error and Warning findings create sev2, sev3 and sev4 incidents respectively; Info
+findings remain in the audit only. Identity is the check type, normalized hostname, service ID
+and alias ID, not its title, severity or changing diagnostic text. Existing active incidents are
+retained; manually closed findings that persist create a new incident on the next audit. Severity
+is assigned on creation. Duplicate active incidents retain the oldest and resolve the extras with
+an explicit duplicate reason.
+
+Only this audit's marked incidents are managed. Successful fresh collection must prove recovery
+or removal of the registered target before closing an incident. Skipped availability checks,
+missing audit coverage and uncertain DNS results do not authorize recovery. Historical stored
+reports cannot authorize closure. Resolution preserves the queried version; conflicts wait for
+the next audit instead of overwriting concurrent handling.
+
+All active pages are read before any mutation. Failed synchronization is logged separately and
+does not change a successful audit result. Repeating a creation for the same audit run and issue
+reuses its ReportId. The existing refresh guard prevents overlapping jobs in one application
+process; query-and-create is not an atomic cross-instance operation. A subsequent audit cleans up
+any matching duplicates. No extra scheduler, database schema or automatic notification retry is
+introduced.
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.

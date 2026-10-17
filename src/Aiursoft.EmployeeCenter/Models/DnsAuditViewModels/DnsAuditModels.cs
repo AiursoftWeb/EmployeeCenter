@@ -70,6 +70,11 @@ public sealed class DnsAuditIssue
 
 public sealed class DnsAuditReport
 {
+    // Only fresh collection evidence may authorize automatic recovery. Historical reports omit it.
+    [Newtonsoft.Json.JsonIgnore]
+    [System.Text.Json.Serialization.JsonIgnore]
+    public DnsAuditInput? RecoveryEvidence { get; init; }
+
     public DateTime GeneratedAt { get; init; } = DateTime.UtcNow;
     public int ZoneCount { get; init; }
     public int RecordCount { get; init; }

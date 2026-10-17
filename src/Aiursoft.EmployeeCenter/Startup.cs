@@ -1,4 +1,5 @@
 using Aiursoft.CSTools.Tools;
+using Aiursoft.AlertCenter.SDK;
 using Aiursoft.DbTools.Switchable;
 using Aiursoft.Scanner;
 using Aiursoft.EmployeeCenter.Configuration;
@@ -120,6 +121,19 @@ public class Startup : IWebStartup
         services.AddHttpClient("ServiceAvailabilityAudit")
             .ConfigurePrimaryHttpMessageHandler(serviceProvider => CreatePublicAuditHandler(serviceProvider));
         services.AddSingleton<NavigationState<Startup>>();
+
+        var alertCenter = configuration.GetSection("AlertCenter").Get<AlertCenterSettings>() ?? new AlertCenterSettings();
+        if (alertCenter.Enabled)
+        {
+            if (!Uri.TryCreate(alertCenter.PublicBaseUrl, UriKind.Absolute, out var publicUrl) ||
+                publicUrl.Scheme is not ("http" or "https") || !string.IsNullOrEmpty(publicUrl.UserInfo) ||
+                !string.IsNullOrEmpty(publicUrl.Query) || !string.IsNullOrEmpty(publicUrl.Fragment))
+                throw new InvalidOperationException("AlertCenter:PublicBaseUrl must be an HTTP(S) base URL without credentials, query or fragment.");
+            services.AddAlertCenterSdk(alertCenter.Endpoint, alertCenter.ApiKey);
+            services.AddSingleton(alertCenter);
+            services.AddScoped<Services.DnsAudit.IAuditIncidentClient, Services.DnsAudit.AuditIncidentClient>();
+            services.AddScoped<Services.DnsAudit.AuditIncidentSyncService>();
+        }
 
         // Background job queue
         services.AddTaskQueueEngine();

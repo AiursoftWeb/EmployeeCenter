@@ -540,6 +540,7 @@ public static partial class DnsAuditAnalyzer
 
         return new DnsAuditReport
         {
+            RecoveryEvidence = input,
             ZoneCount = zones.Count,
             RecordCount = input.TotalRecordCount,
             AuditedHostnameCount = recordsByName.Count,
