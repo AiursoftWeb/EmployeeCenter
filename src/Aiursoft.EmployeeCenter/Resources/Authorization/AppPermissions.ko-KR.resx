@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>다른 사용자와 공유할 수 있는 새로운 전역 비밀번호를 생성할 수 있습니다.</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>질문과 설문지를 생성하고 피드백 응답을 조회할 수 있습니다.</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>다른 사용자의 대신 주간 보고서를 생성, 편집 및 삭제할 수 있습니다.</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>사용자가 다른 사용자의 대신 주간 보고서를 작성할 수 있도록 허용합니다.</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>사용자가 피드백 설문지를 작성하고 제출할 수 있도록 허용합니다.</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>사용자가 자신의 지출에 대한 환급 요청을 제출할 수 있도록 합니다.</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>고객 관계 관리</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>피드백 관리</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>글로벌 설정 관리</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>서비스 감사 실행</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>피드백 제출</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>청구서 제출</value>

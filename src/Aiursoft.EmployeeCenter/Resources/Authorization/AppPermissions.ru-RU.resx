@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>Позволяет создавать новые глобальные пароли, которые можно использовать совместно с другими.</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>Позволяет создавать вопросы, анкеты и просматривать ответы на отзывы.</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>Позволяет создавать, редактировать и удалять еженедельные отчеты от имени любого другого пользователя.</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>Позволяет пользователю создавать еженедельные отчеты от имени любого другого пользователя.</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>Позволяет пользователю заполнять и отправлять анкеты обратной связи.</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Позволяет пользователю подавать заявки на возмещение расходов.</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>Управление отношениями с клиентами</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>Управление отзывами</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Управление глобальными настройками</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>Выполнить аудит службы</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>Отправить отзыв</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Подать заявку на возмещение</value>

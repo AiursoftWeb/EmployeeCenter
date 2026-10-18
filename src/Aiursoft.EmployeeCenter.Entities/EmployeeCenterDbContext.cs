@@ -238,31 +238,6 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     public DbSet<MarketChannel> MarketChannels => Set<MarketChannel>();
 
     /// <summary>
-    /// Defines individual questions for surveys or feedback forms (Signals).
-    /// </summary>
-    public DbSet<SignalQuestion> SignalQuestions => Set<SignalQuestion>();
-
-    /// <summary>
-    /// Collections of questions organized into surveys or questionnaires.
-    /// </summary>
-    public DbSet<SignalQuestionnaire> SignalQuestionnaires => Set<SignalQuestionnaire>();
-
-    /// <summary>
-    /// Mapping table defining the order of questions within a questionnaire.
-    /// </summary>
-    public DbSet<SignalQuestionnaireQuestion> SignalQuestionnaireQuestions => Set<SignalQuestionnaireQuestion>();
-
-    /// <summary>
-    /// Stores user submissions for a specific questionnaire.
-    /// </summary>
-    public DbSet<SignalResponse> SignalResponses => Set<SignalResponse>();
-
-    /// <summary>
-    /// Stores individual answers within a user's questionnaire submission.
-    /// </summary>
-    public DbSet<SignalQuestionResponse> SignalQuestionResponses => Set<SignalQuestionResponse>();
-
-    /// <summary>
     /// Overrides default holiday rules (e.g., marking weekends as work days).
     /// </summary>
     public DbSet<AdjustedHoliday> AdjustedHolidays => Set<AdjustedHoliday>();

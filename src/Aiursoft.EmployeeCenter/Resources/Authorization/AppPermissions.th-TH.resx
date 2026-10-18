@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>อนุญาตให้สร้างรหัสผ่านสากลใหม่ที่สามารถแชร์กับผู้อื่นได้</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>อนุญาตให้สร้างคำถาม แบบสอบถาม และดูคำตอบจากแบบสอบถาม</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>อนุญาตให้สร้าง แก้ไข และลบรายงานรายสัปดาห์แทนผู้ใช้คนอื่นใดก็ได้</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>อนุญาตให้ผู้ใช้สร้างรายงานรายสัปดาห์แทนผู้ใช้คนอื่นใดก็ได้</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>อนุญาตให้ผู้ใช้กรอกและส่งแบบสอบถามความคิดเห็น</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>อนุญาตให้ผู้ใช้ยื่นคำขอชดเชยค่าใช้จ่ายของตนเอง</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>จัดการความสัมพันธ์กับลูกค้า</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>จัดการความคิดเห็น</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>จัดการตั้งค่าทั่วไป</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>ดำเนินการตรวจสอบบริการ</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>ส่งความคิดเห็น</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>ยื่นคำขอเบิกจ่าย</value>

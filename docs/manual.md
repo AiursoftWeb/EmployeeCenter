@@ -39,8 +39,6 @@
     *   **智能编辑**: 支持 Markdown 语法。提供“记事本”功能，可随时记录零散工作，正式提交时一键导入。
     *   **动态滚动**: 采用无限滚动加载技术，可回溯查看团队往期所有周报。
     *   **互动点评**: 支持在周报下方发表评论，主管可针对特定工作内容进行反馈。
-*   **[员工信号](/Feedback/Index)**: 
-    *   **即时调研**: 系统会不定期发布问卷，收集员工对公司环境或特定决策的真实看法。
 
 ### 1.4 项目需求 (Project Requirements)
 *   **[需求提报](/Requirements/My)**: 支持提交业务需求、Bug 修复或功能改进申请。
@@ -135,12 +133,7 @@
 *   **Server (服务器)**: 属于特定的 `Provider` (服务商，如阿里云、AWS)，并关联 `DnsProvider`。
 *   **SSH Key & Password**: 提供研发环境的访问凭证管理。`Password` 通过 `PasswordShare` 在用户间安全共享。
 
-### 4.5 员工信号与反馈 (Signals & Feedback)
-*   **SignalQuestionnaire (信号调查问卷)**: 包含多个 `SignalQuestion` (问题)。
-*   **SignalResponse (答卷)**: 用户提交的完整问卷回复。
-*   **SignalQuestionResponse (题目回答)**: 针对具体问题的答案。
-
-### 4.6 知识库 (Knowledge Base)
+### 4.5 知识库 (Knowledge Base)
 *   **Blueprint (蓝图)**: 文档实体的核心。
 *   **BlueprintFolder (蓝图目录)**: 支持无限极递归目录结构，用于组织和分类蓝图文档。
 

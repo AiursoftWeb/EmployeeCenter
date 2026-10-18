@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>允許建立新的可與他人共享的全局密碼</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>允許建立問題、問卷調查，並檢視回饋回應。</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>允許代表任何其他使用者建立、編輯及刪除週報。</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>允許使用者為任何其他使用者代為建立週報。</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>允許使用者填寫並提交意見調查問卷。</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>允許使用者提交其費用報銷申請。</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>管理客戶關係</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>管理意見回饋</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>管理全域設定</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>執行服務稽核</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>提交意見回饋</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>提交報銷</value>

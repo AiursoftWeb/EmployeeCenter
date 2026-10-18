@@ -69,10 +69,6 @@ public static class AppPermissionNames
     public const string CanViewCollectionChannels = nameof(CanViewCollectionChannels);
     public const string CanManageCollectionChannels = nameof(CanManageCollectionChannels);
 
-    // Feedback Management (Employee Signals)
-    public const string CanSubmitFeedback = nameof(CanSubmitFeedback);
-    public const string CanManageFeedback = nameof(CanManageFeedback);
-
     // Service Management
     public const string CanViewInfrastructure = nameof(CanViewInfrastructure);
     public const string CanManageInfrastructure = nameof(CanManageInfrastructure);

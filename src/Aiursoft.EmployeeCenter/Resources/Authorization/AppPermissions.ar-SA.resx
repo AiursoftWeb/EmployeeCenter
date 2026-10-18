@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>يسمح بإنشاء كلمات مرور عامة جديدة يمكن مشاركتها مع الآخرين.</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>يسمح بإنشاء الأسئلة واستبيانات التغذية الراجعة وعرض استجابات التغذية الراجعة.</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>يُمكّن من إنشاء التقارير الأسبوعية وتحريرها وحذفها نيابة عن أي مستخدم آخر.</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>يُمكّن المستخدم من إنشاء تقارير أسبوعية نيابة عن أي مستخدم آخر.</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>يُمكّن المستخدم من ملء استبيانات التغذية الراجعة وإرسالها.</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>يسمح للمستخدم بتقديم طلبات استرداد المصروفات الخاصة به.</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>إدارة علاقات العملاء</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>إدارة الملاحظات</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>إدارة الإعدادات العالمية</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>تنفيذ تدقيق الخدمة</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>إرسال الملاحظات</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>إرسال تعويض</value>
