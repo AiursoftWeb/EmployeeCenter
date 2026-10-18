@@ -1,4 +1,6 @@
 using Aiursoft.Canon.TaskQueue;
+using Aiursoft.AlertCenter.SDK.Models;
+using Microsoft.Extensions.Logging.Abstractions;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.InMemory;
 using Aiursoft.EmployeeCenter.Models.DnsAuditViewModels;
@@ -11,6 +13,63 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class DnsAuditControllerTests : TestBase
 {
+    [TestMethod]
+    [DataRow(true)]
+    [DataRow(false)]
+    public async Task AuditOutcomeRemainsIndependentOfAlertCenterAvailability(bool auditSucceeds)
+    {
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"audit-sync-{Guid.NewGuid():N}").Options);
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "audit-test-token");
+        var client = new UnavailableIncidentClient();
+        var sync = new AuditIncidentSyncService(client, new AlertCenterSettings(), NullLogger<AuditIncidentSyncService>.Instance);
+        var cache = new DnsAuditSnapshotCache();
+        var job = new DnsAuditJob(
+            new CloudflareDnsAuditService(db, settings, new AuditHttpFactory(auditSucceeds), NullLogger<CloudflareDnsAuditService>.Instance),
+            new ServiceAuditStore(db), cache, NullLogger<DnsAuditJob>.Instance, sync);
+        await job.ExecuteAsync();
+        var run = await db.ServiceAuditRuns.SingleAsync();
+        Assert.AreEqual(auditSucceeds ? ServiceAuditRunStatus.Succeeded : ServiceAuditRunStatus.Failed, run.Status);
+        Assert.AreEqual(auditSucceeds ? 1 : 0, client.Queries);
+        if (auditSucceeds)
+        {
+            Assert.IsNull(run.ErrorMessage);
+            Assert.IsNotNull(cache.Current.Report);
+            Assert.IsNull(cache.Current.ErrorMessage);
+        }
+        else Assert.IsNotNull(run.ErrorMessage);
+        Assert.IsTrue(cache.TryBeginRefresh());
+        cache.EndRefresh();
+    }
+
+    private sealed class UnavailableIncidentClient : IAuditIncidentClient
+    {
+        public int Queries { get; private set; }
+        public Task<QueryIncidentsResponse> QueryAsync(QueryIncidentsRequest request)
+        {
+            Queries++;
+            throw new HttpRequestException("AlertCenter is unavailable.");
+        }
+        public Task<CreateIncidentResponse> CreateAsync(CreateIncidentRequest request) => throw new AssertFailedException("No writes after a failed read.");
+        public Task<ResolveIncidentResponse> ResolveAsync(Guid incidentId, ResolveIncidentRequest request) => throw new AssertFailedException("No closures after a failed read.");
+    }
+
+    private sealed class AuditHttpFactory(bool succeeds) : IHttpClientFactory
+    {
+        public HttpClient CreateClient(string name) => new(new AuditHttpHandler(succeeds));
+    }
+
+    private sealed class AuditHttpHandler(bool succeeds) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken) =>
+            Task.FromResult(new HttpResponseMessage(succeeds ? HttpStatusCode.OK : HttpStatusCode.BadGateway)
+            {
+                Content = new StringContent(succeeds ? "{\"success\":true,\"result\":[]}" : "{\"success\":false}")
+            });
+    }
+
     [TestMethod]
     public async Task AuditQueueCoalescesPendingRequests()
     {
