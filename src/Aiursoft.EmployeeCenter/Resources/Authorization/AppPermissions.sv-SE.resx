@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>Tillåter att skapa nya globala lösenord som kan delas med andra.</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>Tillåter skapande av frågor, enkäter och visning av feedbacksvar.</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>Tillåter att skapa, redigera och ta bort veckorapporter i egna skick för valfri annan användare.</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>Tillåter användaren att skapa veckorapporter i ansvar för vilken annan användare som helst.</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>Tillåter användaren att fylla i och skicka in feedbackfrågeformulär.</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Tillåter användaren att skicka in ansökningar om ersättning för sina utgifter.</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>Hantera kundrelationer</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>Hantera feedback</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Hantera globala inställningar</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>Kör serviceaudit</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>Skicka återkoppling</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Skicka in ersättning</value>

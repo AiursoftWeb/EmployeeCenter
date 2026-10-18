@@ -103,6 +103,14 @@ process; query-and-create is not an atomic cross-instance operation. A subsequen
 any matching duplicates. No extra scheduler, database schema or automatic notification retry is
 introduced.
 
+## 数据库升级注意事项
+
+员工信号模块已移除。升级前请备份数据库：MySQL 和 SQLite 的
+`RemoveEmployeeSignals` 迁移会永久删除旧问卷、问题、答卷、回答及其关联关系，
+同时删除角色中 `Permission` 类型的 `CanSubmitFeedback` 和 `CanManageFeedback` 声明。
+历史迁移仍予保留，以支持已有部署升级。回滚此迁移只重建五张空表及其索引、外键，
+不会恢复已删除的数据或权限声明。
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.

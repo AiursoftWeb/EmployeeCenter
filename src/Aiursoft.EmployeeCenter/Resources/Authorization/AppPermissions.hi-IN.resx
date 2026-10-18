@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>दूसरों के साथ साझा किए जा सकने वाले नए वैश्विक पासवर्ड बनाने की अनुमति देता है।</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>प्रश्नों, प्रश्नावलियों के निर्माण और प्रतिक्रिया प्राप्त करने की अनुमति देता है।</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>किसी भी अन्य उपयोगकर्ता के प्रतिनिधित्व में साप्ताहिक रिपोर्टों के निर्माण, संपादन और हटाने की अनुमति देता है।</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>किसी भी अन्य उपयोगकर्ता के प्रतिनिधित्व में साप्ताहिक रिपोर्ट बनाने के लिए उपयोगकर्ता को अनुमति देता है।</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>उपयोगकर्ता को प्रतिक्रिया प्रश्नावली भरने और जमा करने की अनुमति देता है।</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>उपयोगकर्ता को अपने व्यय के लिए वापसी की मांगें जमा करने की अनुमति देता है।</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>ग्राहक संबंधों का प्रबंधन करें</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>फीडबैक का प्रबंधन करें</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>ग्लोबल सेटिंग्स को प्रबंधित करें</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>सेवा ऑडिट चलाएँ</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>फीडबैक जमा करें</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>पुनर्भुगतान जमा करें</value>

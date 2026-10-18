@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>他のユーザーと共有できる新規グローバルパスワードの作成を許可します。</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>質問やアンケートの作成、フィードバックの応答の閲覧を許可します。</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>他のユーザーの代わりに週次レポートの作成、編集、削除を許可します。</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>ユーザーは、他の任意のユーザーの代わりに週次レポートを作成できるようにします。</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>ユーザーがフィードバックアンケートを記入および提出できるようにします。</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>ユーザーが経費の補償請求を提出できるようにします。</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>顧客関係を管理する</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>フィードバックの管理</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>グローバル設定の管理</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>サービス監査の実行</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>フィードバックを送信</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>支給申請を提出</value>

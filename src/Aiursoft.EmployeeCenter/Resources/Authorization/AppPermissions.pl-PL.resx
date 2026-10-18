@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>Zezwala na tworzenie nowych globalnych haseł, które mogą być udostępniane innym.</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>Zezwala na tworzenie pytań, ankiet oraz przeglądanie odpowiedzi na opinie.</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>Zezwala na tworzenie, edytowanie i usuwanie raportów tygodniowych w imieniu dowolnego innego użytkownika.</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>Umożliwia użytkownikowi tworzenie raportów tygodniowych w imieniu dowolnego innego użytkownika.</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>Umożliwia użytkownikowi wypełnianie i przesyłanie ankiet z opiniami.</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Umożliwia użytkownikowi składanie wniosków o zwrot wydatków.</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>Zarządzaj relacjami z klientami</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>Zarządzaj opiniami</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Zarządzaj ustawieniami globalnymi</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>Uruchom audyt usługi</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>Prześlij Opinie</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Zgłoś zwrot kosztów</value>

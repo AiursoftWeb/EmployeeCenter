@@ -66,6 +66,98 @@ public class MigrationTests
     }
 
     [TestMethod]
+    public async Task RemovingEmployeeSignalsDropsLegacyDataAndOnlyObsoleteRolePermissions()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:;Foreign Keys=True");
+        await connection.OpenAsync();
+        var options = new DbContextOptionsBuilder<SqliteContext>().UseSqlite(connection).Options;
+        await using var context = new SqliteContext(options);
+        var migrator = context.Database.GetService<IMigrator>();
+        const string previousMigration = "20261014082833_AddQualificationZipLinks";
+        await migrator.MigrateAsync(previousMigration);
+
+        var user = new User
+        {
+            Id = "legacy-survey-user",
+            UserName = "legacy-survey-user",
+            DisplayName = "Legacy survey user",
+            AvatarRelativePath = User.DefaultAvatarPath
+        };
+        context.Users.Add(user);
+        context.Roles.AddRange(
+            new IdentityRole { Id = "legacy-role", Name = "Legacy role" },
+            new IdentityRole { Id = "another-role", Name = "Another role" });
+        context.RoleClaims.AddRange(
+            new IdentityRoleClaim<string> { RoleId = "legacy-role", ClaimType = "Permission", ClaimValue = "CanSubmitFeedback" },
+            new IdentityRoleClaim<string> { RoleId = "legacy-role", ClaimType = "Permission", ClaimValue = "CanManageFeedback" },
+            new IdentityRoleClaim<string> { RoleId = "another-role", ClaimType = "Permission", ClaimValue = "CanSubmitFeedback" },
+            new IdentityRoleClaim<string> { RoleId = "another-role", ClaimType = "Permission", ClaimValue = "CanManageFeedback" },
+            new IdentityRoleClaim<string> { RoleId = "legacy-role", ClaimType = "Permission", ClaimValue = "RetainedPermission" },
+            new IdentityRoleClaim<string> { RoleId = "legacy-role", ClaimType = "Other", ClaimValue = "CanSubmitFeedback" });
+        await context.SaveChangesAsync();
+
+        var now = DateTime.UtcNow;
+        await context.Database.ExecuteSqlInterpolatedAsync($"""
+            INSERT INTO SignalQuestions (Id, Title, Type, CreationTime)
+            VALUES (1, 'Legacy question', 2, {now});
+            INSERT INTO SignalQuestionnaires (Id, Title, IsActive, CreationTime)
+            VALUES (1, 'Legacy questionnaire', 1, {now});
+            INSERT INTO SignalQuestionnaireQuestions (Id, QuestionnaireId, QuestionId, "Order")
+            VALUES (1, 1, 1, 0);
+            INSERT INTO SignalResponses (Id, QuestionnaireId, UserId, SubmitTime)
+            VALUES (1, 1, {user.Id}, {now});
+            INSERT INTO SignalQuestionResponses (Id, SignalResponseId, QuestionId, Answer)
+            VALUES (1, 1, 1, 'Legacy answer');
+            """);
+
+        string[] removedTables =
+        [
+            "SignalQuestionResponses", "SignalQuestionnaireQuestions", "SignalResponses", "SignalQuestions",
+            "SignalQuestionnaires"
+        ];
+        foreach (var table in removedTables)
+        {
+            Assert.AreEqual(1, await context.Database.SqlQuery<int>($"""
+                SELECT COUNT(*) AS Value FROM sqlite_master WHERE type = 'table' AND name = {table}
+                """).SingleAsync());
+        }
+
+        context.ChangeTracker.Clear();
+        await migrator.MigrateAsync();
+        Assert.IsFalse(context.Database.HasPendingModelChanges());
+        foreach (var table in removedTables)
+        {
+            Assert.AreEqual(0, await context.Database.SqlQuery<int>($"""
+                SELECT COUNT(*) AS Value FROM sqlite_master WHERE type = 'table' AND name = {table}
+                """).SingleAsync(), $"{table} must be removed.");
+        }
+        Assert.AreEqual(user.Id, (await context.Users.SingleAsync()).Id);
+        Assert.AreEqual(2, await context.Roles.CountAsync());
+        Assert.AreEqual(2, await context.RoleClaims.CountAsync());
+        Assert.IsTrue(await context.RoleClaims.AnyAsync(claim =>
+            claim.ClaimType == "Permission" && claim.ClaimValue == "RetainedPermission"));
+        Assert.IsTrue(await context.RoleClaims.AnyAsync(claim =>
+            claim.ClaimType == "Other" && claim.ClaimValue == "CanSubmitFeedback"));
+
+        await migrator.MigrateAsync(previousMigration);
+        foreach (var table in removedTables)
+        {
+            using var command = connection.CreateCommand();
+            command.CommandText = $"SELECT COUNT(*) FROM \"{table}\"";
+            Assert.AreEqual(0L, await command.ExecuteScalarAsync(), $"Rollback must recreate {table} without its deleted data.");
+            var expectedForeignKeys = table is "SignalQuestions" or "SignalQuestionnaires" ? 0 : 2;
+            Assert.AreEqual(expectedForeignKeys, await context.Database.SqlQuery<int>($"""
+                SELECT COUNT(*) AS Value FROM pragma_foreign_key_list({table})
+                """).SingleAsync());
+            Assert.AreEqual(expectedForeignKeys, await context.Database.SqlQuery<int>($"""
+                SELECT COUNT(*) AS Value FROM sqlite_master WHERE type = 'index' AND tbl_name = {table}
+                """).SingleAsync());
+        }
+        Assert.AreEqual(2, await context.RoleClaims.CountAsync());
+        await migrator.MigrateAsync();
+    }
+
+    [TestMethod]
     public void TestSqliteMigrations()
     {
         var options = new DbContextOptionsBuilder<SqliteContext>()

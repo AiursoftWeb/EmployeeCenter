@@ -113,9 +113,6 @@ public class ViewModelArgsInjector(
 
         _ = localizer["Promotion History"];
 
-        _ = localizer["Employee Signals"];
-        _ = localizer["Manage Feedback"];
-
         _ = localizer["Manage Ledger"];
 
         _ = localizer["Blueprints"];
@@ -164,8 +161,6 @@ public class ViewModelArgsInjector(
         _ = localizer["Create Onboarding Task"];
         _ = localizer["Create Password"];
         _ = localizer["Create Promotion"];
-        _ = localizer["Create Question"];
-        _ = localizer["Create Questionnaire"];
         _ = localizer["Dashboard"];
         _ = localizer["Edit Blueprint"];
         _ = localizer["Edit Company Entity"];
@@ -175,7 +170,6 @@ public class ViewModelArgsInjector(
         _ = localizer["Edit Payroll"];
         _ = localizer["Edit SSH Key"];
         _ = localizer["Edit Weekly Report"];
-        _ = localizer["Fill Questionnaire"];
         _ = localizer["Internal Server Error"];
         _ = localizer["Issue Payroll"];
         _ = localizer["Lockout"];
@@ -183,15 +177,12 @@ public class ViewModelArgsInjector(
         _ = localizer["Manage Onboarding Tasks"];
         _ = localizer["Manage Password Shares"];
         _ = localizer["Manage Printing"];
-        _ = localizer["Manage Questions"];
         _ = localizer["Not Found"];
         _ = localizer["Password Details"];
         _ = localizer["Passwords Management"];
         _ = localizer["Payroll Details"];
         _ = localizer["Permission Details"];
-        _ = localizer["Questionnaire Responses"];
         _ = localizer["Register"];
-        _ = localizer["Response Detail"];
         _ = localizer["SSH Keys"];
 
         _ = localizer["Issue Invoice"];
@@ -247,8 +238,6 @@ public class ViewModelArgsInjector(
         _ = localizer["Edit"];
         _ = localizer["Edit Account"];
         _ = localizer["Edit Asset"];
-        _ = localizer["Edit Question"];
-        _ = localizer["Edit Questionnaire"];
         _ = localizer["Edit Server"];
         _ = localizer["Edit Service"];
         _ = localizer["Edit Transaction"];

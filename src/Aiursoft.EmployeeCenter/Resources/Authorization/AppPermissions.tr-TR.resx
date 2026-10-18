@@ -57,9 +57,6 @@
   <data name="Allows creating new global passwords that can be shared with others." xml:space="preserve">
     <value>Yeni başkalarıyla paylaşılabilen genel şifreler oluşturmayı izin verir.</value>
   </data>
-  <data name="Allows creating questions, questionnaires, and viewing feedback responses." xml:space="preserve">
-    <value>Soru ve anket oluşturma ile geri bildirim yanıtlarını görüntüleme izni verir.</value>
-  </data>
   <data name="Allows creating, editing, and deleting weekly reports on behalf of any other user." xml:space="preserve">
     <value>Herhangi bir kullanıcı adına haftalık raporların oluşturulmasına, düzenlenmesine ve silinmesine izin verir.</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="Allows the user to create weekly reports on behalf of any other user." xml:space="preserve">
     <value>Kullanıcıya herhangi bir başka kullanıcının adına haftalık raporlar oluşturabilme izni verir.</value>
-  </data>
-  <data name="Allows the user to fill out and submit feedback questionnaires." xml:space="preserve">
-    <value>Kullanıcının geri bildirim anketlerini doldurmasına ve göndermesine izin verir.</value>
   </data>
   <data name="Allows the user to submit reimbursement requests for their expenses." xml:space="preserve">
     <value>Kullanıcının giderleri için geri ödeme taleplerini sunmasına olanak tanır.</value>
@@ -300,9 +294,6 @@
   <data name="Manage Customer Relationships" xml:space="preserve">
     <value>Müşteri İlişkilerini Yönet</value>
   </data>
-  <data name="Manage Feedback" xml:space="preserve">
-    <value>Geribildirimleri Yönet</value>
-  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Genel Ayarları Yönet</value>
   </data>
@@ -356,9 +347,6 @@
   </data>
   <data name="Run Service Audit" xml:space="preserve">
     <value>Hizmet Denetimini Çalıştır</value>
-  </data>
-  <data name="Submit Feedback" xml:space="preserve">
-    <value>Geri Bildirim Gönder</value>
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Tazminat Talep Et</value>
