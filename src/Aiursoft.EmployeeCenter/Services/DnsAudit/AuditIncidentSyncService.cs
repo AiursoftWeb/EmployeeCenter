@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 namespace Aiursoft.EmployeeCenter.Services.DnsAudit;
 
 public sealed class AuditIncidentSyncService(
-    IAuditIncidentClient client, AlertCenterSettings settings, ILogger<AuditIncidentSyncService> logger)
+    IAuditIncidentClient client, IAlertCenterSettingsProvider settingsProvider, ILogger<AuditIncidentSyncService> logger)
 {
     private const string Source = "EmployeeCenter.ServiceAudit";
 
@@ -17,6 +17,10 @@ public sealed class AuditIncidentSyncService(
     {
         try
         {
+            var settings = await settingsProvider.GetAsync();
+            if (!settings.Enabled) return true;
+            settings.Validate();
+
             // Finish all reads before mutations: active-only pagination shrinks when incidents close.
             var active = await LoadActiveAsync();
             var owned = active.Select(incident => (Incident: incident, Identity: ReadIdentity(incident.Context)))

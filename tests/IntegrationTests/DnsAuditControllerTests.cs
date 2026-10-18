@@ -13,6 +13,14 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class DnsAuditControllerTests : TestBase
 {
+    private sealed class TestAlertCenterSettingsProvider : IAlertCenterSettingsProvider
+    {
+        public Task<AlertCenterSettings> GetAsync() => Task.FromResult(new AlertCenterSettings
+        {
+            Enabled = true, ApiKey = "test-key"
+        });
+    }
+
     [TestMethod]
     [DataRow(true)]
     [DataRow(false)]
@@ -24,7 +32,7 @@ public class DnsAuditControllerTests : TestBase
         var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
         await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "audit-test-token");
         var client = new UnavailableIncidentClient();
-        var sync = new AuditIncidentSyncService(client, new AlertCenterSettings(), NullLogger<AuditIncidentSyncService>.Instance);
+        var sync = new AuditIncidentSyncService(client, new TestAlertCenterSettingsProvider(), NullLogger<AuditIncidentSyncService>.Instance);
         var cache = new DnsAuditSnapshotCache();
         var job = new DnsAuditJob(
             new CloudflareDnsAuditService(db, settings, new AuditHttpFactory(auditSucceeds), NullLogger<CloudflareDnsAuditService>.Instance),

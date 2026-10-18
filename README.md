@@ -77,9 +77,12 @@ The docker image has the following context:
 ## Service audit incidents
 
 The existing scheduled and manual service audit can synchronize its findings with AlertCenter
-using SDK 10.2.0. Configure a dedicated AlertCenter application and its on-call routing, then set
-`AlertCenter__Enabled=true`, `AlertCenter__Endpoint`, `AlertCenter__ApiKey`, and
-`AlertCenter__PublicBaseUrl` (this EmployeeCenter instance's public base URL). Keep the key in
+using SDK 10.2.0. Settings are available under System → Global Settings; environment overrides
+lock the corresponding fields. Each audit uses a fresh scoped configuration snapshot.
+Configure a dedicated AlertCenter application and its on-call routing, then set
+`GlobalSettings__AlertCenter_Enabled=true`, `GlobalSettings__AlertCenter_Endpoint`,
+`GlobalSettings__AlertCenter_ApiKey`, and `GlobalSettings__AlertCenter_PublicBaseUrl`
+(this EmployeeCenter instance's public base URL). Keep the key in
 private deployment configuration. Synchronization is disabled by default; an enabled integration
 requires a valid API key and an AlertCenter deployment that supports queries and resolution.
 

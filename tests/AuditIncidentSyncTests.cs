@@ -31,7 +31,29 @@ public class AuditIncidentSyncTests
     };
 
     private static AuditIncidentSyncService Synchronizer(FakeClient client) =>
-        new(client, new AlertCenterSettings(), NullLogger<AuditIncidentSyncService>.Instance);
+        new(client, new TestAlertCenterSettingsProvider(), NullLogger<AuditIncidentSyncService>.Instance);
+
+    private sealed class TestAlertCenterSettingsProvider(bool enabled = true, string key = "test-key") : IAlertCenterSettingsProvider
+    {
+        public Task<AlertCenterSettings> GetAsync() => Task.FromResult(new AlertCenterSettings
+        {
+            Enabled = enabled, ApiKey = key
+        });
+    }
+
+    [TestMethod]
+    [DataRow(false, "", true)]
+    [DataRow(true, "", false)]
+    public async Task DisabledOrIncompleteSettingsDoNotCreateIncidents(bool enabled, string key, bool success)
+    {
+        var client = new FakeClient();
+        var sync = new AuditIncidentSyncService(client, new TestAlertCenterSettingsProvider(enabled, key),
+            NullLogger<AuditIncidentSyncService>.Instance);
+        Assert.AreEqual(success, await sync.SynchronizeAsync(1, Report([Issue()], Evidence(false))));
+        Assert.HasCount(0, client.QueriedPages);
+        Assert.HasCount(0, client.Created);
+        Assert.HasCount(0, client.Resolved);
+    }
 
     [TestMethod]
     public async Task ReconcilesUnchangedManuallyClosedRecoveredAndRecurringIssues()

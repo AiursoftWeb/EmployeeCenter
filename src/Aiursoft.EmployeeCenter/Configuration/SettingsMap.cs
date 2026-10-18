@@ -13,6 +13,10 @@ public class SettingsMap
     public const string AnnualLeavePerYear = "Annual_Leave_Per_Year";
     public const string DefaultPayrollCurrency = "Default_Payroll_Currency";
     public const string ForceProjectAssociation = "Force_Project_Association";
+    public const string AlertCenterEnabled = "AlertCenter_Enabled";
+    public const string AlertCenterEndpoint = "AlertCenter_Endpoint";
+    public const string AlertCenterApiKey = "AlertCenter_ApiKey";
+    public const string AlertCenterPublicBaseUrl = "AlertCenter_PublicBaseUrl";
     public const string CloudflareApiToken = "Cloudflare_API_Token";
     public const string AiAssistantSystemPrompt = "Ai_Assistant_System_Prompt";
     public const string MeetingMinutesSystemPrompt = "Meeting_Minutes_System_Prompt";
@@ -26,6 +30,39 @@ public class SettingsMap
 
     public static readonly List<GlobalSettingDefinition> Definitions = new()
     {
+        new GlobalSettingDefinition
+        {
+            Key = AlertCenterEnabled,
+            Name = Localizer["Enable AlertCenter synchronization"],
+            Description = Localizer["Synchronize service audit findings with AlertCenter."],
+            Type = SettingType.Bool,
+            DefaultValue = "False"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = AlertCenterEndpoint,
+            Name = Localizer["AlertCenter endpoint"],
+            Description = Localizer["The HTTP(S) base URL of AlertCenter."],
+            Type = SettingType.Text,
+            DefaultValue = "https://alertcenter.aiursoft.com"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = AlertCenterApiKey,
+            Name = Localizer["AlertCenter API key"],
+            Description = Localizer["An application API key with query, create, and resolve permissions."],
+            Type = SettingType.Secret,
+            DefaultValue = ""
+        },
+        new GlobalSettingDefinition
+        {
+            Key = AlertCenterPublicBaseUrl,
+            Name = Localizer["Service audit public base URL"],
+            Description = Localizer["The public base URL of this EmployeeCenter instance, used in incident links."],
+            Type = SettingType.Text,
+            DefaultValue = "https://employee.aiursoft.com"
+        },
+
         new GlobalSettingDefinition
         {
             Key = ProjectName,
