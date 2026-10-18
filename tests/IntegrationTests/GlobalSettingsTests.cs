@@ -35,7 +35,7 @@ public class GlobalSettingsTests : TestBase
         Assert.DoesNotContain("rotated-test-secret", html);
         Assert.DoesNotContain("database-test-secret", html);
 
-        var configuration = scope.ServiceProvider.GetRequiredService<Microsoft.Extensions.Configuration.IConfiguration>();
+        var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
         var key = $"GlobalSettings:{SettingsMap.AlertCenterEndpoint}";
         var original = configuration[key];
         try
