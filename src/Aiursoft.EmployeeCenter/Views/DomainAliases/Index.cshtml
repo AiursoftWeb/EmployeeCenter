@@ -1,3 +1,4 @@
+@using Aiursoft.WebTools
 @model Aiursoft.EmployeeCenter.Models.DnsAuditViewModels.DomainAliasIndexViewModel
 @using Aiursoft.EmployeeCenter.Authorization
 @inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
@@ -62,7 +63,7 @@
                     @if (Model.CanViewAudit && Model.LastSuccessfulAuditAt.HasValue)
                     {
                         <div class="small text-uppercase opacity-75">@Localizer["Last successful audit"]</div>
-                        <div class="h5 mb-0">@Model.LastSuccessfulAuditAt.Value.ToString("u")</div>
+                        <div class="h5 mb-0"><span data-utc-time="@Model.LastSuccessfulAuditAt.Value.ToHtmlDateTime()"></span></div>
                     }
                     else if (Model.CanViewAudit)
                     {
@@ -196,7 +197,7 @@
                                 <span class="badge badge-subtle-success"><i class="align-middle me-1" data-lucide="circle-check"></i>@Localizer["Healthy"]</span>
                             }
                         </td>
-                        <td>@alias.UpdatedAt.ToString("u")</td>
+                        <td><span data-utc-time="@alias.UpdatedAt.ToHtmlDateTime()"></span></td>
                         <td class="text-end text-nowrap">
                             @if (canManage)
                             {

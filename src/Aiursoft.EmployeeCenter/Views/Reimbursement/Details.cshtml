@@ -1,3 +1,4 @@
+@using Aiursoft.WebTools
 @model Aiursoft.EmployeeCenter.Models.ReimbursementViewModels.DetailsViewModel
 @{
     var reimbursement = Model.Reimbursement;
@@ -38,7 +39,7 @@
                             </div>
                             <div class="datagrid-item">
                                 <div class="datagrid-title">@Localizer["Submitted At"]</div>
-                                <div class="datagrid-content">@reimbursement.SubmittedAt.ToString("g")</div>
+                                <div class="datagrid-content"><span data-utc-time="@reimbursement.SubmittedAt.ToHtmlDateTime()"></span></div>
                             </div>
                             <div class="datagrid-item">
                                 <div class="datagrid-title">@Localizer["Expense Time"]</div>
@@ -115,7 +116,7 @@
                                 </div>
                                 <div class="datagrid-item">
                                     <div class="datagrid-title">@Localizer["Reviewed At"]</div>
-                                    <div class="datagrid-content">@reimbursement.ReviewedAt?.ToString("g")</div>
+                                    <div class="datagrid-content"><span data-utc-time="@reimbursement.ReviewedAt?.ToHtmlDateTime()"></span></div>
                                 </div>
                             </div>
                             @if (!string.IsNullOrEmpty(reimbursement.Comment))

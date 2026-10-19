@@ -1,3 +1,4 @@
+@using Aiursoft.WebTools
 @model Aiursoft.EmployeeCenter.Models.LedgerViewModels.TransactionsViewModel
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
 @{
@@ -38,7 +39,7 @@
                         @foreach (var t in Model.Transactions)
                         {
                             <tr>
-                                <td>@t.TransactionTime.ToString("yyyy-MM-dd HH:mm")</td>
+                                <td data-order="@t.TransactionTime.Ticks"><span data-utc-time="@t.TransactionTime.ToHtmlDateTime()"></span></td>
                                 <td>@t.Description</td>
                                 <td>@t.SourceAccount?.AccountName</td>
                                 <td>@t.DestinationAccount?.AccountName</td>
