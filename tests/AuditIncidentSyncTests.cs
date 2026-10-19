@@ -42,6 +42,37 @@ public class AuditIncidentSyncTests
     }
 
     [TestMethod]
+    [DataRow(DnsAuditIssueType.ServiceUnavailable, "public endpoint")]
+    [DataRow(DnsAuditIssueType.MissingDns, "authoritative DNS")]
+    [DataRow(DnsAuditIssueType.ProxyStatusMismatch, "Cloudflare")]
+    public async Task DescriptionExplainsEvidenceActionAndRecovery(DnsAuditIssueType type, string expectedAction)
+    {
+        var client = new FakeClient();
+        await Synchronizer(client).SynchronizeAsync(42, Report([Issue(type: type)]));
+        var content = client.Created.Single().Content!;
+        Assert.Contains("payment.example.com", content);
+        Assert.Contains("Probe evidence.", content);
+        Assert.Contains("audit run: 42", content);
+        Assert.Contains(expectedAction, content);
+        Assert.Contains("automatically resolves", content);
+        Assert.Contains("/ServiceAudit", content);
+    }
+
+    [TestMethod]
+    public async Task LongEvidencePreservesOperatorInstructionsAndAuditLink()
+    {
+        var client = new FakeClient();
+        var issue = new DnsAuditIssue { Type = DnsAuditIssueType.MissingDns, Severity = DnsAuditSeverity.Critical,
+            Domain = "payment.example.com", Details = new string('x', 6000) };
+        await Synchronizer(client).SynchronizeAsync(42, Report([issue]));
+        var content = client.Created.Single().Content!;
+        Assert.IsTrue(content.Length <= 4000);
+        Assert.Contains("Next steps:", content);
+        Assert.EndsWith("/ServiceAudit", content);
+        Assert.AreEqual(issue.Details, client.Created.Single().Context!["evidence"]!["details"]!.Value<string>());
+    }
+
+    [TestMethod]
     [DataRow(false, "", true)]
     [DataRow(true, "", false)]
     public async Task DisabledOrIncompleteSettingsDoNotCreateIncidents(bool enabled, string key, bool success)
