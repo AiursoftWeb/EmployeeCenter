@@ -68,12 +68,12 @@ public sealed class AuditIncidentSyncService(
             foreach (var (identity, incidents) in owned)
             {
                 var stillPresent = current.ContainsKey(identity);
-                if (!stillPresent && !CanResolve(identity, report)) continue;
+                if (!stillPresent && !CanMitigate(identity, report)) continue;
                 foreach (var incident in stillPresent ? incidents.Skip(1) : incidents)
                 {
                     try
                     {
-                        await client.ResolveAsync(incident.IncidentId, new ResolveIncidentRequest
+                        await client.MitigateAsync(incident.IncidentId, new MitigateIncidentRequest
                         {
                             Version = incident.Version,
                             Reason = stillPresent
@@ -85,7 +85,7 @@ public sealed class AuditIncidentSyncService(
                     {
                         // In particular, a version conflict is left for fresh audit evidence and a fresh query.
                         success = false;
-                        logger.LogError(ex, "Could not resolve audit incident {IncidentId} in run {RunId}", incident.IncidentId, runId);
+                        logger.LogError(ex, "Could not mitigate audit incident {IncidentId} in run {RunId}", incident.IncidentId, runId);
                     }
                 }
             }
@@ -122,7 +122,7 @@ public sealed class AuditIncidentSyncService(
             $"Observed (UTC): {observedAt:O}; audit run: {runId}.\n\nEvidence: ";
         var footer = $"\n\nNext steps: {nextSteps}\n" +
             "After correcting the issue, run Audit now in Employee Center. A successful audit with sufficient recovery evidence " +
-            "automatically resolves this incident when the check is healthy or the registered target no longer applies. " +
+            "automatically mitigates this incident when the check is healthy or the registered target no longer applies. " +
             "Closing it manually while the issue persists causes a new incident at the next audit.\n" +
             $"Audit and service details: {settings.PublicBaseUrl.TrimEnd('/')}/ServiceAudit";
         var budget = Math.Max(0, 4000 - header.Length - footer.Length);
@@ -168,7 +168,7 @@ public sealed class AuditIncidentSyncService(
         catch (OverflowException) { return null; }
     }
 
-    private static bool CanResolve(Identity identity, DnsAuditReport report)
+    private static bool CanMitigate(Identity identity, DnsAuditReport report)
     {
         var input = report.RecoveryEvidence;
         if (input == null) return false;

@@ -50,7 +50,7 @@ public class SettingsMap
         {
             Key = AlertCenterApiKey,
             Name = Localizer["AlertCenter API key"],
-            Description = Localizer["An application API key with query, create, and resolve permissions."],
+            Description = Localizer["An application API key with query, create, and mitigate permissions."],
             Type = SettingType.Secret,
             DefaultValue = ""
         },

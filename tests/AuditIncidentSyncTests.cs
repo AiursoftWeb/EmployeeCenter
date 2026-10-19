@@ -54,7 +54,7 @@ public class AuditIncidentSyncTests
         Assert.Contains("Probe evidence.", content);
         Assert.Contains("audit run: 42", content);
         Assert.Contains(expectedAction, content);
-        Assert.Contains("automatically resolves", content);
+        Assert.Contains("automatically mitigates", content);
         Assert.Contains("/ServiceAudit", content);
     }
 
@@ -83,11 +83,13 @@ public class AuditIncidentSyncTests
         Assert.AreEqual(success, await sync.SynchronizeAsync(1, Report([Issue()], Evidence(false))));
         Assert.HasCount(0, client.QueriedPages);
         Assert.HasCount(0, client.Created);
-        Assert.HasCount(0, client.Resolved);
+        Assert.HasCount(0, client.Mitigated);
     }
 
     [TestMethod]
-    public async Task ReconcilesUnchangedManuallyClosedRecoveredAndRecurringIssues()
+    [DataRow("mitigated")]
+    [DataRow("resolved")]
+    public async Task ReconcilesUnchangedManuallyClosedRecoveredAndRecurringIssues(string inactiveStatus)
     {
         var client = new FakeClient();
         var sync = Synchronizer(client);
@@ -96,14 +98,14 @@ public class AuditIncidentSyncTests
         var first = client.Incidents.Single();
         Assert.IsTrue(await sync.SynchronizeAsync(2, Report([issue], Evidence(false))));
         Assert.HasCount(1, client.Created);
-        first.Status = "resolved";
+        first.Status = inactiveStatus;
         Assert.IsTrue(await sync.SynchronizeAsync(3, Report([issue], Evidence(false))));
         Assert.HasCount(2, client.Created);
         Assert.AreNotEqual(client.Created[0].ReportId, client.Created[1].ReportId);
         Assert.IsTrue(await sync.SynchronizeAsync(4, Report([], Evidence())));
-        Assert.AreEqual("resolved", client.Incidents[1].Status);
-        Assert.HasCount(1, client.Resolved);
-        Assert.Contains("Audit run 4", client.Resolved[0].Request.Reason);
+        Assert.AreEqual("mitigated", client.Incidents[1].Status);
+        Assert.HasCount(1, client.Mitigated);
+        Assert.Contains("Audit run 4", client.Mitigated[0].Request.Reason);
         Assert.IsTrue(await sync.SynchronizeAsync(5, Report([issue], Evidence(false))));
         Assert.HasCount(3, client.Created);
     }
@@ -146,13 +148,13 @@ public class AuditIncidentSyncTests
     [DataRow(false, false, false)]
     [DataRow(true, false, true)]
     [DataRow(null, true, true)]
-    public async Task ClosesOnlyConfirmedRecoveryOrRetiredTargets(bool? healthy, bool retired, bool shouldResolve)
+    public async Task ClosesOnlyConfirmedRecoveryOrRetiredTargets(bool? healthy, bool retired, bool shouldMitigate)
     {
         var client = new FakeClient();
         var sync = Synchronizer(client);
         await sync.SynchronizeAsync(1, Report([Issue()]));
         Assert.IsTrue(await sync.SynchronizeAsync(2, Report([], Evidence(healthy, retired))));
-        Assert.AreEqual(shouldResolve ? 1 : 0, client.Resolved.Count);
+        Assert.AreEqual(shouldMitigate ? 1 : 0, client.Mitigated.Count);
     }
 
     [TestMethod]
@@ -160,17 +162,17 @@ public class AuditIncidentSyncTests
     [DataRow(DnsAuditIssueType.ManagedDnsOutsideRecordApi)]
     [DataRow(DnsAuditIssueType.PublicDnsLookupFailed)]
     [DataRow(DnsAuditIssueType.ServiceOutsideAuditedZone)]
-    public async Task IncompleteDnsEvidenceCannotResolveAnEarlierMismatch(DnsAuditIssueType uncertainty)
+    public async Task IncompleteDnsEvidenceCannotMitigateAnEarlierMismatch(DnsAuditIssueType uncertainty)
     {
         var client = new FakeClient();
         var sync = Synchronizer(client);
         await sync.SynchronizeAsync(1, Report([Issue(type: DnsAuditIssueType.ServerAssignmentMismatch)]));
         await sync.SynchronizeAsync(2, Report([Issue(DnsAuditSeverity.Info, uncertainty)], Evidence()));
-        Assert.IsEmpty(client.Resolved);
+        Assert.IsEmpty(client.Mitigated);
         await sync.SynchronizeAsync(3, Report([], Evidence(zones: [])));
-        Assert.IsEmpty(client.Resolved);
+        Assert.IsEmpty(client.Mitigated);
         await sync.SynchronizeAsync(4, Report([], Evidence()));
-        Assert.HasCount(1, client.Resolved);
+        Assert.HasCount(1, client.Mitigated);
     }
 
     [TestMethod]
@@ -182,9 +184,9 @@ public class AuditIncidentSyncTests
         client.Incidents.Add(new IncidentDetails { IncidentId = Guid.NewGuid(), Status = "new", Context = new JObject { ["source"] = "Another task" } });
         client.Incidents.Add(new IncidentDetails { IncidentId = Guid.NewGuid(), Status = "new", Context = new JObject { ["source"] = new JObject() } });
         await sync.SynchronizeAsync(2, Report([]));
-        Assert.IsEmpty(client.Resolved);
+        Assert.IsEmpty(client.Mitigated);
         await sync.SynchronizeAsync(3, Report([], Evidence()));
-        Assert.HasCount(1, client.Resolved);
+        Assert.HasCount(1, client.Mitigated);
         Assert.AreEqual(2, client.Incidents.Count(item => item.Status == "new"));
     }
 
@@ -204,15 +206,15 @@ public class AuditIncidentSyncTests
         client.QueriedPages.Clear();
         client.FailPage = 2;
         Assert.IsFalse(await sync.SynchronizeAsync(2, Report([Issue()])));
-        Assert.IsEmpty(client.Resolved);
+        Assert.IsEmpty(client.Mitigated);
         client.FailPage = 0;
         client.QueriedPages.Clear();
         await sync.SynchronizeAsync(2, Report([Issue()]));
         CollectionAssert.AreEqual(new[] { 1, 2 }, client.QueriedPages);
-        Assert.AreEqual(100, client.Resolved.Count);
-        Assert.IsTrue(client.Resolved.All(item => item.Request.Reason.Contains("duplicate")));
+        Assert.AreEqual(100, client.Mitigated.Count);
+        Assert.IsTrue(client.Mitigated.All(item => item.Request.Reason.Contains("duplicate")));
         Assert.AreEqual("new", original.Status);
-        Assert.AreEqual(1, client.Incidents.Count(item => item.Status != "resolved"));
+        Assert.AreEqual(1, client.Incidents.Count(item => item.Status is not ("mitigated" or "resolved")));
     }
 
     [TestMethod]
@@ -223,12 +225,12 @@ public class AuditIncidentSyncTests
         await sync.SynchronizeAsync(1, Report([Issue()]));
         client.FailQueries = true;
         Assert.IsFalse(await sync.SynchronizeAsync(2, Report([], Evidence())));
-        Assert.IsEmpty(client.Resolved);
+        Assert.IsEmpty(client.Mitigated);
         client.FailQueries = false;
-        client.FailResolves = true;
+        client.FailMitigates = true;
         Assert.IsFalse(await sync.SynchronizeAsync(3, Report([], Evidence())));
         Assert.AreEqual("new", client.Incidents.Single().Status);
-        Assert.HasCount(1, client.Resolved);
+        Assert.HasCount(1, client.Mitigated);
     }
 
     [TestMethod]
@@ -253,25 +255,25 @@ public class AuditIncidentSyncTests
             }
         };
         await sync.SynchronizeAsync(2, Report([], evidence));
-        Assert.AreEqual(matches ? 1 : 0, client.Resolved.Count);
+        Assert.AreEqual(matches ? 1 : 0, client.Mitigated.Count);
     }
 
     private sealed class FakeClient : IAuditIncidentClient
     {
         public List<IncidentDetails> Incidents { get; } = [];
         public List<CreateIncidentRequest> Created { get; } = [];
-        public List<(Guid Id, ResolveIncidentRequest Request)> Resolved { get; } = [];
+        public List<(Guid Id, MitigateIncidentRequest Request)> Mitigated { get; } = [];
         public List<int> QueriedPages { get; } = [];
         public int FailPage { get; set; }
         public bool FailQueries { get; set; }
         public bool FailCreates { get; set; }
-        public bool FailResolves { get; set; }
+        public bool FailMitigates { get; set; }
         public Task<QueryIncidentsResponse> QueryAsync(QueryIncidentsRequest request)
         {
             if (FailQueries || request.Page == FailPage) throw new HttpRequestException("Query unavailable");
             QueriedPages.Add(request.Page);
             Assert.IsTrue(request.ActiveOnly);
-            var active = Incidents.Where(item => item.Status != "resolved").ToList();
+            var active = Incidents.Where(item => item.Status is not ("mitigated" or "resolved")).ToList();
             return Task.FromResult(new QueryIncidentsResponse
             {
                 Code = Code.JobDone, Page = request.Page, PageSize = request.PageSize, TotalCount = active.Count,
@@ -290,14 +292,14 @@ public class AuditIncidentSyncTests
             Incidents.Add(incident);
             return Task.FromResult(new CreateIncidentResponse { Code = Code.JobDone, IncidentId = incident.IncidentId });
         }
-        public Task<ResolveIncidentResponse> ResolveAsync(Guid incidentId, ResolveIncidentRequest request)
+        public Task<MitigateIncidentResponse> MitigateAsync(Guid incidentId, MitigateIncidentRequest request)
         {
-            Resolved.Add((incidentId, request));
-            if (FailResolves) throw new InvalidOperationException("Version conflict");
+            Mitigated.Add((incidentId, request));
+            if (FailMitigates) throw new InvalidOperationException("Version conflict");
             var incident = Incidents.Single(item => item.IncidentId == incidentId);
             Assert.AreEqual(incident.Version, request.Version);
-            incident.Status = "resolved";
-            return Task.FromResult(new ResolveIncidentResponse { Code = Code.JobDone, IncidentId = incidentId });
+            incident.Status = "mitigated";
+            return Task.FromResult(new MitigateIncidentResponse { Code = Code.JobDone, IncidentId = incidentId });
         }
     }
 }
