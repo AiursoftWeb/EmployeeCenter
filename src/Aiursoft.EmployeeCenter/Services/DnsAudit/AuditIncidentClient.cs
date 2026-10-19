@@ -10,7 +10,7 @@ public interface IAuditIncidentClient
 {
     Task<QueryIncidentsResponse> QueryAsync(QueryIncidentsRequest request);
     Task<CreateIncidentResponse> CreateAsync(CreateIncidentRequest request);
-    Task<ResolveIncidentResponse> ResolveAsync(Guid incidentId, ResolveIncidentRequest request);
+    Task<MitigateIncidentResponse> MitigateAsync(Guid incidentId, MitigateIncidentRequest request);
 }
 
 public sealed class AuditIncidentClient(AiurProtocolClient http, IAlertCenterSettingsProvider settingsProvider) : IAuditIncidentClient
@@ -33,8 +33,8 @@ public sealed class AuditIncidentClient(AiurProtocolClient http, IAlertCenterSet
         await (await GetClientAsync()).QueryIncidentsAsync(request);
     public async Task<CreateIncidentResponse> CreateAsync(CreateIncidentRequest request) =>
         await (await GetClientAsync()).CreateIncidentAsync(request);
-    public async Task<ResolveIncidentResponse> ResolveAsync(Guid incidentId, ResolveIncidentRequest request) =>
-        await (await GetClientAsync()).ResolveIncidentAsync(incidentId, request);
+    public async Task<MitigateIncidentResponse> MitigateAsync(Guid incidentId, MitigateIncidentRequest request) =>
+        await (await GetClientAsync()).MitigateIncidentAsync(incidentId, request);
 
     private sealed class SnapshotKeyProvider(string key) : IAlertCenterApiKeyProvider
     {

@@ -61,7 +61,7 @@ public class DnsAuditControllerTests : TestBase
             throw new HttpRequestException("AlertCenter is unavailable.");
         }
         public Task<CreateIncidentResponse> CreateAsync(CreateIncidentRequest request) => throw new AssertFailedException("No writes after a failed read.");
-        public Task<ResolveIncidentResponse> ResolveAsync(Guid incidentId, ResolveIncidentRequest request) => throw new AssertFailedException("No closures after a failed read.");
+        public Task<MitigateIncidentResponse> MitigateAsync(Guid incidentId, MitigateIncidentRequest request) => throw new AssertFailedException("No closures after a failed read.");
     }
 
     private sealed class AuditHttpFactory(bool succeeds) : IHttpClientFactory
