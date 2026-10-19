@@ -3,7 +3,7 @@
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
         <h3>@Localizer["OCR Results"] - @Model.Transaction.Description</h3>
-        <p class="text-muted">@Model.Transaction.TransactionTime.ToString("yyyy-MM-dd HH:mm")</p>
+        <p class="text-muted"><span data-utc-time="@Model.Transaction.TransactionTime.ToHtmlDateTime()"></span></p>
     </div>
 
     <div class="col-auto ms-auto mt-n1">

@@ -681,7 +681,7 @@
 
                 data.forEach(function (t) {
                     html += '<tr>';
-                    html += '<td>' + escapeHtml(t.TransactionTime) + '</td>';
+                    html += '<td data-order="' + escapeHtml(t.TransactionTime) + '">' + escapeHtml(new Date(t.TransactionTime.replace(' ', 'T') + 'Z').toLocaleString()) + '</td>';
                     html += '<td>' + escapeHtml(t.Description) + '</td>';
                     html += '<td>' + escapeHtml(t.SourceAccountName || '') + '</td>';
                     html += '<td>' + escapeHtml(t.DestinationAccountName || '') + '</td>';

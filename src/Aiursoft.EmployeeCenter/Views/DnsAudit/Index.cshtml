@@ -19,7 +19,7 @@
             <div><i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Automatically refreshed every 3 hours"]</div>
             @if (Model.LastSuccessfulAt.HasValue)
             {
-                <div>@Localizer["Last successful audit"] @Model.LastSuccessfulAt.Value.ToString("u")</div>
+                <div>@Localizer["Last successful audit"] <span data-utc-time="@Model.LastSuccessfulAt.Value.ToHtmlDateTime()"></span></div>
             }
         </div>
         <div class="btn-group">
@@ -169,7 +169,7 @@ else if (Model.Report != null)
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title mb-0">@Localizer["Findings"]</h5>
-                <small class="text-muted">@Localizer["Generated at"] @report.GeneratedAt.ToString("u")</small>
+                <small class="text-muted">@Localizer["Generated at"] <span data-utc-time="@report.GeneratedAt.ToHtmlDateTime()"></span></small>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover mb-0" id="dnsAuditTable">
@@ -258,8 +258,8 @@ else if (Model.Report != null)
                 @foreach (var run in Model.RecentRuns)
                 {
                     <tr>
-                        <td>@run.RequestedAt.ToString("u")</td>
-                        <td>@(run.CompletedAt?.ToString("u") ?? "-")</td>
+                        <td><span data-utc-time="@run.RequestedAt.ToHtmlDateTime()"></span></td>
+                        <td><span data-utc-time="@run.CompletedAt?.ToHtmlDateTime()">@(run.CompletedAt == null ? "-" : "")</span></td>
                         <td>@Localizer[run.Status.ToString()]</td>
                         <td>@run.AuditedHostnameCount</td>
                         <td>@(run.CriticalCount + run.ErrorCount + run.WarningCount + run.InfoCount)</td>

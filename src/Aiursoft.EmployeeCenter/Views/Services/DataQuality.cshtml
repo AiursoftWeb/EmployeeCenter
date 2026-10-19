@@ -3,7 +3,7 @@
 <div class="row mb-3 align-items-center">
     <div class="col">
         <h3 class="mb-1">@Localizer["Infrastructure data quality"]</h3>
-        <p class="text-muted mb-0">@Localizer["Read-only migration readiness report generated at {0}.", Model.GeneratedAt.ToString("u")]</p>
+        <p class="text-muted mb-0">@Localizer["Read-only migration readiness report generated at <span data-utc-time='{0}'></span>.", Model.GeneratedAt.ToHtmlDateTime()]</p>
     </div>
     <div class="col-auto">
         <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Back to dashboard"]</a>
