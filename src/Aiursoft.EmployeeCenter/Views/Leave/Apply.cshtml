@@ -203,10 +203,10 @@
             minInputDate.setDate(minInputDate.getDate() - 7); // 7 days back
             const maxInputDate = new Date(today.getFullYear(), 11, 31); // End of year
             
-            startDate.min = minInputDate.toISOString().split('T')[0];
-            startDate.max = maxInputDate.toISOString().split('T')[0];
-            endDate.min = minInputDate.toISOString().split('T')[0];
-            endDate.max = maxInputDate.toISOString().split('T')[0];
+            startDate.min = formatDate(minInputDate);
+            startDate.max = formatDate(maxInputDate);
+            endDate.min = formatDate(minInputDate);
+            endDate.max = formatDate(maxInputDate);
             
             // Month navigation
             prevMonthBtn.addEventListener("click", function() {
