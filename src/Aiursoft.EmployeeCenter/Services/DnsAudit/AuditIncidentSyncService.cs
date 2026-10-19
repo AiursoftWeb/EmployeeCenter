@@ -40,7 +40,7 @@ public sealed class AuditIncidentSyncService(
                     // The same persisted audit run and issue always reuse the same reporting receipt.
                     var reportId = new Guid(SHA256.HashData(Encoding.UTF8.GetBytes(FormattableString.Invariant($"{Source}:{runId}:{identity.Type}:{identity.Domain}:{identity.ServiceId}:{identity.DomainAliasId}")))[..16]);
                     var title = $"{issue.CheckName}: {identity.Domain}";
-                    var content = $"{issue.Details}\n\nAudit: {settings.PublicBaseUrl.TrimEnd('/')}/DnsAudit";
+                    var content = Describe(issue, runId, report.GeneratedAt, settings);
                     await client.CreateAsync(new CreateIncidentRequest
                     {
                         ReportId = reportId, Title = title.Length > 200 ? title[..200] : title,
@@ -99,6 +99,35 @@ public sealed class AuditIncidentSyncService(
             logger.LogError(ex, "AlertCenter synchronization failed for completed audit run {RunId}", runId);
             return false;
         }
+    }
+
+    private static string Describe(DnsAuditIssue issue, long runId, DateTime observedAt, AlertCenterSettings settings)
+    {
+        var nextSteps = issue.Type switch
+        {
+            DnsAuditIssueType.ServiceUnavailable => "Check the reported HTTP/DNS error, the service process, reverse proxy and origin connectivity. Verify the public endpoint before declaring recovery.",
+            DnsAuditIssueType.MissingDns => "Compare the running service registration with its authoritative DNS zone. Restore the intended DNS record, or correct the registration if the service has been retired.",
+            DnsAuditIssueType.ProxyStatusMismatch or DnsAuditIssueType.MixedProxyStatus => "Compare Cloudflare proxy settings with the intended service registration. Confirm whether this hostname should be proxied, then correct the mismatched record or registration.",
+            DnsAuditIssueType.DanglingCname => "Follow the CNAME chain and fix its missing target or cycle. Check that the final hostname resolves to the intended service.",
+            DnsAuditIssueType.AddressFamilyMismatch or DnsAuditIssueType.ServerAssignmentMismatch => "Compare the observed DNS addresses with the registered origin or FRP server. Correct the mismatched address or server assignment.",
+            DnsAuditIssueType.MissingServerAssignment or DnsAuditIssueType.MissingFrpsServerAssignment or DnsAuditIssueType.UnknownServer => "Identify the actual hosting and FRP servers, then correct their entries in the service registry.",
+            DnsAuditIssueType.OfflineServicePublished => "Confirm whether the service is retired or should still run. Reconcile its lifecycle registration and published DNS accordingly.",
+            DnsAuditIssueType.DomainAliasRedirectMismatch => "Check the alias configuration, HTTP response and redirect destination against the registered target.",
+            DnsAuditIssueType.DuplicateServiceRegistration => "Review the matching service records and reconcile duplicate registrations with the service owner.",
+            DnsAuditIssueType.UnknownDns or DnsAuditIssueType.WildcardDnsRecord => "Identify the DNS record owner and intended service. Reconcile the record with the service registry and DNS policy before changing it.",
+            _ => "Review the audit evidence and collection coverage, then compare DNS, the service registry and the actual endpoint. An incomplete lookup is not proof of recovery."
+        };
+        var header = $"Employee Center found {issue.CheckName} for {issue.Domain}.\n" +
+            $"Audit classification: {issue.Severity}. Critical maps to sev2, Error to sev3, and Warning to sev4.\n" +
+            $"Observed (UTC): {observedAt:O}; audit run: {runId}.\n\nEvidence: ";
+        var footer = $"\n\nNext steps: {nextSteps}\n" +
+            "After correcting the issue, run Audit now in Employee Center. A successful audit with sufficient recovery evidence " +
+            "automatically resolves this incident when the check is healthy or the registered target no longer applies. " +
+            "Closing it manually while the issue persists causes a new incident at the next audit.\n" +
+            $"Audit and service details: {settings.PublicBaseUrl.TrimEnd('/')}/ServiceAudit";
+        var budget = Math.Max(0, 4000 - header.Length - footer.Length);
+        var evidence = issue.Details.Length <= budget ? issue.Details : issue.Details[..Math.Max(0, budget - 3)] + "...";
+        return header + evidence + footer;
     }
 
     private async Task<List<IncidentDetails>> LoadActiveAsync()
