@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>AI Assistant System Prompt</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API-nøgle</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter-endpoint</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Tillad bruger at ændre apelation</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Tillad brugere at justere deres nickname på siden til profilhåndtering.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>En applikations-API-nøgle med tilladelser til at forespørge, oprette og afhjælpe.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Årlig ferie pr. år</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Standard lønvaluta</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Aktivér AlertCenter-synkronisering</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Tving projekttilknytning</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Kræv, at medarbejdere tilknytter mindst ét projekt, når de indsender en ugentlig rapport.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>Offentlig base-URL til serviceaudit</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Synkronisér serviceauditfund med AlertCenter.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Det brandnavn, der hører til virksomheden eller projektet. F.eks. Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>Den standardvaluta, der skal bruges, når der udstedes en ny løn.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>Den HTTP(S)-baserede URL for AlertCenter.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-licensnummeret for brugere i Kina. Lad stå tomt for at skjule.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>Antallet af betalte feriedage, der tildeles til hver ansat hvert år.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>Den offentlige basis-URL for denne EmployeeCenter-instans, som bruges i hændelseslinks.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Systempromptet for AI-assistenten.</value>

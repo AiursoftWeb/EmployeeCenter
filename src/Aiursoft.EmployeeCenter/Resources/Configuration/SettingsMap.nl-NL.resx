@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Systeemprompt AI-assistent</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API-sleutel</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter-eindpunt</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Gebruiker toestaan om bijnaam aan te passen</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Gebruikers toestaan hun bijnaam aan te passen op de pagina voor profielfuncties.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>Een applicatie-API-sleutel met rechten om gegevens op te vragen, aan te maken en te beperken.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Jaarlijkse verlofdagen per jaar</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Standaard loonvaluta</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Schakel synchronisatie van AlertCenter in</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Projectassociatie forceren</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Medewerkers verplichten om minstens één project te koppelen bij het indienen van een wekelijks verslag.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>Openbare basis-URL voor serviceaudit</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Synchroniseer bevindingen uit serviceaudits met AlertCenter.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>De merknaam van het bedrijf of project. Bijv. Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>De standaard valuta die gebruikt moet worden bij het uitgeven van een nieuwe loonstrook.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>De basis-URL van AlertCenter via HTTP(S).</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Het ICP-licentienummer voor gebruikers in het Chinese vasteland. Leeg laten om te verbergen.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>Het aantal betaalde verlofdagen dat elk medewerker per jaar wordt toegewezen.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>De openbare basis-URL van dit EmployeeCenter-exemplaar, gebruikt in incidentlinks.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>De systeemopdracht voor de AI-assistent.</value>

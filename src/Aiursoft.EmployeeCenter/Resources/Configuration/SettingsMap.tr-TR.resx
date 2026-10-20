@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Yapay Zeka Asistanı Sistem İstemi</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API anahtarı</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter uç noktası</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Kullanıcıların Takma Adlarını Ayarlamasına İzin Ver</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Kullanıcıların profil yönetimi sayfasında takma adlarını ayarlamasına izin verin.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>Sorgulama, oluşturma ve giderme izinlerine sahip bir uygulama API anahtarı.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Yıllık İzin Yılına Göre</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Varsayılan Ödeme Para Birimi</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>AlertCenter eşitlemesini etkinleştir</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Proje Bağlantısını Zorunlu Kıl</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Haftalık rapor gönderirken çalışanların en az bir projeyle ilişkilendirilmesini zorunlu kıl.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>Hizmet denetimi genel temel URL&apos;si</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Hizmet denetimi bulgularını AlertCenter ile senkronize edin.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Şirketin veya projenin marka adı. Örnek: Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>Yeni bir maaş listesi çıkartılırken kullanılacak varsayılan para birimi.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>AlertCenter&apos;ın HTTP(S) taban URL&apos;i.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Çin ana karasında kullanıcılar için ICP lisans numarası. Gizlemek için boş bırakın.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>Her çalışanın her yıl ayrılan ücretli yıllık izin gün sayısını</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>Bu EmployeeCenter örneğinin olay bağlantılarında kullanılan herkese açık temel URL’si.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Yapay zeka asistanı için sistem komutu.</value>

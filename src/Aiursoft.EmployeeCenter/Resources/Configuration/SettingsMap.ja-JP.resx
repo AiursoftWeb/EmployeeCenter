@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>AIアシスタントシステムプロンプト</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API キー</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter エンドポイント</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>ユーザーがニックネームを調整できるようにする</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>プロフィール管理ページでユーザーがニックネームを調整できるように許可します。</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>照会、作成、および軽減の権限を持つアプリケーション用APIキーです。</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>年間有給休暇日数</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>デフォルト給与通貨</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>AlertCenterとの同期を有効にする</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>プロジェクト連携の強制</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>週次レポートを提出する際に、従業員が少なくとも1つのプロジェクトに紐付けられるようにする。</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>サービス監査パブリックベースURL</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>AlertCenter とサービス監査の調査結果を同期します。</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>会社またはプロジェクトのブランド名。例：Aiursoft。</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>新しい給与を発行する際に使用するデフォルトの通貨。</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>AlertCenter の HTTP(S) ベース URL。</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>中国本土ユーザー向けのICPライセンス番号。空欄のままにすると非表示になります。</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>1年に1人あたりに割り当てられる有給年次休暇の日数。</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>インシデントへのリンクに使用する、このEmployeeCenterインスタンスの公開ベースURL。</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>AI アシスタントのシステムプロンプト。</value>

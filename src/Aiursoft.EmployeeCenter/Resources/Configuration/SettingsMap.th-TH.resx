@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>คำสั่งระบบผู้ช่วย AI</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API key</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>ปลายทางของ AlertCenter</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>อนุญาตให้ผู้ใช้แก้ไขชื่อเล่น</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>อนุญาตให้ผู้ใช้ปรับชื่อเล่นของตนเองได้ในหน้าจัดการโปรไฟล์</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>คีย์ API ของแอปพลิเคชันที่มีสิทธิ์ในการสอบถาม สร้าง และลดผลกระทบ</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>สิทธิ์ลาปีละ</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>สกุลเงินค่าจ้างเริ่มต้น</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>เปิดใช้งานการซิงโครไนซ์กับ AlertCenter</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>บังคับการเชื่อมโยงโครงการ</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>ต้องการให้พนักงานเชื่อมโยงอย่างน้อยหนึ่งโครงการเมื่อส่งรายงานรายสัปดาห์</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>URL ฐานสาธารณะสำหรับการตรวจสอบบริการ</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>ซิงค์ผลการตรวจสอบบริการกับ AlertCenter</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>ชื่อแบรนด์ของบริษัทหรือโครงการ ตัวอย่างเช่น Aiursoft</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>สกุลเงินเริ่มต้นที่ใช้เมื่อออกค่าจ้างใหม่</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>URL พื้นฐาน HTTP(S) ของ AlertCenter</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>หมายเลขใบอนุญาต ICP สำหรับผู้ใช้ในจีนแผ่นดินใหญ่ ปล่อยว่างเพื่อซ่อน</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>จำนวนวันลาปีที่ได้รับการจัดสรรให้กับพนักงานแต่ละคนทุกปี</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>URL พื้นฐานสาธารณะของอินสแตนซ์ EmployeeCenter นี้ ซึ่งใช้ในลิงก์เหตุการณ์</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>คำสั่งระบบสำหรับผู้ช่วย AI</value>

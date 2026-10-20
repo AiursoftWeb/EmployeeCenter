@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Prompt di sistema dell&apos;assistente AI</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>Chiave API di AlertCenter</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>Endpoint di AlertCenter</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Consenti all&apos;utente di modificare il soprannome</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Consenti agli utenti di modificare il proprio soprannome nella pagina di gestione del profilo.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>Una chiave API dell&apos;applicazione con autorizzazioni di interrogazione, creazione e mitigazione.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Congedo Annuale All&apos;Anno</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Valuta dello stipendio predefinita</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Attiva la sincronizzazione di AlertCenter</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Associazione Progetto Obbligatoria</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Richiedi agli impiegati di associare almeno un progetto quando inviano una relazione settimanale.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>URL di base pubblica per gli audit del servizio</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Sincronizza i risultati dell’audit dei servizi con AlertCenter.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Il nome del marchio dell&apos;azienda o del progetto. Esempio: Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>La valuta predefinita da utilizzare quando si emette un nuovo stipendio.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>L&apos;URL base HTTP(S) di AlertCenter.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Il numero di licenza ICP per gli utenti della Cina continentale. Lasciare vuoto per nascondere.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>Il numero di giorni di ferie annuali retribuite assegnati a ciascun dipendente ogni anno.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>L’URL di base pubblica di questa istanza di EmployeeCenter, utilizzata nei collegamenti agli incidenti.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Il prompt di sistema per l&apos;assistente AI.</value>

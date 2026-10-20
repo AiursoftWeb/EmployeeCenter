@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>AI 어시스턴트 시스템 프롬프트</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API 키</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter 엔드포인트</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>사용자 닉네임 조정 허용</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>프로필 관리 페이지에서 사용자가 닉네임을 수정할 수 있도록 허용합니다.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>조회, 생성, 완화 권한이 있는 애플리케이션 API 키.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>연간 연차 일수</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>기본 급여 통화</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>AlertCenter 동기화 사용</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>프로젝트 연계 강제</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>주간 보고서를 제출할 때 직원들이 적어도 하나의 프로젝트와 연계하도록 요구합니다.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>서비스 감사 공개 기본 URL</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>서비스 감사 결과를 AlertCenter와 동기화합니다.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>회사 또는 프로젝트의 브랜드 이름입니다. 예: Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>새로운 급여를 발행할 때 사용할 기본 통화입니다.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>AlertCenter의 HTTP(S) 기본 URL입니다.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>중국 본토 사용자를 위한 ICP 라이선스 번호입니다. 숨기려면 비워 두세요.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>연간 지급되는 연차 유급 휴가 일수 (각 직원당 연 1회 배정)</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>사건 링크에 사용되는 이 EmployeeCenter 인스턴스의 공개 기본 URL입니다.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>AI 어시스턴트의 시스템 프롬프트입니다.</value>

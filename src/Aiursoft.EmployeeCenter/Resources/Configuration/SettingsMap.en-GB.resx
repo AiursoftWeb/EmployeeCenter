@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>AI Assistant System Prompt</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API key</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter endpoint</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Allow User Adjust Nickname</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Allow users to adjust their nickname in the profile management page.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>An application API key with query, create and mitigate permissions.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Annual Leave Per Year</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Default Payroll Currency</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Enable AlertCenter synchronisation</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Force Project Association</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Require employees to associate at least one project when submitting a weekly report.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>Service audit public base URL</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Synchronise service audit findings with AlertCenter.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>The brand name of the company or project. E.g. Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>The default currency to use when issuing a new payroll.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>The HTTP(S) base URL of AlertCenter.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>The ICP licence number for China mainland users. Leave empty to hide.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>The number of paid annual leave days allocated to each employee every year.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>The public base URL of this EmployeeCenter instance, used in incident links.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>The system prompt for the AI assistant.</value>

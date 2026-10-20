@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>एआई सहायक सिस्टम संकेत</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API कुंजी</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter एंडपॉइंट</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>उपयोगकर्ता नाम समायोजित करने की अनुमति दें</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>प्रोफ़ाइल प्रबंधन पृष्ठ पर उपयोगकर्ताओं को अपना निकनेम समायोजित करने की अनुमति दें।</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>क्वेरी करने, बनाने और प्रभावों को कम करने की अनुमतियों वाली एप्लिकेशन API कुंजी।</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>वार्षिक छुट्टी प्रति वर्ष</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>डिफ़ॉल्ट पेरॉल मुद्रा</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>एलर्ट सेंटर सिंकरोनाइज़ेशन सक्षम करें</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>प्रोजेक्ट संबंध को बाध्य करें</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>सप्ताहिक रिपोर्ट जमा करते समय कम से कम एक प्रोजेक्ट के साथ संलग्न करने के लिए कर्मचारियों को अनिवार्य करें।</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>सेवा ऑडिट का सार्वजनिक बेस URL</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>सर्विस ऑडिट निष्कर्षों को AlertCenter के साथ समन्वित करें।</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का ब्रांड नाम। उदाहरण: Aiursoft।</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>नए पेरॉल के जारी करने के समय उपयोग करने वाली डिफ़ॉल्ट मुद्रा</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>AlertCenter का HTTP(S) बेस URL।</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>चीन मुख्यभूमि के उपयोगकर्ताओं के लिए आईसीपी लाइसेंस संख्या। छिपाने के लिए खाली छोड़ दें।</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>प्रत्येक कर्मचारी को प्रति वर्ष आवंटित भुगतान योग्य वार्षिक छुट्टी के दिनों की संख्या।</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>इस EmployeeCenter इंस्टेंस का सार्वजनिक बेस URL, जो आपात स्थिति लिंक में उपयोग किया जाता है।</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>एआई सहायक के लिए सिस्टम प्रॉम्प्ट।</value>
