@@ -3,6 +3,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aiursoftweb/employeeCenter/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/employeeCenter/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/employeeCenter/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/employeeCenter/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/employeeCenter/-/pipelines)
+[![S360 compliance](https://s360.aiursoft.com/badge.svg?project=aiursoft%2Femployeecenter)](https://s360.aiursoft.com/SupplyChain?tab=projects&project=aiursoft%2Femployeecenter&scope=baseline&ecosystem=all)
 [![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/employeeCenter.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/employeeCenter.html)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Femployee.aiursoft.com)](https://employee.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/employeecenter.svg)](https://hub.docker.com/r/aiursoft/employeecenter)
