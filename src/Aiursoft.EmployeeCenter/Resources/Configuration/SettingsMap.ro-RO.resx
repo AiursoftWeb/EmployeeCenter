@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Comandă de sistem asistent AI</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>Cheie API AlertCenter</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>Punct final AlertCenter</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Permite utilizatorului să-și ajusteze nickname-ul</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Permite utilizatorilor să-și ajusteze pseudonimul în pagina de gestionare a profilului.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>Cheie API de aplicație cu permisiuni de interogare, creare și atenuare.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Congruă anuală pe an</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Monedă salarială implicită</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Activați sincronizarea cu AlertCenter</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Forțează Asocierea Proiect</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Cerință ca angajații să asocieze cel puțin un proiect la trimiterea unui raport săptămânal.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>URL public de bază pentru auditul serviciului</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Sincronizați rezultatele auditului serviciilor cu AlertCenter.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Numele mărcii companiei sau proiectului. De exemplu: Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>Moneda implicită de utilizat la emiterea unei nouă salarii.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>URL-ul de bază HTTP(S) al AlertCenter.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Numărul de înregistrare ICP pentru utilizatorii din China continentală. Lăsați gol pentru a ascunde.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>Numărul de zile de congediu anual plătit alocate fiecărui angajat în fiecare an.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>URL-ul de bază public al acestei instanțe EmployeeCenter, utilizat în linkurile către incidente.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Sarcina sistem pentru asistentul AI.</value>

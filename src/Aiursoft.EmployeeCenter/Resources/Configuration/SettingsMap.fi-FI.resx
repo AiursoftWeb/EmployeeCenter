@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Järjestelmän ohjeet tekoälyavustajalle</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API-avain</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter-päätepiste</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Salli käyttäjän muokata nimimerkkiä</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Salli käyttäjien muuttaa nimimerkkiään profiilin hallintasivulla.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>Sovelluksen API-avain, jolla on haku-, luonti- ja lieventämisoikeudet.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Vuosiloma vuodessa</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Oletuspalkkalaskentan valuutta</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Ota AlertCenter-synkronointi käyttöön</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Pakota projektin liittäminen</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Vaadi työntekijöitä liittämään vähintään yhden projektin, kun lähettävät viikko-raportin.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>Palvelun auditoinnin julkinen perus-URL</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Synkronoi palvelutarkastusten havainnot AlertCenterin kanssa.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Yrityksen tai projektin brändinimi. Esim. Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>Oletusvaluutta, jota käytetään uuden palkkailmoituksen myöntämisessä.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>AlertCenterin HTTP(S)-perus-URL.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-luvanumero Kiinan päävaltakunnan käyttäjille. Jätä tyhjäksi piilottamaan.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>Vuoden aikana työntekijälle myönnettävien maksutonta vuosilomapäivien määrä.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>Tämän EmployeeCenter-instanssin julkinen perus-URL, jota käytetään tapauslinkkeissä.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Järjestelmän kehotus tekoälyavustajalle.</value>

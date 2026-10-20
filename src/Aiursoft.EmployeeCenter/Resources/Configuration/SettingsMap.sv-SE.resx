@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>AI-assistentens systemprompt</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API-nyckel</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter-slutpunkt</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Tillåt Användare Ändra Smeknamn</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Tillåt användare att justera sin smeknamn på sidan för profilhantering.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>En applikations-API-nyckel med behörighet att söka, skapa och åtgärda.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Årlig ledighet per år</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Standard lönevaluta</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Aktivera AlertCenter-synkronisering</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Tvinga projektanslutning</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Kräv att anställda kopplar minst ett projekt när de lämnar in en veckorapport.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>Offentlig grund-URL för serviceaudit</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Synkronisera granskningsresultat för tjänsten med AlertCenter.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Det är varumärket för företaget eller projektet. T.ex. Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>Standardvalutan att använda vid utställning av ny lönepost.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>Den HTTP(S)-bas-URL som tillhör AlertCenter.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-licensnummer för användare i Kina. Lämna tomt för att dölja.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>Antalet betalda semesterdagar som tilldelas varje anställd varje år.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>Den offentliga bas-URL:en för den här EmployeeCenter-instansen, som används i incidentlänkar.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Systeminstruktionen för AI-assistenten.</value>

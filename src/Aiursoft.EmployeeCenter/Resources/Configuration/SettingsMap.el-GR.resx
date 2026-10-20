@@ -27,11 +27,20 @@
   <data name="AI Assistant System Prompt" xml:space="preserve">
     <value>Πρόγραμμα Συστήματος Βοηθού AI</value>
   </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter κλειδί API</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter endpoint</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Επιτρέψτε στον Χρήστη να Τροποποιήσει το Κωδικό Όνομα</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Επιτρέψτε στους χρήστες να τροποποιήσουν το ψευδώνυμό τους στη σελίδα διαχείρισης προφίλ.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>Ένα κλειδί API εφαρμογής με δικαιώματα αναζήτησης, δημιουργίας και μετριασμού.</value>
   </data>
   <data name="Annual Leave Per Year" xml:space="preserve">
     <value>Ετήσια Άδεια Ανά Χρόνο</value>
@@ -47,6 +56,9 @@
   </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Προεπιλεγμένο Νόμισμα Μισθοδοσίας</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Ενεργοποίηση συγχρονισμού AlertCenter</value>
   </data>
   <data name="Force Project Association" xml:space="preserve">
     <value>Αναγκαστική Σύνδεση Έργου</value>
@@ -66,11 +78,20 @@
   <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
     <value>Απαιτείται από τους υπαλλήλους να συνδέσουν τουλάχιστον ένα έργο κατά την υποβολή μιας εβδομαδιαίας αναφοράς.</value>
   </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>Δημόσιο βασικό URL ελέγχου υπηρεσιών</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Συγχρονίστε τα ευρήματα του ελέγχου υπηρεσιών με το AlertCenter.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Το όνομα του σήματος της εταιρείας ή του έργου. Π.χ. Aiursoft.</value>
   </data>
   <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
     <value>Η προεπιλεγμένη νομισματική μονάδα που θα χρησιμοποιηθεί κατά την έκδοση μιας νέας αποδοχής.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>Το βασικό URL HTTP(S) του AlertCenter.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Ο αριθμός άδειας ICP για χρήστες της κυρίαρχης Κίνας. Αφήστε κενό για να κρυφτεί.</value>
@@ -83,6 +104,9 @@
   </data>
   <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
     <value>Ο αριθμός των ημερών πληρωμένου ετήσιου άδειας που ανατίθεται σε κάθε υπάλληλο κάθε χρόνο.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>Το δημόσιο βασικό URL αυτής της περιόδου EmployeeCenter, χρησιμοποιείται σε συνδέσμους περιστατικών.</value>
   </data>
   <data name="The system prompt for the AI assistant." xml:space="preserve">
     <value>Η οδηγία συστήματος για τον βοηθό AI.</value>
