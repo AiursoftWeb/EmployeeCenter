@@ -90,7 +90,47 @@ public class DnsAuditControllerTests : TestBase
     }
 
     [TestMethod]
-    [DataRow(true, false, 2)]
+    public async Task AuditSettingsRespectDeploymentOverrides()
+    {
+        await LoginAsAdmin();
+        using var scope = Server!.Services.CreateScope();
+        var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+        var cache = scope.ServiceProvider.GetRequiredService<Microsoft.Extensions.Caching.Memory.IMemoryCache>();
+        var key = $"GlobalSettings:{SettingsMap.ServiceAuditScope}";
+        var original = config[key];
+        try
+        {
+            config[key] = "{\"ExcludedDomains\":[\"anduinlab.com\"]}";
+            cache.Remove($"global-setting-{SettingsMap.ServiceAuditScope}");
+            var html = await Http.GetStringAsync("/ServiceAudit/Settings");
+            Assert.Contains("anduinlab.com", html);
+            Assert.Contains("managed by deployment configuration", html);
+            var response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>
+            {
+                ["AuditAllZones"] = "true", ["ExcludedDomains"] = "aiursoft.com"
+            });
+            Assert.AreEqual(HttpStatusCode.Conflict, response.StatusCode);
+        }
+        finally
+        {
+            config[key] = original;
+            cache.Remove($"global-setting-{SettingsMap.ServiceAuditScope}");
+        }
+    }
+
+    [TestMethod]
+    public async Task AuditSettingsPageUsesGeneratedChineseResources()
+    {
+        await LoginAsAdmin();
+        var response = await Http.GetAsync("/Culture/Set?culture=zh-CN&returnUrl=/ServiceAudit/Settings");
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        var html = WebUtility.HtmlDecode(await Http.GetStringAsync("/ServiceAudit/Settings"));
+        Assert.Contains("审计设置", html);
+        Assert.Contains("排除的域名", html);
+    }
+
+    [TestMethod]
+    [DataRow(true, false, 3)]
     [DataRow(true, true, 1)]
     [DataRow(false, false, 1)]
     public async Task AuditScopeFiltersDiscoveryAndExcludedRegisteredHttpChecks(bool allZones, bool excludePersonal, int hostnameCount)
@@ -137,6 +177,7 @@ public class DnsAuditControllerTests : TestBase
         var audit = new CloudflareDnsAuditService(db, settings, new ScopeHttpFactory(), NullLogger<CloudflareDnsAuditService>.Instance);
         var report = await audit.AuditAsync();
         Assert.AreEqual(2, report.AuditedHostnameCount);
+        Assert.IsFalse(report.Issues.Any(issue => issue.Domain == "unknown.anduinlab.com"));
         Assert.IsTrue(report.Issues.Any(issue => issue.Domain == "temp.anduinlab.com" && issue.Type == DnsAuditIssueType.UnknownServer));
         Assert.IsFalse(report.Issues.Any(issue => issue.Domain == "temp.anduinlab.com" && issue.Type == DnsAuditIssueType.UnknownDns));
     }
@@ -171,7 +212,7 @@ public class DnsAuditControllerTests : TestBase
             {
                 "/client/v4/zones" => "{\"success\":true,\"result\":[{\"id\":\"company\",\"name\":\"aiursoft.com\"},{\"id\":\"personal\",\"name\":\"anduinlab.com\"}]}",
                 "/client/v4/zones/company/dns_records" => "{\"success\":true,\"result\":[{\"id\":\"company-record\",\"type\":\"A\",\"name\":\"new.aiursoft.com\",\"content\":\"192.0.2.1\",\"proxied\":true}]}",
-                "/client/v4/zones/personal/dns_records" => "{\"success\":true,\"result\":[{\"id\":\"personal-record\",\"type\":\"A\",\"name\":\"temp.anduinlab.com\",\"content\":\"192.0.2.2\",\"proxied\":true}]}",
+                "/client/v4/zones/personal/dns_records" => "{\"success\":true,\"result\":[{\"id\":\"personal-record\",\"type\":\"A\",\"name\":\"temp.anduinlab.com\",\"content\":\"192.0.2.2\",\"proxied\":true},{\"id\":\"other-personal-record\",\"type\":\"A\",\"name\":\"unknown.anduinlab.com\",\"content\":\"192.0.2.3\",\"proxied\":true}]}",
                 _ => throw new InvalidOperationException("Unexpected HTTP request: " + path)
             };
             return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent(json) });

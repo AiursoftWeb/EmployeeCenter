@@ -268,6 +268,7 @@ public class ViewModelArgsInjector(
         _ = localizer["Move Contract"];
     
         _ = localizer["Service Audit"];
+        _ = localizer["Audit settings"];
         _ = localizer["Audit Services"];
     
         _ = localizer["Services Dashboard"];
