@@ -69,8 +69,6 @@ public sealed class CloudflareDnsAuditService(
         if (!scope.AuditAllZones && scope.IncludedZones.Any(included =>
                 !zones.Any(zone => DnsAuditAnalyzer.NormalizeDomain(zone.Name) == included)))
             throw new CloudflareDnsAuditException("An included Cloudflare zone is not accessible. Check the audit scope and token permissions.");
-        zones = zones.Where(zone => !scope.Excludes(zone.Name) && (scope.DiscoversZone(zone.Name) || registeredDomains.Any(domain =>
-            BelongsToAnyZone(domain, new HashSet<string> { DnsAuditAnalyzer.NormalizeDomain(zone.Name) })))).ToList();
         foreach (var zone in zones)
         {
             var records = await GetAllPagesAsync<CloudflareDnsRecord>(
@@ -116,9 +114,15 @@ public sealed class CloudflareDnsAuditService(
             }));
         }
 
+        // Cross-zone CNAME metadata is needed even when its target is not itself audited.
+        var cnameTargets = DnsAuditAnalyzer.ResolveCnameTargets(auditRecords);
         auditRecords = auditRecords.Where(record => !scope.Excludes(record.Name) &&
             (scope.DiscoversZone(record.ZoneName) || registeredDomains.Contains(DnsAuditAnalyzer.NormalizeDomain(record.Name)))).ToList();
-        var resolvedCnameAddresses = await ResolveDnsOnlyCnamesAsync(auditRecords, cancellationToken);
+        var resolvedCnameAddresses = (await ResolveDnsOnlyCnamesAsync(auditRecords.Where(record =>
+                !cnameTargets.TryGetValue(DnsAuditAnalyzer.NormalizeDomain(record.Name), out var addresses) || addresses.Count == 0).ToList(), cancellationToken))
+            .ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.OrdinalIgnoreCase);
+        foreach (var (domain, addresses) in cnameTargets.Where(pair => pair.Value.Count > 0))
+            resolvedCnameAddresses[domain] = addresses;
         var totalRecordCount = auditRecords.Count;
         var recordNames = auditRecords
             .Select(record => DnsAuditAnalyzer.NormalizeDomain(record.Name))

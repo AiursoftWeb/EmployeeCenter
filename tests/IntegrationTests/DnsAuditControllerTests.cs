@@ -158,7 +158,6 @@ public class DnsAuditControllerTests : TestBase
         Assert.AreEqual(allZones && !excludePersonal, report.Issues.Any(issue => issue.Domain == "temp.anduinlab.com"));
         Assert.AreEqual(0, report.AvailabilityCheckedCount);
         Assert.IsTrue(factory.Paths.All(path => path.StartsWith("/client/v4/", StringComparison.Ordinal)));
-        if (excludePersonal || !allZones) Assert.DoesNotContain("/client/v4/zones/personal/dns_records", factory.Paths);
         if (excludePersonal) Assert.AreEqual(1, await db.Services.CountAsync());
     }
 
@@ -196,13 +195,33 @@ public class DnsAuditControllerTests : TestBase
         await Assert.ThrowsExactlyAsync<CloudflareDnsAuditException>(() => audit.AuditAsync());
     }
 
-    private sealed class ScopeHttpFactory : IHttpClientFactory
+    [TestMethod]
+    public async Task ExcludedCnameTargetStillResolvesTheCompanyOriginWithoutAuditingTheTarget()
     {
-        public List<string> Paths { get; } = [];
-        public HttpClient CreateClient(string name) => new(new ScopeHttpHandler(Paths));
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "synthetic-audit-token");
+        await settings.UpdateSettingAsync(SettingsMap.ServiceAuditScope,
+            "{\"AuditAllZones\":false,\"IncludedZones\":[\"aiursoft.com\"],\"ExcludedDomains\":[\"anduinlab.com\"]}");
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"cname-scope-{Guid.NewGuid():N}").Options);
+        var audit = new CloudflareDnsAuditService(db, settings, new ScopeHttpFactory(true), NullLogger<CloudflareDnsAuditService>.Instance);
+        var report = await audit.AuditAsync();
+        Assert.AreEqual(1, report.AuditedHostnameCount);
+        Assert.IsFalse(report.Issues.Any(issue => issue.Domain.EndsWith("anduinlab.com", StringComparison.Ordinal)));
+        var origin = report.Issues.Single(issue => issue.Type == DnsAuditIssueType.UnknownServer);
+        Assert.AreEqual("new.aiursoft.com", origin.Domain);
+        Assert.Contains("192.0.2.2", origin.Details);
+        Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.DanglingCname));
     }
 
-    private sealed class ScopeHttpHandler(List<string> paths) : HttpMessageHandler
+    private sealed class ScopeHttpFactory(bool crossZoneCname = false) : IHttpClientFactory
+    {
+        public List<string> Paths { get; } = [];
+        public HttpClient CreateClient(string name) => new(new ScopeHttpHandler(Paths, crossZoneCname));
+    }
+
+    private sealed class ScopeHttpHandler(List<string> paths, bool crossZoneCname) : HttpMessageHandler
     {
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
@@ -211,6 +230,7 @@ public class DnsAuditControllerTests : TestBase
             var json = path switch
             {
                 "/client/v4/zones" => "{\"success\":true,\"result\":[{\"id\":\"company\",\"name\":\"aiursoft.com\"},{\"id\":\"personal\",\"name\":\"anduinlab.com\"}]}",
+                "/client/v4/zones/company/dns_records" when crossZoneCname => "{\"success\":true,\"result\":[{\"id\":\"company-record\",\"type\":\"CNAME\",\"name\":\"new.aiursoft.com\",\"content\":\"temp.anduinlab.com\",\"proxied\":false}]}",
                 "/client/v4/zones/company/dns_records" => "{\"success\":true,\"result\":[{\"id\":\"company-record\",\"type\":\"A\",\"name\":\"new.aiursoft.com\",\"content\":\"192.0.2.1\",\"proxied\":true}]}",
                 "/client/v4/zones/personal/dns_records" => "{\"success\":true,\"result\":[{\"id\":\"personal-record\",\"type\":\"A\",\"name\":\"temp.anduinlab.com\",\"content\":\"192.0.2.2\",\"proxied\":true},{\"id\":\"other-personal-record\",\"type\":\"A\",\"name\":\"unknown.anduinlab.com\",\"content\":\"192.0.2.3\",\"proxied\":true}]}",
                 _ => throw new InvalidOperationException("Unexpected HTTP request: " + path)
