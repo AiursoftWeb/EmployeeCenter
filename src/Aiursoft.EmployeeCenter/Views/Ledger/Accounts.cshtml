@@ -47,21 +47,21 @@
                                 <td>
                                     @if (ab.Account.IsArchived)
                                     {
-                                        <span class="badge badge-secondary">@Localizer["Archived"]</span>
+                                        <span class="badge bg-secondary">@Localizer["Archived"]</span>
                                     }
                                     else
                                     {
-                                        <span class="badge badge-success">@Localizer["Active"]</span>
+                                        <span class="badge bg-success">@Localizer["Active"]</span>
                                     }
                                 </td>
                                 <td>
                                     @if (ab.Account.ShowInDashboard)
                                     {
-                                        <span class="badge badge-info">@Localizer["Visible"]</span>
+                                        <span class="badge bg-info">@Localizer["Visible"]</span>
                                     }
                                     else
                                     {
-                                        <span class="badge badge-light">@Localizer["Hidden"]</span>
+                                        <span class="badge bg-body-secondary text-body">@Localizer["Hidden"]</span>
                                     }
                                 </td>
                                 <td>
