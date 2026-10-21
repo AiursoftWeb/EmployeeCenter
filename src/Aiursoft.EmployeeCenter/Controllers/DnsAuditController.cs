@@ -1,3 +1,5 @@
+using System.Text.Json;
+using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
@@ -18,7 +20,8 @@ public sealed class DnsAuditController(
     DnsAuditSnapshotCache snapshotCache,
     ServiceAuditStore auditStore,
     UserManager<User> userManager,
-    BackgroundJobRegistry jobRegistry) : Controller
+    BackgroundJobRegistry jobRegistry,
+    GlobalSettingsService settingsService) : Controller
 {
     [HttpGet("/ServiceAudit", Name = "ServiceAuditIndex")]
     [HttpGet("/ServiceAudit/Index")]
@@ -36,6 +39,36 @@ public sealed class DnsAuditController(
             LastSuccessfulAt = snapshot.LastSuccessfulAt,
             RecentRuns = await auditStore.LoadHistoryAsync()
         });
+    }
+
+    [HttpGet("/ServiceAudit/Settings", Name = "ServiceAuditSettings")]
+    [Authorize(Policy = AppPermissionNames.CanViewServiceAudit)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
+    public async Task<IActionResult> Settings(bool saved = false)
+    {
+        var scope = ServiceAuditScope.Deserialize(await settingsService.GetSettingValueAsync(SettingsMap.ServiceAuditScope));
+        return this.StackView(new AuditSettingsViewModel
+        {
+            AuditAllZones = scope.AuditAllZones,
+            IncludedZones = string.Join('\n', scope.IncludedZones),
+            ExcludedDomains = string.Join('\n', scope.ExcludedDomains),
+            IsOverriddenByConfig = settingsService.IsOverriddenByConfig(SettingsMap.ServiceAuditScope),
+            Saved = saved
+        });
+    }
+
+    [HttpPost("/ServiceAudit/Settings")]
+    [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanViewServiceAudit)]
+    [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
+    public async Task<IActionResult> Settings(AuditSettingsViewModel model)
+    {
+        model.IsOverriddenByConfig = settingsService.IsOverriddenByConfig(SettingsMap.ServiceAuditScope);
+        model.Saved = false;
+        if (model.IsOverriddenByConfig) return Conflict();
+        if (!ModelState.IsValid) return this.StackView(model);
+        await settingsService.UpdateSettingAsync(SettingsMap.ServiceAuditScope, JsonSerializer.Serialize(model.ToScope()));
+        return RedirectToRoute("ServiceAuditSettings", new { saved = true });
     }
 
     [HttpPost("/ServiceAudit/Refresh", Name = "ServiceAuditRefresh")]

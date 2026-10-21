@@ -258,6 +258,25 @@ public class AuditIncidentSyncTests
         Assert.AreEqual(matches ? 1 : 0, client.Mitigated.Count);
     }
 
+    [TestMethod]
+    [DataRow(DnsAuditIssueType.UnknownDns)]
+    [DataRow(DnsAuditIssueType.UnknownServer)]
+    [DataRow(DnsAuditIssueType.ServiceUnavailable)]
+    public async Task FreshScopeExclusionMitigatesExistingFindings(DnsAuditIssueType type)
+    {
+        var client = new FakeClient();
+        var sync = Synchronizer(client);
+        await sync.SynchronizeAsync(1, Report([Issue(type: type)], Evidence(false)));
+        await sync.SynchronizeAsync(2, Report([]));
+        Assert.IsEmpty(client.Mitigated);
+        await sync.SynchronizeAsync(3, Report([], Evidence(null) with
+        {
+            Scope = new ServiceAuditScope { ExcludedDomains = ["example.com"] }
+        }));
+        Assert.HasCount(1, client.Mitigated);
+        Assert.Contains("outside the configured audit scope", client.Mitigated[0].Request.Reason);
+    }
+
     private sealed class FakeClient : IAuditIncidentClient
     {
         public List<IncidentDetails> Incidents { get; } = [];

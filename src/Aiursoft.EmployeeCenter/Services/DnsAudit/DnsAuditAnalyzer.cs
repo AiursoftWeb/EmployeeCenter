@@ -21,19 +21,7 @@ public static partial class DnsAuditAnalyzer
             .Where(zone => zone.Length > 0)
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-        var records = input.Records
-            .Where(record => AuditableTypes.Contains(record.Type))
-            .Select(record => new NormalizedRecord(
-                record.Type.ToUpperInvariant(),
-                NormalizeDomain(record.Name),
-                record.Content.Trim(),
-                record.Proxied))
-            .Where(record => record.Name.Length > 0)
-            .ToList();
-
-        var recordsByName = records
-            .GroupBy(record => record.Name, StringComparer.OrdinalIgnoreCase)
-            .ToDictionary(group => group.Key, group => group.ToList(), StringComparer.OrdinalIgnoreCase);
+        var recordsByName = IndexRecords(input.Records);
 
         var servicesByDomain = input.Services
             .Select(service => (Service: service, Domain: NormalizeDomain(service.PrimaryDomain)))
@@ -613,6 +601,24 @@ public static partial class DnsAuditAnalyzer
         return service.Purpose is ServicePurpose.Global or
             ServicePurpose.Domestic or
             ServicePurpose.Both;
+    }
+
+    private static Dictionary<string, List<NormalizedRecord>> IndexRecords(IEnumerable<DnsAuditRecord> source) => source
+        .Where(record => AuditableTypes.Contains(record.Type))
+        .Select(record => new NormalizedRecord(record.Type.ToUpperInvariant(), NormalizeDomain(record.Name),
+            record.Content.Trim(), record.Proxied))
+        .Where(record => record.Name.Length > 0)
+        .GroupBy(record => record.Name, StringComparer.OrdinalIgnoreCase)
+        .ToDictionary(group => group.Key, group => group.ToList(), StringComparer.OrdinalIgnoreCase);
+
+    internal static IReadOnlyDictionary<string, IReadOnlyCollection<string>> ResolveCnameTargets(IEnumerable<DnsAuditRecord> source)
+    {
+        var records = IndexRecords(source);
+        return records.Where(pair => pair.Value.Any(record => record.Type == "CNAME"))
+            .ToDictionary(pair => pair.Key,
+                pair => (IReadOnlyCollection<string>)ResolveEffectiveAddresses(pair.Key, records,
+                    new Dictionary<string, IReadOnlyCollection<string>>(), new HashSet<string>(StringComparer.OrdinalIgnoreCase)),
+                StringComparer.OrdinalIgnoreCase);
     }
 
     private static HashSet<string> ResolveEffectiveAddresses(
