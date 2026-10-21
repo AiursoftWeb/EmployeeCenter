@@ -35,35 +35,7 @@ public sealed class CloudflareDnsAuditService(
             throw new CloudflareDnsAuditException("Cloudflare API token is not configured.");
         }
 
-        using var client = httpClientFactory.CreateClient();
-        client.Timeout = TimeSpan.FromSeconds(30);
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        client.DefaultRequestHeaders.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-DnsAudit/1.0");
-
-        var zones = await GetAllPagesAsync<CloudflareZone>(client, "/zones", cancellationToken);
-        var auditRecords = new List<DnsAuditRecord>();
-        var totalRecordCount = 0;
-
-        foreach (var zone in zones)
-        {
-            var records = await GetAllPagesAsync<CloudflareDnsRecord>(
-                client,
-                $"/zones/{Uri.EscapeDataString(zone.Id)}/dns_records",
-                cancellationToken);
-            totalRecordCount += records.Count;
-
-            auditRecords.AddRange(records
-                .Select(record => new DnsAuditRecord
-                {
-                    Id = record.Id,
-                    ZoneName = zone.Name,
-                    Type = record.Type,
-                    Name = record.Name,
-                    Content = record.Content,
-                    Proxied = record.Proxied == true
-                }));
-        }
-
+        var scope = ServiceAuditScope.Deserialize(await settingsService.GetSettingValueAsync(SettingsMap.ServiceAuditScope));
         var services = await dbContext.Services
             .AsNoTracking()
             .Where(service => service.RetiredAt == null)
@@ -80,6 +52,44 @@ public sealed class CloudflareDnsAuditService(
             .Where(server => server.RetiredAt == null)
             .ToListAsync(cancellationToken);
 
+        services = services.Where(service => !scope.Excludes(service.PrimaryDomain)).ToList();
+        domainAliases = domainAliases.Where(alias => !scope.Excludes(alias.Domain)).ToList();
+        var registeredDomains = services.Select(service => DnsAuditAnalyzer.NormalizeDomain(service.PrimaryDomain))
+            .Concat(domainAliases.Select(alias => DnsAuditAnalyzer.NormalizeDomain(alias.Domain)))
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        using var client = httpClientFactory.CreateClient();
+        client.Timeout = TimeSpan.FromSeconds(30);
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        client.DefaultRequestHeaders.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-DnsAudit/1.0");
+
+        var zones = await GetAllPagesAsync<CloudflareZone>(client, "/zones", cancellationToken);
+        var auditRecords = new List<DnsAuditRecord>();
+
+        if (!scope.AuditAllZones && scope.IncludedZones.Any(included =>
+                !zones.Any(zone => DnsAuditAnalyzer.NormalizeDomain(zone.Name) == included)))
+            throw new CloudflareDnsAuditException("An included Cloudflare zone is not accessible. Check the audit scope and token permissions.");
+        zones = zones.Where(zone => !scope.Excludes(zone.Name) && (scope.DiscoversZone(zone.Name) || registeredDomains.Any(domain =>
+            BelongsToAnyZone(domain, new HashSet<string> { DnsAuditAnalyzer.NormalizeDomain(zone.Name) })))).ToList();
+        foreach (var zone in zones)
+        {
+            var records = await GetAllPagesAsync<CloudflareDnsRecord>(
+                client,
+                $"/zones/{Uri.EscapeDataString(zone.Id)}/dns_records",
+                cancellationToken);
+
+            auditRecords.AddRange(records
+                .Select(record => new DnsAuditRecord
+                {
+                    Id = record.Id,
+                    ZoneName = zone.Name,
+                    Type = record.Type,
+                    Name = record.Name,
+                    Content = record.Content,
+                    Proxied = record.Proxied == true
+                }));
+        }
+
         // Cloudflare's API remains the source of truth for zones managed by
         // Cloudflare because public DNS deliberately hides orange-cloud origins.
         // For every registered service outside those zones, query public DNS and
@@ -95,7 +105,6 @@ public sealed class CloudflareDnsAuditService(
             cancellationToken);
         foreach (var (domain, resolution) in publicDnsResolutions.Where(pair => pair.Value.Completed))
         {
-            totalRecordCount += resolution.Addresses.Count;
             auditRecords.AddRange(resolution.Addresses.Select(address => new DnsAuditRecord
             {
                 Id = $"public-dns:{domain}:{address}",
@@ -107,7 +116,10 @@ public sealed class CloudflareDnsAuditService(
             }));
         }
 
+        auditRecords = auditRecords.Where(record => !scope.Excludes(record.Name) &&
+            (scope.DiscoversZone(record.ZoneName) || registeredDomains.Contains(DnsAuditAnalyzer.NormalizeDomain(record.Name)))).ToList();
         var resolvedCnameAddresses = await ResolveDnsOnlyCnamesAsync(auditRecords, cancellationToken);
+        var totalRecordCount = auditRecords.Count;
         var recordNames = auditRecords
             .Select(record => DnsAuditAnalyzer.NormalizeDomain(record.Name))
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
@@ -142,7 +154,8 @@ public sealed class CloudflareDnsAuditService(
                     StringComparer.OrdinalIgnoreCase),
             domainAliases,
             aliasRedirectResults,
-            serviceAvailabilityResults));
+            serviceAvailabilityResults,
+            scope));
     }
 
     private async Task<IReadOnlyDictionary<int, ServiceAvailabilityResult>> AuditServiceAvailabilityAsync(

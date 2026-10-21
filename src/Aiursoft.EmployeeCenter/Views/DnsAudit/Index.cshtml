@@ -23,6 +23,13 @@
             }
         </div>
         <div class="btn-group">
+            @if (canManageDomainAliases)
+            {
+                <a asp-route="ServiceAuditSettings" class="btn btn-outline-primary text-nowrap">
+                    <i class="align-middle me-1" data-lucide="settings"></i>
+                    @Localizer["Audit settings"]
+                </a>
+            }
             @if (canManageDomainAliases && canViewInfrastructure)
             {
                 <a asp-controller="DomainAliases" asp-action="Index" class="btn btn-outline-primary text-nowrap">

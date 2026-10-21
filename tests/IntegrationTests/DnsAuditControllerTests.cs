@@ -13,6 +13,150 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class DnsAuditControllerTests : TestBase
 {
+    [TestMethod]
+    public async Task AuditSettingsPersistNormalizedScopeAndPreserveRegistrations()
+    {
+        await LoginAsAdmin();
+        var response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>
+        {
+            ["AuditAllZones"] = "false", ["IncludedZones"] = " AIURSOFT.COM.\n aiursoft.com ",
+            ["ExcludedDomains"] = " ANDUINLAB.COM. "
+        });
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        var policy = ServiceAuditScope.Deserialize(await settings.GetSettingValueAsync(SettingsMap.ServiceAuditScope));
+        Assert.IsFalse(policy.AuditAllZones);
+        CollectionAssert.AreEqual(new[] { "aiursoft.com" }, policy.IncludedZones);
+        Assert.IsTrue(policy.Excludes("temp.anduinlab.com"));
+        Assert.IsFalse(policy.Excludes("notanduinlab.com"));
+        var html = await Http.GetStringAsync("/ServiceAudit/Settings");
+        Assert.Contains("anduinlab.com", html);
+        Assert.DoesNotContain(SettingsMap.ServiceAuditScope, await Http.GetStringAsync("/GlobalSettings/Index"));
+    }
+
+    [TestMethod]
+    [DataRow("", "")]
+    [DataRow("https://aiursoft.com", "")]
+    [DataRow("aiursoft.com", "*.anduinlab.com")]
+    [DataRow("aiursoft.com", "149.28.157.30")]
+    public async Task InvalidAuditSettingsDoNotChangeScope(string included, string excluded)
+    {
+        await LoginAsAdmin();
+        var response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>
+        {
+            ["AuditAllZones"] = "false", ["IncludedZones"] = included, ["ExcludedDomains"] = excluded
+        });
+        response.EnsureSuccessStatusCode();
+        Assert.Contains("validation-summary-errors", await response.Content.ReadAsStringAsync());
+        using var scope = Server!.Services.CreateScope();
+        Assert.IsTrue(ServiceAuditScope.Deserialize(await scope.ServiceProvider.GetRequiredService<GlobalSettingsService>()
+            .GetSettingValueAsync(SettingsMap.ServiceAuditScope)).AuditAllZones);
+    }
+
+    [TestMethod]
+    public async Task AuditScopeCannotBypassSettingsPermissionOrAntiforgery()
+    {
+        await LoginAsAdmin();
+        var response = await PostForm("/GlobalSettings/Edit", new Dictionary<string, string>
+        {
+            ["Key"] = SettingsMap.ServiceAuditScope, ["Value"] = "{}"
+        }, tokenUrl: "/GlobalSettings/Index");
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        Assert.Contains("/Error/Code403", response.Headers.Location?.OriginalString ?? string.Empty);
+        response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>(), includeToken: false);
+        Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
+    }
+
+    [TestMethod]
+    [DataRow(true, false, 2)]
+    [DataRow(true, true, 1)]
+    [DataRow(false, false, 1)]
+    public async Task AuditScopeFiltersDiscoveryAndExcludedRegisteredHttpChecks(bool allZones, bool excludePersonal, int hostnameCount)
+    {
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "synthetic-audit-token");
+        await settings.UpdateSettingAsync(SettingsMap.ServiceAuditScope, System.Text.Json.JsonSerializer.Serialize(new ServiceAuditScope
+        {
+            AuditAllZones = allZones, IncludedZones = ["aiursoft.com"],
+            ExcludedDomains = excludePersonal ? ["anduinlab.com"] : []
+        }));
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"scope-{Guid.NewGuid():N}").Options);
+        if (excludePersonal)
+        {
+            db.Services.Add(new Service { PrimaryDomain = "temp.anduinlab.com", Protocols = "HTTPS" });
+            await db.SaveChangesAsync();
+        }
+        var factory = new ScopeHttpFactory();
+        var audit = new CloudflareDnsAuditService(db, settings, factory, NullLogger<CloudflareDnsAuditService>.Instance);
+        var report = await audit.AuditAsync();
+        Assert.AreEqual(hostnameCount, report.AuditedHostnameCount);
+        Assert.IsTrue(report.Issues.Any(issue => issue.Domain == "new.aiursoft.com" && issue.Type == DnsAuditIssueType.UnknownDns));
+        Assert.AreEqual(allZones && !excludePersonal, report.Issues.Any(issue => issue.Domain == "temp.anduinlab.com"));
+        Assert.AreEqual(0, report.AvailabilityCheckedCount);
+        Assert.IsTrue(factory.Paths.All(path => path.StartsWith("/client/v4/", StringComparison.Ordinal)));
+        if (excludePersonal || !allZones) Assert.DoesNotContain("/client/v4/zones/personal/dns_records", factory.Paths);
+        if (excludePersonal) Assert.AreEqual(1, await db.Services.CountAsync());
+    }
+
+    [TestMethod]
+    public async Task RegisteredExternalServiceRemainsAuditedOutsideDiscoveryZones()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "synthetic-audit-token");
+        await settings.UpdateSettingAsync(SettingsMap.ServiceAuditScope,
+            "{\"AuditAllZones\":false,\"IncludedZones\":[\"aiursoft.com\"]}");
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"registered-scope-{Guid.NewGuid():N}").Options);
+        db.Services.Add(new Service { PrimaryDomain = "temp.anduinlab.com", IsAvailabilityAuditEnabled = false });
+        await db.SaveChangesAsync();
+        var audit = new CloudflareDnsAuditService(db, settings, new ScopeHttpFactory(), NullLogger<CloudflareDnsAuditService>.Instance);
+        var report = await audit.AuditAsync();
+        Assert.AreEqual(2, report.AuditedHostnameCount);
+        Assert.IsTrue(report.Issues.Any(issue => issue.Domain == "temp.anduinlab.com" && issue.Type == DnsAuditIssueType.UnknownServer));
+        Assert.IsFalse(report.Issues.Any(issue => issue.Domain == "temp.anduinlab.com" && issue.Type == DnsAuditIssueType.UnknownDns));
+    }
+
+    [TestMethod]
+    public async Task InaccessibleIncludedZoneFailsInsteadOfReportingGreen()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "synthetic-audit-token");
+        await settings.UpdateSettingAsync(SettingsMap.ServiceAuditScope,
+            "{\"AuditAllZones\":false,\"IncludedZones\":[\"missing.example.com\"]}");
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"missing-zone-{Guid.NewGuid():N}").Options);
+        var audit = new CloudflareDnsAuditService(db, settings, new ScopeHttpFactory(), NullLogger<CloudflareDnsAuditService>.Instance);
+        await Assert.ThrowsExactlyAsync<CloudflareDnsAuditException>(() => audit.AuditAsync());
+    }
+
+    private sealed class ScopeHttpFactory : IHttpClientFactory
+    {
+        public List<string> Paths { get; } = [];
+        public HttpClient CreateClient(string name) => new(new ScopeHttpHandler(Paths));
+    }
+
+    private sealed class ScopeHttpHandler(List<string> paths) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            var path = request.RequestUri!.AbsolutePath;
+            paths.Add(path);
+            var json = path switch
+            {
+                "/client/v4/zones" => "{\"success\":true,\"result\":[{\"id\":\"company\",\"name\":\"aiursoft.com\"},{\"id\":\"personal\",\"name\":\"anduinlab.com\"}]}",
+                "/client/v4/zones/company/dns_records" => "{\"success\":true,\"result\":[{\"id\":\"company-record\",\"type\":\"A\",\"name\":\"new.aiursoft.com\",\"content\":\"192.0.2.1\",\"proxied\":true}]}",
+                "/client/v4/zones/personal/dns_records" => "{\"success\":true,\"result\":[{\"id\":\"personal-record\",\"type\":\"A\",\"name\":\"temp.anduinlab.com\",\"content\":\"192.0.2.2\",\"proxied\":true}]}",
+                _ => throw new InvalidOperationException("Unexpected HTTP request: " + path)
+            };
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent(json) });
+        }
+    }
+
     private sealed class TestAlertCenterSettingsProvider : IAlertCenterSettingsProvider
     {
         public Task<AlertCenterSettings> GetAsync() => Task.FromResult(new AlertCenterSettings

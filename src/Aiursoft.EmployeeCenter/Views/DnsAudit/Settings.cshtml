@@ -1,0 +1,46 @@
+@model Aiursoft.EmployeeCenter.Models.DnsAuditViewModels.AuditSettingsViewModel
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">@Localizer["Audit settings"]</h1>
+    <a asp-route="ServiceAuditIndex" class="btn btn-outline-secondary">@Localizer["Back to service audit"]</a>
+</div>
+
+@if (Model.Saved)
+{
+    <div class="alert alert-success" role="alert">
+        <div class="alert-message">@Localizer["Settings saved. Changes apply to the next audit; the previous report remains unchanged."]</div>
+    </div>
+}
+@if (Model.IsOverriddenByConfig)
+{
+    <div class="alert alert-info" role="alert">
+        <div class="alert-message">@Localizer["These settings are managed by deployment configuration and cannot be changed here."]</div>
+    </div>
+}
+<div class="card">
+    <div class="card-body">
+        <form asp-route="ServiceAuditSettings" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <fieldset disabled="@Model.IsOverriddenByConfig">
+                <div class="form-check mb-3">
+                    <input asp-for="AuditAllZones" class="form-check-input" />
+                    <label asp-for="AuditAllZones" class="form-check-label"></label>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="IncludedZones" class="form-label"></label>
+                    <textarea asp-for="IncludedZones" class="form-control" rows="5" placeholder="aiursoft.com"></textarea>
+                    <span asp-validation-for="IncludedZones" class="text-danger"></span>
+                    <div class="form-text">@Localizer["When all zones are disabled, discover unregistered services only in these Cloudflare zones. Enter one zone per line. Registered services and aliases outside these zones are still audited."]</div>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ExcludedDomains" class="form-label"></label>
+                    <textarea asp-for="ExcludedDomains" class="form-control" rows="5" placeholder="anduinlab.com"></textarea>
+                    <span asp-validation-for="ExcludedDomains" class="text-danger"></span>
+                    <div class="form-text">@Localizer["Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks."]</div>
+                </div>
+                <p class="text-muted">@Localizer["Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved."]</p>
+                <button type="submit" class="btn btn-primary">@Localizer["Save settings"]</button>
+            </fieldset>
+        </form>
+    </div>
+</div>

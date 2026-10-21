@@ -17,6 +17,7 @@ public class SettingsMap
     public const string AlertCenterEndpoint = "AlertCenter_Endpoint";
     public const string AlertCenterApiKey = "AlertCenter_ApiKey";
     public const string AlertCenterPublicBaseUrl = "AlertCenter_PublicBaseUrl";
+    public const string ServiceAuditScope = "ServiceAudit_Scope";
     public const string CloudflareApiToken = "Cloudflare_API_Token";
     public const string AiAssistantSystemPrompt = "Ai_Assistant_System_Prompt";
     public const string MeetingMinutesSystemPrompt = "Meeting_Minutes_System_Prompt";
@@ -30,6 +31,14 @@ public class SettingsMap
 
     public static readonly List<GlobalSettingDefinition> Definitions = new()
     {
+        new GlobalSettingDefinition
+        {
+            Key = ServiceAuditScope,
+            Name = Localizer["Service audit scope"],
+            Description = Localizer["Configure the audit scope from the service audit settings page."],
+            Type = SettingType.Text,
+            DefaultValue = "{}"
+        },
         new GlobalSettingDefinition
         {
             Key = AlertCenterEnabled,

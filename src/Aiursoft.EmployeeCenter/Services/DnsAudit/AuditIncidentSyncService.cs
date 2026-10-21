@@ -78,7 +78,9 @@ public sealed class AuditIncidentSyncService(
                             Version = incident.Version,
                             Reason = stillPresent
                                 ? $"Audit run {runId}: duplicate of active incident {incidents[0].IncidentId}. The issue remains active there."
-                                : $"Audit run {runId}: this check is now healthy or the registered target no longer applies."
+                                : IsOutsideScope(identity, report.RecoveryEvidence)
+                                    ? $"Audit run {runId}: the target is outside the configured audit scope. This is not evidence of service recovery."
+                                    : $"Audit run {runId}: this check is now healthy or the registered target no longer applies."
                         });
                     }
                     catch (Exception ex)
@@ -168,10 +170,17 @@ public sealed class AuditIncidentSyncService(
         catch (OverflowException) { return null; }
     }
 
+    private static bool IsOutsideScope(Identity identity, DnsAuditInput? input) =>
+        input?.Scope != null && (input.Scope.Excludes(identity.Domain) ||
+            (!input.Scope.DiscoversDomain(identity.Domain) &&
+             !input.Services.Any(service => DnsAuditAnalyzer.NormalizeDomain(service.PrimaryDomain) == identity.Domain) &&
+             !(input.DomainAliases ?? []).Any(alias => DnsAuditAnalyzer.NormalizeDomain(alias.Domain) == identity.Domain)));
+
     private static bool CanMitigate(Identity identity, DnsAuditReport report)
     {
         var input = report.RecoveryEvidence;
         if (input == null) return false;
+        if (IsOutsideScope(identity, input)) return true;
         if (identity.ServiceId.HasValue && !input.Services.Any(service => service.Id == identity.ServiceId &&
                 DnsAuditAnalyzer.NormalizeDomain(service.PrimaryDomain) == identity.Domain)) return true;
         if (identity.DomainAliasId.HasValue && !(input.DomainAliases ?? []).Any(alias => alias.Id == identity.DomainAliasId &&

@@ -25,7 +25,7 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
     public async Task<IActionResult> Index()
     {
         var model = new IndexViewModel();
-        foreach (var definition in SettingsMap.Definitions)
+        foreach (var definition in SettingsMap.Definitions.Where(definition => definition.Key != SettingsMap.ServiceAuditScope))
         {
             var value = await settingsService.GetSettingValueAsync(definition.Key);
             model.Settings.Add(new SettingViewModel
@@ -53,6 +53,7 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(EditViewModel model)
     {
+        if (model.Key == SettingsMap.ServiceAuditScope) return Forbid();
         if (!ModelState.IsValid)
         {
             return RedirectToAction(nameof(Index));

@@ -144,7 +144,8 @@ public sealed record DnsAuditInput(
     IReadOnlyDictionary<string, string>? PublicDnsLookupFailures = null,
     IReadOnlyCollection<DomainAlias>? DomainAliases = null,
     IReadOnlyDictionary<string, DomainAliasRedirectResult>? DomainAliasRedirectResults = null,
-    IReadOnlyDictionary<int, ServiceAvailabilityResult>? ServiceAvailabilityResults = null);
+    IReadOnlyDictionary<int, ServiceAvailabilityResult>? ServiceAvailabilityResults = null,
+    Aiursoft.EmployeeCenter.Services.DnsAudit.ServiceAuditScope? Scope = null);
 
 public sealed record DomainAliasRedirectResult(
     bool IsMatch,

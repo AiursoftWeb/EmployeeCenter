@@ -135,6 +135,24 @@ public class InfrastructurePermissionTests : TestBase
         AssertForbidden(await Http.GetAsync("/Services/Create"));
     }
 
+    [TestMethod]
+    public async Task AuditSettingsRequireBothViewAndManagementPermissions()
+    {
+        await RegisterWithPermissionsAsync(AppPermissionNames.CanViewServiceAudit);
+        var html = await Http.GetStringAsync("/ServiceAudit");
+        Assert.DoesNotContain("/ServiceAudit/Settings", html);
+        AssertForbidden(await Http.GetAsync("/ServiceAudit/Settings"));
+        AssertForbidden(await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>(), tokenUrl: "/"));
+        await RegisterWithPermissionsAsync(AppPermissionNames.CanManageInfrastructure);
+        AssertForbidden(await Http.GetAsync("/ServiceAudit/Settings"));
+        await RegisterWithPermissionsAsync(AppPermissionNames.CanViewServiceAudit, AppPermissionNames.CanManageInfrastructure);
+        html = await Http.GetStringAsync("/ServiceAudit");
+        Assert.Contains("/ServiceAudit/Settings", html);
+        (await Http.GetAsync("/ServiceAudit/Settings")).EnsureSuccessStatusCode();
+        var home = await Http.GetStringAsync("/");
+        Assert.DoesNotContain("/ServiceAudit/Settings", home);
+    }
+
     private async Task RegisterWithPermissionsAsync(params string[] permissions)
     {
         await Http.GetAsync("/Account/LogOff");
