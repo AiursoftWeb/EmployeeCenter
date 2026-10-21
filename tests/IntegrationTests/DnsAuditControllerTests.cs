@@ -13,6 +13,27 @@ namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 [TestClass]
 public class DnsAuditControllerTests : TestBase
 {
+    [TestInitialize]
+    public override async Task CreateServer()
+    {
+        await base.CreateServer();
+        using var scope = Server!.Services.CreateScope();
+        await scope.ServiceProvider.GetRequiredService<GlobalSettingsService>()
+            .UpdateSettingAsync(SettingsMap.ServiceAuditScope, "{}");
+    }
+
+    [TestCleanup]
+    public override async Task CleanServer()
+    {
+        if (Server != null)
+        {
+            using var scope = Server.Services.CreateScope();
+            await scope.ServiceProvider.GetRequiredService<GlobalSettingsService>()
+                .UpdateSettingAsync(SettingsMap.ServiceAuditScope, "{}");
+        }
+        await base.CleanServer();
+    }
+
     [TestMethod]
     public async Task AuditSettingsPersistNormalizedScopeAndPreserveRegistrations()
     {
