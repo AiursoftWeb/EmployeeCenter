@@ -1,4 +1,5 @@
 using Aiursoft.EmployeeCenter.Entities;
+using Aiursoft.EmployeeCenter.Services.DnsAudit;
 using Aiursoft.UiStack.Layout;
 
 namespace Aiursoft.EmployeeCenter.Models.DnsAuditViewModels;
@@ -145,7 +146,7 @@ public sealed record DnsAuditInput(
     IReadOnlyCollection<DomainAlias>? DomainAliases = null,
     IReadOnlyDictionary<string, DomainAliasRedirectResult>? DomainAliasRedirectResults = null,
     IReadOnlyDictionary<int, ServiceAvailabilityResult>? ServiceAvailabilityResults = null,
-    Aiursoft.EmployeeCenter.Services.DnsAudit.ServiceAuditScope? Scope = null);
+    ServiceAuditScope? Scope = null);
 
 public sealed record DomainAliasRedirectResult(
     bool IsMatch,
