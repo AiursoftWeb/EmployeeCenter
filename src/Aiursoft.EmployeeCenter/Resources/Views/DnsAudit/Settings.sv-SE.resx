@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Audit settings" xml:space="preserve">
+    <value>Granskningsinställningar</value>
+  </data>
+  <data name="Back to service audit" xml:space="preserve">
+    <value>Tillbaka till tjänstegranskningen</value>
+  </data>
+  <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
+    <value>Ändringar av omfattningen raderar inte registreringar. Efter nästa lyckade granskning åtgärdas fynd utanför omfattningen automatiskt, men de löses inte.</value>
+  </data>
+  <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
+    <value>Ange en domän per rad. Varje undantag omfattar den domänen och dess underdomäner, inklusive registrerade tjänster och alias. Undantag har företräde och hoppar över DNS-, serverägande- och HTTP-tillgänglighetskontroller.</value>
+  </data>
+  <data name="Save settings" xml:space="preserve">
+    <value>Spara inställningar</value>
+  </data>
+  <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
+    <value>Inställningar sparade. Ändringarna gäller vid nästa revision; den tidigare rapporten förblir oförändrad.</value>
+  </data>
+  <data name="These settings are managed by deployment configuration and cannot be changed here." xml:space="preserve">
+    <value>Dessa inställningar hanteras av distributionskonfiguration och kan inte ändras här.</value>
+  </data>
+  <data name="When all zones are disabled, discover unregistered services only in these Cloudflare zones. Enter one zone per line. Registered services and aliases outside these zones are still audited." xml:space="preserve">
+    <value>När alla zoner är inaktiverade söker du efter oregistrerade tjänster endast i dessa Cloudflare-zoner. Ange en zon per rad. Registrerade tjänster och alias utanför dessa zoner granskas fortfarande.</value>
+  </data>
+
+</root>

@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API Token</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>Cấu hình phạm vi kiểm tra trong trang cài đặt kiểm tra dịch vụ.</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Tiền tệ lương mặc định</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>URL cơ sở công khai cho kiểm tra dịch vụ</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>Phạm vi kiểm tra dịch vụ</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Đồng bộ hóa các phát hiện kiểm tra dịch vụ với AlertCenter.</value>

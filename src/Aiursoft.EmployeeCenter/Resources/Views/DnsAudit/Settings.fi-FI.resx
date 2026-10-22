@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Audit settings" xml:space="preserve">
+    <value>Auditointiasetukset</value>
+  </data>
+  <data name="Back to service audit" xml:space="preserve">
+    <value>Takaisin palvelun tarkastukseen</value>
+  </data>
+  <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
+    <value>Laajuuden muuttaminen ei poista rekisteröintejä. Seuraavan onnistuneen auditoinnin jälkeen laajuuden ulkopuoliset löydökset lievennetään automaattisesti, mutta niitä ei ratkaista.</value>
+  </data>
+  <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
+    <value>Syötä yksi verkkotunnus riville. Jokainen poissulkeminen kattaa kyseisen verkkotunnuksen ja sen aliverkkotunnukset, mukaan lukien rekisteröidyt palvelut ja aliasit. Poissulkemiset ovat etusijalla ja ohittavat DNS-, palvelimen omistajuus- ja HTTP-saavutettavuustarkistukset.</value>
+  </data>
+  <data name="Save settings" xml:space="preserve">
+    <value>Tallenna asetukset</value>
+  </data>
+  <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
+    <value>Asetukset tallennettu. Muutokset tulevat voimaan seuraavassa tarkastuksessa; aiempi raportti säilyy ennallaan.</value>
+  </data>
+  <data name="These settings are managed by deployment configuration and cannot be changed here." xml:space="preserve">
+    <value>Nämä asetukset hallitaan deployement-asetuksilla, eikä niitä voi muuttaa täällä.</value>
+  </data>
+  <data name="When all zones are disabled, discover unregistered services only in these Cloudflare zones. Enter one zone per line. Registered services and aliases outside these zones are still audited." xml:space="preserve">
+    <value>Kun kaikki vyöhykkeet on poistettu käytöstä, etsi rekisteröimättömiä palveluita vain näiltä Cloudflare-vyöhykkeiltä. Kirjoita yksi vyöhyke riville. Näiden vyöhykkeiden ulkopuoliset rekisteröidyt palvelut ja aliakset tarkastetaan silti.</value>
+  </data>
+
+</root>

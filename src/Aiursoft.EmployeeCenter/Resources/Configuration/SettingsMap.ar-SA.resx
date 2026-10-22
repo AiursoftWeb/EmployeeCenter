@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>رمز Cloudflare API</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>يمكنك ضبط نطاق التدقيق من صفحة إعدادات تدقيق الخدمات.</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>العملة الافتراضية للمستحقات</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>عنوان URL الأساسي العام لتدقيق الخدمة</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>نطاق تدقيق الخدمة</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>مزامنة نتائج تدقيق الخدمة مع AlertCenter.</value>

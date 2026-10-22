@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API Anahtarı</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>Denetim kapsamını hizmet denetimi ayarları sayfasından yapılandırın.</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Varsayılan Ödeme Para Birimi</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>Hizmet denetimi genel temel URL&apos;si</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>Hizmet denetimi kapsamı</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Hizmet denetimi bulgularını AlertCenter ile senkronize edin.</value>

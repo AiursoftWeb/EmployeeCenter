@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Audit settings" xml:space="preserve">
+    <value>監査設定</value>
+  </data>
+  <data name="Back to service audit" xml:space="preserve">
+    <value>サービス監査に戻る</value>
+  </data>
+  <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
+    <value>対象範囲を変更しても、登録情報は削除されません。次回の監査が正常に完了すると、対象範囲外の検出事項は解決済みではなく、自動的に緩和されます。</value>
+  </data>
+  <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
+    <value>ドメインを1行に1つずつ入力してください。除外対象には、そのドメインとサブドメインが含まれ、登録済みのサービスやエイリアスも対象となります。除外設定は優先され、DNS、サーバーの所有権、HTTPの利用可否に関するチェックはスキップされます。</value>
+  </data>
+  <data name="Save settings" xml:space="preserve">
+    <value>設定を保存</value>
+  </data>
+  <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
+    <value>設定が保存されました。変更は次回の監査に適用され、前回のレポートは変更されません。</value>
+  </data>
+  <data name="These settings are managed by deployment configuration and cannot be changed here." xml:space="preserve">
+    <value>これらの設定はデプロイ構成によって管理されているため、ここでは変更できません。</value>
+  </data>
+  <data name="When all zones are disabled, discover unregistered services only in these Cloudflare zones. Enter one zone per line. Registered services and aliases outside these zones are still audited." xml:space="preserve">
+    <value>すべてのゾーンが無効になっている場合、未登録のサービスはこれらのCloudflareゾーンでのみ検出されます。1行に1つのゾーンを入力してください。これらのゾーン外の登録済みサービスおよびエイリアスは引き続き監査の対象となります。</value>
+  </data>
+
+</root>
