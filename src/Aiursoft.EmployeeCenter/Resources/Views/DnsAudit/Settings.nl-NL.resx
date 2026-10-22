@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Domeinen toevoegen die niet in de lijst staan</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Auditinstellingen</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Terug naar serviceaudit</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Wijzigingen worden toegepast bij de volgende audit. Registraties worden behouden; bevindingen buiten het bereik worden automatisch gemitigeerd na een geslaagde audit.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>Het wijzigen van de reikwijdte verwijdert geen registraties. Na de volgende succesvolle audit worden bevindingen buiten de reikwijdte automatisch gemitigeerd, niet opgelost.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Aangevinkte domeinen en al hun subdomeinen worden uitgesloten van alle auditcontroles, inclusief geregistreerde services.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Cloudflare-zones zijn niet beschikbaar. Opgeslagen selecties en geregistreerde domeinen worden nog steeds weergegeven; u kunt hieronder ook een domein invoeren.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Bedekt door een bovenliggende uitsluiting</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Voer één domein per regel in. Na het opslaan verschijnen deze domeinen in de selectielijsten.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Voer één domein per regel in. Elke uitsluiting dekt dat domein en zijn subdomeinen, inclusief geregistreerde services en aliassen. Uitsluitingen hebben voorrang en slaan DNS-, servereigendoms- en HTTP-beschikbaarheidscontroles over.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Uitgesloten domeinen</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Zoek een domein</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Opgenomen Cloudflare-zones</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Geen overeenkomende domeinen. U kunt hieronder een ander domein invoeren.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Instellingen opslaan</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Selecteer waar ongerestreerde services moeten worden gevonden. Gerestreerde services en alias&apos;s worden nog steeds gecontroleerd, tenzij ze hieronder zijn uitgesloten.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Instellingen opgeslagen. Wijzigingen worden toegepast op de volgende audit; het eerdere rapport blijft ongewijzigd.</value>

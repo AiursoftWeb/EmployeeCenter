@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Tambahkan domain yang tidak tercantum</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Pengaturan audit</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Kembali ke audit layanan</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Perubahan diterapkan pada audit berikutnya. Registrasi dipertahankan; temuan di luar cakupan akan dimitigasi secara otomatis setelah audit berhasil.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>Perubahan cakupan tidak menghapus registrasi. Setelah audit berikutnya berhasil, temuan di luar cakupan akan dimitigasi secara otomatis, bukan diselesaikan.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Domain yang dicentang beserta semua subdomainnya dikecualikan dari setiap pemeriksaan audit, termasuk layanan yang terdaftar.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Zona Cloudflare tidak tersedia. Pilihan yang tersimpan dan domain terdaftar tetap ditampilkan; Anda juga dapat memasukkan domain di bawah ini.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Tercakup oleh pengecualian induk</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Masukkan satu domain per baris. Setelah disimpan, domain-domain ini akan muncul dalam daftar kotak centang.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Masukkan satu domain per baris. Setiap pengecualian mencakup domain tersebut dan subdomainnya, termasuk layanan terdaftar dan alias. Pengecualian diutamakan dan melewati pemeriksaan DNS, kepemilikan server, serta ketersediaan HTTP.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Domain yang dikecualikan</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Cari domain</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Zona Cloudflare yang disertakan</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Tidak ada domain yang cocok. Anda dapat memasukkan domain lain di bawah ini.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Simpan pengaturan</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Pilih di mana untuk menemukan layanan yang belum terdaftar. Layanan dan alias yang sudah terdaftar tetap diaudit kecuali dikecualikan di bawah.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Pengaturan tersimpan. Perubahan akan berlaku pada audit berikutnya; laporan sebelumnya tetap tidak berubah.</value>

@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>一覧にないドメインを追加</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>監査設定</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>サービス監査に戻る</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>変更は次の監査に適用されます。登録は保持されますが、スコープ外の検出項目は、監査が正常に完了すると自動的に軽減されます。</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>対象範囲を変更しても、登録情報は削除されません。次回の監査が正常に完了すると、対象範囲外の検出事項は解決済みではなく、自動的に緩和されます。</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>チェックしたドメインとそのすべてのサブドメインは、登録済みサービスを含むすべての監査チェックの対象外になります。</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Cloudflareゾーンを利用できません。保存済みの選択項目と登録済みドメインは引き続き表示されます。また、以下にドメインを入力することもできます。</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>上位ドメインの除外範囲に該当</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>1行に1つのドメインを入力してください。保存すると、これらのドメインがチェックボックスの一覧に表示されます。</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>ドメインを1行に1つずつ入力してください。除外対象には、そのドメインとサブドメインが含まれ、登録済みのサービスやエイリアスも対象となります。除外設定は優先され、DNS、サーバーの所有権、HTTPの利用可否に関するチェックはスキップされます。</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>除外ドメイン</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>ドメインを検索</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>対象のCloudflareゾーン</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>一致するドメインはありません。下の欄に別のドメインを入力できます。</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>設定を保存</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>未登録サービスを検出する対象を選択します。登録済みサービスとエイリアスは、以下で除外しない限り、引き続き監査されます。</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>設定が保存されました。変更は次回の監査に適用され、前回のレポートは変更されません。</value>

@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>सूची में शामिल न किए गए डोमेन जोड़ें</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>ऑडिट सेटिंग्स</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>सेवा ऑडिट पर वापस जाएँ</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>परिवर्तन अगले ऑडिट से लागू होंगे। पंजीकरण बने रहेंगे; सफल ऑडिट के बाद दायरे से बाहर की समस्याओं का अपने-आप निवारण कर दिया जाएगा।</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>दायरा बदलने से पंजीकरण हटते नहीं हैं। अगले सफल ऑडिट के बाद, दायरे से बाहर की समस्याएँ अपने-आप कम कर दी जाएँगी, हल नहीं।</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>चुने गए डोमेन और उनके सभी सबडोमेन सभी ऑडिट जाँचों से, शामिल सेवाओं सहित, बाहर कर दिए जाते हैं।</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Cloudflare क्षेत्र उपलब्ध नहीं हैं। सहेजे गए चयन और पंजीकृत डोमेन अभी भी दिखाए जा रहे हैं; आप नीचे एक डोमेन भी दर्ज कर सकते हैं।</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>मूल बहिष्करण के अंतर्गत शामिल</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>प्रत्येक पंक्ति में एक डोमेन दर्ज करें। सहेजने के बाद, ये डोमेन चेकबॉक्स सूचियों में दिखाई देंगे।</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>प्रत्येक पंक्ति में एक डोमेन दर्ज करें। प्रत्येक अपवाद उस डोमेन और उसके सबडोमेन, पंजीकृत सेवाओं और एलियास सहित को कवर करता है। अपवाद प्राथमिकता रखते हैं और DNS, सर्वर स्वामित्व और HTTP उपलब्धता जाँचों को छोड़ देते हैं।</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>वर्जित डोमेन</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>डोमेन खोजें</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>सहित क्लाउडफ्लेयर ज़ोन</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>कोई मिलान वाला डोमेन नहीं है। आप नीचे कोई अन्य डोमेन दर्ज कर सकते हैं।</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>सेटिंग्स सहेजें</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>अनपंजीकृत सेवाओं को खोजने के लिए कहाँ चुनें। नीचे वगिर्त न होने पर, पंजीकृत सेवाएँ और एलियास अभी भी ऑडिट किए जाते हैं।</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>सेटिंग्स सहेज ली गईं। बदलाव अगले ऑडिट में लागू होंगे; पिछली रिपोर्ट अपरिवर्तित रहेगी।</value>

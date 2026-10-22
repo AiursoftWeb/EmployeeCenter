@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>إضافة نطاقات غير مدرجة</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>إعدادات التدقيق</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>العودة إلى تدقيق الخدمة</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>تُطبَّق التغييرات في التدقيق التالي. وتظل التسجيلات محفوظة؛ وتُعالج تلقائيًا النتائج التي تقع خارج النطاق بعد اجتياز التدقيق بنجاح.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>لا يؤدي تغيير النطاق إلى حذف التسجيلات. بعد التمهيد الناجح التالي، تُخفَّض تلقائيًا النتائج خارج النطاق، ولا تُعالج.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>تُستثنى النطاقات المحددة وجميع نطاقاتها الفرعية من جميع عمليات التدقيق، بما في ذلك الخدمات المسجلة.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>مناطق Cloudflare غير متاحة. لا تزال الاختيارات المحفوظة والنطاقات المسجلة معروضة؛ كما يمكنك إدخال نطاق أدناه.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>مغطّى باستبعاد نطاق أب</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>أدخل نطاقًا واحدًا في كل سطر. بعد الحفظ، ستظهر هذه النطاقات في قوائم مربعات الاختيار.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>أدخل نطاقًا واحدًا في كل سطر. يشمل كل استثناء النطاق ونطاقاته الفرعية، بما فيها الخدمات المسجّلة والأسماء المستعارة. تكون الأولوية للاستثناءات، وتُتجاوز معها فحوصات DNS وملكية الخادم وتوافر HTTP.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>النطاقات المستثناة</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>البحث عن نطاق</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>نطاقات Cloudflare المشمولة</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>لا توجد نطاقات مطابقة. يمكنك إدخال نطاق آخر أدناه.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>حفظ الإعدادات</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>حدّد النطاقات التي تريد البحث فيها عن الخدمات غير المسجّلة. ستظل الخدمات المسجّلة والأسماء المستعارة خاضعة للتدقيق ما لم تُستثنَ أدناه.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>تم حفظ الإعدادات. تُطبَّق التغييرات على التدقيق القادم؛ وتبقى النسخة السابقة دون تغيير.</value>
