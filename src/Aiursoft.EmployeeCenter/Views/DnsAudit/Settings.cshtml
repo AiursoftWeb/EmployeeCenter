@@ -26,21 +26,65 @@
                     <input asp-for="AuditAllZones" class="form-check-input" />
                     <label asp-for="AuditAllZones" class="form-check-label"></label>
                 </div>
-                <div class="mb-3">
-                    <label asp-for="IncludedZones" class="form-label"></label>
-                    <textarea asp-for="IncludedZones" class="form-control" rows="5" placeholder="aiursoft.com"></textarea>
+                <div id="included-zone-list" class="mb-3">
+                    <h2 class="h5">@Localizer["Included Cloudflare zones"]</h2>
+                    <p class="form-text">@Localizer["Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below."]</p>
+                    @for (var i = 0; i < Model.AvailableZones.Length; i++)
+                    {
+                        var zone = Model.AvailableZones[i];
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="zone-@i" name="IncludedZoneSelections" value="@zone" checked="@Model.IncludedZoneSelections.Contains(zone, StringComparer.OrdinalIgnoreCase)" />
+                            <label class="form-check-label" for="zone-@i">@zone</label>
+                        </div>
+                    }
                     <span asp-validation-for="IncludedZones" class="text-danger"></span>
-                    <div class="form-text">@Localizer["When all zones are disabled, discover unregistered services only in these Cloudflare zones. Enter one zone per line. Registered services and aliases outside these zones are still audited."]</div>
                 </div>
+                @if (Model.ZonesUnavailable)
+                {
+                    <p class="text-muted">@Localizer["Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below."]</p>
+                }
                 <div class="mb-3">
-                    <label asp-for="ExcludedDomains" class="form-label"></label>
-                    <textarea asp-for="ExcludedDomains" class="form-control" rows="5" placeholder="anduinlab.com"></textarea>
-                    <span asp-validation-for="ExcludedDomains" class="text-danger"></span>
-                    <div class="form-text">@Localizer["Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks."]</div>
+                    <h2 class="h5">@Localizer["Excluded domains"]</h2>
+                    <p class="form-text">@Localizer["Checked domains and all their subdomains are excluded from every audit check, including registered services."]</p>
+                    <label for="domain-search" class="form-label">@Localizer["Find a domain"]</label>
+                    <input id="domain-search" type="search" class="form-control mb-2" autocomplete="off" />
+                    <div id="excluded-domain-list" class="list-group overflow-auto" style="max-height: 24rem;">
+                        @for (var i = 0; i < Model.AvailableDomains.Length; i++)
+                        {
+                            var domain = Model.AvailableDomains[i];
+                            <label class="list-group-item d-flex align-items-center gap-2" data-domain="@domain">
+                                <input type="checkbox" class="form-check-input mt-0 flex-shrink-0" name="ExcludedDomainSelections" value="@domain" checked="@Model.ExcludedDomainSelections.Contains(domain, StringComparer.OrdinalIgnoreCase)" />
+                                <span class="d-flex flex-column flex-sm-row flex-grow-1 gap-sm-2">
+                                    <span class="text-break">@domain</span>
+                                    <small class="text-muted ms-sm-auto" data-covered hidden>@Localizer["Covered by a parent exclusion"]</small>
+                                </span>
+                            </label>
+                        }
+                    </div>
+                    <p id="no-domain-matches" class="text-muted mt-2" hidden>@Localizer["No matching domains. You can enter another domain below."]</p>
                 </div>
-                <p class="text-muted">@Localizer["Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved."]</p>
+                <details class="mb-3" open="@(!ViewData.ModelState.IsValid)">
+                    <summary>@Localizer["Add domains not listed"]</summary>
+                    <div class="mt-3">
+                        <label asp-for="IncludedZones" class="form-label"></label>
+                        <textarea asp-for="IncludedZones" class="form-control" rows="2" placeholder="aiursoft.com"></textarea>
+                        <span asp-validation-for="IncludedZones" class="text-danger"></span>
+                    </div>
+                    <div class="mt-3">
+                        <label asp-for="ExcludedDomains" class="form-label"></label>
+                        <textarea asp-for="ExcludedDomains" class="form-control" rows="2" placeholder="anduinlab.com"></textarea>
+                        <span asp-validation-for="ExcludedDomains" class="text-danger"></span>
+                    </div>
+                    <p class="form-text">@Localizer["Enter one domain per line. After saving, these domains appear in the checkbox lists."]</p>
+                </details>
+                <p class="text-muted">@Localizer["Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit."]</p>
                 <button type="submit" class="btn btn-primary">@Localizer["Save settings"]</button>
             </fieldset>
         </form>
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/scripts/audit-settings.js" asp-append-version="true"></script>
+}

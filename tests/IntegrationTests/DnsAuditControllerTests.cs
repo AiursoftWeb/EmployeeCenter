@@ -18,8 +18,9 @@ public class DnsAuditControllerTests : TestBase
     {
         await base.CreateServer();
         using var scope = Server!.Services.CreateScope();
-        await scope.ServiceProvider.GetRequiredService<GlobalSettingsService>()
-            .UpdateSettingAsync(SettingsMap.ServiceAuditScope, "{}");
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.ServiceAuditScope, "{}");
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, string.Empty);
     }
 
     [TestCleanup]
@@ -28,8 +29,9 @@ public class DnsAuditControllerTests : TestBase
         if (Server != null)
         {
             using var scope = Server.Services.CreateScope();
-            await scope.ServiceProvider.GetRequiredService<GlobalSettingsService>()
-                .UpdateSettingAsync(SettingsMap.ServiceAuditScope, "{}");
+            var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            await settings.UpdateSettingAsync(SettingsMap.ServiceAuditScope, "{}");
+            await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, string.Empty);
         }
         await base.CleanServer();
     }
@@ -54,6 +56,133 @@ public class DnsAuditControllerTests : TestBase
         var html = await Http.GetStringAsync("/ServiceAudit/Settings");
         Assert.Contains("anduinlab.com", html);
         Assert.DoesNotContain(SettingsMap.ServiceAuditScope, await Http.GetStringAsync("/GlobalSettings/Index"));
+    }
+
+    [TestMethod]
+    public async Task AuditCheckboxSelectionsSurviveUnavailableZonesAndCanBeUnchecked()
+    {
+        await LoginAsAdmin();
+        var response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>
+        {
+            ["AuditAllZones"] = "false",
+            ["IncludedZoneSelections[0]"] = "AIURSOFT.COM.",
+            ["ExcludedDomainSelections[0]"] = "ANDUINLAB.COM.",
+            ["ExcludedDomains"] = "another.example.com"
+        });
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        var html = await Http.GetStringAsync("/ServiceAudit/Settings");
+        Assert.Contains("Cloudflare zones are unavailable", html);
+        Assert.IsTrue(Regex.IsMatch(html, "name=\"IncludedZoneSelections\" value=\"aiursoft.com\" checked"));
+        Assert.IsTrue(Regex.IsMatch(html, "name=\"ExcludedDomainSelections\" value=\"anduinlab.com\" checked"));
+        Assert.IsTrue(Regex.IsMatch(html, "name=\"ExcludedDomainSelections\" value=\"another.example.com\" checked"));
+        // A rejected edit keeps unavailable saved zones as unchecked choices so they can be selected again.
+        response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>
+        {
+            ["AuditAllZones"] = "false", ["ExcludedDomainSelections[0]"] = "anduinlab.com"
+        });
+        html = await response.Content.ReadAsStringAsync();
+        Assert.Contains("validation-summary-errors", html);
+        Assert.Contains("name=\"IncludedZoneSelections\" value=\"aiursoft.com\"", html);
+        Assert.IsFalse(Regex.IsMatch(html, "name=\"IncludedZoneSelections\" value=\"aiursoft.com\" checked"));
+        // Simulate unchecking the personal domain while keeping the other selection.
+        response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>
+        {
+            ["AuditAllZones"] = "true", ["ExcludedDomainSelections[0]"] = "another.example.com"
+        });
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        using var scope = Server!.Services.CreateScope();
+        var policy = ServiceAuditScope.Deserialize(await scope.ServiceProvider.GetRequiredService<GlobalSettingsService>()
+            .GetSettingValueAsync(SettingsMap.ServiceAuditScope));
+        CollectionAssert.AreEqual(new[] { "another.example.com" }, policy.ExcludedDomains);
+        Assert.IsFalse(policy.Excludes("temp.anduinlab.com"));
+    }
+
+    [TestMethod]
+    public async Task AuditCheckboxListIncludesRegisteredAndLastDiscoveredDomains()
+    {
+        await LoginAsAdmin();
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+        var service = new Service { PrimaryDomain = "registered.example.com", IsAvailabilityAuditEnabled = false };
+        db.Services.Add(service);
+        await db.SaveChangesAsync();
+        var alias = new DomainAlias { Domain = "alias.example.com", TargetServiceId = service.Id };
+        db.DomainAliases.Add(alias);
+        await db.SaveChangesAsync();
+        var run = new ServiceAuditRun { Status = ServiceAuditRunStatus.Succeeded, CompletedAt = DateTime.UtcNow };
+        db.ServiceAuditRuns.Add(run);
+        await db.SaveChangesAsync();
+        var issue = new ServiceAuditIssue
+        {
+            ServiceAuditRunId = run.Id, Type = nameof(DnsAuditIssueType.UnknownDns), Severity = nameof(DnsAuditSeverity.Error),
+            Domain = "discovered.example.com", Details = "Unregistered domain"
+        };
+        db.ServiceAuditIssues.Add(issue);
+        await db.SaveChangesAsync();
+        try
+        {
+            var html = await Http.GetStringAsync("/ServiceAudit/Settings");
+            foreach (var domain in new[] { service.PrimaryDomain, alias.Domain, "discovered.example.com" })
+                Assert.Contains($"name=\"ExcludedDomainSelections\" value=\"{domain}\"", html);
+        }
+        finally
+        {
+            db.ServiceAuditIssues.Remove(issue);
+            db.ServiceAuditRuns.Remove(run);
+            db.DomainAliases.Remove(alias);
+            db.Services.Remove(service);
+            await db.SaveChangesAsync();
+        }
+    }
+
+    [TestMethod]
+    public async Task InvalidAdditionalDomainPreservesCheckboxSelections()
+    {
+        await LoginAsAdmin();
+        var response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>
+        {
+            ["AuditAllZones"] = "false", ["IncludedZoneSelections[0]"] = "aiursoft.com",
+            ["ExcludedDomainSelections[0]"] = "anduinlab.com", ["ExcludedDomains"] = "https://bad.example.com"
+        });
+        response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.Contains("validation-summary-errors", html);
+        Assert.IsTrue(Regex.IsMatch(html, "name=\"ExcludedDomainSelections\" value=\"anduinlab.com\" checked"));
+        Assert.Contains("https://bad.example.com", html);
+        Assert.Contains("<details class=\"mb-3\" open", html);
+    }
+
+    [TestMethod]
+    [DataRow("")]
+    [DataRow("*.anduinlab.com")]
+    [DataRow("https://anduinlab.com")]
+    public async Task InvalidCheckboxValueDoesNotChangeScope(string domain)
+    {
+        await LoginAsAdmin();
+        var response = await PostForm("/ServiceAudit/Settings", new Dictionary<string, string>
+        {
+            ["AuditAllZones"] = "true", ["ExcludedDomainSelections[0]"] = domain
+        });
+        response.EnsureSuccessStatusCode();
+        Assert.Contains("validation-summary-errors", await response.Content.ReadAsStringAsync());
+        using var scope = Server!.Services.CreateScope();
+        Assert.AreEqual("{}", await scope.ServiceProvider.GetRequiredService<GlobalSettingsService>()
+            .GetSettingValueAsync(SettingsMap.ServiceAuditScope));
+    }
+
+    [TestMethod]
+    public async Task ZoneChoicesLoadOnlyZoneMetadataWithoutRunningAnAudit()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "synthetic-audit-token");
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"zone-choices-{Guid.NewGuid():N}").Options);
+        var factory = new ScopeHttpFactory();
+        var audit = new CloudflareDnsAuditService(db, settings, factory, NullLogger<CloudflareDnsAuditService>.Instance);
+        CollectionAssert.AreEqual(new[] { "aiursoft.com", "anduinlab.com" }, await audit.GetZoneNamesAsync());
+        Assert.AreEqual(1, factory.Paths.Count);
+        Assert.AreEqual("/client/v4/zones", factory.Paths[0]);
     }
 
     [TestMethod]

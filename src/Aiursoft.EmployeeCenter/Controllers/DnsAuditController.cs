@@ -11,6 +11,7 @@ using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.EmployeeCenter.Controllers;
 
@@ -21,7 +22,10 @@ public sealed class DnsAuditController(
     ServiceAuditStore auditStore,
     UserManager<User> userManager,
     BackgroundJobRegistry jobRegistry,
-    GlobalSettingsService settingsService) : Controller
+    GlobalSettingsService settingsService,
+    EmployeeCenterDbContext dbContext,
+    CloudflareDnsAuditService cloudflareAudit,
+    ILogger<DnsAuditController> logger) : Controller
 {
     [HttpGet("/ServiceAudit", Name = "ServiceAuditIndex")]
     [HttpGet("/ServiceAudit/Index")]
@@ -47,14 +51,16 @@ public sealed class DnsAuditController(
     public async Task<IActionResult> Settings(bool saved = false)
     {
         var scope = ServiceAuditScope.Deserialize(await settingsService.GetSettingValueAsync(SettingsMap.ServiceAuditScope));
-        return this.StackView(new AuditSettingsViewModel
+        var model = new AuditSettingsViewModel
         {
             AuditAllZones = scope.AuditAllZones,
-            IncludedZones = string.Join('\n', scope.IncludedZones),
-            ExcludedDomains = string.Join('\n', scope.ExcludedDomains),
+            IncludedZoneSelections = scope.IncludedZones,
+            ExcludedDomainSelections = scope.ExcludedDomains,
             IsOverriddenByConfig = settingsService.IsOverriddenByConfig(SettingsMap.ServiceAuditScope),
             Saved = saved
-        });
+        };
+        await PopulateChoicesAsync(model);
+        return this.StackView(model);
     }
 
     [HttpPost("/ServiceAudit/Settings")]
@@ -66,9 +72,44 @@ public sealed class DnsAuditController(
         model.IsOverriddenByConfig = settingsService.IsOverriddenByConfig(SettingsMap.ServiceAuditScope);
         model.Saved = false;
         if (model.IsOverriddenByConfig) return Conflict();
-        if (!ModelState.IsValid) return this.StackView(model);
+        if (!ModelState.IsValid)
+        {
+            await PopulateChoicesAsync(model);
+            return this.StackView(model);
+        }
         await settingsService.UpdateSettingAsync(SettingsMap.ServiceAuditScope, JsonSerializer.Serialize(model.ToScope()));
         return RedirectToRoute("ServiceAuditSettings", new { saved = true });
+    }
+
+    private async Task PopulateChoicesAsync(AuditSettingsViewModel model)
+    {
+        string[] zones = [];
+        using var timeout = CancellationTokenSource.CreateLinkedTokenSource(HttpContext.RequestAborted);
+        timeout.CancelAfter(TimeSpan.FromSeconds(10));
+        try
+        {
+            zones = await cloudflareAudit.GetZoneNamesAsync(timeout.Token);
+        }
+        catch (Exception ex) when (ex is CloudflareDnsAuditException or HttpRequestException or OperationCanceledException)
+        {
+            if (HttpContext.RequestAborted.IsCancellationRequested) throw;
+            model.ZonesUnavailable = true;
+            logger.LogWarning("Cloudflare zones could not be loaded for audit settings ({ErrorType}).", ex.GetType().Name);
+        }
+
+        var savedScope = ServiceAuditScope.Deserialize(await settingsService.GetSettingValueAsync(SettingsMap.ServiceAuditScope));
+        var snapshot = await auditStore.LoadSnapshotAsync(snapshotCache.Current);
+        var domains = await dbContext.Services.AsNoTracking().Where(service => service.RetiredAt == null)
+            .Select(service => service.PrimaryDomain).ToListAsync(HttpContext.RequestAborted);
+        domains.AddRange(await dbContext.DomainAliases.AsNoTracking().Select(alias => alias.Domain)
+            .ToListAsync(HttpContext.RequestAborted));
+        domains.AddRange(snapshot.Report?.Issues.Select(issue => issue.Domain) ?? []);
+        domains.AddRange(snapshot.Report?.Observations.Select(observation => observation.Domain) ?? []);
+        model.AvailableZones = zones.Concat(savedScope.IncludedZones).Concat(model.IncludedZoneSelections)
+            .Distinct(StringComparer.OrdinalIgnoreCase).Order(StringComparer.OrdinalIgnoreCase).ToArray();
+        model.AvailableDomains = domains.Concat(model.AvailableZones).Concat(savedScope.ExcludedDomains).Concat(model.ExcludedDomainSelections)
+            .Select(DnsAuditAnalyzer.NormalizeDomain).Where(domain => domain.Length > 0)
+            .Distinct(StringComparer.OrdinalIgnoreCase).Order(StringComparer.OrdinalIgnoreCase).ToArray();
     }
 
     [HttpPost("/ServiceAudit/Refresh", Name = "ServiceAuditRefresh")]

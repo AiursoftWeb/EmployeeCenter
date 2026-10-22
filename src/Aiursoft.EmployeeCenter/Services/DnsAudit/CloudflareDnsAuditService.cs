@@ -27,6 +27,20 @@ public sealed class CloudflareDnsAuditService(
         return !string.IsNullOrWhiteSpace(token);
     }
 
+    public async Task<string[]> GetZoneNamesAsync(CancellationToken cancellationToken = default)
+    {
+        var token = await settingsService.GetSettingValueAsync(SettingsMap.CloudflareApiToken);
+        if (string.IsNullOrWhiteSpace(token))
+            throw new CloudflareDnsAuditException("Cloudflare API token is not configured.");
+        using var client = httpClientFactory.CreateClient();
+        client.Timeout = TimeSpan.FromSeconds(10);
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        client.DefaultRequestHeaders.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-DnsAudit/1.0");
+        var zones = await GetAllPagesAsync<CloudflareZone>(client, "/zones", cancellationToken);
+        return zones.Select(zone => DnsAuditAnalyzer.NormalizeDomain(zone.Name))
+            .Distinct(StringComparer.OrdinalIgnoreCase).Order(StringComparer.OrdinalIgnoreCase).ToArray();
+    }
+
     public async Task<DnsAuditReport> AuditAsync(CancellationToken cancellationToken = default)
     {
         var token = await settingsService.GetSettingValueAsync(SettingsMap.CloudflareApiToken);
