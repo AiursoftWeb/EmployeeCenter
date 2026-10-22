@@ -53,9 +53,11 @@
                         {
                             var domain = Model.AvailableDomains[i];
                             <label class="list-group-item d-flex align-items-center gap-2" data-domain="@domain">
-                                <input type="checkbox" class="form-check-input mt-0" name="ExcludedDomainSelections" value="@domain" checked="@Model.ExcludedDomainSelections.Contains(domain, StringComparer.OrdinalIgnoreCase)" />
-                                <span class="text-break">@domain</span>
-                                <small class="text-muted ms-auto" data-covered hidden>@Localizer["Covered by a parent exclusion"]</small>
+                                <input type="checkbox" class="form-check-input mt-0 flex-shrink-0" name="ExcludedDomainSelections" value="@domain" checked="@Model.ExcludedDomainSelections.Contains(domain, StringComparer.OrdinalIgnoreCase)" />
+                                <span class="d-flex flex-column flex-sm-row flex-grow-1 gap-sm-2">
+                                    <span class="text-break">@domain</span>
+                                    <small class="text-muted ms-sm-auto" data-covered hidden>@Localizer["Covered by a parent exclusion"]</small>
+                                </span>
                             </label>
                         }
                     </div>
