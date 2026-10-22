@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Adicionar domínios não listados</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Configurações de auditoria</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Voltar para a auditoria de serviço</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>As alterações são aplicadas na próxima auditoria. Os registros são mantidos; os achados fora do escopo são automaticamente mitigados após uma auditoria bem-sucedida.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>Alterar o escopo não exclui os registros. Após a próxima auditoria bem-sucedida, os achados fora do escopo são automaticamente mitigados, não resolvidos.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Os domínios selecionados e todos os seus subdomínios são excluídos de todas as verificações de auditoria, inclusive dos serviços registrados.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>As zonas da Cloudflare estão indisponíveis. As seleções salvas e os domínios registrados continuam sendo exibidos; você também pode inserir um domínio abaixo.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Abrangido por uma exclusão abrangente</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Insira um domínio por linha. Após salvar, esses domínios aparecerão nas listas de caixas de seleção.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Insira um domínio por linha. Cada exclusão abrange esse domínio e seus subdomínios, incluindo serviços registrados e aliases. As exclusões têm prioridade e ignoram as verificações de DNS, propriedade do servidor e disponibilidade HTTP.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Domínios excluídos</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Localizar um domínio</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Zonas Cloudflare incluídas</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Nenhum domínio correspondente. Você pode inserir outro domínio abaixo.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Salvar configurações</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Selecione onde descobrir serviços não registrados. Serviços registrados e aliases ainda são auditados, a menos que sejam excluídos abaixo.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Configurações salvas. As alterações serão aplicadas na próxima auditoria; o relatório anterior permanecerá inalterado.</value>

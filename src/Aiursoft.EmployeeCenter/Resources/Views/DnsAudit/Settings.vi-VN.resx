@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Thêm các tên miền chưa được liệt kê</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Cài đặt kiểm tra</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Quay lại kiểm tra dịch vụ</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Các thay đổi sẽ được áp dụng cho lần kiểm toán tiếp theo. Các đăng ký sẽ được giữ lại; các phát hiện nằm ngoài phạm vi sẽ được tự động giảm thiểu sau khi kiểm toán thành công.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>Việc thay đổi phạm vi không xóa các bản đăng ký. Sau lần kiểm toán thành công tiếp theo, các phát hiện nằm ngoài phạm vi sẽ được tự động giảm thiểu, không phải được giải quyết.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Các miền được chọn và tất cả tên miền con của chúng sẽ bị loại trừ khỏi mọi kiểm tra kiểm toán, bao gồm cả các dịch vụ đã đăng ký.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Không thể truy cập các vùng Cloudflare. Các lựa chọn đã lưu và tên miền đã đăng ký vẫn được hiển thị; bạn cũng có thể nhập tên miền bên dưới.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Được bao phủ bởi một ngoại lệ cấp trên</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Nhập một tên miền trên mỗi dòng. Sau khi lưu, các tên miền này sẽ xuất hiện trong danh sách các hộp kiểm.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Nhập mỗi tên miền trên một dòng. Mỗi mục loại trừ áp dụng cho tên miền đó và các tên miền phụ, bao gồm cả dịch vụ đã đăng ký và bí danh. Các mục loại trừ được ưu tiên và bỏ qua việc kiểm tra DNS, quyền sở hữu máy chủ và khả năng truy cập HTTP.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Các tên miền bị loại trừ</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Tìm tên miền</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Khu vực Cloudflare được bao gồm</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Không tìm thấy miền nào phù hợp. Bạn có thể nhập một miền khác bên dưới.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Lưu cài đặt</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Chọn nơi tìm các dịch vụ chưa được đăng ký. Các dịch vụ đã đăng ký và bí danh vẫn được kiểm tra, trừ khi bị loại trừ bên dưới.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Đã lưu cài đặt. Các thay đổi sẽ áp dụng cho lần kiểm tra tiếp theo; báo cáo trước đó vẫn giữ nguyên.</value>

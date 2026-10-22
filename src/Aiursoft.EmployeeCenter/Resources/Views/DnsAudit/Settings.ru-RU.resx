@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Добавить неуказанные домены</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Настройки аудита</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Вернуться к аудиту служб</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Изменения вступят в силу при следующем аудите. Регистрационные данные сохраняются; проблемы, выходящие за рамки области проверки, автоматически устраняются после успешного аудита.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>Изменение области действия не удаляет регистрации. После следующей успешной проверки обнаружения вне области действия автоматически митигируются, а не устраняются.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Отмеченные домены и все их поддомены исключаются из всех проверок аудита, включая проверки зарегистрированных сервисов.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Зоны Cloudflare недоступны. Сохранённые выбранные значения и зарегистрированные домены по-прежнему отображаются; вы также можете ввести домен ниже.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Покрыто родительским исключением</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Введите по одному домену в строке. После сохранения эти домены появятся в списках флажков.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Введите по одному домену на строку. Каждое исключение охватывает указанный домен и его поддомены, включая зарегистрированные сервисы и псевдонимы. Исключения имеют приоритет и пропускают проверки DNS, владения сервером и доступности HTTP.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Исключённые домены</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Найти домен</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Зоны Cloudflare</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Совпадающие домены не найдены. Вы можете ввести другой домен ниже.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Сохранить настройки</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Выберите, где искать незарегистрированные службы. Зарегистрированные службы и псевдонимы по-прежнему проверяются, если они не исключены ниже.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Настройки сохранены. Изменения будут применены при следующей проверке; предыдущий отчёт остаётся без изменений.</value>

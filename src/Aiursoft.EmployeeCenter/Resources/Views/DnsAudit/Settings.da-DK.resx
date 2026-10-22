@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Tilføj domæner, der ikke er angivet</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Revisionsindstillinger</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Tilbage til serviceaudit</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Ændringerne træder i kraft ved næste revision. Registreringerne bevares; fund uden for omfanget afhjælpes automatisk efter en vellykket revision.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>Ændring af omfanget sletter ikke registreringer. Efter den næste vellykkede gennemgang afhjælpes fund uden for omfanget automatisk, men de løses ikke.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Markerede domæner og alle deres underdomæner er udelukket fra alle kontroltjek, herunder af registrerede tjenester.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Cloudflare-zoner er ikke tilgængelige. Gemte valg og registrerede domæner vises stadig; du kan også indtaste et domæne nedenfor.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Dækket af en overordnet udelukkelse</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Indtast ét domæne pr. linje. Efter gemt vises disse domæner i afkrydsningslisterne.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Indtast ét domæne pr. linje. Hver undtagelse dækker det pågældende domæne og dets undertjek, herunder registrerede tjenester og aliaser. Undtagelser har forrang og springer DNS-, serverejerskabstjek og HTTP-tilgængelighedstjek over.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Ekskluderede domæner</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Find et domæne</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Indkluderede Cloudflare-zoner</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Ingen matchende domæner. Du kan indtaste et andet domæne nedenfor.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Gem indstillinger</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Vælg hvor ubrugte tjenester skal opdages. Registrerede tjenester og aliasser revideres stadig, medmindre de er undtaget nedenfor.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Indstillingerne er gemt. Ændringerne træder i kraft ved næste audit; den tidligere rapport forbliver uændret.</value>

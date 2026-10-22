@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Nicht aufgeführte Domains hinzufügen</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Prüfeinstellungen</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Zurück zur Dienstüberprüfung</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Änderungen gelten ab dem nächsten Audit. Registrierungen bleiben erhalten; Befunde außerhalb des Geltungsbereichs werden nach einem erfolgreichen Audit automatisch behoben.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>Eine Änderung des Geltungsbereichs löscht keine Registrierungen. Nach dem nächsten erfolgreichen Audit werden Befunde außerhalb des Geltungsbereichs automatisch abgemildert, nicht behoben.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Angekreuzte Domains und alle ihre Subdomains sind von sämtlichen Audit-Prüfungen ausgeschlossen, einschließlich der registrierten Dienste.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Cloudflare-Zonen sind nicht verfügbar. Gespeicherte Auswahlmöglichkeiten und registrierte Domains werden weiterhin angezeigt; Sie können unten auch eine Domain eingeben.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Durch einen übergeordneten Ausschluss erfasst</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Geben Sie eine Domain pro Zeile ein. Nach dem Speichern erscheinen diese Domains in den Auswahllisten.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Geben Sie eine Domain pro Zeile ein. Jeder Ausschluss gilt für die angegebene Domain und ihre Subdomains, einschließlich registrierter Dienste und Aliase. Ausschlüsse haben Vorrang und überspringen DNS-, Serverinhaberschafts- und HTTP-Verfügbarkeitsprüfungen.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Ausgeschlossene Domains</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Domain suchen</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Enthaltene Cloudflare-Zonen</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Keine passenden Domains. Sie können unten eine andere Domain eingeben.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Einstellungen speichern</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Wählen Sie aus, in welchen Zonen nicht registrierte Dienste entdeckt werden sollen. Registrierte Dienste und Aliase werden weiterhin auditiert, sofern sie unten nicht ausgeschlossen werden.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Einstellungen gespeichert. Änderungen werden bei der nächsten Prüfung wirksam; der vorherige Bericht bleibt unverändert.</value>

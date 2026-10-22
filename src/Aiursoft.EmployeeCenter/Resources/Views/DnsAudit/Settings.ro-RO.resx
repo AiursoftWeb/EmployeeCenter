@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Adaugă domenii nelistate</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Setări audit</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Înapoi la auditul serviciului</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Modificările se aplică la următorul audit. Înregistrările se păstrează; constatările din afara domeniului de aplicare sunt remediate automat după un audit reușit.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>Modificarea domeniului de aplicare nu șterge înregistrările. După următorul audit reușit, constatărilor din afara domeniului de aplicare le se aplică automat măsuri de atenuare, nu de rezolvare.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Domeniile bifate și toate subdomeniile acestora sunt excluse din orice verificare de audit, inclusiv serviciile înregistrate.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Zonele Cloudflare nu sunt disponibile. Selecțiile salvate și domeniile înregistrate sunt încă afișate; puteți introduce, de asemenea, un domeniu mai jos.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Inclusă în excluderea unui domeniu părinte</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Introduceți un domeniu pe linie. După salvare, aceste domenii apar în listele de căsuțe de selectare.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Introduceți un domeniu pe linie. Fiecare excludere acoperă acel domeniu și subdomeniile sale, inclusiv serviciile înregistrate și aliasurile. Excluderile au prioritate și sărătest verificările de DNS, de proprietate a serverului și de disponibilitate HTTP.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Domenii excluse</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Găsiți un domeniu</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Zone Cloudflare incluse</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Nicio domeniu corespunzător. Puteți introduce alt domeniu mai jos.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Salvează setările</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Selectați unde să descoperiți serviciile neregistrate. Serviciile și aliasurile înregistrate sunt încă auditate, cu excepția cazului în care sunt excluse mai jos.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Setările au fost salvate. Modificările se aplică la următorul audit; raportul anterior rămâne neschimbat.</value>

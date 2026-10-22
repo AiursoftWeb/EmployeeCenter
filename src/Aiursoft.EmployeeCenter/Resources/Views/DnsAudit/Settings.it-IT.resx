@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Aggiungi domini non elencati</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>Impostazioni di audit</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>Torna alla verifica del servizio</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Le modifiche si applicano alla prossima audit. Le registrazioni sono mantenute; i risultati al di fuori dell&apos;ambito vengono automaticamente mitigati dopo un&apos;audit riuscita.</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>La modifica dell&apos;ambito non elimina le registrazioni. Dopo il successivo audit riuscito, i risultati al di fuori dell&apos;ambito vengono automaticamente mitigati, non risolti.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>I domini selezionati e tutti i loro sottodomini sono esclusi da ogni controllo di audit, inclusi i servizi registrati.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Le zone Cloudflare non sono disponibili. Le selezioni salvate e i domini registrati sono comunque visualizzati; puoi anche inserire un dominio qui sotto.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Coperto da una esclusione di dominio superiore</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Inserisci un dominio per riga. Dopo aver salvato, questi domini compariranno negli elenchi di caselle di controllo.</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>Inserisci un dominio per riga. Ogni esclusione si applica al dominio e ai relativi sottodomini, inclusi i servizi registrati e gli alias. Le esclusioni hanno la precedenza e saltano i controlli DNS, di titolarità del server e di disponibilità HTTP.</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Domini esclusi</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Trova un dominio</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Zone Cloudflare incluse</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Nessun dominio corrispondente. Puoi inserire un altro dominio qui sotto.</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>Salva impostazioni</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Seleziona dove individuare i servizi non registrati. I servizi registrati e gli alias vengono comunque sottoposti a verifica, a meno che non siano esclusi qui sotto.</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>Impostazioni salvate. Le modifiche verranno applicate al prossimo controllo; il rapporto precedente rimane invariato.</value>
