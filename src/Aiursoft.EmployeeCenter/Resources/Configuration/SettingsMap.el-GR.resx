@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Διακριτικό API του Cloudflare</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>Ρυθμίστε το πεδίο ελέγχου από τη σελίδα ρυθμίσεων ελέγχου υπηρεσιών.</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Προεπιλεγμένο Νόμισμα Μισθοδοσίας</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>Δημόσιο βασικό URL ελέγχου υπηρεσιών</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>Εύρος ελέγχου υπηρεσίας</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Συγχρονίστε τα ευρήματα του ελέγχου υπηρεσιών με το AlertCenter.</value>

@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Token API Cloudflare</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>Configurați domeniul auditului din pagina setărilor de audit al serviciului.</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Monedă salarială implicită</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>URL public de bază pentru auditul serviciului</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>Domeniul de audit al serviciului</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Sincronizați rezultatele auditului serviciilor cu AlertCenter.</value>

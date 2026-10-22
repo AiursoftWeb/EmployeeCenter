@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API टोकन</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>सेवा ऑडिट सेटिंग पृष्ठ से ऑडिट का दायरा कॉन्फ़िगर करें।</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>डिफ़ॉल्ट पेरॉल मुद्रा</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>सेवा ऑडिट का सार्वजनिक बेस URL</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>सेवा ऑडिट का दायरा</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>सर्विस ऑडिट निष्कर्षों को AlertCenter के साथ समन्वित करें।</value>

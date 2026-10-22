@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Audit settings" xml:space="preserve">
+    <value>Configuración de auditoría</value>
+  </data>
+  <data name="Back to service audit" xml:space="preserve">
+    <value>Volver a la auditoría del servicio</value>
+  </data>
+  <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
+    <value>Cambiar el ámbito no elimina los registros. Después de la próxima auditoría exitosa, los hallazgos fuera del ámbito se mitigan automáticamente, no se resuelven.</value>
+  </data>
+  <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
+    <value>Introduce un dominio por línea. Cada exclusión incluye ese dominio y sus subdominios, incluidos los servicios registrados y los alias. Las exclusiones tienen prioridad y omiten las comprobaciones de DNS, titularidad del servidor y disponibilidad HTTP.</value>
+  </data>
+  <data name="Save settings" xml:space="preserve">
+    <value>Guardar configuración</value>
+  </data>
+  <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
+    <value>Configuración guardada. Los cambios se aplicarán en la próxima auditoría; el informe anterior no se modificará.</value>
+  </data>
+  <data name="These settings are managed by deployment configuration and cannot be changed here." xml:space="preserve">
+    <value>Estos ajustes se gestionan mediante la configuración del despliegue y no se pueden cambiar aquí.</value>
+  </data>
+  <data name="When all zones are disabled, discover unregistered services only in these Cloudflare zones. Enter one zone per line. Registered services and aliases outside these zones are still audited." xml:space="preserve">
+    <value>Cuando todas las zonas están desactivadas, descubrir servicios no registrados solo en estas zonas de Cloudflare. Introduce una zona por línea. Los servicios y alias registrados fuera de estas zonas siguen siendo auditados.</value>
+  </data>
+
+</root>

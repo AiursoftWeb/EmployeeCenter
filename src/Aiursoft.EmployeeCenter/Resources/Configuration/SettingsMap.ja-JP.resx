@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API トークン</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>サービス監査の設定ページで監査範囲を設定します。</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>デフォルト給与通貨</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>サービス監査パブリックベースURL</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>サービス監査の対象範囲</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>AlertCenter とサービス監査の調査結果を同期します。</value>

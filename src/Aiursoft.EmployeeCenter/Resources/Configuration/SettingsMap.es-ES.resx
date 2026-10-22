@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Token de API de Cloudflare</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>Configure el ámbito de la auditoría desde la página de configuración de auditoría de servicios.</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Moneda de nómina predeterminada</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>URL base pública de auditoría del servicio</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>Alcance de la auditoría del servicio</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Sincroniza los resultados de la auditoría del servicio con AlertCenter.</value>

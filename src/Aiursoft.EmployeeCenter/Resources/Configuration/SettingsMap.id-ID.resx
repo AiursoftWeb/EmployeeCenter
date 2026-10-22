@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API Token</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>Atur cakupan audit melalui halaman pengaturan audit layanan.</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Mata Uang Gaji Default</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>URL dasar publik audit layanan</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>Cakupan audit layanan</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Sinkronkan temuan audit layanan dengan AlertCenter.</value>

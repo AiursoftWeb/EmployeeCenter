@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Audit settings" xml:space="preserve">
+    <value>Auditinstellingen</value>
+  </data>
+  <data name="Back to service audit" xml:space="preserve">
+    <value>Terug naar serviceaudit</value>
+  </data>
+  <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
+    <value>Het wijzigen van de reikwijdte verwijdert geen registraties. Na de volgende succesvolle audit worden bevindingen buiten de reikwijdte automatisch gemitigeerd, niet opgelost.</value>
+  </data>
+  <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
+    <value>Voer één domein per regel in. Elke uitsluiting dekt dat domein en zijn subdomeinen, inclusief geregistreerde services en aliassen. Uitsluitingen hebben voorrang en slaan DNS-, servereigendoms- en HTTP-beschikbaarheidscontroles over.</value>
+  </data>
+  <data name="Save settings" xml:space="preserve">
+    <value>Instellingen opslaan</value>
+  </data>
+  <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
+    <value>Instellingen opgeslagen. Wijzigingen worden toegepast op de volgende audit; het eerdere rapport blijft ongewijzigd.</value>
+  </data>
+  <data name="These settings are managed by deployment configuration and cannot be changed here." xml:space="preserve">
+    <value>Deze instellingen worden beheerd via de implementatieconfiguratie en kunnen hier niet worden gewijzigd.</value>
+  </data>
+  <data name="When all zones are disabled, discover unregistered services only in these Cloudflare zones. Enter one zone per line. Registered services and aliases outside these zones are still audited." xml:space="preserve">
+    <value>Wanneer alle zones zijn uitgeschakeld, worden niet-geregistreerde services alleen in deze Cloudflare-zones opgespoord. Voer één zone per regel in. Geregistreerde services en aliassen buiten deze zones worden nog steeds gecontroleerd.</value>
+  </data>
+
+</root>

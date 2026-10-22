@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API 令牌</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>在服务审计设置页面中配置审计范围。</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>默认工资货币</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>服务审计公开基础 URL</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>服务审计范围</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>将服务审计发现与 AlertCenter 同步。</value>

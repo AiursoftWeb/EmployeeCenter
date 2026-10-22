@@ -54,6 +54,9 @@
   <data name="Cloudflare API Token" xml:space="preserve">
     <value>Cloudflare API-token</value>
   </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>Configureer de auditbereik via de instellingenpagina voor serviceaudit.</value>
+  </data>
   <data name="Default Payroll Currency" xml:space="preserve">
     <value>Standaard loonvaluta</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Service audit public base URL" xml:space="preserve">
     <value>Openbare basis-URL voor serviceaudit</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>Reikwijdte van de service-audit</value>
   </data>
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Synchroniseer bevindingen uit serviceaudits met AlertCenter.</value>
