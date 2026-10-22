@@ -18,20 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Audit settings" xml:space="preserve">
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>添加未列出的域名</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
     <value>审计设置</value>
   </data>
   <data name="Back to service audit" xml:space="preserve">
     <value>返回服务审计</value>
   </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>更改将在下次审核时生效。注册信息将被保留；范围外的发现将在审核成功后自动缓解。</value>
+  </data>
   <data name="Changing the scope does not delete registrations. After the next successful audit, findings outside the scope are automatically mitigated, not resolved." xml:space="preserve">
     <value>更改范围不会删除已注册项。下一次审核成功后，范围之外的问题将自动缓解，而非解决。</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>已勾选的域名及其所有子域名均被排除在所有审计检查之外，包括已注册的服务。</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Cloudflare 区域暂不可用。仍会显示已保存的选项和已注册的域名；你也可以在下方输入域名。</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>已被上级排除项覆盖</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>每行输入一个域名。保存后，这些域名会显示在复选框列表中。</value>
   </data>
   <data name="Enter one domain per line. Each exclusion covers that domain and its subdomains, including registered services and aliases. Exclusions take priority and skip DNS, server ownership and HTTP availability checks." xml:space="preserve">
     <value>每行输入一个域名。每个排除项涵盖该域名及其子域名，包括已注册的服务和别名。排除项具有最高优先级，并跳过 DNS、服务器所有权和 HTTP 可用性检查。</value>
   </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>排除的域名</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>查找域名</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>纳入的 Cloudflare 区域</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>没有匹配的域名。您可以在下方输入其他域名。</value>
+  </data>
   <data name="Save settings" xml:space="preserve">
     <value>保存设置</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>选择要在哪些区域发现未注册的服务。除非在下方排除，否则仍会审计已注册的服务及其别名。</value>
   </data>
   <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
     <value>设置已保存。更改将在下次审计时生效；之前的报告不会更改。</value>
