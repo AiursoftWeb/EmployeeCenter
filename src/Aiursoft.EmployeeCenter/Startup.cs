@@ -118,8 +118,12 @@ public class Startup : IWebStartup
         services.AddSingleton<Services.DnsAudit.PublicDnsResolver>();
         services.AddHttpClient("DnsAliasAudit")
             .ConfigurePrimaryHttpMessageHandler(serviceProvider => CreatePublicAuditHandler(serviceProvider));
-        services.AddHttpClient("ServiceAvailabilityAudit")
-            .ConfigurePrimaryHttpMessageHandler(serviceProvider => CreatePublicAuditHandler(serviceProvider));
+        services.AddHttpClient("ServiceAvailabilityAuditIPv4")
+            .ConfigurePrimaryHttpMessageHandler(serviceProvider =>
+                CreatePublicAuditHandler(serviceProvider, System.Net.Sockets.AddressFamily.InterNetwork));
+        services.AddHttpClient("ServiceAvailabilityAuditIPv6")
+            .ConfigurePrimaryHttpMessageHandler(serviceProvider =>
+                CreatePublicAuditHandler(serviceProvider, System.Net.Sockets.AddressFamily.InterNetworkV6));
         services.AddSingleton<NavigationState<Startup>>();
 
         services.AddAiurProtocolClient();
@@ -191,14 +195,17 @@ public class Startup : IWebStartup
             .AddDataAnnotationsLocalization();
     }
 
-    private static SocketsHttpHandler CreatePublicAuditHandler(IServiceProvider serviceProvider)
+    private static SocketsHttpHandler CreatePublicAuditHandler(
+        IServiceProvider serviceProvider,
+        System.Net.Sockets.AddressFamily addressFamily = System.Net.Sockets.AddressFamily.Unspecified)
     {
         var resolver = serviceProvider.GetRequiredService<Services.DnsAudit.PublicDnsResolver>();
         return new SocketsHttpHandler
         {
             AllowAutoRedirect = false,
             PooledConnectionLifetime = TimeSpan.FromMinutes(5),
-            ConnectCallback = resolver.ConnectAsync
+            UseProxy = false,
+            ConnectCallback = (context, token) => resolver.ConnectAsync(context, addressFamily, token)
         };
     }
 

@@ -1,4 +1,5 @@
 using Aiursoft.EmployeeCenter.Services.DnsAudit;
+using System.Net.Sockets;
 
 namespace Aiursoft.EmployeeCenter.Tests;
 
@@ -68,6 +69,47 @@ public class PublicDnsResolverTests
     public void PublicAddressPolicyRejectsNonPublicNetworks(string address, bool expected)
     {
         Assert.AreEqual(expected, PublicDnsResolver.IsPublicAddress(IPAddress.Parse(address)));
+    }
+
+    [TestMethod]
+    [DataRow(AddressFamily.InterNetwork, "1", "104.21.87.193")]
+    [DataRow(AddressFamily.InterNetworkV6, "28", "2606:4700:3034::ac43:91b4")]
+    public async Task FamilySpecificAuditResolvesOnlyTheRequestedPublicRecordType(
+        AddressFamily family, string expectedType, string expectedAddress)
+    {
+        var queries = new List<string>();
+        var resolver = CreateResolver(request =>
+        {
+            queries.Add(request.RequestUri!.Query);
+            return JsonResponse(expectedType == "1"
+                ? """{"Status":0,"Answer":[{"type":1,"data":"104.21.87.193"},{"type":28,"data":"2606:4700:3034::ac43:91b4"}]}"""
+                : """{"Status":0,"Answer":[{"type":28,"data":"2606:4700:3034::ac43:91b4"},{"type":1,"data":"104.21.87.193"}]}""");
+        });
+
+        var addresses = await resolver.ResolveAsync("public.example.com", family);
+
+        CollectionAssert.AreEqual(new[] { expectedAddress }, addresses.Select(address => address.ToString()).ToArray());
+        Assert.AreEqual(1, queries.Count);
+        Assert.EndsWith("type=" + expectedType, queries[0]);
+    }
+
+    [TestMethod]
+    public async Task MissingAaaaDoesNotFallBackToARecords()
+    {
+        var resolver = CreateResolver(request => JsonResponse(
+            request.RequestUri!.Query.EndsWith("type=28", StringComparison.Ordinal)
+                ? """{"Status":0}"""
+                : """{"Status":0,"Answer":[{"type":1,"data":"104.21.87.193"}]}"""));
+
+        Assert.AreEqual(0, (await resolver.ResolveAsync("ipv4-only.example.com", AddressFamily.InterNetworkV6)).Count);
+        Assert.AreEqual(1, (await resolver.ResolveAsync("ipv4-only.example.com", AddressFamily.InterNetwork)).Count);
+    }
+
+    [TestMethod]
+    public async Task Ipv4MappedLiteralCannotPassAnIpv6Audit()
+    {
+        var resolver = CreateResolver(_ => throw new AssertFailedException("A literal requires no DNS lookup."));
+        Assert.AreEqual(0, (await resolver.ResolveAsync("::ffff:104.21.87.193", AddressFamily.InterNetworkV6)).Count);
     }
 
     private static PublicDnsResolver CreateResolver(Func<HttpRequestMessage, HttpResponseMessage> responder)

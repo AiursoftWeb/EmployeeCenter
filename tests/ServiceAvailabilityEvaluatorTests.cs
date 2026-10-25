@@ -7,6 +7,23 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class ServiceAvailabilityEvaluatorTests
 {
     [TestMethod]
+    [DataRow(true, true, true)]
+    [DataRow(true, false, false)]
+    [DataRow(false, true, false)]
+    [DataRow(false, false, false)]
+    public void BothFamiliesMustBeHealthy(bool ipv4Healthy, bool ipv6Healthy, bool expected)
+    {
+        var result = ServiceAvailabilityEvaluator.EvaluateDualStack(
+            new ServiceAvailabilityResult(ipv4Healthy, ipv4Healthy ? 200 : null, ipv4Healthy ? "HTTP 200." : "Connection refused."),
+            new ServiceAvailabilityResult(ipv6Healthy, ipv6Healthy ? 200 : null, ipv6Healthy ? "HTTP 200." : "Connection refused."));
+
+        Assert.AreEqual(expected, result.IsHealthy);
+        Assert.Contains("IPv4:", result.Details);
+        Assert.Contains("IPv6:", result.Details);
+        if (!expected) Assert.IsNull(result.StatusCode);
+    }
+
+    [TestMethod]
     public void RunningHttpServiceIsAuditedByDefault()
     {
         var service = new Service

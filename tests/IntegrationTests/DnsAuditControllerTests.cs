@@ -344,6 +344,67 @@ public class DnsAuditControllerTests : TestBase
         Assert.IsFalse(report.Issues.Any(issue => issue.Type == DnsAuditIssueType.DanglingCname));
     }
 
+    [TestMethod]
+    [DataRow(200, 0)]
+    [DataRow(200, 503)]
+    [DataRow(503, 200)]
+    [DataRow(200, 200)]
+    public async Task AvailabilityAuditReportsAsymmetryAndRecoversOnlyWhenBothFamiliesWork(int ipv4Status, int ipv6Status)
+    {
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "synthetic-audit-token");
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"dualstack-{Guid.NewGuid():N}").Options);
+        db.Services.Add(new Service { PrimaryDomain = "new.aiursoft.com", Protocols = "HTTPS", IsCloudflareProxied = true });
+        await db.SaveChangesAsync();
+        var factory = new DualStackHttpFactory(ipv4Status, ipv6Status);
+        var audit = new CloudflareDnsAuditService(db, settings, factory, NullLogger<CloudflareDnsAuditService>.Instance);
+
+        var report = await audit.AuditAsync();
+
+        var healthy = ipv4Status == 200 && ipv6Status == 200;
+        Assert.AreEqual(1, report.AvailabilityCheckedCount);
+        Assert.AreEqual(healthy ? 1 : 0, report.AvailabilityHealthyCount);
+        Assert.AreEqual(ipv4Status == 200 ? 1 : 3, factory.Attempts["ServiceAvailabilityAuditIPv4"]);
+        Assert.AreEqual(ipv6Status == 200 ? 1 : 3, factory.Attempts["ServiceAvailabilityAuditIPv6"]);
+        if (!healthy)
+        {
+            var issue = report.Issues.Single(issue => issue.Type == DnsAuditIssueType.ServiceUnavailable);
+            Assert.AreEqual(DnsAuditSeverity.Critical, issue.Severity);
+            Assert.Contains("IPv4:", issue.Details);
+            Assert.Contains("IPv6:", issue.Details);
+            Assert.Contains(ipv4Status == 200 ? "IPv6:" : "IPv4:", issue.Details);
+        }
+
+        factory.Ipv4Status = factory.Ipv6Status = 200;
+        var recovered = await audit.AuditAsync();
+        Assert.AreEqual(1, recovered.AvailabilityHealthyCount);
+        Assert.IsFalse(recovered.Issues.Any(issue => issue.Type == DnsAuditIssueType.ServiceUnavailable));
+    }
+
+    private sealed class DualStackHttpFactory(int ipv4Status, int ipv6Status) : IHttpClientFactory
+    {
+        public int Ipv4Status { get; set; } = ipv4Status;
+        public int Ipv6Status { get; set; } = ipv6Status;
+        public System.Collections.Concurrent.ConcurrentDictionary<string, int> Attempts { get; } = new();
+        public HttpClient CreateClient(string name) => name.StartsWith("ServiceAvailabilityAudit", StringComparison.Ordinal)
+            ? new HttpClient(new FamilyHandler(this, name))
+            : new ScopeHttpFactory().CreateClient(name);
+    }
+
+    private sealed class FamilyHandler(DualStackHttpFactory factory, string clientName) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            factory.Attempts.AddOrUpdate(clientName, 1, (_, count) => count + 1);
+            var status = clientName == "ServiceAvailabilityAuditIPv4" ? factory.Ipv4Status : factory.Ipv6Status;
+            return status == 0
+                ? throw new HttpRequestException("Synthetic IPv6 connection refused.")
+                : Task.FromResult(new HttpResponseMessage((HttpStatusCode)status));
+        }
+    }
+
     private sealed class ScopeHttpFactory(bool crossZoneCname = false) : IHttpClientFactory
     {
         public List<string> Paths { get; } = [];

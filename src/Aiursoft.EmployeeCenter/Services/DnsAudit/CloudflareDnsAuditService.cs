@@ -187,7 +187,6 @@ public sealed class CloudflareDnsAuditService(
                 Scheme: ServiceAvailabilityEvaluator.GetHttpScheme(service.Protocols)!))
             .ToList();
         var results = new ConcurrentDictionary<int, ServiceAvailabilityResult>();
-        var client = httpClientFactory.CreateClient("ServiceAvailabilityAudit");
 
         await Parallel.ForEachAsync(
             candidates,
@@ -206,45 +205,56 @@ public sealed class CloudflareDnsAuditService(
                 }
 
                 var uri = new UriBuilder(candidate.Scheme, domain) { Path = "/" }.Uri;
-                var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
-                    async attemptToken =>
-                    {
-                        using var request = new HttpRequestMessage(HttpMethod.Get, uri);
-                        request.Headers.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-ServiceAudit/1.0");
-                        request.Headers.Accept.ParseAdd("text/html,application/json;q=0.9,*/*;q=0.1");
-                        using var timeout = CancellationTokenSource.CreateLinkedTokenSource(attemptToken);
-                        timeout.CancelAfter(TimeSpan.FromSeconds(10));
-                        try
+                // Separate handlers and address-family-specific DNS prevent either probe
+                // from falling back to the other family or reusing its connection pool.
+                async Task<ServiceAvailabilityResult> ProbeAsync(string clientName)
+                {
+                    var client = httpClientFactory.CreateClient(clientName);
+                    return await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+                        async attemptToken =>
                         {
-                            using var response = await client.SendAsync(
-                                request,
-                                HttpCompletionOption.ResponseHeadersRead,
-                                timeout.Token);
-                            return ServiceAvailabilityEvaluator.Evaluate(response.StatusCode);
-                        }
-                        catch (OperationCanceledException) when (!attemptToken.IsCancellationRequested)
+                            using var request = new HttpRequestMessage(HttpMethod.Get, uri);
+                            request.Headers.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-ServiceAudit/1.0");
+                            request.Headers.Accept.ParseAdd("text/html,application/json;q=0.9,*/*;q=0.1");
+                            using var timeout = CancellationTokenSource.CreateLinkedTokenSource(attemptToken);
+                            timeout.CancelAfter(TimeSpan.FromSeconds(10));
+                            try
+                            {
+                                using var response = await client.SendAsync(
+                                    request,
+                                    HttpCompletionOption.ResponseHeadersRead,
+                                    timeout.Token);
+                                return ServiceAvailabilityEvaluator.Evaluate(response.StatusCode);
+                            }
+                            catch (OperationCanceledException) when (!attemptToken.IsCancellationRequested)
+                            {
+                                return new ServiceAvailabilityResult(
+                                    false,
+                                    null,
+                                    "The public endpoint timed out after 10 seconds.");
+                            }
+                            catch (HttpRequestException ex)
+                            {
+                                return new ServiceAvailabilityResult(
+                                    false,
+                                    null,
+                                    $"The public endpoint request failed: {ex.Message}");
+                            }
+                        },
+                        async (failedAttempt, delayToken) =>
                         {
-                            return new ServiceAvailabilityResult(
-                                false,
-                                null,
-                                "The public endpoint timed out after 10 seconds.");
-                        }
-                        catch (HttpRequestException ex)
-                        {
-                            return new ServiceAvailabilityResult(
-                                false,
-                                null,
-                                $"The public endpoint request failed: {ex.Message}");
-                        }
-                    },
-                    async (failedAttempt, delayToken) =>
-                    {
-                        // Stagger retries so a shared network flap does not make every probe retry in lockstep.
-                        var jitter = TimeSpan.FromMilliseconds(Math.Abs(service.Id % 5) * 150);
-                        var backoff = failedAttempt == 1 ? TimeSpan.FromSeconds(1) : TimeSpan.FromSeconds(3);
-                        await Task.Delay(backoff + jitter, delayToken);
-                    },
-                    token);
+                            // Stagger retries so a shared network flap does not make every probe retry in lockstep.
+                            var jitter = TimeSpan.FromMilliseconds(Math.Abs(service.Id % 5) * 150);
+                            var backoff = failedAttempt == 1 ? TimeSpan.FromSeconds(1) : TimeSpan.FromSeconds(3);
+                            await Task.Delay(backoff + jitter, delayToken);
+                        },
+                        token);
+                }
+
+                var families = await Task.WhenAll(
+                    ProbeAsync("ServiceAvailabilityAuditIPv4"),
+                    ProbeAsync("ServiceAvailabilityAuditIPv6"));
+                var result = ServiceAvailabilityEvaluator.EvaluateDualStack(families[0], families[1]);
 
                 results[service.Id] = result;
                 if (!result.IsHealthy)
