@@ -357,7 +357,7 @@ public class DnsAuditControllerTests : TestBase
     [DataRow(-1, 503)]
     [DataRow(200, -2)]
     [DataRow(-2, 200)]
-    public async Task AvailabilityAuditRequiresOnlyPublishedFamiliesAndPreservesFailures(int ipv4Status, int ipv6Status)
+    public async Task AvailabilityAuditRequiresBothPublicFamiliesAndExplainsMissingEndpoints(int ipv4Status, int ipv6Status)
     {
         using var scope = Server!.Services.CreateScope();
         var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
@@ -371,9 +371,7 @@ public class DnsAuditControllerTests : TestBase
 
         var report = await audit.AuditAsync();
 
-        var healthy = (ipv4Status == -1 || ipv4Status is >= 200 and < 500) &&
-                      (ipv6Status == -1 || ipv6Status is >= 200 and < 500) &&
-                      (ipv4Status != -1 || ipv6Status != -1);
+        var healthy = ipv4Status is >= 200 and < 500 && ipv6Status is >= 200 and < 500;
         Assert.AreEqual(1, report.AvailabilityCheckedCount);
         Assert.AreEqual(healthy ? 1 : 0, report.AvailabilityHealthyCount);
         Assert.AreEqual(ipv4Status < 0 ? 0 : ipv4Status < 500 && ipv4Status != 0 ? 1 : 3,
@@ -389,6 +387,9 @@ public class DnsAuditControllerTests : TestBase
             Assert.Contains("IPv4:", issue.Details);
             Assert.Contains("IPv6:", issue.Details);
             Assert.Contains(ipv4Status == 200 ? "IPv6:" : "IPv4:", issue.Details);
+            Assert.AreEqual("Public IPv4/IPv6 endpoint check failed", issue.CheckName);
+            if (ipv4Status == -1) Assert.Contains("Missing public IPv4 endpoint", issue.Details);
+            if (ipv6Status == -1) Assert.Contains("Missing public IPv6 endpoint", issue.Details);
         }
 
         factory.Ipv4Status = factory.Ipv6Status = 200;
