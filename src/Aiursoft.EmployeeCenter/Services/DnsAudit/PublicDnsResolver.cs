@@ -15,36 +15,58 @@ public sealed class PublicDnsResolver(IHttpClientFactory httpClientFactory)
     private const int DnsTypeAaaa = 28;
     private static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
 
+    public Task<IReadOnlyList<IPAddress>> ResolveAsync(
+        string host,
+        CancellationToken cancellationToken = default) =>
+        ResolveAsync(host, AddressFamily.Unspecified, cancellationToken);
+
     public async Task<IReadOnlyList<IPAddress>> ResolveAsync(
         string host,
+        AddressFamily addressFamily,
         CancellationToken cancellationToken = default)
     {
         if (IPAddress.TryParse(host, out var literalAddress))
         {
-            return IsPublicAddress(literalAddress) ? [literalAddress] : [];
+            return IsPublicAddress(literalAddress) && MatchesFamily(literalAddress, addressFamily) ? [literalAddress] : [];
         }
 
-        var queries = await Task.WhenAll(
-            QueryAsync(host, DnsTypeA, cancellationToken),
-            QueryAsync(host, DnsTypeAaaa, cancellationToken));
+        var recordTypes = addressFamily switch
+        {
+            AddressFamily.InterNetwork => new[] { DnsTypeA },
+            AddressFamily.InterNetworkV6 => new[] { DnsTypeAaaa },
+            AddressFamily.Unspecified => new[] { DnsTypeA, DnsTypeAaaa },
+            _ => throw new ArgumentOutOfRangeException(nameof(addressFamily))
+        };
+        var queries = await Task.WhenAll(recordTypes.Select(type => QueryAsync(host, type, cancellationToken)));
 
         return queries
             .SelectMany(addresses => addresses)
-            .Where(IsPublicAddress)
+            .Where(address => IsPublicAddress(address) && MatchesFamily(address, addressFamily))
             .Distinct()
             .OrderBy(address => address.AddressFamily == AddressFamily.InterNetwork ? 0 : 1)
             .ToList();
     }
 
+    public ValueTask<Stream> ConnectAsync(
+        SocketsHttpConnectionContext context,
+        CancellationToken cancellationToken) =>
+        ConnectAsync(context, AddressFamily.Unspecified, cancellationToken);
+
     public async ValueTask<Stream> ConnectAsync(
         SocketsHttpConnectionContext context,
+        AddressFamily addressFamily,
         CancellationToken cancellationToken)
     {
-        var addresses = await ResolveAsync(context.DnsEndPoint.Host, cancellationToken);
+        var addresses = await ResolveAsync(context.DnsEndPoint.Host, addressFamily, cancellationToken);
         if (addresses.Count == 0)
         {
             throw new HttpRequestException(
-                $"Public DNS returned no public IP address for '{context.DnsEndPoint.Host}'.");
+                $"Public DNS returned no public {addressFamily switch
+                {
+                    AddressFamily.InterNetwork => "IPv4",
+                    AddressFamily.InterNetworkV6 => "IPv6",
+                    _ => "IP"
+                }} address for '{context.DnsEndPoint.Host}'.");
         }
 
         var failures = new List<Exception>();
@@ -74,6 +96,10 @@ public sealed class PublicDnsResolver(IHttpClientFactory httpClientFactory)
             $"None of the public IP addresses for '{context.DnsEndPoint.Host}' accepted a connection.",
             new AggregateException(failures));
     }
+
+    private static bool MatchesFamily(IPAddress address, AddressFamily addressFamily) =>
+        addressFamily == AddressFamily.Unspecified ||
+        address.AddressFamily == addressFamily && !address.IsIPv4MappedToIPv6;
 
     public static bool IsPublicAddress(IPAddress address)
     {
