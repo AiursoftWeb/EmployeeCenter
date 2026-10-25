@@ -2163,6 +2163,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("NotesMarkdown")
+                        .HasMaxLength(50000)
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("ProviderId")
                         .HasColumnType("INTEGER");
 

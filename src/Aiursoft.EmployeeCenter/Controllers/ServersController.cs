@@ -72,6 +72,19 @@ public class ServersController(
         });
     }
 
+    [Authorize(Policy = AppPermissionNames.CanViewInfrastructure)]
+    public async Task<IActionResult> Details(int id)
+    {
+        var server = await context.Servers.AsNoTracking().FirstOrDefaultAsync(item => item.Id == id);
+        if (server == null) return NotFound();
+
+        return this.StackView(new DetailsServerViewModel
+        {
+            Server = server,
+            PageTitle = localizer["Server notes"]
+        });
+    }
+
     [Authorize(Policy = AppPermissionNames.CanManageInfrastructure)]
     public async Task<IActionResult> Create()
     {
@@ -105,6 +118,7 @@ public class ServersController(
                     Ipv6Address = InfrastructureValueNormalizer.NormalizeOptionalIp(
                         model.Ipv6Address, System.Net.Sockets.AddressFamily.InterNetworkV6),
                     DetailLink = model.DetailLink,
+                    NotesMarkdown = model.NotesMarkdown,
                     LocationId = model.LocationId,
                     Hostname = normalizedHostname,
                     NormalizedHostname = normalizedHostname,
@@ -154,6 +168,7 @@ public class ServersController(
             ServerIp = server.ServerIp,
             Ipv6Address = server.Ipv6Address,
             DetailLink = server.DetailLink,
+            NotesMarkdown = server.NotesMarkdown,
             LocationId = server.LocationId,
             Hostname = server.Hostname,
             TechnicalOwnerId = server.TechnicalOwnerId,
@@ -187,6 +202,7 @@ public class ServersController(
             server.Ipv6Address = InfrastructureValueNormalizer.NormalizeOptionalIp(
                 model.Ipv6Address, System.Net.Sockets.AddressFamily.InterNetworkV6);
             server.DetailLink = model.DetailLink;
+            server.NotesMarkdown = model.NotesMarkdown;
             server.LocationId = model.LocationId;
             server.Hostname = normalizedHostname;
             server.NormalizedHostname = normalizedHostname;

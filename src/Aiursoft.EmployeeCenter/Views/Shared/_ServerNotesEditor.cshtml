@@ -1,0 +1,22 @@
+@model Aiursoft.EmployeeCenter.Models.ServersViewModels.CreateServerViewModel
+@inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService Storage
+@using Aiursoft.EmployeeCenter.Controllers
+@{
+    var dark = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+<div id="server-notes" data-upload-url="@Storage.GetUploadUrl("markdown-images")" data-theme="@(dark ? "dark" : "default")">
+    <label asp-for="NotesMarkdown" class="form-label"></label>
+    <p class="text-muted">@Localizer["Describe the server's purpose, business dependencies, configuration decisions and maintenance history."]</p>
+    <div class="row g-3">
+        <div class="col-lg-6" id="server-notes-editor-pane">
+            <div id="server-notes-editor" class="server-notes-editor"></div>
+            <textarea asp-for="NotesMarkdown" class="form-control" rows="16"></textarea>
+            <span asp-validation-for="NotesMarkdown" class="text-danger"></span>
+        </div>
+        <div class="col-lg-6" id="server-notes-preview-pane">
+            <h5>@Localizer["Preview"]</h5>
+            <div id="server-notes-preview" class="markdown-content server-notes-preview"></div>
+        </div>
+    </div>
+    <p id="server-notes-upload-error" class="text-danger mt-2" hidden>@Localizer["Image upload failed. Please try again."]</p>
+</div>

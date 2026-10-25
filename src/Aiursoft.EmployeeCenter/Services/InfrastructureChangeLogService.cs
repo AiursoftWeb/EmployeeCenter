@@ -55,6 +55,7 @@ public sealed class InfrastructureChangeLogService(EmployeeCenterDbContext conte
         server.ServerIp,
         server.Ipv6Address,
         server.DetailLink,
+        server.NotesMarkdown,
         server.LocationId,
         server.TechnicalOwnerId,
         server.ProviderId,

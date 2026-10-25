@@ -18,6 +18,9 @@ public class Server
     [MaxLength(500)]
     public string? DetailLink { get; set; }
 
+    [MaxLength(50000)]
+    public string? NotesMarkdown { get; set; }
+
     public int? LocationId { get; set; }
 
     [JsonIgnore]

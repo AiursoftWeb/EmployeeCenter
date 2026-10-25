@@ -153,6 +153,30 @@ public class InfrastructurePermissionTests : TestBase
         Assert.DoesNotContain("/ServiceAudit/Settings", home);
     }
 
+    [TestMethod]
+    public async Task ServerNotesUseExistingInfrastructurePermissions()
+    {
+        var db = GetService<EmployeeCenterDbContext>();
+        var server = new Server { Hostname = "protected-notes", NotesMarkdown = "Internal server history" };
+        db.Servers.Add(server);
+        await db.SaveChangesAsync();
+        await RegisterWithPermissionsAsync();
+        AssertForbidden(await Http.GetAsync($"/Servers/Details/{server.Id}"));
+        await RegisterWithPermissionsAsync(AppPermissionNames.CanViewInfrastructure);
+        var response = await Http.GetAsync($"/Servers/Details/{server.Id}");
+        response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.Contains("Internal server history", html);
+        Assert.DoesNotContain($"/Servers/Edit/{server.Id}", html);
+        AssertForbidden(await Http.GetAsync($"/Servers/Edit/{server.Id}"));
+        AssertForbidden(await PostForm("/Servers/Edit", new Dictionary<string, string>
+        {
+            ["Id"] = server.Id.ToString(), ["Hostname"] = server.Hostname!, ["NotesMarkdown"] = "Forbidden mutation"
+        }, tokenUrl: "/"));
+        db.ChangeTracker.Clear();
+        Assert.AreEqual("Internal server history", (await db.Servers.FindAsync(server.Id))!.NotesMarkdown);
+    }
+
     private async Task RegisterWithPermissionsAsync(params string[] permissions)
     {
         await Http.GetAsync("/Account/LogOff");

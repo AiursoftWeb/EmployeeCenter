@@ -2240,6 +2240,10 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
+                    b.Property<string>("NotesMarkdown")
+                        .HasMaxLength(50000)
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 

@@ -146,4 +146,101 @@ public class ServersTests : TestBase
         db.ChangeTracker.Clear();
         Assert.IsNull((await db.Servers.FindAsync(server.Id))?.RetiredAt);
     }
+    [TestMethod]
+    public async Task NotesRoundTripAndChangesAreAudited()
+    {
+        await LoginAsAdmin();
+        const string original = "# Purpose\nShared FRP entry.\n\n## Maintenance\n- IPv6 enabled.";
+        var create = await PostForm("/Servers/Create", new Dictionary<string, string>
+        {
+            ["Hostname"] = "notes-server",
+            ["NotesMarkdown"] = original
+        });
+        Assert.AreEqual(HttpStatusCode.Found, create.StatusCode);
+        var db = GetService<EmployeeCenterDbContext>();
+        db.ChangeTracker.Clear();
+        var server = await db.Servers.SingleAsync(item => item.Hostname == "notes-server");
+        Assert.AreEqual(original, server.NotesMarkdown);
+        var editPage = await Http.GetStringAsync($"/Servers/Edit/{server.Id}");
+        Assert.Contains("Shared FRP entry.", editPage);
+        Assert.Contains("server-notes-editor", editPage);
+        const string updated = "## Maintenance\nIPv6 and registration verified. <script>alert('unsafe')</script>";
+        var edit = await PostForm("/Servers/Edit", new Dictionary<string, string>
+        {
+            ["Id"] = server.Id.ToString(),
+            ["Hostname"] = server.Hostname!,
+            ["ConcurrencyToken"] = server.ConcurrencyToken!,
+            ["NotesMarkdown"] = updated
+        });
+        Assert.AreEqual(HttpStatusCode.Found, edit.StatusCode);
+        db.ChangeTracker.Clear();
+        Assert.AreEqual(updated, (await db.Servers.FindAsync(server.Id))!.NotesMarkdown);
+        var changes = await db.InfrastructureChangeLogs.Where(item => item.ResourceType == nameof(Server) && item.ResourceId == server.Id).ToListAsync();
+        Assert.AreEqual(2, changes.Count);
+        var update = changes.Single(item => item.Action == "Updated");
+        using var before = System.Text.Json.JsonDocument.Parse(update.BeforeJson!);
+        using var after = System.Text.Json.JsonDocument.Parse(update.AfterJson!);
+        Assert.AreEqual(original, before.RootElement.GetProperty("notesMarkdown").GetString());
+        Assert.AreEqual(updated, after.RootElement.GetProperty("notesMarkdown").GetString());
+        var detail = await Http.GetStringAsync($"/Servers/Details/{server.Id}");
+        Assert.Contains("IPv6 and registration verified.", detail);
+        Assert.DoesNotContain("<script>alert('unsafe')</script>", detail);
+        var index = await Http.GetStringAsync("/Servers/Index");
+        Assert.Contains($"/Servers/Details/{server.Id}", index);
+    }
+
+    [TestMethod]
+    public async Task NotesCannotOverwriteAConcurrentEdit()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        var server = new Server { Hostname = "notes-concurrency", NotesMarkdown = "Before", ConcurrencyToken = Guid.NewGuid().ToString() };
+        db.Servers.Add(server);
+        await db.SaveChangesAsync();
+        var staleToken = server.ConcurrencyToken;
+        server.NotesMarkdown = "Another engineer's update";
+        server.ConcurrencyToken = Guid.NewGuid().ToString();
+        await db.SaveChangesAsync();
+        var result = await PostForm("/Servers/Edit", new Dictionary<string, string>
+        {
+            ["Id"] = server.Id.ToString(), ["Hostname"] = server.Hostname,
+            ["ConcurrencyToken"] = staleToken, ["NotesMarkdown"] = "Stale overwrite"
+        });
+        result.EnsureSuccessStatusCode();
+        Assert.Contains("changed by another user", await result.Content.ReadAsStringAsync());
+        db.ChangeTracker.Clear();
+        Assert.AreEqual("Another engineer's update", (await db.Servers.FindAsync(server.Id))!.NotesMarkdown);
+    }
+
+    [TestMethod]
+    public async Task NotesRespectLengthAndAntiforgeryValidation()
+    {
+        await LoginAsAdmin();
+        var rejected = await PostForm("/Servers/Create", new Dictionary<string, string>
+        {
+            ["Hostname"] = "notes-too-long", ["NotesMarkdown"] = new string('x', 50001)
+        });
+        rejected.EnsureSuccessStatusCode();
+        Assert.IsFalse(await GetService<EmployeeCenterDbContext>().Servers.AnyAsync(item => item.Hostname == "notes-too-long"));
+        var noToken = await PostForm("/Servers/Create", new Dictionary<string, string>
+        {
+            ["Hostname"] = "notes-no-csrf", ["NotesMarkdown"] = "Must not save"
+        }, includeToken: false);
+        Assert.AreEqual(HttpStatusCode.BadRequest, noToken.StatusCode);
+    }
+
+    [TestMethod]
+    public async Task NotesCanBeReadForEmptyAndRetiredServers()
+    {
+        await LoginAsAdmin();
+        var db = GetService<EmployeeCenterDbContext>();
+        var server = new Server { Hostname = "retired-notes", RetiredAt = DateTime.UtcNow };
+        db.Servers.Add(server);
+        await db.SaveChangesAsync();
+        var html = await Http.GetStringAsync($"/Servers/Details/{server.Id}");
+        Assert.Contains("No server notes yet.", html);
+        Assert.DoesNotContain($"/Servers/Edit/{server.Id}", html);
+        Assert.AreEqual(HttpStatusCode.NotFound, (await Http.GetAsync("/Servers/Details/2147483647")).StatusCode);
+    }
+
 }

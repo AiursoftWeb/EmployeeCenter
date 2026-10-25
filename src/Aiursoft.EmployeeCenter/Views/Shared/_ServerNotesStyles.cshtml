@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/styles/server-notes.css" asp-append-version="true" />
+@using Aiursoft.EmployeeCenter.Controllers
+@if (Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString())
+{
+    <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+}
+else
+{
+    <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+}
