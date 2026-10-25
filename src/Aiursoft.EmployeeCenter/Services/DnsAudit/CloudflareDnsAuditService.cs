@@ -207,10 +207,11 @@ public sealed class CloudflareDnsAuditService(
                 var uri = new UriBuilder(candidate.Scheme, domain) { Path = "/" }.Uri;
                 // Separate handlers and address-family-specific DNS prevent either probe
                 // from falling back to the other family or reusing its connection pool.
-                async Task<ServiceAvailabilityResult> ProbeAsync(string clientName)
+                async Task<ServiceAvailabilityResult?> ProbeAsync(string clientName, AddressFamily family)
                 {
                     var client = httpClientFactory.CreateClient(clientName);
-                    return await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+                    bool? published = null;
+                    var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
                         async attemptToken =>
                         {
                             using var request = new HttpRequestMessage(HttpMethod.Get, uri);
@@ -220,6 +221,15 @@ public sealed class CloudflareDnsAuditService(
                             timeout.CancelAfter(TimeSpan.FromSeconds(10));
                             try
                             {
+                                // Only an authoritative empty answer skips a family.
+                                // DNS errors remain failures and use the same retries.
+                                published = null;
+                                var addresses = await new PublicDnsResolver(httpClientFactory)
+                                    .ResolveAsync(domain, family, timeout.Token);
+                                published = addresses.Count > 0;
+                                if (published == false)
+                                    return new ServiceAvailabilityResult(true, null, "Not published in public DNS.");
+
                                 using var response = await client.SendAsync(
                                     request,
                                     HttpCompletionOption.ResponseHeadersRead,
@@ -249,12 +259,13 @@ public sealed class CloudflareDnsAuditService(
                             await Task.Delay(backoff + jitter, delayToken);
                         },
                         token);
+                    return published == false ? null : result;
                 }
 
                 var families = await Task.WhenAll(
-                    ProbeAsync("ServiceAvailabilityAuditIPv4"),
-                    ProbeAsync("ServiceAvailabilityAuditIPv6"));
-                var result = ServiceAvailabilityEvaluator.EvaluateDualStack(families[0], families[1]);
+                    ProbeAsync("ServiceAvailabilityAuditIPv4", AddressFamily.InterNetwork),
+                    ProbeAsync("ServiceAvailabilityAuditIPv6", AddressFamily.InterNetworkV6));
+                var result = ServiceAvailabilityEvaluator.EvaluatePublishedFamilies(families[0], families[1]);
 
                 results[service.Id] = result;
                 if (!result.IsHealthy)

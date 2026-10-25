@@ -30,12 +30,19 @@ public static class ServiceAvailabilityEvaluator
             : null;
     }
 
-    public static ServiceAvailabilityResult EvaluateDualStack(
-        ServiceAvailabilityResult ipv4,
-        ServiceAvailabilityResult ipv6) => new(
-        ipv4.IsHealthy && ipv6.IsHealthy,
-        !ipv4.IsHealthy ? ipv4.StatusCode : !ipv6.IsHealthy ? ipv6.StatusCode : ipv4.StatusCode,
-        $"IPv4: {ipv4.Details} IPv6: {ipv6.Details}");
+    public static ServiceAvailabilityResult EvaluatePublishedFamilies(
+        ServiceAvailabilityResult? ipv4,
+        ServiceAvailabilityResult? ipv6)
+    {
+        var published = new[] { ipv4, ipv6 }.OfType<ServiceAvailabilityResult>().ToArray();
+        var healthy = published.Length > 0 && published.All(result => result.IsHealthy);
+        var statusCode = published.FirstOrDefault(result => !result.IsHealthy)?.StatusCode;
+        if (healthy) statusCode = published[0].StatusCode;
+        return new ServiceAvailabilityResult(
+            healthy,
+            statusCode,
+            $"IPv4: {ipv4?.Details ?? "Not published in public DNS."} IPv6: {ipv6?.Details ?? "Not published in public DNS."}");
+    }
 
     public static ServiceAvailabilityResult Evaluate(HttpStatusCode statusCode)
     {

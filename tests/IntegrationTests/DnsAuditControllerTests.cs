@@ -349,7 +349,15 @@ public class DnsAuditControllerTests : TestBase
     [DataRow(200, 503)]
     [DataRow(503, 200)]
     [DataRow(200, 200)]
-    public async Task AvailabilityAuditReportsAsymmetryAndRecoversOnlyWhenBothFamiliesWork(int ipv4Status, int ipv6Status)
+    [DataRow(302, -1)]
+    [DataRow(200, -1)]
+    [DataRow(-1, 200)]
+    [DataRow(-1, -1)]
+    [DataRow(503, -1)]
+    [DataRow(-1, 503)]
+    [DataRow(200, -2)]
+    [DataRow(-2, 200)]
+    public async Task AvailabilityAuditRequiresOnlyPublishedFamiliesAndPreservesFailures(int ipv4Status, int ipv6Status)
     {
         using var scope = Server!.Services.CreateScope();
         var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
@@ -363,11 +371,17 @@ public class DnsAuditControllerTests : TestBase
 
         var report = await audit.AuditAsync();
 
-        var healthy = ipv4Status == 200 && ipv6Status == 200;
+        var healthy = (ipv4Status == -1 || ipv4Status is >= 200 and < 500) &&
+                      (ipv6Status == -1 || ipv6Status is >= 200 and < 500) &&
+                      (ipv4Status != -1 || ipv6Status != -1);
         Assert.AreEqual(1, report.AvailabilityCheckedCount);
         Assert.AreEqual(healthy ? 1 : 0, report.AvailabilityHealthyCount);
-        Assert.AreEqual(ipv4Status == 200 ? 1 : 3, factory.Attempts["ServiceAvailabilityAuditIPv4"]);
-        Assert.AreEqual(ipv6Status == 200 ? 1 : 3, factory.Attempts["ServiceAvailabilityAuditIPv6"]);
+        Assert.AreEqual(ipv4Status < 0 ? 0 : ipv4Status < 500 && ipv4Status != 0 ? 1 : 3,
+            factory.Attempts.GetValueOrDefault("ServiceAvailabilityAuditIPv4"));
+        Assert.AreEqual(ipv6Status < 0 ? 0 : ipv6Status < 500 && ipv6Status != 0 ? 1 : 3,
+            factory.Attempts.GetValueOrDefault("ServiceAvailabilityAuditIPv6"));
+        if (ipv4Status == -2) Assert.AreEqual(6, factory.DnsAttempts.GetValueOrDefault(false));
+        if (ipv6Status == -2) Assert.AreEqual(6, factory.DnsAttempts.GetValueOrDefault(true));
         if (!healthy)
         {
             var issue = report.Issues.Single(issue => issue.Type == DnsAuditIssueType.ServiceUnavailable);
@@ -388,9 +402,29 @@ public class DnsAuditControllerTests : TestBase
         public int Ipv4Status { get; set; } = ipv4Status;
         public int Ipv6Status { get; set; } = ipv6Status;
         public System.Collections.Concurrent.ConcurrentDictionary<string, int> Attempts { get; } = new();
+        public System.Collections.Concurrent.ConcurrentDictionary<bool, int> DnsAttempts { get; } = new();
         public HttpClient CreateClient(string name) => name.StartsWith("ServiceAvailabilityAudit", StringComparison.Ordinal)
             ? new HttpClient(new FamilyHandler(this, name))
-            : new ScopeHttpFactory().CreateClient(name);
+            : name == "PublicDnsResolver"
+                ? new HttpClient(new PublishedDnsHandler(this))
+                : new ScopeHttpFactory().CreateClient(name);
+    }
+
+    private sealed class PublishedDnsHandler(DualStackHttpFactory factory) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            var ipv6 = request.RequestUri!.Query.EndsWith("type=28", StringComparison.Ordinal);
+            factory.DnsAttempts.AddOrUpdate(ipv6, 1, (_, count) => count + 1);
+            var status = ipv6 ? factory.Ipv6Status : factory.Ipv4Status;
+            if (status == -2) throw new HttpRequestException("Synthetic public DNS failure.");
+            var body = status == -1
+                ? """{"Status":0}"""
+                : ipv6
+                    ? """{"Status":0,"Answer":[{"type":28,"data":"2606:4700::1111"}]}"""
+                    : """{"Status":0,"Answer":[{"type":1,"data":"1.1.1.1"}]}""";
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent(body) });
+        }
     }
 
     private sealed class FamilyHandler(DualStackHttpFactory factory, string clientName) : HttpMessageHandler
