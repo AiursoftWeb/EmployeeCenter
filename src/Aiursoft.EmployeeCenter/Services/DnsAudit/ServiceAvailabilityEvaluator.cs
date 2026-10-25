@@ -38,9 +38,13 @@ public static class ServiceAvailabilityEvaluator
         return new ServiceAvailabilityResult(
             healthy,
             ipv4?.IsHealthy != true ? ipv4?.StatusCode : ipv6?.IsHealthy != true ? ipv6?.StatusCode : ipv4.StatusCode,
-            $"IPv4: {ipv4?.Details ?? "Missing public IPv4 endpoint: public DNS returned no public A address."} " +
-            $"IPv6: {ipv6?.Details ?? "Missing public IPv6 endpoint: public DNS returned no public AAAA address."}");
+            DescribeFamily(ipv4, "IPv4", "A") + " " + DescribeFamily(ipv6, "IPv6", "AAAA"));
     }
+
+    private static string DescribeFamily(ServiceAvailabilityResult? result, string family, string recordType) =>
+        result == null
+            ? $"{family}: Unavailable. Missing public {family} endpoint: public DNS returned no public {recordType} address."
+            : $"{family}: {(result.IsHealthy ? "Reachable" : "Unavailable")}. {result.Details}";
 
     public static ServiceAvailabilityResult Evaluate(HttpStatusCode statusCode)
     {

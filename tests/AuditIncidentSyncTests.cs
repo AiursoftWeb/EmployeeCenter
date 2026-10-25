@@ -79,6 +79,8 @@ public class AuditIncidentSyncTests
         var created = client.Created.Single();
         Assert.AreEqual("sev2", created.Level);
         Assert.AreEqual("Public IPv4/IPv6 endpoint check failed: payment.example.com", created.Title);
+        Assert.Contains("IPv4: Reachable.", created.Content!);
+        Assert.Contains("IPv6: Unavailable.", created.Content!);
         Assert.Contains("HTTP 302", created.Content!);
         Assert.Contains("Missing public IPv6 endpoint", created.Content!);
         Assert.Contains("AAAA", created.Content!);

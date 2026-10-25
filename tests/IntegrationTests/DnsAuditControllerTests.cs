@@ -388,6 +388,8 @@ public class DnsAuditControllerTests : TestBase
             Assert.Contains("IPv6:", issue.Details);
             Assert.Contains(ipv4Status == 200 ? "IPv6:" : "IPv4:", issue.Details);
             Assert.AreEqual("Public IPv4/IPv6 endpoint check failed", issue.CheckName);
+            Assert.Contains(ipv4Status is >= 200 and < 500 ? "IPv4: Reachable." : "IPv4: Unavailable.", issue.Details);
+            Assert.Contains(ipv6Status is >= 200 and < 500 ? "IPv6: Reachable." : "IPv6: Unavailable.", issue.Details);
             if (ipv4Status == -1) Assert.Contains("Missing public IPv4 endpoint", issue.Details);
             if (ipv6Status == -1) Assert.Contains("Missing public IPv6 endpoint", issue.Details);
         }
