@@ -207,10 +207,11 @@ public sealed class CloudflareDnsAuditService(
                 var uri = new UriBuilder(candidate.Scheme, domain) { Path = "/" }.Uri;
                 // Separate handlers and address-family-specific DNS prevent either probe
                 // from falling back to the other family or reusing its connection pool.
-                async Task<ServiceAvailabilityResult> ProbeAsync(string clientName)
+                async Task<ServiceAvailabilityResult?> ProbeAsync(string clientName, AddressFamily family)
                 {
                     var client = httpClientFactory.CreateClient(clientName);
-                    return await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+                    bool? published = null;
+                    var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
                         async attemptToken =>
                         {
                             using var request = new HttpRequestMessage(HttpMethod.Get, uri);
@@ -220,6 +221,15 @@ public sealed class CloudflareDnsAuditService(
                             timeout.CancelAfter(TimeSpan.FromSeconds(10));
                             try
                             {
+                                // Only an authoritative empty answer skips a family.
+                                // DNS errors remain failures and use the same retries.
+                                published = null;
+                                var addresses = await new PublicDnsResolver(httpClientFactory)
+                                    .ResolveAsync(domain, family, timeout.Token);
+                                published = addresses.Count > 0;
+                                if (published == false)
+                                    return new ServiceAvailabilityResult(true, null, "Not published in public DNS.");
+
                                 using var response = await client.SendAsync(
                                     request,
                                     HttpCompletionOption.ResponseHeadersRead,
@@ -249,36 +259,12 @@ public sealed class CloudflareDnsAuditService(
                             await Task.Delay(backoff + jitter, delayToken);
                         },
                         token);
-                }
-
-                async Task<ServiceAvailabilityResult?> ProbePublishedFamilyAsync(
-                    string clientName, AddressFamily family)
-                {
-                    // Missing records are not a failed endpoint. Resolver failures remain
-                    // unhealthy; they must never masquerade as an unpublished family.
-                    using var lookupTimeout = CancellationTokenSource.CreateLinkedTokenSource(token);
-                    lookupTimeout.CancelAfter(TimeSpan.FromSeconds(10));
-                    try
-                    {
-                        var addresses = await new PublicDnsResolver(httpClientFactory)
-                            .ResolveAsync(domain, family, lookupTimeout.Token);
-                        if (addresses.Count == 0) return null;
-                    }
-                    catch (OperationCanceledException) when (!token.IsCancellationRequested)
-                    {
-                        return new ServiceAvailabilityResult(false, null, "The public DNS lookup timed out after 10 seconds.");
-                    }
-                    catch (Exception ex) when (ex is HttpRequestException or JsonException or InvalidDataException)
-                    {
-                        return new ServiceAvailabilityResult(false, null, $"The public DNS lookup failed: {ex.Message}");
-                    }
-
-                    return await ProbeAsync(clientName);
+                    return published == false ? null : result;
                 }
 
                 var families = await Task.WhenAll(
-                    ProbePublishedFamilyAsync("ServiceAvailabilityAuditIPv4", AddressFamily.InterNetwork),
-                    ProbePublishedFamilyAsync("ServiceAvailabilityAuditIPv6", AddressFamily.InterNetworkV6));
+                    ProbeAsync("ServiceAvailabilityAuditIPv4", AddressFamily.InterNetwork),
+                    ProbeAsync("ServiceAvailabilityAuditIPv6", AddressFamily.InterNetworkV6));
                 var result = ServiceAvailabilityEvaluator.EvaluatePublishedFamilies(families[0], families[1]);
 
                 results[service.Id] = result;

@@ -380,6 +380,8 @@ public class DnsAuditControllerTests : TestBase
             factory.Attempts.GetValueOrDefault("ServiceAvailabilityAuditIPv4"));
         Assert.AreEqual(ipv6Status < 0 ? 0 : ipv6Status < 500 && ipv6Status != 0 ? 1 : 3,
             factory.Attempts.GetValueOrDefault("ServiceAvailabilityAuditIPv6"));
+        if (ipv4Status == -2) Assert.AreEqual(6, factory.DnsAttempts.GetValueOrDefault(false));
+        if (ipv6Status == -2) Assert.AreEqual(6, factory.DnsAttempts.GetValueOrDefault(true));
         if (!healthy)
         {
             var issue = report.Issues.Single(issue => issue.Type == DnsAuditIssueType.ServiceUnavailable);
@@ -400,6 +402,7 @@ public class DnsAuditControllerTests : TestBase
         public int Ipv4Status { get; set; } = ipv4Status;
         public int Ipv6Status { get; set; } = ipv6Status;
         public System.Collections.Concurrent.ConcurrentDictionary<string, int> Attempts { get; } = new();
+        public System.Collections.Concurrent.ConcurrentDictionary<bool, int> DnsAttempts { get; } = new();
         public HttpClient CreateClient(string name) => name.StartsWith("ServiceAvailabilityAudit", StringComparison.Ordinal)
             ? new HttpClient(new FamilyHandler(this, name))
             : name == "PublicDnsResolver"
@@ -412,6 +415,7 @@ public class DnsAuditControllerTests : TestBase
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var ipv6 = request.RequestUri!.Query.EndsWith("type=28", StringComparison.Ordinal);
+            factory.DnsAttempts.AddOrUpdate(ipv6, 1, (_, count) => count + 1);
             var status = ipv6 ? factory.Ipv6Status : factory.Ipv4Status;
             if (status == -2) throw new HttpRequestException("Synthetic public DNS failure.");
             var body = status == -1
