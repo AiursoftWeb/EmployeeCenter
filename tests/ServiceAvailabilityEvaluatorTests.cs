@@ -34,7 +34,7 @@ public class ServiceAvailabilityEvaluatorTests
             hasIpv4 ? healthy : null, hasIpv6 ? healthy : null);
 
         Assert.AreEqual(expected, result.IsHealthy);
-        Assert.AreEqual(expected ? 200 : (int?)null, result.StatusCode);
+        Assert.AreEqual(expected ? 200 : null, result.StatusCode);
         Assert.Contains("Not published in public DNS.", result.Details);
     }
 
