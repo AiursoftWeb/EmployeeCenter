@@ -59,6 +59,52 @@ public class AuditIncidentSyncTests
     }
 
     [TestMethod]
+    public async Task MissingIpv6CreatesSev2AndRequiresDualStackRecovery()
+    {
+        var client = new FakeClient();
+        var sync = Synchronizer(client);
+        var ipv4 = new ServiceAvailabilityResult(true, 302, "The public endpoint responded with HTTP 302 (Found).");
+        var incomplete = ServiceAvailabilityEvaluator.EvaluateDualStack(ipv4, null);
+        var issue = new DnsAuditIssue
+        {
+            Type = DnsAuditIssueType.ServiceUnavailable, Severity = DnsAuditSeverity.Critical,
+            Domain = "payment.example.com", ServiceId = 1, Details = incomplete.Details
+        };
+        var evidence = Evidence() with
+        {
+            ServiceAvailabilityResults = new Dictionary<int, ServiceAvailabilityResult> { [1] = incomplete }
+        };
+
+        Assert.IsTrue(await sync.SynchronizeAsync(1, Report([issue], evidence)));
+        var created = client.Created.Single();
+        Assert.AreEqual("sev2", created.Level);
+        Assert.AreEqual("Public IPv4/IPv6 endpoint check failed: payment.example.com", created.Title);
+        Assert.Contains("IPv4: Reachable.", created.Content!);
+        Assert.Contains("IPv6: Unavailable.", created.Content!);
+        Assert.Contains("HTTP 302", created.Content!);
+        Assert.Contains("Missing public IPv6 endpoint", created.Content!);
+        Assert.Contains("AAAA", created.Content!);
+        Assert.AreEqual("ServiceUnavailable", created.Context!.Value<string>("checkType"));
+
+        Assert.IsTrue(await sync.SynchronizeAsync(2, Report([issue], evidence)));
+        Assert.HasCount(1, client.Created);
+        Assert.HasCount(0, client.Mitigated);
+        Assert.IsTrue(await sync.SynchronizeAsync(3, Report([], evidence)));
+        Assert.HasCount(0, client.Mitigated);
+
+        var recovered = evidence with
+        {
+            ServiceAvailabilityResults = new Dictionary<int, ServiceAvailabilityResult>
+            {
+                [1] = ServiceAvailabilityEvaluator.EvaluateDualStack(ipv4,
+                    new ServiceAvailabilityResult(true, 200, "HTTP 200."))
+            }
+        };
+        Assert.IsTrue(await sync.SynchronizeAsync(4, Report([], recovered)));
+        Assert.HasCount(1, client.Mitigated);
+    }
+
+    [TestMethod]
     public async Task LongEvidencePreservesOperatorInstructionsAndAuditLink()
     {
         var client = new FakeClient();

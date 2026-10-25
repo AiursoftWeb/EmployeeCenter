@@ -221,7 +221,7 @@ public sealed class CloudflareDnsAuditService(
                             timeout.CancelAfter(TimeSpan.FromSeconds(10));
                             try
                             {
-                                // Only an authoritative empty answer skips a family.
+                                // An authoritative empty answer identifies a missing endpoint.
                                 // DNS errors remain failures and use the same retries.
                                 published = null;
                                 var addresses = await new PublicDnsResolver(httpClientFactory)
@@ -265,7 +265,7 @@ public sealed class CloudflareDnsAuditService(
                 var families = await Task.WhenAll(
                     ProbeAsync("ServiceAvailabilityAuditIPv4", AddressFamily.InterNetwork),
                     ProbeAsync("ServiceAvailabilityAuditIPv6", AddressFamily.InterNetworkV6));
-                var result = ServiceAvailabilityEvaluator.EvaluatePublishedFamilies(families[0], families[1]);
+                var result = ServiceAvailabilityEvaluator.EvaluateDualStack(families[0], families[1]);
 
                 results[service.Id] = result;
                 if (!result.IsHealthy)

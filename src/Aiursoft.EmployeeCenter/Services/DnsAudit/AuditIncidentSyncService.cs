@@ -107,7 +107,7 @@ public sealed class AuditIncidentSyncService(
     {
         var nextSteps = issue.Type switch
         {
-            DnsAuditIssueType.ServiceUnavailable => "Check the reported HTTP/DNS error, the service process, reverse proxy and origin connectivity. Verify the public endpoint before declaring recovery.",
+            DnsAuditIssueType.ServiceUnavailable => "Both public IPv4 and IPv6 endpoints are required for this audit. If a public A or AAAA address is missing, verify the ingress and its reverse-proxy or FRP routing before publishing DNS. For published addresses, check the reported connection, TLS or HTTP failure. Verify each public endpoint over its own address family before declaring recovery.",
             DnsAuditIssueType.MissingDns => "Compare the running service registration with its authoritative DNS zone. Restore the intended DNS record, or correct the registration if the service has been retired.",
             DnsAuditIssueType.ProxyStatusMismatch or DnsAuditIssueType.MixedProxyStatus => "Compare Cloudflare proxy settings with the intended service registration. Confirm whether this hostname should be proxied, then correct the mismatched record or registration.",
             DnsAuditIssueType.DanglingCname => "Follow the CNAME chain and fix its missing target or cycle. Check that the final hostname resolves to the intended service.",

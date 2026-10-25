@@ -30,19 +30,21 @@ public static class ServiceAvailabilityEvaluator
             : null;
     }
 
-    public static ServiceAvailabilityResult EvaluatePublishedFamilies(
+    public static ServiceAvailabilityResult EvaluateDualStack(
         ServiceAvailabilityResult? ipv4,
         ServiceAvailabilityResult? ipv6)
     {
-        var published = new[] { ipv4, ipv6 }.OfType<ServiceAvailabilityResult>().ToArray();
-        var healthy = published.Length > 0 && published.All(result => result.IsHealthy);
-        var statusCode = published.FirstOrDefault(result => !result.IsHealthy)?.StatusCode;
-        if (healthy) statusCode = published[0].StatusCode;
+        var healthy = ipv4?.IsHealthy == true && ipv6?.IsHealthy == true;
         return new ServiceAvailabilityResult(
             healthy,
-            statusCode,
-            $"IPv4: {ipv4?.Details ?? "Not published in public DNS."} IPv6: {ipv6?.Details ?? "Not published in public DNS."}");
+            ipv4?.IsHealthy != true ? ipv4?.StatusCode : ipv6?.IsHealthy != true ? ipv6?.StatusCode : ipv4.StatusCode,
+            DescribeFamily(ipv4, "IPv4", "A") + " " + DescribeFamily(ipv6, "IPv6", "AAAA"));
     }
+
+    private static string DescribeFamily(ServiceAvailabilityResult? result, string family, string recordType) =>
+        result == null
+            ? $"{family}: Unavailable. Missing public {family} endpoint: public DNS returned no public {recordType} address."
+            : $"{family}: {(result.IsHealthy ? "Reachable" : "Unavailable")}. {result.Details}";
 
     public static ServiceAvailabilityResult Evaluate(HttpStatusCode statusCode)
     {

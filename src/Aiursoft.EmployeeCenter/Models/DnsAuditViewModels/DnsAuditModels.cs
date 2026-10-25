@@ -64,7 +64,7 @@ public sealed class DnsAuditIssue
         DnsAuditIssueType.MissingFrpsServerAssignment => "Missing FRPS server assignment",
         DnsAuditIssueType.PublicDnsLookupFailed => "Public DNS lookup failed",
         DnsAuditIssueType.DomainAliasRedirectMismatch => "Domain alias verification mismatch",
-        DnsAuditIssueType.ServiceUnavailable => "Running service is unavailable",
+        DnsAuditIssueType.ServiceUnavailable => "Public IPv4/IPv6 endpoint check failed",
         _ => Type.ToString()
     };
 }
