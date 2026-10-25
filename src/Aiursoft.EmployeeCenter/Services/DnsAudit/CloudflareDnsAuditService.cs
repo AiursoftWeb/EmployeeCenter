@@ -251,10 +251,35 @@ public sealed class CloudflareDnsAuditService(
                         token);
                 }
 
+                async Task<ServiceAvailabilityResult?> ProbePublishedFamilyAsync(
+                    string clientName, AddressFamily family)
+                {
+                    // Missing records are not a failed endpoint. Resolver failures remain
+                    // unhealthy; they must never masquerade as an unpublished family.
+                    using var lookupTimeout = CancellationTokenSource.CreateLinkedTokenSource(token);
+                    lookupTimeout.CancelAfter(TimeSpan.FromSeconds(10));
+                    try
+                    {
+                        var addresses = await new PublicDnsResolver(httpClientFactory)
+                            .ResolveAsync(domain, family, lookupTimeout.Token);
+                        if (addresses.Count == 0) return null;
+                    }
+                    catch (OperationCanceledException) when (!token.IsCancellationRequested)
+                    {
+                        return new ServiceAvailabilityResult(false, null, "The public DNS lookup timed out after 10 seconds.");
+                    }
+                    catch (Exception ex) when (ex is HttpRequestException or JsonException or InvalidDataException)
+                    {
+                        return new ServiceAvailabilityResult(false, null, $"The public DNS lookup failed: {ex.Message}");
+                    }
+
+                    return await ProbeAsync(clientName);
+                }
+
                 var families = await Task.WhenAll(
-                    ProbeAsync("ServiceAvailabilityAuditIPv4"),
-                    ProbeAsync("ServiceAvailabilityAuditIPv6"));
-                var result = ServiceAvailabilityEvaluator.EvaluateDualStack(families[0], families[1]);
+                    ProbePublishedFamilyAsync("ServiceAvailabilityAuditIPv4", AddressFamily.InterNetwork),
+                    ProbePublishedFamilyAsync("ServiceAvailabilityAuditIPv6", AddressFamily.InterNetworkV6));
+                var result = ServiceAvailabilityEvaluator.EvaluatePublishedFamilies(families[0], families[1]);
 
                 results[service.Id] = result;
                 if (!result.IsHealthy)

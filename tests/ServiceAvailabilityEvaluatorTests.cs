@@ -13,7 +13,7 @@ public class ServiceAvailabilityEvaluatorTests
     [DataRow(false, false, false)]
     public void BothFamiliesMustBeHealthy(bool ipv4Healthy, bool ipv6Healthy, bool expected)
     {
-        var result = ServiceAvailabilityEvaluator.EvaluateDualStack(
+        var result = ServiceAvailabilityEvaluator.EvaluatePublishedFamilies(
             new ServiceAvailabilityResult(ipv4Healthy, ipv4Healthy ? 200 : null, ipv4Healthy ? "HTTP 200." : "Connection refused."),
             new ServiceAvailabilityResult(ipv6Healthy, ipv6Healthy ? 200 : null, ipv6Healthy ? "HTTP 200." : "Connection refused."));
 
@@ -21,6 +21,21 @@ public class ServiceAvailabilityEvaluatorTests
         Assert.Contains("IPv4:", result.Details);
         Assert.Contains("IPv6:", result.Details);
         if (!expected) Assert.IsNull(result.StatusCode);
+    }
+
+    [TestMethod]
+    [DataRow(true, false, true)]
+    [DataRow(false, true, true)]
+    [DataRow(false, false, false)]
+    public void OnlyPublishedFamiliesContributeToAvailability(bool hasIpv4, bool hasIpv6, bool expected)
+    {
+        var healthy = new ServiceAvailabilityResult(true, 200, "HTTP 200.");
+        var result = ServiceAvailabilityEvaluator.EvaluatePublishedFamilies(
+            hasIpv4 ? healthy : null, hasIpv6 ? healthy : null);
+
+        Assert.AreEqual(expected, result.IsHealthy);
+        Assert.AreEqual(expected ? 200 : (int?)null, result.StatusCode);
+        Assert.Contains("Not published in public DNS.", result.Details);
     }
 
     [TestMethod]
