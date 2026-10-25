@@ -21,7 +21,7 @@ public class MigrationTests
         var options = new DbContextOptionsBuilder<SqliteContext>().UseSqlite(connection).Options;
         await using var context = new SqliteContext(options);
         var migrator = context.Database.GetService<IMigrator>();
-        await migrator.MigrateAsync("20260901231224_InfrastructureRegistryValidatedConstraints");
+        await migrator.MigrateAsync();
 
         var company = new CompanyEntity
         {
@@ -349,7 +349,7 @@ public class MigrationTests
             INSERT INTO Servers (CreatedAt, UpdatedAt) VALUES ({now}, {now})
             """);
 
-        await migrator.MigrateAsync("20260901231224_InfrastructureRegistryValidatedConstraints");
+        await migrator.MigrateAsync();
         context.ChangeTracker.Clear();
 
         var services = await context.Services.OrderBy(service => service.Id).ToListAsync();
@@ -365,6 +365,11 @@ public class MigrationTests
         Assert.IsNull(server.Hostname);
         Assert.IsNull(server.NormalizedHostname);
         Assert.IsFalse(server.IsRegistryValidated);
+        Assert.IsNull(server.NotesMarkdown);
+        server.NotesMarkdown = "# Legacy server\nPurpose and maintenance history.";
+        await context.SaveChangesAsync();
+        context.ChangeTracker.Clear();
+        Assert.AreEqual(server.NotesMarkdown, (await context.Servers.SingleAsync()).NotesMarkdown);
         Assert.AreEqual(0, await context.ServiceAuditRuns.CountAsync());
         Assert.AreEqual(0, await context.InfrastructureChangeLogs.CountAsync());
 
