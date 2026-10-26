@@ -58,7 +58,7 @@
     <value>关闭</value>
   </data>
   <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
-    <value>无法确认更改。已保留您的输入。请重试，或重新加载以检查保存状态。</value>
+    <value>无法确认更改。已保留您的输入。请重试，或重新加载以查看保存状态。</value>
   </data>
   <data name="Could not copy. Select and copy the link above." xml:space="preserve">
     <value>无法复制。请选中并复制上方的链接。</value>
@@ -88,13 +88,13 @@
     <value>管理共享</value>
   </data>
   <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
-    <value>无法预览成员。仍可通过此角色进行共享。</value>
+    <value>无法预览成员信息。仍可与此角色共享。</value>
   </data>
   <data name="members" xml:space="preserve">
     <value>成员</value>
   </data>
   <data name="Name or email (3+ characters)" xml:space="preserve">
-    <value>姓名或邮箱（至少 3 个字符）</value>
+    <value>姓名或电子邮件（至少 3 个字符）</value>
   </data>
   <data name="No shares yet. Add one above to share this password." xml:space="preserve">
     <value>暂无共享。请在上方添加共享以分享此密码。</value>
@@ -121,13 +121,13 @@
     <value>只读</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>移除</value>
+    <value>删除</value>
   </data>
   <data name="Remove this share? Other access may still apply." xml:space="preserve">
-    <value>移除此共享？可能仍有其他访问权限。</value>
+    <value>要移除此共享吗？其他访问权限可能仍然有效。</value>
   </data>
   <data name="Restricted access" xml:space="preserve">
-    <value>访问受限</value>
+    <value>受限访问</value>
   </data>
   <data name="Role" xml:space="preserve">
     <value>角色</value>
@@ -136,16 +136,16 @@
     <value>角色成员</value>
   </data>
   <data name="Search failed. Change the search text to try again." xml:space="preserve">
-    <value>搜索失败。请更改搜索文本后重试。</value>
+    <value>搜索失败。请更改搜索内容后重试。</value>
   </data>
   <data name="Searching..." xml:space="preserve">
-    <value>正在搜索…</value>
+    <value>正在搜索……</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
-    <value>请选择角色...</value>
+    <value>选择一个角色...</value>
   </data>
   <data name="Select a user from the search results or choose a role." xml:space="preserve">
-    <value>请从搜索结果中选择一位用户，或选择一个角色。</value>
+    <value>请从搜索结果中选择一个用户，或选择一个角色。</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>分享给</value>
@@ -160,7 +160,7 @@
     <value>特定用户</value>
   </data>
   <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
-    <value>所有者和获准管理共享的管理员可以管理访问权限。角色访问权限适用于该角色的成员；移除某项共享后，其他角色授予的权限或直接共享的权限仍然有效。</value>
+    <value>所有者和获准的共享管理员可以管理访问权限。角色访问权限适用于该角色的成员；移除某项共享后，其他角色或直接共享授予的权限仍然有效。</value>
   </data>
   <data name="This user or role already has access to this password." xml:space="preserve">
     <value>该用户或角色已拥有此密码的访问权限。</value>
