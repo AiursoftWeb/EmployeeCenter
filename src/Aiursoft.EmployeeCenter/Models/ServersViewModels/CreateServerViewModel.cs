@@ -23,6 +23,10 @@ public class CreateServerViewModel : UiStackLayoutViewModel, IValidatableObject
     [Display(Name = "Detail Link")]
     public string? DetailLink { get; set; }
 
+    [MaxLength(50000, ErrorMessage = "The {0} cannot exceed {1} characters.")]
+    [Display(Name = "Server notes")]
+    public string? NotesMarkdown { get; set; }
+
     [Display(Name = "Location")]
     public int? LocationId { get; set; }
 

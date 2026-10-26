@@ -53,6 +53,7 @@
                         <th>@Localizer["Hostname"]</th>
                         <th>@Localizer["IPv4 Address"]</th>
                         <th>@Localizer["IPv6 Address"]</th>
+                        <th>@Localizer["Server notes"]</th>
                         <th>@Localizer["Associated Services"]</th>
                         <th>@Localizer["Location"]</th>
                         <th>@Localizer["Company"]</th>
@@ -78,6 +79,13 @@
                             </td>
                             <td>
                                 @s.Ipv6Address
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrWhiteSpace(s.NotesMarkdown))
+                                {
+                                    <span class="server-notes-summary">@(s.NotesMarkdown.Length > 100 ? s.NotesMarkdown[..100] + "…" : s.NotesMarkdown)</span>
+                                }
+                                <a asp-action="Details" asp-route-id="@s.Id">@Localizer["View notes"]</a>
                             </td>
                             <td>
                                 <a asp-controller="Services"
@@ -148,4 +156,9 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <partial name="_LocalizationHelper" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/server-notes.css" asp-append-version="true" />
 }

@@ -1,0 +1,4 @@
+.server-notes-editor { height: 24rem; }
+.server-notes-preview { min-height: 24rem; overflow-wrap: anywhere; }
+.server-notes-summary { display: block; max-width: 16rem; white-space: normal; overflow-wrap: anywhere; }
+#server-notes-preview img { max-width: 100%; height: auto; }

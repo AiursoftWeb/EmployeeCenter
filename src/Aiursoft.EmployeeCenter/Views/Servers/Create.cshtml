@@ -3,8 +3,8 @@
 <h1 class="h3 mb-3">@Localizer["Add New Server"]</h1>
 
 <div class="row">
-    <div class="col-md-8">
-        <form asp-action="Create">
+    <div class="col-12">
+        <form asp-action="Create" id="server-form">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">@Localizer["Basic Information"]</h5>
@@ -119,6 +119,9 @@
                     </div>
 
                 </div>
+                <div class="card-body border-top">
+                    <partial name="_ServerNotesEditor" model="Model" />
+                </div>
                 <div class="card-footer text-end">
                     <button type="submit" class="btn btn-primary">@Localizer["Save Server"]</button>
                     <a asp-action="Index" class="btn btn-light">@Localizer["Cancel"]</a>
@@ -131,4 +134,11 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <partial name="_DropdownReload" />
+    @{ ViewData["ServerNotesEditable"] = true; }
+    <partial name="_ServerNotesScripts" />
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <partial name="_ServerNotesStyles" />
 }

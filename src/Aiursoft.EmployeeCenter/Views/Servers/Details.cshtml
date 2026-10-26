@@ -1,0 +1,39 @@
+@model Aiursoft.EmployeeCenter.Models.ServersViewModels.DetailsServerViewModel
+@using Aiursoft.EmployeeCenter.Authorization
+@using Aiursoft.EmployeeCenter.Controllers
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, null, AppPermissionNames.CanManageInfrastructure)).Succeeded;
+    var dark = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+<div class="d-flex flex-wrap gap-2 justify-content-between mb-3">
+    <div>
+        <h1 class="h3">@Model.Server.Hostname — @Localizer["Server notes"]</h1>
+        <span class="text-muted">@Localizer["Last updated"]: @Model.Server.UpdatedAt.ToString("u")</span>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Back to servers"]</a>
+        @if (canManage && !Model.Server.RetiredAt.HasValue)
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Server.Id" class="btn btn-primary">@Localizer["Edit"]</a>
+        }
+    </div>
+</div>
+<div class="card">
+    <div class="card-body" id="server-notes" data-theme="@(dark ? "dark" : "default")">
+        @if (string.IsNullOrWhiteSpace(Model.Server.NotesMarkdown))
+        {
+            <p class="text-muted">@Localizer["No server notes yet."]</p>
+        }
+        <textarea id="NotesMarkdown" hidden>@Model.Server.NotesMarkdown</textarea>
+        <div id="server-notes-preview" class="markdown-content server-notes-preview"></div>
+    </div>
+</div>
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <partial name="_ServerNotesStyles" />
+}
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <partial name="_ServerNotesScripts" />
+}
