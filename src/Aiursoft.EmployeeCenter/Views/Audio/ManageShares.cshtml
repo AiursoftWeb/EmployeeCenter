@@ -1,4 +1,3 @@
-@using Aiursoft.EmployeeCenter.Entities
 @model Aiursoft.EmployeeCenter.Models.AudioViewModels.ManageSharesViewModel
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
 
@@ -148,6 +147,7 @@
     </div>
 </div>
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script src="~/scripts/manage-shares.js" asp-append-version="true" defer></script>
 }

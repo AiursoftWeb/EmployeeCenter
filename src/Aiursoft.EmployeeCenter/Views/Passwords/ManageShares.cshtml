@@ -1,4 +1,3 @@
-@using Aiursoft.EmployeeCenter.Entities
 @model Aiursoft.EmployeeCenter.Models.PasswordsViewModels.ManageSharesViewModel
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
 
@@ -30,7 +29,7 @@
                     {
                         <li class="list-group-item px-0 py-3 d-flex flex-wrap align-items-center justify-content-between gap-3">
                             <div class="d-flex align-items-center gap-3 text-break">
-                                @if (share.SharedWithUser != null)
+                                @if (share.SharedWithUserId != null)
                                 {
                                     <img src="@(StorageService.RelativePathToInternetUrl(share.SharedWithUser.AvatarRelativePath))?w=128&amp;square=true" alt="" class="rounded-circle flex-shrink-0" width="36" height="36">
                                 }
@@ -39,7 +38,7 @@
                                     <span class="d-inline-flex align-items-center justify-content-center flex-shrink-0" style="width: 36px; height: 36px;"><i class="align-middle" data-lucide="@(share.SharedWithUserId != null ? "user" : "users")" aria-hidden="true"></i></span>
                                 }
                                 <div>
-                                    <div class="fw-semibold">@(share.SharedWithUserId != null ? share.SharedWithUser?.DisplayName ?? share.SharedWithUserId : Model.AvailableRoles.FirstOrDefault(r => r.Id == share.SharedWithRoleId)?.Name ?? share.SharedWithRoleId)</div>
+                                    <div class="fw-semibold">@(share.SharedWithUserId != null ? share.SharedWithUser.DisplayName : Model.AvailableRoles.FirstOrDefault(r => r.Id == share.SharedWithRoleId)?.Name ?? share.SharedWithRoleId)</div>
                                     <div class="small text-muted">
                                         @if (share.SharedWithUserId != null)
                                         {
@@ -148,6 +147,7 @@
     </div>
 </div>
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script src="~/scripts/manage-shares.js" asp-append-version="true" defer></script>
 }
