@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} và {1} người dùng khác</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} và {1} người dùng khác</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} có thể chỉnh sửa.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} có thể xem.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} vai trò</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} vai trò</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} người dùng</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} người dùng</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>Thông tin về quyền truy cập</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Hành động</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Thêm</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Thêm quyền truy cập</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Thêm Chia Sẻ Mới</value>
@@ -36,11 +69,32 @@
   <data name="Back to Details" xml:space="preserve">
     <value>Quay lại Chi tiết</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>Có thể chỉnh sửa</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>Có thể xem</value>
+  </data>
+  <data name="Can view reveals the saved credentials. Can edit also allows changing this password entry." xml:space="preserve">
+    <value>Có thể xem sẽ hiển thị thông tin đăng nhập đã lưu. Có thể chỉnh sửa cũng cho phép thay đổi mục mật khẩu này.</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Đổi</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Đóng</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>Không thể xác nhận thay đổi. Nội dung bạn đã nhập vẫn được giữ lại. Hãy thử lại hoặc tải lại trang để kiểm tra trạng thái đã lưu.</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>Không thể sao chép. Hãy chọn và sao chép liên kết ở trên.</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Đã tạo</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>Quyền truy cập hiện tại</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>Có thể chỉnh sửa</value>
@@ -54,17 +108,41 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>Các Chia Sẻ Hiện Có</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>Đã sao chép liên kết.</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>Tải thêm người dùng</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Quản lý Chia sẻ</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>Không thể xem trước thành viên. Bạn vẫn có thể chia sẻ với vai trò này.</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>thành viên</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>Tên hoặc email (từ 3 ký tự trở lên)</value>
   </data>
   <data name="No shares yet. Add one above to share this password." xml:space="preserve">
     <value>Chưa có chia sẻ nào. Thêm một chia sẻ ở trên để chia sẻ mật khẩu này.</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>Không tìm thấy người dùng nào</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>Không tìm thấy người dùng nào. Hãy thử tên hoặc email khác.</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>Chưa có người dùng hoặc vai trò nào được thêm.</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>Chỉ những người được cấp quyền mới có thể truy cập.</value>
+  </data>
+  <data name="Only the owner and authorized administrators have access." xml:space="preserve">
+    <value>Chỉ chủ sở hữu và quản trị viên được ủy quyền mới có quyền truy cập.</value>
   </data>
   <data name="Password:" xml:space="preserve">
     <value>Mật khẩu:</value>
@@ -81,14 +159,41 @@
   <data name="Remove" xml:space="preserve">
     <value>Xóa</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>Xóa lượt chia sẻ này? Các quyền truy cập khác vẫn có thể được áp dụng.</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>Vai trò</value>
+  </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>Vai trò {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>Vai trò {0} và {1} vai trò khác</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>Vai trò {0} và {1} vai trò khác</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>thành viên vai trò</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>Tìm kiếm không thành công. Hãy thay đổi nội dung tìm kiếm và thử lại.</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>Đang tìm kiếm...</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Chọn một vai trò...</value>
   </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>Chọn một người dùng từ kết quả tìm kiếm hoặc chọn một vai trò.</value>
+  </data>
   <data name="Share with" xml:space="preserve">
     <value>Chia sẻ với</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Quyền truy cập được chia sẻ</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>Chia sẻ với</value>
@@ -96,8 +201,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>Người dùng cụ thể</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>Chủ sở hữu và quản trị viên được ủy quyền chia sẻ có thể quản lý quyền truy cập. Quyền truy cập theo vai trò áp dụng cho các thành viên của vai trò đó; quyền từ các vai trò khác hoặc lượt chia sẻ trực tiếp vẫn có hiệu lực sau khi xóa một lượt chia sẻ.</value>
+  </data>
   <data name="This user or role already has access to this password." xml:space="preserve">
     <value>Người dùng hoặc vai trò này đã có quyền truy cập vào mật khẩu này.</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>Người dùng hoặc vai trò này đã có quyền truy cập.</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Loại</value>

@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0}、ほか{1}人のユーザー</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} さんとほか {1} 人のユーザー</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0}は編集できます。</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0}は閲覧できます。</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} 個のロール</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} 個のロール</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} 人のユーザー</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>ユーザー数：{0}</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}、{1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>アクセスについて</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>追加</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>アクセスを追加</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>新規共有を追加</value>
@@ -36,11 +69,32 @@
   <data name="Back to Details" xml:space="preserve">
     <value>詳細に戻る</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>編集可能</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>閲覧可能</value>
+  </data>
+  <data name="Can view reveals the saved credentials. Can edit also allows changing this password entry." xml:space="preserve">
+    <value>閲覧権限では保存済みの認証情報を確認できます。編集権限では、このパスワードの内容も変更できます。</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>変更</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>閉じる</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>変更を確認できませんでした。入力内容は保持されています。もう一度お試しいただくか、再読み込みして保存状態をご確認ください。</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>コピーできませんでした。上記のリンクを選択してコピーしてください。</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>作成日時</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>現在のアクセス</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>編集可能</value>
@@ -54,17 +108,41 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>既存の共有</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>リンクをコピーしました。</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>ユーザーをさらに読み込む</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>共有の管理</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>メンバーのプレビューを利用できません。このロールで引き続き共有できます。</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>メンバー</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>名前またはメールアドレス（3文字以上）</value>
   </data>
   <data name="No shares yet. Add one above to share this password." xml:space="preserve">
     <value>まだ共有はありません。上記から追加してこのパスワードを共有してください。</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>ユーザーが見つかりません</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>ユーザーが見つかりません。別の名前またはメールアドレスをお試しください。</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>ユーザーまたはロールは追加されていません。</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>アクセスできるのは、許可されたユーザーのみです。</value>
+  </data>
+  <data name="Only the owner and authorized administrators have access." xml:space="preserve">
+    <value>所有者と権限を付与された管理者のみがアクセスできます。</value>
   </data>
   <data name="Password:" xml:space="preserve">
     <value>パスワード:</value>
@@ -81,14 +159,41 @@
   <data name="Remove" xml:space="preserve">
     <value>削除</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>この共有を解除しますか？他のアクセス権は引き続き適用される場合があります。</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>ロール</value>
+  </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>ロール {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>ロール「{0}」とその他{1}件のロール</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>ロール {0}とほか{1}件のロール</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>ロールのメンバー</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>検索に失敗しました。検索語を変更して、もう一度お試しください。</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>検索中...</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>役割を選択...</value>
   </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>検索結果からユーザーを選択するか、ロールを選択してください。</value>
+  </data>
   <data name="Share with" xml:space="preserve">
     <value>共有先</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>共有アクセス</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>共有先</value>
@@ -96,8 +201,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>特定のユーザー</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>所有者と、共有を許可された管理者はアクセス権を管理できます。ロールによるアクセス権はそのロールのメンバーに適用されます。共有を1つ削除しても、他のロールや個別共有による権限は引き続き適用されます。</value>
+  </data>
   <data name="This user or role already has access to this password." xml:space="preserve">
     <value>このユーザーまたはロールは既にこのパスワードへのアクセス権を持っています。</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>このユーザーまたはロールには、すでにアクセス権が付与されています。</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>種類</value>
