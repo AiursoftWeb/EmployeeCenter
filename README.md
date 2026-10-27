@@ -101,13 +101,15 @@ process; query-and-create is not an atomic cross-instance operation. A subsequen
 any matching duplicates. No extra scheduler, database schema or automatic notification retry is
 introduced.
 
-## 数据库升级注意事项
+## Database upgrade notes
 
-员工信号模块已移除。升级前请备份数据库：MySQL 和 SQLite 的
-`RemoveEmployeeSignals` 迁移会永久删除旧问卷、问题、答卷、回答及其关联关系，
-同时删除角色中 `Permission` 类型的 `CanSubmitFeedback` 和 `CanManageFeedback` 声明。
-历史迁移仍予保留，以支持已有部署升级。回滚此迁移只重建五张空表及其索引、外键，
-不会恢复已删除的数据或权限声明。
+The employee signals module has been removed. Back up your database before upgrading:
+the MySQL and SQLite `RemoveEmployeeSignals` migrations permanently delete the old
+questionnaires, questions, submissions, answers, and their relationships. They also remove
+the `CanSubmitFeedback` and `CanManageFeedback` role claims of type `Permission`.
+Historical migrations are retained to support upgrades from existing deployments.
+Rolling back this migration recreates only five empty tables and their indexes and foreign
+keys; it does not restore deleted data or permission claims.
 
 ## How to contribute
 
