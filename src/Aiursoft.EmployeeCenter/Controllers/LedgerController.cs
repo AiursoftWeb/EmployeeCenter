@@ -538,6 +538,25 @@ public class LedgerController(
             return NotFound();
         }
 
+        var changedAttachmentTypes = new[]
+        {
+            (Old: transaction.InvoicePath, New: model.InvoicePath, Type: TransactionAttachmentType.Invoice),
+            (Old: transaction.MT103Path, New: model.MT103Path, Type: TransactionAttachmentType.MT103),
+            (Old: transaction.PaymentVoucherPath, New: model.PaymentVoucherPath, Type: TransactionAttachmentType.PaymentVoucher)
+        }.Where(a => a.Old != a.New).Select(a => a.Type).ToArray();
+
+        if (changedAttachmentTypes.Length > 0)
+        {
+            var staleResults = await dbContext.TransactionOcrResults
+                .Where(r => r.TransactionId == transaction.Id && changedAttachmentTypes.Contains(r.AttachmentType))
+                .ToListAsync();
+            dbContext.TransactionOcrResults.RemoveRange(staleResults);
+            // Retry budgets are shared by the transaction; unchanged attachments retain their results.
+            transaction.OcrAttemptCount = 0;
+            transaction.EmptyResultCount = 0;
+            transaction.LastOcrAttemptTime = null;
+        }
+
         transaction.Description = model.Description;
         transaction.SourceAccountId = model.SourceAccountId;
         transaction.DestinationAccountId = model.DestinationAccountId;

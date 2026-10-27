@@ -108,6 +108,14 @@ public class OcrService(
             return;
         }
 
+        if (!contract.FilePath.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase) ||
+            contract.OcrAttemptCount >= _ocrSettings.ContractOcrMaxRetryCount ||
+            contract.EmptyResultCount >= _ocrSettings.ContractOcrMaxEmptyRetryCount ||
+            await dbContext.ContractOcrResults.AnyAsync(r => r.ContractId == contractId))
+        {
+            return;
+        }
+
         contract.OcrAttemptCount++;
         contract.LastOcrAttemptTime = DateTime.UtcNow;
         await dbContext.SaveChangesAsync();
@@ -177,37 +185,41 @@ public class OcrService(
             return;
         }
 
-        transaction.OcrAttemptCount++;
-        transaction.LastOcrAttemptTime = DateTime.UtcNow;
-        await dbContext.SaveChangesAsync();
+        if (transaction.OcrAttemptCount >= _ocrSettings.TransactionOcrMaxRetryCount ||
+            transaction.EmptyResultCount >= _ocrSettings.TransactionOcrMaxEmptyRetryCount)
+        {
+            return;
+        }
 
+        var completedTypes = await dbContext.TransactionOcrResults
+            .Where(r => r.TransactionId == transactionId)
+            .Select(r => r.AttachmentType)
+            .ToListAsync();
         var attachments = new List<(string? Path, TransactionAttachmentType Type)>
         {
             (transaction.InvoicePath, TransactionAttachmentType.Invoice),
             (transaction.MT103Path, TransactionAttachmentType.MT103),
             (transaction.PaymentVoucherPath, TransactionAttachmentType.PaymentVoucher)
-        };
+        }.Where(a => a.Path?.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase) == true &&
+                     !completedTypes.Contains(a.Type)).ToList();
+
+        if (attachments.Count == 0)
+        {
+            return;
+        }
+
+        transaction.OcrAttemptCount++;
+        transaction.LastOcrAttemptTime = DateTime.UtcNow;
+        await dbContext.SaveChangesAsync();
 
         var hadEmptyResult = false;
         var hadTextResult = false;
 
         foreach (var (path, type) in attachments)
         {
-            if (string.IsNullOrEmpty(path))
-            {
-                continue;
-            }
-
-            var exists = await dbContext.TransactionOcrResults
-                .AnyAsync(r => r.TransactionId == transactionId && r.AttachmentType == type);
-            if (exists)
-            {
-                continue;
-            }
-
             try
             {
-                var filePath = storageService.GetFilePhysicalPath(path, isVault: true);
+                var filePath = storageService.GetFilePhysicalPath(path!, isVault: true);
                 var result = await RecognizeAsync(filePath);
                 if (result != null)
                 {

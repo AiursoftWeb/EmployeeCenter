@@ -30,14 +30,14 @@ public class TransactionOcrJob(
             logger.LogInformation("Transaction OCR job started");
 
             // Find transactions that have attachments needing OCR processing:
-            // - Has an attachment path but no non-empty OCR result for that type
+            // - Has a supported PDF with no saved OCR result for that type
             // - Has not exceeded OcrAttemptCount limit (safety valve for crashes)
             // - Has not exceeded EmptyResultCount limit (truly empty PDFs)
             var unprocessedTransactionIds = await db.Transactions
                 .Where(t =>
-                    (!string.IsNullOrEmpty(t.InvoicePath) && !db.TransactionOcrResults.Any(r => r.TransactionId == t.Id && r.AttachmentType == TransactionAttachmentType.Invoice && r.PlainText != "")) ||
-                    (!string.IsNullOrEmpty(t.MT103Path) && !db.TransactionOcrResults.Any(r => r.TransactionId == t.Id && r.AttachmentType == TransactionAttachmentType.MT103 && r.PlainText != "")) ||
-                    (!string.IsNullOrEmpty(t.PaymentVoucherPath) && !db.TransactionOcrResults.Any(r => r.TransactionId == t.Id && r.AttachmentType == TransactionAttachmentType.PaymentVoucher && r.PlainText != ""))
+                    (!string.IsNullOrEmpty(t.InvoicePath) && t.InvoicePath.ToLower().EndsWith(".pdf") && !db.TransactionOcrResults.Any(r => r.TransactionId == t.Id && r.AttachmentType == TransactionAttachmentType.Invoice)) ||
+                    (!string.IsNullOrEmpty(t.MT103Path) && t.MT103Path.ToLower().EndsWith(".pdf") && !db.TransactionOcrResults.Any(r => r.TransactionId == t.Id && r.AttachmentType == TransactionAttachmentType.MT103)) ||
+                    (!string.IsNullOrEmpty(t.PaymentVoucherPath) && t.PaymentVoucherPath.ToLower().EndsWith(".pdf") && !db.TransactionOcrResults.Any(r => r.TransactionId == t.Id && r.AttachmentType == TransactionAttachmentType.PaymentVoucher))
                 )
                 .Where(t => t.OcrAttemptCount < _ocrSettings.TransactionOcrMaxRetryCount)
                 .Where(t => t.EmptyResultCount < _ocrSettings.TransactionOcrMaxEmptyRetryCount)
