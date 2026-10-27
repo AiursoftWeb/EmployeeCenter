@@ -48,6 +48,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>每 3 小時自動更新</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>狀態正常時每 3 小時自動重新整理；仍有問題時每 15 分鐘重新整理</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>檢查項目</value>
   </data>

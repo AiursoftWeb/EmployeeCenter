@@ -48,6 +48,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>تُحدَّث تلقائيًا كل 3 ساعات</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>يُحدَّث تلقائيًا كل 3 ساعات عند سلامة الحالة؛ وكل 15 دقيقة ما دامت هناك نتائج</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>الفحص</value>
   </data>

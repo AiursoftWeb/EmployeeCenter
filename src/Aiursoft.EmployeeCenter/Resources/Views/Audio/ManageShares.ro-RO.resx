@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} și încă {1} utilizator</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} și încă {1} utilizatori</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} poate edita.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} poate vizualiza.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>Rolul {0}</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} roluri</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} utilizator</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} de utilizatori</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>Despre acces</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Adaugă</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Adăugați acces</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Adăugare nouă partajare</value>
@@ -39,11 +72,32 @@
   <data name="Back to Transcript" xml:space="preserve">
     <value>Înapoi la transcriere</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>Poate edita</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>Poate vizualiza</value>
+  </data>
+  <data name="Can view allows listening and reading transcripts. Can edit also allows changing this recording and its transcript." xml:space="preserve">
+    <value>Permisiunea de vizualizare permite ascultarea și citirea transcrierilor. Permisiunea de editare permite, de asemenea, modificarea acestei înregistrări și a transcrierii sale.</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Schimbă</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Închide</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>Nu s-a putut confirma modificarea. Datele introduse sunt păstrate. Încercați din nou sau reîncărcați pagina pentru a verifica starea salvată.</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>Copierea nu a reușit. Selectați și copiați linkul de mai sus.</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Creat</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>Acces actual</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>Editabil</value>
@@ -57,17 +111,41 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>Partajări existente</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>Link copiat.</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>Încărcați mai mulți utilizatori</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Gestionează partajările</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>Previzualizarea membrilor nu este disponibilă. Puteți partaja în continuare cu acest rol.</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>membri</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>Nume sau e-mail (minimum 3 caractere)</value>
   </data>
   <data name="No shares yet. Add one above to share this recording." xml:space="preserve">
     <value>Încă nu există partajări. Adăugați una mai sus pentru a partaja această înregistrare.</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>Niciun utilizator găsit</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>Nu s-au găsit utilizatori. Încercați alt nume sau altă adresă de e-mail.</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>Nu au fost adăugați utilizatori sau roluri.</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>Doar persoanele autorizate au acces.</value>
+  </data>
+  <data name="Only the owner and authorized administrators have access." xml:space="preserve">
+    <value>Numai proprietarul și administratorii autorizați au acces.</value>
   </data>
   <data name="Permission" xml:space="preserve">
     <value>Permisiune</value>
@@ -81,14 +159,41 @@
   <data name="Remove" xml:space="preserve">
     <value>Elimină</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>Eliminați acest acces? Este posibil să se aplice în continuare și alte forme de acces.</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>Rol</value>
+  </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>Rolul {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>Rolul {0} și încă un rol</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>Rolul {0} și încă {1} roluri</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>membrii rolului</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>Căutarea a eșuat. Modificați textul căutării și încercați din nou.</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>Se caută...</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Selectați un rol...</value>
   </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>Selectați un utilizator din rezultatele căutării sau alegeți un rol.</value>
+  </data>
   <data name="Share with" xml:space="preserve">
     <value>Partajează cu</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Acces partajat</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>Partajat cu</value>
@@ -96,8 +201,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>Utilizator specific</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>Proprietarul și administratorii autorizați pentru partajare pot gestiona accesul. Accesul acordat printr-un rol se aplică membrilor acestuia; permisiunile acordate prin alte roluri sau prin partajări directe rămân valabile și după eliminarea unei partajări.</value>
+  </data>
   <data name="This user or role already has access to this recording." xml:space="preserve">
     <value>Acest utilizator sau rol are deja acces la această înregistrare.</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>Acest utilizator sau acest rol are deja acces.</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Tip</value>

@@ -45,6 +45,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Opdateres automatisk hvert 3. time</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>Opdateres automatisk hver 3. time, når alt fungerer normalt; hvert 15. minut, så længe der er fund</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Tjek</value>
   </data>

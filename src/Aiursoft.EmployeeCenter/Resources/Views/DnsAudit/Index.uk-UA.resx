@@ -45,6 +45,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Автоматично оновлюється кожні 3 години</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>Автоматично оновлюється кожні 3 години за відсутності проблем; кожні 15 хвилин, поки проблеми залишаються</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Перевірка</value>
   </data>

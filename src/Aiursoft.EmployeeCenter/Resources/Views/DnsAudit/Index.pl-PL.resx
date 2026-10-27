@@ -45,6 +45,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Automatycznie odświeżane co 3 godziny</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>Automatyczne odświeżanie co 3 godziny, gdy wszystko działa prawidłowo; co 15 minut, dopóki utrzymują się wykryte problemy</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Sprawdzenie</value>
   </data>

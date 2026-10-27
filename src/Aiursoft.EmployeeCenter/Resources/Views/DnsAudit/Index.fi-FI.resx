@@ -45,6 +45,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Päivitetään automaattisesti 3 tunnin välein</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>Päivitetään automaattisesti 3 tunnin välein, kun kaikki toimii normaalisti, ja 15 minuutin välein, kun havaintoja on edelleen</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Tarkistus</value>
   </data>

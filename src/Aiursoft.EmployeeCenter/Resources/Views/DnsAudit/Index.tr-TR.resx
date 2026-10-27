@@ -45,6 +45,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Her 3 saatte bir otomatik olarak yenilenir</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>Sağlıklı olduğunda 3 saatte bir, bulgular devam ederken 15 dakikada bir otomatik olarak yenilenir</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Kontrol</value>
   </data>

@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} ja {1} muuta käyttäjää</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} ja {1} muuta käyttäjää</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} voi muokata.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} voi tarkastella.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} rooli</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} roolia</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} käyttäjä</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} käyttäjää</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>Tietoja käyttöoikeuksista</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Toiminnot</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Lisää</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Lisää käyttöoikeus</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Lisää uusi jako</value>
@@ -36,11 +69,32 @@
   <data name="Back to Details" xml:space="preserve">
     <value>Takaisin yksityiskohtiin</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>Voi muokata</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>Voi katsella</value>
+  </data>
+  <data name="Can view reveals the saved credentials. Can edit also allows changing this password entry." xml:space="preserve">
+    <value>Katseluoikeus näyttää tallennetut kirjautumistiedot. Muokkausoikeus sallii myös tämän salasanamerkinnän muuttamisen.</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Vaihda</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Sulje</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>Muutosta ei voitu vahvistaa. Syöttämäsi tiedot säilytetään. Yritä uudelleen tai lataa sivu uudelleen tarkistaaksesi tallennetun tilan.</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>Kopiointi epäonnistui. Valitse yllä oleva linkki ja kopioi se.</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Luotu</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>Nykyinen käyttöoikeus</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>Muokattava</value>
@@ -54,17 +108,41 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>Olemassa olevat jaot</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>Linkki kopioitu.</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>Lataa lisää käyttäjiä</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Hallitse jakoja</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>Jäsenen esikatselu ei ole käytettävissä. Voit silti jakaa tämän roolin kanssa.</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>jäsenet</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>Nimi tai sähköpostiosoite (vähintään 3 merkkiä)</value>
   </data>
   <data name="No shares yet. Add one above to share this password." xml:space="preserve">
     <value>Ei vielä jakoja. Lisää yksi yläpuolella jakaksesi tämän salasanan.</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>Käyttäjiä ei löytynyt</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>Käyttäjiä ei löytynyt. Kokeile toista nimeä tai sähköpostiosoitetta.</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>Käyttäjiä tai rooleja ei ole lisätty.</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>Vain valtuutetut henkilöt pääsevät käyttämään.</value>
+  </data>
+  <data name="Only the owner and authorized administrators have access." xml:space="preserve">
+    <value>Vain omistajalla ja valtuutetuilla järjestelmänvalvojilla on käyttöoikeus.</value>
   </data>
   <data name="Password:" xml:space="preserve">
     <value>Salasana:</value>
@@ -81,14 +159,41 @@
   <data name="Remove" xml:space="preserve">
     <value>Poista</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>Poistetaanko tämä jakaminen? Muu käyttöoikeus voi silti olla voimassa.</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>Rooli</value>
+  </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>Rooli {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>Rooli {0} ja {1} muu rooli</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>Rooli {0} ja {1} muuta roolia</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>roolin jäsenet</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>Haku epäonnistui. Muuta hakutekstiä ja yritä uudelleen.</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>Haetaan...</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Valitse rooli...</value>
   </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>Valitse käyttäjä hakutuloksista tai valitse rooli.</value>
+  </data>
   <data name="Share with" xml:space="preserve">
     <value>Jaa käyttäjälle</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Jaettu käyttöoikeus</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>Jaettu käyttäjälle</value>
@@ -96,8 +201,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>Tietty käyttäjä</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>Omistaja ja valtuutetut jakamisen hallinnoijat voivat hallita käyttöoikeuksia. Roolin käyttöoikeudet koskevat sen jäseniä; muiden roolien tai suorien jakojen käyttöoikeudet pysyvät voimassa, vaikka yksittäinen jako poistetaan.</value>
+  </data>
   <data name="This user or role already has access to this password." xml:space="preserve">
     <value>Tällä käyttäjällä tai roolilla on jo pääsy tähän salasanaan.</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>Tällä käyttäjällä tai roolilla on jo käyttöoikeus.</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Tyyppi</value>
