@@ -30,11 +30,12 @@ public class ContractOcrJob(
             logger.LogInformation("Contract OCR job started");
             
             // Find contracts that still need OCR processing:
-            // - No non-empty OCR result exists yet
+            // - Is a supported PDF with no saved OCR result (including a terminal empty result)
             // - Has not exceeded OcrAttemptCount limit (safety valve for crashes)
             // - Has not exceeded EmptyResultCount limit (truly empty PDFs)
             var unprocessedContractIds = await db.Contracts
-                .Where(c => !db.ContractOcrResults.Any(r => r.ContractId == c.Id && r.PlainText != ""))
+                .Where(c => c.FilePath.ToLower().EndsWith(".pdf"))
+                .Where(c => !db.ContractOcrResults.Any(r => r.ContractId == c.Id))
                 .Where(c => c.OcrAttemptCount < _ocrSettings.ContractOcrMaxRetryCount)
                 .Where(c => c.EmptyResultCount < _ocrSettings.ContractOcrMaxEmptyRetryCount)
                 .OrderBy(c => c.OcrAttemptCount)
