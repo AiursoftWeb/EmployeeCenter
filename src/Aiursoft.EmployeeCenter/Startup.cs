@@ -163,11 +163,14 @@ public class Startup : IWebStartup
         var exportJob = services.RegisterBackgroundJob<Services.BackgroundJobs.ExportJob>();
         services.RegisterScheduledTask(registration: exportJob, period: TimeSpan.FromMinutes(15), startDelay: TimeSpan.FromSeconds(35));
 
-        var dnsAuditJob = services.RegisterBackgroundJob<Services.BackgroundJobs.DnsAuditJob>();
+        services.RegisterBackgroundJob<Services.BackgroundJobs.DnsAuditJob>();
+        // The lightweight scheduled job only runs the audit when its persisted result is due.
+        var dnsAuditJob = services.RegisterBackgroundJob<Services.BackgroundJobs.ScheduledDnsAuditJob>();
         services.RegisterScheduledTask(
             registration: dnsAuditJob,
-            period: TimeSpan.FromHours(3),
-            startDelay: EntryExtends.IsInUnitTests() ? TimeSpan.FromDays(1) : TimeSpan.Zero);
+            period: TimeSpan.FromMinutes(1),
+            startDelay: EntryExtends.IsInUnitTests() ? TimeSpan.FromDays(1) : TimeSpan.Zero,
+            skipIfStacked: true);
 
         services.AddHttpClient();
 

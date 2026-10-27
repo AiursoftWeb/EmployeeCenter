@@ -505,6 +505,79 @@ public class DnsAuditControllerTests : TestBase
         cache.EndRefresh();
     }
 
+    [TestMethod]
+    [DataRow(DnsAuditSeverity.Critical)]
+    [DataRow(DnsAuditSeverity.Error)]
+    [DataRow(DnsAuditSeverity.Warning)]
+    [DataRow(DnsAuditSeverity.Info)]
+    public async Task PersistedAuditFindingsControlRecheckAndSurviveNewScopes(DnsAuditSeverity severity)
+    {
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"audit-recheck-{Guid.NewGuid():N}").Options);
+        var now = DateTime.UtcNow;
+        var report = new DnsAuditReport
+        {
+            GeneratedAt = now,
+            Issues = [new DnsAuditIssue
+            {
+                Type = DnsAuditIssueType.UnknownDns, Severity = severity,
+                Domain = "recheck.example.com", Details = "Observation"
+            }]
+        };
+        var store = new ServiceAuditStore(db);
+        Assert.IsTrue(await store.IsScheduledAuditDueAsync(now));
+        var first = await store.BeginRunAsync();
+        Assert.IsFalse(await store.IsScheduledAuditDueAsync(now));
+        await store.CompleteSuccessAsync(first, report);
+        // Recreate the store to ensure scheduling and streaks come from saved audits.
+        store = new ServiceAuditStore(db);
+        Assert.IsFalse(await store.IsScheduledAuditDueAsync(now.AddMinutes(14)));
+        Assert.AreEqual(severity >= DnsAuditSeverity.Warning,
+            await store.IsScheduledAuditDueAsync(now.AddMinutes(15)));
+        Assert.IsTrue(await store.IsScheduledAuditDueAsync(now.AddHours(3)));
+        var next = await store.BeginRunAsync();
+        var previous = await store.LoadPreviousReportAsync(next);
+        Assert.AreEqual(severity, previous!.Issues.Single().Severity);
+        await store.CompleteSuccessAsync(next, new DnsAuditReport { GeneratedAt = now.AddMinutes(15), Issues = [] });
+        Assert.IsFalse(await store.IsScheduledAuditDueAsync(now.AddMinutes(30)));
+        Assert.IsTrue(await store.IsScheduledAuditDueAsync(now.AddHours(3).AddMinutes(15)));
+        var recurrence = await store.BeginRunAsync();
+        Assert.IsEmpty((await store.LoadPreviousReportAsync(recurrence))!.Issues);
+        await store.CompleteFailureAsync(recurrence, "Collection failed");
+        var failedAt = (await db.ServiceAuditRuns.FindAsync(recurrence))!.CompletedAt!.Value;
+        Assert.IsFalse(await store.IsScheduledAuditDueAsync(failedAt.AddMinutes(14)));
+        Assert.IsTrue(await store.IsScheduledAuditDueAsync(failedAt.AddMinutes(15)));
+    }
+
+    [TestMethod]
+    public async Task ScheduledAuditsWaitWhenHealthyButManualAuditsRunImmediately()
+    {
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"scheduled-audit-{Guid.NewGuid():N}").Options);
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "audit-test-token");
+        var store = new ServiceAuditStore(db);
+        var job = new DnsAuditJob(
+            new CloudflareDnsAuditService(db, settings, new AuditHttpFactory(true), NullLogger<CloudflareDnsAuditService>.Instance),
+            store, new DnsAuditSnapshotCache(), NullLogger<DnsAuditJob>.Instance);
+        var scheduled = new ScheduledDnsAuditJob(store, job);
+        await scheduled.ExecuteAsync();
+        Assert.AreEqual(1, await db.ServiceAuditRuns.CountAsync());
+        await scheduled.ExecuteAsync();
+        Assert.AreEqual(1, await db.ServiceAuditRuns.CountAsync());
+        await job.ExecuteAsync();
+        Assert.AreEqual(2, await db.ServiceAuditRuns.CountAsync());
+        var last = await db.ServiceAuditRuns.OrderByDescending(run => run.Id).FirstAsync();
+        last.CompletedAt = DateTime.UtcNow.AddMinutes(-16);
+        last.WarningCount = 1;
+        await db.SaveChangesAsync();
+        await scheduled.ExecuteAsync();
+        Assert.AreEqual(3, await db.ServiceAuditRuns.CountAsync());
+        await scheduled.ExecuteAsync();
+        Assert.AreEqual(3, await db.ServiceAuditRuns.CountAsync());
+    }
+
     private sealed class UnavailableIncidentClient : IAuditIncidentClient
     {
         public int Queries { get; private set; }
@@ -514,6 +587,7 @@ public class DnsAuditControllerTests : TestBase
             throw new HttpRequestException("AlertCenter is unavailable.");
         }
         public Task<CreateIncidentResponse> CreateAsync(CreateIncidentRequest request) => throw new AssertFailedException("No writes after a failed read.");
+        public Task<ChangeIncidentSeverityResponse> ChangeSeverityAsync(Guid incidentId, ChangeIncidentSeverityRequest request) => throw new AssertFailedException("No writes after a failed read.");
         public Task<MitigateIncidentResponse> MitigateAsync(Guid incidentId, MitigateIncidentRequest request) => throw new AssertFailedException("No closures after a failed read.");
     }
 

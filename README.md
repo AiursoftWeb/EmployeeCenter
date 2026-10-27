@@ -77,19 +77,21 @@ Configure a dedicated AlertCenter application and its on-call routing, then set
 `GlobalSettings__AlertCenter_ApiKey`, and `GlobalSettings__AlertCenter_PublicBaseUrl`
 (this EmployeeCenter instance's public base URL). Keep the key in
 private deployment configuration. Synchronization is disabled by default; an enabled integration
-requires a valid API key and an AlertCenter deployment that supports queries and resolution.
+requires an API key with query, create, severity-change and mitigate permissions.
 
-Critical, Error and Warning findings create sev2, sev3 and sev4 incidents respectively; Info
-findings remain in the audit only. Identity is the check type, normalized hostname, service ID
-and alias ID, not its title, severity or changing diagnostic text. Existing active incidents are
+Critical findings start at sev3 and escalate to sev2 on the next consecutive finding; Error
+starts at sev4 and escalates to sev3. Warning stays at sev4; Info remains in the audit only.
+Audits repeat after 15 minutes while findings persist, or three hours when all three counts are zero.
+Identity is the check type, normalized hostname, service ID and alias ID, not its title, severity or changing diagnostic text. Existing active incidents are
 retained; manually closed findings that persist create a new incident on the next audit. Severity
-is assigned on creation. Duplicate active incidents retain the oldest and resolve the extras with
+escalations update the same incident. Recovery resets the consecutive finding history.
+Duplicate active incidents retain the oldest and mitigate the extras with
 an explicit duplicate reason.
 
 Only this audit's marked incidents are managed. Successful fresh collection must prove recovery
-or removal of the registered target before closing an incident. Skipped availability checks,
+or removal of the registered target before mitigating an incident. Skipped availability checks,
 missing audit coverage and uncertain DNS results do not authorize recovery. Historical stored
-reports cannot authorize closure. Resolution preserves the queried version; conflicts wait for
+reports cannot authorize recovery. Mitigation preserves the queried version; conflicts wait for
 the next audit instead of overwriting concurrent handling.
 
 All active pages are read before any mutation. Failed synchronization is logged separately and

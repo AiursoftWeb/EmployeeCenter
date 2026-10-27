@@ -13,7 +13,7 @@ public sealed class AuditIncidentSyncService(
 {
     private const string Source = "EmployeeCenter.ServiceAudit";
 
-    public async Task<bool> SynchronizeAsync(long runId, DnsAuditReport report)
+    public async Task<bool> SynchronizeAsync(long runId, DnsAuditReport report, DnsAuditReport? previousReport = null)
     {
         try
         {
@@ -31,24 +31,36 @@ public sealed class AuditIncidentSyncService(
             var current = report.Issues.Where(issue => issue.Severity >= DnsAuditSeverity.Warning)
                 .GroupBy(Identity.From).ToDictionary(group => group.Key,
                     group => group.OrderByDescending(issue => issue.Severity).First());
+            var previous = (previousReport?.Issues ?? []).Where(issue => issue.Severity >= DnsAuditSeverity.Warning)
+                .Select(Identity.From).ToHashSet();
             var success = true;
             foreach (var (identity, issue) in current)
             {
-                if (owned.ContainsKey(identity)) continue;
+                var repeated = previous.Contains(identity);
+                var level = LevelFor(issue.Severity, repeated);
                 try
                 {
+                    if (owned.TryGetValue(identity, out var existing))
+                    {
+                        var incident = existing[0];
+                        // Escalate the same incident, preserving acknowledgement and any higher human-set severity.
+                        if (string.CompareOrdinal(level, incident.Level) < 0)
+                            await client.ChangeSeverityAsync(incident.IncidentId, new ChangeIncidentSeverityRequest
+                            {
+                                Version = incident.Version, Level = level,
+                                Reason = $"Audit run {runId}: {issue.CheckName} remains present in consecutive completed audits. {issue.Severity} now maps to {level}."
+                            });
+                        continue;
+                    }
                     // The same persisted audit run and issue always reuse the same reporting receipt.
                     var reportId = new Guid(SHA256.HashData(Encoding.UTF8.GetBytes(FormattableString.Invariant($"{Source}:{runId}:{identity.Type}:{identity.Domain}:{identity.ServiceId}:{identity.DomainAliasId}")))[..16]);
                     var title = $"{issue.CheckName}: {identity.Domain}";
-                    var content = Describe(issue, runId, report.GeneratedAt, settings);
+                    var content = Describe(issue, runId, report.GeneratedAt, settings, repeated);
                     await client.CreateAsync(new CreateIncidentRequest
                     {
                         ReportId = reportId, Title = title.Length > 200 ? title[..200] : title,
                         Content = content.Length > 4000 ? content[..4000] : content,
-                        Level = issue.Severity switch
-                        {
-                            DnsAuditSeverity.Critical => "sev2", DnsAuditSeverity.Error => "sev3", _ => "sev4"
-                        },
+                        Level = level,
                         OccurredAtUtc = new DateTimeOffset(DateTime.SpecifyKind(report.GeneratedAt, DateTimeKind.Utc)),
                         Context = new JObject
                         {
@@ -103,7 +115,14 @@ public sealed class AuditIncidentSyncService(
         }
     }
 
-    private static string Describe(DnsAuditIssue issue, long runId, DateTime observedAt, AlertCenterSettings settings)
+    private static string LevelFor(DnsAuditSeverity severity, bool repeated) => severity switch
+    {
+        DnsAuditSeverity.Critical => repeated ? "sev2" : "sev3",
+        DnsAuditSeverity.Error => repeated ? "sev3" : "sev4",
+        _ => "sev4"
+    };
+
+    private static string Describe(DnsAuditIssue issue, long runId, DateTime observedAt, AlertCenterSettings settings, bool repeated)
     {
         var nextSteps = issue.Type switch
         {
@@ -120,7 +139,8 @@ public sealed class AuditIncidentSyncService(
             _ => "Review the audit evidence and collection coverage, then compare DNS, the service registry and the actual endpoint. An incomplete lookup is not proof of recovery."
         };
         var header = $"Employee Center found {issue.CheckName} for {issue.Domain}.\n" +
-            $"Audit classification: {issue.Severity}. Critical maps to sev2, Error to sev3, and Warning to sev4.\n" +
+            $"Audit classification: {issue.Severity}; incident level: {LevelFor(issue.Severity, repeated)}. " +
+            "Critical starts at sev3 and escalates to sev2 on a consecutive finding; Error starts at sev4 and escalates to sev3. Warning stays at sev4.\n" +
             $"Observed (UTC): {observedAt:O}; audit run: {runId}.\n\nEvidence: ";
         var footer = $"\n\nNext steps: {nextSteps}\n" +
             "After correcting the issue, run Audit now in Employee Center. A successful audit with sufficient recovery evidence " +

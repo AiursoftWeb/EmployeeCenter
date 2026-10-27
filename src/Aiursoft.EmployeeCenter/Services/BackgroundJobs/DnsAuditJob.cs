@@ -11,7 +11,7 @@ public sealed class DnsAuditJob(
     AuditIncidentSyncService? incidentSync = null) : IBackgroundJob
 {
     public string Name => "Service Audit";
-    public string Description => "Runs and persists the service registry, DNS, and availability audit every three hours.";
+    public string Description => "Runs and persists the service registry, DNS, and availability audit.";
 
     public async Task ExecuteAsync()
     {
@@ -46,7 +46,7 @@ public sealed class DnsAuditJob(
                 report.WarningCount,
                 report.InfoCount);
             if (incidentSync != null)
-                await incidentSync.SynchronizeAsync(runId.Value, report);
+                await incidentSync.SynchronizeAsync(runId.Value, report, await auditStore.LoadPreviousReportAsync(runId.Value));
         }
         catch (CloudflareDnsAuditException ex)
         {
