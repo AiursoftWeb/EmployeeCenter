@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} و{1} مستخدم آخر</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} و{1} من المستخدمين الآخرين</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>يمكن لـ {0} التعديل.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>يمكن لـ {0} العرض.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} دور</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} دور</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>مستخدم واحد أو أكثر ({0})</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} مستخدمين</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}، {1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>حول صلاحيات الوصول</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>إضافة</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>إضافة صلاحية الوصول</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>إضافة مشاركة جديدة</value>
@@ -36,11 +69,32 @@
   <data name="Back to Details" xml:space="preserve">
     <value>العودة إلى التفاصيل</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>يمكنه التعديل</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>يمكنه العرض</value>
+  </data>
+  <data name="Can view reveals the saved credentials. Can edit also allows changing this password entry." xml:space="preserve">
+    <value>تتيح صلاحية العرض الاطلاع على بيانات الاعتماد المحفوظة، بينما تتيح صلاحية التعديل تغيير بيانات كلمة المرور هذه.</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>تغيير</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>تعذّر تأكيد التغيير. تم الاحتفاظ بإدخالك. حاول مرة أخرى، أو أعد تحميل الصفحة للتحقق من الحالة المحفوظة.</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>تعذّر النسخ. حدّد الرابط أعلاه وانسخه.</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>تم الإنشاء</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>الوصول الحالي</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>قابل للتعديل</value>
@@ -54,17 +108,41 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>المشاركات الحالية</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>تم نسخ الرابط.</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>تحميل المزيد من المستخدمين</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>إدارة المشاركات</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>معاينة العضو غير متاحة. لا يزال بإمكانك المشاركة مع هذا الدور.</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>أعضاء</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>الاسم أو البريد الإلكتروني (٣ أحرف أو أكثر)</value>
   </data>
   <data name="No shares yet. Add one above to share this password." xml:space="preserve">
     <value>لا توجد مشاركات بعد. أضف مشاركة أعلاه لمشاركة كلمة المرور هذه.</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>لم يتم العثور على مستخدمين</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>لم يتم العثور على أي مستخدمين. جرّب اسمًا أو بريدًا إلكترونيًا آخر.</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>لم تتم إضافة أي مستخدمين أو أدوار.</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>لا يمكن الوصول إلا للأشخاص المصرح لهم.</value>
+  </data>
+  <data name="Only the owner and authorized administrators have access." xml:space="preserve">
+    <value>لا يملك حق الوصول إلا مالك الحساب والمسؤولون المخوّلون.</value>
   </data>
   <data name="Password:" xml:space="preserve">
     <value>كلمة المرور:</value>
@@ -81,14 +159,41 @@
   <data name="Remove" xml:space="preserve">
     <value>إزالة</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>هل تريد إزالة هذه المشاركة؟ قد يظل الوصول متاحًا بطرق أخرى.</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>الدور</value>
+  </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>الدور {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>الدور {0} ودور آخر واحد</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>الدور {0} و{1} من الأدوار الأخرى</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>أعضاء الدور</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>فشل البحث. غيّر نص البحث وحاول مرة أخرى.</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>جارٍ البحث...</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>اختر دورًا...</value>
   </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>اختر مستخدمًا من نتائج البحث أو اختر دورًا.</value>
+  </data>
   <data name="Share with" xml:space="preserve">
     <value>مشاركة مع</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>الوصول المشترك</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>تمت مشاركته مع</value>
@@ -96,8 +201,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>مستخدم محدد</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>يمكن للمالك ومديري المشاركة المصرّح لهم إدارة الوصول. يُطبَّق الوصول عبر الأدوار على أعضائها، ولا تزال الأذونات من أدوار أخرى أو المشاركات المباشرة سارية المفعول بعد إزالة مشاركة واحدة.</value>
+  </data>
   <data name="This user or role already has access to this password." xml:space="preserve">
     <value>هذا المستخدم أو الدور لديه بالفعل صلاحية الوصول إلى كلمة المرور هذه.</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>هذا المستخدم أو الدور لديه صلاحية وصول بالفعل.</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>النوع</value>

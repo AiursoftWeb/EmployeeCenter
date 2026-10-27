@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} och {1} annan användare</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} och {1} andra användare</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} kan redigera.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} kan visa.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} roll</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} roller</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} användare</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} användare</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>Om åtkomst</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Åtgärder</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Lägg till</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Lägg till åtkomst</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Lägg till ny delning</value>
@@ -39,11 +72,32 @@
   <data name="Back to Transcript" xml:space="preserve">
     <value>Tillbaka till transkriptet</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>Kan redigera</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>Kan visa</value>
+  </data>
+  <data name="Can view allows listening and reading transcripts. Can edit also allows changing this recording and its transcript." xml:space="preserve">
+    <value>Visningsbehörighet ger möjlighet att lyssna på inspelningen och läsa transkriptionerna. Redigeringsbehörighet ger även möjlighet att ändra inspelningen och dess transkription.</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Ändra</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Stäng</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>Det gick inte att bekräfta ändringen. Din inmatning har sparats. Försök igen eller ladda om sidan för att kontrollera det sparade läget.</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>Det gick inte att kopiera. Markera och kopiera länken ovan.</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Skapad</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>Aktuell åtkomst</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>Redigerbar</value>
@@ -57,17 +111,41 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>Aktuella delningar</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>Länken har kopierats.</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>Ladda fler användare</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Hantera delningar</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>Förhandsgranskning av medlemmar är inte tillgänglig. Du kan fortfarande dela med den här rollen.</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>medlemmar</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>Namn eller e-post (minst 3 tecken)</value>
   </data>
   <data name="No shares yet. Add one above to share this recording." xml:space="preserve">
     <value>Inga delningar än. Lägg till en ovanför för att dela denna inspelning.</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>Inga användare hittades</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>Inga användare hittades. Försök med ett annat namn eller en annan e-postadress.</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>Inga användare eller roller har lagts till.</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>Endast behöriga personer har åtkomst.</value>
+  </data>
+  <data name="Only the owner and authorized administrators have access." xml:space="preserve">
+    <value>Endast ägaren och behöriga administratörer har åtkomst.</value>
   </data>
   <data name="Permission" xml:space="preserve">
     <value>Behörighet</value>
@@ -81,14 +159,41 @@
   <data name="Remove" xml:space="preserve">
     <value>Ta bort</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>Ta bort den här delningen? Andra åtkomstbehörigheter kan fortfarande gälla.</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>Roll</value>
+  </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>Roll {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>Roll {0} och {1} andra roll</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>Rollen {0} och {1} andra roller</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>rollmedlemmar</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>Sökningen misslyckades. Ändra söktexten och försök igen.</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>Söker...</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Välj en roll...</value>
   </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>Välj en användare bland sökresultaten eller välj en roll.</value>
+  </data>
   <data name="Share with" xml:space="preserve">
     <value>Dela med</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Delad åtkomst</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>Delad med</value>
@@ -96,8 +201,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>Specifik användare</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>Ägaren och behöriga delningsadministratörer kan hantera åtkomsten. Rollåtkomst gäller dess medlemmar; behörigheter från andra roller eller direktdelningar gäller fortfarande när en delning tas bort.</value>
+  </data>
   <data name="This user or role already has access to this recording." xml:space="preserve">
     <value>Den här användaren eller rollen har redan åtkomst till denna inspelning.</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>Den här användaren eller rollen har redan åtkomst.</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Typ</value>
