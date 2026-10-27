@@ -18,11 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="About access" xml:space="preserve">
+    <value>关于访问权限</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>添加</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>添加访问权限</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>添加新共享</value>
@@ -36,8 +42,26 @@
   <data name="Back to Details" xml:space="preserve">
     <value>返回详情</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>可编辑</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>可查看</value>
+  </data>
+  <data name="Can view reveals the saved credentials. Can edit also allows changing this password entry." xml:space="preserve">
+    <value>“可查看”可查看已保存的凭据。“可编辑”还允许修改此密码条目。</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>更改</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>关闭</value>
+  </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>无法确认更改。已保留您的输入。请重试，或重新加载以查看保存状态。</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>无法复制。请选中并复制上方的链接。</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>创建</value>
@@ -54,17 +78,35 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>现有分享</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>链接已复制。</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>加载更多用户</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>管理共享</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>无法预览成员信息。仍可与此角色共享。</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>成员</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>姓名或电子邮件（至少 3 个字符）</value>
   </data>
   <data name="No shares yet. Add one above to share this password." xml:space="preserve">
     <value>暂无共享。请在上方添加共享以分享此密码。</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>未找到用户</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>未找到用户。请尝试其他姓名或电子邮件地址。</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>尚未添加用户或角色。</value>
   </data>
   <data name="Password:" xml:space="preserve">
     <value>密码:</value>
@@ -79,16 +121,37 @@
     <value>只读</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>移除</value>
+    <value>删除</value>
+  </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>要移除此共享吗？其他访问权限可能仍然有效。</value>
+  </data>
+  <data name="Restricted access" xml:space="preserve">
+    <value>受限访问</value>
   </data>
   <data name="Role" xml:space="preserve">
     <value>角色</value>
   </data>
+  <data name="role members" xml:space="preserve">
+    <value>角色成员</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>搜索失败。请更改搜索内容后重试。</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>正在搜索……</value>
+  </data>
   <data name="Select a role..." xml:space="preserve">
-    <value>请选择角色...</value>
+    <value>选择一个角色...</value>
+  </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>请从搜索结果中选择一个用户，或选择一个角色。</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>分享给</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>共享访问</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>共享给</value>
@@ -96,8 +159,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>特定用户</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>所有者和获准的共享管理员可以管理访问权限。角色访问权限适用于该角色的成员；移除某项共享后，其他角色或直接共享授予的权限仍然有效。</value>
+  </data>
   <data name="This user or role already has access to this password." xml:space="preserve">
     <value>该用户或角色已拥有此密码的访问权限。</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>此用户或角色已拥有访问权限。</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>输入</value>
