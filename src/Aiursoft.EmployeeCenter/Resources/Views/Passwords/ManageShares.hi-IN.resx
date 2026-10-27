@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} और {1} अन्य उपयोगकर्ता</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} और {1} अन्य उपयोगकर्ता</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} संपादित कर सकते हैं।</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} देख सकते हैं।</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} भूमिका</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} भूमिकाएँ</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} उपयोगकर्ता</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} उपयोगकर्ता</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>ऐक्सेस के बारे में</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>कार्रवाइयाँ</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>जोड़ें</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>ऐक्सेस जोड़ें</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>नया शेयर जोड़ें</value>
@@ -36,11 +69,32 @@
   <data name="Back to Details" xml:space="preserve">
     <value>विवरण पर वापस</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>संपादित कर सकते हैं</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>देख सकते हैं</value>
+  </data>
+  <data name="Can view reveals the saved credentials. Can edit also allows changing this password entry." xml:space="preserve">
+    <value>केवल देखने की अनुमति से सहेजे गए क्रेडेंशियल देखे जा सकते हैं। संपादन की अनुमति से इस पासवर्ड प्रविष्टि को बदलना भी संभव है।</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>बदलें</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>बंद करें</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>बदलाव की पुष्टि नहीं हो सकी। आपका इनपुट सुरक्षित है। फिर से प्रयास करें, या सहेजी गई स्थिति देखने के लिए पृष्ठ पुनः लोड करें।</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>कॉपी नहीं हो सका। ऊपर दिए गए लिंक को चुनें और कॉपी करें।</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>बनाया गया</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>वर्तमान पहुँच</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>संपादन योग्य</value>
@@ -54,17 +108,41 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>मौजूदा शेयर</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>लिंक कॉपी हो गया।</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>और उपयोगकर्ता लोड करें</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>शेयर प्रबंधित करें</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>सदस्य का पूर्वावलोकन उपलब्ध नहीं है। फिर भी आप इस भूमिका के साथ साझा कर सकते हैं।</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>सदस्य</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>नाम या ईमेल (3+ अक्षर)</value>
   </data>
   <data name="No shares yet. Add one above to share this password." xml:space="preserve">
     <value>अभी तक कोई साझाकरण नहीं है। इस पासवर्ड को साझा करने के लिए ऊपर एक जोड़ें।</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>कोई उपयोगकर्ता नहीं मिला</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>कोई उपयोगकर्ता नहीं मिला। कोई दूसरा नाम या ईमेल आज़माएँ।</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>कोई उपयोगकर्ता या भूमिका नहीं जोड़ी गई है।</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>केवल अधिकृत लोग ही पहुँच सकते हैं।</value>
+  </data>
+  <data name="Only the owner and authorized administrators have access." xml:space="preserve">
+    <value>केवल स्वामी और अधिकृत व्यवस्थापकों को ही पहुँच प्राप्त है।</value>
   </data>
   <data name="Password:" xml:space="preserve">
     <value>पासवर्ड:</value>
@@ -81,14 +159,41 @@
   <data name="Remove" xml:space="preserve">
     <value>हटाएं</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>इस शेयर को हटाएँ? अन्य पहुँच फिर भी लागू हो सकती है।</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>भूमिका</value>
+  </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>भूमिका {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>भूमिका {0} और {1} अन्य भूमिका</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>भूमिका {0} और {1} अन्य भूमिकाएँ</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>भूमिका के सदस्य</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>खोज विफल हुई। फिर से कोशिश करने के लिए खोज टेक्स्ट बदलें।</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>खोज जारी है...</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>एक भूमिका चुनें...</value>
   </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>खोज परिणामों में से किसी उपयोगकर्ता को चुनें या कोई भूमिका चुनें।</value>
+  </data>
   <data name="Share with" xml:space="preserve">
     <value>साझा करें</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>साझा पहुँच</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>साझा किया गया</value>
@@ -96,8 +201,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>विशिष्ट उपयोगकर्ता</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>स्वामी और अधिकृत साझाकरण व्यवस्थापक पहुँच प्रबंधित कर सकते हैं। भूमिका-आधारित पहुँच उसके सदस्यों पर लागू होती है; एक साझा पहुँच हटाने के बाद भी अन्य भूमिकाओं या सीधे साझा करने से मिली अनुमतियाँ लागू रहती हैं।</value>
+  </data>
   <data name="This user or role already has access to this password." xml:space="preserve">
     <value>इस उपयोगकर्ता या भूमिका को पहले से ही इस पासवर्ड तक पहुंच है।</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>इस उपयोगकर्ता या भूमिका के पास पहले से ही पहुँच है।</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>प्रकार</value>

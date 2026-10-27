@@ -45,6 +45,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>हर 3 घंटों में स्वतः रीफ्रेश किया जाता है</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>सेवा की स्थिति ठीक होने पर हर 3 घंटे में अपने-आप रीफ़्रेश होता है; जाँच में समस्याएँ बने रहने पर हर 15 मिनट में</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>जाँच</value>
   </data>

@@ -48,6 +48,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>3시간마다 자동으로 새로고침됩니다</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>정상 상태에서는 3시간마다 자동으로 새로고침되며, 발견 사항이 남아 있는 동안에는 15분마다 새로고침됩니다</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>검사 항목</value>
   </data>

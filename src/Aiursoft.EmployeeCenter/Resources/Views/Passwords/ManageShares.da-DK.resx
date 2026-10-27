@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} og {1} anden bruger</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} og {1} andre brugere</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} kan redigere.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} kan se.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} rolle</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} roller</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} bruger</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} brugere</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>Om adgang</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Handlinger</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Tilføj</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Tilføj adgang</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Tilføj ny deling</value>
@@ -36,11 +69,32 @@
   <data name="Back to Details" xml:space="preserve">
     <value>Tilbage til detaljer</value>
   </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>Kan redigere</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>Kan se</value>
+  </data>
+  <data name="Can view reveals the saved credentials. Can edit also allows changing this password entry." xml:space="preserve">
+    <value>Visning giver adgang til de gemte loginoplysninger. Redigering giver også mulighed for at ændre denne adgangskodepost.</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Skift</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Luk</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>Ændringen kunne ikke bekræftes. Dine indtastninger er bevaret. Prøv igen, eller genindlæs siden for at kontrollere den gemte tilstand.</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>Kunne ikke kopiere. Markér og kopiér linket ovenfor.</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Oprettet</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>Aktuel adgang</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>Redigerbar</value>
@@ -54,17 +108,41 @@
   <data name="Existing Shares" xml:space="preserve">
     <value>Eksisterende delinger</value>
   </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>Linket er kopieret.</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>Indlæs flere brugere</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Administrer delinger</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>Medlemsvisning er ikke tilgængelig. Du kan stadig dele med denne rolle.</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>medlemmer</value>
+  </data>
+  <data name="Name or email (3+ characters)" xml:space="preserve">
+    <value>Navn eller e-mail (3+ tegn)</value>
   </data>
   <data name="No shares yet. Add one above to share this password." xml:space="preserve">
     <value>Ingen delinger endnu. Tilføj en ovenfor for at dele denne adgangskode.</value>
   </data>
   <data name="No users found" xml:space="preserve">
     <value>Ingen brugere fundet</value>
+  </data>
+  <data name="No users found. Try another name or email." xml:space="preserve">
+    <value>Ingen brugere fundet. Prøv et andet navn eller en anden e-mailadresse.</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>Ingen brugere eller roller er tilføjet.</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>Kun personer med tilladelse har adgang.</value>
+  </data>
+  <data name="Only the owner and authorized administrators have access." xml:space="preserve">
+    <value>Kun ejeren og autoriserede administratorer har adgang.</value>
   </data>
   <data name="Password:" xml:space="preserve">
     <value>Adgangskode:</value>
@@ -81,14 +159,41 @@
   <data name="Remove" xml:space="preserve">
     <value>Fjern</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>Fjern denne deling? Der kan stadig være anden adgang.</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>Rolle</value>
+  </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>Rolle {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>Rolle {0} og {1} anden rolle</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>Rolle {0} og {1} andre roller</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>rollemmedlemmer</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>Søgningen mislykkedes. Rediger søgeteksten, og prøv igen.</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>Søger...</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Vælg en rolle...</value>
   </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>Vælg en bruger fra søgeresultaterne, eller vælg en rolle.</value>
+  </data>
   <data name="Share with" xml:space="preserve">
     <value>Del med</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Delt adgang</value>
   </data>
   <data name="Shared With" xml:space="preserve">
     <value>Delt med</value>
@@ -96,8 +201,14 @@
   <data name="Specific User" xml:space="preserve">
     <value>Specifik bruger</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>Ejeren og autoriserede delingsadministratorer kan administrere adgangen. Adgang via en rolle gælder for dens medlemmer; tilladelser fra andre roller eller direkte delinger gælder stadig, når en deling fjernes.</value>
+  </data>
   <data name="This user or role already has access to this password." xml:space="preserve">
     <value>Denne bruger eller rolle har allerede adgang til denne adgangskode.</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>Denne bruger eller rolle har allerede adgang.</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>

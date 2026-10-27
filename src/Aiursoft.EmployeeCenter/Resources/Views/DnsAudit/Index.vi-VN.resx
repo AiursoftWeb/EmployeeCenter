@@ -48,6 +48,9 @@
   <data name="Automatically refreshed every 3 hours" xml:space="preserve">
     <value>Tự động làm mới mỗi 3 giờ</value>
   </data>
+  <data name="Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist" xml:space="preserve">
+    <value>Tự động làm mới mỗi 3 giờ khi hệ thống hoạt động bình thường; mỗi 15 phút khi vẫn còn phát hiện vấn đề</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Kiểm tra</value>
   </data>
