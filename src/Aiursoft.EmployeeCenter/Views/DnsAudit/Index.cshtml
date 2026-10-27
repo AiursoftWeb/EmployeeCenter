@@ -16,7 +16,7 @@
     </div>
     <div class="d-flex align-items-center gap-3">
         <div class="text-end text-muted small">
-            <div><i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Automatically refreshed every 3 hours"]</div>
+            <div><i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Automatically refreshed every 3 hours when healthy; every 15 minutes while findings persist"]</div>
             @if (Model.LastSuccessfulAt.HasValue)
             {
                 <div>@Localizer["Last successful audit"] <span data-utc-time="@Model.LastSuccessfulAt.Value.ToHtmlDateTime()"></span></div>

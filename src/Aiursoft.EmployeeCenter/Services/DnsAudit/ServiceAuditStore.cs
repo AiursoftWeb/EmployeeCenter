@@ -106,6 +106,27 @@ public sealed class ServiceAuditStore(EmployeeCenterDbContext context) : IScoped
         await context.SaveChangesAsync(cancellationToken);
     }
 
+    public async Task<DnsAuditReport?> LoadPreviousReportAsync(long runId)
+    {
+        var previous = await context.ServiceAuditRuns.AsNoTracking().Include(run => run.Issues)
+            .Where(run => run.Id < runId && run.Status == ServiceAuditRunStatus.Succeeded)
+            .OrderByDescending(run => run.Id).FirstOrDefaultAsync();
+        return previous == null ? null : MapReport(previous);
+    }
+
+    public async Task<bool> IsScheduledAuditDueAsync(DateTime now)
+    {
+        var latest = await context.ServiceAuditRuns.AsNoTracking()
+            .OrderByDescending(run => run.Id).FirstOrDefaultAsync();
+        if (latest == null || latest.Status == ServiceAuditRunStatus.Pending) return true;
+        if (latest.Status == ServiceAuditRunStatus.Running)
+            return now - (latest.StartedAt ?? latest.RequestedAt) >= TimeSpan.FromHours(6);
+        var hasFindings = latest.CriticalCount > 0 || latest.ErrorCount > 0 || latest.WarningCount > 0;
+        var interval = hasFindings || latest.Status == ServiceAuditRunStatus.Failed
+            ? TimeSpan.FromMinutes(15) : TimeSpan.FromHours(3);
+        return now - (latest.CompletedAt ?? latest.RequestedAt) >= interval;
+    }
+
     public Task CompleteNotConfiguredAsync(long runId, CancellationToken cancellationToken = default) =>
         CompleteWithoutReportAsync(runId, ServiceAuditRunStatus.NotConfigured, null, cancellationToken);
 

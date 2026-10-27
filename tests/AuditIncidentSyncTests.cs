@@ -59,7 +59,7 @@ public class AuditIncidentSyncTests
     }
 
     [TestMethod]
-    public async Task MissingIpv6CreatesSev2AndRequiresDualStackRecovery()
+    public async Task MissingIpv6StartsAtSev3AndRequiresDualStackRecovery()
     {
         var client = new FakeClient();
         var sync = Synchronizer(client);
@@ -77,7 +77,7 @@ public class AuditIncidentSyncTests
 
         Assert.IsTrue(await sync.SynchronizeAsync(1, Report([issue], evidence)));
         var created = client.Created.Single();
-        Assert.AreEqual("sev2", created.Level);
+        Assert.AreEqual("sev3", created.Level);
         Assert.AreEqual("Public IPv4/IPv6 endpoint check failed: payment.example.com", created.Title);
         Assert.Contains("IPv4: Reachable.", created.Content!);
         Assert.Contains("IPv6: Unavailable.", created.Content!);
@@ -165,7 +165,7 @@ public class AuditIncidentSyncTests
             Issue(), Issue(DnsAuditSeverity.Error, domain: "error.example.com"),
             Issue(DnsAuditSeverity.Warning, domain: "warning.example.com"),
             Issue(DnsAuditSeverity.Info, domain: "info.example.com")]));
-        CollectionAssert.AreEquivalent(new[] { "sev2", "sev3", "sev4" }, client.Created.Select(item => item.Level).ToArray());
+        CollectionAssert.AreEquivalent(new[] { "sev3", "sev4", "sev4" }, client.Created.Select(item => item.Level).ToArray());
         Assert.AreEqual("EmployeeCenter.ServiceAudit", client.Created[0].Context?.Value<string>("source"));
         Assert.IsTrue(client.Created[0].Context?["evidence"] is JObject);
         await sync.SynchronizeAsync(2, Report([new DnsAuditIssue
@@ -323,6 +323,69 @@ public class AuditIncidentSyncTests
         Assert.Contains("outside the configured audit scope", client.Mitigated[0].Request.Reason);
     }
 
+    [TestMethod]
+    [DataRow(DnsAuditSeverity.Critical, "sev3", "sev2")]
+    [DataRow(DnsAuditSeverity.Error, "sev4", "sev3")]
+    [DataRow(DnsAuditSeverity.Warning, "sev4", "sev4")]
+    public async Task ConsecutiveFindingsEscalateTheSameIncidentAndRecoveryResets(
+        DnsAuditSeverity severity, string firstLevel, string repeatedLevel)
+    {
+        var client = new FakeClient();
+        var report = Report([Issue(severity)], Evidence(false));
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(1, report));
+        var incident = client.Incidents.Single();
+        Assert.AreEqual(firstLevel, incident.Level);
+        incident.Status = "acknowledged";
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(2, report, report));
+        Assert.HasCount(1, client.Created);
+        Assert.AreEqual(repeatedLevel, incident.Level);
+        Assert.AreEqual("acknowledged", incident.Status);
+        Assert.HasCount(severity == DnsAuditSeverity.Warning ? 0 : 1, client.SeverityChanges);
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(2, report, report));
+        Assert.HasCount(severity == DnsAuditSeverity.Warning ? 0 : 1, client.SeverityChanges);
+        var healthy = Report([], Evidence());
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(3, healthy, report));
+        Assert.AreEqual("mitigated", incident.Status);
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(4, report, healthy));
+        Assert.HasCount(2, client.Created);
+        Assert.AreEqual(firstLevel, client.Incidents.Last().Level);
+    }
+
+    [TestMethod]
+    public async Task OtherFindingsAndSameRunRetriesDoNotConfirmAnIssue()
+    {
+        var client = new FakeClient();
+        var report = Report([Issue()]);
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(1, report));
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(1, report));
+        Assert.AreEqual("sev3", client.Incidents.Single().Level);
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(2, report,
+            Report([Issue(domain: "different.example.com")])));
+        Assert.IsEmpty(client.SeverityChanges);
+        // A higher severity assigned by an operator must not be downgraded.
+        client.Incidents.Single().Level = "sev1";
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(3, report, report));
+        Assert.AreEqual("sev1", client.Incidents.Single().Level);
+        Assert.IsEmpty(client.SeverityChanges);
+    }
+
+    [TestMethod]
+    public async Task SeverityConflictRetainsTheIncidentAndRetriesFromFreshState()
+    {
+        var client = new FakeClient();
+        var report = Report([Issue()]);
+        await Synchronizer(client).SynchronizeAsync(1, report);
+        client.FailSeverityChanges = true;
+        Assert.IsFalse(await Synchronizer(client).SynchronizeAsync(2, report, report));
+        Assert.HasCount(1, client.Created);
+        Assert.IsEmpty(client.Mitigated);
+        Assert.AreEqual("sev3", client.Incidents.Single().Level);
+        client.FailSeverityChanges = false;
+        Assert.IsTrue(await Synchronizer(client).SynchronizeAsync(2, report, report));
+        Assert.AreEqual("sev2", client.Incidents.Single().Level);
+        Assert.HasCount(1, client.Created);
+    }
+
     private sealed class FakeClient : IAuditIncidentClient
     {
         public List<IncidentDetails> Incidents { get; } = [];
@@ -352,10 +415,22 @@ public class AuditIncidentSyncTests
             var incident = new IncidentDetails
             {
                 IncidentId = Guid.NewGuid(), Version = Guid.NewGuid(), Status = "new",
-                Context = request.Context, ReportId = request.ReportId, ReceivedAtUtc = DateTimeOffset.UtcNow
+                Level = request.Level, Context = request.Context, ReportId = request.ReportId, ReceivedAtUtc = DateTimeOffset.UtcNow
             };
             Incidents.Add(incident);
             return Task.FromResult(new CreateIncidentResponse { Code = Code.JobDone, IncidentId = incident.IncidentId });
+        }
+        public List<(Guid Id, ChangeIncidentSeverityRequest Request)> SeverityChanges { get; } = [];
+        public bool FailSeverityChanges { get; set; }
+        public Task<ChangeIncidentSeverityResponse> ChangeSeverityAsync(Guid incidentId, ChangeIncidentSeverityRequest request)
+        {
+            if (FailSeverityChanges) throw new InvalidOperationException("Version conflict");
+            var incident = Incidents.Single(item => item.IncidentId == incidentId);
+            Assert.AreEqual(incident.Version, request.Version);
+            SeverityChanges.Add((incidentId, request));
+            incident.Level = request.Level;
+            incident.Version = Guid.NewGuid();
+            return Task.FromResult(new ChangeIncidentSeverityResponse { Code = Code.JobDone, IncidentId = incidentId });
         }
         public Task<MitigateIncidentResponse> MitigateAsync(Guid incidentId, MitigateIncidentRequest request)
         {
