@@ -130,6 +130,7 @@ public class Startup : IWebStartup
         services.AddScoped<IAlertCenterSettingsProvider, AlertCenterSettingsProvider>();
         services.AddScoped<Services.DnsAudit.IAuditIncidentClient, Services.DnsAudit.AuditIncidentClient>();
         services.AddScoped<Services.DnsAudit.AuditIncidentSyncService>();
+        services.AddScoped<Services.BackgroundJobs.ExportJobIncidentService>();
 
         // Background job queue
         services.AddTaskQueueEngine();
