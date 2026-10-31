@@ -187,17 +187,22 @@ public class ExportTests : TestBase
         };
         db.Transactions.Add(secondTransaction);
         await db.SaveChangesAsync();
-        var secondInvoicePath = storageService.GetFilePhysicalPath(secondTransaction.InvoicePath);
+        var secondInvoicePath = storageService.GetFilePhysicalPath(secondTransaction.InvoicePath, isVault: true);
         Directory.CreateDirectory(Path.GetDirectoryName(secondInvoicePath)!);
         await File.WriteAllTextAsync(secondInvoicePath, "Second Invoice Content");
 
         // Mock the physical file for the transaction invoice
-        var txInvoicePhysicalPath = storageService.GetFilePhysicalPath(transaction.InvoicePath);
+        var txInvoicePhysicalPath = storageService.GetFilePhysicalPath(transaction.InvoicePath, isVault: true);
         Directory.CreateDirectory(Path.GetDirectoryName(txInvoicePhysicalPath)!);
         await File.WriteAllTextAsync(txInvoicePhysicalPath, "Fake Invoice PDF Content");
 
+        // A public workspace file with the same logical name must never replace the private invoice.
+        var workspaceInvoicePath = storageService.GetFilePhysicalPath(transaction.InvoicePath);
+        Directory.CreateDirectory(Path.GetDirectoryName(workspaceInvoicePath)!);
+        await File.WriteAllTextAsync(workspaceInvoicePath, "Wrong workspace invoice content");
+
         // Mock the physical file for the contract
-        var physicalPath = storageService.GetFilePhysicalPath(contract.FilePath);
+        var physicalPath = storageService.GetFilePhysicalPath(contract.FilePath, isVault: true);
         Directory.CreateDirectory(Path.GetDirectoryName(physicalPath)!);
         await File.WriteAllTextAsync(physicalPath, "Fake PDF Content");
 
