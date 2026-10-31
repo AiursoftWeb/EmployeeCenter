@@ -27,10 +27,12 @@ public sealed class ExportJobIncidentService(
             if (succeeded)
             {
                 state.Failures = 0;
+                state.Successes = Math.Min(2, state.Successes + 1);
                 state.ExceptionType = null;
             }
             else
             {
+                state.Successes = 0;
                 if (state.Failures == 0)
                 {
                     state.ReportId = Guid.NewGuid();
@@ -55,11 +57,12 @@ public sealed class ExportJobIncidentService(
                 .OrderBy(item => item.ReceivedAtUtc).ThenBy(item => item.IncidentId).ToList();
             if (state.Failures == 0)
             {
+                if (state.Successes < 2) return;
                 foreach (var incident in active)
                     await client.MitigateAsync(incident.IncidentId, new MitigateIncidentRequest
                     {
                         Version = incident.Version,
-                        Reason = "The export job completed successfully. Consecutive failures have been reset to zero."
+                        Reason = "The export job completed successfully in two consecutive executions. Consecutive failures have been reset to zero."
                     });
                 return;
             }
@@ -90,7 +93,7 @@ public sealed class ExportJobIncidentService(
                     $"Exception type: {state.ExceptionType}. The exported context may be incomplete or stale; this does not prove that original records or attachments were lost.\n\n" +
                     "Check the Export Job result and application logs, correct the export failure, then run the job again. " +
                     "The first failure raises Sev3; the fourth consecutive failure escalates the same incident to Sev2. " +
-                    "A successful export resets the counter and automatically mitigates the incident. " +
+                    "A successful export resets the failure counter; two consecutive successful exports automatically mitigate the incident. " +
                     $"Job status: {settings.PublicBaseUrl.TrimEnd('/')}/Jobs",
                 Context = new JObject { ["source"] = Source, ["instance"] = settings.PublicBaseUrl.TrimEnd('/') }
             });
@@ -131,6 +134,7 @@ public sealed class ExportJobIncidentService(
     public sealed class State
     {
         public int Failures { get; set; }
+        public int Successes { get; set; }
         public Guid ReportId { get; set; }
         public DateTimeOffset FirstFailureUtc { get; set; }
         public string? ExceptionType { get; set; }
