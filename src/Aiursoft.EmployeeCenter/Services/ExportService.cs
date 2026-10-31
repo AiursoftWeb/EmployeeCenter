@@ -238,7 +238,7 @@ public class ExportService(
             var baseFileName = SanitizeFileName(contract.Name);
             
             // 1. Export PDF
-            var physicalPath = storageService.GetFilePhysicalPath(contract.FilePath);
+            var physicalPath = storageService.GetFilePhysicalPath(contract.FilePath, isVault: true);
             if (File.Exists(physicalPath))
             {
                 File.Copy(physicalPath, Path.Combine(fullDirectoryPath, baseFileName + ".pdf"), true);
@@ -336,7 +336,7 @@ public class ExportService(
             }
 
             // 1. Export File
-            var physicalPath = storageService.GetFilePhysicalPath(path);
+            var physicalPath = storageService.GetFilePhysicalPath(path, isVault: true);
             if (File.Exists(physicalPath))
             {
                 var extension = Path.GetExtension(physicalPath);
