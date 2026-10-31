@@ -66,13 +66,38 @@ public class ExportJobIncidentTests : TestBase
         Assert.AreEqual(5, (await ReadStateAsync()).Failures);
         Assert.HasCount(1, _client.Escalated);
         await RecordAsync(true);
+        Assert.AreEqual("new", first.Status);
+        Assert.AreEqual(1, (await ReadStateAsync()).Successes);
+        await RecordAsync(true);
         Assert.AreEqual("mitigated", first.Status);
+        Assert.AreEqual(2, (await ReadStateAsync()).Successes);
         Assert.AreEqual(0, (await ReadStateAsync()).Failures);
         await RecordAsync(false);
         Assert.HasCount(2, _client.Created);
         Assert.AreNotEqual(first.IncidentId, _client.Incidents.Last().IncidentId);
         Assert.AreEqual("sev3", _client.Incidents.Last().Level);
         Assert.AreEqual("mitigated", first.Status);
+    }
+
+    [TestMethod]
+    public async Task FailureInterruptsRecoveryAndTwoConsecutiveSuccessesPersistAcrossScopes()
+    {
+        for (var i = 0; i < 4; i++) await RecordAsync(false);
+        var incident = _client.Incidents.Single();
+        await RecordAsync(true);
+        Assert.AreEqual("new", incident.Status);
+        Assert.AreEqual(1, (await ReadStateAsync()).Successes);
+        await RecordAsync(false);
+        Assert.AreEqual(0, (await ReadStateAsync()).Successes);
+        Assert.AreEqual(1, (await ReadStateAsync()).Failures);
+        Assert.HasCount(1, _client.Created);
+        Assert.AreEqual("sev2", incident.Level);
+        await RecordAsync(true);
+        Assert.AreEqual("new", incident.Status);
+        await RecordAsync(true);
+        Assert.AreEqual("mitigated", incident.Status);
+        Assert.AreEqual(2, (await ReadStateAsync()).Successes);
+        Assert.AreEqual(0, (await ReadStateAsync()).Failures);
     }
 
     [TestMethod]
@@ -106,6 +131,7 @@ public class ExportJobIncidentTests : TestBase
         await RecordAsync(false);
         _client.FailQueries = true;
         await RecordAsync(true);
+        await RecordAsync(true);
         Assert.AreEqual(0, (await ReadStateAsync()).Failures);
         Assert.AreEqual("new", _client.Incidents.Single().Status);
         _client.FailQueries = false;
@@ -124,6 +150,7 @@ public class ExportJobIncidentTests : TestBase
         Assert.AreEqual("sev1", incident.Level);
         Assert.HasCount(0, _client.Escalated);
         _client.FailMitigates = true;
+        await RecordAsync(true);
         await RecordAsync(true);
         Assert.AreEqual("new", incident.Status);
         _client.FailMitigates = false;
