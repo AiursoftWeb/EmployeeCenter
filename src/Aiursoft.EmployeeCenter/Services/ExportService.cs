@@ -308,7 +308,19 @@ public class ExportService(
             return;
         }
 
-        var txDirName = $"{tx.TransactionTime:yyyy-MM-dd}_{SanitizeFileName(tx.Description)}_{tx.Id}";
+        // Keep the description within a UTF-8 byte budget, leaving room for the date and unique ID.
+        var description = new StringBuilder();
+        var descriptionBytes = 0;
+        foreach (var rune in SanitizeFileName(tx.Description).EnumerateRunes())
+        {
+            if (descriptionBytes + rune.Utf8SequenceLength > 200)
+            {
+                break;
+            }
+            description.Append(rune.ToString());
+            descriptionBytes += rune.Utf8SequenceLength;
+        }
+        var txDirName = $"{tx.TransactionTime:yyyy-MM-dd}_{description}_{tx.Id}";
         var txDir = Path.Combine(baseDir, "Attachments", txDirName);
 
         foreach (var (path, name, type) in attachments)

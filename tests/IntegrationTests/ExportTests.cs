@@ -1,3 +1,4 @@
+using System.Text;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Services;
 using Aiursoft.EmployeeCenter.Services.FileStorage;
@@ -32,7 +33,11 @@ public class ExportTests : TestBase
     }
 
     [TestMethod]
-    public async Task TestExportLogic()
+    [DataRow("")]
+    [DataRow("a")]
+    [DataRow("账")]
+    [DataRow("😀")]
+    public async Task TestExportLogic(string repeatedCharacter)
     {
         using var scope = Server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
@@ -129,7 +134,7 @@ public class ExportTests : TestBase
         // 4. Setup Company Entity
         var company = new CompanyEntity
         {
-            CompanyName = "Test Company",
+            CompanyName = "Test Company " + Guid.NewGuid(),
             EntityCode = "123456",
             LegalRepresentative = "Test Boss",
             CreateLedger = true
@@ -149,7 +154,9 @@ public class ExportTests : TestBase
 
         var transaction = new Transaction
         {
-            Description = "Test Transaction",
+            Description = string.IsNullOrEmpty(repeatedCharacter)
+                ? "Test Transaction"
+                : string.Concat(Enumerable.Repeat(repeatedCharacter, 300)),
             SourceAccountId = account.Id,
             DestinationAccountId = account.Id,
             Amount = 100,
@@ -168,6 +175,21 @@ public class ExportTests : TestBase
         };
         db.TransactionOcrResults.Add(txOcrResult);
         await db.SaveChangesAsync();
+
+        var secondTransaction = new Transaction
+        {
+            Description = transaction.Description + " second",
+            SourceAccountId = account.Id,
+            DestinationAccountId = account.Id,
+            Amount = 200,
+            InvoicePath = "second-invoice.pdf",
+            TransactionTime = transaction.TransactionTime
+        };
+        db.Transactions.Add(secondTransaction);
+        await db.SaveChangesAsync();
+        var secondInvoicePath = storageService.GetFilePhysicalPath(secondTransaction.InvoicePath);
+        Directory.CreateDirectory(Path.GetDirectoryName(secondInvoicePath)!);
+        await File.WriteAllTextAsync(secondInvoicePath, "Second Invoice Content");
 
         // Mock the physical file for the transaction invoice
         var txInvoicePhysicalPath = storageService.GetFilePhysicalPath(transaction.InvoicePath);
@@ -213,13 +235,27 @@ public class ExportTests : TestBase
 
         // 6. Verify results
         // Verify Ledger
-        var txDirName = $"2023-10-15_Test Transaction_{transaction.Id}";
-        var txAttachmentPdf = Path.Combine(_testExportPath, "Ledger", "Test Company", "Test Account", "Attachments", txDirName, "Invoice.pdf");
-        var txAttachmentMd = Path.Combine(_testExportPath, "Ledger", "Test Company", "Test Account", "Attachments", txDirName, "Invoice.md");
-
-        Assert.IsTrue(File.Exists(txAttachmentPdf), $"Transaction attachment PDF not found at {txAttachmentPdf}");
-        Assert.IsTrue(File.Exists(txAttachmentMd), $"Transaction attachment OCR MD not found at {txAttachmentMd}");
-        Assert.AreEqual("Invoice OCR Content", await File.ReadAllTextAsync(txAttachmentMd));
+        var ledgerPath = Path.Combine(_testExportPath, "Ledger", company.CompanyName, "Test Account");
+        var attachmentDirectories = Directory.GetDirectories(Path.Combine(ledgerPath, "Attachments"));
+        Assert.HasCount(2, attachmentDirectories);
+        var txDir = attachmentDirectories.Single(d => Path.GetFileName(d).EndsWith($"_{transaction.Id}"));
+        var secondTxDir = attachmentDirectories.Single(d => Path.GetFileName(d).EndsWith($"_{secondTransaction.Id}"));
+        foreach (var directory in attachmentDirectories)
+        {
+            var name = Path.GetFileName(directory);
+            Assert.IsTrue(Encoding.UTF8.GetByteCount(name) <= 255);
+            Assert.IsFalse(name.Contains('\uFFFD'), "Directory names must preserve complete Unicode characters.");
+        }
+        if (string.IsNullOrEmpty(repeatedCharacter))
+        {
+            Assert.AreEqual($"2023-10-15_Test Transaction_{transaction.Id}", Path.GetFileName(txDir));
+        }
+        Assert.AreEqual("Fake Invoice PDF Content", await File.ReadAllTextAsync(Path.Combine(txDir, "Invoice.pdf")));
+        Assert.AreEqual("Invoice OCR Content", await File.ReadAllTextAsync(Path.Combine(txDir, "Invoice.md")));
+        Assert.AreEqual("Second Invoice Content", await File.ReadAllTextAsync(Path.Combine(secondTxDir, "Invoice.pdf")));
+        var ledgerMarkdown = await File.ReadAllTextAsync(Path.Combine(ledgerPath, "Transactions.md"));
+        StringAssert.Contains(ledgerMarkdown, transaction.Description);
+        StringAssert.Contains(ledgerMarkdown, secondTransaction.Description);
 
         // GitLab repositories are no longer exported by Employee Center.
         Assert.IsFalse(Directory.Exists(Path.Combine(_testExportPath, "GitProjects")));
@@ -254,7 +290,7 @@ public class ExportTests : TestBase
         Assert.IsFalse(File.Exists(emptyMeetingMinutesFile), $"Missing meeting minutes should not be exported at {emptyMeetingMinutesFile}");
 
         // Verify Company Entities
-        var companyFile = Path.Combine(_testExportPath, "CompanyEntities", "Test Company.md");
+        var companyFile = Path.Combine(_testExportPath, "CompanyEntities", company.CompanyName + ".md");
         Assert.IsTrue(File.Exists(companyFile), $"Company entity file not found at {companyFile}");
         var companyContent = await File.ReadAllTextAsync(companyFile);
         Assert.IsTrue(companyContent.Contains("Test Company"));
