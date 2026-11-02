@@ -13,7 +13,7 @@ public class PublicDnsResolverTests
         var address = IPAddress.Parse("2606:4700::1111");
         diagnostics.Resolved([address], TimeSpan.FromMilliseconds(15));
         diagnostics.Connecting(new IPEndPoint(address, 443));
-        var error = new System.Net.Sockets.SocketException((int)System.Net.Sockets.SocketError.ConnectionRefused);
+        var error = new SocketException((int)SocketError.ConnectionRefused);
         diagnostics.ConnectionFailed(new IPEndPoint(address, 443), TimeSpan.FromMilliseconds(7), error, false);
 
         var details = diagnostics.Describe("Request failed.", new HttpRequestException("private-token", new AggregateException(error)));
