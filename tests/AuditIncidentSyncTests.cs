@@ -11,6 +11,34 @@ namespace Aiursoft.EmployeeCenter.Tests;
 [TestClass]
 public class AuditIncidentSyncTests
 {
+    [TestMethod]
+    public async Task AlertContentAndContextIncludeAllProbeAttemptsAndAddressFamilies()
+    {
+        var attempt = 0;
+        var failed = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+            _ => Task.FromResult(new ServiceAvailabilityResult(false, null,
+                $"UTC=2026-11-02T08:42:00Z; attempt-evidence-{++attempt}; stage=TCP; [2606:4700::1111]:443 SocketException/NetworkUnreachable")),
+            (_, _) => Task.CompletedTask);
+        var dual = ServiceAvailabilityEvaluator.EvaluateDualStack(
+            new ServiceAvailabilityResult(true, 200, "HTTP 200"), failed);
+        var client = new FakeClient();
+        await Synchronizer(client).SynchronizeAsync(579, Report([new DnsAuditIssue
+        {
+            Type = DnsAuditIssueType.ServiceUnavailable, Severity = DnsAuditSeverity.Critical,
+            Domain = "payment.example.com", ServiceId = 1, Details = dual.Details
+        }]));
+
+        var alert = client.Created.Single();
+        foreach (var text in new[] { "IPv4: Reachable", "IPv6: Unavailable", "attempt-evidence-1",
+                     "attempt-evidence-2", "attempt-evidence-3", "NetworkUnreachable", "[2606:4700::1111]:443" })
+        {
+            Assert.Contains(text, alert.Content!);
+            Assert.Contains(text, alert.Context!["evidence"]!["details"]!.Value<string>()!);
+        }
+        Assert.IsTrue(alert.Content!.Length <= 4000);
+        Assert.AreEqual("sev3", alert.Level);
+    }
+
     private static DnsAuditIssue Issue(DnsAuditSeverity severity = DnsAuditSeverity.Critical,
         DnsAuditIssueType type = DnsAuditIssueType.ServiceUnavailable, string domain = "payment.example.com") => new()
     {

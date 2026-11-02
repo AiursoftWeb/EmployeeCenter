@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Sockets;
@@ -211,44 +212,62 @@ public sealed class CloudflareDnsAuditService(
                 {
                     var client = httpClientFactory.CreateClient(clientName);
                     bool? published = null;
+                    var attempt = 0;
                     var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
                         async attemptToken =>
                         {
+                            attempt++;
+                            var diagnostics = new ServiceAvailabilityDiagnostics();
                             using var request = new HttpRequestMessage(HttpMethod.Get, uri);
+                            request.Options.Set(ServiceAvailabilityDiagnostics.RequestKey, diagnostics);
                             request.Headers.UserAgent.ParseAdd("Aiursoft-EmployeeCenter-ServiceAudit/1.0");
                             request.Headers.Accept.ParseAdd("text/html,application/json;q=0.9,*/*;q=0.1");
                             using var timeout = CancellationTokenSource.CreateLinkedTokenSource(attemptToken);
                             timeout.CancelAfter(TimeSpan.FromSeconds(10));
+                            ServiceAvailabilityResult Complete(ServiceAvailabilityResult probeResult, Exception? error = null)
+                            {
+                                var details = diagnostics.Describe(probeResult.Details, error);
+                                logger.Log(probeResult.IsHealthy ? LogLevel.Information : LogLevel.Warning,
+                                    "Service availability probe {Domain} {AddressFamily} attempt {Attempt}/{MaxAttempts}: {Details}",
+                                    domain, family, attempt, ServiceAvailabilityRetryPolicy.MaxAttempts, details);
+                                return probeResult with { Details = details };
+                            }
                             try
                             {
                                 // An authoritative empty answer identifies a missing endpoint.
                                 // DNS errors remain failures and use the same retries.
                                 published = null;
+                                var dnsTimer = Stopwatch.StartNew();
                                 var addresses = await new PublicDnsResolver(httpClientFactory)
                                     .ResolveAsync(domain, family, timeout.Token);
+                                diagnostics.Resolved(addresses, dnsTimer.Elapsed);
                                 published = addresses.Count > 0;
                                 if (published == false)
-                                    return new ServiceAvailabilityResult(true, null, "Not published in public DNS.");
+                                    return Complete(new ServiceAvailabilityResult(true, null, "Not published in public DNS."));
 
                                 using var response = await client.SendAsync(
                                     request,
                                     HttpCompletionOption.ResponseHeadersRead,
                                     timeout.Token);
-                                return ServiceAvailabilityEvaluator.Evaluate(response.StatusCode);
+                                diagnostics.ReceivedHeaders();
+                                return Complete(ServiceAvailabilityEvaluator.Evaluate(response.StatusCode));
                             }
-                            catch (OperationCanceledException) when (!attemptToken.IsCancellationRequested)
+                            catch (OperationCanceledException ex) when (!attemptToken.IsCancellationRequested)
                             {
-                                return new ServiceAvailabilityResult(
+                                return Complete(new ServiceAvailabilityResult(
                                     false,
                                     null,
-                                    "The public endpoint timed out after 10 seconds.");
+                                    timeout.IsCancellationRequested
+                                        ? "Request deadline exceeded (10s)."
+                                        : "HTTP client timeout."), ex);
                             }
                             catch (HttpRequestException ex)
                             {
-                                return new ServiceAvailabilityResult(
+                                attemptToken.ThrowIfCancellationRequested();
+                                return Complete(new ServiceAvailabilityResult(
                                     false,
                                     null,
-                                    $"The public endpoint request failed: {ex.Message}");
+                                    "Request failed."), ex);
                             }
                         },
                         async (failedAttempt, delayToken) =>

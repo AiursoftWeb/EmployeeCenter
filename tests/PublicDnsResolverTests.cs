@@ -7,6 +7,84 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class PublicDnsResolverTests
 {
     [TestMethod]
+    public void ConnectionEvidenceIncludesEndpointAndSocketCodeWithoutExceptionSecrets()
+    {
+        var diagnostics = new ServiceAvailabilityDiagnostics();
+        var address = IPAddress.Parse("2606:4700::1111");
+        diagnostics.Resolved([address], TimeSpan.FromMilliseconds(15));
+        diagnostics.Connecting(new IPEndPoint(address, 443));
+        var error = new SocketException((int)SocketError.ConnectionRefused);
+        diagnostics.ConnectionFailed(new IPEndPoint(address, 443), TimeSpan.FromMilliseconds(7), error, false);
+
+        var details = diagnostics.Describe("Request failed.", new HttpRequestException("private-token", new AggregateException(error)));
+
+        Assert.Contains("[2606:4700::1111]:443", details);
+        Assert.Contains("ConnectionRefused", details);
+        Assert.Contains("native=", details);
+        Assert.Contains("stage=TCP", details);
+        Assert.Contains("UTC=", details);
+        Assert.Contains("elapsed=", details);
+        Assert.DoesNotContain("private-token", details);
+    }
+
+    [TestMethod]
+    [DataRow(false, "TCP connect timeout (4s)")]
+    [DataRow(true, "request deadline/cancellation")]
+    public void ConnectionTimeoutIsDistinguishedFromRequestDeadline(bool cancelled, string expected)
+    {
+        var diagnostics = new ServiceAvailabilityDiagnostics();
+        diagnostics.Connecting(new IPEndPoint(IPAddress.Parse("8.8.8.8"), 443));
+        diagnostics.ConnectionFailed(new IPEndPoint(IPAddress.Parse("8.8.8.8"), 443),
+            TimeSpan.FromSeconds(4), new OperationCanceledException(), cancelled);
+
+        Assert.Contains(expected, diagnostics.Describe("Request failed."));
+    }
+
+    [TestMethod]
+    public void TlsFailureRetainsConnectedEndpointAndDoesNotClaimTcpTimeout()
+    {
+        var diagnostics = new ServiceAvailabilityDiagnostics();
+        diagnostics.Connected(new IPEndPoint(IPAddress.Parse("8.8.8.8"), 443), null, TimeSpan.FromMilliseconds(20));
+        var error = new HttpRequestException(HttpRequestError.SecureConnectionError, "secret",
+            new System.Security.Authentication.AuthenticationException("private certificate detail"));
+
+        var details = diagnostics.Describe("Request failed.", error);
+
+        Assert.Contains("stage=TLS", details);
+        Assert.Contains("8.8.8.8:443 connected", details);
+        Assert.Contains("SecureConnectionError", details);
+        Assert.Contains("AuthenticationException", details);
+        Assert.DoesNotContain("secret", details);
+        Assert.DoesNotContain("private certificate detail", details);
+        Assert.DoesNotContain("TCP connect timeout", details);
+    }
+
+    [TestMethod]
+    public void PooledRequestDoesNotReportDnsCandidatesAsTheConnectedEndpoint()
+    {
+        var diagnostics = new ServiceAvailabilityDiagnostics();
+        diagnostics.Resolved([IPAddress.Parse("8.8.8.8")], TimeSpan.FromMilliseconds(2));
+        diagnostics.ReceivedHeaders();
+
+        var details = diagnostics.Describe("HTTP 503.");
+
+        Assert.Contains("stage=HTTP", details);
+        Assert.Contains("pooled connection possible", details);
+        Assert.DoesNotContain("8.8.8.8:443 connected", details);
+    }
+
+    [TestMethod]
+    public void DnsProviderTlsFailureIsNotMisreportedAsTargetTlsFailure()
+    {
+        var diagnostics = new ServiceAvailabilityDiagnostics();
+        var details = diagnostics.Describe("Request failed.",
+            new HttpRequestException(HttpRequestError.SecureConnectionError, "provider failure"));
+
+        Assert.Contains("stage=DNS", details);
+        Assert.Contains("SecureConnectionError", details);
+    }
+
+    [TestMethod]
     public async Task ResolveAsyncReturnsOnlyPublicAddressesAndPrefersIpv4()
     {
         var resolver = CreateResolver(request =>
