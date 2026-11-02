@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text.Json;
@@ -57,7 +58,11 @@ public sealed class PublicDnsResolver(IHttpClientFactory httpClientFactory)
         AddressFamily addressFamily,
         CancellationToken cancellationToken)
     {
+        context.InitialRequestMessage.Options.TryGetValue(ServiceAvailabilityDiagnostics.RequestKey, out var diagnostics);
+        diagnostics?.Resolving();
+        var dnsTimer = Stopwatch.StartNew();
         var addresses = await ResolveAsync(context.DnsEndPoint.Host, addressFamily, cancellationToken);
+        diagnostics?.Resolved(addresses, dnsTimer.Elapsed);
         if (addresses.Count == 0)
         {
             throw new HttpRequestException(
@@ -72,6 +77,10 @@ public sealed class PublicDnsResolver(IHttpClientFactory httpClientFactory)
         var failures = new List<Exception>();
         foreach (var address in addresses)
         {
+            cancellationToken.ThrowIfCancellationRequested();
+            var endpoint = new IPEndPoint(address, context.DnsEndPoint.Port);
+            diagnostics?.Connecting(endpoint);
+            var connectTimer = Stopwatch.StartNew();
             var socket = new Socket(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp)
             {
                 NoDelay = true
@@ -81,14 +90,17 @@ public sealed class PublicDnsResolver(IHttpClientFactory httpClientFactory)
             try
             {
                 await socket.ConnectAsync(
-                    new IPEndPoint(address, context.DnsEndPoint.Port),
+                    endpoint,
                     timeout.Token);
+                diagnostics?.Connected(endpoint, socket.LocalEndPoint, connectTimer.Elapsed);
                 return new NetworkStream(socket, ownsSocket: true);
             }
             catch (Exception ex) when (ex is SocketException or OperationCanceledException)
             {
+                diagnostics?.ConnectionFailed(endpoint, connectTimer.Elapsed, ex, cancellationToken.IsCancellationRequested);
                 failures.Add(ex);
                 socket.Dispose();
+                cancellationToken.ThrowIfCancellationRequested();
             }
         }
 

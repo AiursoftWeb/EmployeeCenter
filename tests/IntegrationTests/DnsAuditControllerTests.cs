@@ -357,6 +357,8 @@ public class DnsAuditControllerTests : TestBase
     [DataRow(-1, 503)]
     [DataRow(200, -2)]
     [DataRow(-2, 200)]
+    [DataRow(200, -3)]
+    [DataRow(-3, 200)]
     public async Task AvailabilityAuditRequiresBothPublicFamiliesAndExplainsMissingEndpoints(int ipv4Status, int ipv6Status)
     {
         using var scope = Server!.Services.CreateScope();
@@ -392,6 +394,11 @@ public class DnsAuditControllerTests : TestBase
             Assert.Contains(ipv6Status is >= 200 and < 500 ? "IPv6: Reachable." : "IPv6: Unavailable.", issue.Details);
             if (ipv4Status == -1) Assert.Contains("Missing public IPv4 endpoint", issue.Details);
             if (ipv6Status == -1) Assert.Contains("Missing public IPv6 endpoint", issue.Details);
+            if (ipv4Status == -3 || ipv6Status == -3)
+            {
+                Assert.Contains("HTTP client timeout", issue.Details);
+                Assert.DoesNotContain("Request deadline exceeded (10s)", issue.Details);
+            }
         }
 
         factory.Ipv4Status = factory.Ipv6Status = 200;
@@ -400,8 +407,50 @@ public class DnsAuditControllerTests : TestBase
         Assert.IsFalse(recovered.Issues.Any(issue => issue.Type == DnsAuditIssueType.ServiceUnavailable));
     }
 
-    private sealed class DualStackHttpFactory(int ipv4Status, int ipv6Status) : IHttpClientFactory
+    [TestMethod]
+    public async Task AvailabilityFailureLogsEachAttemptAndPersistsItsSocketEvidence()
     {
+        using var scope = Server!.Services.CreateScope();
+        var settings = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+        await settings.UpdateSettingAsync(SettingsMap.CloudflareApiToken, "synthetic-audit-token");
+        await using var db = new InMemoryContext(new DbContextOptionsBuilder<InMemoryContext>()
+            .UseInMemoryDatabase($"probe-diagnostics-{Guid.NewGuid():N}").Options);
+        db.Services.Add(new Service { PrimaryDomain = "new.aiursoft.com", Protocols = "HTTPS", IsCloudflareProxied = true });
+        await db.SaveChangesAsync();
+        var logs = new ProbeLogger();
+        var audit = new CloudflareDnsAuditService(db, settings, new DualStackHttpFactory(200, 0, true), logs);
+
+        var report = await audit.AuditAsync();
+
+        var issue = report.Issues.Single(issue => issue.Type == DnsAuditIssueType.ServiceUnavailable);
+        foreach (var text in new[] { "Attempt 1:", "Attempt 2:", "Attempt 3:", "NetworkUnreachable",
+                     "[2606:4700::1111]:443", "stage=TCP", "UTC=", "elapsed=" })
+            Assert.Contains(text, issue.Details);
+        Assert.IsTrue(issue.Details.Length <= 2000);
+        Assert.DoesNotContain("synthetic-token-must-not-leak", issue.Details);
+        var failures = logs.Events.Where(entry => entry.Contains("InterNetworkV6 attempt", StringComparison.Ordinal)).ToArray();
+        Assert.HasCount(3, failures);
+        foreach (var entry in failures)
+        {
+            Assert.Contains("SocketException/NetworkUnreachable", entry);
+            Assert.Contains("DNS=", entry);
+            Assert.DoesNotContain("synthetic-token-must-not-leak", entry);
+            Assert.DoesNotContain("synthetic-audit-token", entry);
+        }
+    }
+
+    private sealed class ProbeLogger : ILogger<CloudflareDnsAuditService>
+    {
+        public System.Collections.Concurrent.ConcurrentQueue<string> Events { get; } = new();
+        public IDisposable? BeginScope<TState>(TState state) where TState : notnull => null;
+        public bool IsEnabled(LogLevel logLevel) => true;
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception,
+            Func<TState, Exception?, string> formatter) => Events.Enqueue(formatter(state, exception));
+    }
+
+    private sealed class DualStackHttpFactory(int ipv4Status, int ipv6Status, bool detailedFailure = false) : IHttpClientFactory
+    {
+        public bool DetailedFailure { get; } = detailedFailure;
         public int Ipv4Status { get; set; } = ipv4Status;
         public int Ipv6Status { get; set; } = ipv6Status;
         public System.Collections.Concurrent.ConcurrentDictionary<string, int> Attempts { get; } = new();
@@ -421,6 +470,7 @@ public class DnsAuditControllerTests : TestBase
             factory.DnsAttempts.AddOrUpdate(ipv6, 1, (_, count) => count + 1);
             var status = ipv6 ? factory.Ipv6Status : factory.Ipv4Status;
             if (status == -2) throw new HttpRequestException("Synthetic public DNS failure.");
+            if (status == -3) throw new TaskCanceledException("Synthetic DNS client timeout.");
             var body = status == -1
                 ? """{"Status":0}"""
                 : ipv6
@@ -436,6 +486,16 @@ public class DnsAuditControllerTests : TestBase
         {
             factory.Attempts.AddOrUpdate(clientName, 1, (_, count) => count + 1);
             var status = clientName == "ServiceAvailabilityAuditIPv4" ? factory.Ipv4Status : factory.Ipv6Status;
+            if (status == 0 && factory.DetailedFailure)
+            {
+                request.Options.TryGetValue(ServiceAvailabilityDiagnostics.RequestKey, out var diagnostics);
+                var endpoint = new IPEndPoint(IPAddress.Parse("2606:4700::1111"), 443);
+                var error = new System.Net.Sockets.SocketException((int)System.Net.Sockets.SocketError.NetworkUnreachable);
+                diagnostics!.Connecting(endpoint);
+                diagnostics.ConnectionFailed(endpoint, TimeSpan.FromMilliseconds(12), error, false);
+                throw new HttpRequestException(HttpRequestError.ConnectionError, "synthetic-token-must-not-leak",
+                    new AggregateException(error));
+            }
             return status == 0
                 ? throw new HttpRequestException("Synthetic IPv6 connection refused.")
                 : Task.FromResult(new HttpResponseMessage((HttpStatusCode)status));

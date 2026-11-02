@@ -7,6 +7,51 @@ namespace Aiursoft.EmployeeCenter.Tests;
 public class ServiceAvailabilityEvaluatorTests
 {
     [TestMethod]
+    public async Task FailedProbesRetainEveryAttemptWithinBothFamilyStorageBudget()
+    {
+        var attempt = 0;
+        var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+            _ => Task.FromResult(new ServiceAvailabilityResult(false, null,
+                $"failure-{++attempt}: " + new string('x', 1000))),
+            (_, _) => Task.CompletedTask);
+
+        Assert.Contains("failure-1", result.Details);
+        Assert.Contains("failure-2", result.Details);
+        Assert.Contains("failure-3", result.Details);
+        Assert.IsTrue(result.Details.Length <= ServiceAvailabilityRetryPolicy.MaxDetailsLength);
+        Assert.IsTrue(ServiceAvailabilityEvaluator.EvaluateDualStack(result, result).Details.Length <= 2000);
+    }
+
+    [TestMethod]
+    public async Task HealthyRetryRetainsTheEarlierFailureEvidence()
+    {
+        var attempt = 0;
+        var result = await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+            _ => Task.FromResult(++attempt == 1
+                ? new ServiceAvailabilityResult(false, null, "TCP NetworkUnreachable")
+                : new ServiceAvailabilityResult(true, 200, "HTTP 200")),
+            (_, _) => Task.CompletedTask);
+
+        Assert.IsTrue(result.IsHealthy);
+        Assert.Contains("NetworkUnreachable", result.Details);
+        Assert.Contains("HTTP 200", result.Details);
+        Assert.AreEqual(2, attempt);
+    }
+
+    [TestMethod]
+    public async Task CancellationDoesNotTurnIntoAFailedProbeOrRetry()
+    {
+        using var cancellation = new CancellationTokenSource();
+        var attempts = 0;
+        await Assert.ThrowsAsync<OperationCanceledException>(async () =>
+            await ServiceAvailabilityRetryPolicy.ExecuteAsync(
+                _ => { attempts++; cancellation.Cancel(); cancellation.Token.ThrowIfCancellationRequested();
+                    return Task.FromResult(new ServiceAvailabilityResult(false, null, "not reached")); },
+                (_, _) => throw new AssertFailedException("Cancellation must not retry."), cancellation.Token));
+        Assert.AreEqual(1, attempts);
+    }
+
+    [TestMethod]
     [DataRow(true, true, true)]
     [DataRow(true, false, false)]
     [DataRow(false, true, false)]
