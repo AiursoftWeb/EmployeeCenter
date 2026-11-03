@@ -14,7 +14,8 @@ public interface IAuditIncidentClient
     Task<MitigateIncidentResponse> MitigateAsync(Guid incidentId, MitigateIncidentRequest request);
 }
 
-public sealed class AuditIncidentClient(AiurProtocolClient http, IAlertCenterSettingsProvider settingsProvider) : IAuditIncidentClient
+public sealed class AuditIncidentClient(AiurProtocolClient http, IAlertCenterSettingsProvider settingsProvider,
+    ILogger<AlertCenterApiClient> logger) : IAuditIncidentClient
 {
     private Task<AlertCenterApiClient>? _client;
 
@@ -25,7 +26,7 @@ public sealed class AuditIncidentClient(AiurProtocolClient http, IAlertCenterSet
         return new AlertCenterApiClient(http, Options.Create(new AlertCenterApiOptions
         {
             Endpoint = settings.Endpoint.TrimEnd('/'), ApiKey = settings.ApiKey
-        }), new SnapshotKeyProvider(settings.ApiKey));
+        }), new SnapshotKeyProvider(settings.ApiKey), logger);
     }
 
     private Task<AlertCenterApiClient> GetClientAsync() => _client ??= CreateClientAsync();
