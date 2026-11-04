@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Action" xml:space="preserve">
+    <value>Acțiune</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Activ</value>
+  </data>
+  <data name="Changes" xml:space="preserve">
+    <value>Modificări</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Contract</value>
+  </data>
+  <data name="Contract File" xml:space="preserve">
+    <value>Fișier contract</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Timpul creării</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Șters</value>
+  </data>
+  <data name="Empty OCR results" xml:space="preserve">
+    <value>Rezultate OCR goale</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Dosar</value>
+  </data>
+  <data name="Folder created" xml:space="preserve">
+    <value>Folder creat</value>
+  </data>
+  <data name="Folder deleted" xml:space="preserve">
+    <value>Dosar șters</value>
+  </data>
+  <data name="Folder path" xml:space="preserve">
+    <value>Calea dosarului</value>
+  </data>
+  <data name="Folder updated" xml:space="preserve">
+    <value>Dossier actualizat</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Invalid</value>
+  </data>
+  <data name="Last OCR attempt" xml:space="preserve">
+    <value>Ultima încercare OCR</value>
+  </data>
+  <data name="Moved" xml:space="preserve">
+    <value>Mutat</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+  <data name="No operation history recorded yet." xml:space="preserve">
+    <value>Nu există istoric operațiuni înregistrat încă.</value>
+  </data>
+  <data name="OCR attempts" xml:space="preserve">
+    <value>Încercări OCR</value>
+  </data>
+  <data name="OCR updated" xml:space="preserve">
+    <value>OCR actualizat</value>
+  </data>
+  <data name="Parent Folder" xml:space="preserve">
+    <value>Dosar părinte</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Cale</value>
+  </data>
+  <data name="Path changed" xml:space="preserve">
+    <value>Calea modificată</value>
+  </data>
+  <data name="Pending Signature" xml:space="preserve">
+    <value>În așteptarea semnării</value>
+  </data>
+  <data name="Plain Text" xml:space="preserve">
+    <value>Text simplu</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Timp</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Actualizat</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Încărcat</value>
+  </data>
+  <data name="View changes" xml:space="preserve">
+    <value>Vezi modificările</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Vizibilitate</value>
+  </data>
+  <data name="Who" xml:space="preserve">
+    <value>Cine</value>
+  </data>
+
+</root>
