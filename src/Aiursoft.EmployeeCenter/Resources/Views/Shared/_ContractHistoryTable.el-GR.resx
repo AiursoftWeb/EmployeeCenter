@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Action" xml:space="preserve">
+    <value>Ενέργεια</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Ενεργό</value>
+  </data>
+  <data name="Changes" xml:space="preserve">
+    <value>Αλλαγές</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Σύμβαση</value>
+  </data>
+  <data name="Contract File" xml:space="preserve">
+    <value>Αρχείο Συμφώνου</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Χρόνος δημιουργίας</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Διαγράφηκε</value>
+  </data>
+  <data name="Empty OCR results" xml:space="preserve">
+    <value>Κενά αποτελέσματα OCR</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Φάκελος</value>
+  </data>
+  <data name="Folder created" xml:space="preserve">
+    <value>Δημιουργία φακέλου</value>
+  </data>
+  <data name="Folder deleted" xml:space="preserve">
+    <value>Κατάλογος διαγράφηκε</value>
+  </data>
+  <data name="Folder path" xml:space="preserve">
+    <value>Διαδρομή φακέλου</value>
+  </data>
+  <data name="Folder updated" xml:space="preserve">
+    <value>Φάκελος ενημερώθηκε</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Μη έγκυρο</value>
+  </data>
+  <data name="Last OCR attempt" xml:space="preserve">
+    <value>Τελευταία απόπειρα OCR</value>
+  </data>
+  <data name="Moved" xml:space="preserve">
+    <value>Μετακινήθηκε</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="No operation history recorded yet." xml:space="preserve">
+    <value>Δεν έχει καταγραφεί ιστορικό λειτουργιών ακόμα.</value>
+  </data>
+  <data name="OCR attempts" xml:space="preserve">
+    <value>Προσπάθειες OCR</value>
+  </data>
+  <data name="OCR updated" xml:space="preserve">
+    <value>Ενημέρωση OCR</value>
+  </data>
+  <data name="Parent Folder" xml:space="preserve">
+    <value>Γονικός Φάκελος</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Διαδρομή</value>
+  </data>
+  <data name="Path changed" xml:space="preserve">
+    <value>Αλλαγή διαδρομής</value>
+  </data>
+  <data name="Pending Signature" xml:space="preserve">
+    <value>Σε αναμονή υπογραφής</value>
+  </data>
+  <data name="Plain Text" xml:space="preserve">
+    <value>Απλό Κείμενο</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Ιδιωτικό</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Δημόσιο</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Σύστημα</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Χρόνος</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Ενημερώθηκε</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Ανεβλήθηκε</value>
+  </data>
+  <data name="View changes" xml:space="preserve">
+    <value>Προβολή αλλαγών</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Ορατότητα</value>
+  </data>
+  <data name="Who" xml:space="preserve">
+    <value>Ποιος</value>
+  </data>
+
+</root>
