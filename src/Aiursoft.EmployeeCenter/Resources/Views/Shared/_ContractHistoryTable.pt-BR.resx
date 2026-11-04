@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Action" xml:space="preserve">
+    <value>Ação</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Ativo</value>
+  </data>
+  <data name="Changes" xml:space="preserve">
+    <value>Alterações</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Contrato</value>
+  </data>
+  <data name="Contract File" xml:space="preserve">
+    <value>Arquivo do Contrato</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Data de criação</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Excluído</value>
+  </data>
+  <data name="Empty OCR results" xml:space="preserve">
+    <value>Resultados de OCR vazios</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Pasta</value>
+  </data>
+  <data name="Folder created" xml:space="preserve">
+    <value>Pasta criada</value>
+  </data>
+  <data name="Folder deleted" xml:space="preserve">
+    <value>Pasta excluída</value>
+  </data>
+  <data name="Folder path" xml:space="preserve">
+    <value>Caminho da pasta</value>
+  </data>
+  <data name="Folder updated" xml:space="preserve">
+    <value>Pasta atualizada</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Inválido</value>
+  </data>
+  <data name="Last OCR attempt" xml:space="preserve">
+    <value>Última tentativa de OCR</value>
+  </data>
+  <data name="Moved" xml:space="preserve">
+    <value>Movido</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="No operation history recorded yet." xml:space="preserve">
+    <value>Nenhum histórico de operações registrado ainda.</value>
+  </data>
+  <data name="OCR attempts" xml:space="preserve">
+    <value>Tentativas de OCR</value>
+  </data>
+  <data name="OCR updated" xml:space="preserve">
+    <value>OCR atualizado</value>
+  </data>
+  <data name="Parent Folder" xml:space="preserve">
+    <value>Pasta Pai</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Caminho</value>
+  </data>
+  <data name="Path changed" xml:space="preserve">
+    <value>Caminho alterado</value>
+  </data>
+  <data name="Pending Signature" xml:space="preserve">
+    <value>Aguardando Assinatura</value>
+  </data>
+  <data name="Plain Text" xml:space="preserve">
+    <value>Texto Simples</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privado</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Hora</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Atualizado</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Enviado</value>
+  </data>
+  <data name="View changes" xml:space="preserve">
+    <value>Ver alterações</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilidade</value>
+  </data>
+  <data name="Who" xml:space="preserve">
+    <value>Quem</value>
+  </data>
+
+</root>

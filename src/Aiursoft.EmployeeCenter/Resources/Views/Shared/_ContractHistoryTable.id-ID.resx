@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Action" xml:space="preserve">
+    <value>Aksi</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktif</value>
+  </data>
+  <data name="Changes" xml:space="preserve">
+    <value>Perubahan</value>
+  </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Kontrak</value>
+  </data>
+  <data name="Contract File" xml:space="preserve">
+    <value>Berkas Kontrak</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Waktu Dibuat</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Dihapus</value>
+  </data>
+  <data name="Empty OCR results" xml:space="preserve">
+    <value>Hasil OCR kosong</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="Folder created" xml:space="preserve">
+    <value>Folder dibuat</value>
+  </data>
+  <data name="Folder deleted" xml:space="preserve">
+    <value>Folder dihapus</value>
+  </data>
+  <data name="Folder path" xml:space="preserve">
+    <value>Jalur folder</value>
+  </data>
+  <data name="Folder updated" xml:space="preserve">
+    <value>Folder diperbarui</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Tidak Valid</value>
+  </data>
+  <data name="Last OCR attempt" xml:space="preserve">
+    <value>Percobaan OCR Terakhir</value>
+  </data>
+  <data name="Moved" xml:space="preserve">
+    <value>Dipindahkan</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nama</value>
+  </data>
+  <data name="No operation history recorded yet." xml:space="preserve">
+    <value>Belum ada riwayat operasi yang tercatat.</value>
+  </data>
+  <data name="OCR attempts" xml:space="preserve">
+    <value>percobaan OCR</value>
+  </data>
+  <data name="OCR updated" xml:space="preserve">
+    <value>OCR diperbarui</value>
+  </data>
+  <data name="Parent Folder" xml:space="preserve">
+    <value>Folder Induk</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="Path changed" xml:space="preserve">
+    <value>Jalur diubah</value>
+  </data>
+  <data name="Pending Signature" xml:space="preserve">
+    <value>Menunggu Tanda Tangan</value>
+  </data>
+  <data name="Plain Text" xml:space="preserve">
+    <value>Teks Biasa</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Pribadi</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Publik</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Waktu</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Diperbarui</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Diunggah</value>
+  </data>
+  <data name="View changes" xml:space="preserve">
+    <value>Lihat perubahan</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilitas</value>
+  </data>
+  <data name="Who" xml:space="preserve">
+    <value>Siapa</value>
+  </data>
+
+</root>
