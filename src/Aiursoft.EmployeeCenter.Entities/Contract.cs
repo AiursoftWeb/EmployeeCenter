@@ -14,6 +14,9 @@ public class Contract
     [MaxLength(200)]
     public required string FilePath { get; set; }
 
+    [MaxLength(32)]
+    public string HistoryKey { get; set; } = Guid.NewGuid().ToString("N");
+
     public ContractStatus Status { get; set; }
 
     public bool IsPublic { get; set; }

@@ -1,0 +1,19 @@
+@model Aiursoft.EmployeeCenter.Models.ContractViewModels.OcrPreviewViewModel
+
+@if (Model.CanViewHistory)
+{
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">@Localizer["Operation History"]</h5>
+            <a asp-controller="ManageContract" asp-action="History" asp-route-contractKey="@Model.Contract.HistoryKey">@Localizer["View all"]</a>
+        </div>
+        <div class="card-body">
+            <span class="me-4"><strong>@Localizer["Uploaded by"]:</strong> @(Model.UploadedBy ?? @Localizer["Unknown (uploaded before history was enabled)"].Value)</span>
+            @if (Model.LastModifiedBy != null)
+            {
+                <span><strong>@Localizer["Last modified by"]:</strong> @Model.LastModifiedBy</span>
+            }
+        </div>
+        <partial name="_ContractHistoryTable" model="Model.History" />
+    </div>
+}

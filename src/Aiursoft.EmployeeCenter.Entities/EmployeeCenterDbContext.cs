@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.EmployeeCenter.Entities;
 
 [ExcludeFromCodeCoverage]
-public abstract class EmployeeCenterDbContext(DbContextOptions options) : IdentityDbContext<User>(options), ICanMigrate
+public abstract partial class EmployeeCenterDbContext(DbContextOptions options) : IdentityDbContext<User>(options), ICanMigrate
 {
     /// <summary>
     /// Stores global system configurations as key-value pairs.
@@ -277,6 +277,8 @@ public abstract class EmployeeCenterDbContext(DbContextOptions options) : Identi
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        builder.Entity<ContractChangeLog>().HasIndex(log => new { log.ContractKey, log.CreatedAt });
+        builder.Entity<ContractChangeLog>().HasIndex(log => log.CreatedAt);
 
         builder.Entity<BusinessQualification>(entity =>
         {

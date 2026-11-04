@@ -15,7 +15,7 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.13");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.14");
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.AdjustedHoliday", b =>
                 {
@@ -900,6 +900,11 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.Property<int?>("FolderId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("HistoryKey")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("IsPublic")
                         .HasColumnType("INTEGER");
 
@@ -922,6 +927,53 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                     b.HasIndex("FolderId");
 
                     b.ToTable("Contracts");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ContractChangeLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AfterJson")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("BeforeJson")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContractKey")
+                        .HasMaxLength(32)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContractName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedAt");
+
+                    b.HasIndex("ContractKey", "CreatedAt");
+
+                    b.ToTable("ContractChangeLogs");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ContractFolder", b =>

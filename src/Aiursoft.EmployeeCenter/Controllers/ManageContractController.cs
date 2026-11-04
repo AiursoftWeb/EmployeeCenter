@@ -8,6 +8,8 @@ using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Filters;
+using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.EmployeeCenter.Controllers;
@@ -21,6 +23,29 @@ public class ManageContractController(
     ILogger<ManageContractController> logger)
     : Controller
 {
+    public override async Task OnActionExecutionAsync(ActionExecutingContext actionContext, ActionExecutionDelegate next)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var actor = userId == null ? null : await context.Users.FindAsync(userId);
+        context.ContractActorId = userId;
+        context.ContractActorName = actor?.DisplayName ?? User.Identity?.Name ?? "Unknown user";
+        await next();
+    }
+
+    public async Task<IActionResult> History(string? contractKey, int page = 1)
+    {
+        page = Math.Clamp(page, 1, 1000000);
+        var query = context.ContractChangeLogs.AsNoTracking();
+        if (!string.IsNullOrEmpty(contractKey)) query = query.Where(log => log.ContractKey == contractKey);
+        var rows = await query.OrderByDescending(log => log.CreatedAt).ThenByDescending(log => log.Id)
+            .Skip((page - 1) * 25).Take(26).ToListAsync();
+        return this.StackView(new HistoryViewModel
+        {
+            History = rows.Take(25).ToList(), ContractKey = contractKey,
+            CurrentPage = page, HasNextPage = rows.Count > 25
+        });
+    }
+
     private async Task<List<SelectListItem>> GetFolderSelectList(int? selectedId, int? excludeId = null)
     {
         var folders = await context.ContractFolders.ToListAsync();
@@ -193,7 +218,7 @@ public class ManageContractController(
                 await using var stream = System.IO.File.OpenRead(physicalPath);
                 var result = await importService.ImportFromZipAsync(stream, model.FolderId, model.IsPublic, model.Status);
 
-                System.IO.File.Delete(physicalPath);
+                await DeleteUnusedContractFileAsync(model.ZipFilePath!);
 
                 if (result.Errors.Any())
                 {
@@ -446,7 +471,14 @@ public class ManageContractController(
         {
             Contract = contract,
             PlainText = ocrResult?.PlainText,
-            JsonResult = ocrResult?.JsonResult
+            JsonResult = ocrResult?.JsonResult,
+            History = await context.ContractChangeLogs.Where(log => log.ContractKey == contract.HistoryKey)
+                .OrderByDescending(log => log.CreatedAt).Take(10).ToListAsync(),
+            UploadedBy = await context.ContractChangeLogs.Where(log => log.ContractKey == contract.HistoryKey && log.Action == "Uploaded")
+                .OrderBy(log => log.CreatedAt).Select(log => log.UserName).FirstOrDefaultAsync(),
+            LastModifiedBy = await context.ContractChangeLogs.Where(log => log.ContractKey == contract.HistoryKey && log.Action != "Uploaded" && log.UserId != null)
+                .OrderByDescending(log => log.CreatedAt).Select(log => log.UserName).FirstOrDefaultAsync(),
+            CanViewHistory = true
         });
     }
 
@@ -485,6 +517,7 @@ public class ManageContractController(
             var contract = await context.Contracts.FindAsync(model.Id);
             if (contract == null) return NotFound();
 
+            var oldFilePath = contract.FilePath;
             contract.Name = model.Name;
             contract.Status = model.Status;
             contract.IsPublic = model.IsPublic;
@@ -493,9 +526,18 @@ public class ManageContractController(
             if (!string.IsNullOrWhiteSpace(model.FilePath))
             {
                 contract.FilePath = model.FilePath;
+                if (oldFilePath != contract.FilePath)
+                {
+                    var oldOcr = await context.ContractOcrResults.FirstOrDefaultAsync(r => r.ContractId == contract.Id);
+                    if (oldOcr != null) context.ContractOcrResults.Remove(oldOcr);
+                    contract.OcrAttemptCount = 0;
+                    contract.EmptyResultCount = 0;
+                    contract.LastOcrAttemptTime = null;
+                }
             }
 
             await context.SaveChangesAsync();
+            if (oldFilePath != contract.FilePath) await DeleteUnusedContractFileAsync(oldFilePath);
             return RedirectToAction(nameof(Index), new { id = contract.FolderId });
         }
         ViewData["Folders"] = await GetFolderSelectList(model.FolderId);
@@ -513,9 +555,24 @@ public class ManageContractController(
             var folderId = contract.FolderId;
             context.Contracts.Remove(contract);
             await context.SaveChangesAsync();
+            await DeleteUnusedContractFileAsync(contract.FilePath);
             return RedirectToAction(nameof(Index), new { id = folderId });
         }
         return RedirectToAction(nameof(Index));
+    }
+
+    private async Task DeleteUnusedContractFileAsync(string filePath)
+    {
+        if (await context.Contracts.AnyAsync(c => c.FilePath == filePath)) return;
+        try
+        {
+            var path = storageService.GetVaultSubfolderFilePhysicalPath(filePath, "contract");
+            System.IO.File.Delete(path);
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException or ArgumentException)
+        {
+            logger.LogWarning(exception, "Could not remove unused contract file {FilePath}", filePath);
+        }
     }
 
     [HttpPost]

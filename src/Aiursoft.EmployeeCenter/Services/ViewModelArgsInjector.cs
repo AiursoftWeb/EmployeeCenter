@@ -93,6 +93,7 @@ public class ViewModelArgsInjector(
         _ = localizer["Legal"];
         _ = localizer["Manage Company Entities"];
         _ = localizer["Manage Contracts"];
+        _ = localizer["Contract History"];
         _ = localizer["Manage IT Assets"];
         _ = localizer["Manage Payrolls"];
         _ = localizer["My Assets"];

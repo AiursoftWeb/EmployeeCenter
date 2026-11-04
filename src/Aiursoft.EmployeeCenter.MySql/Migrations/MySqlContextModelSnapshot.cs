@@ -17,7 +17,7 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.13")
+                .HasAnnotation("ProductVersion", "10.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -935,6 +935,11 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.Property<int?>("FolderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("HistoryKey")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
                     b.Property<bool>("IsPublic")
                         .HasColumnType("tinyint(1)");
 
@@ -957,6 +962,53 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                     b.HasIndex("FolderId");
 
                     b.ToTable("Contracts");
+                });
+
+            modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ContractChangeLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("varchar(40)");
+
+                    b.Property<string>("AfterJson")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("BeforeJson")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ContractKey")
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
+
+                    b.Property<string>("ContractName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("UserId")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedAt");
+
+                    b.HasIndex("ContractKey", "CreatedAt");
+
+                    b.ToTable("ContractChangeLogs");
                 });
 
             modelBuilder.Entity("Aiursoft.EmployeeCenter.Entities.ContractFolder", b =>

@@ -553,4 +553,75 @@ public class ContractTests
             Assert.IsNull((await context.Contracts.FindAsync(contractId))?.FolderId);
         }
     }
+
+    [TestMethod]
+    public async Task ContractHistoryShowsWhoUploadedAndEditedAndSurvivesDeletion()
+    {
+        var token = await GetAntiCsrfToken("/Account/Login");
+        var login = await _http.PostAsync("/Account/Login", new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            ["EmailOrUserName"] = "admin", ["Password"] = "Admin@123456!", ["__RequestVerificationToken"] = token
+        }));
+        Assert.AreEqual(HttpStatusCode.Found, login.StatusCode);
+        var storage = GetService<StorageService>();
+        await using var first = new MemoryStream([1, 2, 3]);
+        await using var second = new MemoryStream([4, 5, 6]);
+        var oldPath = await storage.SaveFromStream($"contract/history-{Guid.NewGuid():N}.pdf", first, true);
+        var newPath = await storage.SaveFromStream($"contract/history-{Guid.NewGuid():N}.pdf", second, true);
+        token = await GetAntiCsrfToken("/ManageContract/Create");
+        var created = await _http.PostAsync("/ManageContract/Create", new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            ["Name"] = "History original", ["FilePath"] = oldPath, ["Status"] = "1", ["IsPublic"] = "true", ["__RequestVerificationToken"] = token
+        }));
+        Assert.AreEqual(HttpStatusCode.Found, created.StatusCode);
+        int id;
+        string key;
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            var contract = await db.Contracts.SingleAsync(c => c.Name == "History original");
+            id = contract.Id;
+            key = contract.HistoryKey;
+            var log = await db.ContractChangeLogs.SingleAsync(l => l.ContractKey == key);
+            Assert.AreEqual("Super Administrator", log.UserName);
+            Assert.IsNotNull(log.UserId);
+        }
+        var preview = await _http.GetStringAsync($"/Contract/Preview/{id}");
+        Assert.Contains("Uploaded by", preview);
+        Assert.Contains("Super Administrator", preview);
+        var management = await _http.GetStringAsync("/ManageContract/Index");
+        Assert.Contains("Operation History", management);
+        token = await GetAntiCsrfToken($"/ManageContract/Edit/{id}");
+        var edited = await _http.PostAsync("/ManageContract/Edit", new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            ["Id"] = id.ToString(), ["Name"] = "History renamed", ["FilePath"] = newPath,
+            ["Status"] = "1", ["IsPublic"] = "true", ["__RequestVerificationToken"] = token
+        }));
+        Assert.AreEqual(HttpStatusCode.Found, edited.StatusCode);
+        Assert.IsFalse(File.Exists(storage.GetFilePhysicalPath(oldPath, true)));
+        Assert.IsTrue(File.Exists(storage.GetFilePhysicalPath(newPath, true)));
+        var history = await _http.GetStringAsync($"/ManageContract/History?contractKey={key}");
+        Assert.Contains("History renamed", history);
+        Assert.Contains("History original", history);
+        Assert.Contains("Super Administrator", history);
+        token = await GetAntiCsrfToken("/ManageContract/Index");
+        var deleted = await _http.PostAsync($"/ManageContract/Delete/{id}", new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            ["__RequestVerificationToken"] = token
+        }));
+        Assert.AreEqual(HttpStatusCode.Found, deleted.StatusCode);
+        Assert.IsFalse(File.Exists(storage.GetFilePhysicalPath(newPath, true)));
+        using (var scope = _server.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            Assert.IsFalse(await db.Contracts.AnyAsync(c => c.Id == id));
+            Assert.AreEqual(3, await db.ContractChangeLogs.CountAsync(l => l.ContractKey == key));
+        }
+        history = await _http.GetStringAsync($"/ManageContract/History?contractKey={key}");
+        Assert.Contains("Deleted", history);
+        await _http.GetAsync("/Account/LogOff");
+        var forbidden = await _http.GetAsync($"/ManageContract/History?contractKey={key}");
+        Assert.IsTrue(forbidden.StatusCode is HttpStatusCode.Found or HttpStatusCode.Unauthorized);
+        Assert.DoesNotContain("History original", await forbidden.Content.ReadAsStringAsync());
+    }
 }
