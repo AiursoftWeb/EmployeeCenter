@@ -51,6 +51,9 @@
   <data name="Folder deleted" xml:space="preserve">
     <value>文件夹已删除</value>
   </data>
+  <data name="Folder path" xml:space="preserve">
+    <value>文件夹路径</value>
+  </data>
   <data name="Folder updated" xml:space="preserve">
     <value>文件夹已更新</value>
   </data>
@@ -59,6 +62,9 @@
   </data>
   <data name="Last OCR attempt" xml:space="preserve">
     <value>最后一次 OCR 尝试</value>
+  </data>
+  <data name="Moved" xml:space="preserve">
+    <value>已移动</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>名称</value>
@@ -74,6 +80,12 @@
   </data>
   <data name="Parent Folder" xml:space="preserve">
     <value>父文件夹</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>路径</value>
+  </data>
+  <data name="Path changed" xml:space="preserve">
+    <value>路径已更改</value>
   </data>
   <data name="Pending Signature" xml:space="preserve">
     <value>待签署</value>
