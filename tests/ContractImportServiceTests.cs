@@ -360,4 +360,68 @@ public class ContractImportServiceTests
         _dbContext.ChangeTracker.Clear();
         Assert.AreEqual(1, await _dbContext.ContractChangeLogs.CountAsync());
     }
+
+    [TestMethod]
+    public async Task ContractMoveRecordsReadablePathsIncludingRoot()
+    {
+        var folder = new ContractFolder { Name = "Customer contracts" };
+        var contract = new Contract { Name = "Service agreement", FilePath = "contract/move.pdf" };
+        _dbContext.AddRange(folder, contract);
+        await _dbContext.SaveChangesAsync();
+        _dbContext.ContractActorId = "mover";
+        _dbContext.ContractActorName = "Alice";
+        contract.FolderId = folder.Id;
+        await _dbContext.SaveChangesAsync();
+        var intoFolder = await _dbContext.ContractChangeLogs.SingleAsync(l => l.ContractKey == contract.HistoryKey && l.Action == "Moved");
+        Assert.Contains("\"FolderPath\":\"/\"", intoFolder.BeforeJson!);
+        Assert.Contains("/Customer contracts", intoFolder.AfterJson!);
+        Assert.DoesNotContain("FolderId", intoFolder.AfterJson!);
+        Assert.AreEqual("Alice", intoFolder.UserName);
+        contract.FolderId = null;
+        await _dbContext.SaveChangesAsync();
+        var toRoot = await _dbContext.ContractChangeLogs.Where(l => l.ContractKey == contract.HistoryKey && l.Action == "Moved")
+            .OrderByDescending(l => l.CreatedAt).FirstAsync();
+        Assert.Contains("/Customer contracts", toRoot.BeforeJson!);
+        Assert.Contains("\"FolderPath\":\"/\"", toRoot.AfterJson!);
+        Assert.AreEqual(3, await _dbContext.ContractChangeLogs.CountAsync(l => l.ContractKey == contract.HistoryKey));
+    }
+
+    [TestMethod]
+    public async Task AncestorRenameAndMoveAppearInEveryAffectedContractHistory()
+    {
+        var parent = new ContractFolder { Name = "Customers" };
+        var destination = new ContractFolder { Name = "Archive" };
+        _dbContext.AddRange(parent, destination);
+        await _dbContext.SaveChangesAsync();
+        var child = new ContractFolder { Name = "Client A", ParentFolderId = parent.Id };
+        _dbContext.Add(child);
+        await _dbContext.SaveChangesAsync();
+        var first = new Contract { Name = "Direct", FilePath = "contract/direct.pdf", FolderId = parent.Id };
+        var nested = new Contract { Name = "Nested", FilePath = "contract/nested.pdf", FolderId = child.Id };
+        var unrelated = new Contract { Name = "Unrelated", FilePath = "contract/unrelated.pdf", FolderId = destination.Id };
+        _dbContext.AddRange(first, nested, unrelated);
+        await _dbContext.SaveChangesAsync();
+        var nestedKey = nested.HistoryKey;
+        _dbContext.ChangeTracker.Clear();
+        parent = await _dbContext.ContractFolders.SingleAsync(f => f.Name == "Customers");
+        _dbContext.ContractActorId = "folder-editor";
+        _dbContext.ContractActorName = "Bob";
+        parent.Name = "Signed";
+        await _dbContext.SaveChangesAsync();
+        var renamed = await _dbContext.ContractChangeLogs.SingleAsync(l => l.ContractKey == nestedKey && l.Action == "Path changed");
+        Assert.Contains("/Customers/Client A", renamed.BeforeJson!);
+        Assert.Contains("/Signed/Client A", renamed.AfterJson!);
+        Assert.AreEqual("Bob", renamed.UserName);
+        Assert.AreEqual(2, await _dbContext.ContractChangeLogs.CountAsync(l => l.Action == "Path changed"));
+        parent.ParentFolderId = destination.Id;
+        await _dbContext.SaveChangesAsync();
+        var moved = await _dbContext.ContractChangeLogs.Where(l => l.ContractKey == nestedKey && l.Action == "Path changed")
+            .OrderByDescending(l => l.CreatedAt).FirstAsync();
+        Assert.Contains("/Signed/Client A", moved.BeforeJson!);
+        Assert.Contains("/Archive/Signed/Client A", moved.AfterJson!);
+        Assert.Contains("/Customers/Client A", renamed.BeforeJson!);
+        Assert.AreEqual(4, await _dbContext.ContractChangeLogs.CountAsync(l => l.Action == "Path changed"));
+        Assert.AreEqual(1, await _dbContext.ContractChangeLogs.CountAsync(l => l.ContractKey == unrelated.HistoryKey));
+        Assert.IsTrue(await _dbContext.Contracts.AnyAsync(c => c.HistoryKey == nestedKey));
+    }
 }
