@@ -1,0 +1,87 @@
+@using Aiursoft.EmployeeCenter.Models.ContractViewModels
+@model IEnumerable<Aiursoft.EmployeeCenter.Entities.ContractChangeLog>
+@{
+    string DisplayValue(string field, string value)
+    {
+        if (field == "IsPublic" && value is "true" or "false")
+            return value == "true" ? @Localizer["Public"].Value : @Localizer["Private"].Value;
+        if (field == "Status")
+            return value switch
+            {
+                "0" => @Localizer["Pending Signature"].Value,
+                "1" => @Localizer["Active"].Value,
+                "2" => @Localizer["Invalid"].Value,
+                _ => value
+            };
+        return value;
+    }
+}
+
+<div class="table-responsive">
+    <table class="table table-striped mb-0">
+        <thead><tr><th>@Localizer["Time"]</th><th>@Localizer["Who"]</th><th>@Localizer["Contract"]</th><th>@Localizer["Action"]</th><th>@Localizer["Changes"]</th></tr></thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><span data-utc-time="@item.CreatedAt.ToHtmlDateTime()"></span></td>
+                <td>@(item.UserId == null ? @Localizer["System"].Value : item.UserName)</td>
+                <td>
+                    @if (item.ContractKey != null)
+                    {
+                        <a asp-controller="ManageContract" asp-action="History" asp-route-contractKey="@item.ContractKey">@item.ContractName</a>
+                    }
+                    else
+                    {
+                        @item.ContractName
+                    }
+                </td>
+                <td>
+                    @switch (item.Action)
+                    {
+                        case "Uploaded": @Localizer["Uploaded"] break;
+                        case "Deleted": @Localizer["Deleted"] break;
+                        case "Folder created": @Localizer["Folder created"] break;
+                        case "Folder deleted": @Localizer["Folder deleted"] break;
+                        case "Folder updated": @Localizer["Folder updated"] break;
+                        case "OCR updated": @Localizer["OCR updated"] break;
+                        default: @Localizer["Updated"] break;
+                    }
+                </td>
+                <td>
+                    <details>
+                        <summary>@Localizer["View changes"]</summary>
+                        <dl class="mb-0 text-break">
+                        @foreach (var change in HistoryViewModel.Changes(item))
+                        {
+                            <dt>
+                                @switch (change.Field)
+                                {
+                                    case "Name": @Localizer["Name"] break;
+                                    case "FilePath": @Localizer["Contract File"] break;
+                                    case "Status": @Localizer["Status"] break;
+                                    case "IsPublic": @Localizer["Visibility"] break;
+                                    case "FolderId": @Localizer["Folder"] break;
+                                    case "ParentFolderId": @Localizer["Parent Folder"] break;
+                                    case "CreateTime": @Localizer["Created Time"] break;
+                                    case "OcrAttemptCount": @Localizer["OCR attempts"] break;
+                                    case "EmptyResultCount": @Localizer["Empty OCR results"] break;
+                                    case "LastOcrAttemptTime": @Localizer["Last OCR attempt"] break;
+                                    case "PlainText": @Localizer["Plain Text"] break;
+                                    default: @change.Field break;
+                                }
+                            </dt>
+                            <dd>@DisplayValue(change.Field, change.Before) → @DisplayValue(change.Field, change.After)</dd>
+                        }
+                        </dl>
+                    </details>
+                </td>
+            </tr>
+        }
+        @if (!Model.Any())
+        {
+            <tr><td colspan="5" class="text-muted">@Localizer["No operation history recorded yet."]</td></tr>
+        }
+        </tbody>
+    </table>
+</div>

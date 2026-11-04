@@ -305,4 +305,59 @@ public class ContractImportServiceTests
         var contract = await _dbContext.Contracts.FirstAsync();
         Assert.AreEqual("2025 - Employment Agreement - Signed", contract.Name);
     }
+
+    [TestMethod]
+    public async Task ContractHistorySurvivesDeletionAndKeepsTheOriginalActor()
+    {
+        _dbContext.ContractActorId = "import-user";
+        _dbContext.ContractActorName = "Alice";
+        await using var zip = CreateTestZip(a => AddFileEntry(a, "history.pdf"));
+        await _importService.ImportFromZipAsync(zip, null, false, ContractStatus.Active);
+        var contract = await _dbContext.Contracts.SingleAsync();
+        var key = contract.HistoryKey;
+        var uploaded = await _dbContext.ContractChangeLogs.SingleAsync(l => l.ContractKey == key);
+        Assert.AreEqual("Uploaded", uploaded.Action);
+        Assert.AreEqual("Alice", uploaded.UserName);
+        _dbContext.ContractActorName = "Bob";
+        contract.Name = "Renamed";
+        await _dbContext.SaveChangesAsync();
+        var edited = await _dbContext.ContractChangeLogs.SingleAsync(l => l.ContractKey == key && l.Action == "Updated");
+        Assert.Contains("history", edited.BeforeJson!);
+        Assert.Contains("Renamed", edited.AfterJson!);
+        _dbContext.Contracts.Remove(contract);
+        await _dbContext.SaveChangesAsync();
+        Assert.AreEqual(0, await _dbContext.Contracts.CountAsync());
+        Assert.AreEqual(3, await _dbContext.ContractChangeLogs.CountAsync(l => l.ContractKey == key));
+        Assert.AreEqual("Alice", uploaded.UserName);
+        Assert.AreEqual("Deleted", (await _dbContext.ContractChangeLogs.SingleAsync(l => l.Action == "Deleted")).Action);
+    }
+
+    [TestMethod]
+    public async Task ContractWriteRollsBackWhenHistoryCannotBeWritten()
+    {
+        await _dbContext.Database.ExecuteSqlRawAsync(
+            "CREATE TRIGGER RejectContractHistory BEFORE INSERT ON ContractChangeLogs BEGIN SELECT RAISE(ABORT, 'history unavailable'); END");
+        _dbContext.Contracts.Add(new Contract { Name = "Must roll back", FilePath = "contract/failed.pdf" });
+        await Assert.ThrowsExactlyAsync<DbUpdateException>(() => _dbContext.SaveChangesAsync());
+        _dbContext.ChangeTracker.Clear();
+        Assert.AreEqual(0, await _dbContext.Contracts.CountAsync());
+        Assert.AreEqual(0, await _dbContext.ContractChangeLogs.CountAsync());
+    }
+
+    [TestMethod]
+    public async Task ContractHistoryCannotBeChangedOrDeleted()
+    {
+        _dbContext.Contracts.Add(new Contract { Name = "Permanent history", FilePath = "contract/permanent.pdf" });
+        _dbContext.SaveChanges();
+        var log = await _dbContext.ContractChangeLogs.SingleAsync();
+        log.UserName = "Rewritten";
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => _dbContext.SaveChangesAsync());
+        _dbContext.ChangeTracker.Clear();
+        log = await _dbContext.ContractChangeLogs.SingleAsync();
+        Assert.AreEqual("System", log.UserName);
+        _dbContext.ContractChangeLogs.Remove(log);
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => _dbContext.SaveChangesAsync());
+        _dbContext.ChangeTracker.Clear();
+        Assert.AreEqual(1, await _dbContext.ContractChangeLogs.CountAsync());
+    }
 }

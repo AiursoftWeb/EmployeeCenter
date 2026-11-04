@@ -76,7 +76,16 @@ public class ContractController(
         {
             Contract = contract,
             PlainText = ocrResult?.PlainText,
-            JsonResult = ocrResult?.JsonResult
+            JsonResult = ocrResult?.JsonResult,
+            CanViewHistory = canViewHistory,
+            UploadedBy = canViewHistory ? await context.ContractChangeLogs.Where(log => log.ContractKey == contract.HistoryKey && log.Action == "Uploaded")
+                .OrderBy(log => log.CreatedAt).Select(log => log.UserName).FirstOrDefaultAsync() : null,
+            LastModifiedBy = canViewHistory ? await context.ContractChangeLogs.Where(log => log.ContractKey == contract.HistoryKey && log.Action != "Uploaded" && log.UserId != null)
+                .OrderByDescending(log => log.CreatedAt).Select(log => log.UserName).FirstOrDefaultAsync() : null,
+            History = canViewHistory
+                ? await context.ContractChangeLogs.Where(log => log.ContractKey == contract.HistoryKey)
+                    .OrderByDescending(log => log.CreatedAt).Take(10).ToListAsync()
+                : []
         });
     }
 }

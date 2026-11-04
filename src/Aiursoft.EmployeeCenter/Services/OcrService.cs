@@ -96,6 +96,20 @@ public class OcrService(
 
     public async Task ProcessContractOcrAsync(int contractId)
     {
+        var actorId = dbContext.ContractActorId;
+        var actorName = dbContext.ContractActorName;
+        dbContext.ContractActorId = null;
+        dbContext.ContractActorName = "System";
+        try { await ProcessContractOcrCoreAsync(contractId); }
+        finally
+        {
+            dbContext.ContractActorId = actorId;
+            dbContext.ContractActorName = actorName;
+        }
+    }
+
+    private async Task ProcessContractOcrCoreAsync(int contractId)
+    {
         if (!_ocrSettings.Enabled)
         {
             return;
