@@ -81,7 +81,7 @@ public class LedgerTests : TestBase
         {
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
 
-            Assert.AreEqual("Director contribution\n<script>unsafe</script>", db.Transactions.Single().Notes);
+            Assert.AreEqual("Director contribution\n<script>unsafe</script>", db.Transactions.Single(t => t.SourceAccountId == capitalId && t.DestinationAccountId == bankId && t.Description == "Initial Capital").Notes);
 
             // Asset: Destination - Source = 10000 - 0 = 10000
             var bankBalance = await GetBalance(db, bankId);
