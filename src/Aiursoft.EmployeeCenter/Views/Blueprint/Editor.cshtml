@@ -261,7 +261,7 @@
                         theme: monacoTheme,
                         initialViewMode: 'split',
                         viewModeStorageKey: 'markdown-view-mode',
-                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
+                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images", generateUniqueFileName: true))',
                         mermaidTheme: '@(isDarkMode ? "dark" : "default")',
                         onSave: function () {
                             document.getElementById('markdown-form').requestSubmit();
