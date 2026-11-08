@@ -11,6 +11,9 @@ public class Transaction
     [MaxLength(500)]
     public required string Description { get; set; }
 
+    [MaxLength(4000)]
+    public string? Notes { get; set; }
+
     public int SourceAccountId { get; set; }
 
     [ForeignKey(nameof(SourceAccountId))]

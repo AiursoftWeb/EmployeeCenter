@@ -18,6 +18,10 @@ public class CreateTransactionViewModel : UiStackLayoutViewModel
     [Display(Name = "Description")]
     public string Description { get; set; } = string.Empty;
 
+    [MaxLength(4000, ErrorMessage = "The {0} cannot exceed {1} characters.")]
+    [Display(Name = "Notes")]
+    public string? Notes { get; set; }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [Display(Name = "Source Account")]
     public int SourceAccountId { get; set; }

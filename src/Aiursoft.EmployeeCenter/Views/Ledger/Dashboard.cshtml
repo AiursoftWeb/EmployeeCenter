@@ -410,8 +410,13 @@
     </div>
 </div>
 
+<div id="transaction-notes-loc-data" class="d-none">
+    <span data-key="notes">@Localizer["Notes"]</span>
+</div>
+
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
+    <script src="~/scripts/ledger-transaction-description.js" asp-append-version="true"></script>
     <script src="~/node_modules/chart.js/dist/chart.umd.min.js" asp-append-version="true"></script>
     <script>
         // ──────────────────────────────────────────────
@@ -682,7 +687,7 @@
                 data.forEach(function (t) {
                     html += '<tr>';
                     html += '<td data-order="' + escapeHtml(t.TransactionTime) + '">' + escapeHtml(new Date(t.TransactionTime.replace(' ', 'T') + 'Z').toLocaleString()) + '</td>';
-                    html += '<td>' + escapeHtml(t.Description) + '</td>';
+                    html += '<td>' + renderLedgerTransactionDescription(t.Description, t.Notes) + '</td>';
                     html += '<td>' + escapeHtml(t.SourceAccountName || '') + '</td>';
                     html += '<td>' + escapeHtml(t.DestinationAccountName || '') + '</td>';
                     html += '<td>' + formatNumber(t.Amount) + ' ' + escapeHtml(t.SourceCurrency || '');

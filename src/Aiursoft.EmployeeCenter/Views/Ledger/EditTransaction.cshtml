@@ -21,6 +21,13 @@
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
+                <div class="form-group">
+                    <label asp-for="Notes">@Localizer["Notes"] (@Localizer["Optional"])</label>
+                    <textarea asp-for="Notes" class="form-control" rows="4" maxlength="4000" aria-describedby="transaction-notes-help"></textarea>
+                    <small id="transaction-notes-help" class="form-text text-muted">@Localizer["Keep the description short. Add transaction background and reconciliation details here."]</small>
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

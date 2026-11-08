@@ -248,6 +248,7 @@ public class LedgerController(
             Id = t.Id,
             TransactionTime = t.TransactionTime.ToString("yyyy-MM-dd HH:mm"),
             Description = t.Description,
+            Notes = t.Notes,
             SourceAccountName = t.SourceAccount?.AccountName,
             DestinationAccountName = t.DestinationAccount?.AccountName,
             Amount = t.Amount,
@@ -470,6 +471,7 @@ public class LedgerController(
         var transaction = new Transaction
         {
             Description = model.Description,
+            Notes = model.Notes,
             SourceAccountId = model.SourceAccountId,
             DestinationAccountId = model.DestinationAccountId,
             Amount = model.Amount,
@@ -505,6 +507,7 @@ public class LedgerController(
             EntityId = entityId,
             TransactionId = transaction.Id,
             Description = transaction.Description,
+            Notes = transaction.Notes,
             SourceAccountId = transaction.SourceAccountId,
             DestinationAccountId = transaction.DestinationAccountId,
             Amount = transaction.Amount,
@@ -558,6 +561,7 @@ public class LedgerController(
         }
 
         transaction.Description = model.Description;
+        transaction.Notes = model.Notes;
         transaction.SourceAccountId = model.SourceAccountId;
         transaction.DestinationAccountId = model.DestinationAccountId;
         transaction.Amount = model.Amount;
