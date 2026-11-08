@@ -60,6 +60,7 @@ public class LedgerTests : TestBase
         {
             { "EntityId", entityId.ToString() },
             { "Description", "Initial Capital" },
+            { "Notes", "Director contribution\n<script>unsafe</script>" },
             { "SourceAccountId", capitalId.ToString() },
             { "DestinationAccountId", bankId.ToString() },
             { "Amount", "10000" },
@@ -68,10 +69,19 @@ public class LedgerTests : TestBase
         });
         AssertRedirect(createTransactionResponse, "/Ledger/Dashboard/" + entityId);
 
+        var listResponse = await Http.GetAsync($"/Ledger/Transactions/{entityId}");
+        listResponse.EnsureSuccessStatusCode();
+        var listHtml = await listResponse.Content.ReadAsStringAsync();
+        Assert.Contains("&lt;script&gt;unsafe&lt;/script&gt;", listHtml);
+        Assert.DoesNotContain("<script>unsafe</script>", listHtml);
+        Assert.Contains("<details", listHtml);
+
         // 5. Verify Balance
         using (var scope = Server!.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+
+            Assert.AreEqual("Director contribution\n<script>unsafe</script>", db.Transactions.Single(t => t.SourceAccountId == capitalId && t.DestinationAccountId == bankId && t.Description == "Initial Capital").Notes);
 
             // Asset: Destination - Source = 10000 - 0 = 10000
             var bankBalance = await GetBalance(db, bankId);
@@ -136,6 +146,7 @@ public class LedgerTests : TestBase
             { "EntityId", entityId.ToString() },
             { "TransactionId", transactionId.ToString() },
             { "Description", "Sleek fee updated" },
+            { "Notes", "Prepaid secretary service\nAwaiting card settlement" },
             { "SourceAccountId", bankId.ToString() },
             { "DestinationAccountId", expenseAccountId.ToString() },
             { "Amount", "4000" },
@@ -149,9 +160,43 @@ public class LedgerTests : TestBase
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
             var transaction = await db.Transactions.FindAsync(transactionId);
             Assert.AreEqual("Sleek fee updated", transaction!.Description);
+            Assert.AreEqual("Prepaid secretary service\nAwaiting card settlement", transaction.Notes);
             Assert.AreEqual(4000, transaction.Amount);
 
             // Bank: 10000 - 4000 = 6000
+            Assert.AreEqual(6000, await GetBalance(db, bankId));
+        }
+
+        var editPage = await Http.GetAsync($"/Ledger/EditTransaction/{transactionId}?entityId={entityId}");
+        editPage.EnsureSuccessStatusCode();
+        Assert.Contains("Prepaid secretary service", await editPage.Content.ReadAsStringAsync());
+
+        var clearNotes = new Dictionary<string, string>
+        {
+            { "EntityId", entityId.ToString() },
+            { "TransactionId", transactionId.ToString() },
+            { "Description", "Sleek fee updated" },
+            { "Notes", new string('n', 4001) },
+            { "SourceAccountId", bankId.ToString() },
+            { "DestinationAccountId", expenseAccountId.ToString() },
+            { "Amount", "4000" },
+            { "ExchangeRate", "1" },
+            { "TransactionTime", DateTime.UtcNow.ToString("O") }
+        };
+        var invalidNotesResponse = await PostForm("/Ledger/EditTransaction", clearNotes);
+        Assert.AreEqual(HttpStatusCode.OK, invalidNotesResponse.StatusCode);
+        using (var scope = Server.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            Assert.AreEqual("Prepaid secretary service\nAwaiting card settlement", (await db.Transactions.FindAsync(transactionId))!.Notes);
+        }
+
+        clearNotes["Notes"] = string.Empty;
+        AssertRedirect(await PostForm("/Ledger/EditTransaction", clearNotes), "/Ledger/Dashboard/" + entityId);
+        using (var scope = Server.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
+            Assert.IsNull((await db.Transactions.FindAsync(transactionId))!.Notes);
             Assert.AreEqual(6000, await GetBalance(db, bankId));
         }
 
@@ -363,7 +408,7 @@ public class LedgerTests : TestBase
             accountBId = accountB.Id;
 
             // Transaction for Account A
-            db.Transactions.Add(new Transaction { Description = "Transaction A", SourceAccountId = accountBId, DestinationAccountId = accountAId, Amount = 100, ExchangeRate = 1, TransactionTime = DateTime.UtcNow });
+            db.Transactions.Add(new Transaction { Description = "Transaction A", Notes = "Card settlement pending", SourceAccountId = accountBId, DestinationAccountId = accountAId, Amount = 100, ExchangeRate = 1, TransactionTime = DateTime.UtcNow });
             // Transaction for Account B only (not A)
             db.Transactions.Add(new Transaction { Description = "Transaction B Only", SourceAccountId = accountBId, DestinationAccountId = accountBId, Amount = 50, ExchangeRate = 1, TransactionTime = DateTime.UtcNow });
             await db.SaveChangesAsync();
@@ -386,6 +431,7 @@ public class LedgerTests : TestBase
         var txResponse = await Http.GetAsync($"/Ledger/DashboardTransactionsApi?id={entityId}");
         var txContent = await txResponse.Content.ReadAsStringAsync();
         Assert.Contains("Transaction A", txContent);
+        Assert.Contains("Card settlement pending", txContent);
 
         // 4. View Filtered Dashboard for Account A
         var filteredResponse = await Http.GetAsync($"/Ledger/Dashboard/{entityId}?accountId={accountAId}");

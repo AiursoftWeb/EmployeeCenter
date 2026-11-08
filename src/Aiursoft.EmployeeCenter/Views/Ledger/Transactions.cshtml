@@ -39,7 +39,16 @@
                         {
                             <tr>
                                 <td data-order="@t.TransactionTime.Ticks"><span data-utc-time="@t.TransactionTime.ToHtmlDateTime()"></span></td>
-                                <td>@t.Description</td>
+                                <td>
+                                    @t.Description
+                                    @if (!string.IsNullOrWhiteSpace(t.Notes))
+                                    {
+                                        <details class="mt-1">
+                                            <summary class="text-muted">@Localizer["Notes"]</summary>
+                                            <div class="text-break" style="white-space: pre-wrap;">@t.Notes</div>
+                                        </details>
+                                    }
+                                </td>
                                 <td>@t.SourceAccount?.AccountName</td>
                                 <td>@t.DestinationAccount?.AccountName</td>
                                 <td>

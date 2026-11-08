@@ -2588,6 +2588,10 @@ namespace Aiursoft.EmployeeCenter.Sqlite.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Notes")
+                        .HasMaxLength(4000)
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("OcrAttemptCount")
                         .HasColumnType("INTEGER");
 

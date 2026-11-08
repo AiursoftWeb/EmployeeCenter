@@ -2675,6 +2675,10 @@ namespace Aiursoft.EmployeeCenter.MySql.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)");
 
+                    b.Property<string>("Notes")
+                        .HasMaxLength(4000)
+                        .HasColumnType("varchar(4000)");
+
                     b.Property<int>("OcrAttemptCount")
                         .HasColumnType("int");
 
