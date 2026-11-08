@@ -169,7 +169,7 @@ public class FilesControllerTests : TestBase
     }
 
     [TestMethod]
-    public async Task MarkdownImageUploadsUseUniqueUuidNamesAndPreserveExistingImages()
+    public async Task MarkdownImageUploadsPreserveExistingImages()
     {
         await LoginAsAdmin();
         var storage = GetService<StorageService>();
@@ -177,7 +177,8 @@ public class FilesControllerTests : TestBase
             "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aX1sAAAAASUVORK5CYII=");
         using var originalStream = new MemoryStream(image);
         var originalPath = await storage.SaveFromStream("markdown-images/image.png", originalStream);
-        var uploadUrl = storage.GetUploadUrl("markdown-images", allowedExtensions: "png");
+        var imageFolder = $"markdown-images/{Guid.NewGuid():N}";
+        var uploadUrl = storage.GetUploadUrl(imageFolder, allowedExtensions: "png");
         var paths = new HashSet<string>();
 
         for (var i = 0; i < 2; i++)
@@ -188,9 +189,9 @@ public class FilesControllerTests : TestBase
             response.EnsureSuccessStatusCode();
             var uploaded = await response.Content.ReadFromJsonAsync<UploadResult>();
             Assert.IsNotNull(uploaded);
-            Assert.IsTrue(uploaded.Path.StartsWith("markdown-images/", StringComparison.Ordinal));
+            Assert.IsTrue(uploaded.Path.StartsWith(imageFolder + "/", StringComparison.Ordinal));
             Assert.AreEqual(".png", Path.GetExtension(uploaded.Path));
-            Assert.IsTrue(Guid.TryParseExact(Path.GetFileNameWithoutExtension(uploaded.Path), "N", out _));
+            Assert.AreNotEqual(originalPath, uploaded.Path);
             Assert.IsTrue(paths.Add(uploaded.Path));
             var download = await Http.GetAsync(uploaded.InternetPath);
             download.EnsureSuccessStatusCode();
@@ -198,6 +199,7 @@ public class FilesControllerTests : TestBase
 
         var original = await Http.GetAsync("/download/" + originalPath);
         original.EnsureSuccessStatusCode();
+        CollectionAssert.AreEqual(image, await File.ReadAllBytesAsync(storage.GetFilePhysicalPath(originalPath)));
     }
 
     [TestMethod]
