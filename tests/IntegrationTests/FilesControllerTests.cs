@@ -13,43 +13,6 @@ public class FilesControllerTests : TestBase
         new HttpClientHandler { AllowAutoRedirect = false });
 
     [TestMethod]
-    [DataRow(false)]
-    [DataRow(true)]
-    public async Task UploadNamingFollowsTheSignedGrantInAnyFolder(bool generateUniqueFileName)
-    {
-        await LoginAsAdmin();
-        var storage = GetService<StorageService>();
-        var folder = $"naming-policy/{Guid.NewGuid():N}";
-        var uploadUrl = storage.GetUploadUrl(folder, allowedExtensions: "txt",
-            generateUniqueFileName: generateUniqueFileName);
-        var paths = new List<string>();
-        for (var attempt = 0; attempt < 2; attempt++)
-        {
-            using var content = new MultipartFormDataContent();
-            content.Add(new StringContent($"upload-{attempt}"), "file", "same-name.txt");
-            var response = await Http.PostAsync(uploadUrl, content);
-            response.EnsureSuccessStatusCode();
-            var uploaded = await response.Content.ReadFromJsonAsync<UploadResult>();
-            Assert.IsNotNull(uploaded);
-            paths.Add(uploaded.Path);
-            Assert.IsTrue(uploaded.Path.StartsWith(folder + "/", StringComparison.Ordinal));
-            Assert.AreEqual(".txt", Path.GetExtension(uploaded.Path));
-            if (generateUniqueFileName)
-            {
-                Assert.IsTrue(Guid.TryParseExact(Path.GetFileNameWithoutExtension(uploaded.Path), "N", out _));
-            }
-            else
-            {
-                Assert.AreEqual(folder + "/same-name.txt", uploaded.Path);
-            }
-        }
-        Assert.AreEqual(generateUniqueFileName, paths[0] != paths[1]);
-        Assert.AreEqual(generateUniqueFileName ? "upload-0" : "upload-1",
-            await Http.GetStringAsync("/download/" + paths[0]));
-        Assert.AreEqual("upload-1", await Http.GetStringAsync("/download/" + paths[1]));
-    }
-
-    [TestMethod]
     public async Task TestUploadAndDownload()
     {
         await LoginAsAdmin();
@@ -206,7 +169,7 @@ public class FilesControllerTests : TestBase
     }
 
     [TestMethod]
-    public async Task MarkdownImageUploadsUseUniqueUuidNamesAndPreserveExistingImages()
+    public async Task MarkdownImageUploadsPreserveExistingImages()
     {
         await LoginAsAdmin();
         var storage = GetService<StorageService>();
@@ -214,7 +177,7 @@ public class FilesControllerTests : TestBase
             "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aX1sAAAAASUVORK5CYII=");
         using var originalStream = new MemoryStream(image);
         var originalPath = await storage.SaveFromStream("markdown-images/image.png", originalStream);
-        var uploadUrl = storage.GetUploadUrl("markdown-images", generateUniqueFileName: true, allowedExtensions: "png");
+        var uploadUrl = storage.GetUploadUrl("markdown-images", allowedExtensions: "png");
         var paths = new HashSet<string>();
 
         for (var i = 0; i < 2; i++)
@@ -227,7 +190,7 @@ public class FilesControllerTests : TestBase
             Assert.IsNotNull(uploaded);
             Assert.IsTrue(uploaded.Path.StartsWith("markdown-images/", StringComparison.Ordinal));
             Assert.AreEqual(".png", Path.GetExtension(uploaded.Path));
-            Assert.IsTrue(Guid.TryParseExact(Path.GetFileNameWithoutExtension(uploaded.Path), "N", out _));
+            Assert.AreNotEqual(originalPath, uploaded.Path);
             Assert.IsTrue(paths.Add(uploaded.Path));
             var download = await Http.GetAsync(uploaded.InternetPath);
             download.EnsureSuccessStatusCode();

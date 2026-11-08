@@ -4,7 +4,7 @@
 @{
     var dark = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
 }
-<div id="server-notes" data-upload-url="@Storage.GetUploadUrl("markdown-images", generateUniqueFileName: true)" data-theme="@(dark ? "dark" : "default")">
+<div id="server-notes" data-upload-url="@Storage.GetUploadUrl("markdown-images")" data-theme="@(dark ? "dark" : "default")">
     <label asp-for="NotesMarkdown" class="form-label"></label>
     <p class="text-muted">@Localizer["Describe the server's purpose, business dependencies, configuration decisions and maintenance history."]</p>
     <div class="row g-3">
