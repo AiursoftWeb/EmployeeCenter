@@ -57,8 +57,14 @@
   <data name="Invoice Attachment" xml:space="preserve">
     <value>ไฟล์แนบใบแจ้งหนี้</value>
   </data>
+  <data name="Keep the description short. Add transaction background and reconciliation details here." xml:space="preserve">
+    <value>ให้คำอธิบายสั้นกระชับ เพิ่มข้อมูลบริบทของธุรกรรมและรายละเอียดการกระทบยอดที่นี่</value>
+  </data>
   <data name="MT103 Attachment" xml:space="preserve">
     <value>ไฟล์แนบ MT103</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>หมายเหตุ</value>
   </data>
   <data name="Optional" xml:space="preserve">
     <value>ไม่จำเป็น</value>
