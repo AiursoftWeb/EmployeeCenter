@@ -57,8 +57,14 @@
   <data name="Invoice Attachment" xml:space="preserve">
     <value>Вложение счета-фактуры</value>
   </data>
+  <data name="Keep the description short. Add transaction background and reconciliation details here." xml:space="preserve">
+    <value>Сократите описание. Укажите здесь контекст транзакции и детали сверки.</value>
+  </data>
   <data name="MT103 Attachment" xml:space="preserve">
     <value>Вложение MT103</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Заметки</value>
   </data>
   <data name="Optional" xml:space="preserve">
     <value>Необязательно</value>

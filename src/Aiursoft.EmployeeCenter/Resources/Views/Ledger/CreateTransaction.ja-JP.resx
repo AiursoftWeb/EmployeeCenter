@@ -48,11 +48,17 @@
   <data name="Invoice Attachment" xml:space="preserve">
     <value>請求書添付ファイル</value>
   </data>
+  <data name="Keep the description short. Add transaction background and reconciliation details here." xml:space="preserve">
+    <value>説明は簡潔にしてください。取引の背景や照合の詳細をここに記入してください。</value>
+  </data>
   <data name="MT103 Attachment" xml:space="preserve">
     <value>MT103添付ファイル</value>
   </data>
   <data name="New Transaction" xml:space="preserve">
     <value>新規取引</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>備考</value>
   </data>
   <data name="Optional" xml:space="preserve">
     <value>オプション</value>
