@@ -1,3 +1,4 @@
+using System.Globalization;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -76,7 +77,7 @@ public class PayrollTests
         Assert.AreEqual(HttpStatusCode.Found, loginResponse.StatusCode);
 
         // 2. Create a normal user
-        var uniqueId = Guid.NewGuid().ToString("N").Substring(0, 8);
+        var uniqueId = Guid.NewGuid().ToString("N", CultureInfo.CurrentCulture).Substring(0, 8);
         var userName = $"user-{uniqueId}";
         var email = $"{userName}@aiursoft.com";
         var password = "Test-Password-123";
@@ -207,7 +208,7 @@ public class PayrollTests
         {
             var db = scope.ServiceProvider.GetRequiredService<EmployeeCenterDbContext>();
             var payroll = await db.Payrolls.FirstAsync(p => p.Id == payrollId);
-            Assert.AreEqual("2026-01", payroll.TargetMonth.ToString("yyyy-MM"));
+            Assert.AreEqual("2026-01", payroll.TargetMonth.ToString("yyyy-MM", CultureInfo.InvariantCulture));
             Assert.AreEqual(6000m, payroll.TotalAmount);
             Assert.AreEqual("# January Payroll Updated\nBase: 5000\nBonus: 1000", payroll.Content);
         }

@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Services
 @using Aiursoft.EmployeeCenter.Authorization
 @using Microsoft.AspNetCore.Authorization
@@ -29,8 +30,8 @@
 @foreach (var report in Model)
 {
     <div class="card mb-4 weekly-report-card" 
-         data-create-time="@report.CreateTime.ToString("O")"
-         data-week-start-date="@report.WeekStartDate.ToString("O")">
+         data-create-time="@report.CreateTime.ToString("O", CultureInfo.InvariantCulture)"
+         data-week-start-date="@report.WeekStartDate.ToString("O", CultureInfo.InvariantCulture)">
         <div class="card-header d-flex align-items-center justify-content-between">
             <a asp-controller="WeeklyReport" asp-action="Index" asp-route-userId="@report.UserId" class="d-flex align-items-center text-decoration-none">
                 <img src="@(StorageService.RelativePathToInternetUrl(report.User.AvatarRelativePath) + "?w=100&square=true")" 
@@ -42,7 +43,7 @@
                     <div class="d-flex flex-column">
                         <small class="text-primary fw-semibold">
                             <i class="align-middle me-1" data-lucide="calendar" style="width: 14px; height: 14px;"></i>
-                            @report.WeekStartDate.ToString("yyyy-MM-dd") ~ @report.WeekStartDate.AddDays(6).ToString("yyyy-MM-dd")
+                            @report.WeekStartDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ~ @report.WeekStartDate.AddDays(6).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
                         </small>
                         <small class="text-muted" data-utc-time="@report.CreateTime.ToHtmlDateTime()"></small>
                     </div>

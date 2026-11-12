@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @model Aiursoft.EmployeeCenter.Models.PayrollViewModels.DetailsViewModel
 @inject StorageService StorageService
@@ -5,7 +6,7 @@
 @* ReSharper disable Razor.ResourceNotResolved *@
 <div class="row mb-2 mb-xl-3 d-print-none">
     <div class="col-auto d-none d-sm-block">
-        <h3>@Localizer["Payroll Details"] - @Model.Payroll.TargetMonth.ToString("yyyy-MM")</h3>
+        <h3>@Localizer["Payroll Details"] - @Model.Payroll.TargetMonth.ToString("yyyy-MM", CultureInfo.InvariantCulture)</h3>
     </div>
     <div class="col-auto ms-auto mt-n1">
         <button class="btn btn-primary" onclick="window.print();">
@@ -64,7 +65,7 @@
                             <tr>
                                 <td rowspan="3" class="align-middle fw-bold text-center bg-light">@Localizer["Basic Info"]</td>
                                 <td>@Localizer["Target Month"]</td>
-                                <td class="text-end">@Model.Payroll.TargetMonth.ToString("yyyy-MM")</td>
+                                <td class="text-end">@Model.Payroll.TargetMonth.ToString("yyyy-MM", CultureInfo.InvariantCulture)</td>
                                 <td>@Localizer["Payroll period"]</td>
                             </tr>
                             <tr>
@@ -85,32 +86,32 @@
                             <tr>
                                 <td rowspan="7" class="align-middle fw-bold text-center bg-light">@Localizer["Earnings"]</td>
                                 <td>@Localizer["Base Salary"]</td>
-                                <td class="text-end">@Model.Payroll.BaseSalary.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.BaseSalary.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Job Salary"]</td>
-                                <td class="text-end">@Model.Payroll.JobSalary.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.JobSalary.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Performance Bonus"]</td>
-                                <td class="text-end">@Model.Payroll.PerformanceBonus.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.PerformanceBonus.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Overtime Pay"]</td>
-                                <td class="text-end">@Model.Payroll.Overtime.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.Overtime.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Full Attendance"]</td>
-                                <td class="text-end">@Model.Payroll.FullAttendance.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.FullAttendance.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Other Allowances"]</td>
-                                <td class="text-end">@Model.Payroll.OtherAllowances.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.OtherAllowances.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
                             @{
@@ -119,7 +120,7 @@
                             }
                             <tr class="table-primary fw-bold">
                                 <td>@Localizer["Total Earnings"]</td>
-                                <td class="text-end">@totalEarnings.ToString("N2")</td>
+                                <td class="text-end">@totalEarnings.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td><code>Sum(Earnings)</code></td>
                             </tr>
 
@@ -127,17 +128,17 @@
                             <tr>
                                 <td rowspan="3" class="align-middle fw-bold text-center bg-light">@Localizer["Attendance & Penalties"]</td>
                                 <td>@Localizer["Late / Early Leave"]</td>
-                                <td class="text-end text-danger">@Model.Payroll.LateEarly.ToString("N2")</td>
+                                <td class="text-end text-danger">@Model.Payroll.LateEarly.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Sick / Personal Leave"]</td>
-                                <td class="text-end text-danger">@Model.Payroll.SickLeave.ToString("N2")</td>
+                                <td class="text-end text-danger">@Model.Payroll.SickLeave.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Administrative Fines"]</td>
-                                <td class="text-end text-danger">@Model.Payroll.AdministrativeFines.ToString("N2")</td>
+                                <td class="text-end text-danger">@Model.Payroll.AdministrativeFines.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
 
@@ -145,22 +146,22 @@
                             <tr>
                                 <td rowspan="5" class="align-middle fw-bold text-center bg-light">@Localizer["Insurances (Personal)"]</td>
                                 <td>@Localizer["Pension"]</td>
-                                <td class="text-end text-danger">@Model.Payroll.PensionPersonal.ToString("N2")</td>
+                                <td class="text-end text-danger">@Model.Payroll.PensionPersonal.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>8%</td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Medical"]</td>
-                                <td class="text-end text-danger">@Model.Payroll.MedicalPersonal.ToString("N2")</td>
+                                <td class="text-end text-danger">@Model.Payroll.MedicalPersonal.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>2%</td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Unemployment"]</td>
-                                <td class="text-end text-danger">@Model.Payroll.UnemploymentPersonal.ToString("N2")</td>
+                                <td class="text-end text-danger">@Model.Payroll.UnemploymentPersonal.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>0.5%</td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Housing Fund"]</td>
-                                <td class="text-end text-danger">@Model.Payroll.HousingFundPersonal.ToString("N2")</td>
+                                <td class="text-end text-danger">@Model.Payroll.HousingFundPersonal.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>12%</td>
                             </tr>
                             @{
@@ -169,7 +170,7 @@
                             }
                             <tr class="table-warning fw-bold">
                                 <td>@Localizer["Total Personal Insurances"]</td>
-                                <td class="text-end text-danger">@totalPersonalInsurance.ToString("N2")</td>
+                                <td class="text-end text-danger">@totalPersonalInsurance.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td><code>Sum(Insurances)</code></td>
                             </tr>
 
@@ -177,7 +178,7 @@
                             <tr>
                                 <td rowspan="3" class="align-middle fw-bold text-center bg-light">@Localizer["Tax Information"]</td>
                                 <td>@Localizer["Special Additional Deduction"]</td>
-                                <td class="text-end">@Model.Payroll.SpecialAdditionalDeduction.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.SpecialAdditionalDeduction.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>@Localizer["Tax relief items"]</td>
                             </tr>
                             <tr>
@@ -185,12 +186,12 @@
                                 @{
                                     var taxableIncome = Math.Max(0, totalEarnings - totalPersonalInsurance - 5000 - Model.Payroll.SpecialAdditionalDeduction);
                                 }
-                                <td class="text-end">@taxableIncome.ToString("N2")</td>
+                                <td class="text-end">@taxableIncome.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td><code>Earnings - Insurance - 5000 - Special</code></td>
                             </tr>
                             <tr>
                                 <td>@Localizer["Personal Income Tax"]</td>
-                                <td class="text-end text-danger">@Model.Payroll.PersonalIncomeTax.ToString("N2")</td>
+                                <td class="text-end text-danger">@Model.Payroll.PersonalIncomeTax.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td></td>
                             </tr>
 
@@ -198,7 +199,7 @@
                             <tr class="table-success fw-bold">
                                 <td rowspan="3" class="align-middle fw-bold text-center bg-success text-white">@Localizer["Actual Payment"]</td>
                                 <td>@Localizer["Actual Salary (Net)"]</td>
-                                <td class="text-end text-success fs-4">@Model.Payroll.TotalAmount.ToString("N2")</td>
+                                <td class="text-end text-success fs-4">@Model.Payroll.TotalAmount.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td><code>Earnings + Penalties - Insurance - Tax</code></td>
                             </tr>
                             <tr>
@@ -216,32 +217,32 @@
                             <tr class="d-print-none">
                                 <td rowspan="7" class="align-middle fw-bold text-center bg-light">@Localizer["Company Cost"]</td>
                                 <td>@Localizer["Pension (Company)"]</td>
-                                <td class="text-end">@Model.Payroll.PensionCompany.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.PensionCompany.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>16%</td>
                             </tr>
                             <tr class="d-print-none">
                                 <td>@Localizer["Medical (Company)"]</td>
-                                <td class="text-end">@Model.Payroll.MedicalCompany.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.MedicalCompany.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>9%</td>
                             </tr>
                             <tr class="d-print-none">
                                 <td>@Localizer["Unemployment (Company)"]</td>
-                                <td class="text-end">@Model.Payroll.UnemploymentCompany.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.UnemploymentCompany.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>0.8%</td>
                             </tr>
                             <tr class="d-print-none">
                                 <td>@Localizer["Work Injury (Company)"]</td>
-                                <td class="text-end">@Model.Payroll.WorkInjuryCompany.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.WorkInjuryCompany.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>0.4%</td>
                             </tr>
                             <tr class="d-print-none">
                                 <td>@Localizer["Maternity (Company)"]</td>
-                                <td class="text-end">@Model.Payroll.MaternityCompany.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.MaternityCompany.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>0.8%</td>
                             </tr>
                             <tr class="d-print-none">
                                 <td>@Localizer["Housing Fund (Company)"]</td>
-                                <td class="text-end">@Model.Payroll.HousingFundCompany.ToString("N2")</td>
+                                <td class="text-end">@Model.Payroll.HousingFundCompany.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td>12%</td>
                             </tr>
                             @{
@@ -252,7 +253,7 @@
                             }
                             <tr class="table-info fw-bold d-print-none">
                                 <td>@Localizer["Total Company Cost"]</td>
-                                <td class="text-end">@totalCompanyCost.ToString("N2")</td>
+                                <td class="text-end">@totalCompanyCost.ToString("N2", CultureInfo.CurrentCulture)</td>
                                 <td><code>Earnings + Sum(Company Insurances)</code></td>
                             </tr>
                         </tbody>
@@ -270,11 +271,11 @@
                             <h5 class="alert-heading">@Localizer["How is your salary calculated?"]</h5>
                             <p class="mb-0">
                                 @Localizer["Your actual salary is calculated as:"]<br/>
-                                <strong>@Localizer["Total Earnings"] (@totalEarnings.ToString("N2"))</strong>
-                                <span class="text-danger"> + @Localizer["Deductions"] (@((Model.Payroll.LateEarly + Model.Payroll.SickLeave + Model.Payroll.AdministrativeFines).ToString("N2")))</span>
-                                <span class="text-warning"> - @Localizer["Personal Insurance"] (@totalPersonalInsurance.ToString("N2"))</span>
-                                <span class="text-secondary"> - @Localizer["Income Tax"] (@Model.Payroll.PersonalIncomeTax.ToString("N2"))</span>
-                                = <strong class="text-success">@Model.Payroll.TotalAmount.ToString("N2")</strong>
+                                <strong>@Localizer["Total Earnings"] (@totalEarnings.ToString("N2", CultureInfo.CurrentCulture))</strong>
+                                <span class="text-danger"> + @Localizer["Deductions"] (@((Model.Payroll.LateEarly + Model.Payroll.SickLeave + Model.Payroll.AdministrativeFines).ToString("N2", CultureInfo.CurrentCulture)))</span>
+                                <span class="text-warning"> - @Localizer["Personal Insurance"] (@totalPersonalInsurance.ToString("N2", CultureInfo.CurrentCulture))</span>
+                                <span class="text-secondary"> - @Localizer["Income Tax"] (@Model.Payroll.PersonalIncomeTax.ToString("N2", CultureInfo.CurrentCulture))</span>
+                                = <strong class="text-success">@Model.Payroll.TotalAmount.ToString("N2", CultureInfo.CurrentCulture)</strong>
                             </p>
                         </div>
                     </div>

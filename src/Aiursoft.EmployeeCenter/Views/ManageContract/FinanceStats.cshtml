@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.ContractViewModels.FinanceStatsViewModel
 
 <div class="row mb-2 mb-xl-3">
@@ -28,10 +29,10 @@
             {
                 <tr>
                     <td>@summary.Contract.Name</td>
-                    <td class="@(summary.TotalPendingIncome > 0 ? "text-warning" : "text-muted")">@((summary.TotalPendingIncome / 100.0).ToString("N2")) @summary.Currency</td>
-                    <td class="text-success">@((summary.TotalActualIncome / 100.0).ToString("N2")) @summary.Currency</td>
-                    <td class="@(summary.TotalPendingExpense > 0 ? "text-warning" : "text-muted")">@((summary.TotalPendingExpense / 100.0).ToString("N2")) @summary.Currency</td>
-                    <td class="text-danger">@((summary.TotalActualExpense / 100.0).ToString("N2")) @summary.Currency</td>
+                    <td class="@(summary.TotalPendingIncome > 0 ? "text-warning" : "text-muted")">@((summary.TotalPendingIncome / 100.0).ToString("N2", CultureInfo.CurrentCulture)) @summary.Currency</td>
+                    <td class="text-success">@((summary.TotalActualIncome / 100.0).ToString("N2", CultureInfo.CurrentCulture)) @summary.Currency</td>
+                    <td class="@(summary.TotalPendingExpense > 0 ? "text-warning" : "text-muted")">@((summary.TotalPendingExpense / 100.0).ToString("N2", CultureInfo.CurrentCulture)) @summary.Currency</td>
+                    <td class="text-danger">@((summary.TotalActualExpense / 100.0).ToString("N2", CultureInfo.CurrentCulture)) @summary.Currency</td>
                     <td class="text-end">
                         <a asp-action="Finance" asp-route-id="@summary.Contract.Id" class="btn btn-sm btn-outline-primary">
                             <i class="align-middle" data-lucide="eye"></i> @Localizer["Details"]

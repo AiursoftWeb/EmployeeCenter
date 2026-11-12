@@ -160,7 +160,7 @@ public static partial class DnsAuditAnalyzer
                             .Select(record => NormalizeDomain(record.Content))
                             .Where(target => target.Length > 0)
                             .Distinct(StringComparer.OrdinalIgnoreCase)
-                            .OrderBy(target => target)
+                            .OrderBy(target => target, StringComparer.OrdinalIgnoreCase)
                             .ToList()
                         : [];
                     if (expectedTarget.Length == 0 || actualTargets.Count != 1 ||

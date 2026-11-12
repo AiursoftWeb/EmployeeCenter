@@ -49,7 +49,7 @@ public class ManageOnboardingController(
                     .Count()
             })
             .OrderByDescending(p => p.ProgressPercentage)
-            .ThenBy(p => p.User.DisplayName)
+            .ThenBy(p => p.User.DisplayName, StringComparer.CurrentCulture)
             .ToList();
         }
 

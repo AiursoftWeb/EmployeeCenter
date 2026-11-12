@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Models.CertificateViewModels
 @model Aiursoft.EmployeeCenter.Models.CertificateViewModels.PrintViewModel
 @{
@@ -74,7 +75,7 @@
             {
                 <p>
                     This is to certify that Mr./Ms. <strong>@(user.LegalName ?? user.DisplayName)</strong>,
-                    has been employed by <strong>@displayedCompanyName</strong> since <strong>@user.CreationTime.ToString("MMMM dd, yyyy")</strong>.
+                    has been employed by <strong>@displayedCompanyName</strong> since <strong>@user.CreationTime.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture)</strong>.
                     He/She currently holds the position of <strong>@(user.Title ?? "Employee")</strong>.
                 </p>
                 <p>This certificate is issued at the request of the employee.</p>
@@ -83,9 +84,9 @@
             {
                 <p>
                     This is to certify that Mr./Ms. <strong>@(user.LegalName ?? user.DisplayName)</strong>,
-                    has been employed by <strong>@displayedCompanyName</strong> since <strong>@user.CreationTime.ToString("MMMM dd, yyyy")</strong>.
+                    has been employed by <strong>@displayedCompanyName</strong> since <strong>@user.CreationTime.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture)</strong>.
                     He/She currently holds the position of <strong>@(user.Title ?? "Employee")</strong>.
-                    His/Her monthly salary is <strong>RMB @user.BaseSalary.ToString("N2")</strong>.
+                    His/Her monthly salary is <strong>RMB @user.BaseSalary.ToString("N2", CultureInfo.CurrentCulture)</strong>.
                 </p>
                 <p>This certificate is issued at the request of the employee.</p>
             }
@@ -96,7 +97,7 @@
             {
                 <p>
                     兹证明 <strong>@(user.LegalName ?? user.DisplayName)</strong> 先生/女士，
-                    自 <strong>@user.CreationTime.ToString("yyyy年MM月dd日")</strong> 起至今在我公司任职，
+                    自 <strong>@user.CreationTime.ToString("yyyy年MM月dd日", CultureInfo.InvariantCulture)</strong> 起至今在我公司任职，
                     担任 <strong>@(user.Title ?? "员工")</strong> 一职。
                 </p>
                 <p>特此证明。</p>
@@ -105,8 +106,8 @@
             {
                 <p>
                     兹证明 <strong>@(user.LegalName ?? user.DisplayName)</strong> 先生/女士，
-                    自 <strong>@user.CreationTime.ToString("yyyy年MM月dd日")</strong> 起至今在我公司任职，
-                    担任 <strong>@(user.Title ?? "员工")</strong> 一职。其月薪为人民币 <strong>@user.BaseSalary.ToString("N2")</strong> 元。
+                    自 <strong>@user.CreationTime.ToString("yyyy年MM月dd日", CultureInfo.InvariantCulture)</strong> 起至今在我公司任职，
+                    担任 <strong>@(user.Title ?? "员工")</strong> 一职。其月薪为人民币 <strong>@user.BaseSalary.ToString("N2", CultureInfo.CurrentCulture)</strong> 元。
                 </p>
                 <p>特此证明。</p>
             }
@@ -116,7 +117,7 @@
     <div class="footer">
         <div class="company-name">@displayedCompanyName</div>
         <div class="date">
-            @(isEnglish ? DateTime.Today.ToString("MMMM dd, yyyy") : DateTime.Today.ToString("yyyy年MM月dd日"))
+            @(isEnglish ? DateTime.Today.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture) : DateTime.Today.ToString("yyyy年MM月dd日", CultureInfo.InvariantCulture))
         </div>
     </div>
 

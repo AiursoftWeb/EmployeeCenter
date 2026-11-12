@@ -80,7 +80,7 @@ public class ServicesController(
                 ServerId = group.Key.ServerId
             })
             .OrderByDescending(item => item.Count)
-            .ThenBy(item => item.Name)
+            .ThenBy(item => item.Name, StringComparer.OrdinalIgnoreCase)
             .ToList();
 
         return this.StackView(new ServicesDashboardViewModel
@@ -198,7 +198,7 @@ public class ServicesController(
                 Count = group.Count()
             })
             .OrderByDescending(item => item.Count)
-            .ThenBy(item => item.Name)
+            .ThenBy(item => item.Name, StringComparer.OrdinalIgnoreCase)
             .ToList();
     }
 

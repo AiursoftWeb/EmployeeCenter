@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.InvoiceViewModels.CreateViewModel
 @{ 
     Layout = null;
@@ -297,7 +298,7 @@
             <h1>@(Model.Type == Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt ? "RECEIPT" : "PROFORMA INVOICE")</h1>
             <div class="invoice-meta">
                 <span><strong>@(Model.Type == Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt ? "Receipt No" : "Invoice No"):</strong> @Model.InvoiceNo</span><br>
-                <span><strong>Date:</strong> @Model.Date.ToString("MMMM dd, yyyy")</span><br>
+                <span><strong>Date:</strong> @Model.Date.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture)</span><br>
                 @if (!string.IsNullOrEmpty(Model.ContractNo))
                 {
                     <span><strong>Contract No:</strong> @Model.ContractNo</span>
@@ -351,9 +352,9 @@
                     <td>
                         @Html.Raw(item.Description.Replace("\n", "<br>"))
                     </td>
-                    <td class="qty">@item.Quantity.ToString("N0")</td>
-                    <td class="price">@item.UnitPrice.ToString("N2")</td>
-                    <td class="total">@((item.Quantity * item.UnitPrice).ToString("N2"))</td>
+                    <td class="qty">@item.Quantity.ToString("N0", CultureInfo.CurrentCulture)</td>
+                    <td class="price">@item.UnitPrice.ToString("N2", CultureInfo.CurrentCulture)</td>
+                    <td class="total">@((item.Quantity * item.UnitPrice).ToString("N2", CultureInfo.CurrentCulture))</td>
                 </tr>
             }
         </tbody>
@@ -363,15 +364,15 @@
         <div class="total-box">
             <div class="total-row">
                 <span>Subtotal:</span>
-                <span>@Model.Currency @Model.Subtotal.ToString("N2")</span>
+                <span>@Model.Currency @Model.Subtotal.ToString("N2", CultureInfo.CurrentCulture)</span>
             </div>
             <div class="total-row">
                 <span>Tax:</span>
-                <span>@Model.Currency @Model.Tax.ToString("N2")</span>
+                <span>@Model.Currency @Model.Tax.ToString("N2", CultureInfo.CurrentCulture)</span>
             </div>
             <div class="total-row final">
                 <span>@(Model.Type == Aiursoft.EmployeeCenter.Models.InvoiceViewModels.InvoiceType.Receipt ? "Total Paid" : "Total Due"):</span>
-                <span>@Model.Currency @Model.TotalDue.ToString("N2")</span>
+                <span>@Model.Currency @Model.TotalDue.ToString("N2", CultureInfo.CurrentCulture)</span>
             </div>
         </div>
     </div>

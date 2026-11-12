@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @using Aiursoft.EmployeeCenter.Services
 @model Aiursoft.EmployeeCenter.Models.AssetsViewModels.DetailsViewModel
@@ -80,7 +81,7 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         @Localizer["Purchase Price"]
-                        <span>@(Model.Asset.PurchasePrice?.ToString("C") ?? Localizer["N/A"].Value)</span>
+                        <span>@(Model.Asset.PurchasePrice?.ToString("C", CultureInfo.CurrentCulture) ?? Localizer["N/A"].Value)</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         @Localizer["Vendor"]

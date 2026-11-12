@@ -1,3 +1,4 @@
+using System.Globalization;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.HolidayAdjustmentViewModels;
@@ -42,10 +43,10 @@ public class HolidayAdjustmentController(EmployeeCenterDbContext context, Holida
             .ToListAsync();
 
         var adjustmentMap = adjustments.ToDictionary(
-            a => a.Date.Date.ToString("yyyy-MM-dd"),
+            a => a.Date.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
             a => new { type = a.Type == HolidayType.WorkDay ? "work" : "rest", a.Reason });
 
-        var holidayStrings = holidays.Select(h => h.ToString("yyyy-MM-dd")).ToList();
+        var holidayStrings = holidays.Select(h => h.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)).ToList();
 
         return Json(new { holidays = holidayStrings, adjustments = adjustmentMap });
     }
@@ -74,7 +75,7 @@ public class HolidayAdjustmentController(EmployeeCenterDbContext context, Holida
             var isNaturalHoliday = await holidayService.IsPublicHolidayAsync(targetDate);
             return Json(new
             {
-                date = targetDate.ToString("yyyy-MM-dd"),
+                date = targetDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
                 isNonWorking = isNaturalHoliday,
                 isAdjusted = false,
                 adjustmentType = (string?)null
@@ -98,7 +99,7 @@ public class HolidayAdjustmentController(EmployeeCenterDbContext context, Holida
 
         return Json(new
         {
-            date = targetDate.ToString("yyyy-MM-dd"),
+            date = targetDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
             isNonWorking = newType == HolidayType.RestDay,
             isAdjusted = true,
             adjustmentType = newType == HolidayType.WorkDay ? "work" : "rest"

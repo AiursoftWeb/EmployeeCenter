@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @model Aiursoft.EmployeeCenter.Models.PayrollViewModels.ManageViewModel
 @inject StorageService StorageService
@@ -83,7 +84,7 @@
                                                             <img src="@StorageService.RelativePathToInternetUrl(item.Owner.AvatarRelativePath)?w=72&square=true" alt="@item.Owner.DisplayName" class="rounded-circle" width="36" height="36" />
                                                             <span class="ms-2">@item.Owner.DisplayName</span>
                                                         </a>
-                                                    </td>                    <td>@item.TargetMonth.ToString("yyyy-MM")</td>
+                                                    </td>                    <td>@item.TargetMonth.ToString("yyyy-MM", CultureInfo.InvariantCulture)</td>
                     <td data-order="@item.TotalAmount">
                         @{
                             var culture = item.Currency switch

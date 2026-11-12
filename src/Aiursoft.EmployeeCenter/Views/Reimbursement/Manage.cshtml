@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.ReimbursementViewModels.ManageIndexViewModel
 @{
 }
@@ -47,7 +48,7 @@
                             <tr>
                                 <td>@item.Submitter.DisplayName</td>
                                 <td>@item.Purpose</td>
-                                <td>@item.Amount.ToString("N2") @item.Currency</td>
+                                <td>@item.Amount.ToString("N2", CultureInfo.CurrentCulture) @item.Currency</td>
 								<td>
 									@if (item.InvoicePath is not null)
 									{
@@ -101,7 +102,7 @@
                             <tr>
                                 <td>@item.Submitter.DisplayName</td>
                                 <td>@item.Purpose</td>
-                                <td>@item.Amount.ToString("N2") @item.Currency</td>
+                                <td>@item.Amount.ToString("N2", CultureInfo.CurrentCulture) @item.Currency</td>
                                 <td><span data-utc-time="@item.ReviewedAt?.ToHtmlDateTime()"></span></td>
                                 <td>
                                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-azure btn-sm">
@@ -138,7 +139,7 @@
                             <tr>
                                 <td>@item.Submitter.DisplayName</td>
                                 <td>@item.Purpose</td>
-                                <td>@item.Amount.ToString("N2") @item.Currency</td>
+                                <td>@item.Amount.ToString("N2", CultureInfo.CurrentCulture) @item.Currency</td>
                                 <td>
                                     @switch (item.Status)
                                     {

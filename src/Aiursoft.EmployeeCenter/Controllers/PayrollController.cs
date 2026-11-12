@@ -1,3 +1,4 @@
+using System.Globalization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.PayrollViewModels;
 using Aiursoft.EmployeeCenter.Services;
@@ -44,7 +45,7 @@ public class PayrollController(
         return this.StackView(new IndexViewModel
         {
             Payrolls = payrolls,
-            ChartLabels = chartData.Select(p => p.TargetMonth.ToString("yyyy-MM")).ToList(),
+            ChartLabels = chartData.Select(p => p.TargetMonth.ToString("yyyy-MM", CultureInfo.InvariantCulture)).ToList(),
             ChartTotalAmounts = chartData.Select(p => p.TotalAmount).ToList(),
             ChartBaseSalaries = chartData.Select(p => p.BaseSalary).ToList(),
             ChartCurrencies = chartData.Select(p => p.Currency).ToList()

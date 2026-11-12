@@ -18,7 +18,7 @@ public partial class ViewStyleConstraintTests
                     return TextDarkClassRegex().IsMatch(classes) && !BadgeClassRegex().IsMatch(classes);
                 }))
             .Select(file => Path.GetRelativePath(repositoryRoot, file))
-            .OrderBy(file => file)
+            .OrderBy(file => file, StringComparer.Ordinal)
             .ToArray();
 
         Assert.AreEqual(

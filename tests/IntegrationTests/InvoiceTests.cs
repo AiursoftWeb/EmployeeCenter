@@ -1,3 +1,4 @@
+using System.Globalization;
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
 [TestClass]
@@ -65,7 +66,7 @@ public class InvoiceTests : TestBase
             { "BuyerName", "Buyer Entity" },
             { "BuyerAddress", "Buyer Address" },
             { "InvoiceNo", "INV-TEST-01" },
-            { "Date", DateTime.Today.ToString("yyyy-MM-dd") },
+            { "Date", DateTime.Today.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
             { "Currency", "HKD" },
             { "BankName", "Seller Bank" },
             { "BankAccount", "123456" },
@@ -94,7 +95,7 @@ public class InvoiceTests : TestBase
             { "BuyerAddress", "Buyer Address" },
             { "InvoiceNo", "PRO-TEST-01" },
             { "Type", "1" }, // InvoiceType.Proforma
-            { "Date", DateTime.Today.ToString("yyyy-MM-dd") },
+            { "Date", DateTime.Today.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
             { "Currency", "HKD" },
             { "BankName", "Seller Bank" },
             { "BankAccount", "123456" },

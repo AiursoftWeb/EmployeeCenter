@@ -1,3 +1,4 @@
+using System.Globalization;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.AssetsViewModels;
@@ -224,10 +225,10 @@ public class AssetsController(
             if (asset.Status != model.Status) await LogHistory(asset.Id, "UPDATE", "Status", asset.Status.ToString(), userId, "Updated status.");
             if (asset.LocationId != model.LocationId) await LogHistory(asset.Id, "UPDATE", "LocationId", asset.LocationId?.ToString(), userId, "Updated location.");
             if (asset.CompanyEntityId != model.CompanyEntityId) await LogHistory(asset.Id, "UPDATE", "CompanyEntityId", asset.CompanyEntityId?.ToString(), userId, "Updated company entity.");
-            if (asset.PurchaseDate != model.PurchaseDate) await LogHistory(asset.Id, "UPDATE", "PurchaseDate", asset.PurchaseDate?.ToString(), userId, "Updated purchase date.");
-            if (asset.PurchasePrice != model.PurchasePrice) await LogHistory(asset.Id, "UPDATE", "PurchasePrice", asset.PurchasePrice?.ToString(), userId, "Updated purchase price.");
+            if (asset.PurchaseDate != model.PurchaseDate) await LogHistory(asset.Id, "UPDATE", "PurchaseDate", asset.PurchaseDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture), userId, "Updated purchase date.");
+            if (asset.PurchasePrice != model.PurchasePrice) await LogHistory(asset.Id, "UPDATE", "PurchasePrice", asset.PurchasePrice?.ToString(CultureInfo.InvariantCulture), userId, "Updated purchase price.");
             if (asset.VendorId != model.VendorId) await LogHistory(asset.Id, "UPDATE", "VendorId", asset.VendorId?.ToString(), userId, "Updated vendor.");
-            if (asset.WarrantyExpireDate != model.WarrantyExpireDate) await LogHistory(asset.Id, "UPDATE", "WarrantyExpireDate", asset.WarrantyExpireDate?.ToString(), userId, "Updated warranty expire date.");
+            if (asset.WarrantyExpireDate != model.WarrantyExpireDate) await LogHistory(asset.Id, "UPDATE", "WarrantyExpireDate", asset.WarrantyExpireDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture), userId, "Updated warranty expire date.");
             if (asset.InvoiceFileUrl != model.InvoiceFileUrl) await LogHistory(asset.Id, "UPDATE", "InvoiceFileUrl", asset.InvoiceFileUrl, userId, "Updated invoice file.");
             if (asset.IsReimbursed != model.IsReimbursed) await LogHistory(asset.Id, "UPDATE", "IsReimbursed", asset.IsReimbursed.ToString(), userId, "Updated reimbursement status.");
             if (asset.AssigneeId != model.AssigneeId) await LogHistory(asset.Id, "UPDATE", "AssigneeId", asset.AssigneeId, userId, "Updated assignee.");
@@ -352,10 +353,10 @@ public class AssetsController(
             "AssigneeId" => asset?.AssigneeId,
             "LocationId" => asset?.LocationId?.ToString(),
             "CompanyEntityId" => asset?.CompanyEntityId?.ToString(),
-            "PurchaseDate" => asset?.PurchaseDate?.ToString(),
-            "PurchasePrice" => asset?.PurchasePrice?.ToString(),
+            "PurchaseDate" => asset?.PurchaseDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+            "PurchasePrice" => asset?.PurchasePrice?.ToString(CultureInfo.InvariantCulture),
             "VendorId" => asset?.VendorId?.ToString(),
-            "WarrantyExpireDate" => asset?.WarrantyExpireDate?.ToString(),
+            "WarrantyExpireDate" => asset?.WarrantyExpireDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
             "InvoiceFileUrl" => asset?.InvoiceFileUrl,
             "IsReimbursed" => asset?.IsReimbursed.ToString(),
             _ => null

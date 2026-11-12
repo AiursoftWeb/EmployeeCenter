@@ -250,7 +250,7 @@ public sealed class DomainAliasesController(
             .Select(issue => DnsAuditAnalyzer.NormalizeDomain(issue.Domain))
             .Where(domain => domain.Length > 0 && !registeredDomains.Contains(domain))
             .Distinct(StringComparer.OrdinalIgnoreCase)
-            .OrderBy(domain => domain)
+            .OrderBy(domain => domain, StringComparer.OrdinalIgnoreCase)
             .ToList() ?? [];
     }
 

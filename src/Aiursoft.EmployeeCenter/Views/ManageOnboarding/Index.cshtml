@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Services.FileStorage
 @model Aiursoft.EmployeeCenter.Models.ManageOnboardingViewModels.IndexViewModel
 @inject StorageService StorageService
@@ -95,9 +96,9 @@
                                     </td>
                                     <td class="align-middle">
                                         <div class="progress" style="height: 10px;">
-                                            <div class="progress-bar @(progress.ProgressPercentage >= 100 ? "bg-success" : "")" role="progressbar" style="width: @progress.ProgressPercentage.ToString("F0")%;" aria-valuenow="@progress.ProgressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar @(progress.ProgressPercentage >= 100 ? "bg-success" : "")" role="progressbar" style="width: @progress.ProgressPercentage.ToString("F0", CultureInfo.CurrentCulture)%;" aria-valuenow="@progress.ProgressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <small class="text-muted">@progress.ProgressPercentage.ToString("F1")%</small>
+                                        <small class="text-muted">@progress.ProgressPercentage.ToString("F1", CultureInfo.CurrentCulture)%</small>
                                     </td>
                                     <td class="text-end">
                                         @progress.CompletedTasksCount / @progress.TotalTasksCount

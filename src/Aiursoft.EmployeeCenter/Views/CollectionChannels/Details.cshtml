@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.CollectionChannelsViewModels.DetailsViewModel
 
 <div class="row mb-2 mb-xl-3">
@@ -35,7 +36,7 @@
                     </tr>
                     <tr>
                         <th>@Localizer["Reference Amount"]</th>
-                        <td>@((Model.Channel.ReferenceAmount / 100.0).ToString("N2")) @Model.Channel.Currency</td>
+                        <td>@((Model.Channel.ReferenceAmount / 100.0).ToString("N2", CultureInfo.CurrentCulture)) @Model.Channel.Currency</td>
                     </tr>
                     <tr>
                         <th>@Localizer["Payment Method"]</th>
@@ -122,8 +123,8 @@
                         <tr>
                             <td>@record.DueDate.ToShortDateString()</td>
                             <td>@(record.Remark ?? Localizer["N/A"].Value)</td>
-                            <td>@((record.ExpectedAmount / 100.0).ToString("N2")) @Model.Channel.Currency</td>
-                            <td>@((record.ActualAmount / 100.0).ToString("N2")) @Model.Channel.Currency</td>
+                            <td>@((record.ExpectedAmount / 100.0).ToString("N2", CultureInfo.CurrentCulture)) @Model.Channel.Currency</td>
+                            <td>@((record.ActualAmount / 100.0).ToString("N2", CultureInfo.CurrentCulture)) @Model.Channel.Currency</td>
                             <td>@(record.PaidDate?.ToShortDateString() ?? Localizer["N/A"].Value)</td>
                             <td>
                                 @switch (record.Status)
