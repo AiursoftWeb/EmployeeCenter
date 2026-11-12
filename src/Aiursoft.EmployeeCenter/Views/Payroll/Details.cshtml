@@ -43,7 +43,7 @@
                                     _ => "en-US"
                                 };
                             }
-                            @Model.Payroll.TotalAmount.ToString("C", System.Globalization.CultureInfo.GetCultureInfo(culture))
+                            @Model.Payroll.TotalAmount.ToString("C", CultureInfo.GetCultureInfo(culture))
                         </div>
                         <p class="text-muted mb-0">@Localizer["Actual Salary (Net)"] (@Model.Payroll.Currency)</p>
                     </div>

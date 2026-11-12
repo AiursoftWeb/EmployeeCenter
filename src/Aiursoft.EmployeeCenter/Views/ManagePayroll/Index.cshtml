@@ -95,7 +95,7 @@
                                 _ => "en-US"
                             };
                         }
-                        @item.TotalAmount.ToString("C", System.Globalization.CultureInfo.GetCultureInfo(culture))
+                        @item.TotalAmount.ToString("C", CultureInfo.GetCultureInfo(culture))
                     </td>
                     <td data-order="@item.CreationTime.Ticks">
                         <label class="text-muted" data-utc-time="@item.CreationTime.ToHtmlDateTime()"></label>

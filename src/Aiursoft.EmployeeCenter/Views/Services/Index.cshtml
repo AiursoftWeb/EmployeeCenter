@@ -257,19 +257,19 @@
             <div class="row g-4">
                 <div class="col-12 col-md-6">
                     <div class="d-flex justify-content-between mb-2"><span>@Localizer["Server assignment"]</span><strong>@Model.AssignmentPercentage.ToString("0.#", CultureInfo.CurrentCulture)%</strong></div>
-                    <div class="progress service-quality-progress"><div class="progress-bar bg-primary" style="width: @Model.AssignmentPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-primary" style="width: @Model.AssignmentPercentage.ToString("0.0", CultureInfo.InvariantCulture)%"></div></div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="d-flex justify-content-between mb-2"><span>@Localizer["DNS provider registration"]</span><strong>@Model.DnsProviderPercentage.ToString("0.#", CultureInfo.CurrentCulture)%</strong></div>
-                    <div class="progress service-quality-progress"><div class="progress-bar bg-info" style="width: @Model.DnsProviderPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-info" style="width: @Model.DnsProviderPercentage.ToString("0.0", CultureInfo.InvariantCulture)%"></div></div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="d-flex justify-content-between mb-2"><span>@Localizer["Authentik integration"]</span><strong>@Model.AuthentikPercentage.ToString("0.#", CultureInfo.CurrentCulture)%</strong></div>
-                    <div class="progress service-quality-progress"><div class="progress-bar bg-success" style="width: @Model.AuthentikPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-success" style="width: @Model.AuthentikPercentage.ToString("0.0", CultureInfo.InvariantCulture)%"></div></div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="d-flex justify-content-between mb-2"><span>@Localizer["Self-developed services"]</span><strong>@Model.SelfDevelopedPercentage.ToString("0.#", CultureInfo.CurrentCulture)%</strong></div>
-                    <div class="progress service-quality-progress"><div class="progress-bar bg-warning" style="width: @Model.SelfDevelopedPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-warning" style="width: @Model.SelfDevelopedPercentage.ToString("0.0", CultureInfo.InvariantCulture)%"></div></div>
                 </div>
             </div>
         </div>
