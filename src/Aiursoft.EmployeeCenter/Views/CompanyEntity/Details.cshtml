@@ -44,11 +44,11 @@
     fullBuilder.AppendLine($"{Localizer["Company Type"].Value}: {Model.Entity.CompanyType}");
     if (Model.Entity.EstablishmentDate.HasValue)
     {
-        fullBuilder.AppendLine($"{Localizer["Establishment"].Value}: {Model.Entity.EstablishmentDate.Value:yyyy-MM-dd}");
+        fullBuilder.AppendLine(FormattableString.Invariant($"{Localizer["Establishment"].Value}: {Model.Entity.EstablishmentDate.Value:yyyy-MM-dd}"));
     }
     if (Model.Entity.ExpiryDate.HasValue)
     {
-        fullBuilder.AppendLine($"{Localizer["Expiry Date"].Value}: {Model.Entity.ExpiryDate.Value:yyyy-MM-dd}");
+        fullBuilder.AppendLine(FormattableString.Invariant($"{Localizer["Expiry Date"].Value}: {Model.Entity.ExpiryDate.Value:yyyy-MM-dd}"));
     }
     fullBuilder.AppendLine($"{Localizer["Bank Name"].Value}: {Model.Entity.BankName}");
     fullBuilder.AppendLine($"{Localizer["Bank Account"].Value}: {Model.Entity.BankAccount}");
