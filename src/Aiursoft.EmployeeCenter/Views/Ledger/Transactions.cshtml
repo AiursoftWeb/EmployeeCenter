@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.LedgerViewModels.TransactionsViewModel
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
 @{
@@ -52,12 +53,12 @@
                                 <td>@t.SourceAccount?.AccountName</td>
                                 <td>@t.DestinationAccount?.AccountName</td>
                                 <td>
-                                    @t.Amount.ToString("N2") @t.SourceAccount?.Currency
+                                    @t.Amount.ToString("N2", CultureInfo.CurrentCulture) @t.SourceAccount?.Currency
                                     @if (t.ExchangeRate != 1)
                                     {
                                         <br />
                                         <small class="text-muted">
-                                            (@((t.Amount * t.ExchangeRate).ToString("N2")) @t.DestinationAccount?.Currency)
+                                            (@((t.Amount * t.ExchangeRate).ToString("N2", CultureInfo.CurrentCulture)) @t.DestinationAccount?.Currency)
                                         </small>
                                     }
                                 </td>

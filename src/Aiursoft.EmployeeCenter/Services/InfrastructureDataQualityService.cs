@@ -99,9 +99,9 @@ public sealed class InfrastructureDataQualityService(EmployeeCenterDbContext con
 
         return issues
             .OrderByDescending(issue => SeverityOrder(issue.Severity))
-            .ThenBy(issue => issue.ResourceType)
+            .ThenBy(issue => issue.ResourceType, StringComparer.Ordinal)
             .ThenBy(issue => issue.ResourceId)
-            .ThenBy(issue => issue.Code)
+            .ThenBy(issue => issue.Code, StringComparer.Ordinal)
             .ToList();
     }
 

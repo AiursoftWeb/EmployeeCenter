@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Authorization
 @model Aiursoft.EmployeeCenter.Models.ServicesViewModels.ServicesDashboardViewModel
 @inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
@@ -53,7 +54,7 @@
                             }
                             else if (Model.OperationalPercentage.HasValue)
                             {
-                                <div class="display-5 fw-bold">@Model.OperationalPercentage.Value.ToString("0.#")%</div>
+                                <div class="display-5 fw-bold">@Model.OperationalPercentage.Value.ToString("0.#", CultureInfo.CurrentCulture)%</div>
                                 <div class="small text-uppercase opacity-75">@Localizer["Operational"]</div>
                             }
                             else
@@ -99,7 +100,7 @@
                             else if (Model.OperationalPercentage.HasValue)
                             {
                                 var blockingFindings = Model.DnsAuditCriticalCount.GetValueOrDefault() + Model.DnsAuditErrorCount.GetValueOrDefault() + Model.DnsAuditWarningCount.GetValueOrDefault();
-                                <h3 class="mb-2">@Model.OperationalPercentage.Value.ToString("0.#")%</h3>
+                                <h3 class="mb-2">@Model.OperationalPercentage.Value.ToString("0.#", CultureInfo.CurrentCulture)%</h3>
                                 <p class="mb-2">@Localizer["Service Audit Health"]</p>
                                 <span class="badge @(blockingFindings == 0 ? "badge-subtle-success" : "badge-subtle-warning") me-2">@Model.OperationalHealthySubjectCount/@Model.OperationalSubjectCount @Localizer["healthy subjects"]</span>
                                 <span class="text-muted">@blockingFindings @Localizer["blocking findings"]</span>
@@ -255,20 +256,20 @@
         <div class="card-body">
             <div class="row g-4">
                 <div class="col-12 col-md-6">
-                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Server assignment"]</span><strong>@Model.AssignmentPercentage.ToString("0.#")%</strong></div>
-                    <div class="progress service-quality-progress"><div class="progress-bar bg-primary" style="width: @Model.AssignmentPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Server assignment"]</span><strong>@Model.AssignmentPercentage.ToString("0.#", CultureInfo.CurrentCulture)%</strong></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-primary" style="width: @Model.AssignmentPercentage.ToString("0.0", CultureInfo.InvariantCulture)%"></div></div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["DNS provider registration"]</span><strong>@Model.DnsProviderPercentage.ToString("0.#")%</strong></div>
-                    <div class="progress service-quality-progress"><div class="progress-bar bg-info" style="width: @Model.DnsProviderPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["DNS provider registration"]</span><strong>@Model.DnsProviderPercentage.ToString("0.#", CultureInfo.CurrentCulture)%</strong></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-info" style="width: @Model.DnsProviderPercentage.ToString("0.0", CultureInfo.InvariantCulture)%"></div></div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Authentik integration"]</span><strong>@Model.AuthentikPercentage.ToString("0.#")%</strong></div>
-                    <div class="progress service-quality-progress"><div class="progress-bar bg-success" style="width: @Model.AuthentikPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Authentik integration"]</span><strong>@Model.AuthentikPercentage.ToString("0.#", CultureInfo.CurrentCulture)%</strong></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-success" style="width: @Model.AuthentikPercentage.ToString("0.0", CultureInfo.InvariantCulture)%"></div></div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Self-developed services"]</span><strong>@Model.SelfDevelopedPercentage.ToString("0.#")%</strong></div>
-                    <div class="progress service-quality-progress"><div class="progress-bar bg-warning" style="width: @Model.SelfDevelopedPercentage.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)%"></div></div>
+                    <div class="d-flex justify-content-between mb-2"><span>@Localizer["Self-developed services"]</span><strong>@Model.SelfDevelopedPercentage.ToString("0.#", CultureInfo.CurrentCulture)%</strong></div>
+                    <div class="progress service-quality-progress"><div class="progress-bar bg-warning" style="width: @Model.SelfDevelopedPercentage.ToString("0.0", CultureInfo.InvariantCulture)%"></div></div>
                 </div>
             </div>
         </div>

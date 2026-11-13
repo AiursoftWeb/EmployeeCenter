@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Services
 @model Aiursoft.EmployeeCenter.Models.AssetsViewModels.EditAssetViewModel
 
@@ -128,7 +129,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label asp-for="PurchaseDate" class="form-label"></label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
-                            <input asp-for="PurchaseDate" class="form-control" type="date" value="@(Model.PurchaseDate?.ToString("yyyy-MM-dd"))" />
+                            <input asp-for="PurchaseDate" class="form-control" type="date" value="@(Model.PurchaseDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))" />
                             <span asp-validation-for="PurchaseDate" class="text-danger"></span>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -163,7 +164,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label asp-for="WarrantyExpireDate" class="form-label"></label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
-                            <input asp-for="WarrantyExpireDate" class="form-control" type="date" value="@(Model.WarrantyExpireDate?.ToString("yyyy-MM-dd"))" />
+                            <input asp-for="WarrantyExpireDate" class="form-control" type="date" value="@(Model.WarrantyExpireDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))" />
                             <span asp-validation-for="WarrantyExpireDate" class="text-danger"></span>
                         </div>
                     </div>

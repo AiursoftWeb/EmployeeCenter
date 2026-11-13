@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.PayrollViewModels.EditViewModel
 
 @* ReSharper disable Razor.ResourceNotResolved *@
@@ -23,7 +24,7 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label asp-for="TargetMonth" class="form-label">@Localizer["Target Month"]</label> <span class="badge bg-info">@Localizer["事件记录时间是协调世界时！"]</span>
-                            <input asp-for="TargetMonth" class="form-control" type="month" value="@Model.TargetMonth.ToString("yyyy-MM")" />
+                            <input asp-for="TargetMonth" class="form-control" type="month" value="@Model.TargetMonth.ToString("yyyy-MM", CultureInfo.InvariantCulture)" />
                             <span asp-validation-for="TargetMonth" class="text-danger"></span>
                         </div>
                         <div class="col-md-3 mb-3">

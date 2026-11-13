@@ -1,3 +1,4 @@
+using System.Globalization;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.LeaveViewModels;
@@ -222,7 +223,7 @@ public class LeaveController(
     public async Task<IActionResult> GetHolidays(DateTime start, DateTime end)
     {
         var holidays = await holidayService.GetPublicHolidaysInRangeAsync(start, end);
-        var holidayStrings = holidays.Select(h => h.ToString("yyyy-MM-dd")).ToList();
+        var holidayStrings = holidays.Select(h => h.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)).ToList();
         return Json(new { holidays = holidayStrings });
     }
     /// <summary>

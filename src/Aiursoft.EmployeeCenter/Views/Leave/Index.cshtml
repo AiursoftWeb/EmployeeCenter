@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.LeaveViewModels.IndexViewModel
 
 <div class="row mb-2 mb-xl-3">
@@ -20,16 +21,16 @@
                 <div class="row d-flex align-items-center mb-3">
                     <div class="col-8">
                         <h3 class="d-flex align-items-center mb-0 fw-light">
-                            @Model.RemainingAnnualLeave.ToString("0.##")
+                            @Model.RemainingAnnualLeave.ToString("0.##", CultureInfo.CurrentCulture)
                         </h3>
-                        <small class="text-muted">@Localizer["of"] @Model.AnnualLeaveAllocation.ToString("0.##") @Localizer["days"]</small>
+                        <small class="text-muted">@Localizer["of"] @Model.AnnualLeaveAllocation.ToString("0.##", CultureInfo.CurrentCulture) @Localizer["days"]</small>
                     </div>
                     <div class="col-4 text-end">
-                        <span class="text-muted">@(Model.AnnualLeaveAllocation > 0 ? ((Model.RemainingAnnualLeave / Model.AnnualLeaveAllocation) * 100).ToString("0") : "0")%</span>
+                        <span class="text-muted">@(Model.AnnualLeaveAllocation > 0 ? ((Model.RemainingAnnualLeave / Model.AnnualLeaveAllocation) * 100).ToString("0", CultureInfo.CurrentCulture) : "0")%</span>
                     </div>
                 </div>
                 <div class="progress progress-sm shadow-sm mb-1">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: @(Model.AnnualLeaveAllocation > 0 ? ((Model.RemainingAnnualLeave / Model.AnnualLeaveAllocation) * 100).ToString("0") : "0")%"></div>
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: @(Model.AnnualLeaveAllocation > 0 ? ((Model.RemainingAnnualLeave / Model.AnnualLeaveAllocation) * 100).ToString("0", CultureInfo.CurrentCulture) : "0")%"></div>
                 </div>
             </div>
         </div>
@@ -43,16 +44,16 @@
                 <div class="row d-flex align-items-center mb-3">
                     <div class="col-8">
                         <h3 class="d-flex align-items-center mb-0 fw-light">
-                            @Model.RemainingSickLeave.ToString("0.##")
+                            @Model.RemainingSickLeave.ToString("0.##", CultureInfo.CurrentCulture)
                         </h3>
-                        <small class="text-muted">@Localizer["of"] @Model.SickLeaveAllocation.ToString("0.##") @Localizer["days"]</small>
+                        <small class="text-muted">@Localizer["of"] @Model.SickLeaveAllocation.ToString("0.##", CultureInfo.CurrentCulture) @Localizer["days"]</small>
                     </div>
                     <div class="col-4 text-end">
-                        <span class="text-muted">@(Model.SickLeaveAllocation > 0 ? ((Model.RemainingSickLeave / Model.SickLeaveAllocation) * 100).ToString("0") : "0")%</span>
+                        <span class="text-muted">@(Model.SickLeaveAllocation > 0 ? ((Model.RemainingSickLeave / Model.SickLeaveAllocation) * 100).ToString("0", CultureInfo.CurrentCulture) : "0")%</span>
                     </div>
                 </div>
                 <div class="progress progress-sm shadow-sm mb-1">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: @(Model.SickLeaveAllocation > 0 ? ((Model.RemainingSickLeave / Model.SickLeaveAllocation) * 100).ToString("0") : "0")%"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: @(Model.SickLeaveAllocation > 0 ? ((Model.RemainingSickLeave / Model.SickLeaveAllocation) * 100).ToString("0", CultureInfo.CurrentCulture) : "0")%"></div>
                 </div>
             </div>
         </div>
@@ -125,10 +126,10 @@
                             @Localizer["Annual Leave"]
                         </h6>
                         <ul class="mb-4">
-                            <li>@string.Format(Localizer["{0} days paid annual leave per year"].Value, Model.AnnualLeavePerYearPolicy.ToString("0.##"))</li>
+                            <li>@string.Format(Localizer["{0} days paid annual leave per year"].Value, Model.AnnualLeavePerYearPolicy.ToString("0.##", CultureInfo.CurrentCulture))</li>
                             <li>@Localizer["Requires manager approval before use"]</li>
                             <li>@Localizer["Unused days carry over to next year"]</li>
-                            <li>@string.Format(Localizer["Maximum carryover: {0} days (expires after 1 year)"].Value, Model.AnnualLeavePerYearPolicy.ToString("0.##"))</li>
+                            <li>@string.Format(Localizer["Maximum carryover: {0} days (expires after 1 year)"].Value, Model.AnnualLeavePerYearPolicy.ToString("0.##", CultureInfo.CurrentCulture))</li>
                         </ul>
                     </div>
                     <div class="col-md-6">
@@ -215,7 +216,7 @@
                                         }
                                         <small class="text-muted">@Localizer["Submitted"] <label class="text-muted" data-utc-time="@item.SubmittedAt.ToHtmlDateTime()"></label></small>
                                     </td>
-                                    <td>@item.TotalDays.ToString("0.##")</td>
+                                    <td>@item.TotalDays.ToString("0.##", CultureInfo.CurrentCulture)</td>
                                     <td>
                                         @if (item.IsWithdrawn)
                                         {
@@ -328,7 +329,7 @@
                 <div class="list-group-item">
                     <div class="row">
                         <strong class="col-6">@Localizer["Annual Leave"]</strong>
-                        <div class="col-6 text-end">@Model.RemainingAnnualLeave.ToString("0.##") @Localizer["days"]</div>
+                        <div class="col-6 text-end">@Model.RemainingAnnualLeave.ToString("0.##", CultureInfo.CurrentCulture) @Localizer["days"]</div>
                     </div>
                 </div>
                 @if (Model.CarriedOverAnnualLeave > 0)
@@ -336,14 +337,14 @@
                     <div class="list-group-item">
                         <div class="row">
                             <strong class="col-6">@Localizer["Carried Over"]</strong>
-                            <div class="col-6 text-end">@Model.CarriedOverAnnualLeave.ToString("0.##") @Localizer["days"]</div>
+                            <div class="col-6 text-end">@Model.CarriedOverAnnualLeave.ToString("0.##", CultureInfo.CurrentCulture) @Localizer["days"]</div>
                         </div>
                     </div>
                 }
                 <div class="list-group-item">
                     <div class="row">
                         <strong class="col-6">@Localizer["Sick Leave"]</strong>
-                        <div class="col-6 text-end">@Model.RemainingSickLeave.ToString("0.##") @Localizer["days"]</div>
+                        <div class="col-6 text-end">@Model.RemainingSickLeave.ToString("0.##", CultureInfo.CurrentCulture) @Localizer["days"]</div>
                     </div>
                 </div>
                 <div class="list-group-item">

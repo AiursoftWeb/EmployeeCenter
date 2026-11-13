@@ -1,10 +1,11 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.PasswordsViewModels.ManageSharesViewModel
 @inject Aiursoft.EmployeeCenter.Services.FileStorage.StorageService StorageService
 
 @{
     string DescribeRecipients(IEnumerable<string> recipients, bool roles)
     {
-        var names = recipients.OrderBy(name => name).ToList();
+        var names = recipients.OrderBy(name => name, StringComparer.CurrentCulture).ToList();
         if (names.Count == 0) return string.Empty;
         if (names[0].Length > 40)
         {
@@ -112,7 +113,7 @@
                                         {
                                             @Localizer["Role"]
                                         }
-                                        <span class="d-none d-md-inline"><span aria-hidden="true"> · </span><span data-utc-time="@share.CreationTime.ToString("o")"></span></span>
+                                        <span class="d-none d-md-inline"><span aria-hidden="true"> · </span><span data-utc-time="@share.CreationTime.ToString("o", CultureInfo.InvariantCulture)"></span></span>
                                     </div>
                                 </div>
                             </div>

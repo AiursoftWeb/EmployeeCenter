@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.WeeklyReportViewModels.IndexViewModel
 
 <div class="container-fluid p-0">
@@ -54,7 +55,7 @@
                                 <select name="weekStartDate" class="form-select">
                                     @foreach (var week in Model.AvailableWeeks.OrderByDescending(w => w.Key))
                                     {
-                                        <option value="@week.Key.ToString("yyyy-MM-dd")">@week.Value</option>
+                                        <option value="@week.Key.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)">@week.Value</option>
                                     }
                                 </select>
                             </div>

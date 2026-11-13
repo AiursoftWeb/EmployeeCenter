@@ -1,3 +1,4 @@
+using System.Globalization;
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
 [TestClass]
@@ -97,8 +98,8 @@ public class LeaveConflictTests
         var applyContent1 = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "LeaveType", "AnnualLeave" },
-            { "StartDate", startDate1.ToString("yyyy-MM-dd") },
-            { "EndDate", endDate1.ToString("yyyy-MM-dd") },
+            { "StartDate", startDate1.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
+            { "EndDate", endDate1.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
             { "Reason", "First Vacation" },
             { "__RequestVerificationToken", applyToken }
         });
@@ -113,8 +114,8 @@ public class LeaveConflictTests
         var applyContent2 = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "LeaveType", "AnnualLeave" },
-            { "StartDate", startDate2.ToString("yyyy-MM-dd") },
-            { "EndDate", endDate2.ToString("yyyy-MM-dd") },
+            { "StartDate", startDate2.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
+            { "EndDate", endDate2.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
             { "Reason", "Overlapping Vacation" },
             { "__RequestVerificationToken", applyToken }
         });

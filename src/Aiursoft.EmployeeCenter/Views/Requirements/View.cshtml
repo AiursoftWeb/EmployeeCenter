@@ -146,7 +146,7 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            var isDarkMode = @(isDarkMode.ToString().ToLower());
+            var isDarkMode = @(isDarkMode.ToString().ToLowerInvariant());
             var contentEl = document.getElementById('markdown-preview');
             if (!contentEl) return;
 

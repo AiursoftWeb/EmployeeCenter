@@ -1,3 +1,4 @@
+using System.Globalization;
 
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Configuration;
@@ -156,7 +157,7 @@ public class WeeklyReportTests
         var now = DateTime.UtcNow;
         var offset = (int)now.DayOfWeek;
         var thisWeekStart = now.AddDays(-offset).Date;
-        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd");
+        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
         var createToken = await GetAntiCsrfToken("/WeeklyReport/Index");
         var createContent = new FormUrlEncodedContent(new Dictionary<string, string>
@@ -201,7 +202,7 @@ public class WeeklyReportTests
 
         // 6. Submit for Past Week
         var pastWeekStart = thisWeekStart.AddDays(-7);
-        var pastWeekStr = pastWeekStart.ToString("yyyy-MM-dd");
+        var pastWeekStr = pastWeekStart.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
         createContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
@@ -302,7 +303,7 @@ public class WeeklyReportTests
         var now = DateTime.UtcNow;
         var offset = (int)now.DayOfWeek;
         var thisWeekStart = now.AddDays(-offset).Date;
-        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd");
+        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
         var createToken = await GetAntiCsrfToken("/WeeklyReport/Index");
         var createContent = new FormUrlEncodedContent(new Dictionary<string, string>
@@ -323,7 +324,7 @@ public class WeeklyReportTests
         for (int i = 1; i <= 3; i++)
         {
             var pastWeekStart = thisWeekStart.AddDays(-i * 7);
-            var pastWeekStr = pastWeekStart.ToString("yyyy-MM-dd");
+            var pastWeekStr = pastWeekStart.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
             createContent = new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 { "content", $"Report for week -{i}" },
@@ -365,7 +366,7 @@ public class WeeklyReportTests
         var createContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "content", "Original Content" },
-            { "weekStartDate", DateTime.UtcNow.AddDays(-(int)DateTime.UtcNow.DayOfWeek).ToString("yyyy-MM-dd") },
+            { "weekStartDate", DateTime.UtcNow.AddDays(-(int)DateTime.UtcNow.DayOfWeek).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
             { "__RequestVerificationToken", createToken }
         });
         await _http.PostAsync("/WeeklyReport/Create", createContent);
@@ -493,7 +494,7 @@ public class WeeklyReportTests
         var now = DateTime.UtcNow;
         var offset = (int)now.DayOfWeek;
         var thisWeekStart = now.AddDays(-offset).Date;
-        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd");
+        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
         var createToken = await GetAntiCsrfToken("/WeeklyReport/Index");
         var createContent = new FormUrlEncodedContent(new Dictionary<string, string>
@@ -604,7 +605,7 @@ public class WeeklyReportTests
         var now = DateTime.UtcNow;
         var offset = (int)now.DayOfWeek;
         var thisWeekStart = now.AddDays(-offset).Date;
-        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd");
+        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
         var createToken = await GetAntiCsrfToken("/WeeklyReport/Index");
         var createContent = new FormUrlEncodedContent(new Dictionary<string, string>
@@ -657,7 +658,7 @@ public class WeeklyReportTests
         var now = DateTime.UtcNow;
         var offset = (int)now.DayOfWeek;
         var thisWeekStart = now.AddDays(-offset).Date;
-        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd");
+        var weekStartStr = thisWeekStart.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
         var userCreateToken = await GetAntiCsrfToken("/WeeklyReport/Index");
         var userCreateContent = new FormUrlEncodedContent(new Dictionary<string, string>

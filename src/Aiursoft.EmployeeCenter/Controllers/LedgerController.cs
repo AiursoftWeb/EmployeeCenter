@@ -1,3 +1,4 @@
+using System.Globalization;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.LedgerViewModels;
@@ -246,7 +247,7 @@ public class LedgerController(
         var dtos = transactions.Select(t => new TransactionDto
         {
             Id = t.Id,
-            TransactionTime = t.TransactionTime.ToString("yyyy-MM-dd HH:mm"),
+            TransactionTime = t.TransactionTime.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
             Description = t.Description,
             Notes = t.Notes,
             SourceAccountName = t.SourceAccount?.AccountName,

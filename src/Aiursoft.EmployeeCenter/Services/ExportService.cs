@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using Aiursoft.EmployeeCenter.Configuration;
 using Aiursoft.EmployeeCenter.Entities;
@@ -147,7 +148,7 @@ public class ExportService(
 
         foreach (var report in reports)
         {
-            var weekName = report.WeekStartDate.ToString("yyyy-MM-dd");
+            var weekName = report.WeekStartDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
             var fullDirectoryPath = Path.Combine(_exportRoot, "WeeklyReports", weekName);
             if (!Directory.Exists(fullDirectoryPath))
             {
@@ -563,20 +564,20 @@ public class ExportService(
 
         foreach (var t in transactions)
         {
-            var amountStr = $"{t.Amount:N2} {t.SourceAccount?.Currency}";
+            var amountStr = FormattableString.Invariant($"{t.Amount:N2} {t.SourceAccount?.Currency}");
             if (t.ExchangeRate != 1)
             {
                 var destAmount = t.Amount * t.ExchangeRate;
-                amountStr += $" ({destAmount:N2} {t.DestinationAccount?.Currency})";
+                amountStr += FormattableString.Invariant($" ({destAmount:N2} {t.DestinationAccount?.Currency})");
             }
 
-            var rateStr = t.ExchangeRate != 1 ? t.ExchangeRate.ToString("N4") : "-";
+            var rateStr = t.ExchangeRate != 1 ? t.ExchangeRate.ToString("N4", CultureInfo.InvariantCulture) : "-";
 
             var invoiceStr = string.IsNullOrEmpty(t.InvoicePath) ? "-" : "[Invoice](" + t.InvoicePath + ")";
             var mt103Str = string.IsNullOrEmpty(t.MT103Path) ? "-" : "[MT103](" + t.MT103Path + ")";
             var voucherStr = string.IsNullOrEmpty(t.PaymentVoucherPath) ? "-" : "[Voucher](" + t.PaymentVoucherPath + ")";
 
-            sb.AppendLine($"| {t.TransactionTime:yyyy-MM-dd HH:mm} | {t.Description} | {t.SourceAccount?.AccountName} | {t.DestinationAccount?.AccountName} | {amountStr} | {rateStr} | {invoiceStr} | {mt103Str} | {voucherStr} |");
+            sb.AppendLine(CultureInfo.InvariantCulture, $"| {t.TransactionTime:yyyy-MM-dd HH:mm} | {t.Description} | {t.SourceAccount?.AccountName} | {t.DestinationAccount?.AccountName} | {amountStr} | {rateStr} | {invoiceStr} | {mt103Str} | {voucherStr} |");
         }
 
         return sb.ToString();

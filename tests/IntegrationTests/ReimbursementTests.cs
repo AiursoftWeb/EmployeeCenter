@@ -1,3 +1,4 @@
+using System.Globalization;
 using Aiursoft.EmployeeCenter.Authorization;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
@@ -112,7 +113,7 @@ public class ReimbursementTests
         // 2. Submit a reimbursement request
         var createToken = await GetAntiCsrfToken("/Reimbursement/Create");
         var createContent = new MultipartFormDataContent();
-        createContent.Add(new StringContent(DateTime.UtcNow.Date.AddDays(-1).ToString("yyyy-MM-dd")), "ExpenseTime");
+        createContent.Add(new StringContent(DateTime.UtcNow.Date.AddDays(-1).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)), "ExpenseTime");
         createContent.Add(new StringContent("Transport"), "Category");
         createContent.Add(new StringContent("Taxi to client"), "Purpose");
         createContent.Add(new StringContent("50.5"), "Amount");
@@ -185,7 +186,7 @@ public class ReimbursementTests
         // 2. Submit a reimbursement request
         var createToken = await GetAntiCsrfToken("/Reimbursement/Create");
         var createContent = new MultipartFormDataContent();
-        createContent.Add(new StringContent(DateTime.UtcNow.Date.ToString("yyyy-MM-dd")), "ExpenseTime");
+        createContent.Add(new StringContent(DateTime.UtcNow.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)), "ExpenseTime");
         createContent.Add(new StringContent("Meals"), "Category");
         createContent.Add(new StringContent("Dinner with team"), "Purpose");
         createContent.Add(new StringContent("100"), "Amount");

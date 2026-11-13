@@ -1,3 +1,4 @@
+using System.Globalization;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
 
@@ -189,8 +190,8 @@ public class LeaveTests
         var applyContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "LeaveType", "AnnualLeave" },
-            { "StartDate", thirtyDaysFromNow.ToString("yyyy-MM-dd") },
-            { "EndDate", thirtyDaysFromNow.ToString("yyyy-MM-dd") },
+            { "StartDate", thirtyDaysFromNow.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
+            { "EndDate", thirtyDaysFromNow.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
             { "Reason", "Vacation" },
             { "__RequestVerificationToken", applyToken }
         });
@@ -265,8 +266,8 @@ public class LeaveTests
         var applyContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "LeaveType", "AnnualLeave" },
-            { "StartDate", today.ToString("yyyy-MM-dd") },
-            { "EndDate", today.AddDays(14).ToString("yyyy-MM-dd") },
+            { "StartDate", today.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
+            { "EndDate", today.AddDays(14).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
             { "Reason", "Sick" },
             { "__RequestVerificationToken", applyToken }
         });
@@ -466,8 +467,8 @@ public class LeaveTests
         var applyContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "LeaveType", "AnnualLeave" },
-            { "StartDate", startDate.ToString("yyyy-MM-dd") },
-            { "EndDate", endDate.ToString("yyyy-MM-dd") },
+            { "StartDate", startDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
+            { "EndDate", endDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) },
             { "Reason", "Vacation over adjusted weekend" },
             { "__RequestVerificationToken", applyToken }
         });

@@ -1,3 +1,4 @@
+@using System.Globalization
 @using Aiursoft.EmployeeCenter.Services
 @model Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels.DetailsViewModel
 @inject AssetFileService AssetFiles
@@ -79,10 +80,10 @@
                     <dd class="col-sm-8">@(Model.Asset.FilingQueryMethod ?? "-")</dd>
 
                     <dt class="col-sm-4">@Localizer["Registration Date"]</dt>
-                    <dd class="col-sm-8">@(Model.Asset.RegistrationDate?.ToString("yyyy-MM-dd") ?? "-")</dd>
+                    <dd class="col-sm-8">@(Model.Asset.RegistrationDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ?? "-")</dd>
 
                     <dt class="col-sm-4">@Localizer["Expiration Date"]</dt>
-                    <dd class="col-sm-8">@(Model.Asset.ExpirationDate?.ToString("yyyy-MM-dd") ?? "-")</dd>
+                    <dd class="col-sm-8">@(Model.Asset.ExpirationDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ?? "-")</dd>
                 </dl>
             </div>
         </div>
@@ -94,7 +95,7 @@
             <div class="card-body">
                 <dl class="row">
                     <dt class="col-sm-4">@Localizer["Purchase Price"]</dt>
-                    <dd class="col-sm-8">@(Model.Asset.PurchasePrice?.ToString("N2") ?? "-") @Model.Asset.Currency</dd>
+                    <dd class="col-sm-8">@(Model.Asset.PurchasePrice?.ToString("N2", CultureInfo.CurrentCulture) ?? "-") @Model.Asset.Currency</dd>
 
                     <dt class="col-sm-4">@Localizer["Trademark Image"]</dt>
                     <dd class="col-sm-8">

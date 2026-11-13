@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.EmployeeCenter.Models.IntangibleAssetsViewModels.IndexViewModel
 
 <div class="row mb-2 mb-xl-3">
@@ -77,7 +78,7 @@
                             @Localizer["N/A"]
                         }
                     </td>
-                    <td>@(item.ExpirationDate?.ToString("yyyy-MM-dd") ?? Localizer["N/A"].Value)</td>
+                    <td>@(item.ExpirationDate?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) ?? Localizer["N/A"].Value)</td>
                     <td class="text-end">
                         <div class="btn-group">
                             <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Details"]">

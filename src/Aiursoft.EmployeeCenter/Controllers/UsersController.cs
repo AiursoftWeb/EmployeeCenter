@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Localization;
 using Aiursoft.EmployeeCenter.Authorization;
 using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Models.UsersViewModels;
@@ -21,7 +22,8 @@ public class UsersController(
     RoleManager<IdentityRole> roleManager,
     UserManager<User> userManager,
     StorageService storageService,
-    EmployeeCenterDbContext context)
+    EmployeeCenterDbContext context,
+    IStringLocalizer<AppPermissions> permissionLocalizer)
     : Controller
 {
     [HttpGet]
@@ -122,7 +124,8 @@ public class UsersController(
 
         var permissions = AppPermissions.GetAllPermissions()
             .Where(p => allPermissionValues.Contains(p.Key))
-            .OrderBy(p => p.Name)
+            .OrderBy(p => permissionLocalizer[p.Name].Value, StringComparer.CurrentCulture)
+            .ThenBy(p => p.Key, StringComparer.Ordinal)
             .ToList();
 
         var changeLogs = await context.BankCardChangeLogs

@@ -1,3 +1,4 @@
+using System.Globalization;
 using Aiursoft.EmployeeCenter.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
@@ -80,7 +81,7 @@ public class HolidayService
             }
         }
 
-        var dateKey = date.ToString("yyyy-MM-dd");
+        var dateKey = date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
         if (yearHolidays.TryGetValue(dateKey, out var isOffDay))
         {
             return isOffDay;
