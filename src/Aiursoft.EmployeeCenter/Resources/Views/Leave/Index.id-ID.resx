@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} hari cuti tahunan berbayar per tahun</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 hari cuti sakit berbayar per tahun</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>Penyetuju</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>menunggu persetujuan</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>Dibawa ke Tahun Berikutnya</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Tutup</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>hari</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>hari lagi</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>Selamat berlibur yang menyenangkan!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>dalam</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>Informasi penting mengenai kebijakan cuti kami</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>Tidak ditemukan riwayat cuti.</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>tidak ada cuti mendatang</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>dari</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>Menunggu</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Ditolak</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>permintaan</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>Memerlukan persetujuan manajer sebelum digunakan</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>Aplikasi cuti Anda dan statusnya</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>menunggu persetujuan</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>hari</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>hari lagi</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>dalam</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>tidak ada cuti mendatang</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>dari</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>permintaan</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} hari cuti tahunan berbayar per tahun</value>
   </data>
 
 </root>

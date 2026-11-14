@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI 어시스턴트</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>액세스 거부됨</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -50,12 +56,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>행정 정보</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>AI 어시스턴트</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft 직원 센터</value>
@@ -135,8 +135,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>사업 자격</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>CI 번호</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>경력</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>증명서 인쇄</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>고용 증명서</value>
@@ -146,9 +152,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>소득 증명서</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>증명서 인쇄</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>아바타 변경</value>
@@ -164,9 +167,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>채팅</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>CI 번호</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>로그인하려면 클릭</value>
@@ -273,6 +273,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>고객 관계</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS 감사</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>대시보드</value>
   </data>
@@ -293,9 +296,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>디렉터리</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>DNS 감사</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>다운로드 / 보기</value>
@@ -348,14 +348,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>역할 편집</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>SSH 키 수정</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>서버 수정</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>서비스 편집</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>SSH 키 수정</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>거래 수정</value>
@@ -408,14 +408,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>전역 설정</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>인사</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>휴일 조정</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>홈</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>인사</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT 자산</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>이미지 및 파일</value>
@@ -446,9 +449,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>급여 발행</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>IT 자산</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>휴가</value>
@@ -513,11 +513,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>DNS 공급자 관리</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>무형 자산 관리</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>IT 자산 관리</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>무형 자산 관리</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>원장 관리</value>
@@ -711,11 +711,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>요구사항 세부 정보</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>요구사항이 성공적으로 저장되었습니다.</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>요구사항 제목</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>요구사항이 성공적으로 저장되었습니다.</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>자원</value>
@@ -729,11 +729,14 @@
   <data name="Roles" xml:space="preserve">
     <value>역할</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>변경 사항 저장</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>SCR 위치</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH 키</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>변경 사항 저장</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>사무국</value>
@@ -762,23 +765,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>로그아웃</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>SSH 키</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>상태</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>댓글 제출</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>승인 요청 제출</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>새 요구사항 제출</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>요구사항 제출</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>승인 요청 제출</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>시스템</value>

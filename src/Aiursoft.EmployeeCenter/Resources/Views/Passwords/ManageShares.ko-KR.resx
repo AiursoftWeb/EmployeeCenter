@@ -18,34 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} and {1} other user" xml:space="preserve">
-    <value>{0} 외 {1}명의 다른 사용자</value>
-  </data>
-  <data name="{0} and {1} other users" xml:space="preserve">
-    <value>{0}님 외 {1}명의 사용자</value>
-  </data>
-  <data name="{0} can edit." xml:space="preserve">
-    <value>{0}님이 수정할 수 있습니다.</value>
-  </data>
-  <data name="{0} can view." xml:space="preserve">
-    <value>{0}님은 볼 수 있습니다.</value>
-  </data>
-  <data name="{0} role" xml:space="preserve">
-    <value>역할 {0}개</value>
-  </data>
-  <data name="{0} roles" xml:space="preserve">
-    <value>{0}개 역할</value>
-  </data>
-  <data name="{0} user" xml:space="preserve">
-    <value>사용자 {0}명</value>
-  </data>
-  <data name="{0} users" xml:space="preserve">
-    <value>사용자 {0}명</value>
-  </data>
-  <data name="{0}, {1}" xml:space="preserve">
-    <value>{0}, {1}</value>
-  </data>
-  <data name="About access" xml:space="preserve">
+      <data name="About access" xml:space="preserve">
     <value>액세스 안내</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -54,11 +27,11 @@
   <data name="Add" xml:space="preserve">
     <value>추가</value>
   </data>
-  <data name="Add access" xml:space="preserve">
-    <value>접근 권한 추가</value>
-  </data>
   <data name="Add New Share" xml:space="preserve">
     <value>새 공유 추가</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>접근 권한 추가</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>요청을 처리하는 중 오류가 발생했습니다.</value>
@@ -120,9 +93,6 @@
   <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
     <value>구성원 미리보기를 사용할 수 없습니다. 이 역할로 계속 공유할 수 있습니다.</value>
   </data>
-  <data name="members" xml:space="preserve">
-    <value>멤버</value>
-  </data>
   <data name="Name or email (3+ characters)" xml:space="preserve">
     <value>이름 또는 이메일(3자 이상)</value>
   </data>
@@ -174,9 +144,6 @@
   <data name="Role {0} and {1} other roles" xml:space="preserve">
     <value>역할 {0} 외 {1}개 역할</value>
   </data>
-  <data name="role members" xml:space="preserve">
-    <value>역할 구성원</value>
-  </data>
   <data name="Search failed. Change the search text to try again." xml:space="preserve">
     <value>검색에 실패했습니다. 검색어를 변경한 후 다시 시도하세요.</value>
   </data>
@@ -192,11 +159,11 @@
   <data name="Share with" xml:space="preserve">
     <value>공유 대상</value>
   </data>
-  <data name="Shared access" xml:space="preserve">
-    <value>공유된 액세스</value>
-  </data>
   <data name="Shared With" xml:space="preserve">
     <value>공유 대상</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>공유된 액세스</value>
   </data>
   <data name="Specific User" xml:space="preserve">
     <value>특정 사용자</value>
@@ -218,6 +185,39 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>사용자</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>멤버</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>역할 구성원</value>
+  </data>
+  <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} 외 {1}명의 다른 사용자</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0}님 외 {1}명의 사용자</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0}님이 수정할 수 있습니다.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0}님은 볼 수 있습니다.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>역할 {0}개</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0}개 역할</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>사용자 {0}명</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>사용자 {0}명</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
   </data>
 
 </root>

@@ -90,17 +90,20 @@
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Sinkronkan temuan audit layanan dengan AlertCenter.</value>
   </data>
-  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
-    <value>Nama merek perusahaan atau proyek. Contoh: Aiursoft.</value>
-  </data>
-  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
-    <value>Mata uang default yang digunakan saat mengeluarkan penggajian baru.</value>
-  </data>
   <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
     <value>URL dasar HTTP(S) AlertCenter.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Nomor izin ICP untuk pengguna daratan Tiongkok. Biarkan kosong untuk menyembunyikan.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL perusahaan atau proyek. Contoh: https://www.aiursoft.com</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Nama merek perusahaan atau proyek. Contoh: Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>Mata uang default yang digunakan saat mengeluarkan penggajian baru.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logo proyek yang ditampilkan di navbar dan footer. Mendukung jpg, png, svg.</value>
@@ -119,9 +122,6 @@
   </data>
   <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
     <value>Prompt sistem yang digunakan untuk menghasilkan notulen rapat dari transkrip.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>URL perusahaan atau proyek. Contoh: https://www.aiursoft.com</value>
   </data>
 
 </root>

@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Alıcı Adı</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Sözleşme No</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>Vergi No / Kurum Kodu</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Sözleşme No</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Para Birimi</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Alınan Fatura / Ödenmiş Fatura</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT Kodu</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Satıcı Adresi</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Satıcı Adı</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT Kodu</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Vergi Tutarı</value>

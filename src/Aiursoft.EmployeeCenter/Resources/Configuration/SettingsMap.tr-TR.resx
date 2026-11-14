@@ -90,17 +90,20 @@
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Hizmet denetimi bulgularını AlertCenter ile senkronize edin.</value>
   </data>
-  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
-    <value>Şirketin veya projenin marka adı. Örnek: Aiursoft.</value>
-  </data>
-  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
-    <value>Yeni bir maaş listesi çıkartılırken kullanılacak varsayılan para birimi.</value>
-  </data>
   <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
     <value>AlertCenter&apos;ın HTTP(S) taban URL&apos;i.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Çin ana karasında kullanıcılar için ICP lisans numarası. Gizlemek için boş bırakın.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Şirketin veya projenin URL&apos;si. Örnek: https://www.aiursoft.com</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Şirketin veya projenin marka adı. Örnek: Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>Yeni bir maaş listesi çıkartılırken kullanılacak varsayılan para birimi.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Projenin navbar ve footer&apos;da görünen logosu. jpg, png, svg desteklenir.</value>
@@ -119,9 +122,6 @@
   </data>
   <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
     <value>Daktilo kayıtlarından toplantı tutanakları oluşturmak için kullanılan sistem istemi.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>Şirketin veya projenin URL&apos;si. Örnek: https://www.aiursoft.com</value>
   </data>
 
 </root>

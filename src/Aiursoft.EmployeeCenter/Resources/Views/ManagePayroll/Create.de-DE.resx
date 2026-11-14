@@ -51,6 +51,9 @@
   <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
     <value>Durch Klicken auf „Bestätigen und ausstellen“ bestätigen Sie, dass alle Werte oben korrekt sind und den Unternehmensrichtlinien entsprechen.</value>
   </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>KRITISCHE BESTÄTIGUNG ERFORDERLICH</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Berechnet auf Basis der Überstunden</value>
   </data>
@@ -84,9 +87,6 @@
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Vertraglich vereinbartes Grundgehalt</value>
   </data>
-  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
-    <value>KRITISCHE BESTÄTIGUNG ERFORDERLICH</value>
-  </data>
   <data name="Currency" xml:space="preserve">
     <value>Währung</value>
   </data>
@@ -105,14 +105,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Bildung, Wohnen, usw.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Mitarbeiter:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Kontonummer des Mitarbeiters</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>Bank des Mitarbeiters</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Mitarbeiter:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Als negativen Wert eingeben</value>
@@ -249,9 +249,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Arbeitslosenversicherung (Arbeitgeber)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>in der Regel</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Wert</value>
   </data>
@@ -260,6 +257,9 @@
   </data>
   <data name="Yes, Confirm and Issue!" xml:space="preserve">
     <value>Ja, Bestätigen und Ausstellen!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>in der Regel</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Die Ereignisprotokollzeit ist UTC!</value>

@@ -66,6 +66,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>領収書 / 支払済み請求書</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFTコード</value>
+  </data>
   <data name="Seller" xml:space="preserve">
     <value>販売者</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>販売者名</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFTコード</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0}は必須です。</value>

@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>可用的 DNS 候选项</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>待审计</value>
-  </data>
   <data name="Back to DNS Audit" xml:space="preserve">
     <value>返回 DNS 审计</value>
   </data>
@@ -60,14 +57,14 @@
   <data name="Critical" xml:space="preserve">
     <value>严重</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>确定删除这个域名别名吗？</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>域名别名注册表</value>
@@ -90,9 +87,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>预期目标</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>健康</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP 重定向</value>
   </data>
@@ -104,12 +98,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>管理遗留主机名，并验证其 HTTP 重定向或 DNS CNAME 目标。</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>已管理的别名</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>需关注</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>新建别名</value>
@@ -146,6 +134,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>更新时间</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>待审计</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>健康</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>已管理的别名</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>需关注</value>
   </data>
 
 </root>

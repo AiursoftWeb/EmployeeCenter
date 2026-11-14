@@ -39,9 +39,6 @@
   <data name="Description" xml:space="preserve">
     <value>描述</value>
   </data>
-  <data name="e.g. Aliyun, GoDaddy" xml:space="preserve">
-    <value>例如：Aliyun, GoDaddy</value>
-  </data>
   <data name="Expiration Date" xml:space="preserve">
     <value>到期日期</value>
   </data>
@@ -107,6 +104,9 @@
   </data>
   <data name="Type" xml:space="preserve">
     <value>類型</value>
+  </data>
+  <data name="e.g. Aliyun, GoDaddy" xml:space="preserve">
+    <value>例如：Aliyun, GoDaddy</value>
   </data>
 
 </root>

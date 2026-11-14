@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>Thưởng vì không có điểm trừ</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>XÁC NHẬN CẬP NHẬT</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Tính toán dựa trên số giờ làm thêm</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>Bảng lương tuân thủ</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>XÁC NHẬN CẬP NHẬT</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Lương cơ bản theo hợp đồng</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Giáo dục, nhà ở, v.v.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Nhân viên:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Số tài khoản của nhân viên</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>ngân hàng của nhân viên</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Nhân viên:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Nhập với giá trị âm</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Bảo hiểm thất nghiệp (Công ty)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>thường xuyên</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Giá trị</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>Có, Xác nhận và Lưu!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>thường xuyên</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Thời gian ghi lại sự kiện là giờ chuẩn thế giới!</value>

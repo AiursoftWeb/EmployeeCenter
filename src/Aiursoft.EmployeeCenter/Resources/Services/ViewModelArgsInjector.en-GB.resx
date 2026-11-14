@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI Assistant</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Access Denied</value>
   </data>
   <data name="Accounts" xml:space="preserve">
@@ -44,12 +50,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>Administrative Details</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>AI Assistant</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft Employee Center</value>
@@ -123,8 +123,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>Business Qualifications</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>CI Number</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>Career</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Certificate Print</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>Certificate of Employment</value>
@@ -134,9 +140,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>Certificate of Income</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>Certificate Print</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Change Avatar</value>
@@ -152,9 +155,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>Chat</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>CI Number</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Click to login</value>
@@ -261,6 +261,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>Customer Relationships</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS Audit</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
   </data>
@@ -281,9 +284,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Directory</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>DNS Audit</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>Download / View</value>
@@ -336,14 +336,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>Edit Role</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Edit SSH Key</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>Edit Server</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>Edit Service</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>Edit SSH Key</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>Edit Transaction</value>
@@ -396,14 +396,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>Global Settings</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>Holiday Adjustments</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>HR</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT Assets</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>Images &amp; Files</value>
@@ -434,9 +437,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>Issue Payroll</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>IT Assets</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>Leave</value>
@@ -501,11 +501,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>Manage DNS Providers</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>Manage Intangible Assets</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>Manage IT Assets</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Manage Intangible Assets</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>Manage Ledger</value>
@@ -699,11 +699,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>Requirement Details</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>Requirement saved successfully.</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>Requirement Title</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Requirement saved successfully.</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>Resources</value>
@@ -717,11 +717,14 @@
   <data name="Roles" xml:space="preserve">
     <value>Roles</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Save Changes</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>SCR Location</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH Keys</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Save Changes</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>Secretary</value>
@@ -750,23 +753,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>Sign out</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>SSH Keys</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>Submit Comment</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>Submit for Approval</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>Submit New Requirement</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>Submit Requirement</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Submit for Approval</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>System</value>

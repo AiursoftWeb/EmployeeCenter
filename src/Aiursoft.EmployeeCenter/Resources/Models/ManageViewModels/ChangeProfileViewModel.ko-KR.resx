@@ -21,6 +21,9 @@
       <data name="Name" xml:space="preserve">
     <value>이름</value>
   </data>
+  <data name="The name is required." xml:space="preserve">
+    <value>이름은 필수 입력 항목입니다.</value>
+  </data>
   <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
     <value>{0}은 {1}자를 초과할 수 없습니다.</value>
   </data>
@@ -29,9 +32,6 @@
   </data>
   <data name="The {0} must be at least {1} characters." xml:space="preserve">
     <value>{0}는 최소 {1}자 이상이어야 합니다.</value>
-  </data>
-  <data name="The name is required." xml:space="preserve">
-    <value>이름은 필수 입력 항목입니다.</value>
   </data>
 
 </root>

@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Een lijst met vergaderaudio-opnames, transcripties en AI-verwerkingsstatussen.</value>
   </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>ASR-status</value>
+  </data>
   <data name="Access Source" xml:space="preserve">
     <value>Toegangsbron</value>
   </data>
@@ -32,9 +35,6 @@
   </data>
   <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
     <value>Weet u zeker dat u deze vergaderopname wilt verwijderen?</value>
-  </data>
-  <data name="ASR Status" xml:space="preserve">
-    <value>ASR-status</value>
   </data>
   <data name="Audio Management Permission" xml:space="preserve">
     <value>Audio-beheer toestemming</value>
@@ -72,6 +72,9 @@
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Vergadertranscripties</value>
   </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Notulenstatus</value>
+  </data>
   <data name="Minutes generated" xml:space="preserve">
     <value>Notulen gegenereerd</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Minutes outdated" xml:space="preserve">
     <value>Notulen verouderd</value>
-  </data>
-  <data name="Minutes Status" xml:space="preserve">
-    <value>Notulenstatus</value>
   </data>
   <data name="My Permission" xml:space="preserve">
     <value>Mijn toestemming</value>

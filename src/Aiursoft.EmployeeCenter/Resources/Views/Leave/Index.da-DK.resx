@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} dage betalt årlig ferie om året</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 dage lønnet sygedagpenge om året</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>Godkender</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>venter godkendelse</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>Overført</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Luk</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>dage</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>dage væk</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>God ferie!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>om</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>Vigtig information om vores friløbspolitikker</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>Ingen feriehistorik fundet.</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>ingen kommende ferie</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>af</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>Afventer</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Afslået</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>forespørgsler</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>Kræver chefgodkendelse før brug</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>Dine ansøgninger om fridag og deres status</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>venter godkendelse</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>dage</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>dage væk</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>om</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>ingen kommende ferie</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>af</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>forespørgsler</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} dage betalt årlig ferie om året</value>
   </data>
 
 </root>

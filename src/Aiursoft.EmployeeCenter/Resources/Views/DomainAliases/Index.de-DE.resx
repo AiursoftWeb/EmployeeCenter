@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Verfügbare DNS-Kandidaten</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>Prüfung ausstehend</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Schließen</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Kritisch</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Löschen</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Diesen Domain-Alias löschen?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Domainalias-Register</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Erwartetes Ziel</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>gesund</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP-Umleitung</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Verwalten Sie Legacy-Hostnamen und überprüfen Sie deren HTTP-Umleitungen oder DNS-CNAME-Ziele.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>verwaltete Aliase</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>bedürfen der Aufmerksamkeit</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Neuer Alias</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Aktualisiert am</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>Prüfung ausstehend</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>gesund</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>verwaltete Aliase</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>bedürfen der Aufmerksamkeit</value>
   </data>
 
 </root>

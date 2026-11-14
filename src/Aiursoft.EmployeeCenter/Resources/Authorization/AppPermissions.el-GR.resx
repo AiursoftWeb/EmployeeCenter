@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>Επιτρέπει τη διαχείριση και τη διαγραφή οποιουδήποτε καθολικού κωδικού πρόσβασης που έχει δημιουργηθεί από οποιονδήποτε χρήστη.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>Επιτρέπει τη διαχείριση των χρηματοοικονομικών λογαριασμών της εταιρείας και την καταχώρηση συναλλαγών.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Επιτρέπει τη διαχείριση των εταιρικών περιουσιακών στοιχείων και απρόσωπων περιουσιακών στοιχείων (όπως περιοχές, άδειες), συμπεριλαμβανομένων κατηγοριών, μοντέλων και ενδιαφερόμενων στοιχείων. Επιτρέπει επίσης την ανάθεση και την επαναφορά περιουσιακών στοιχείων σε/από υπαλλήλους.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Επιτρέπει τη διαχείριση των εταιρικών περιουσιακών στοιχείων ΤΠ, συμπεριλαμβανομένων κατηγοριών, μοντέλων και μονάδων. Επιτρέπει επίσης την ανάθεση και επαναφορά περιουσιακών στοιχείων σε/από υπαλλήλους.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Επιτρέπει τη διαχείριση των χρηματοοικονομικών λογαριασμών της εταιρείας και την καταχώρηση συναλλαγών.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>Επιτρέπει την χειροκίνητη εκκίνηση του ελέγχου DNS και διαθεσιμότητας υπηρεσιών.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>Συνομιλία με AI</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>Δημιουργία και διαχείριση συμβάσεων της εταιρείας</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>Δημιουργία συμβάσεων εταιρείας</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>Δημιουργία Συμβάσεων</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>Δημιουργία Εβδομαδιαίου Αναφοράς για Οποιονδήποτε</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Δημιουργία και διαχείριση συμβάσεων της εταιρείας</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Δημιουργία συμβάσεων εταιρείας</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>Προεπιλεγμένη άδεια για το Τμήμα Ανθρώπινων Πόρων</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>Διαγραφή Χρηστών</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>Επεξεργασία Πληροφοριών Χρήστη</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>Επεξεργασία Πληροφοριών Ρόλου</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>Επεξεργασία Πληροφοριών Χρήστη</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>Επεξεργασία Πληροφοριών Χρήστη</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Διαχείριση Οποιουδήποτε Κωδικού</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>Διαχείριση εβδομαδιαίων αναφορών οποιουδήποτε χρήστη</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>Διαχείριση Περιουσιακών Στοιχείων</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>Διαχείριση Μισθοδοσίας</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Διαχείριση Κλειδιών SSH</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Διαχείριση Υπηρεσιών</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>Διαχείριση Υπηρεσιών (Παράδοσο)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>Διαχείριση Κλειδιών SSH</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Διαχείριση εβδομαδιαίων αναφορών οποιουδήποτε χρήστη</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>Εκτύπωση Πιστοποιητικών</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Υποβολή Επιστροφής Δαπανών</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>Προβολή οποιουδήποτε συμβολαίου εταιρείας, συμπεριλαμβανομένων των ιδιωτικών</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Προβολή Εργασιών Παρασκηνίου</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>Προβολή Αρχείου Ενεργειών Χρήστη</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Προβολή οποιουδήποτε συμβολαίου εταιρείας, συμπεριλαμβανομένων των ιδιωτικών</value>
   </data>
 
 </root>

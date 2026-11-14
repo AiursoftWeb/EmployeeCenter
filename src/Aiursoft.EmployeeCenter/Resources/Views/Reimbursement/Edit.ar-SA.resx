@@ -30,9 +30,6 @@
   <data name="Edit Reimbursement Request" xml:space="preserve">
     <value>تعديل طلب استرداد المصروفات</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>رابط المستند</value>
-  </data>
   <data name="Keep as Draft" xml:space="preserve">
     <value>احتفظ كمسودة</value>
   </data>
@@ -57,11 +54,14 @@
   <data name="Travel (差旅费)" xml:space="preserve">
     <value>السفر (مصاريف السفر)</value>
   </data>
-  <data name="uploading a new one will replace it" xml:space="preserve">
-    <value>استبدالها بملف جديد</value>
-  </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>ما الغرض من هذا المصروف؟</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>رابط المستند</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>استبدالها بملف جديد</value>
   </data>
 
 </root>

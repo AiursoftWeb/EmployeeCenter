@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>Staat het beheren en verwijderen van elk globaal wachtwoord dat door een gebruiker is aangemaakt toe.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>Staat het beheren van de financiële rekeningen van het bedrijf en het vastleggen van transacties toe.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Staat het beheren van de IT-activa en immateriële activa van het bedrijf (zoals domeinnamen, licenties), inclusief categorieën, modellen en individuele items toe. Ook staat het toewijzen en terugwinnen van activa aan/ van medewerkers toe.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Staat het beheren van de IT-assets van het bedrijf toe, inclusief categorieën, modellen en afzonderlijke items. Ook staat het toewijzen en terugvragen van assets aan/ van medewerkers toe.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Staat het beheren van de financiële rekeningen van het bedrijf en het vastleggen van transacties toe.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>Staat het handmatig uitvoeren van de DNS- en beschikbaarheidsaudit van de service toe.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>Chat met AI</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>Maak en beheer bedrijfscontracten</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>Bedrijfscontracten aanmaken</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>Contract aanmaken</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>Wekelijks verslag voor iedereen maken</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Maak en beheer bedrijfscontracten</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Bedrijfscontracten aanmaken</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>Standaardmachtiging voor HR.</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>Gebruikers verwijderen</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>Gebruikersinformatie bewerken</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>Rolinformatie bewerken</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>Gebruikersinformatie bewerken</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>Gebruikersinformatie bewerken</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Elk wachtwoord beheren</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>Een willekeurige wekelijkse rapportage beheren</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>Assets beheren</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>Loonadministratie beheren</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>SSH-sleutels beheren</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Services beheren</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>Diensten beheren (Legacy)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>SSH-sleutels beheren</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Een willekeurige wekelijkse rapportage beheren</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>Certificaten afdrukken</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Indiening terugbetaling</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>Bekijk elke bedrijfscontract, inclusief particuliere contracten</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Achtergrondtaken weergeven</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>Bekijk gebruikersactielog</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Bekijk elke bedrijfscontract, inclusief particuliere contracten</value>
   </data>
 
 </root>

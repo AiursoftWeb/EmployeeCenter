@@ -24,9 +24,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>취소</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Meals (餐饮费)" xml:space="preserve">
     <value>식비 (餐饮费)</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>이 지출의 목적이 무엇인가요?</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
   </data>
 
 </root>

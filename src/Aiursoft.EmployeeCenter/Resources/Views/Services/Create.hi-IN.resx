@@ -33,15 +33,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>डोमेन सेवा के मुख्य प्रवेश बिंदु के रूप में होना चाहिए।</value>
   </data>
-  <data name="e.g. Customer Portal" xml:space="preserve">
-    <value>उदा. ग्राहक पोर्टल</value>
-  </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>उदाहरण के लिए: example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>उदा. HTTPS, TCP</value>
-  </data>
   <data name="New" xml:space="preserve">
     <value>नया</value>
   </data>
@@ -77,6 +68,15 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>टिप्स</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>उदा. ग्राहक पोर्टल</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>उदा. HTTPS, TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>उदाहरण के लिए: example.com</value>
   </data>
 
 </root>

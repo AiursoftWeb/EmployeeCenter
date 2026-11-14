@@ -87,9 +87,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>允许管理并删除由任何用户创建的全局密码。</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>允许管理公司的财务账户并记录交易。</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>允许管理公司的IT资产和无形资产（如域名、许可证），包括类别、型号和单个资产。同时也允许将资产分配给或从员工处收回资产。</value>
   </data>
@@ -98,6 +95,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>允许管理公司的IT资产，包括类别、型号和单个物品。同时也允许将资产分配给员工或从员工处回收资产。</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>允许管理公司的财务账户并记录交易。</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>允许手动触发服务的 DNS 和可用性审计。</value>
@@ -213,14 +213,14 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>咨询 AI</value>
   </data>
+  <data name="Create Weekly Report" xml:space="preserve">
+    <value>创建周报</value>
+  </data>
   <data name="Create and manage company contracts" xml:space="preserve">
     <value>创建和管理公司的合同</value>
   </data>
   <data name="Create company contracts" xml:space="preserve">
     <value>创建公司合同</value>
-  </data>
-  <data name="Create Weekly Report" xml:space="preserve">
-    <value>创建周报</value>
   </data>
   <data name="Delete Roles" xml:space="preserve">
     <value>删除角色</value>
@@ -228,14 +228,14 @@
   <data name="Delete Users" xml:space="preserve">
     <value>删除用户</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>编辑并查看用户详情</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>编辑角色信息</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
     <value>编辑用户信息</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>编辑并查看用户详情</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
     <value>授予创建新角色的权限。</value>
@@ -254,9 +254,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>管理任何密码</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>管理任何人的周报</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>管理资产</value>
@@ -300,14 +297,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>管理薪资</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>管理 SSH 公钥</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>管理服务</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>管理服务（旧版）</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>管理 SSH 公钥</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>管理任何人的周报</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>打印证书</value>
@@ -333,9 +333,6 @@
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>提交报销</value>
   </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>查看公司的任意合同，包含私密合同</value>
-  </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>查看后台任务</value>
   </data>
@@ -359,6 +356,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>查看用户操作日志</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>查看公司的任意合同，包含私密合同</value>
   </data>
 
 </root>

@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>उपलब्ध DNS उम्मीदवार</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>ऑडिट के लिए प्रतीक्षा में</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>बंद करें</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>गंभीर</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>हटाएं</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>क्या यह डोमेन एलियास हटाया जाए?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>डोमेन एलियास रजिस्ट्री</value>
@@ -78,9 +75,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>अपेक्षित लक्ष्य</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>स्वस्थ</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP रीडायरेक्ट</value>
   </data>
@@ -89,12 +83,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>पुराने होस्टनेम का प्रबंधन करें और उनके HTTP रीडायरेक्ट या DNS CNAME लक्ष्यों की सत्यापित करें।</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>प्रबंधित एलियास</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>ध्यान चाहिए</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>नया एलियास</value>
@@ -125,6 +113,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>अपडेट किया गया</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>ऑडिट के लिए प्रतीक्षा में</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>स्वस्थ</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>प्रबंधित एलियास</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>ध्यान चाहिए</value>
   </data>
 
 </root>

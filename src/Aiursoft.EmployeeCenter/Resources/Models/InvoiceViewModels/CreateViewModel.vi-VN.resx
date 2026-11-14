@@ -66,6 +66,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Biên lai / Hóa đơn đã thanh toán</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Mã SWIFT</value>
+  </data>
   <data name="Seller" xml:space="preserve">
     <value>Người bán</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Tên người bán</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>Mã SWIFT</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} là bắt buộc.</value>

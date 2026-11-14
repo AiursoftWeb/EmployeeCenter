@@ -72,9 +72,6 @@
   <data name="Critical" xml:space="preserve">
     <value>วิกฤต</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>รายละเอียด</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>การตรวจสอบ DNS</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>บันทึก DNS</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>รายละเอียด</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>โดเมน</value>
@@ -104,9 +104,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>สร้างเมื่อ</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>ชื่อโฮสต์</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>ข้อมูล</value>
@@ -144,17 +141,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>ดำเนินการตรวจสอบ</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>เอนด์พอยต์ HTTP(S) ที่ทำงานอยู่มีสุขภาพดี</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>การตรวจสอบบริการ</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>การตรวจสอบบริการกำลังเริ่มต้น</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>ชื่อโฮสต์บริการที่ตรวจสอบแล้ว</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>ระดับความรุนแรง</value>
@@ -179,6 +170,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>โซน</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>ชื่อโฮสต์</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>เอนด์พอยต์ HTTP(S) ที่ทำงานอยู่มีสุขภาพดี</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>ชื่อโฮสต์บริการที่ตรวจสอบแล้ว</value>
   </data>
 
 </root>

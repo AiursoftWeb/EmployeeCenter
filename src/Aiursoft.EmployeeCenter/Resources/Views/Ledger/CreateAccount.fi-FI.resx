@@ -69,12 +69,6 @@
   <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
     <value>Johdon lainat (rahastasi, jotka olet antanut yrityksellesi), Maksamattomat laskut, Luottokorttidebitit.</value>
   </data>
-  <data name="e.g. HKD, CNY" xml:space="preserve">
-    <value>esim. HKD, CNY</value>
-  </data>
-  <data name="e.g. Statrys Checking" xml:space="preserve">
-    <value>esim. Statrys Checking</value>
-  </data>
   <data name="Equity" xml:space="preserve">
     <value>Omaisuus</value>
   </data>
@@ -173,6 +167,12 @@
   </data>
   <data name="Value that truly belongs to you" xml:space="preserve">
     <value>Arvo, joka kuuluu todella sinulle</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>esim. HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>esim. Statrys Checking</value>
   </data>
 
 </root>

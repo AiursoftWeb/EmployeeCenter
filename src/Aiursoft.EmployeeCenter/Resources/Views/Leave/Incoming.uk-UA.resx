@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Заявник</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>заявки прийняті</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>заявки відхилені</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Центр затвердження</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Відповідальний</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>очікує перевірки по всій компанії</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>очікується ваша перевірка</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Закрити</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>зараз відсутні</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Дні</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>Вони можуть відкликати свою заявку до початку.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>до</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Тип</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>заявки прийняті</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>заявки відхилені</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>очікує перевірки по всій компанії</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>очікується ваша перевірка</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>зараз відсутні</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>до</value>
   </data>
 
 </root>

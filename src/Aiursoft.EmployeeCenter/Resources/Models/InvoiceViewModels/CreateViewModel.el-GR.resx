@@ -66,6 +66,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Απόδειξη / Πληρωμένο Τιμολόγιο</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Κωδικός SWIFT</value>
+  </data>
   <data name="Seller" xml:space="preserve">
     <value>Πωλητής</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Όνομα Πωλητή</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>Κωδικός SWIFT</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>Το {0} είναι απαραίτητο.</value>

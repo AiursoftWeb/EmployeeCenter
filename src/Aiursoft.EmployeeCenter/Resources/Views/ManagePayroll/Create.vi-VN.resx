@@ -51,6 +51,9 @@
   <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
     <value>Bằng cách nhấp vào &apos;Xác nhận và Phát hành&apos;, bạn xác nhận rằng tất cả các giá trị ở trên là chính xác và tuân thủ chính sách của công ty.</value>
   </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>XÁC NHẬN QUAN TRỌNG BẮT BUỘC</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Tính toán dựa trên số giờ làm thêm</value>
   </data>
@@ -84,9 +87,6 @@
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Lương cơ bản theo hợp đồng</value>
   </data>
-  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
-    <value>XÁC NHẬN QUAN TRỌNG BẮT BUỘC</value>
-  </data>
   <data name="Currency" xml:space="preserve">
     <value>Tiền tệ</value>
   </data>
@@ -105,14 +105,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Giáo dục, nhà ở, v.v.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Nhân viên:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Số tài khoản nhân viên</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>Ngân hàng của nhân viên</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Nhân viên:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Nhập giá trị âm</value>
@@ -249,9 +249,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Bảo hiểm thất nghiệp (Công ty)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>thường là</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Giá trị</value>
   </data>
@@ -260,6 +257,9 @@
   </data>
   <data name="Yes, Confirm and Issue!" xml:space="preserve">
     <value>Có, Xác nhận và Phát hành!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>thường là</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Thời gian ghi lại sự kiện là giờ chuẩn thế giới!</value>

@@ -30,9 +30,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>
   </data>
-  <data name="e.g. Work Laptop" xml:space="preserve">
-    <value>ví dụ: Máy tính xách tay Công việc</value>
-  </data>
   <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
     <value>Hãy đảm bảo dán toàn bộ khóa công khai, bao gồm loại khóa và bất kỳ chú thích nào.</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Paste your public SSH key below." xml:space="preserve">
     <value>Dán khóa SSH công khai của bạn vào bên dưới.</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>ví dụ: Máy tính xách tay Công việc</value>
   </data>
 
 </root>

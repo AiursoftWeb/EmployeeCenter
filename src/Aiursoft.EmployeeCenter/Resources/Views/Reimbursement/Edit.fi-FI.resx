@@ -30,9 +30,6 @@
   <data name="Edit Reimbursement Request" xml:space="preserve">
     <value>Muokkaa korvauspyyntöä</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Keep as Draft" xml:space="preserve">
     <value>Säilyä luonnoksena</value>
   </data>
@@ -57,11 +54,14 @@
   <data name="Travel (差旅费)" xml:space="preserve">
     <value>Matkustaminen (matkakulut)</value>
   </data>
-  <data name="uploading a new one will replace it" xml:space="preserve">
-    <value>Uuden tiedoston lataaminen korvaa sen</value>
-  </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>Mihin tätä menoa varten?</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>Uuden tiedoston lataaminen korvaa sen</value>
   </data>
 
 </root>

@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>API AI Mentah</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR hanya dapat direset setelah pemrosesan media berhasil.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>Detail Akses</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>Sumber Akses</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>API AI Mentah</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>Tugas ASR offline telah dibuat. Jangan buat lagi.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>ASR hanya dapat direset setelah pemrosesan media berhasil.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Jumlah Percobaan</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>Notulen Rapat</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>Regenerasi notulensi rapat telah ditambahkan ke antrean.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Transkrip Rapat</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Regenerasi notulensi rapat telah ditambahkan ke antrean.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>Gagal Membuat Notulen</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>Departemen saya</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>Izin Saya</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Departemen saya</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Tidak Pernah</value>

@@ -21,6 +21,9 @@
       <data name="Name" xml:space="preserve">
     <value>ชื่อ</value>
   </data>
+  <data name="The name is required." xml:space="preserve">
+    <value>ชื่อเป็นสิ่งที่จำเป็น</value>
+  </data>
   <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
     <value>{0} ไม่สามารถเกินจำนวนตัวอักษร {1} ได้</value>
   </data>
@@ -29,9 +32,6 @@
   </data>
   <data name="The {0} must be at least {1} characters." xml:space="preserve">
     <value>{0} ต้องมีความยาวอย่างน้อย {1} ตัวอักษร</value>
-  </data>
-  <data name="The name is required." xml:space="preserve">
-    <value>ชื่อเป็นสิ่งที่จำเป็น</value>
   </data>
 
 </root>

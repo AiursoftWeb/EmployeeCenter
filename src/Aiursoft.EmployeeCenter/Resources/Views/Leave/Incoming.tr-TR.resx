@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Başvuran</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>başvurular onaylandı</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>başvurular reddedildi</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Onay Merkezi</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Onaylayan</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>şirket genelinde onay bekleniyor</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>görüşünüz bekleniyor</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Kapat</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>Şu an yok</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Günler</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>İşten ayrılacakları zaman, başvurularını başlamadan önce geri çekebilirler.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>ile</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Tür</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>başvurular onaylandı</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>başvurular reddedildi</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>şirket genelinde onay bekleniyor</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>görüşünüz bekleniyor</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>Şu an yok</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>ile</value>
   </data>
 
 </root>

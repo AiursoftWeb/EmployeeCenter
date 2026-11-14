@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Add collection record" xml:space="preserve">
-    <value>Añadir registro de colección</value>
-  </data>
-  <data name="Add Record" xml:space="preserve">
+      <data name="Add Record" xml:space="preserve">
     <value>Añadir registro</value>
+  </data>
+  <data name="Add collection record" xml:space="preserve">
+    <value>Añadir registro de colección</value>
   </data>
   <data name="Back to Channel" xml:space="preserve">
     <value>Volver al canal</value>
   </data>
-  <data name="e.g. First phase payment" xml:space="preserve">
-    <value>p. ej., pago de la primera fase</value>
-  </data>
   <data name="For channel:" xml:space="preserve">
     <value>Para el canal:</value>
+  </data>
+  <data name="e.g. First phase payment" xml:space="preserve">
+    <value>p. ej., pago de la primera fase</value>
   </data>
 
 </root>

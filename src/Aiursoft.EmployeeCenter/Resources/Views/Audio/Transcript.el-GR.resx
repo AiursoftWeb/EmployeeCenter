@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>API Ακατέργαστων Δεδομένων AI</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>Το ASR μπορεί να επαναφερθεί μόνο μετά την επιτυχημένη επεξεργασία μέσων.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>Λεπτομέρειες Πρόσβασης</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>Πηγή πρόσβασης</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>API Ακατέργαστων Δεδομένων AI</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>Δημιουργήθηκε μια ασύγχρονη εργασία ASR. Παρακαλώ μην τη δημιουργήσετε ξανά.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>Το ASR μπορεί να επαναφερθεί μόνο μετά την επιτυχημένη επεξεργασία μέσων.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Αριθμός Προσπαθειών</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>Πρακτικά Συνάντησης</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>Η αναγέννηση των πρακτικών της συνεδρίας έχει προστεθεί στην ουρά.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Μεταγραφή Συνάντησης</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Η αναγέννηση των πρακτικών της συνεδρίας έχει προστεθεί στην ουρά.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>Αποτυχία δημιουργίας πρακτικού</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>Το τμήμα μου</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>Το δικαίωμά μου</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Το τμήμα μου</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Ποτέ</value>

@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Список аудиозаписей встреч, расшифровок и статусов обработки ИИ.</value>
   </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>Статус ASR</value>
+  </data>
   <data name="Access Source" xml:space="preserve">
     <value>Источник доступа</value>
   </data>
@@ -32,9 +35,6 @@
   </data>
   <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
     <value>Вы уверены, что хотите удалить эту запись встречи?</value>
-  </data>
-  <data name="ASR Status" xml:space="preserve">
-    <value>Статус ASR</value>
   </data>
   <data name="Audio Management Permission" xml:space="preserve">
     <value>Разрешение управления аудио</value>
@@ -72,6 +72,9 @@
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Транскрипты встреч</value>
   </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Статус протокола</value>
+  </data>
   <data name="Minutes generated" xml:space="preserve">
     <value>Протокол создан</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Minutes outdated" xml:space="preserve">
     <value>Протокол устарел</value>
-  </data>
-  <data name="Minutes Status" xml:space="preserve">
-    <value>Статус протокола</value>
   </data>
   <data name="My Permission" xml:space="preserve">
     <value>Мои права доступа</value>

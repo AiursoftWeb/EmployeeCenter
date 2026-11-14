@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI アシスタント</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>アクセス拒否</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -50,12 +56,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>管理情報</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>AI アシスタント</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft 社員センター</value>
@@ -135,8 +135,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>事業資格</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>CI番号</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>キャリア</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>証明書印刷</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>雇用証明書</value>
@@ -146,9 +152,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>所得証明書</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>証明書印刷</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>アバターを変更</value>
@@ -164,9 +167,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>チャット</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>CI番号</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>ログインするにはクリック</value>
@@ -273,6 +273,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>顧客関係</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS監査</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>ダッシュボード</value>
   </data>
@@ -293,9 +296,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>ディレクトリ</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>DNS監査</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>ダウンロード / 表示</value>
@@ -348,14 +348,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>ロールを編集</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>SSHキーの編集</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>サーバーを編集</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>サービス編集</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>SSHキーの編集</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>トランザクションを編集</value>
@@ -408,14 +408,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>グローバル設定</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>人事</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>休日調整</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>ホーム</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>人事</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT資産</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>画像とファイル</value>
@@ -446,9 +449,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>給与発行</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>IT資産</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>休暇</value>
@@ -513,11 +513,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>DNS プロバイダーを管理</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>無形資産の管理</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>IT資産の管理</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>無形資産の管理</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>仕訳管理</value>
@@ -711,11 +711,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>要件の詳細</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>要件が正常に保存されました。</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>要件タイトル</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>要件が正常に保存されました。</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>リソース</value>
@@ -729,11 +729,14 @@
   <data name="Roles" xml:space="preserve">
     <value>ロール</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>変更を保存</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>SCRの所在地</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSHキー</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>変更を保存</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>事務局長</value>
@@ -762,23 +765,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>サインアウト</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>SSHキー</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>ステータス</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>コメントを送信</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>承認を依頼する</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>新しい要件を提出する</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>要件を提出する</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>承認を依頼する</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>システム</value>

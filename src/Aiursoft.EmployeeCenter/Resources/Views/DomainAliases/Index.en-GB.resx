@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Available DNS candidates</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>awaiting audit</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Critical</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Delete this domain alias?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Domain Alias Registry</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Expected target</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>healthy</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP redirect</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>managed aliases</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>need attention</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>New Alias</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Updated at</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>awaiting audit</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>healthy</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>managed aliases</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>need attention</value>
   </data>
 
 </root>

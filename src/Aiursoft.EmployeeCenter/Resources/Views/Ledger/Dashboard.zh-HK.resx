@@ -36,9 +36,6 @@
   <data name="Bank Balance Less Liabilities" xml:space="preserve">
     <value>銀行結餘減負債</value>
   </data>
-  <data name="converted at current exchange rate" xml:space="preserve">
-    <value>已按現行匯率換算</value>
-  </data>
   <data name="Current Balance" xml:space="preserve">
     <value>現金餘額</value>
   </data>
@@ -155,6 +152,9 @@
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>憑證</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>已按現行匯率換算</value>
   </data>
 
 </root>

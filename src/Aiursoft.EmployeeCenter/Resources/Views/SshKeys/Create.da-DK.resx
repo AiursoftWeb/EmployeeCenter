@@ -30,9 +30,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Annuller</value>
   </data>
-  <data name="e.g. Work Laptop" xml:space="preserve">
-    <value>f.eks. Arbejdsbærbar</value>
-  </data>
   <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
     <value>Sørg for at indsætte hele den offentlige nøgle, inklusive typen og eventuelle kommentarer.</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Paste your public SSH key below." xml:space="preserve">
     <value>Indsæt din offentlige SSH-nøgle nedenfor.</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>f.eks. Arbejdsbærbar</value>
   </data>
 
 </root>

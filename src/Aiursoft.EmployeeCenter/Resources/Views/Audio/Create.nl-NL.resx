@@ -21,9 +21,6 @@
       <data name="Cancel" xml:space="preserve">
     <value>Annuleren</value>
   </data>
-  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
-    <value>bijv. Vergistering 2024-01-01</value>
-  </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Iedereen (CanViewAudio)</value>
   </data>
@@ -45,20 +42,23 @@
   <data name="Only me (Private)" xml:space="preserve">
     <value>Alleen ik (Privé)</value>
   </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Vergadersonderwerp uploaden</value>
+  </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Upload een vergisteringsbestand. Het wordt automatisch getranscribeerd naar tekst, klaar voor archivering en daaropvolgende AI-analyse.</value>
   </data>
   <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
     <value>Upload een audiobestand of videobestand. Videobestanden worden alleen als audio opgeslagen en het originele video wordt verwijderd.</value>
   </data>
-  <data name="Upload Meeting Recording" xml:space="preserve">
-    <value>Vergadersonderwerp uploaden</value>
-  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Bereik van weergave</value>
   </data>
   <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
     <value>Wie kan deze opname en het transcript bekijken. U kunt dit later wijzigen of delen met specifieke gebruikers/rollen.</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>bijv. Vergistering 2024-01-01</value>
   </data>
 
 </root>

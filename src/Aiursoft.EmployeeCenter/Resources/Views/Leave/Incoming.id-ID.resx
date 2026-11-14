@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Pemohon</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>aplikasi disetujui</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>aplikasi ditolak</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Pusat Persetujuan</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Pengesah</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>menunggu tinjauan di seluruh perusahaan</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>menunggu tinjauan Anda</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Tutup</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>sedang tidak hadir</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Hari</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>Mereka dapat menarik permohonan mereka sendiri sebelum permohonan dimulai.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>ke</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Jenis</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>aplikasi disetujui</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>aplikasi ditolak</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>menunggu tinjauan di seluruh perusahaan</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>menunggu tinjauan Anda</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>sedang tidak hadir</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>ke</value>
   </data>
 
 </root>

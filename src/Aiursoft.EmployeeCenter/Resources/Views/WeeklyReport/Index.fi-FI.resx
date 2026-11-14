@@ -18,11 +18,11 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Close" xml:space="preserve">
-    <value>Sulje</value>
-  </data>
-  <data name="CRITICAL: Missing Reports" xml:space="preserve">
+      <data name="CRITICAL: Missing Reports" xml:space="preserve">
     <value>KRIITTINEN: Puuttuvat raportit</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Sulje</value>
   </data>
   <data name="Everything is up to date!" xml:space="preserve">
     <value>Kaikki on ajan tasalla!</value>
@@ -54,11 +54,11 @@
   <data name="On behalf of" xml:space="preserve">
     <value>Edustamalla</value>
   </data>
-  <data name="Post as myself" xml:space="preserve">
-    <value>Lähetä itseni nimissä</value>
-  </data>
   <data name="Post Report" xml:space="preserve">
     <value>Lähetä raportti</value>
+  </data>
+  <data name="Post as myself" xml:space="preserve">
+    <value>Lähetä itseni nimissä</value>
   </data>
   <data name="Project Associations" xml:space="preserve">
     <value>Projektityöt</value>

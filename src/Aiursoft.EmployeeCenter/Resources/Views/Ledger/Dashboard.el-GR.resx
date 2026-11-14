@@ -36,9 +36,6 @@
   <data name="Bank Balance Less Liabilities" xml:space="preserve">
     <value>Υπόλοιπο Τραπεζικού Λογαριασμού Μείον Υποχρεώσεις</value>
   </data>
-  <data name="converted at current exchange rate" xml:space="preserve">
-    <value>μετατρεπόμενο με το τρέχον συναλλαγματικό ισοτιμία</value>
-  </data>
   <data name="Current Balance" xml:space="preserve">
     <value>Τρέχουσα Ισορροπία</value>
   </data>
@@ -155,6 +152,9 @@
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>Απόδειξη</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>μετατρεπόμενο με το τρέχον συναλλαγματικό ισοτιμία</value>
   </data>
 
 </root>

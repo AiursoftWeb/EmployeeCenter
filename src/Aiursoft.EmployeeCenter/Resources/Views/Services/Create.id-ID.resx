@@ -33,15 +33,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>Domain harus menjadi titik masuk utama untuk layanan tersebut.</value>
   </data>
-  <data name="e.g. Customer Portal" xml:space="preserve">
-    <value>mis. Customer Portal</value>
-  </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>misalnya example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>misalnya HTTPS, TCP</value>
-  </data>
   <data name="New" xml:space="preserve">
     <value>Baru</value>
   </data>
@@ -77,6 +68,15 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>Kiat</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>mis. Customer Portal</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>misalnya HTTPS, TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>misalnya example.com</value>
   </data>
 
 </root>

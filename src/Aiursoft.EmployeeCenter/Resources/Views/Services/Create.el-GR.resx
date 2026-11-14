@@ -33,15 +33,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>Το Domain πρέπει να είναι η κύρια σημείο εισόδου για την υπηρεσία.</value>
   </data>
-  <data name="e.g. Customer Portal" xml:space="preserve">
-    <value>π.χ. Πύλη Πελατών</value>
-  </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>π.χ. example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>π.χ. HTTPS, TCP</value>
-  </data>
   <data name="New" xml:space="preserve">
     <value>Νέο</value>
   </data>
@@ -77,6 +68,15 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>Συμβουλές</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>π.χ. Πύλη Πελατών</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>π.χ. HTTPS, TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>π.χ. example.com</value>
   </data>
 
 </root>

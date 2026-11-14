@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>อนุญาตให้จัดการและลบรหัสผ่านทั่วทั้งระบบใดๆ ที่ผู้ใช้ใดๆ สร้างขึ้น</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>อนุญาตให้จัดการบัญชีการเงินของบริษัทและบันทึกธุรกรรมต่างๆ</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>อนุญาตให้จัดการสินทรัพย์ด้านไอทีของบริษัทและสินทรัพย์ที่ไม่มีรูปธรรม (เช่น โดเมน เอกสารสิทธิ์การใช้งาน) รวมถึงหมวดหมู่ รุ่น และรายการสินทรัพย์แต่ละรายการ รวมถึงการมอบหมายและคืนสินทรัพย์ให้กับพนักงานหรือจากพนักงาน</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>อนุญาตให้จัดการสินทรัพย์ไอทีของบริษัท รวมถึงหมวดหมู่ รุ่น และรายการสินทรัพย์แต่ละรายการ รวมถึงอนุญาตให้จัดสรรและคืนสินทรัพย์ให้กับพนักงาน</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>อนุญาตให้จัดการบัญชีการเงินของบริษัทและบันทึกธุรกรรมต่างๆ</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>อนุญาตให้เรียกใช้การตรวจสอบ DNS และสถานะความพร้อมใช้งานของบริการด้วยตนเอง</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>แชทกับ AI</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>สร้างและจัดการสัญญาของบริษัท</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>สร้างสัญญาบริษัท</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>สร้างสัญญา</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>สร้างรายงานรายสัปดาห์ให้ใครก็ได้</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>สร้างและจัดการสัญญาของบริษัท</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>สร้างสัญญาบริษัท</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>สิทธิ์เริ่มต้นสำหรับแผนกบุคคล</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>ลบผู้ใช้</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>แก้ไขข้อมูลผู้ใช้</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>แก้ไขข้อมูลบทบาท</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>แก้ไขข้อมูลผู้ใช้</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>แก้ไขข้อมูลผู้ใช้</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>จัดการรหัสผ่านใดๆ</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>จัดการรายงานรายสัปดาห์ของบุคคลใดก็ตาม</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>จัดการสินทรัพย์</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>จัดการเงินเดือน</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>จัดการคีย์ SSH</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>จัดการบริการ</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>จัดการบริการ (แบบเดิม)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>จัดการคีย์ SSH</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>จัดการรายงานรายสัปดาห์ของบุคคลใดก็ตาม</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>พิมพ์ใบรับรอง</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>ยื่นคำขอเบิกจ่าย</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>ดูสัญญาบริษัทใดๆ รวมถึงที่เป็นความลับ</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>ดูงานพื้นหลัง</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>ดูบันทึกการดำเนินการของผู้ใช้</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>ดูสัญญาบริษัทใดๆ รวมถึงที่เป็นความลับ</value>
   </data>
 
 </root>

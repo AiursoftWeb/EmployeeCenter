@@ -30,9 +30,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>إلغاء</value>
   </data>
-  <data name="e.g. Work Laptop" xml:space="preserve">
-    <value>مثلاً: حاسوب العمل</value>
-  </data>
   <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
     <value>تأكد من لصق المفتاح العام بالكامل، بما في ذلك النوع وأي تعليقات.</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Paste your public SSH key below." xml:space="preserve">
     <value>الصق مفتاح SSH العام الخاص بك أدناه.</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>مثلاً: حاسوب العمل</value>
   </data>
 
 </root>

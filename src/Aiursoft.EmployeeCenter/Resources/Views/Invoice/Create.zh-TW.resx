@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>買方姓名</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>合約編號</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>統一編號 / 組織代碼</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>合約編號</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>幣別</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>已付清憑據 (Receipt / Paid Invoice)</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT代碼</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>賣方地址</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>賣方姓名</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT代碼</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>稅額</value>

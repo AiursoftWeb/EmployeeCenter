@@ -69,14 +69,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Krytyczne</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Szczegóły</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>Audyt DNS</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>rekordy DNS</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Domena</value>
@@ -98,9 +98,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>Wygenerowano w</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>nazwy hostów</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>Informacje</value>
@@ -138,17 +135,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>Uruchom audyt</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>aktywne punkty końcowe HTTP(S) działają poprawnie</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>Audyt usług</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>Rozpoczyna się audyt usługi</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>przebadanych nazw hostów usługi</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Waga</value>
@@ -173,6 +164,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>Strefy</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>nazwy hostów</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>aktywne punkty końcowe HTTP(S) działają poprawnie</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>przebadanych nazw hostów usługi</value>
   </data>
 
 </root>

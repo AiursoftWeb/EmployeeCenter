@@ -165,6 +165,9 @@
   <data name="SCR Location" xml:space="preserve">
     <value>公司註冊處地址</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT代碼</value>
+  </data>
   <data name="Secretary" xml:space="preserve">
     <value>公司秘書</value>
   </data>
@@ -176,9 +179,6 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>狀態</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT代碼</value>
   </data>
   <data name="Tax ID" xml:space="preserve">
     <value>稅務識別編號</value>

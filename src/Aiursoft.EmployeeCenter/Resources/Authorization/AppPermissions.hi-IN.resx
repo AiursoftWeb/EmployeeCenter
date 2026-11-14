@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>किसी भी उपयोगकर्ता द्वारा बनाए गए किसी भी वैश्विक पासवर्ड को प्रबंधित और हटाने की अनुमति देता है।</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>कंपनी के वित्तीय खातों के प्रबंधन और लेन-देन के रिकॉर्ड करने की अनुमति देता है।</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>कंपनी के आईटी संपत्ति और अदृश्य संपत्ति (जैसे डोमेन, लाइसेंस) के प्रबंधन की अनुमति देता है, जिसमें श्रेणियाँ, मॉडल और व्यक्तिगत आइटम शामिल हैं। साथ ही कर्मचारियों को संपत्ति आवंटित करने और उन्हें वापस लेने की अनुमति देता है।</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>कंपनी के आईटी संपत्तियों के प्रबंधन की अनुमति देता है, जिसमें शामिल हैं श्रेणियाँ, मॉडल और व्यक्तिगत आइटम। साथ ही कर्मचारियों को संपत्तियाँ आवंटित और पुनः प्राप्त करने की अनुमति देता है।</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>कंपनी के वित्तीय खातों के प्रबंधन और लेन-देन के रिकॉर्ड करने की अनुमति देता है।</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>सेवा DNS और उपलब्धता ऑडिट को मैन्युअली ट्रिगर करने की अनुमति देता है।</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>AI से चैट करें</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>कंपनी के अनुबंध बनाएं और प्रबंधित करें</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>कंपनी कॉन्ट्रैक्ट बनाएं</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>कॉन्ट्रैक्ट बनाएं</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>किसी भी के लिए साप्ताहिक रिपोर्ट बनाएं</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>कंपनी के अनुबंध बनाएं और प्रबंधित करें</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>कंपनी कॉन्ट्रैक्ट बनाएं</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>HR के लिए डिफ़ॉल्ट अनुमति।</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>उपयोगकर्ता हटाएं</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>उपयोगकर्ता जानकारी संपादित करें</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>भूमिका की जानकारी संपादित करें</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>उपयोगकर्ता जानकारी संपादित करें</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>उपयोगकर्ता जानकारी संपादित करें</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>किसी भी पासवर्ड का प्रबंधन करें</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>किसी भी व्यक्ति की साप्ताहिक रिपोर्ट प्रबंधित करें</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>संपत्ति प्रबंधित करें</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>पेरोल प्रबंधित करें</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>SSH कुंजियाँ प्रबंधित करें</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>सेवाओं का प्रबंधन करें</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>सेवाओं का प्रबंधन (लेगासी)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>SSH कुंजियाँ प्रबंधित करें</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>किसी भी व्यक्ति की साप्ताहिक रिपोर्ट प्रबंधित करें</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>प्रिंट प्रमाणपत्र</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>पुनर्भुगतान जमा करें</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>किसी भी कंपनी के संविदा को देखें, जिसमें निजी संविदाएं भी शामिल हों</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>बैकग्राउंड जॉब्स देखें</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>उपयोगकर्ता संचालन लॉग देखें</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>किसी भी कंपनी के संविदा को देखें, जिसमें निजी संविदाएं भी शामिल हों</value>
   </data>
 
 </root>

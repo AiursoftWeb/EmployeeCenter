@@ -24,20 +24,8 @@
   <data name="Cancel" xml:space="preserve">
     <value>रद्द करें</value>
   </data>
-  <data name="e.g. 192.168.1.10" xml:space="preserve">
-    <value>उदाहरण 192.168.1.10</value>
-  </data>
-  <data name="e.g. 2001:db8::10" xml:space="preserve">
-    <value>उदा. 2001:db8::10</value>
-  </data>
-  <data name="e.g. web-server-01" xml:space="preserve">
-    <value>उदा. web-server-01</value>
-  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>सर्वर संपादित करें</value>
-  </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>नया</value>
@@ -59,6 +47,18 @@
   </data>
   <data name="Select Provider" xml:space="preserve">
     <value>प्रदाता चुनें</value>
+  </data>
+  <data name="e.g. 192.168.1.10" xml:space="preserve">
+    <value>उदाहरण 192.168.1.10</value>
+  </data>
+  <data name="e.g. 2001:db8::10" xml:space="preserve">
+    <value>उदा. 2001:db8::10</value>
+  </data>
+  <data name="e.g. web-server-01" xml:space="preserve">
+    <value>उदा. web-server-01</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
   </data>
 
 </root>

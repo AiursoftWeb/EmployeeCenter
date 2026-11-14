@@ -69,12 +69,6 @@
   <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
     <value>이사자금 (회사에 빌려준 금액), 미지급 송장, 신용카드 부채</value>
   </data>
-  <data name="e.g. HKD, CNY" xml:space="preserve">
-    <value>예: HKD, CNY</value>
-  </data>
-  <data name="e.g. Statrys Checking" xml:space="preserve">
-    <value>예: Statrys Checking</value>
-  </data>
   <data name="Equity" xml:space="preserve">
     <value>자본</value>
   </data>
@@ -173,6 +167,12 @@
   </data>
   <data name="Value that truly belongs to you" xml:space="preserve">
     <value>진정으로 당신의 소유인 가치</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>예: HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>예: Statrys Checking</value>
   </data>
 
 </root>

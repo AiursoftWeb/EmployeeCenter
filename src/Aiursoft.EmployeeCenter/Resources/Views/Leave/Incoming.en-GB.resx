@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Applicant</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>applications approved</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>applications rejected</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Approval Centre</value>
   </data>
@@ -54,20 +48,11 @@
   <data name="Approver" xml:space="preserve">
     <value>Approver</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>awaiting review across company</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>awaiting your review</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
   <data name="Company on Leave" xml:space="preserve">
     <value>Company on Leave</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>currently absent</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Days</value>
@@ -135,11 +120,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>They can withdraw their own application before it starts.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>to</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>applications approved</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>applications rejected</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>awaiting review across company</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>awaiting your review</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>currently absent</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>to</value>
   </data>
 
 </root>

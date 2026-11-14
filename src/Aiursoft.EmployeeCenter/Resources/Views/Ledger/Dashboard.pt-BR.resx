@@ -36,9 +36,6 @@
   <data name="Bank Balance Less Liabilities" xml:space="preserve">
     <value>Saldo Bancário Menos Passivos</value>
   </data>
-  <data name="converted at current exchange rate" xml:space="preserve">
-    <value>convertido pela taxa de câmbio atual</value>
-  </data>
   <data name="Current Balance" xml:space="preserve">
     <value>Saldo Atual</value>
   </data>
@@ -155,6 +152,9 @@
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>Comprovante</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>convertido pela taxa de câmbio atual</value>
   </data>
 
 </root>

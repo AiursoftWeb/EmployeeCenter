@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} дней оплачиваемого ежегодного отпуска в год</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 дней оплачиваемого больничного листа в год</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>Одобривший</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>ожидает одобрения</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>Перенесено</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Закрыть</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>дней</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>через дней</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>Приятных каникул!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>через</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>Ключевая информация о наших правилах отпусков</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>История отпусков не найдена.</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>нет предстоящего отпуска</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>из</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>Ожидает подтверждения</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Отклонено</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>запросы</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>Требуется одобрение менеджера перед использованием</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>Ваши заявки на отпуск и их статус</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>ожидает одобрения</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>дней</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>через дней</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>через</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>нет предстоящего отпуска</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>из</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>запросы</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} дней оплачиваемого ежегодного отпуска в год</value>
   </data>
 
 </root>

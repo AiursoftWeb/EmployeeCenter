@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Candidat</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>aplicații aprobată</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>aplicații respinse</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Centrul de Aprobare</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Aprobat de</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>așteaptă verificare în întreaga companie</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>în așteptarea recenziei dumneavoastră</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Închide</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>în prezent absent</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Zile</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>Pot retrage cererea proprie înainte de a începe.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>la</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Tip</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>aplicații aprobată</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>aplicații respinse</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>așteaptă verificare în întreaga companie</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>în așteptarea recenziei dumneavoastră</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>în prezent absent</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>la</value>
   </data>
 
 </root>

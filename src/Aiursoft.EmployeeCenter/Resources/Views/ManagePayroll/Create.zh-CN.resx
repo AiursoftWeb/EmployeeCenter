@@ -51,6 +51,9 @@
   <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
     <value>点击“确认并发放”，即表示你确认上述所有数值正确且符合公司政策。</value>
   </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>关键确认</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>根据加班时长计算</value>
   </data>
@@ -84,9 +87,6 @@
   <data name="Contracted basic salary" xml:space="preserve">
     <value>合同基本工资</value>
   </data>
-  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
-    <value>关键确认</value>
-  </data>
   <data name="Currency" xml:space="preserve">
     <value>币种</value>
   </data>
@@ -105,14 +105,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>教育、住房等</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>员工：</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>员工账号</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>员工银行</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>员工：</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>请输入负值</value>
@@ -249,9 +249,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>失业保险（公司）</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>通常</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>金额</value>
   </data>
@@ -260,6 +257,9 @@
   </data>
   <data name="Yes, Confirm and Issue!" xml:space="preserve">
     <value>是的，确认并发放！</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>通常</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Event recording time is in Coordinated Universal Time!</value>

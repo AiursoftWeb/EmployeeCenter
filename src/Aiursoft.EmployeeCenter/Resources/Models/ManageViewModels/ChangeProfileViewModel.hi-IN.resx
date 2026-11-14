@@ -21,6 +21,9 @@
       <data name="Name" xml:space="preserve">
     <value>नाम</value>
   </data>
+  <data name="The name is required." xml:space="preserve">
+    <value>नाम आवश्यक है।</value>
+  </data>
   <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
     <value>{0} के {1} अक्षरों से अधिक नहीं हो सकते।</value>
   </data>
@@ -29,9 +32,6 @@
   </data>
   <data name="The {0} must be at least {1} characters." xml:space="preserve">
     <value>{0} कम से कम {1} अक्षरों का होना चाहिए।</value>
-  </data>
-  <data name="The name is required." xml:space="preserve">
-    <value>नाम आवश्यक है।</value>
   </data>
 
 </root>

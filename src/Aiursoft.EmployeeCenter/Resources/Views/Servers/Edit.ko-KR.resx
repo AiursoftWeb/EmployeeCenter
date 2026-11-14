@@ -24,20 +24,8 @@
   <data name="Cancel" xml:space="preserve">
     <value>취소</value>
   </data>
-  <data name="e.g. 192.168.1.10" xml:space="preserve">
-    <value>예: 192.168.1.10</value>
-  </data>
-  <data name="e.g. 2001:db8::10" xml:space="preserve">
-    <value>예: 2001:db8::10</value>
-  </data>
-  <data name="e.g. web-server-01" xml:space="preserve">
-    <value>예: web-server-01</value>
-  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>서버 편집</value>
-  </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>새로운</value>
@@ -59,6 +47,18 @@
   </data>
   <data name="Select Provider" xml:space="preserve">
     <value>공급업체 선택</value>
+  </data>
+  <data name="e.g. 192.168.1.10" xml:space="preserve">
+    <value>예: 192.168.1.10</value>
+  </data>
+  <data name="e.g. 2001:db8::10" xml:space="preserve">
+    <value>예: 2001:db8::10</value>
+  </data>
+  <data name="e.g. web-server-01" xml:space="preserve">
+    <value>예: web-server-01</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
   </data>
 
 </root>

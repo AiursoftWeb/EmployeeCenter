@@ -33,26 +33,26 @@
   <data name="Back to Services" xml:space="preserve">
     <value>กลับไปยังบริการ</value>
   </data>
+  <data name="DNS Providers" xml:space="preserve">
+    <value>ผู้ให้บริการ DNS</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>ลบ</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>คำอธิบาย</value>
   </data>
-  <data name="DNS Providers" xml:space="preserve">
-    <value>ผู้ให้บริการ DNS</value>
+  <data name="Existing DNS Providers" xml:space="preserve">
+    <value>ผู้ให้บริการ DNS ที่มีอยู่</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>ชื่อ</value>
   </data>
   <data name="e.g. Cloudflare" xml:space="preserve">
     <value>เช่น Cloudflare</value>
   </data>
   <data name="e.g. Global CDN &amp; DNS" xml:space="preserve">
     <value>เช่น โกลบอล CDN &amp; DNS</value>
-  </data>
-  <data name="Existing DNS Providers" xml:space="preserve">
-    <value>ผู้ให้บริการ DNS ที่มีอยู่</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>ชื่อ</value>
   </data>
 
 </root>

@@ -66,6 +66,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Bon / Betaalde factuur</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-code</value>
+  </data>
   <data name="Seller" xml:space="preserve">
     <value>Verkoper</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Verkoper Naam</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT-code</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>Het {0} is verplicht.</value>

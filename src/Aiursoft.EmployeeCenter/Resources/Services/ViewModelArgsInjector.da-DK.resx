@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI-assistent</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Adgang nægtet</value>
   </data>
   <data name="Accounts" xml:space="preserve">
@@ -47,12 +53,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>Administrative detaljer</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>AI-assistent</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft Medarbejdercenter</value>
@@ -132,8 +132,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>Erhvervsmæssige kvalifikationer</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>CI-nummer</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>Karriere</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Udskriv certifikat</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>Certifikat for ansættelse</value>
@@ -143,9 +149,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>Certifikat for indkomst</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>Udskriv certifikat</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Skift avatar</value>
@@ -161,9 +164,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>Chat</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>CI-nummer</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Klik for at logge ind</value>
@@ -270,6 +270,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>Kundeforhold</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS-audit</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
   </data>
@@ -290,9 +293,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Mappe</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>DNS-audit</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>Hent / Vis</value>
@@ -345,14 +345,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>Rediger Rolle</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Rediger SSH-nøgle</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>Rediger server</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>Redigér tjeneste</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>Rediger SSH-nøgle</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>Rediger transaktion</value>
@@ -405,14 +405,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>Globale indstillinger</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>Feriejusteringer</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Hjem</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>HR</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT-aktiver</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>Billeder &amp; Fil</value>
@@ -443,9 +446,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>Udsted løn</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>IT-aktiver</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>Ferie</value>
@@ -510,11 +510,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>Administrer DNS-udbydere</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>Håndtér intangible aktiver</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>Administrer IT-aktiver</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Håndtér intangible aktiver</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>Håndtér bogføring</value>
@@ -708,11 +708,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>Kravdetaljer</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>Krav gemt successfullt.</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>Anmodningstitel</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Krav gemt successfullt.</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>Ressourcer</value>
@@ -726,11 +726,14 @@
   <data name="Roles" xml:space="preserve">
     <value>Roller</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Gem ændringer</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>SCR-placering</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH-nøgler</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Gem ændringer</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>Sekretær</value>
@@ -759,23 +762,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>Log ud</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>SSH-nøgler</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>Indsend kommentar</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>Indsend til godkendelse</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>Indsend ny krav</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>Indsend krav</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Indsend til godkendelse</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>System</value>

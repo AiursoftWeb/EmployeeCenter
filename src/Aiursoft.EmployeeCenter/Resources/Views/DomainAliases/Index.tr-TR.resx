@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Kullanılabilir DNS adayları</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>denetim bekleniyor</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Kapat</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Kritik</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Sil</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Bu alan adı takma adı silinsin mi?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Alan Adı Takma Adı Kayıt Defteri</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Beklenen hedef</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>sağlıklı</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP yönlendirmesi</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Eski adlandırma adlarını yönetin ve HTTP yönlendirmelerini veya DNS CNAME hedeflerini doğrulayın.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>yönetilen takma adlar</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>dikkat gerektiriyor</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Yeni Takma Ad</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Güncelleme Zamanı</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>denetim bekleniyor</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>sağlıklı</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>yönetilen takma adlar</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>dikkat gerektiriyor</value>
   </data>
 
 </root>

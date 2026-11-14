@@ -21,6 +21,9 @@
       <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
     <value>Daftar rekaman audio rapat, transkrip, dan status pemrosesan AI.</value>
   </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>Status ASR</value>
+  </data>
   <data name="Access Source" xml:space="preserve">
     <value>Sumber Akses</value>
   </data>
@@ -32,9 +35,6 @@
   </data>
   <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
     <value>Apakah Anda yakin ingin menghapus rekaman rapat ini?</value>
-  </data>
-  <data name="ASR Status" xml:space="preserve">
-    <value>Status ASR</value>
   </data>
   <data name="Audio Management Permission" xml:space="preserve">
     <value>Izin Manajemen Audio</value>
@@ -72,6 +72,9 @@
   <data name="Meeting Transcripts" xml:space="preserve">
     <value>Transkrip Rapat</value>
   </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Status Notulen</value>
+  </data>
   <data name="Minutes generated" xml:space="preserve">
     <value>Notulen dibuat</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Minutes outdated" xml:space="preserve">
     <value>Notulen kedaluwarsa</value>
-  </data>
-  <data name="Minutes Status" xml:space="preserve">
-    <value>Status Notulen</value>
   </data>
   <data name="My Permission" xml:space="preserve">
     <value>Izin Saya</value>

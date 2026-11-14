@@ -18,34 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} and {1} other user" xml:space="preserve">
-    <value>{0} ja {1} muu käyttäjä</value>
-  </data>
-  <data name="{0} and {1} other users" xml:space="preserve">
-    <value>{0} ja {1} muuta käyttäjää</value>
-  </data>
-  <data name="{0} can edit." xml:space="preserve">
-    <value>{0} voi muokata.</value>
-  </data>
-  <data name="{0} can view." xml:space="preserve">
-    <value>{0} voi tarkastella.</value>
-  </data>
-  <data name="{0} role" xml:space="preserve">
-    <value>{0} rooli</value>
-  </data>
-  <data name="{0} roles" xml:space="preserve">
-    <value>{0} roolia</value>
-  </data>
-  <data name="{0} user" xml:space="preserve">
-    <value>{0} käyttäjä</value>
-  </data>
-  <data name="{0} users" xml:space="preserve">
-    <value>{0} käyttäjää</value>
-  </data>
-  <data name="{0}, {1}" xml:space="preserve">
-    <value>{0}, {1}</value>
-  </data>
-  <data name="About access" xml:space="preserve">
+      <data name="About access" xml:space="preserve">
     <value>Tietoja käyttöoikeuksista</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -54,11 +27,11 @@
   <data name="Add" xml:space="preserve">
     <value>Lisää</value>
   </data>
-  <data name="Add access" xml:space="preserve">
-    <value>Lisää pääsy</value>
-  </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Lisää uusi jako</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Lisää pääsy</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>Virhe tapahtui pyyntösi käsittelyn aikana.</value>
@@ -123,9 +96,6 @@
   <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
     <value>Jäsenen esikatselu ei ole käytettävissä. Voit silti jakaa tämän roolin kanssa.</value>
   </data>
-  <data name="members" xml:space="preserve">
-    <value>jäsenet</value>
-  </data>
   <data name="Name or email (3+ characters)" xml:space="preserve">
     <value>Nimi tai sähköpostiosoite (vähintään 3 merkkiä)</value>
   </data>
@@ -174,9 +144,6 @@
   <data name="Role {0} and {1} other roles" xml:space="preserve">
     <value>Rooli {0} ja {1} muuta roolia</value>
   </data>
-  <data name="role members" xml:space="preserve">
-    <value>roolin jäsenet</value>
-  </data>
   <data name="Search failed. Change the search text to try again." xml:space="preserve">
     <value>Haku epäonnistui. Muuta hakutekstiä ja yritä uudelleen.</value>
   </data>
@@ -192,11 +159,11 @@
   <data name="Share with" xml:space="preserve">
     <value>Jaa nimellä</value>
   </data>
-  <data name="Shared access" xml:space="preserve">
-    <value>Jaettu käyttöoikeus</value>
-  </data>
   <data name="Shared With" xml:space="preserve">
     <value>Jakettu käyttäjän kanssa</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Jaettu käyttöoikeus</value>
   </data>
   <data name="Specific User" xml:space="preserve">
     <value>Tietty käyttäjä</value>
@@ -218,6 +185,39 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>Käyttäjä</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>jäsenet</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>roolin jäsenet</value>
+  </data>
+  <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} ja {1} muu käyttäjä</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} ja {1} muuta käyttäjää</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} voi muokata.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} voi tarkastella.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} rooli</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} roolia</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} käyttäjä</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} käyttäjää</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
   </data>
 
 </root>

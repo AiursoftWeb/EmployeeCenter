@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>اسم المشتري</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>رقم العقد</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>الرقم الضريبي / رمز الكيان</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>رقم العقد</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>العملة</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>إيصال / فاتورة مدفوعة</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>كود SWIFT</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>عنوان البائع</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>اسم البائع</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>كود SWIFT</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>مبلغ الضريبة</value>

@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Candidați DNS disponibili</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>în așteptarea auditului</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Închide</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Critic</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Ștergere</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Doriți să ștergeți acest alias de domeniu?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Registrul aliasurilor de domeniu</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Ținta așteptată</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>sănătoase</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>redirecționare HTTP</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Gestiona numele de gazdă moștenite și verifică redirectionările lor HTTP sau țintele CNAME DNS.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>alias-uri gestionate</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>ne cer atenție</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Alias nou</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Actualizat la</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>în așteptarea auditului</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>sănătoase</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>alias-uri gestionate</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>ne cer atenție</value>
   </data>
 
 </root>

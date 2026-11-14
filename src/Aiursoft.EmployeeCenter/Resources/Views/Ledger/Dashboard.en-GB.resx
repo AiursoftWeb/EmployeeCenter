@@ -39,9 +39,6 @@
   <data name="Bank Balance Less Liabilities" xml:space="preserve">
     <value>Bank Balance Less Liabilities</value>
   </data>
-  <data name="converted at current exchange rate" xml:space="preserve">
-    <value>converted at the current exchange rate</value>
-  </data>
   <data name="Current Balance" xml:space="preserve">
     <value>Current Balance</value>
   </data>
@@ -164,6 +161,9 @@
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>Voucher</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>converted at the current exchange rate</value>
   </data>
 
 </root>

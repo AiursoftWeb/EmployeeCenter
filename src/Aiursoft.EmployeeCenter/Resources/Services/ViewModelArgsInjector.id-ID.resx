@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Asisten AI</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Akses Ditolak</value>
   </data>
   <data name="Accounts" xml:space="preserve">
@@ -47,12 +53,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>Detail Administratif</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>Asisten AI</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Pusat Karyawan Aiursoft</value>
@@ -132,8 +132,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>Kualifikasi Bisnis</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Nomor CI</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>Karier</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Cetak Sertifikat</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>Surat Keterangan Karyawan</value>
@@ -143,9 +149,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>Surat Keterangan Penghasilan</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>Cetak Sertifikat</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Ubah Avatar</value>
@@ -161,9 +164,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>Chat</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>Nomor CI</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Klik untuk masuk</value>
@@ -270,6 +270,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>Hubungan Pelanggan</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Audit DNS</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dasbor</value>
   </data>
@@ -290,9 +293,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Direktori</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>Audit DNS</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>Unduh / Lihat</value>
@@ -345,14 +345,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>Edit Peran</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Edit Kunci SSH</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>Edit Server</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>Edit Layanan</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>Edit Kunci SSH</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>Edit Transaksi</value>
@@ -405,14 +405,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>Pengaturan Global</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>Penyesuaian Libur</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Beranda</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>HR</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>Aset IT</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>Gambar &amp; Berkas</value>
@@ -443,9 +446,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>Terbitkan Gaji</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>Aset IT</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>Cuti</value>
@@ -510,11 +510,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>Kelola Penyedia DNS</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>Kelola Aset Tak Berwujud</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>Kelola Aset IT</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Kelola Aset Tak Berwujud</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>Kelola Buku Besar</value>
@@ -708,11 +708,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>Detail Persyaratan</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>Persyaratan disimpan berhasil.</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>Judul Permintaan</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Persyaratan disimpan berhasil.</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>Sumber Daya</value>
@@ -726,11 +726,14 @@
   <data name="Roles" xml:space="preserve">
     <value>Peran</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Simpan Perubahan</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>Lokasi SCR</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>Kunci SSH</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Simpan Perubahan</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>Sekretaris</value>
@@ -759,23 +762,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>Keluar</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>Kunci SSH</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>Kirim Komentar</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>Kirim untuk Persetujuan</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>Kirim Permintaan Baru</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>Kirim Persyaratan</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Kirim untuk Persetujuan</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>Sistem</value>

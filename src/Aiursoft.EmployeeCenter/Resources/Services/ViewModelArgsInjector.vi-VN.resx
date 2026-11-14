@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Trợ lý AI</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Truy cập bị từ chối</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -50,12 +56,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>Thông tin hành chính</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>Trợ lý AI</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft Trung tâm Nhân viên</value>
@@ -135,8 +135,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>Giấy phép kinh doanh</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Số CI</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>Công việc</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>In phiếu chứng nhận</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>Chứng nhận việc làm</value>
@@ -146,9 +152,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>Chứng chỉ thu nhập</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>In phiếu chứng nhận</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Thay đổi Ảnh đại diện</value>
@@ -164,9 +167,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>Chat</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>Số CI</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Nhấp để đăng nhập</value>
@@ -273,6 +273,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>Quan hệ khách hàng</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Kiểm toán DNS</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Bảng điều khiển</value>
   </data>
@@ -293,9 +296,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Thư mục</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>Kiểm toán DNS</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>Tải xuống / Xem</value>
@@ -348,14 +348,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>Chỉnh sửa Vai trò</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Sửa khóa SSH</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>Chỉnh sửa Máy chủ</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>Chỉnh sửa Dịch vụ</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>Sửa khóa SSH</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>Sửa Giao Dịch</value>
@@ -408,14 +408,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>Cài đặt chung</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>Nhân sự</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>Điều chỉnh nghỉ lễ</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Trang Chủ</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>Nhân sự</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>Tài sản CNTT</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>Hình ảnh &amp; Tập tin</value>
@@ -446,9 +449,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>Cấp phát lương</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>Tài sản CNTT</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>Nghỉ phép</value>
@@ -513,11 +513,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>Quản lý nhà cung cấp DNS</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>Quản lý tài sản vô hình</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>Quản lý tài sản CNTT</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Quản lý tài sản vô hình</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>Quản lý sổ sách</value>
@@ -711,11 +711,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>Chi tiết yêu cầu</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>Yêu cầu đã được lưu thành công.</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>Tiêu đề yêu cầu</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Yêu cầu đã được lưu thành công.</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>Tài nguyên</value>
@@ -729,11 +729,14 @@
   <data name="Roles" xml:space="preserve">
     <value>Vai trò</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Lưu thay đổi</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>Địa chỉ SCR</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>Khóa SSH</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Lưu thay đổi</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>Thư ký</value>
@@ -762,23 +765,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>Đăng xuất</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>Khóa SSH</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>Trạng thái</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>Gửi bình luận</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>Gửi để phê duyệt</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>Gửi yêu cầu mới</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>Gửi yêu cầu</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Gửi để phê duyệt</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>Hệ thống</value>

@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>Sallii minkä tahansa käyttäjän luomien globaalien salasanojen hallinnan ja poistamisen.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>Sallii yrityksen taloudellisten tilien hallinnoinnin ja tapahtumien kirjaamisen.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Sallii yrityksen tietoteknisten ja epäaineellisten omaisuusvälineiden hallinnan (kuten verkkotunnukset, lisenssit), mukaan lukien luokat, mallit ja yksittäiset tuotteet. Sallii myös omaisuuden myöntämisen ja palauttamisen työntekijöiltä.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Mahdollistaa yrityksen tietoteknisten varojen hallinnan, mukaan lukien kategoriat, mallit ja yksittäiset tuotteet. Mahdollistaa myös varojen myöntämisen ja palauttamisen työntekijöille.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Sallii yrityksen taloudellisten tilien hallinnoinnin ja tapahtumien kirjaamisen.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>Sallii manuaalisesti käynnistää palvelun DNS- ja saatavuustarkistuksen.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>Keskustele tekoälyn kanssa</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>Luo ja hallinnoi yrityksen sopimuksia</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>Luo yrityslehdet</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>Luo sopimus</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>Luo viikko-raportti kenelle tahansa</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Luo ja hallinnoi yrityksen sopimuksia</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Luo yrityslehdet</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>Oletusoikeus HR:lle.</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>Poista käyttäjiä</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>Muokkaa käyttäjätietoja</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>Muokkaa roolitietoja</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>Muokkaa käyttäjätietoja</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>Muokkaa käyttäjätietoja</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Hallitse mitä tahansa salasanaa</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>Hallinnoi kenen tahansa viikkoraporttia</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>Hallinnoi varoja</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>Hallitse palkkalaskelmia</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Hallitse SSH-avaimia</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Hallinnoi palveluita</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>Palvelujen hallinta (legacy)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>Hallitse SSH-avaimia</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Hallinnoi kenen tahansa viikkoraporttia</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>Tulosta todistukset</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Lähetä korvaus</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>Näytä mikä tahansa yrityksen sopimus, mukaan lukien yksityiset</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Näytä taustatehtävät</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>Näytä käyttäjän toimintalogi</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Näytä mikä tahansa yrityksen sopimus, mukaan lukien yksityiset</value>
   </data>
 
 </root>

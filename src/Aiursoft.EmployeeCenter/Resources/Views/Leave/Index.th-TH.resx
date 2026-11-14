@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} วัน สำหรับการลาพักร้อนที่ได้รับค่าจ้างต่อปี</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 วัน สำหรับการลาป่วยที่ได้รับค่าจ้างต่อปี</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>ผู้อนุมัติ</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>รอดำเนินการอนุมัติ</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>ถ่ายโอนมา</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>ปิด</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>วัน</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>อีกจำนวนวัน</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>ขอให้พักผ่อนอย่างมีความสุข!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>ใน</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>ข้อมูลสำคัญเกี่ยวกับนโยบายการลาของบริษัทเรา</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>ไม่พบประวัติการลา</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>ไม่มีการลาที่จะมาถึง</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>ของ</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>รอดำเนินการ</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>ปฏิเสธ</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>คำขอ</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>ต้องได้รับการอนุมัติจากผู้จัดการก่อนใช้</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>ประวัติการขอลาของคุณและสถานะการอนุมัติ</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>รอดำเนินการอนุมัติ</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>วัน</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>อีกจำนวนวัน</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>ใน</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>ไม่มีการลาที่จะมาถึง</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>ของ</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>คำขอ</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} วัน สำหรับการลาพักร้อนที่ได้รับค่าจ้างต่อปี</value>
   </data>
 
 </root>

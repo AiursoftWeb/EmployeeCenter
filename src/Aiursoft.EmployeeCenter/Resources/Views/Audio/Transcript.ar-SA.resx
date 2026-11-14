@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>واجهة برمجة التطبيقات الخام للذكاء الاصطناعي</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>لا يمكن إعادة تعيين ASR إلا بعد نجاح معالجة الوسائط.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>تفاصيل الوصول</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>مصدر الوصول</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>واجهة برمجة التطبيقات الخام للذكاء الاصطناعي</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>تم إنشاء مهمة ASR غير متصلة. يرجى عدم إنشائها مرة أخرى.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>لا يمكن إعادة تعيين ASR إلا بعد نجاح معالجة الوسائط.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>عدد المحاولات</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>دقائق الاجتماع</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>تمت إضافة إعادة توليد محضر الاجتماع إلى قائمة الانتظار.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>نص الاجتماع</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>تمت إضافة إعادة توليد محضر الاجتماع إلى قائمة الانتظار.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>فشل إنشاء الدقائق</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>قسمي</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>صلاحياتي</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>قسمي</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>أبداً</value>

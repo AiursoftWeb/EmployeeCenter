@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>Дозволяє керувати та видаляти будь-який глобальний пароль, створений будь-яким користувачем.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>Дозволяє керувати фінансовими рахунками компанії та реєструвати операції.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Дозволяє керувати інформаційними технологіями компанії та нематеріальними активами (наприклад, доменами, ліцензіями), включаючи категорії, моделі та окремі елементи. Також дозволяє призначати та відновлювати активи для/від співробітників.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Дозволяє керувати IT-активами компанії, включаючи категорії, моделі та окремі одиниці. Також дозволяє призначати та повертаєти активи співробітникам.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Дозволяє керувати фінансовими рахунками компанії та реєструвати операції.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>Дозволяє вручну ініціювати аудит DNS та доступності служб.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>Чат із ШІ</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>Створювати та керувати корпоративними контрактами</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>Створити договори компанії</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>Створити договір</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>Створити тижневий звіт для будь-кого</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Створювати та керувати корпоративними контрактами</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Створити договори компанії</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>За замовчуванням дозвіл для HR.</value>
@@ -246,14 +246,14 @@
   <data name="Delete Users" xml:space="preserve">
     <value>Видалення користувачів</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>Редагування інформації користувача</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>Редагувати інформацію про роль</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
     <value>Редагувати інформацію про користувача</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Редагування інформації користувача</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
     <value>Надає дозвіл на створення нових ролей.</value>
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Керувати будь-яким паролем</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>Керувати щотижневим звітом будь-кого</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>Керування активами</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>Керувати розрахунком заробітної плати</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Керування SSH-ключами</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Керувати послугами</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>Керування службами (застаріле)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>Керування SSH-ключами</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Керувати щотижневим звітом будь-кого</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>Друкувати сертифікати</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Подати запит на відшкодування</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>Переглянути будь-який компанійний договір, включаючи приватні</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Переглянути фонові завдання</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>Переглянути журнал операцій користувача</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Переглянути будь-який компанійний договір, включаючи приватні</value>
   </data>
 
 </root>

@@ -66,6 +66,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Fatura / Ödenmiş Fatura</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT Kodu</value>
+  </data>
   <data name="Seller" xml:space="preserve">
     <value>Satıcı</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Satıcı Adı</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT Kodu</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} gerekli.</value>

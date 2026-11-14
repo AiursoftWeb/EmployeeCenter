@@ -24,17 +24,11 @@
   <data name="Actions" xml:space="preserve">
     <value>Hành động</value>
   </data>
-  <data name="active servers" xml:space="preserve">
-    <value>Máy chủ hoạt động</value>
-  </data>
   <data name="All Services" xml:space="preserve">
     <value>Tất cả Dịch vụ</value>
   </data>
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Bạn có chắc chắn muốn xóa dịch vụ này không?</value>
-  </data>
-  <data name="assigned" xml:space="preserve">
-    <value>đã gán</value>
   </data>
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>Đối tượng và phạm vi định tuyến của danh mục dịch vụ.</value>
@@ -54,9 +48,6 @@
   <data name="Availability" xml:space="preserve">
     <value>Khả dụng</value>
   </data>
-  <data name="blocking findings" xml:space="preserve">
-    <value>phát hiện nghiêm trọng</value>
-  </data>
   <data name="Click a bar or server name to inspect its services." xml:space="preserve">
     <value>Nhấp vào một thanh hoặc tên máy chủ để xem các dịch vụ của nó.</value>
   </data>
@@ -72,15 +63,6 @@
   <data name="Current state of every registered service." xml:space="preserve">
     <value>Trạng thái hiện tại của mọi dịch vụ đã đăng ký.</value>
   </data>
-  <data name="Data Quality" xml:space="preserve">
-    <value>Chất lượng dữ liệu</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Xóa</value>
-  </data>
-  <data name="Developing" xml:space="preserve">
-    <value>Đang phát triển</value>
-  </data>
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
@@ -92,6 +74,15 @@
   </data>
   <data name="DNS provider registration" xml:space="preserve">
     <value>Đăng ký nhà cung cấp DNS</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Chất lượng dữ liệu</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Developing" xml:space="preserve">
+    <value>Đang phát triển</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Miền</value>
@@ -107,9 +98,6 @@
   </data>
   <data name="Geographic Distribution" xml:space="preserve">
     <value>Phân bố địa lý</value>
-  </data>
-  <data name="healthy subjects" xml:space="preserve">
-    <value>chủ thể khỏe mạnh</value>
   </data>
   <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
     <value>Mức độ hoàn chỉnh mà danh mục dịch vụ mô tả hạ tầng và quản trị.</value>
@@ -127,9 +115,6 @@
     <value>Liên kết</value>
   </data>
   <data name="Location" xml:space="preserve">
-    <value>Vị trí</value>
-  </data>
-  <data name="locations" xml:space="preserve">
     <value>Vị trí</value>
   </data>
   <data name="Manage DNS Providers" xml:space="preserve">
@@ -168,9 +153,6 @@
   <data name="Purpose" xml:space="preserve">
     <value>Mục đích</value>
   </data>
-  <data name="registered services" xml:space="preserve">
-    <value>dịch vụ đã đăng ký</value>
-  </data>
   <data name="Registered services grouped by DNS provider." xml:space="preserve">
     <value>Các dịch vụ đã đăng ký được nhóm theo nhà cung cấp DNS.</value>
   </data>
@@ -192,20 +174,17 @@
   <data name="Server" xml:space="preserve">
     <value>Máy chủ</value>
   </data>
-  <data name="Server assignment" xml:space="preserve">
-    <value>Gán máy chủ</value>
-  </data>
   <data name="Server Details" xml:space="preserve">
     <value>Chi tiết máy chủ</value>
   </data>
   <data name="Server IP" xml:space="preserve">
     <value>IP Máy chủ</value>
   </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Gán máy chủ</value>
+  </data>
   <data name="Service Audit Health" xml:space="preserve">
     <value>Tình trạng kiểm toán dịch vụ</value>
-  </data>
-  <data name="Service placement by server location." xml:space="preserve">
-    <value>Phân bố dịch vụ theo vị trí máy chủ.</value>
   </data>
   <data name="Service Purpose" xml:space="preserve">
     <value>Mục đích dịch vụ</value>
@@ -213,14 +192,17 @@
   <data name="Service Registry" xml:space="preserve">
     <value>Đăng ký dịch vụ</value>
   </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Phân bố dịch vụ theo vị trí máy chủ.</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Dịch vụ</value>
   </data>
-  <data name="Services by Server" xml:space="preserve">
-    <value>Dịch vụ theo Máy chủ</value>
-  </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>Bảng điều khiển Dịch vụ</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Dịch vụ theo Máy chủ</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Trạng thái</value>
@@ -231,17 +213,35 @@
   <data name="Via Frps" xml:space="preserve">
     <value>Qua Frps</value>
   </data>
-  <data name="View Detailed Service Table" xml:space="preserve">
-    <value>Xem Bảng Chi Tiết Dịch Vụ</value>
-  </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>Xem Kiểm Toán DNS</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>Xem Bảng Chi Tiết Dịch Vụ</value>
   </data>
   <data name="View Servers" xml:space="preserve">
     <value>Xem Máy Chủ</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>Xem kiểm tra dịch vụ</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Máy chủ hoạt động</value>
+  </data>
+  <data name="assigned" xml:space="preserve">
+    <value>đã gán</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>phát hiện nghiêm trọng</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>chủ thể khỏe mạnh</value>
+  </data>
+  <data name="locations" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="registered services" xml:space="preserve">
+    <value>dịch vụ đã đăng ký</value>
   </data>
 
 </root>

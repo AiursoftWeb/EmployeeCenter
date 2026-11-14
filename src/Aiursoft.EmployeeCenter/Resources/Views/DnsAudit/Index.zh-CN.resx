@@ -72,9 +72,6 @@
   <data name="Critical" xml:space="preserve">
     <value>严重</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>详细信息</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS 审计</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS 记录</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>详细信息</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>域名</value>
@@ -110,9 +110,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>生成于</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>主机名</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>信息</value>
@@ -150,17 +147,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>执行审计</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>运行中的 HTTP(S) 端点正常</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>服务审计</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>服务审计正在启动</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>已审计的服务主机名</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>严重程度</value>
@@ -185,6 +176,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>区域</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>主机名</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>运行中的 HTTP(S) 端点正常</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>已审计的服务主机名</value>
   </data>
 
 </root>

@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Beschikbare DNS-kandidaten</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>in afwachting van audit</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Sluiten</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Kritiek</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Verwijderen</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Dit domeinalias verwijderen?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Domeinaliasregister</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Verwacht doel</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>gezond</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP-redirect</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Beheer verouderde hostnamen en verifieer hun HTTP-redirects of DNS-CNAME-doelen.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>beheerde aliassen</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>nodt aandacht</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Nieuwe alias</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Bijgewerkt op</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>in afwachting van audit</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>gezond</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>beheerde aliassen</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>nodt aandacht</value>
   </data>
 
 </root>

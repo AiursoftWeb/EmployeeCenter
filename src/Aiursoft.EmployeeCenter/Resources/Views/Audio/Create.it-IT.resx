@@ -21,9 +21,6 @@
       <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
-  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
-    <value>es. Registrazione riunione 2024-01-01</value>
-  </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Tutti (CanViewAudio)</value>
   </data>
@@ -45,20 +42,23 @@
   <data name="Only me (Private)" xml:space="preserve">
     <value>Solo io (Privato)</value>
   </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Carica registrazione riunione</value>
+  </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Carica un file con la registrazione della riunione. Verrà trascritto automaticamente in testo, pronto per l&apos;archiviazione e la successiva analisi AI.</value>
   </data>
   <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
     <value>Carica un file audio o un file video. I video caricati vengono salvati solo come audio e il video originale viene scartato.</value>
   </data>
-  <data name="Upload Meeting Recording" xml:space="preserve">
-    <value>Carica registrazione riunione</value>
-  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Ambito di visualizzazione</value>
   </data>
   <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
     <value>Chi può visualizzare questa registrazione e la relativa trascrizione. Puoi modificarla in seguito o condividerla con utenti/ruoli specifici.</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>es. Registrazione riunione 2024-01-01</value>
   </data>
 
 </root>

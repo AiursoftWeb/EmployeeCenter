@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>ชื่อผู้ซื้อ</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>เลขสัญญา</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>เลขที่ CR / รหัสหน่วยงาน</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>เลขสัญญา</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>สกุลเงิน</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>ใบเสร็จ / ใบแจ้งหนี้ที่ชำระแล้ว</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>รหัส SWIFT</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>ที่อยู่ผู้ขาย</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>ชื่อผู้ขาย</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>รหัส SWIFT</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>จำนวนภาษี</value>

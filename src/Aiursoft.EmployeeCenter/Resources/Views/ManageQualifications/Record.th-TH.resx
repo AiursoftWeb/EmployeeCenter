@@ -66,11 +66,11 @@
   <data name="Tracking ID" xml:space="preserve">
     <value>รหัสติดตาม</value>
   </data>
-  <data name="ZIP links issued" xml:space="preserve">
-    <value>จำนวนครั้งที่ออกลิงก์ ZIP</value>
-  </data>
   <data name="ZIP SHA-256" xml:space="preserve">
     <value>ค่าแฮช SHA-256 ของไฟล์ ZIP</value>
+  </data>
+  <data name="ZIP links issued" xml:space="preserve">
+    <value>จำนวนครั้งที่ออกลิงก์ ZIP</value>
   </data>
 
 </root>

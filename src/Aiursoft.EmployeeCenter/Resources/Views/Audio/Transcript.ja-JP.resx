@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>AI Raw API</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASRのリセットは、メディア処理が正常に完了した場合のみ実行できます。</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>アクセス詳細</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>アクセス元</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>AI Raw API</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>オフラインASRタスクが作成されました。再作成しないでください。</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>ASRのリセットは、メディア処理が正常に完了した場合のみ実行できます。</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>試行回数</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>議事録</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>議事録の再生成がキューに登録されました。</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>会議の文字起こし</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>議事録の再生成がキューに登録されました。</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>議事録の生成に失敗しました</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>所属部署</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>自分の権限</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>所属部署</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>未実行</value>

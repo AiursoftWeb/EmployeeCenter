@@ -36,9 +36,6 @@
   <data name="Bank Balance Less Liabilities" xml:space="preserve">
     <value>銀行残高から負債を差し引いた額</value>
   </data>
-  <data name="converted at current exchange rate" xml:space="preserve">
-    <value>現在為替レートで換算</value>
-  </data>
   <data name="Current Balance" xml:space="preserve">
     <value>現在の残高</value>
   </data>
@@ -155,6 +152,9 @@
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>領収書</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>現在為替レートで換算</value>
   </data>
 
 </root>

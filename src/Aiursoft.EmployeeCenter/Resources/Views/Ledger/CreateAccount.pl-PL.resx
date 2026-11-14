@@ -69,12 +69,6 @@
   <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
     <value>Kredyty dyrektora (środki, które pożyczono firmie), Niewypłacone faktury, Dług kartą kredytową.</value>
   </data>
-  <data name="e.g. HKD, CNY" xml:space="preserve">
-    <value>np. HKD, CNY</value>
-  </data>
-  <data name="e.g. Statrys Checking" xml:space="preserve">
-    <value>np. Statrys Checking</value>
-  </data>
   <data name="Equity" xml:space="preserve">
     <value>Wartość kapitału</value>
   </data>
@@ -173,6 +167,12 @@
   </data>
   <data name="Value that truly belongs to you" xml:space="preserve">
     <value>Wartość, która naprawdę należy do Ciebie</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>np. HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>np. Statrys Checking</value>
   </data>
 
 </root>

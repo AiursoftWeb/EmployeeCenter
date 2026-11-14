@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Antragsteller</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>Anträge genehmigt</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>Anträge abgelehnt</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Genehmigungscenter</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Genehmiger</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>ausstehende Überprüfung im gesamten Unternehmen</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>Warten auf Ihre Überprüfung</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Schließen</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>derzeit abwesend</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Tage</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>Sie können ihren eigenen Antrag vor Beginn zurückziehen.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>bis</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Art</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>Anträge genehmigt</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>Anträge abgelehnt</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>ausstehende Überprüfung im gesamten Unternehmen</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>Warten auf Ihre Überprüfung</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>derzeit abwesend</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>bis</value>
   </data>
 
 </root>

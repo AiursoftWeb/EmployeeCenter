@@ -21,9 +21,6 @@
       <data name="Cancel" xml:space="preserve">
     <value>إلغاء</value>
   </data>
-  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
-    <value>مثال: تسجيل اجتماع 2024-01-01</value>
-  </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>الجميع (CanViewAudio)</value>
   </data>
@@ -45,20 +42,23 @@
   <data name="Only me (Private)" xml:space="preserve">
     <value>أنا فقط (خاص)</value>
   </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>تحميل تسجيل الاجتماع</value>
+  </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>قم برفع ملف تسجيل اجتماع. سيتم تحويله تلقائيًا إلى نص، ليكون جاهزًا للأرشفة والتحليل اللاحق بواسطة الذكاء الاصطناعي.</value>
   </data>
   <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
     <value>قم برفع ملف صوتي أو ملف فيديو. يتم حفظ رفع الفيديو كصوت فقط ويتم حذف الفيديو الأصلي.</value>
   </data>
-  <data name="Upload Meeting Recording" xml:space="preserve">
-    <value>تحميل تسجيل الاجتماع</value>
-  </data>
   <data name="View Scope" xml:space="preserve">
     <value>نطاق العرض</value>
   </data>
   <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
     <value>من يمكنه عرض هذا التسجيل والنص الخاص به. يمكنك تغيير ذلك لاحقًا أو مشاركته مع مستخدمين/أدوار محددة.</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>مثال: تسجيل اجتماع 2024-01-01</value>
   </data>
 
 </root>

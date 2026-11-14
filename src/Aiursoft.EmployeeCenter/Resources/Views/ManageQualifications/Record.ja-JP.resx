@@ -66,11 +66,11 @@
   <data name="Tracking ID" xml:space="preserve">
     <value>追跡ID</value>
   </data>
-  <data name="ZIP links issued" xml:space="preserve">
-    <value>発行されたZIPリンク数</value>
-  </data>
   <data name="ZIP SHA-256" xml:space="preserve">
     <value>ZIP SHA-256</value>
+  </data>
+  <data name="ZIP links issued" xml:space="preserve">
+    <value>発行されたZIPリンク数</value>
   </data>
 
 </root>

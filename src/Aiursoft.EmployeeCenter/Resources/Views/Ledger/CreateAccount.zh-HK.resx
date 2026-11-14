@@ -69,12 +69,6 @@
   <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
     <value>董事貸款（你借給公司的錢）、未付發票、信用卡債務</value>
   </data>
-  <data name="e.g. HKD, CNY" xml:space="preserve">
-    <value>例如：HKD、CNY</value>
-  </data>
-  <data name="e.g. Statrys Checking" xml:space="preserve">
-    <value>例如：Statrys Checking</value>
-  </data>
   <data name="Equity" xml:space="preserve">
     <value>權益</value>
   </data>
@@ -173,6 +167,12 @@
   </data>
   <data name="Value that truly belongs to you" xml:space="preserve">
     <value>真正屬於你的價值</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>例如：HKD、CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>例如：Statrys Checking</value>
   </data>
 
 </root>

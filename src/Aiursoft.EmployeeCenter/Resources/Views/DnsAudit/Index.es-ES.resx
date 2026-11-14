@@ -72,9 +72,6 @@
   <data name="Critical" xml:space="preserve">
     <value>Crítico</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Detalles</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>Auditoría DNS</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>registros DNS</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalles</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Dominio</value>
@@ -104,9 +104,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>Generado el</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>nombres de host</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
@@ -144,17 +141,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>Ejecutar auditoría</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>puntos de conexión HTTP(S) activos sanos</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>Auditoría de servicios</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>La auditoría del servicio está comenzando</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>nombres de host de servicio auditados</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Gravedad</value>
@@ -179,6 +170,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>Zonas</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>nombres de host</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>puntos de conexión HTTP(S) activos sanos</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>nombres de host de servicio auditados</value>
   </data>
 
 </root>

@@ -30,9 +30,6 @@
   <data name="Edit Reimbursement Request" xml:space="preserve">
     <value>Editar solicitud de reembolso</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Keep as Draft" xml:space="preserve">
     <value>Guardar como borrador</value>
   </data>
@@ -57,11 +54,14 @@
   <data name="Travel (差旅费)" xml:space="preserve">
     <value>Viaje (Gastos de viaje)</value>
   </data>
-  <data name="uploading a new one will replace it" xml:space="preserve">
-    <value>cargar uno nuevo lo reemplazará</value>
-  </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>¿Para qué fue este gasto?</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>cargar uno nuevo lo reemplazará</value>
   </data>
 
 </root>

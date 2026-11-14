@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>खरीदार का नाम</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>कॉन्ट्रैक्ट नंबर</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>CR नंबर / एंटिटी कोड</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>कॉन्ट्रैक्ट नंबर</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>मुद्रा</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>रसीद / भुगतान की गई बिल</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT कोड</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>विक्रेता पता</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>विक्रेता नाम</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT कोड</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>कर राशि</value>

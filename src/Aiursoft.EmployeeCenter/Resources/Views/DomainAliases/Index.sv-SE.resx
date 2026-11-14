@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Tillgängliga DNS-kandidater</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>väntar på revision</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Stäng</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Kritisk</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Ta bort</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Vill du ta bort det här domänaliaset?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Domänaliasregister</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Förväntat mål</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>friska</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP-omdirigering</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Hantera äldre värdnamn och verifiera deras HTTP-omdirigeringar eller DNS CNAME-mål.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>hanterade alias</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>behöver uppmärksamhet</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Ny alias</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Uppdaterad</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>väntar på revision</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>friska</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>hanterade alias</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>behöver uppmärksamhet</value>
   </data>
 
 </root>

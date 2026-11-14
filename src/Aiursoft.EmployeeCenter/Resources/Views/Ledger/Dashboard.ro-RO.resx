@@ -36,9 +36,6 @@
   <data name="Bank Balance Less Liabilities" xml:space="preserve">
     <value>Sold bancar minus datorii</value>
   </data>
-  <data name="converted at current exchange rate" xml:space="preserve">
-    <value>convertite la cursul de schimb actual</value>
-  </data>
   <data name="Current Balance" xml:space="preserve">
     <value>Sold curent</value>
   </data>
@@ -155,6 +152,9 @@
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>Cupon</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>convertite la cursul de schimb actual</value>
   </data>
 
 </root>

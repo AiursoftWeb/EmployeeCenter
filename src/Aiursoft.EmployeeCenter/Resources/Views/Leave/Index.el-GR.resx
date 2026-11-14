@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} ημέρες αποδομένο ετήσιος άδεια ετησίως</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 ημέρες αποδομένος άδεια ασθένειας ανά έτος</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>Εγκριτής</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>εκκρεμεί έγκριση</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>Μεταφερθέντα</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Κλείσιμο</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>ημερών</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>μέρες από τώρα</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>Καλή αναψυχή!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>σε</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>Κλειδιά πληροφορίες για την πολιτική άδειας μας</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>Δεν βρέθηκε ιστορικό άδειας.</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>καμία μελλοντική άδεια</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>από</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>Εκκρεμεί</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Απορρίφθηκε</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>αιτήσεις</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>Απαιτείται έγκριση από τον υπεύθυνο πριν από τη χρήση</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>Οι αιτήσεις άδειας σας και ο κατάστασή τους</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>εκκρεμεί έγκριση</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>ημερών</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>μέρες από τώρα</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>σε</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>καμία μελλοντική άδεια</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>από</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>αιτήσεις</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} ημέρες αποδομένο ετήσιος άδεια ετησίως</value>
   </data>
 
 </root>

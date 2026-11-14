@@ -24,20 +24,8 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
-  <data name="e.g. 192.168.1.10" xml:space="preserve">
-    <value>ex.: 192.168.1.10</value>
-  </data>
-  <data name="e.g. 2001:db8::10" xml:space="preserve">
-    <value>ex.: 2001:db8::10</value>
-  </data>
-  <data name="e.g. web-server-01" xml:space="preserve">
-    <value>por exemplo, web-server-01</value>
-  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>Editar Servidor</value>
-  </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
   </data>
   <data name="New" xml:space="preserve">
     <value>Novo</value>
@@ -59,6 +47,18 @@
   </data>
   <data name="Select Provider" xml:space="preserve">
     <value>Selecionar Provedor</value>
+  </data>
+  <data name="e.g. 192.168.1.10" xml:space="preserve">
+    <value>ex.: 192.168.1.10</value>
+  </data>
+  <data name="e.g. 2001:db8::10" xml:space="preserve">
+    <value>ex.: 2001:db8::10</value>
+  </data>
+  <data name="e.g. web-server-01" xml:space="preserve">
+    <value>por exemplo, web-server-01</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
   </data>
 
 </root>

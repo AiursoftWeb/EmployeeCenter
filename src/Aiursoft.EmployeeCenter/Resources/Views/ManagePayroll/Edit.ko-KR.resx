@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>결근 없이 받는 보너스</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>변경 사항 확인</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>초과 근무 시간에 따라 계산됨</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>준수 급여표</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>변경 사항 확인</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>계약된 기본 급여</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>교육, 주거 등</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>사용자:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>사용자 계좌 번호</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>직원의 은행</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>사용자:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>음수로 입력하세요</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>실업 (회사)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>보통</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>값</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>예, 확인하고 저장합니다!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>보통</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>이벤트 기록 시간은 조정 세계시입니다!</value>

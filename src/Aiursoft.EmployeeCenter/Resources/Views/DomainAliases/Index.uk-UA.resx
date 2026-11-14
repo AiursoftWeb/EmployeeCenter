@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Доступні кандидати DNS</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>очікує аудиту</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Закрити</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Критичний</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Видалити</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Видалити цей псевдонім домену?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Реєстр доменних псевдонімів</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Очікувана ціль</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>здорові</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP-перенаправлення</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Керуйте застарілими іменами вузлів та перевіряйте їхні HTTP-переадресації або DNS CNAME-цільові адреси.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>керувані псевдоніми</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>потребує уваги</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Нова псевдонім</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Оновлено о</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>очікує аудиту</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>здорові</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>керувані псевдоніми</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>потребує уваги</value>
   </data>
 
 </root>

@@ -24,9 +24,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>ยกเลิก</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Meals (餐饮费)" xml:space="preserve">
     <value>อาหาร (ค่าอาหาร)</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>ค่าใช้จ่ายนี้เกิดขึ้นเพื่ออะไร?</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
   </data>
 
 </root>

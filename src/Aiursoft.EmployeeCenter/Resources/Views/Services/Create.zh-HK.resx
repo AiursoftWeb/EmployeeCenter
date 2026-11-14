@@ -33,15 +33,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>域名應作為服務的主要入口點。</value>
   </data>
-  <data name="e.g. Customer Portal" xml:space="preserve">
-    <value>例如 客戶端</value>
-  </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>例如 example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>例如：HTTPS、TCP</value>
-  </data>
   <data name="New" xml:space="preserve">
     <value>新增</value>
   </data>
@@ -77,6 +68,15 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>提示</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>例如 客戶端</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>例如：HTTPS、TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>例如 example.com</value>
   </data>
 
 </root>

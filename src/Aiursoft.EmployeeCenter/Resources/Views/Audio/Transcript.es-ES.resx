@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>API AI sin procesar</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR solo se puede restablecer después de que el procesamiento de medios sea correcto.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>Detalles de acceso</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>Origen del acceso</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>API AI sin procesar</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>Se ha creado una tarea de ASR sin conexión. No vuelva a crearla.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>ASR solo se puede restablecer después de que el procesamiento de medios sea correcto.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Número de intentos</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>Acta de la reunión</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>Se ha encolado la regeneración de las actas de la reunión.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Transcripción de la reunión</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Se ha encolado la regeneración de las actas de la reunión.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>Error al generar las actas</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>Mi departamento</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>Mi permiso</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Mi departamento</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Nunca</value>

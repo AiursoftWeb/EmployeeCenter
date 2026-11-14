@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>एआई रॉ एपीआई</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR का रीसेट केवल तभी किया जा सकता है जब मीडिया प्रोसेसिंग सफलतापूर्वक समाप्त हो जाए।</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>पहुँच विवरण</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>पहुँच स्रोत</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>एआई रॉ एपीआई</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>एक ऑफलाइन ASR कार्य बनाया गया है। कृपया इसे दोबारा न बनाएं।</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>ASR का रीसेट केवल तभी किया जा सकता है जब मीडिया प्रोसेसिंग सफलतापूर्वक समाप्त हो जाए।</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>प्रयास की संख्या</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>सभा की मिनट्स</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>मीटिंग मिनट्स पुनर्जनन कतार में जोड़ा गया है।</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>मीटिंग प्रिंस्क्रिप्ट</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>मीटिंग मिनट्स पुनर्जनन कतार में जोड़ा गया है।</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>मिनट्स जनरेशन विफल</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>मेरा विभाग</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>मेरी अनुमति</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>मेरा विभाग</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>कभी नहीं</value>

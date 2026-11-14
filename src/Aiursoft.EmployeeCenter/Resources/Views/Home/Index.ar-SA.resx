@@ -36,6 +36,9 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>أساس حديث، غني بالميزات، وقابل للتوسعة بدرجة كبيرة لتطبيق الويب القادم الخاص بك.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>الترجمات المدعومة بالذكاء الاصطناعي</value>
+  </data>
   <data name="Accuracy" xml:space="preserve">
     <value>الدقة</value>
   </data>
@@ -44,9 +47,6 @@
   </data>
   <data name="Advanced RBAC" xml:space="preserve">
     <value>التحكم بالوصول القائم على الأدوار المتقدم</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>الترجمات المدعومة بالذكاء الاصطناعي</value>
   </data>
   <data name="Aiursoft Template is our definitive choice for enterprise projects! It&apos;s built for developers and is lightweight yet powerful. We can skip all the boilerplate for authentication and user management." xml:space="preserve">
     <value>يُعتبر قالب Aiursoft خيارنا النهائي لمشاريع المؤسسات! فهو مصمم خصيصًا للمطورين، ويتميز بخفته مع قوته. يمكننا تخطي جميع الإجراءات الروتينية للمصادقة وإدارة المستخدمين.</value>
@@ -153,9 +153,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>الأسئلة الشائعة</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>بسرعة أكبر</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>الميزات</value>
   </data>
@@ -167,9 +164,6 @@
   </data>
   <data name="Flexible storage options ensuring compatibility with your existing infrastructure." xml:space="preserve">
     <value>خيارات تخزين مرنة تضمن التوافق مع البنية التحتية الحالية الخاصة بك.</value>
-  </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>للاستفسارات أو الإبلاغ عن المشكلات.</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>مجاني</value>
@@ -237,14 +231,14 @@
   <data name="Leave Tracking" xml:space="preserve">
     <value>تتبع الإجازات</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>رخصة MIT</value>
+  </data>
   <data name="Manage employees, finances, assets, and more with a single, integrated platform." xml:space="preserve">
     <value>قم بإدارة الموظفين، والمالية، والأصول، وغيرها من الأمور من خلال منصة متكاملة واحدة.</value>
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>تحويل Markdown إلى HTML</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>رخصة MIT</value>
   </data>
   <data name="Multi-Database Support" xml:space="preserve">
     <value>دعم قواعد البيانات المتعددة</value>
@@ -386,6 +380,12 @@
   </data>
   <data name="You&apos;ll need the .NET 10 SDK, npm and your favorite IDE, like Visual Studio or JetBrains Rider. You can find the full setup guide in our documentation." xml:space="preserve">
     <value>ستحتاج إلى .NET 10 SDK و npm وبيئة التطوير المتكاملة المفضلة لديك، مثل Visual Studio أو JetBrains Rider. يمكنك العثور على دليل الإعداد الكامل في وثائقنا.</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>بسرعة أكبر</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>للاستفسارات أو الإبلاغ عن المشكلات.</value>
   </data>
 
 </root>

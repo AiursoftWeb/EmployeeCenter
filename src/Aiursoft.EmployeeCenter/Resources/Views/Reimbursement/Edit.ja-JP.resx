@@ -30,9 +30,6 @@
   <data name="Edit Reimbursement Request" xml:space="preserve">
     <value>経費精算請求の編集</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Keep as Draft" xml:space="preserve">
     <value>下書きとして保存</value>
   </data>
@@ -57,11 +54,14 @@
   <data name="Travel (差旅费)" xml:space="preserve">
     <value>出張 (しゅっちょう)</value>
   </data>
-  <data name="uploading a new one will replace it" xml:space="preserve">
-    <value>新しいファイルをアップロードすると、既存のファイルが置き換えられます</value>
-  </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>この経費の目的は何ですか？</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>新しいファイルをアップロードすると、既存のファイルが置き換えられます</value>
   </data>
 
 </root>

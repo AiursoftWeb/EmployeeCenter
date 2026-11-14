@@ -72,9 +72,6 @@
   <data name="Critical" xml:space="preserve">
     <value>Nghiêm trọng</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Chi tiết</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>Kiểm toán DNS</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>Bản ghi DNS</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi tiết</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Tên miền</value>
@@ -104,9 +104,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>Được tạo lúc</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>tên máy chủ</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>Thông tin</value>
@@ -144,17 +141,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>Chạy kiểm toán</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>đang chạy các điểm cuối HTTP(S) hoạt động bình thường</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>Kiểm toán dịch vụ</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>Đang khởi động kiểm toán dịch vụ</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>tên miền dịch vụ được kiểm toán</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Mức độ nghiêm trọng</value>
@@ -179,6 +170,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>Vùng</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>tên máy chủ</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>đang chạy các điểm cuối HTTP(S) hoạt động bình thường</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>tên miền dịch vụ được kiểm toán</value>
   </data>
 
 </root>

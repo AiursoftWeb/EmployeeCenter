@@ -30,9 +30,6 @@
   <data name="Edit Reimbursement Request" xml:space="preserve">
     <value>Reimbursementverzoek bewerken</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Keep as Draft" xml:space="preserve">
     <value>Als concept opslaan</value>
   </data>
@@ -57,11 +54,14 @@
   <data name="Travel (差旅费)" xml:space="preserve">
     <value>Reizen (Reiskosten)</value>
   </data>
-  <data name="uploading a new one will replace it" xml:space="preserve">
-    <value>het uploaden van een nieuwe vervangt deze</value>
-  </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>Waarvoor was deze uitgave?</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>het uploaden van een nieuwe vervangt deze</value>
   </data>
 
 </root>

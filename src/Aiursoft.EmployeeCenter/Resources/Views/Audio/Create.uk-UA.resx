@@ -21,9 +21,6 @@
       <data name="Cancel" xml:space="preserve">
     <value>Скасувати</value>
   </data>
-  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
-    <value>напр. Запис зустрічі 2024-01-01</value>
-  </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Усі (CanViewAudio)</value>
   </data>
@@ -45,20 +42,23 @@
   <data name="Only me (Private)" xml:space="preserve">
     <value>Тільки я (Приватно)</value>
   </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Завантажити запис зустрічі</value>
+  </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Завантажте файл запису зустрічі. Він буде автоматично перетворений на текст, готовий до архівування та подальшого аналізу ШІ.</value>
   </data>
   <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
     <value>Завантажте аудіофайл або відеофайл. Відео, що завантажуються, зберігаються лише як аудіо, а оригінальне відео видаляється.</value>
   </data>
-  <data name="Upload Meeting Recording" xml:space="preserve">
-    <value>Завантажити запис зустрічі</value>
-  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Діапазон перегляду</value>
   </data>
   <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
     <value>Хто може переглядати це записання та його транскрипт. Ви можете змінити це пізніше або надіслати конкретним користувачам/ролям.</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>напр. Запис зустрічі 2024-01-01</value>
   </data>
 
 </root>
