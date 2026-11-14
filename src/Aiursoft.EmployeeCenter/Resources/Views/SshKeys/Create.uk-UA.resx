@@ -30,9 +30,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Скасувати</value>
   </data>
-  <data name="e.g. Work Laptop" xml:space="preserve">
-    <value>наприклад, робочий ноутбук</value>
-  </data>
   <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
     <value>Переконайтеся, що вставили весь публічний ключ, включно з типом та будь-якими коментарями.</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Paste your public SSH key below." xml:space="preserve">
     <value>Вставте свій публічний SSH-ключ нижче.</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>наприклад, робочий ноутбук</value>
   </data>
 
 </root>

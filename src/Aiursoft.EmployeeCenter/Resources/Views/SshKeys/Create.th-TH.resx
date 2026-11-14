@@ -30,9 +30,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>ยกเลิก</value>
   </data>
-  <data name="e.g. Work Laptop" xml:space="preserve">
-    <value>เช่น คอมพิวเตอร์ที่ทำงาน</value>
-  </data>
   <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
     <value>โปรดแน่ใจว่าวางคีย์สาธารณะทั้งหมด รวมถึงประเภทและข้อความหมายเหตุใดๆ ด้วย</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Paste your public SSH key below." xml:space="preserve">
     <value>วางคีย์ SSH สาธารณะของคุณด้านล่าง</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>เช่น คอมพิวเตอร์ที่ทำงาน</value>
   </data>
 
 </root>

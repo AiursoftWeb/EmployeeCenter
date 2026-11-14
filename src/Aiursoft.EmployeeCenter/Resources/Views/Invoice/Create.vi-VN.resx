@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Tên người mua</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Số hợp đồng</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>Số CR / Mã tổ chức</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Số hợp đồng</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Tiền tệ</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Phiếu thu / Hóa đơn đã thanh toán</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Mã SWIFT</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Địa chỉ người bán</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Tên người bán</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>Mã SWIFT</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Số tiền thuế</value>

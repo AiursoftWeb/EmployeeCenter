@@ -159,6 +159,9 @@
   <data name="SCR Location" xml:space="preserve">
     <value>SCR-sijainti</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-koodi</value>
+  </data>
   <data name="Secretary" xml:space="preserve">
     <value>Sihteerin</value>
   </data>
@@ -170,9 +173,6 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Tila</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT-koodi</value>
   </data>
   <data name="Tax ID" xml:space="preserve">
     <value>Verotunnus</value>

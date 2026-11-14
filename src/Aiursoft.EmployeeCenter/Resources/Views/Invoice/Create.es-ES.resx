@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Nombre del comprador</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Número de contrato</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>Nº CR / Código de entidad</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Número de contrato</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Moneda</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Recibo / Factura pagada</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Código SWIFT</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Dirección del vendedor</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Nombre del vendedor</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>Código SWIFT</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Importe del impuesto</value>

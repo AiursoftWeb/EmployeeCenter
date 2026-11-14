@@ -21,9 +21,6 @@
       <data name="Cancel" xml:space="preserve">
     <value>Hủy bỏ</value>
   </data>
-  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
-    <value>vd. Bản ghi cuộc họp 2024-01-01</value>
-  </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Mọi người (CanViewAudio)</value>
   </data>
@@ -45,20 +42,23 @@
   <data name="Only me (Private)" xml:space="preserve">
     <value>Chỉ mình tôi (Riêng tư)</value>
   </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Tải lên bản ghi cuộc họp</value>
+  </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Tải lên tệp ghi âm cuộc họp. Tệp sẽ được tự động chuyển đổi thành văn bản, sẵn sàng để lưu trữ và phân tích bằng AI sau này.</value>
   </data>
   <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
     <value>Tải lên tệp âm thanh hoặc tệp video. Các tệp video được tải lên sẽ chỉ được lưu dưới dạng âm thanh và video gốc sẽ bị loại bỏ.</value>
   </data>
-  <data name="Upload Meeting Recording" xml:space="preserve">
-    <value>Tải lên bản ghi cuộc họp</value>
-  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Phạm vi xem</value>
   </data>
   <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
     <value>Ai có thể xem bản ghi này và bản chép lời của nó. Bạn có thể thay đổi sau hoặc chia sẻ với người dùng/vai trò cụ thể.</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>vd. Bản ghi cuộc họp 2024-01-01</value>
   </data>
 
 </root>

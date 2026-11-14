@@ -39,9 +39,6 @@
   <data name="Description" xml:space="preserve">
     <value>الوصف</value>
   </data>
-  <data name="e.g. Aliyun, GoDaddy" xml:space="preserve">
-    <value>مثلاً: Aliyun, GoDaddy</value>
-  </data>
   <data name="Expiration Date" xml:space="preserve">
     <value>تاريخ الانتهاء</value>
   </data>
@@ -107,6 +104,9 @@
   </data>
   <data name="Type" xml:space="preserve">
     <value>النوع</value>
+  </data>
+  <data name="e.g. Aliyun, GoDaddy" xml:space="preserve">
+    <value>مثلاً: Aliyun, GoDaddy</value>
   </data>
 
 </root>

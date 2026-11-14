@@ -51,6 +51,9 @@
   <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
     <value>โดยการคลิกที่ &apos;ยืนยันและออก&apos;, คุณยืนยันว่าค่าทั้งหมดข้างต้นถูกต้องและสอดคล้องกับนโยบายของบริษัท</value>
   </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>การยืนยันที่สำคัญจำเป็น</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>คำนวณตามชั่วโมงการทำงานล่วงเวลา</value>
   </data>
@@ -84,9 +87,6 @@
   <data name="Contracted basic salary" xml:space="preserve">
     <value>เงินเดือนพื้นฐานตามสัญญา</value>
   </data>
-  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
-    <value>การยืนยันที่สำคัญจำเป็น</value>
-  </data>
   <data name="Currency" xml:space="preserve">
     <value>สกุลเงิน</value>
   </data>
@@ -105,14 +105,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>การศึกษา, ที่อยู่อาศัย, เป็นต้น</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>พนักงาน:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>หมายเลขบัญชีของพนักงาน</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>ธนาคารของพนักงาน</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>พนักงาน:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>กรุณากรอกเป็นค่าลบ</value>
@@ -249,9 +249,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>ประกันว่างงาน (บริษัท)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>ปกติ</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>มูลค่า</value>
   </data>
@@ -260,6 +257,9 @@
   </data>
   <data name="Yes, Confirm and Issue!" xml:space="preserve">
     <value>ใช่, ยืนยันและออก!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>ปกติ</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>เวลาบันทึกเหตุการณ์เป็นเวลาจักรวาลประสานงาน!</value>

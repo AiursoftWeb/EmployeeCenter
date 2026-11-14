@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>Permite gestionarea și ștergerea oricărei parole globale create de orice utilizator.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>Permite gestionarea conturilor financiare ale companiei și înregistrarea tranzacțiilor.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Permite gestionarea activelor IT ale companiei și a activelor intangibile (cum ar fi domeniile, licențele), inclusiv categorii, modele și articole individuale. De asemenea, permite atribuirea și recuperarea activelor de la/în favoarea angajaților.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Permite gestionarea activelor IT ale companiei, inclusiv categoriile, modelele și articolele individuale. Permite, de asemenea, atribuirea și recuperarea activelor de la/la angajați.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Permite gestionarea conturilor financiare ale companiei și înregistrarea tranzacțiilor.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>Permite declanșarea manuală a auditului DNS și al disponibilității serviciilor.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>Chat cu AI</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>Creează și gestionează contractele companiei</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>Creează contracte companie</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>Crează Contract</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>Creează Raport Săptămânal pentru Oricine</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Creează și gestionează contractele companiei</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Creează contracte companie</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>Permisiune implicită pentru HR.</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>Ștergere utilizatori</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>Editare Informații Utilizator</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>Editează Informațiile Rolului</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>Editare Informații Utilizator</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>Editare Informații Utilizator</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Gestionează Orice Parolă</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>Gestionează raportul săptămânal al oricărei persoane</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>Gestionează Activele</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>Gestionare Salarii</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Gestionează chei SSH</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Gestionează Serviciile</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>Gestione servicii (Legacy)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>Gestionează chei SSH</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Gestionează raportul săptămânal al oricărei persoane</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>Imprimă Certificatelor</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Trimite rambursare</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>Vizualizează orice contract al companiei, inclusiv cele private</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Vizualizează sarcinile în fundal</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>Vizualizează Jurnalul de Operații al Utilizatorului</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Vizualizează orice contract al companiei, inclusiv cele private</value>
   </data>
 
 </root>

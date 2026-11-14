@@ -159,6 +159,9 @@
   <data name="SCR Location" xml:space="preserve">
     <value>สถานที่ตั้ง SCR</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>รหัส SWIFT</value>
+  </data>
   <data name="Secretary" xml:space="preserve">
     <value>ผู้จัดการบริษัท</value>
   </data>
@@ -170,9 +173,6 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>รหัส SWIFT</value>
   </data>
   <data name="Tax ID" xml:space="preserve">
     <value>เลขประจำตัวผู้เสียภาษี</value>

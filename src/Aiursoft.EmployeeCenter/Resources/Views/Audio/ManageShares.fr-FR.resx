@@ -18,34 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} and {1} other user" xml:space="preserve">
-    <value>{0} et {1} autre utilisateur</value>
-  </data>
-  <data name="{0} and {1} other users" xml:space="preserve">
-    <value>{0} et {1} autres utilisateurs</value>
-  </data>
-  <data name="{0} can edit." xml:space="preserve">
-    <value>{0} peut modifier.</value>
-  </data>
-  <data name="{0} can view." xml:space="preserve">
-    <value>{0} peut consulter.</value>
-  </data>
-  <data name="{0} role" xml:space="preserve">
-    <value>Rôle {0}</value>
-  </data>
-  <data name="{0} roles" xml:space="preserve">
-    <value>{0} rôles</value>
-  </data>
-  <data name="{0} user" xml:space="preserve">
-    <value>{0} utilisateur</value>
-  </data>
-  <data name="{0} users" xml:space="preserve">
-    <value>{0} utilisateurs</value>
-  </data>
-  <data name="{0}, {1}" xml:space="preserve">
-    <value>{0}, {1}</value>
-  </data>
-  <data name="About access" xml:space="preserve">
+      <data name="About access" xml:space="preserve">
     <value>À propos de l’accès</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -54,11 +27,11 @@
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
   </data>
-  <data name="Add access" xml:space="preserve">
-    <value>Ajouter un accès</value>
-  </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Ajouter un nouveau partage</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Ajouter un accès</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>Une erreur s&apos;est produite lors du traitement de votre demande.</value>
@@ -123,9 +96,6 @@
   <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
     <value>Aperçu du membre indisponible. Vous pouvez tout de même partager avec ce rôle.</value>
   </data>
-  <data name="members" xml:space="preserve">
-    <value>membres</value>
-  </data>
   <data name="Name or email (3+ characters)" xml:space="preserve">
     <value>Nom ou adresse e-mail (3 caractères ou plus)</value>
   </data>
@@ -174,9 +144,6 @@
   <data name="Role {0} and {1} other roles" xml:space="preserve">
     <value>Rôle {0} et {1} autres rôles</value>
   </data>
-  <data name="role members" xml:space="preserve">
-    <value>membres du rôle</value>
-  </data>
   <data name="Search failed. Change the search text to try again." xml:space="preserve">
     <value>Échec de la recherche. Modifiez le texte recherché pour réessayer.</value>
   </data>
@@ -192,11 +159,11 @@
   <data name="Share with" xml:space="preserve">
     <value>Partager avec</value>
   </data>
-  <data name="Shared access" xml:space="preserve">
-    <value>Accès partagé</value>
-  </data>
   <data name="Shared With" xml:space="preserve">
     <value>Partagé avec</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Accès partagé</value>
   </data>
   <data name="Specific User" xml:space="preserve">
     <value>Utilisateur spécifique</value>
@@ -218,6 +185,39 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>Utilisateur</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>membres</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>membres du rôle</value>
+  </data>
+  <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} et {1} autre utilisateur</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} et {1} autres utilisateurs</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} peut modifier.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} peut consulter.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>Rôle {0}</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} rôles</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} utilisateur</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} utilisateurs</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
   </data>
 
 </root>

@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Kandidat DNS Tersedia</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>menunggu audit</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Tutup</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Kritis</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Hapus</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Hapus alias domain ini?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Daftar Alias Domain</value>
@@ -78,9 +75,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Target yang diharapkan</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>sehat</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>redirect HTTP</value>
   </data>
@@ -89,12 +83,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Kelola nama host lama dan verifikasi pengalihan HTTP atau target CNAME DNS mereka.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>alias yang dikelola</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>perlu perhatian</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Alias Baru</value>
@@ -125,6 +113,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Diperbarui pada</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>menunggu audit</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>sehat</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>alias yang dikelola</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>perlu perhatian</value>
   </data>
 
 </root>

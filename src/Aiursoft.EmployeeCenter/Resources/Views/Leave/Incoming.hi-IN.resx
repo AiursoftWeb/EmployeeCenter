@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>आवेदक</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>आवेदनों को मंजूर किया गया</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>आवेदन अस्वीकृत</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>अनुमोदन केंद्र</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>अनुमोदक</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>कंपनी भर में समीक्षा के लिए प्रतीक्षा कर रहा है</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>आपकी समीक्षा की प्रतीक्षा में</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>बंद करें</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>वर्तमान में अनुपस्थित</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>दिन</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>वे इसकी शुरुआत से पहले अपना अप्लाई कर सकते हैं।</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>से</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>प्रकार</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>आवेदनों को मंजूर किया गया</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>आवेदन अस्वीकृत</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>कंपनी भर में समीक्षा के लिए प्रतीक्षा कर रहा है</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>आपकी समीक्षा की प्रतीक्षा में</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>वर्तमान में अनुपस्थित</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>से</value>
   </data>
 
 </root>

@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI 助理</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>存取被拒</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -50,12 +56,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>行政詳情</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>AI 助理</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft 員工中心</value>
@@ -135,8 +135,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>商業資質</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>公司註冊編號</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>職業</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>列印證明</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>僱用證明</value>
@@ -146,9 +152,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>收入證明</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>列印證明</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>更改頭像</value>
@@ -164,9 +167,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>聊天</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>公司註冊編號</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>點擊登入</value>
@@ -273,6 +273,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>客戶關係</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS 稽核</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>儀錶板</value>
   </data>
@@ -293,9 +296,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>目錄</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>DNS 稽核</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>下載 / 查看</value>
@@ -348,14 +348,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>編輯角色</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>編輯 SSH 金鑰</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>編輯伺服器</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>編輯服務</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>編輯 SSH 金鑰</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>編輯交易</value>
@@ -408,14 +408,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>全球設定</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>人力資源</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>假期調配</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>首頁</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>人力資源</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT資產</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>圖片與檔案</value>
@@ -446,9 +449,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>發放薪金</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>IT資產</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>假期</value>
@@ -513,11 +513,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>管理 DNS 供應商</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>管理無形資產</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>管理IT資產</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>管理無形資產</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>管理分錄</value>
@@ -711,11 +711,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>要求細節</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>需求已成功儲存。</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>需求項目標題</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>需求已成功儲存。</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>資源</value>
@@ -729,11 +729,14 @@
   <data name="Roles" xml:space="preserve">
     <value>角色</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>儲存更改</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>SCR 地點</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH 金鑰</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>儲存更改</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>秘書</value>
@@ -762,23 +765,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>登出</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>SSH 金鑰</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>狀態</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>提交評論</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>提交審批</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>提交新要求</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>提交需求</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>提交審批</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>系統</value>

@@ -30,9 +30,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>रद्द करें</value>
   </data>
-  <data name="e.g. Work Laptop" xml:space="preserve">
-    <value>उदाहरण के लिए, कार्य लैपटॉप</value>
-  </data>
   <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
     <value>यह सुनिश्चित करें कि आप पूरी सार्वजनिक कुंजी, जिसमें प्रकार और कोई भी टिप्पणियाँ शामिल हैं, चिपकाएँ।</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Paste your public SSH key below." xml:space="preserve">
     <value>अपनी सार्वजनिक SSH कुंजी नीचे पेस्ट करें।</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>उदाहरण के लिए, कार्य लैपटॉप</value>
   </data>
 
 </root>

@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>ผู้สมัคร DNS ที่พร้อมใช้งาน</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>รอการตรวจสอบ</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>ปิด</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>วิกฤต</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>ลบ</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>ลบชื่อโดเมนสำรองนี้หรือไม่?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>ทะเบียนชื่อโดเมน Alias</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>เป้าหมายที่คาดหวัง</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>สุขภาพดี</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>การเปลี่ยนเส้นทาง HTTP</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>จัดการชื่อโฮสต์แบบเดิมและตรวจสอบการเปลี่ยนเส้นทาง HTTP หรือเป้าหมาย CNAME ของ DNS</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>ชื่อエイリアสที่จัดการ</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>ต้องดำเนินการ</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>สร้างชื่อ Alias ใหม่</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>อัปเดตเมื่อ</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>รอการตรวจสอบ</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>สุขภาพดี</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>ชื่อエイリアสที่จัดการ</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>ต้องดำเนินการ</value>
   </data>
 
 </root>

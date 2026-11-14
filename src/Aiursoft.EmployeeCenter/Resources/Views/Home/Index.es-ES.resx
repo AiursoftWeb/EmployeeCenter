@@ -36,6 +36,9 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Una base moderna, rica en funciones y altamente extensible para tu próxima aplicación web.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Traducciones con IA</value>
+  </data>
   <data name="Accuracy" xml:space="preserve">
     <value>Precisión</value>
   </data>
@@ -44,9 +47,6 @@
   </data>
   <data name="Advanced RBAC" xml:space="preserve">
     <value>Control de acceso basado en roles avanzado</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Traducciones con IA</value>
   </data>
   <data name="Aiursoft Template is our definitive choice for enterprise projects! It&apos;s built for developers and is lightweight yet powerful. We can skip all the boilerplate for authentication and user management." xml:space="preserve">
     <value>¡Aiursoft Template es nuestra elección definitiva para proyectos empresariales! Está construido para desarrolladores y es ligero pero potente. Podemos omitir todo el código repetitivo para autenticación y gestión de usuarios.</value>
@@ -153,9 +153,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>Preguntas frecuentes</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>más rápido</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>Características</value>
   </data>
@@ -167,9 +164,6 @@
   </data>
   <data name="Flexible storage options ensuring compatibility with your existing infrastructure." xml:space="preserve">
     <value>Opciones de almacenamiento flexibles que garantizan la compatibilidad con su infraestructura existente.</value>
-  </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>para cualquier consulta o para informar de problemas.</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>Gratis</value>
@@ -237,14 +231,14 @@
   <data name="Leave Tracking" xml:space="preserve">
     <value>Control de vacaciones</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>Licencia MIT</value>
+  </data>
   <data name="Manage employees, finances, assets, and more with a single, integrated platform." xml:space="preserve">
     <value>Gestione empleados, finanzas, activos y más con una única plataforma integrada.</value>
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown a HTML</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>Licencia MIT</value>
   </data>
   <data name="Multi-Database Support" xml:space="preserve">
     <value>Soporte para múltiples bases de datos</value>
@@ -386,6 +380,12 @@
   </data>
   <data name="You&apos;ll need the .NET 10 SDK, npm and your favorite IDE, like Visual Studio or JetBrains Rider. You can find the full setup guide in our documentation." xml:space="preserve">
     <value>Necesitarás el SDK de .NET 10, npm y tu IDE favorito, como Visual Studio o JetBrains Rider. Puedes encontrar la guía de configuración completa en nuestra documentación.</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>más rápido</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>para cualquier consulta o para informar de problemas.</value>
   </data>
 
 </root>

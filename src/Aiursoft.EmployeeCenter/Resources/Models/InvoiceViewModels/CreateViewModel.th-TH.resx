@@ -66,6 +66,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>ใบเสร็จ / ใบแจ้งหนี้ที่ชำระแล้ว</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>รหัส SWIFT</value>
+  </data>
   <data name="Seller" xml:space="preserve">
     <value>ผู้ขาย</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>ชื่อผู้ขาย</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>รหัส SWIFT</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} จำเป็นต้องระบุ</value>

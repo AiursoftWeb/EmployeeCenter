@@ -33,15 +33,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>Tên miền nên là điểm vào chính cho dịch vụ.</value>
   </data>
-  <data name="e.g. Customer Portal" xml:space="preserve">
-    <value>vd. Cổng thông tin khách hàng</value>
-  </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>ví dụ: example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>ví dụ: HTTPS, TCP</value>
-  </data>
   <data name="New" xml:space="preserve">
     <value>Mới</value>
   </data>
@@ -77,6 +68,15 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>Gợi ý</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>vd. Cổng thông tin khách hàng</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>ví dụ: HTTPS, TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>ví dụ: example.com</value>
   </data>
 
 </root>

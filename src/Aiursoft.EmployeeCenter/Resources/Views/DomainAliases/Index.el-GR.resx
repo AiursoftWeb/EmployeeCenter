@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Διαθέσιμοι υποψήφιοι DNS</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>εκκρεμής έλεγχος</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Κλείσιμο</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Κρίσιμο</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Διαγραφή</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Να διαγραφεί αυτό το ψευδώνυμο τομέα;</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Εγγραφή Ψευδονυμών Δομένων</value>
@@ -78,9 +75,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Αναμενόμενος προορισμός</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>υγιή</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP redirect</value>
   </data>
@@ -89,12 +83,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Διαχειριστείτε παλιά ονόματα κεντρικών υπολογιστών και επιβεβαιώστε τις ανακατευθύνσεις HTTP ή τους στόχους DNS CNAME τους.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>διαχειριζόμενα alias</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>χρειάζονται προσοχή</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Νέο Ψευδώνυμο</value>
@@ -125,6 +113,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Ενημερώθηκε στις</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>εκκρεμής έλεγχος</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>υγιή</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>διαχειριζόμενα alias</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>χρειάζονται προσοχή</value>
   </data>
 
 </root>

@@ -72,9 +72,6 @@
   <data name="Critical" xml:space="preserve">
     <value>Kritiek</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Details</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS-audit</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS-records</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Domein</value>
@@ -104,9 +104,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>Gegenereerd op</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>hostnamen</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
@@ -144,17 +141,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>Audit uitvoeren</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>actieve HTTP(S)-eindpunten gezond</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>Serviceaudit</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>Serviceaudit wordt gestart</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>servicehostnamen gecontroleerd</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Ernst</value>
@@ -179,6 +170,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>Zones</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>hostnamen</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>actieve HTTP(S)-eindpunten gezond</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>servicehostnamen gecontroleerd</value>
   </data>
 
 </root>

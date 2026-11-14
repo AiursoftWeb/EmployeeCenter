@@ -24,17 +24,11 @@
   <data name="Actions" xml:space="preserve">
     <value>การกระทำ</value>
   </data>
-  <data name="active servers" xml:space="preserve">
-    <value>เซิร์ฟเวอร์ที่ใช้งานอยู่</value>
-  </data>
   <data name="All Services" xml:space="preserve">
     <value>ทุกบริการ</value>
   </data>
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการลบบริการนี้?</value>
-  </data>
-  <data name="assigned" xml:space="preserve">
-    <value>ที่ได้รับมอบหมาย</value>
   </data>
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>กลุ่มเป้าหมายและขอบเขตการกำหนดเส้นทางของพอร์ตโฟลิโอเซอร์วิส</value>
@@ -54,9 +48,6 @@
   <data name="Availability" xml:space="preserve">
     <value>ความพร้อมใช้งาน</value>
   </data>
-  <data name="blocking findings" xml:space="preserve">
-    <value>ข้อค้นพบที่เป็นอุปสรรค</value>
-  </data>
   <data name="Click a bar or server name to inspect its services." xml:space="preserve">
     <value>คลิกที่แท่งกราฟหรือชื่อเซิร์ฟเวอร์เพื่อตรวจสอบบริการ</value>
   </data>
@@ -72,15 +63,6 @@
   <data name="Current state of every registered service." xml:space="preserve">
     <value>สถานะปัจจุบันของบริการที่ลงทะเบียนไว้ทั้งหมด</value>
   </data>
-  <data name="Data Quality" xml:space="preserve">
-    <value>คุณภาพข้อมูล</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>ลบ</value>
-  </data>
-  <data name="Developing" xml:space="preserve">
-    <value>กำลังพัฒนา</value>
-  </data>
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
@@ -92,6 +74,15 @@
   </data>
   <data name="DNS provider registration" xml:space="preserve">
     <value>การลงทะเบียนผู้ให้บริการ DNS</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>คุณภาพข้อมูล</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="Developing" xml:space="preserve">
+    <value>กำลังพัฒนา</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>โดเมน</value>
@@ -107,9 +98,6 @@
   </data>
   <data name="Geographic Distribution" xml:space="preserve">
     <value>การกระจายทางภูมิศาสตร์</value>
-  </data>
-  <data name="healthy subjects" xml:space="preserve">
-    <value>หัวข้อที่ผ่านเกณฑ์</value>
   </data>
   <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
     <value>ระดับความครบถ้วนที่แคตตาล็อกบริการอธิบายโครงสร้างพื้นฐานและการกำกับดูแล</value>
@@ -127,9 +115,6 @@
     <value>ลิงก์</value>
   </data>
   <data name="Location" xml:space="preserve">
-    <value>ตำแหน่งที่ตั้ง</value>
-  </data>
-  <data name="locations" xml:space="preserve">
     <value>ตำแหน่งที่ตั้ง</value>
   </data>
   <data name="Manage DNS Providers" xml:space="preserve">
@@ -168,9 +153,6 @@
   <data name="Purpose" xml:space="preserve">
     <value>วัตถุประสงค์</value>
   </data>
-  <data name="registered services" xml:space="preserve">
-    <value>บริการที่ลงทะเบียนแล้ว</value>
-  </data>
   <data name="Registered services grouped by DNS provider." xml:space="preserve">
     <value>บริการที่ลงทะเบียนจัดกลุ่มตามผู้ให้บริการ DNS</value>
   </data>
@@ -192,20 +174,17 @@
   <data name="Server" xml:space="preserve">
     <value>เซิร์ฟเวอร์</value>
   </data>
-  <data name="Server assignment" xml:space="preserve">
-    <value>การกำหนดค่าเซิร์ฟเวอร์</value>
-  </data>
   <data name="Server Details" xml:space="preserve">
     <value>รายละเอียดเซิร์ฟเวอร์</value>
   </data>
   <data name="Server IP" xml:space="preserve">
     <value>IP เซิร์ฟเวอร์</value>
   </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>การกำหนดค่าเซิร์ฟเวอร์</value>
+  </data>
   <data name="Service Audit Health" xml:space="preserve">
     <value>สุขภาพการตรวจสอบบริการ</value>
-  </data>
-  <data name="Service placement by server location." xml:space="preserve">
-    <value>การวางตำแหน่งบริการตามตำแหน่งของเซิร์ฟเวอร์</value>
   </data>
   <data name="Service Purpose" xml:space="preserve">
     <value>วัตถุประสงค์ของบริการ</value>
@@ -213,14 +192,17 @@
   <data name="Service Registry" xml:space="preserve">
     <value>ทะเบียนบริการ</value>
   </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>การวางตำแหน่งบริการตามตำแหน่งของเซิร์ฟเวอร์</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>บริการ</value>
   </data>
-  <data name="Services by Server" xml:space="preserve">
-    <value>บริการตามเซิร์ฟเวอร์</value>
-  </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>แดชบอร์ดบริการ</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>บริการตามเซิร์ฟเวอร์</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
@@ -231,17 +213,35 @@
   <data name="Via Frps" xml:space="preserve">
     <value>ผ่าน Frps</value>
   </data>
-  <data name="View Detailed Service Table" xml:space="preserve">
-    <value>ดูตารางบริการแบบละเอียด</value>
-  </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>ดูการตรวจสอบ DNS</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>ดูตารางบริการแบบละเอียด</value>
   </data>
   <data name="View Servers" xml:space="preserve">
     <value>ดูเซิร์ฟเวอร์</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>ดูการตรวจสอบบริการ</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>เซิร์ฟเวอร์ที่ใช้งานอยู่</value>
+  </data>
+  <data name="assigned" xml:space="preserve">
+    <value>ที่ได้รับมอบหมาย</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>ข้อค้นพบที่เป็นอุปสรรค</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>หัวข้อที่ผ่านเกณฑ์</value>
+  </data>
+  <data name="locations" xml:space="preserve">
+    <value>ตำแหน่งที่ตั้ง</value>
+  </data>
+  <data name="registered services" xml:space="preserve">
+    <value>บริการที่ลงทะเบียนแล้ว</value>
   </data>
 
 </root>

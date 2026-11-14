@@ -36,6 +36,9 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>En moderne, funktionsrig og meget udvidelsesparat fundament til din næste webapplikation.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>AI-drevne oversættelser</value>
+  </data>
   <data name="Accuracy" xml:space="preserve">
     <value>Præcision</value>
   </data>
@@ -44,9 +47,6 @@
   </data>
   <data name="Advanced RBAC" xml:space="preserve">
     <value>Avanceret RBAC</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>AI-drevne oversættelser</value>
   </data>
   <data name="Aiursoft Template is our definitive choice for enterprise projects! It&apos;s built for developers and is lightweight yet powerful. We can skip all the boilerplate for authentication and user management." xml:space="preserve">
     <value>Aiursoft Template er vores endegyldige valg til enterprise-projekter! Den er bygget til udviklere og er letvægtig, men alligevel kraftfuld. Vi kan springe al standardkode til godkendelse og brugeradministration over.</value>
@@ -153,9 +153,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>OFTE STILLEDE SPØRGSMÅL</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>hurtigere</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>Funktioner</value>
   </data>
@@ -167,9 +164,6 @@
   </data>
   <data name="Flexible storage options ensuring compatibility with your existing infrastructure." xml:space="preserve">
     <value>Fleksible lageringsmuligheder, der sikrer kompatibilitet med din eksisterende infrastruktur.</value>
-  </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>for eventuelle henvendelser eller for at rapportere problemer.</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>Gratis</value>
@@ -237,14 +231,14 @@
   <data name="Leave Tracking" xml:space="preserve">
     <value>Feriehåndtering</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MIT-licens</value>
+  </data>
   <data name="Manage employees, finances, assets, and more with a single, integrated platform." xml:space="preserve">
     <value>Administrer medarbejdere, finanser, aktiver og meget mere med én integreret platform.</value>
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown til HTML</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>MIT-licens</value>
   </data>
   <data name="Multi-Database Support" xml:space="preserve">
     <value>Støtte til flere databaser</value>
@@ -386,6 +380,12 @@
   </data>
   <data name="You&apos;ll need the .NET 10 SDK, npm and your favorite IDE, like Visual Studio or JetBrains Rider. You can find the full setup guide in our documentation." xml:space="preserve">
     <value>Du skal bruge .NET 10 SDK, npm og din foretrukne IDE, som f.eks. Visual Studio eller JetBrains Rider. Du kan finde den fulde opsætningsvejledning i vores dokumentation.</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>hurtigere</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>for eventuelle henvendelser eller for at rapportere problemer.</value>
   </data>
 
 </root>

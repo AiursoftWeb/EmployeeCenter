@@ -69,12 +69,6 @@
   <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
     <value>Займы директора (деньги, которые вы одолжили компании), Непогашенные счета-фактуры, Долг по кредитной карте</value>
   </data>
-  <data name="e.g. HKD, CNY" xml:space="preserve">
-    <value>напр. HKD, CNY</value>
-  </data>
-  <data name="e.g. Statrys Checking" xml:space="preserve">
-    <value>напр. Статрис Чекин</value>
-  </data>
   <data name="Equity" xml:space="preserve">
     <value>Уставный капитал</value>
   </data>
@@ -173,6 +167,12 @@
   </data>
   <data name="Value that truly belongs to you" xml:space="preserve">
     <value>Значение, которое действительно принадлежит вам</value>
+  </data>
+  <data name="e.g. HKD, CNY" xml:space="preserve">
+    <value>напр. HKD, CNY</value>
+  </data>
+  <data name="e.g. Statrys Checking" xml:space="preserve">
+    <value>напр. Статрис Чекин</value>
   </data>
 
 </root>

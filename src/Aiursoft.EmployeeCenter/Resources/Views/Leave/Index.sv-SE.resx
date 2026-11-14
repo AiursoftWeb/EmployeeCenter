@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} dagars betald årlig semester per år</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 dagars betald sjukledighet per år</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>Godkännare</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>väntar på godkännande</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>Överförda</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Stäng</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>dagar</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>dagar bort</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>Ha en underbar semester!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>om</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>Nyckelinformation om våra semesterregler</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>Ingen semesterhistorik hittades.</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>inget kommande ledighet</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>av</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>Väntande</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Avvisad</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>förfrågningar</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>Kräver chefernas godkännande innan användning</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>Dina ansökan om ledighet och deras status</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>väntar på godkännande</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>dagar</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>dagar bort</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>om</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>inget kommande ledighet</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>av</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>förfrågningar</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} dagars betald årlig semester per år</value>
   </data>
 
 </root>

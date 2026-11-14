@@ -30,9 +30,6 @@
   <data name="Edit Reimbursement Request" xml:space="preserve">
     <value>編輯報銷申請</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Keep as Draft" xml:space="preserve">
     <value>儲存為草稿</value>
   </data>
@@ -57,11 +54,14 @@
   <data name="Travel (差旅费)" xml:space="preserve">
     <value>出差 (差旅費)</value>
   </data>
-  <data name="uploading a new one will replace it" xml:space="preserve">
-    <value>上傳新檔案將取代現有檔案</value>
-  </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>此筆費用用於何處？</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>上傳新檔案將取代現有檔案</value>
   </data>
 
 </root>

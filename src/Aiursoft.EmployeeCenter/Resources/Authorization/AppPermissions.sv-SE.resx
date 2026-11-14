@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>Tillåter hantering och borttagande av alla globala lösenord som skapats av någon användare.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>Tillåter hantering av företagets finansiella konton och registrering av transaktioner.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Tillåter hantering av företagets IT-aktier och immateriella aktier (som domäner, licenser), inklusive kategorier, modeller och enskilda objekt. Tillåter också tilldelning och återhämtning av aktier till/från anställda.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Tillåter hantering av företagets IT-aktier, inklusive kategorier, modeller och enskilda objekt. Kan också tilldela och återföra aktier till/från anställda.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Tillåter hantering av företagets finansiella konton och registrering av transaktioner.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>Tillåter manuell igångsättning av tjänstens DNS- och tillgänglighetsrevision.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>Chatta med AI</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>Skapa och hantera företagsavtal</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>Skapa företagsavtal</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>Skapa avtal</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>Skapa veckorapport för vilken som helst</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Skapa och hantera företagsavtal</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Skapa företagsavtal</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>Standardbehörighet för HR.</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>Ta bort användare</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>Redigera användarinformation</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>Redigera rollinformation</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>Redigera användarinformation</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>Redigera användarinformation</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Hantera valfritt lösenord</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>Hantera någons veckorapport</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>Hantera tillgångar</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>Hantera löner</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Hantera SSH-nycklar</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Hantera tjänster</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>Hantera tjänster (Legacy)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>Hantera SSH-nycklar</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Hantera någons veckorapport</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>Skriv ut certifikat</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Skicka in ersättning</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>Visa vilken som helst företagsavtal, inklusive privata</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Visa bakgrundsjobb</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>Visa användaråtgärdslogg</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Visa vilken som helst företagsavtal, inklusive privata</value>
   </data>
 
 </root>

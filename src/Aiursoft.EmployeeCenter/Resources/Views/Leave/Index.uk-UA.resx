@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} днів оплачуваного щорічного відпустки на рік</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 днів оплачуваного відпустки за хворобою на рік</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>Затверджувач</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>очікує підтвердження</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>Перенесено</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Закрити</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>днів</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>за днів</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>Насолоджуйтесь чудовими канікулами!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>через</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>Ключова інформація про наші політики відпусток</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>Історія відпусток не знайдена.</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>немає запланованого відпустки</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>з</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>Очікує підтвердження</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Відхилено</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>запити</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>Вимагає підтвердження керівника перед використанням</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>Ваші заявки на відпустку та їхній статус</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>очікує підтвердження</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>днів</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>за днів</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>через</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>немає запланованого відпустки</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>з</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>запити</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} днів оплачуваного щорічного відпустки на рік</value>
   </data>
 
 </root>

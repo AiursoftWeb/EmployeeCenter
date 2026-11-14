@@ -30,9 +30,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Annuleren</value>
   </data>
-  <data name="e.g. Work Laptop" xml:space="preserve">
-    <value>bijv. Werk Laptop</value>
-  </data>
   <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
     <value>Zorg ervoor dat je de volledige publieke sleutel plakt, inclusief het type en eventuele opmerkingen.</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Paste your public SSH key below." xml:space="preserve">
     <value>Plak hieronder uw openbare SSH-sleutel.</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>bijv. Werk Laptop</value>
   </data>
 
 </root>

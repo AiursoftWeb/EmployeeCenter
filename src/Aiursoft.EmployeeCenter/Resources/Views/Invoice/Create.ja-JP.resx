@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>購入者名</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>契約番号</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>CR番号 / エンティティコード</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>契約番号</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>通貨</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>領収書 / 支払済み請求書</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFTコード</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>販売者住所</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>販売者名</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFTコード</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>税額</value>

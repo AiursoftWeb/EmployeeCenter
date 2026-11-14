@@ -90,17 +90,20 @@
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Синхронізувати результати аудиту служб із AlertCenter.</value>
   </data>
-  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
-    <value>Назва бренду компанії або проекту. Наприклад: Aiursoft.</value>
-  </data>
-  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
-    <value>За замовчуванням використовувана валюта при видачі нової виплати заробітної плати.</value>
-  </data>
   <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
     <value>Базова URL-адреса AlertCenter за протоколом HTTP(S).</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Номер ліцензії ICP для користувачів материкового Китаю. Залиште порожнім, щоб приховати.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL компанії або проекту. Наприклад, https://www.aiursoft.com</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Назва бренду компанії або проекту. Наприклад: Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>За замовчуванням використовувана валюта при видачі нової виплати заробітної плати.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Логотип проекту, що відображається в навбарі та футері. Підтримується jpg, png, svg.</value>
@@ -119,9 +122,6 @@
   </data>
   <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
     <value>Системний запит, що використовується для створення протоколів засідань на основі стенограм.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>URL компанії або проекту. Наприклад, https://www.aiursoft.com</value>
   </data>
 
 </root>

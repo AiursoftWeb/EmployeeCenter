@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} jours de congés annuels payés par an</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 jours de congés maladie rémunérés par an</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>Approbateur</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>en attente d&apos;approbation</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>Reporté</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Fermer</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>jours</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>journées à venir</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>Passez de merveilleuses vacances !</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>dans</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>Informations clés sur nos politiques de congés</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>Aucun historique de congés trouvé.</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>aucun congé à venir</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>de</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>En attente</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Refusé</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>demandes</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>Exige l&apos;approbation du responsable avant utilisation</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>Vos demandes de congés et leur statut</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>en attente d&apos;approbation</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>jours</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>journées à venir</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>dans</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>aucun congé à venir</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>demandes</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} jours de congés annuels payés par an</value>
   </data>
 
 </root>

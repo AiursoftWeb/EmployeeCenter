@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI Assistant</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>प्रवेश अस्वीकृत</value>
   </data>
   <data name="Accounts" xml:space="preserve">
@@ -47,12 +53,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>प्रशासनिक विवरण</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>AI Assistant</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft कर्मचारी केंद्र</value>
@@ -132,8 +132,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>व्यावसायिक योग्यताएँ</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>सीआई नंबर</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>करियर</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>प्रमाणपत्र प्रिंट</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>नियुक्ति प्रमाणपत्र</value>
@@ -143,9 +149,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>आय का प्रमाणपत्र</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>प्रमाणपत्र प्रिंट</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>अवतार बदलें</value>
@@ -161,9 +164,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>चैट</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>सीआई नंबर</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>लॉगिन करने के लिए क्लिक करें</value>
@@ -270,6 +270,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>ग्राहक संबंध</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>डीएनएस ऑडिट</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>डैशबोर्ड</value>
   </data>
@@ -290,9 +293,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>निर्देशिका</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>डीएनएस ऑडिट</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>डाउनलोड / देखें</value>
@@ -345,14 +345,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>भूमिका संपादित करें</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>SSH की संपादित करें</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>सर्वर संपादित करें</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>सेवा संपादित करें</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>SSH की संपादित करें</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>लेनदेन संपादित करें</value>
@@ -405,14 +405,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>सार्वभौम सेटिंग्स</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>एचआर</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>छुट्टी समायोजन</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>होम</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>एचआर</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>आईटी संपत्ति</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>चित्र और फाइलें</value>
@@ -443,9 +446,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>पेरॉल जारी करें</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>आईटी संपत्ति</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>छुट्टी</value>
@@ -510,11 +510,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>DNS प्रदाताओं का प्रबंधन करें</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>अप्रासंगिक संपत्तियों का प्रबंधन करें</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>प्रबंधित करें आईटी संपत्ति</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>अप्रासंगिक संपत्तियों का प्रबंधन करें</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>लेजर व्यवस्थापन करें</value>
@@ -708,11 +708,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>आवश्यकता विवरण</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>आवश्यकता सफलतापूर्वक सहेजी गई।</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>आवश्यकता शीर्षक</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>आवश्यकता सफलतापूर्वक सहेजी गई।</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>संसाधन</value>
@@ -726,11 +726,14 @@
   <data name="Roles" xml:space="preserve">
     <value>भूमिकाएँ</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>परिवर्तन सहेजें</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>SCR स्थान</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH कुंजियाँ</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>परिवर्तन सहेजें</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>सचिव</value>
@@ -759,23 +762,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>साइन आउट</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>SSH कुंजियाँ</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>स्थिति</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>टिप्पणी जमा करें</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>अनुमोदन के लिए जमा करें</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>नए आवश्यकता का उपलब्ध कराएं</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>आवश्यकता जमा करें</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>अनुमोदन के लिए जमा करें</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>सिस्टम</value>

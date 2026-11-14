@@ -18,34 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} and {1} other user" xml:space="preserve">
-    <value>{0} та ще {1} користувач</value>
-  </data>
-  <data name="{0} and {1} other users" xml:space="preserve">
-    <value>{0} та ще {1} користувачів</value>
-  </data>
-  <data name="{0} can edit." xml:space="preserve">
-    <value>{0} може редагувати.</value>
-  </data>
-  <data name="{0} can view." xml:space="preserve">
-    <value>{0} можуть переглядати.</value>
-  </data>
-  <data name="{0} role" xml:space="preserve">
-    <value>Роль {0}</value>
-  </data>
-  <data name="{0} roles" xml:space="preserve">
-    <value>{0} ролей</value>
-  </data>
-  <data name="{0} user" xml:space="preserve">
-    <value>{0} користувач</value>
-  </data>
-  <data name="{0} users" xml:space="preserve">
-    <value>{0} користувачів</value>
-  </data>
-  <data name="{0}, {1}" xml:space="preserve">
-    <value>{0}, {1}</value>
-  </data>
-  <data name="About access" xml:space="preserve">
+      <data name="About access" xml:space="preserve">
     <value>Про доступ</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -54,11 +27,11 @@
   <data name="Add" xml:space="preserve">
     <value>Додати</value>
   </data>
-  <data name="Add access" xml:space="preserve">
-    <value>Додати доступ</value>
-  </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Додати новий доступ</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Додати доступ</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>Під час обробки вашого запиту сталася помилка.</value>
@@ -120,9 +93,6 @@
   <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
     <value>Попередній перегляд учасників недоступний. Ви все одно можете надати доступ для цієї ролі.</value>
   </data>
-  <data name="members" xml:space="preserve">
-    <value>учасників</value>
-  </data>
   <data name="Name or email (3+ characters)" xml:space="preserve">
     <value>Ім’я або електронна пошта (від 3 символів)</value>
   </data>
@@ -174,9 +144,6 @@
   <data name="Role {0} and {1} other roles" xml:space="preserve">
     <value>Роль {0} та ще {1} інших ролей</value>
   </data>
-  <data name="role members" xml:space="preserve">
-    <value>учасники ролі</value>
-  </data>
   <data name="Search failed. Change the search text to try again." xml:space="preserve">
     <value>Пошук не вдалося. Змініть текст пошуку, щоб спробувати знову.</value>
   </data>
@@ -192,11 +159,11 @@
   <data name="Share with" xml:space="preserve">
     <value>Поділитися з</value>
   </data>
-  <data name="Shared access" xml:space="preserve">
-    <value>Спільний доступ</value>
-  </data>
   <data name="Shared With" xml:space="preserve">
     <value>Надано</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Спільний доступ</value>
   </data>
   <data name="Specific User" xml:space="preserve">
     <value>Конкретний користувач</value>
@@ -218,6 +185,39 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>Користувач</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>учасників</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>учасники ролі</value>
+  </data>
+  <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} та ще {1} користувач</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} та ще {1} користувачів</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} може редагувати.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} можуть переглядати.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>Роль {0}</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} ролей</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} користувач</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} користувачів</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
   </data>
 
 </root>

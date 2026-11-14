@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>المتقدم</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>الطلبات المعتمدة</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>الطلبات المرفوضة</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>مركز الموافقة</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>المسؤول عن الموافقة</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>بانتظار المراجعة في جميع أنحاء الشركة</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>بانتظار مراجعتك</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>حاليًا غائب</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>أيام</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>يمكنهم سحب طلبهم الخاص قبل بدئه.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>إلى</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>النوع</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>الطلبات المعتمدة</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>الطلبات المرفوضة</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>بانتظار المراجعة في جميع أنحاء الشركة</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>بانتظار مراجعتك</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>حاليًا غائب</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>إلى</value>
   </data>
 
 </root>

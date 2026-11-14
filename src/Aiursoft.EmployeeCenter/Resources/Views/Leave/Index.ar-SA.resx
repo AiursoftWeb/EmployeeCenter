@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} يومًا إجازة سنوية مدفوعة في السنة</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 أيام إجازة مدفوعة مرضية سنويًا</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>المُوَفِّق</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>بانتظار الموافقة</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>مُحَوَّل</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>أيام</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>أيام بعيدة</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>استمتع بفترة راحة رائعة!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>في</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>المعلومات الأساسية حول سياسات الإجازات لدينا</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>لا توجد سجلات للإجازات</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>لا يوجد إجازة قادمة</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>من</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>معلّق</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>مرفوض</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>طلبات</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>يتطلب موافقة المدير قبل الاستخدام</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>طلبات إجازتك وحالتها</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>بانتظار الموافقة</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>أيام</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>أيام بعيدة</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>في</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>لا يوجد إجازة قادمة</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>طلبات</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} يومًا إجازة سنوية مدفوعة في السنة</value>
   </data>
 
 </root>

@@ -21,9 +21,6 @@
       <data name="Cancel" xml:space="preserve">
     <value>रद्द करें</value>
   </data>
-  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
-    <value>जैसे कि मीटिंग रिकॉर्डिंग 2024-01-01</value>
-  </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>सभी (CanViewAudio)</value>
   </data>
@@ -45,20 +42,23 @@
   <data name="Only me (Private)" xml:space="preserve">
     <value>केवल मैं (निजी)</value>
   </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>मीटिंग रिकॉर्डिंग अपलोड करें</value>
+  </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>मीटिंग रिकॉर्डिंग फ़ाइल अपलोड करें। इसे स्वचालित रूप से पाठ में परिवर्तित किया जाएगा, जो आर्काइविंग और इसके बाद के AI विश्लेषण के लिए तैयार है।</value>
   </data>
   <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
     <value>ऑडियो फ़ाइल या वीडियो फ़ाइल अपलोड करें। वीडियो अपलोड केवल ऑडियो के रूप में सहेजे जाते हैं और मूल वीडियो हटा दिया जाता है।</value>
   </data>
-  <data name="Upload Meeting Recording" xml:space="preserve">
-    <value>मीटिंग रिकॉर्डिंग अपलोड करें</value>
-  </data>
   <data name="View Scope" xml:space="preserve">
     <value>दर्शक दायरा</value>
   </data>
   <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
     <value>कौन इस रिकॉर्डिंग और इसके अंतराल को देख सकता है। आप इसे बाद में बदल सकते हैं या विशिष्ट उपयोगकर्ताओं/भूमिकाओं के साथ साझा कर सकते हैं।</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>जैसे कि मीटिंग रिकॉर्डिंग 2024-01-01</value>
   </data>
 
 </root>

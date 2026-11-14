@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Aanvrager</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>toegestaan verzoeken</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>aanvragen afgewezen</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Goedkeuringscentrum</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Goedkeurder</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>in afwachting van beoordeling door het hele bedrijf</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>in afwachting van uw beoordeling</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Sluiten</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>op dit moment afwezig</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Dagen</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>Zij kunnen hun eigen aanvraag intrekken voordat deze begint.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>tot</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>toegestaan verzoeken</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>aanvragen afgewezen</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>in afwachting van beoordeling door het hele bedrijf</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>in afwachting van uw beoordeling</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>op dit moment afwezig</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>tot</value>
   </data>
 
 </root>

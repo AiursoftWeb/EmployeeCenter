@@ -24,17 +24,11 @@
   <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
-  <data name="active servers" xml:space="preserve">
-    <value>アクティブサーバー</value>
-  </data>
   <data name="All Services" xml:space="preserve">
     <value>すべてのサービス</value>
   </data>
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>このサービスを削除してもよろしいですか？</value>
-  </data>
-  <data name="assigned" xml:space="preserve">
-    <value>割り当て済み</value>
   </data>
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>サービスポートフォリオの対象ユーザーとルーティング範囲。</value>
@@ -54,9 +48,6 @@
   <data name="Availability" xml:space="preserve">
     <value>利用可能</value>
   </data>
-  <data name="blocking findings" xml:space="preserve">
-    <value>ブロッキング発現項目</value>
-  </data>
   <data name="Click a bar or server name to inspect its services." xml:space="preserve">
     <value>バーまたはサーバー名をクリックすると、そのサービスを確認できます。</value>
   </data>
@@ -72,15 +63,6 @@
   <data name="Current state of every registered service." xml:space="preserve">
     <value>登録済みサービスの現在の状態。</value>
   </data>
-  <data name="Data Quality" xml:space="preserve">
-    <value>データ品質</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>削除</value>
-  </data>
-  <data name="Developing" xml:space="preserve">
-    <value>開発中</value>
-  </data>
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
@@ -92,6 +74,15 @@
   </data>
   <data name="DNS provider registration" xml:space="preserve">
     <value>DNSプロバイダ登録</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>データ品質</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Developing" xml:space="preserve">
+    <value>開発中</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>ドメイン</value>
@@ -107,9 +98,6 @@
   </data>
   <data name="Geographic Distribution" xml:space="preserve">
     <value>地理的分布</value>
-  </data>
-  <data name="healthy subjects" xml:space="preserve">
-    <value>健全な対象</value>
   </data>
   <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
     <value>サービスカタログがインフラストラクチャとガバナンスをどの程度完全に記述しているか。</value>
@@ -128,9 +116,6 @@
   </data>
   <data name="Location" xml:space="preserve">
     <value>場所</value>
-  </data>
-  <data name="locations" xml:space="preserve">
-    <value>ロケーション</value>
   </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>DNSプロバイダーの管理</value>
@@ -168,9 +153,6 @@
   <data name="Purpose" xml:space="preserve">
     <value>目的</value>
   </data>
-  <data name="registered services" xml:space="preserve">
-    <value>登録済みサービス</value>
-  </data>
   <data name="Registered services grouped by DNS provider." xml:space="preserve">
     <value>DNSプロバイダー別にグループ化された登録サービス。</value>
   </data>
@@ -192,20 +174,17 @@
   <data name="Server" xml:space="preserve">
     <value>サーバー</value>
   </data>
-  <data name="Server assignment" xml:space="preserve">
-    <value>サーバー割り当て</value>
-  </data>
   <data name="Server Details" xml:space="preserve">
     <value>サーバーの詳細</value>
   </data>
   <data name="Server IP" xml:space="preserve">
     <value>サーバーIP</value>
   </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>サーバー割り当て</value>
+  </data>
   <data name="Service Audit Health" xml:space="preserve">
     <value>サービス監査の健全性</value>
-  </data>
-  <data name="Service placement by server location." xml:space="preserve">
-    <value>サーバーの所在地に基づくサービスの配置。</value>
   </data>
   <data name="Service Purpose" xml:space="preserve">
     <value>サービス目的</value>
@@ -213,14 +192,17 @@
   <data name="Service Registry" xml:space="preserve">
     <value>サービスレジストリ</value>
   </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>サーバーの所在地に基づくサービスの配置。</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>サービス</value>
   </data>
-  <data name="Services by Server" xml:space="preserve">
-    <value>サーバー別サービス</value>
-  </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>サービスダッシュボード</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>サーバー別サービス</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>状態</value>
@@ -231,17 +213,35 @@
   <data name="Via Frps" xml:space="preserve">
     <value>Via Frps</value>
   </data>
-  <data name="View Detailed Service Table" xml:space="preserve">
-    <value>詳細なサービステーブルを表示</value>
-  </data>
   <data name="View DNS Audit" xml:space="preserve">
     <value>DNS監査を表示</value>
+  </data>
+  <data name="View Detailed Service Table" xml:space="preserve">
+    <value>詳細なサービステーブルを表示</value>
   </data>
   <data name="View Servers" xml:space="preserve">
     <value>サーバーを表示</value>
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>サービス監査を表示</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>アクティブサーバー</value>
+  </data>
+  <data name="assigned" xml:space="preserve">
+    <value>割り当て済み</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>ブロッキング発現項目</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>健全な対象</value>
+  </data>
+  <data name="locations" xml:space="preserve">
+    <value>ロケーション</value>
+  </data>
+  <data name="registered services" xml:space="preserve">
+    <value>登録済みサービス</value>
   </data>
 
 </root>

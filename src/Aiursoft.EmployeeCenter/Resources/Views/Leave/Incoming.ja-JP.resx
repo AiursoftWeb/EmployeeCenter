@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>申請者</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>承認された申請</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>申請が却下されました</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>承認センター</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>承認者</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>会社全体の承認を待機中</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>ご審査をお待ちしています</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>閉じる</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>現在休暇中</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>日数</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>申請者は開始前に自身の申請を取り下げることができます。</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>〜から〜まで</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>種類</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>承認された申請</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>申請が却下されました</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>会社全体の承認を待機中</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>ご審査をお待ちしています</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>現在休暇中</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>〜から〜まで</value>
   </data>
 
 </root>

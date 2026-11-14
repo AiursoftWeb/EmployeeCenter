@@ -72,9 +72,6 @@
   <data name="Critical" xml:space="preserve">
     <value>Kritisch</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Details</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS-Audit</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS-Einträge</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Domain</value>
@@ -104,9 +104,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>Erstellt am</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>Hostnamen</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
@@ -144,17 +141,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>Audit ausführen</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>laufende HTTP(S)-Endpunkte gesund</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>Dienst-Prüfung</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>Service-Audit wird gestartet</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>geprüfte Dienst-Hostnamen</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Schweregrad</value>
@@ -179,6 +170,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>Zonen</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>Hostnamen</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>laufende HTTP(S)-Endpunkte gesund</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>geprüfte Dienst-Hostnamen</value>
   </data>
 
 </root>

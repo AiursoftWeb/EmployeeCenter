@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>任意のユーザーによって作成されたグローバルパスワードの管理および削除ができます。</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>会社の財務勘定を管理し、取引を記録することを許可します。</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>会社のIT資産および無形資産（ドメイン、ライセンスなど）の管理を許可します。カテゴリ、モデル、個々のアイテムを含みます。また、従業員への資産の割り当ておよび回収も許可します。</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>会社のIT資産（カテゴリ、モデル、個別アイテムを含む）の管理を許可します。また、従業員への資産の割り当ておよび回収も許可します。</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>会社の財務勘定を管理し、取引を記録することを許可します。</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>サービスのDNSおよび可用性監査を手動でトリガーできます。</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>AI とチャット</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>会社の契約の作成と管理</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>会社契約の作成</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>契約を作成</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>誰かの週次レポートを作成する</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>会社の契約の作成と管理</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>会社契約の作成</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>人事のデフォルト権限</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>ユーザーの削除</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>ユーザー情報の編集</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>ロール情報の編集</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>ユーザー情報の編集</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>ユーザー情報の編集</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>任意のパスワード管理</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>誰の週次レポートも管理する</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>資産を管理する</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>給与管理</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>SSHキーの管理</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>サービスの管理</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>サービス管理（レガシー）</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>SSHキーの管理</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>誰の週次レポートも管理する</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>証明書を印刷する</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>支給申請を提出</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>会社の契約書をすべて閲覧可能（非公開のものも含む）</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>バックグラウンドジョブの表示</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>ユーザー操作ログ閲覧</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>会社の契約書をすべて閲覧可能（非公開のものも含む）</value>
   </data>
 
 </root>

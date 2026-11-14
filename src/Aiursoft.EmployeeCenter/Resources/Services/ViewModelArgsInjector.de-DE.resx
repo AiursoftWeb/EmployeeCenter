@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>KI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>KI-Assistent</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Zugriff verweigert</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -50,12 +56,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>Verwaltungsdaten</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>KI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>KI-Assistent</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft Mitarbeiter-Center</value>
@@ -135,8 +135,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>Unternehmensqualifikationen</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>CI-Nummer</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>Karriere</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Zertifikat Drucken</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>Arbeitszeugnis</value>
@@ -146,9 +152,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>Bescheinigung über Einkommen</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>Zertifikat Drucken</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Avatar ändern</value>
@@ -164,9 +167,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>Chat</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>CI-Nummer</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Zum Anmelden klicken</value>
@@ -273,6 +273,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>Kundenbeziehungen</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>DNS-Audit</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
   </data>
@@ -293,9 +296,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Verzeichnis</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>DNS-Audit</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>Herunterladen / Anzeigen</value>
@@ -348,14 +348,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>Rolle bearbeiten</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>SSH-Schlüssel bearbeiten</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>Server bearbeiten</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>Dienst bearbeiten</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>SSH-Schlüssel bearbeiten</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>Transaktion bearbeiten</value>
@@ -408,14 +408,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>Globale Einstellungen</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>Personalwesen</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>Urlaubseinstellungen</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Startseite</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>Personalwesen</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT-Assets</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>Bilder &amp; Dateien</value>
@@ -446,9 +449,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>Lohnausstellung</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>IT-Assets</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>Urlaub</value>
@@ -513,11 +513,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>DNS-Anbieter verwalten</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>Intangible Vermögenswerte verwalten</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>IT-Ressourcen verwalten</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Intangible Vermögenswerte verwalten</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>Führungsbuch verwalten</value>
@@ -711,11 +711,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>Anforderungsdetails</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>Anforderung erfolgreich gespeichert.</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>Anforderungsüberschrift</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Anforderung erfolgreich gespeichert.</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>Ressourcen</value>
@@ -729,11 +729,14 @@
   <data name="Roles" xml:space="preserve">
     <value>Rollen</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Änderungen speichern</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>SCR-Ort</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH-Schlüssel</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Änderungen speichern</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>Geschäftsführer</value>
@@ -762,23 +765,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>Abmelden</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>SSH-Schlüssel</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>Kommentar absenden</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>Zur Genehmigung einreichen</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>Neue Anforderung einreichen</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>Anforderung einreichen</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Zur Genehmigung einreichen</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>System</value>

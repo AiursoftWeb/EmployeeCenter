@@ -63,14 +63,14 @@
   <data name="Earnings" xml:space="preserve">
     <value>소득</value>
   </data>
-  <data name="Earnings - Insurance - 5000 - Special" xml:space="preserve">
-    <value>소득 - 보험 - 5000 - 특별공제</value>
-  </data>
   <data name="Earnings + Penalties - Insurance - Tax" xml:space="preserve">
     <value>소득 + 공제액 - 보험 - 세금</value>
   </data>
   <data name="Earnings + Sum(Company Insurances)" xml:space="preserve">
     <value>소득 + 회사 부담 보험료 합계</value>
+  </data>
+  <data name="Earnings - Insurance - 5000 - Special" xml:space="preserve">
+    <value>소득 - 보험 - 5000 - 특별공제</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>수정</value>

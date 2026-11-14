@@ -90,17 +90,20 @@
   <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
     <value>Sincronizza i risultati dell’audit dei servizi con AlertCenter.</value>
   </data>
-  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
-    <value>Il nome del marchio dell&apos;azienda o del progetto. Esempio: Aiursoft.</value>
-  </data>
-  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
-    <value>La valuta predefinita da utilizzare quando si emette un nuovo stipendio.</value>
-  </data>
   <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
     <value>L&apos;URL base HTTP(S) di AlertCenter.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Il numero di licenza ICP per gli utenti della Cina continentale. Lasciare vuoto per nascondere.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>L&apos;URL dell&apos;azienda o del progetto. Esempio: https://www.aiursoft.com</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Il nome del marchio dell&apos;azienda o del progetto. Esempio: Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>La valuta predefinita da utilizzare quando si emette un nuovo stipendio.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Il logo del progetto visualizzato nella navbar e nel footer. Supporta jpg, png, svg.</value>
@@ -119,9 +122,6 @@
   </data>
   <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
     <value>Il prompt di sistema utilizzato per generare i verbali delle riunioni dai resoconti.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>L&apos;URL dell&apos;azienda o del progetto. Esempio: https://www.aiursoft.com</value>
   </data>
 
 </root>

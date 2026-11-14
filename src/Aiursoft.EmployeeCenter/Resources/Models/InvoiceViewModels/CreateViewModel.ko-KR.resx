@@ -66,6 +66,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>영수증 / 지불된 송장</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT 코드</value>
+  </data>
   <data name="Seller" xml:space="preserve">
     <value>공급자</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>판매자 이름</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT 코드</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0}은 필수 항목입니다.</value>

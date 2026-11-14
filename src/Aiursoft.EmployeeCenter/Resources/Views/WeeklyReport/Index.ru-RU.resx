@@ -18,11 +18,11 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Close" xml:space="preserve">
-    <value>Закрыть</value>
-  </data>
-  <data name="CRITICAL: Missing Reports" xml:space="preserve">
+      <data name="CRITICAL: Missing Reports" xml:space="preserve">
     <value>КРИТИЧЕСКАЯ ОШИБКА: Пропущены отчеты</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Закрыть</value>
   </data>
   <data name="Everything is up to date!" xml:space="preserve">
     <value>Всё в порядке!</value>
@@ -54,11 +54,11 @@
   <data name="On behalf of" xml:space="preserve">
     <value>От имени</value>
   </data>
-  <data name="Post as myself" xml:space="preserve">
-    <value>Опубликовать от моего имени</value>
-  </data>
   <data name="Post Report" xml:space="preserve">
     <value>Опубликовать отчет</value>
+  </data>
+  <data name="Post as myself" xml:space="preserve">
+    <value>Опубликовать от моего имени</value>
   </data>
   <data name="Project Associations" xml:space="preserve">
     <value>Связи с проектами</value>

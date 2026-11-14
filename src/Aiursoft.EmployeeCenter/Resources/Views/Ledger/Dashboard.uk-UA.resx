@@ -36,9 +36,6 @@
   <data name="Bank Balance Less Liabilities" xml:space="preserve">
     <value>Баланс банку за вирахуванням зобов&apos;язань</value>
   </data>
-  <data name="converted at current exchange rate" xml:space="preserve">
-    <value>перераховано за поточним валютним курсом</value>
-  </data>
   <data name="Current Balance" xml:space="preserve">
     <value>Поточний залишок</value>
   </data>
@@ -155,6 +152,9 @@
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>Свідоцтво</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>перераховано за поточним валютним курсом</value>
   </data>
 
 </root>

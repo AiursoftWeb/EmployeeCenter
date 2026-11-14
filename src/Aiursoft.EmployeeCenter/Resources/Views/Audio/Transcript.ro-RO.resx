@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>API brută pentru IA</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR poate fi resetat doar după ce procesarea media reușește.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>Detalii de acces</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>Sursa accesului</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>API brută pentru IA</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>A fost creată o sarcină ASR offline. Vă rugăm să nu o creați din nou.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>ASR poate fi resetat doar după ce procesarea media reușește.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Număr încercări</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>Notițe de ședință</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>Regenerarea minutelor de ședință a fost pusă în coadă.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Transcriptul ședinței</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Regenerarea minutelor de ședință a fost pusă în coadă.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>Generarea procesului-verbal a eșuat</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>Departamentul meu</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>Permisiunea mea</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Departamentul meu</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Niciodată</value>

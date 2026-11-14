@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>Premia za brak nieobecności</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>Potwierdź zmiany</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Obliczono na podstawie godzin nadliczbowych</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>Tabela wypłat zgodna z przepisami</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>Potwierdź zmiany</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Umowa o wynagrodzenie podstawowe</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Edukacja, mieszkanie itp.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Pracownik:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Numer konta pracownika</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>Banka pracownika</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Pracownik:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Wprowadź jako wartość ujemną</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Bezrobocie (Firma)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>zazwyczaj</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Wartość</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>Tak, potwierdź i zapisz!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>zazwyczaj</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Czas zapisu zdarzenia to czas koordynowany uniwersalny!</value>

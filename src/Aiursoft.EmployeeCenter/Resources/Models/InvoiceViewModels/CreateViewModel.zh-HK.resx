@@ -66,6 +66,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>收據 / 已付款發票</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT Code</value>
+  </data>
   <data name="Seller" xml:space="preserve">
     <value>賣方</value>
   </data>
@@ -80,9 +83,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>賣方名稱</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT Code</value>
   </data>
   <data name="The {0} is required." xml:space="preserve">
     <value>{0} 為必填項目。</value>

@@ -30,9 +30,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
-  <data name="e.g. Work Laptop" xml:space="preserve">
-    <value>例如：工作筆記型電腦</value>
-  </data>
   <data name="Make sure to paste the entire public key, including the type and any comments." xml:space="preserve">
     <value>請確保貼上完整的公開金鑰，包含類型及任何註解。</value>
   </data>
@@ -41,6 +38,9 @@
   </data>
   <data name="Paste your public SSH key below." xml:space="preserve">
     <value>請在下方貼上您的公開 SSH 金鑰。</value>
+  </data>
+  <data name="e.g. Work Laptop" xml:space="preserve">
+    <value>例如：工作筆記型電腦</value>
   </data>
 
 </root>

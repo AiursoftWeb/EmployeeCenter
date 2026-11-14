@@ -72,9 +72,6 @@
   <data name="Critical" xml:space="preserve">
     <value>嚴重</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>詳細</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS 稽核</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS 記錄</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>詳細</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>網域名稱</value>
@@ -104,9 +104,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>產生時間</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>主機名稱</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>資訊</value>
@@ -144,17 +141,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>執行審計</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>運作中的 HTTP(S) 端點健康</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>服務審計</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>服務審計正在啟動</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>已審計的服務主機名稱</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>嚴重程度</value>
@@ -179,6 +170,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>區域</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>主機名稱</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>運作中的 HTTP(S) 端點健康</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>已審計的服務主機名稱</value>
   </data>
 
 </root>

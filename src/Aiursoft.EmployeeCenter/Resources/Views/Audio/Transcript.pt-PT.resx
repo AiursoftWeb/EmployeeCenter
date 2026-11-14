@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>API Crua de IA</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>A ASR só pode ser redefinida após o processamento de media ter sido bem-sucedido.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>Detalhes de Acesso</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>Origem do Acesso</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>API Crua de IA</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>Foi criada uma tarefa ASR offline. Por favor, não a crie novamente.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>A ASR só pode ser redefinida após o processamento de media ter sido bem-sucedido.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Número de Tentativas</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>Atas da Reunião</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>A regeneração das atas da reunião foi colocada em fila.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Transcrição da Reunião</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>A regeneração das atas da reunião foi colocada em fila.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>Falha na Geração de Minutos</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>O meu departamento</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>A Minha Permissão</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>O meu departamento</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Nunca</value>

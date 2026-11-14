@@ -36,12 +36,6 @@
   <data name="Category" xml:space="preserve">
     <value>Kategoria</value>
   </data>
-  <data name="e.g. Apple" xml:space="preserve">
-    <value>np. Apple</value>
-  </data>
-  <data name="e.g. MacBook Pro M3" xml:space="preserve">
-    <value>np. MacBook Pro M3</value>
-  </data>
   <data name="Existing Models" xml:space="preserve">
     <value>Istniejące modele</value>
   </data>
@@ -59,6 +53,12 @@
   </data>
   <data name="Specs" xml:space="preserve">
     <value>Specyfikacja</value>
+  </data>
+  <data name="e.g. Apple" xml:space="preserve">
+    <value>np. Apple</value>
+  </data>
+  <data name="e.g. MacBook Pro M3" xml:space="preserve">
+    <value>np. MacBook Pro M3</value>
   </data>
 
 </root>

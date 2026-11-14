@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>Käytettävissä olevat DNS-ehdokkaset</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>odottaa tarkastusta</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Sulje</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Kriittinen</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Poista</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>Haluatko poistaa tämän domainin aliasin?</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>Alueluettelo</value>
@@ -78,9 +75,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>Odotettu kohde</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>kunnossa</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP-ohjaus</value>
   </data>
@@ -89,12 +83,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>Hallinnoi vanhoja isännimiä ja tarkista niiden HTTP-ohjaukset tai DNS CNAME-kohteet.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>hallittuja aliasseja</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>vaativat huomiota</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>Uusi alias</value>
@@ -125,6 +113,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>Päivitetty</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>odottaa tarkastusta</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>kunnossa</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>hallittuja aliasseja</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>vaativat huomiota</value>
   </data>
 
 </root>

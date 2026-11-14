@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Заявитель</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>поданные заявки одобрены</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>отклонённые заявки</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Центр утверждений</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Одобривший</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>ожидает проверки по всей компании</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>ожидается ваша проверка</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Закрыть</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>в настоящее время отсутствует</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Дни</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>Они могут отозвать свое заявление до начала действия.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>до</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Тип</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>поданные заявки одобрены</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>отклонённые заявки</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>ожидает проверки по всей компании</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>ожидается ваша проверка</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>в настоящее время отсутствует</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>до</value>
   </data>
 
 </root>

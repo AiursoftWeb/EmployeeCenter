@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>โบนัสสำหรับการไม่ขาดงาน</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>ยืนยันการเปลี่ยนแปลง</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>คำนวณตามจำนวนชั่วโมงทำงานล่วงเวลา</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>Compliance Payroll Table</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>ยืนยันการเปลี่ยนแปลง</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>เงินเดือนขั้นพื้นฐานตามสัญญา</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>การศึกษา ที่อยู่อาศัย เป็นต้น</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>พนักงาน:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>หมายเลขบัญชีของพนักงาน</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>ธนาคารของพนักงาน</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>พนักงาน:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>ป้อนค่าเป็นจำนวนลบ</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>การขาดงาน (บริษัท)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>โดยทั่วไป</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>ค่า</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>ใช่, ยืนยันและบันทึก!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>โดยทั่วไป</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>เวลาบันทึกเหตุการณ์คือเวลาสากลซึ่งปรับให้เป็นเวลาท้องถิ่น!</value>

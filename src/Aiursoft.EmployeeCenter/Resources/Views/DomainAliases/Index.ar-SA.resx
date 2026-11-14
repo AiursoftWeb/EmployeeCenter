@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>مرشحو DNS المتاحون</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>بانتظار التدقيق</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>حرج</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>هل تريد حذف مستعار النطاق هذا؟</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>سجل مستعاري النطاق</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>الهدف المتوقع</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>سليمة</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>إعادة التوجيه عبر HTTP</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>إدارة أسماء النطاقات القديمة والتحقق من إعادة توجيهات HTTP أو أهداف CNAME في DNS.</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>حُلفاء مُدارون</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>بحاجة إلى الانتباه</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>إصدار جديد</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>آخر تحديث</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>بانتظار التدقيق</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>سليمة</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>حُلفاء مُدارون</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>بحاجة إلى الانتباه</value>
   </data>
 
 </root>

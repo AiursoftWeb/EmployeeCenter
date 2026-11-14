@@ -30,12 +30,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>ドメインはサービスの主要なエントリーポイントであるべきです。</value>
   </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>例：example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>例：HTTPS、TCP</value>
-  </data>
   <data name="Edit Service" xml:space="preserve">
     <value>サービスの編集</value>
   </data>
@@ -74,6 +68,12 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>ヒント</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>例：HTTPS、TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>例：example.com</value>
   </data>
 
 </root>

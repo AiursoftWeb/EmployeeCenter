@@ -36,9 +36,6 @@
   <data name="Bank Balance Less Liabilities" xml:space="preserve">
     <value>Pankkitase vähennettynä velvoitteista</value>
   </data>
-  <data name="converted at current exchange rate" xml:space="preserve">
-    <value>muunneltu nykyisen kurssin mukaan</value>
-  </data>
   <data name="Current Balance" xml:space="preserve">
     <value>Nykyinen saldo</value>
   </data>
@@ -155,6 +152,9 @@
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>Lasku</value>
+  </data>
+  <data name="converted at current exchange rate" xml:space="preserve">
+    <value>muunneltu nykyisen kurssin mukaan</value>
   </data>
 
 </root>

@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>申请人</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>已批准的申请</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>已拒绝的申请</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>审批中心</value>
   </data>
@@ -54,20 +48,11 @@
   <data name="Approver" xml:space="preserve">
     <value>审批人</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>全公司待审核</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>待您审核</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>关闭</value>
   </data>
   <data name="Company on Leave" xml:space="preserve">
     <value>全公司休假中</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>当前缺席</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>天数</value>
@@ -90,11 +75,11 @@
   <data name="Incoming Leave Applications" xml:space="preserve">
     <value>待处理的请假申请</value>
   </data>
-  <data name="Leave applications requiring your review." xml:space="preserve">
-    <value>待您审批的请假申请</value>
-  </data>
   <data name="Leave Type" xml:space="preserve">
     <value>请假类型</value>
+  </data>
+  <data name="Leave applications requiring your review." xml:space="preserve">
+    <value>待您审批的请假申请</value>
   </data>
   <data name="My Team" xml:space="preserve">
     <value>我的团队</value>
@@ -153,14 +138,29 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>他们可以在请假开始前撤回自己的申请。</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>至</value>
-  </data>
   <data name="Total Days" xml:space="preserve">
     <value>总计天数</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>类型</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>已批准的申请</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>已拒绝的申请</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>全公司待审核</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>待您审核</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>当前缺席</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>至</value>
   </data>
 
 </root>

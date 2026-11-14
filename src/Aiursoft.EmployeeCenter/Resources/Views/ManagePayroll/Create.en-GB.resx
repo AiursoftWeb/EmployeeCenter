@@ -48,6 +48,9 @@
   <data name="By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy." xml:space="preserve">
     <value>By clicking &apos;Confirm and Issue&apos;, you confirm that all values above are correct and compliant with the company policy.</value>
   </data>
+  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
+    <value>CRITICAL CONFIRMATION REQUIRED</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Calculated based on overtime hours</value>
   </data>
@@ -78,9 +81,6 @@
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Contracted basic salary</value>
   </data>
-  <data name="CRITICAL CONFIRMATION REQUIRED" xml:space="preserve">
-    <value>CRITICAL CONFIRMATION REQUIRED</value>
-  </data>
   <data name="Currency" xml:space="preserve">
     <value>Currency</value>
   </data>
@@ -99,14 +99,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Education, housing, etc.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Employee:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Employee&apos;s account number</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>Employee&apos;s bank</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Employee:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Enter as a negative value</value>
@@ -234,9 +234,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Unemployment (Company)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>usually</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Value</value>
   </data>
@@ -245,6 +242,9 @@
   </data>
   <data name="Yes, Confirm and Issue!" xml:space="preserve">
     <value>Yes, Confirm and Issue!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>usually</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Event recording time is in Coordinated Universal Time!</value>

@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Nume cumpărător</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Număr contract</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>Codul de înregistrare / Cod entitate</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Număr contract</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Valută</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Recenzie / Factură plătită</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Cod SWIFT</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Adresa vânzătorului</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Numele vânzătorului</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>Cod SWIFT</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Suma TVA</value>

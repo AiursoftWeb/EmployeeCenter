@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Koper Naam</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Contractnummer</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>CR-nummer / Entiteitscode</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Contractnummer</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Valuta</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>ontvangstbewijs / Betaald factuur</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-code</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Verzendadres verkoper</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Verkoper Naam</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT-code</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Belastingbedrag</value>

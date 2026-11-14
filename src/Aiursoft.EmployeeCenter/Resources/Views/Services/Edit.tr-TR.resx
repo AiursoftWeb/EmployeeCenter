@@ -30,12 +30,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>Alan adı hizmet için ilk giriş noktası olmalıdır.</value>
   </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>ör. example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>Örn. HTTPS, TCP</value>
-  </data>
   <data name="Edit Service" xml:space="preserve">
     <value>Hizmeti Düzenle</value>
   </data>
@@ -74,6 +68,12 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>İpuçları</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>Örn. HTTPS, TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>ör. example.com</value>
   </data>
 
 </root>

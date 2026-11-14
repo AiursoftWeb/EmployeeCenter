@@ -30,9 +30,6 @@
   <data name="Edit Reimbursement Request" xml:space="preserve">
     <value>Редагувати запит на відшкодування</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Keep as Draft" xml:space="preserve">
     <value>Зберегти як чернетку</value>
   </data>
@@ -57,11 +54,14 @@
   <data name="Travel (差旅费)" xml:space="preserve">
     <value>Подорожі (витрати на відрядження)</value>
   </data>
-  <data name="uploading a new one will replace it" xml:space="preserve">
-    <value>завантаження нового файлу замінить поточний</value>
-  </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>Для чого була ця витрата?</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>завантаження нового файлу замінить поточний</value>
   </data>
 
 </root>

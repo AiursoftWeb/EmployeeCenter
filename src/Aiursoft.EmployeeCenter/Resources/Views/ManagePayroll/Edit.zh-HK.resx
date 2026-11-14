@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>沒有缺勤的獎金</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>確認更改</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>根據超時工作時數計算</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>合規薪金表</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>確認更改</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>合約基本薪金</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>教育、房屋等</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>員工：</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>員工的帳戶號碼</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>員工的銀行</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>員工：</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>以負數輸入</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>失業保險 (公司)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>通常</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>值</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>是，確認並儲存！</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>通常</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>事件記錄時間是協調世界時！</value>

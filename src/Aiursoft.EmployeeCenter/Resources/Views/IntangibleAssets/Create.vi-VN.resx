@@ -39,9 +39,6 @@
   <data name="Description" xml:space="preserve">
     <value>Mô tả</value>
   </data>
-  <data name="e.g. Aliyun, GoDaddy" xml:space="preserve">
-    <value>ví dụ: Aliyun, GoDaddy</value>
-  </data>
   <data name="Expiration Date" xml:space="preserve">
     <value>Ngày hết hạn</value>
   </data>
@@ -107,6 +104,9 @@
   </data>
   <data name="Type" xml:space="preserve">
     <value>Loại</value>
+  </data>
+  <data name="e.g. Aliyun, GoDaddy" xml:space="preserve">
+    <value>ví dụ: Aliyun, GoDaddy</value>
   </data>
 
 </root>

@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>يسمح بإدارة وحذف أي كلمة مرور عالمية مُنشأة بواسطة أي مستخدم.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>يُتيح إدارة الحسابات المالية للشركة وتسجيل المعاملات.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>يُمكّن من إدارة أصول الشركة التقنية والأصول غير الملموسة (مثل النطاقات، التراخيص)، بما في ذلك الفئات، النماذج، والعناصر الفردية. كما يُمكّن من تعيين الأصول وإعادة استردادها من/إلى الموظفين.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>يُمكّن من إدارة أصول الشركة التقنية، بما في ذلك الفئات والنماذج والعناصر الفردية. كما يُمكّن من تعيين الأصول وإعادتها من/إلى الموظفين.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>يُتيح إدارة الحسابات المالية للشركة وتسجيل المعاملات.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>يتيح تشغيل تدقيق DNS وتوفر الخدمة يدويًا.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>الدردشة مع الذكاء الاصطناعي</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>إنشاء وإدارة عقود الشركة</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>إنشاء عقود الشركة</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>إنشاء عقد</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>إنشاء تقرير أسبوعي لشخص آخر</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>إنشاء وإدارة عقود الشركة</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>إنشاء عقود الشركة</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>الإذن الافتراضي لقسم الموارد البشرية</value>
@@ -246,14 +246,14 @@
   <data name="Delete Users" xml:space="preserve">
     <value>حذف المستخدمين</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>تعديل معلومات المستخدم</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>تعديل معلومات الدور</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
     <value>تحرير معلومات المستخدم</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>تعديل معلومات المستخدم</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
     <value>يمنح الإذن لإنشاء أدوار جديدة.</value>
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>إدارة أي كلمة سر</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>إدارة تقرير أي شخص أسبوعيًا</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>إدارة الأصول</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>إدارة الرواتب</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>إدارة مفاتيح SSH</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>إدارة الخدمات</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>إدارة الخدمات (قديمة)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>إدارة مفاتيح SSH</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>إدارة تقرير أي شخص أسبوعيًا</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>طباعة الشهادات</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>إرسال تعويض</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>عرض أي عقد شركة، بما في ذلك العقود الخاصة</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>عرض مهام الخلفية</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>عرض سجل عمليات المستخدم</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>عرض أي عقد شركة، بما في ذلك العقود الخاصة</value>
   </data>
 
 </root>

@@ -87,9 +87,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>允許管理及刪除任何用戶創建的全域密碼。</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>允許管理公司的財務賬戶及記錄交易。</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>容許管理公司的資訊科技資產及無形資產（如網域、授權），包括分類、型號及單一項目。亦容許將資產指派及收回給／從員工。</value>
   </data>
@@ -98,6 +95,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>允許管理公司的資訊科技資產，包括分類、型號及單一項目。亦允許將資產分配或收回給/由員工。</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>允許管理公司的財務賬戶及記錄交易。</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>允許手動觸發服務的 DNS 及可用性審計。</value>
@@ -216,17 +216,17 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>與 AI 交談</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>建立和管理公司的合約</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>建立公司合約</value>
-  </data>
   <data name="Create Weekly Report" xml:space="preserve">
     <value>建立週報</value>
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>為任何人建立週報</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>建立和管理公司的合約</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>建立公司合約</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>HR的預設權限</value>
@@ -237,14 +237,14 @@
   <data name="Delete Users" xml:space="preserve">
     <value>刪除用戶</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>編輯並查看使用者詳情</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>編輯角色資訊</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
     <value>編輯用戶資料</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>編輯並查看使用者詳情</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
     <value>授予創建新角色嘅權限。</value>
@@ -263,9 +263,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>管理任何密碼</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>管理任何人的週報</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>管理資產</value>
@@ -309,14 +306,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>管理薪資</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>管理 SSH 金鑰</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>管理服務</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>管理服務（舊版）</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>管理 SSH 金鑰</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>管理任何人的週報</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>列印證書</value>
@@ -342,9 +342,6 @@
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>提交報銷</value>
   </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>查看公司的任意合約，包含私密合約</value>
-  </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>檢視背景工作</value>
   </data>
@@ -368,6 +365,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>檢視用戶操作日誌</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>查看公司的任意合約，包含私密合約</value>
   </data>
 
 </root>

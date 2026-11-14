@@ -69,14 +69,14 @@
   <data name="Critical" xml:space="preserve">
     <value>Kritisk</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Detaljer</value>
-  </data>
   <data name="DNS Audit" xml:space="preserve">
     <value>DNS-audit</value>
   </data>
   <data name="DNS records" xml:space="preserve">
     <value>DNS-optegnelser</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaljer</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Domæne</value>
@@ -98,9 +98,6 @@
   </data>
   <data name="Generated at" xml:space="preserve">
     <value>Genereret kl.</value>
-  </data>
-  <data name="hostnames" xml:space="preserve">
-    <value>værtnavne</value>
   </data>
   <data name="Info" xml:space="preserve">
     <value>Info</value>
@@ -138,17 +135,11 @@
   <data name="Run audit" xml:space="preserve">
     <value>Kør revision</value>
   </data>
-  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
-    <value>aktive HTTP(S)-endepunkter sunde</value>
-  </data>
   <data name="Service Audit" xml:space="preserve">
     <value>Serviceaudit</value>
   </data>
   <data name="Service audit is starting" xml:space="preserve">
     <value>Serviceaudit starter</value>
-  </data>
-  <data name="service hostnames audited" xml:space="preserve">
-    <value>serviceværtnavne revideret</value>
   </data>
   <data name="Severity" xml:space="preserve">
     <value>Alvør</value>
@@ -173,6 +164,15 @@
   </data>
   <data name="Zones" xml:space="preserve">
     <value>Zoner</value>
+  </data>
+  <data name="hostnames" xml:space="preserve">
+    <value>værtnavne</value>
+  </data>
+  <data name="running HTTP(S) endpoints healthy" xml:space="preserve">
+    <value>aktive HTTP(S)-endepunkter sunde</value>
+  </data>
+  <data name="service hostnames audited" xml:space="preserve">
+    <value>serviceværtnavne revideret</value>
   </data>
 
 </root>

@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Prośnik</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>zatwierdzone wnioski</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>odrzucone wnioski</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Centrum Zatwierdzeń</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Zatwierdzający</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>oczekujące na przegląd w całej firmie</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>oczekiwanie na Twoją ocenę</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Zamknij</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>obecnie nieobecni</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Dni</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>Mogą wycofać swoją wniosek przed rozpoczęciem.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>do</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Typ</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>zatwierdzone wnioski</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>odrzucone wnioski</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>oczekujące na przegląd w całej firmie</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>oczekiwanie na Twoją ocenę</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>obecnie nieobecni</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>do</value>
   </data>
 
 </root>

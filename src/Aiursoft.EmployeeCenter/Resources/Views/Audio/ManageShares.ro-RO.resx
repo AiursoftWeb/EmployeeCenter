@@ -18,34 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} and {1} other user" xml:space="preserve">
-    <value>{0} și încă {1} utilizator</value>
-  </data>
-  <data name="{0} and {1} other users" xml:space="preserve">
-    <value>{0} și încă {1} utilizatori</value>
-  </data>
-  <data name="{0} can edit." xml:space="preserve">
-    <value>{0} poate edita.</value>
-  </data>
-  <data name="{0} can view." xml:space="preserve">
-    <value>{0} poate vizualiza.</value>
-  </data>
-  <data name="{0} role" xml:space="preserve">
-    <value>Rolul {0}</value>
-  </data>
-  <data name="{0} roles" xml:space="preserve">
-    <value>{0} roluri</value>
-  </data>
-  <data name="{0} user" xml:space="preserve">
-    <value>{0} utilizator</value>
-  </data>
-  <data name="{0} users" xml:space="preserve">
-    <value>{0} de utilizatori</value>
-  </data>
-  <data name="{0}, {1}" xml:space="preserve">
-    <value>{0}, {1}</value>
-  </data>
-  <data name="About access" xml:space="preserve">
+      <data name="About access" xml:space="preserve">
     <value>Despre acces</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -54,11 +27,11 @@
   <data name="Add" xml:space="preserve">
     <value>Adaugă</value>
   </data>
-  <data name="Add access" xml:space="preserve">
-    <value>Adăugați acces</value>
-  </data>
   <data name="Add New Share" xml:space="preserve">
     <value>Adăugare nouă partajare</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>Adăugați acces</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>A apărut o eroare în timpul procesării solicitării dvs.</value>
@@ -123,9 +96,6 @@
   <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
     <value>Previzualizarea membrilor nu este disponibilă. Puteți partaja în continuare cu acest rol.</value>
   </data>
-  <data name="members" xml:space="preserve">
-    <value>membri</value>
-  </data>
   <data name="Name or email (3+ characters)" xml:space="preserve">
     <value>Nume sau e-mail (minimum 3 caractere)</value>
   </data>
@@ -174,9 +144,6 @@
   <data name="Role {0} and {1} other roles" xml:space="preserve">
     <value>Rolul {0} și încă {1} roluri</value>
   </data>
-  <data name="role members" xml:space="preserve">
-    <value>membrii rolului</value>
-  </data>
   <data name="Search failed. Change the search text to try again." xml:space="preserve">
     <value>Căutarea a eșuat. Modificați textul căutării și încercați din nou.</value>
   </data>
@@ -192,11 +159,11 @@
   <data name="Share with" xml:space="preserve">
     <value>Partajează cu</value>
   </data>
-  <data name="Shared access" xml:space="preserve">
-    <value>Acces partajat</value>
-  </data>
   <data name="Shared With" xml:space="preserve">
     <value>Partajat cu</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>Acces partajat</value>
   </data>
   <data name="Specific User" xml:space="preserve">
     <value>Utilizator specific</value>
@@ -218,6 +185,39 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>Utilizator</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>membri</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>membrii rolului</value>
+  </data>
+  <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} și încă {1} utilizator</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} și încă {1} utilizatori</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} poate edita.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} poate vizualiza.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>Rolul {0}</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} roluri</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} utilizator</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} de utilizatori</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
   </data>
 
 </root>

@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>Zezwala na zarządzanie i usuwanie dowolnego globalnego hasła utworzonego przez dowolnego użytkownika.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>Zezwala na zarządzanie kontami finansowymi firmy oraz rejestrację transakcji.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Umożliwia zarządzanie majątkiem informatycznym i majątkiem niematerialnym firmy (takim jak domeny, licencje), w tym kategoriami, modelami i pojedynczymi elementami. Pozwala również przypisywać i odzyskiwać zasoby od/do pracowników.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Zezwala na zarządzanie aktywami IT firmy, w tym kategoriami, modelami i pojedynczymi przedmiotami. Pozwala również na przypisywanie i odzyskiwanie aktywów od pracowników.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Zezwala na zarządzanie kontami finansowymi firmy oraz rejestrację transakcji.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>Umożliwia ręczne uruchomienie audytu DNS i dostępności usługi.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>Czatuj z AI</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>Utwórz i zarządzaj umowami firmowymi</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>Utwórz kontrakty firmowe</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>Utwórz Kontrakt</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>Utwórz raport tygodniowy dla kogoś innego</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Utwórz i zarządzaj umowami firmowymi</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Utwórz kontrakty firmowe</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>Domyślny dostęp dla działu HR.</value>
@@ -246,13 +246,13 @@
   <data name="Delete Users" xml:space="preserve">
     <value>Usuń użytkowników</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>Edytuj informacje o użytkowniku</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>Edytuj informacje o roli</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
+    <value>Edytuj informacje o użytkowniku</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
     <value>Edytuj informacje o użytkowniku</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Zarządzaj dowolnym hasłem</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>Zarządzaj raportem tygodniowym dowolnego użytkownika</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>Zarządzaj Zasobami</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>Zarządzaj Płacami</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Zarządzaj kluczami SSH</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Zarządzaj usługami</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>Zarządzanie usługami (starsza wersja)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>Zarządzaj kluczami SSH</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Zarządzaj raportem tygodniowym dowolnego użytkownika</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>Drukuj certyfikaty</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Zgłoś zwrot kosztów</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>Wyświetl dowolny kontrakt firmy, w tym prywatne</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Wyświetl zadania w tle</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>Wyświetl dziennik operacji użytkownika</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Wyświetl dowolny kontrakt firmy, w tym prywatne</value>
   </data>
 
 </root>

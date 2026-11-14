@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Ostajan nimi</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Sopimusnumero</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>Yritystunnus / Organisaatio-identiteetti</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Sopimusnumero</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Valuutta</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Vastaanotettu lasku / Maksettu lasku</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-koodi</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Myyjän osoite</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Myyjän nimi</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT-koodi</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Verollistussumma</value>

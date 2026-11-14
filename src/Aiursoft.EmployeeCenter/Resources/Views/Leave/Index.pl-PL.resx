@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0} dni urlopu wypłaconego rocznie</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>7 dni urlopu chorobowego opłacanego rocznie</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>Zatwierdzający</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>oczekujące na zatwierdzenie</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>Przeniesione</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Zamknij</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>dni</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>dni od wyjazdu</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>Miłego urlopu!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>w</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>Kluczowe informacje dotyczące naszych zasad dotyczących urlopów</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>Brak historii urlopów.</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>brak nadchodzących urlopów</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>z</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>W trakcie rozpatrywania</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Odrzucono</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>żądania</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>Wymaga zgody menedżera przed użyciem</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>Twoje wnioski o urlop i ich status</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>oczekujące na zatwierdzenie</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>dni</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>dni od wyjazdu</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>w</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>brak nadchodzących urlopów</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>z</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>żądania</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0} dni urlopu wypłaconego rocznie</value>
   </data>
 
 </root>

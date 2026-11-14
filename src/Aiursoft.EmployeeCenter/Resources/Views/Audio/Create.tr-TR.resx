@@ -21,9 +21,6 @@
       <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
-  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
-    <value>örn. Toplantı Kaydı 2024-01-01</value>
-  </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>Herkes (CanViewAudio)</value>
   </data>
@@ -45,20 +42,23 @@
   <data name="Only me (Private)" xml:space="preserve">
     <value>Sadece ben (Özel)</value>
   </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Toplantı Kaydını Yükle</value>
+  </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>Bir toplantı kaydı dosyası yükleyin. Dosya otomatik olarak metne dönüştürülecek, arşivleme ve sonraki AI analizi için hazır hale gelecektir.</value>
   </data>
   <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
     <value>Bir ses dosyası veya video dosyası yükleyin. Video yüklemeleri yalnızca ses olarak kaydedilir ve orijinal video silinir.</value>
   </data>
-  <data name="Upload Meeting Recording" xml:space="preserve">
-    <value>Toplantı Kaydını Yükle</value>
-  </data>
   <data name="View Scope" xml:space="preserve">
     <value>Görünüm Kapsamı</value>
   </data>
   <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
     <value>Bu kaydı ve metin çevirisini kimlerin görebileceği. Bu ayarı daha sonra değiştirebilir veya belirli kullanıcılar/rollerle paylaşabilirsiniz.</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>örn. Toplantı Kaydı 2024-01-01</value>
   </data>
 
 </root>

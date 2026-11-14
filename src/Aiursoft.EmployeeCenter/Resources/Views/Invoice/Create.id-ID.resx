@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Nama Pembeli</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Nomor Kontrak</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>Nomor CR / Kode Entitas</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Nomor Kontrak</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Mata Uang</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Tanda Terima / Faktur Pembayaran</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Kode SWIFT</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Alamat Penjual</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Nama Penjual</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>Kode SWIFT</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Jumlah Pajak</value>

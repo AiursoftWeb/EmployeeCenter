@@ -36,6 +36,9 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Nykyaikainen, ominaisuuksiltaan monipuolinen ja erittäin laajennettava perusta seuraavaa verkkosovellustasi varten.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Tehokäännökset tekoälyllä</value>
+  </data>
   <data name="Accuracy" xml:space="preserve">
     <value>Tarkkuus</value>
   </data>
@@ -44,9 +47,6 @@
   </data>
   <data name="Advanced RBAC" xml:space="preserve">
     <value>Edistynyt RBAC</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Tehokäännökset tekoälyllä</value>
   </data>
   <data name="Aiursoft Template is our definitive choice for enterprise projects! It&apos;s built for developers and is lightweight yet powerful. We can skip all the boilerplate for authentication and user management." xml:space="preserve">
     <value>Aiursoft Template on ratkaiseva valintamme yritysprojekteihin! Se on rakennettu kehittäjille ja on kevyt mutta tehokas. Voimme ohittaa kaiken valmiin koodin todennukseen ja käyttäjien hallintaan.</value>
@@ -153,9 +153,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>UKK</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>nopeammin</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>Ominaisuudet</value>
   </data>
@@ -167,9 +164,6 @@
   </data>
   <data name="Flexible storage options ensuring compatibility with your existing infrastructure." xml:space="preserve">
     <value>Joustavat tallennusvaihtoehdot, jotka takaa yhteensopivuuden olemassa olevan infrastruktuurin kanssa.</value>
-  </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>kaikkiin kyselyihin tai ongelmien ilmoittamiseen.</value>
   </data>
   <data name="Free" xml:space="preserve">
     <value>Ilmainen</value>
@@ -237,14 +231,14 @@
   <data name="Leave Tracking" xml:space="preserve">
     <value>Lomakäytännön seuranta</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MIT-lisenssi</value>
+  </data>
   <data name="Manage employees, finances, assets, and more with a single, integrated platform." xml:space="preserve">
     <value>Hallinnoi työntekijöitä, taloutta, varallisuutta ja muita asioita yhdessä, integroidussa alustassa.</value>
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdownista HTML:ksi</value>
-  </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>MIT-lisenssi</value>
   </data>
   <data name="Multi-Database Support" xml:space="preserve">
     <value>Useita tietokantoja tukeva</value>
@@ -386,6 +380,12 @@
   </data>
   <data name="You&apos;ll need the .NET 10 SDK, npm and your favorite IDE, like Visual Studio or JetBrains Rider. You can find the full setup guide in our documentation." xml:space="preserve">
     <value>Tarvitset .NET 10 SDK:n, npm:n ja suosikki-IDE:si, kuten Visual Studion tai JetBrains Riderin. Löydät täydellisen asennusoppaan dokumentaatiostamme.</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>nopeammin</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>kaikkiin kyselyihin tai ongelmien ilmoittamiseen.</value>
   </data>
 
 </root>

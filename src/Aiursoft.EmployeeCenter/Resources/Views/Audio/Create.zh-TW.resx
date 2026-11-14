@@ -21,9 +21,6 @@
       <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
-  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
-    <value>例如：會議錄音 2024-01-01</value>
-  </data>
   <data name="Everyone (CanViewAudio)" xml:space="preserve">
     <value>所有人 (CanViewAudio)</value>
   </data>
@@ -45,20 +42,23 @@
   <data name="Only me (Private)" xml:space="preserve">
     <value>僅限本人（私密）</value>
   </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>上傳會議錄音</value>
+  </data>
   <data name="Upload a meeting recording file. It will be automatically transcribed to text, ready for archiving and subsequent AI analysis." xml:space="preserve">
     <value>上傳會議錄音檔案。系統將自動將其轉錄為文字，以便歸檔及後續的 AI 分析。</value>
   </data>
   <data name="Upload an audio file or a video file. Video uploads are saved as audio only and the original video is discarded." xml:space="preserve">
     <value>上傳音訊檔案或影片檔案。上傳的影片將僅儲存為音訊，原始影片會被丟棄。</value>
   </data>
-  <data name="Upload Meeting Recording" xml:space="preserve">
-    <value>上傳會議錄音</value>
-  </data>
   <data name="View Scope" xml:space="preserve">
     <value>查看範圍</value>
   </data>
   <data name="Who can view this recording and its transcript. You can change it later or share it with specific users/roles." xml:space="preserve">
     <value>誰可以查看此錄音及其文字記錄。您稍後可變更設定，或與特定使用者/角色分享。</value>
+  </data>
+  <data name="e.g. Meeting Recording 2024-01-01" xml:space="preserve">
+    <value>例如：會議錄音 2024-01-01</value>
   </data>
 
 </root>

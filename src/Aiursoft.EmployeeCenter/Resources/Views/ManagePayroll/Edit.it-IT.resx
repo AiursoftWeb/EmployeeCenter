@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>Bonus per assenza nulla</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>CONFERMA MODIFICHE</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Calcolato in base alle ore di straordinario</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>Tabella stipendi conforme alle normative</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>CONFERMA MODIFICHE</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Stipendio base contrattuale</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Istruzione, abitazione, ecc.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Dipendente:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Numero conto del dipendente</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>Banca dell&apos;impiegato</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Dipendente:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Inserire come valore negativo</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Disoccupazione (Azienda)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>di solito</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Valore</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>Sì, Conferma e Salva!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>di solito</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>L&apos;ora di registrazione dell&apos;evento è in tempo universale coordinato!</value>

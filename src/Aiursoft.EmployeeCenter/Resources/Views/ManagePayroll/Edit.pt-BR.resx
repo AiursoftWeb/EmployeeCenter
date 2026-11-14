@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>Bônus por ausência sem ausência</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>CONFIRMAR ALTERAÇÕES</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Calculado com base nas horas extras</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>Tabela de Folha de Pagamento Conforme a Norma</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>CONFIRMAR ALTERAÇÕES</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Salário básico contratado</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Educação, moradia, etc.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Funcionário:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Número da conta do funcionário</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>Banco do funcionário</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Funcionário:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Digite como valor negativo</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Desemprego (Empresa)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>normalmente</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Valor</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>Sim, Confirmar e Salvar!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>normalmente</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>O horário de registro do evento é em Tempo Universal Coordenado!</value>

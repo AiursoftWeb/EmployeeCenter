@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>AI 原始 API</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>只有在媒體處理成功後，才能重設 ASR。</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>存取詳細資料</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>存取來源</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>AI 原始 API</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>已建立離線 ASR 工作，請勿重複建立。</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>只有在媒體處理成功後，才能重設 ASR。</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>嘗試次數</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>會議記錄</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>會議記錄重新產生已加入佇列。</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>會議紀錄</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>會議記錄重新產生已加入佇列。</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>會議記錄產生失敗</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>我的部門</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>我的權限</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>我的部門</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>從未</value>

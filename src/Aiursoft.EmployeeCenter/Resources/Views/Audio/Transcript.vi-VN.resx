@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>API Dữ liệu Gốc AI</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR chỉ có thể được đặt lại sau khi xử lý phương tiện thành công.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>Chi tiết truy cập</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>Nguồn truy cập</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>API Dữ liệu Gốc AI</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>Một tác vụ ASR ngoại tuyến đã được tạo. Vui lòng không tạo lại.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>ASR chỉ có thể được đặt lại sau khi xử lý phương tiện thành công.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Số lần thử</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>Biên bản cuộc họp</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>Việc tạo lại biên bản cuộc họp đã được đưa vào hàng đợi.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Bản ghi cuộc họp</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Việc tạo lại biên bản cuộc họp đã được đưa vào hàng đợi.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>Tạo phút họp thất bại</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>Phòng của tôi</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>Quyền của tôi</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Phòng của tôi</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Chưa bao giờ</value>

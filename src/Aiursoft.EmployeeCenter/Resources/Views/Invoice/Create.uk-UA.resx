@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Ім&apos;я покупця</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Номер договору</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>Реєстраційний номер / Код організації</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Номер договору</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Валюта</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Рахунок-фактура / Оплачений рахунок</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT-код</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Адреса продавця</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Назва продавця</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT-код</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Сума податку</value>

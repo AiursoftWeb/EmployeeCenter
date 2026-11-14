@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>AI-gränssnitt för rådata</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>ASR kan endast återställas efter att mediabearbetningen lyckats.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>Åtkomstdetaljer</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>Åtkomstkälla</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>AI-gränssnitt för rådata</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>En offline ASR-uppgift har skapats. Skapa den inte igen.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>ASR kan endast återställas efter att mediabearbetningen lyckats.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Antal försök</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>Mötesprotokoll</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>Återgenerering av mötesanteckningar har lagts i kön.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Mötesprotokoll</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>Återgenerering av mötesanteckningar har lagts i kön.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>Minuttagning misslyckades</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>Min avdelning</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>Min behörighet</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Min avdelning</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Aldrig</value>

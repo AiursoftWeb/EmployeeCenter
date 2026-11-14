@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>الذكاء الاصطناعي</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>مساعد الذكاء الاصطناعي</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>الوصول ممنوع</value>
   </data>
   <data name="Accounts" xml:space="preserve">
@@ -47,12 +53,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>التفاصيل الإدارية</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>الذكاء الاصطناعي</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>مساعد الذكاء الاصطناعي</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft مركز الموظفين</value>
@@ -132,8 +132,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>مؤهلات الأعمال</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>رقم السجل التجاري</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>الوظيفة</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>طباعة الشهادة</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>شهادة التوظيف</value>
@@ -143,9 +149,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>شهادة الدخل</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>طباعة الشهادة</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>تغيير الصورة الشخصية</value>
@@ -161,9 +164,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>دردشة</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>رقم السجل التجاري</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>انقر لتسجيل الدخول</value>
@@ -270,6 +270,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>علاقات العملاء</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>تدقيق DNS</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>لوحة التحكم</value>
   </data>
@@ -290,9 +293,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>دليل</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>تدقيق DNS</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>تحميل / عرض</value>
@@ -345,14 +345,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>تعديل الدور</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>تعديل مفتاح SSH</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>تعديل الخادم</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>تعديل الخدمة</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>تعديل مفتاح SSH</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>تعديل المعاملة</value>
@@ -405,14 +405,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>الإعدادات العامة</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>الموارد البشرية</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>تعديلات الإجازات</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>الرئيسية</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>الموارد البشرية</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>أصول تقنية المعلومات</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>الصور والملفات</value>
@@ -443,9 +446,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>إصدار الرواتب</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>أصول تقنية المعلومات</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>إجازة</value>
@@ -510,11 +510,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>إدارة مزودي خدمات DNS</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>إدارة الأصول غير الملموسة</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>إدارة أصول تكنولوجيا المعلومات</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>إدارة الأصول غير الملموسة</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>إدارة السجل</value>
@@ -708,11 +708,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>تفاصيل المتطلبات</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>تم حفظ المتطلبات بنجاح.</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>عنوان الطلب</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>تم حفظ المتطلبات بنجاح.</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>الموارد</value>
@@ -726,11 +726,14 @@
   <data name="Roles" xml:space="preserve">
     <value>الأدوار</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>حفظ التغييرات</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>موقع SCR</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>مفاتيح SSH</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>حفظ التغييرات</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>السكرتير</value>
@@ -759,23 +762,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>تسجيل الخروج</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>مفاتيح SSH</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>الحالة</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>إرسال تعليق</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>إرسال للموافقة</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>إضافة متطلبات جديدة</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>تقديم الطلب</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>إرسال للموافقة</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>النظام</value>

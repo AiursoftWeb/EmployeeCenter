@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>Όνομα Αγοραστή</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>Αριθμός Σύμβασης</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>Αριθμός Επιχείρησης / Κωδικός Οργανισμού</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>Αριθμός Σύμβασης</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Νόμισμα</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>Απόδειξη / Πληρωμένο Τιμολόγιο</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>Κωδικός SWIFT</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>Διεύθυνση Πωλητή</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>Όνομα Πωλητή</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>Κωδικός SWIFT</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>Ποσό Φόρου</value>

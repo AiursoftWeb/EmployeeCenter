@@ -18,20 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Details" xml:space="preserve">
+      <data name="AI Raw API" xml:space="preserve">
+    <value>API brute IA</value>
+  </data>
+  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
+    <value>L&apos;ASR ne peut être réinitialisé qu&apos;après le succès du traitement des médias.</value>
+  </data>
+  <data name="Access Details" xml:space="preserve">
     <value>Détails de l’accès</value>
   </data>
   <data name="Access Source" xml:space="preserve">
     <value>Source de l&apos;accès</value>
   </data>
-  <data name="AI Raw API" xml:space="preserve">
-    <value>API brute IA</value>
-  </data>
   <data name="An offline ASR task has been created. Please do not create it again." xml:space="preserve">
     <value>Une tâche ASR hors ligne a été créée. Veuillez ne pas la recréer.</value>
-  </data>
-  <data name="ASR can only be reset after media processing succeeds." xml:space="preserve">
-    <value>L&apos;ASR ne peut être réinitialisé qu&apos;après le succès du traitement des médias.</value>
   </data>
   <data name="Attempt Count" xml:space="preserve">
     <value>Nombre de tentatives</value>
@@ -129,20 +129,20 @@
   <data name="Meeting Minutes" xml:space="preserve">
     <value>Compte rendu de la réunion</value>
   </data>
-  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
-    <value>La régénération des procès-verbaux de réunion a été ajoutée à la file d&apos;attente.</value>
-  </data>
   <data name="Meeting Transcript" xml:space="preserve">
     <value>Transcript de réunion</value>
+  </data>
+  <data name="Meeting minutes regeneration has been queued." xml:space="preserve">
+    <value>La régénération des procès-verbaux de réunion a été ajoutée à la file d&apos;attente.</value>
   </data>
   <data name="Minutes Generation Failed" xml:space="preserve">
     <value>Échec de la génération des minutes</value>
   </data>
-  <data name="My department" xml:space="preserve">
-    <value>Mon département</value>
-  </data>
   <data name="My Permission" xml:space="preserve">
     <value>Ma permission</value>
+  </data>
+  <data name="My department" xml:space="preserve">
+    <value>Mon département</value>
   </data>
   <data name="Never" xml:space="preserve">
     <value>Jamais</value>

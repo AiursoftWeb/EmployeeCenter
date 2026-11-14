@@ -18,34 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} and {1} other user" xml:space="preserve">
-    <value>{0} और {1} अन्य उपयोगकर्ता</value>
-  </data>
-  <data name="{0} and {1} other users" xml:space="preserve">
-    <value>{0} और {1} अन्य उपयोगकर्ता</value>
-  </data>
-  <data name="{0} can edit." xml:space="preserve">
-    <value>{0} संपादन कर सकते हैं।</value>
-  </data>
-  <data name="{0} can view." xml:space="preserve">
-    <value>{0} देख सकते हैं।</value>
-  </data>
-  <data name="{0} role" xml:space="preserve">
-    <value>{0} भूमिका</value>
-  </data>
-  <data name="{0} roles" xml:space="preserve">
-    <value>{0} भूमिकाएँ</value>
-  </data>
-  <data name="{0} user" xml:space="preserve">
-    <value>{0} उपयोगकर्ता</value>
-  </data>
-  <data name="{0} users" xml:space="preserve">
-    <value>{0} उपयोगकर्ता</value>
-  </data>
-  <data name="{0}, {1}" xml:space="preserve">
-    <value>{0}, {1}</value>
-  </data>
-  <data name="About access" xml:space="preserve">
+      <data name="About access" xml:space="preserve">
     <value>पहुंच के बारे में</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -54,11 +27,11 @@
   <data name="Add" xml:space="preserve">
     <value>जोड़ें</value>
   </data>
-  <data name="Add access" xml:space="preserve">
-    <value>पहुँच जोड़ें</value>
-  </data>
   <data name="Add New Share" xml:space="preserve">
     <value>नई शेयर जोड़ें</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>पहुँच जोड़ें</value>
   </data>
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>आपकी अनुरोध को संसाधित करते समय एक त्रुटि उत्पन्न हुई।</value>
@@ -123,9 +96,6 @@
   <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
     <value>सदस्य का पूर्वावलोकन उपलब्ध नहीं है। आप फिर भी इस भूमिका के साथ साझा कर सकते हैं।</value>
   </data>
-  <data name="members" xml:space="preserve">
-    <value>सदस्य</value>
-  </data>
   <data name="Name or email (3+ characters)" xml:space="preserve">
     <value>नाम या ईमेल (3 या अधिक अक्षर)</value>
   </data>
@@ -174,9 +144,6 @@
   <data name="Role {0} and {1} other roles" xml:space="preserve">
     <value>भूमिका {0} और {1} अन्य भूमिकाएँ</value>
   </data>
-  <data name="role members" xml:space="preserve">
-    <value>भूमिका के सदस्य</value>
-  </data>
   <data name="Search failed. Change the search text to try again." xml:space="preserve">
     <value>खोज विफल रही। दोबारा कोशिश करने के लिए खोज टेक्स्ट बदलें।</value>
   </data>
@@ -192,11 +159,11 @@
   <data name="Share with" xml:space="preserve">
     <value>साझा करें</value>
   </data>
-  <data name="Shared access" xml:space="preserve">
-    <value>साझा पहुँच</value>
-  </data>
   <data name="Shared With" xml:space="preserve">
     <value>साझा किया गया</value>
+  </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>साझा पहुँच</value>
   </data>
   <data name="Specific User" xml:space="preserve">
     <value>विशिष्ट उपयोगकर्ता</value>
@@ -218,6 +185,39 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>उपयोगकर्ता</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>सदस्य</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>भूमिका के सदस्य</value>
+  </data>
+  <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} और {1} अन्य उपयोगकर्ता</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} और {1} अन्य उपयोगकर्ता</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>{0} संपादन कर सकते हैं।</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>{0} देख सकते हैं।</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>{0} भूमिका</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} भूमिकाएँ</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>{0} उपयोगकर्ता</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} उपयोगकर्ता</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}, {1}</value>
   </data>
 
 </root>

@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>Προνομιακό για έλλειψη απουσιών</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>ΕΠΙΒΕΒΑΙΩΣΗ ΑΛΛΑΓΩΝ</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Υπολογίζεται βάσει ωρών υπερωρίας</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>Πίνακας Συμμόρφωσης Μισθοδοσίας</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>ΕΠΙΒΕΒΑΙΩΣΗ ΑΛΛΑΓΩΝ</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Συμβατικό βασικό μισθό</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Εκπαίδευση, κατοικία, κλπ.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Εργαζόμενος:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Αριθμός λογαριασμού του υπαλλήλου</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>τράπεζα του υπαλλήλου</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Εργαζόμενος:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Εισαγωγή ως αρνητική τιμή</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Ανεργία (Εταιρεία)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>συνήθως</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Τιμή</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>Ναι, Επιβεβαίωση και Αποθήκευση!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>συνήθως</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Η ώρα καταγραφής του γεγονότος είναι σε UTC!</value>

@@ -66,11 +66,11 @@
   <data name="Tracking ID" xml:space="preserve">
     <value>Идентификатор отслеживания</value>
   </data>
-  <data name="ZIP links issued" xml:space="preserve">
-    <value>Количество выданных ссылок на ZIP-архив</value>
-  </data>
   <data name="ZIP SHA-256" xml:space="preserve">
     <value>SHA-256 ZIP-архива</value>
+  </data>
+  <data name="ZIP links issued" xml:space="preserve">
+    <value>Количество выданных ссылок на ZIP-архив</value>
   </data>
 
 </root>

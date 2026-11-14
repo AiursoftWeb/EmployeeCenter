@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>Bonus für keine Abwesenheit</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>ÄNDERUNGEN BESTÄTIGEN</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Berechnet auf Grundlage von Überstundenstunden</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>Compliance Gehaltsabrechnungstabelle</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>ÄNDERUNGEN BESTÄTIGEN</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Vertraglich vereinbarte Grundgehälter</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Bildung, Wohnen, usw.</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Mitarbeiter:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Kontonummer des Mitarbeiters</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>Bank des Mitarbeiters</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Mitarbeiter:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Als negative Zahl eingeben</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Arbeitslosenversicherung (Unternehmen)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>üblicherweise</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Wert</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>Ja, bestätigen und speichern!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>üblicherweise</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Der Ereignisprotokollzeitpunkt ist UTC!</value>

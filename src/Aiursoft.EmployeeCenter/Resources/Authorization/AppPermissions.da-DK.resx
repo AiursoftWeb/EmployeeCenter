@@ -90,9 +90,6 @@
   <data name="Allows managing and deleting any global password created by any user." xml:space="preserve">
     <value>Giver mulighed for at administrere og slette enhver global adgangskode oprettet af enhver bruger.</value>
   </data>
-  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
-    <value>Tillader håndtering af virksomhedens finansielle konti og registrering af transaktioner.</value>
-  </data>
   <data name="Allows managing the company&apos;s IT assets and intangible assets (like domains, licenses), including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Tillader administration af virksomhedens IT-aktiver og immaterielle aktiver (som f.eks. domæner, licenser), herunder kategorier, modeller og enkelte objekter. Kan også tildeles og genskabes aktiver til/frivirkede medarbejdere.</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="Allows managing the company&apos;s IT assets, including categories, models, and individual items. Also allows assigning and recovering assets to/from employees." xml:space="preserve">
     <value>Tillader håndtering af virksomhedens IT-aktiver, herunder kategorier, modeller og enkelte genstande. Kan også tildele og genskabe aktiver til/frivillige medarbejdere.</value>
+  </data>
+  <data name="Allows managing the company&apos;s financial accounts and recording transactions." xml:space="preserve">
+    <value>Tillader håndtering af virksomhedens finansielle konti og registrering af transaktioner.</value>
   </data>
   <data name="Allows manually triggering the service DNS and availability audit." xml:space="preserve">
     <value>Gør det muligt manuelt at udløse DNS- og tilgængelighedsrevisionen af tjenesterne.</value>
@@ -222,12 +222,6 @@
   <data name="Chat with AI" xml:space="preserve">
     <value>Chat med AI</value>
   </data>
-  <data name="Create and manage company contracts" xml:space="preserve">
-    <value>Opret og administrer virksomhedskontrakter</value>
-  </data>
-  <data name="Create company contracts" xml:space="preserve">
-    <value>Opret virksomhedskontrakter</value>
-  </data>
   <data name="Create Contract" xml:space="preserve">
     <value>Opret kontrakt</value>
   </data>
@@ -236,6 +230,12 @@
   </data>
   <data name="Create Weekly Report for Anyone" xml:space="preserve">
     <value>Opret ugentlig rapport for enhver</value>
+  </data>
+  <data name="Create and manage company contracts" xml:space="preserve">
+    <value>Opret og administrer virksomhedskontrakter</value>
+  </data>
+  <data name="Create company contracts" xml:space="preserve">
+    <value>Opret virksomhedskontrakter</value>
   </data>
   <data name="Default permission for HR." xml:space="preserve">
     <value>Standard tilladelse for HR.</value>
@@ -246,14 +246,14 @@
   <data name="Delete Users" xml:space="preserve">
     <value>Slet brugere</value>
   </data>
-  <data name="Edit and View Details of Users" xml:space="preserve">
-    <value>Rediger brugeroplysninger</value>
-  </data>
   <data name="Edit Role Information" xml:space="preserve">
     <value>Rediger rolleinformation</value>
   </data>
   <data name="Edit User Information" xml:space="preserve">
     <value>Rediger brugerinformation</value>
+  </data>
+  <data name="Edit and View Details of Users" xml:space="preserve">
+    <value>Rediger brugeroplysninger</value>
   </data>
   <data name="Grants permission to create new roles." xml:space="preserve">
     <value>Giver tilladelse til at oprette nye roller.</value>
@@ -272,9 +272,6 @@
   </data>
   <data name="Manage Any Password" xml:space="preserve">
     <value>Administrer enhver adgangskode</value>
-  </data>
-  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
-    <value>Administrer hvem som helst ugentlige rapport</value>
   </data>
   <data name="Manage Assets" xml:space="preserve">
     <value>Håndtér aktiver</value>
@@ -318,14 +315,17 @@
   <data name="Manage Payroll" xml:space="preserve">
     <value>Administrer Løn</value>
   </data>
+  <data name="Manage SSH Keys" xml:space="preserve">
+    <value>Administrer SSH-nøgler</value>
+  </data>
   <data name="Manage Services" xml:space="preserve">
     <value>Håndtér tjenester</value>
   </data>
   <data name="Manage Services (Legacy)" xml:space="preserve">
     <value>Administrér tjenester (Lægacy)</value>
   </data>
-  <data name="Manage SSH Keys" xml:space="preserve">
-    <value>Administrer SSH-nøgler</value>
+  <data name="Manage anyone&apos;s weekly report" xml:space="preserve">
+    <value>Administrer hvem som helst ugentlige rapport</value>
   </data>
   <data name="Print Certificates" xml:space="preserve">
     <value>Udskriv Certifikater</value>
@@ -350,9 +350,6 @@
   </data>
   <data name="Submit Reimbursement" xml:space="preserve">
     <value>Indsend refusion</value>
-  </data>
-  <data name="View any company contract, including private ones" xml:space="preserve">
-    <value>Vis enhver virksomhedskontrakt, herunder private</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Vis baggrundstasker</value>
@@ -380,6 +377,9 @@
   </data>
   <data name="View User Operation Log" xml:space="preserve">
     <value>Vis brugerhandlingslog</value>
+  </data>
+  <data name="View any company contract, including private ones" xml:space="preserve">
+    <value>Vis enhver virksomhedskontrakt, herunder private</value>
   </data>
 
 </root>

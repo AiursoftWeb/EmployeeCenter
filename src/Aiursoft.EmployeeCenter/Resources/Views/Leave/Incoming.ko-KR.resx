@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>신청자</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>승인된 신청서</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>신청서 거부됨</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>승인 센터</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>승인자</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>회사 전체에서 검토 대기 중</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>귀하의 검토를 기다리는 중</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>닫기</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>현재 결근 중</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>일수</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>신청자는 신청이 시작되기 전까지 자신의 신청을 취소할 수 있습니다.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>부터</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>유형</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>승인된 신청서</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>신청서 거부됨</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>회사 전체에서 검토 대기 중</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>귀하의 검토를 기다리는 중</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>현재 결근 중</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>부터</value>
   </data>
 
 </root>

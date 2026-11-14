@@ -27,18 +27,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>
   </data>
-  <data name="e.g. 192.168.1.10" xml:space="preserve">
-    <value>ví dụ: 192.168.1.10</value>
-  </data>
-  <data name="e.g. 2001:db8::10" xml:space="preserve">
-    <value>vd. 2001:db8::10</value>
-  </data>
-  <data name="e.g. web-server-01" xml:space="preserve">
-    <value>ví dụ: web-server-01</value>
-  </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="New" xml:space="preserve">
     <value>Mới</value>
   </data>
@@ -59,6 +47,18 @@
   </data>
   <data name="Select Provider" xml:space="preserve">
     <value>Chọn nhà cung cấp</value>
+  </data>
+  <data name="e.g. 192.168.1.10" xml:space="preserve">
+    <value>ví dụ: 192.168.1.10</value>
+  </data>
+  <data name="e.g. 2001:db8::10" xml:space="preserve">
+    <value>vd. 2001:db8::10</value>
+  </data>
+  <data name="e.g. web-server-01" xml:space="preserve">
+    <value>ví dụ: web-server-01</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
   </data>
 
 </root>

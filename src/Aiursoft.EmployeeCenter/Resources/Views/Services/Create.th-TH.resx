@@ -33,15 +33,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>โดเมนควรเป็นจุดเข้าถึงหลักสำหรับบริการ</value>
   </data>
-  <data name="e.g. Customer Portal" xml:space="preserve">
-    <value>เช่น Customer Portal</value>
-  </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>เช่น example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>เช่น HTTPS, TCP</value>
-  </data>
   <data name="New" xml:space="preserve">
     <value>ใหม่</value>
   </data>
@@ -77,6 +68,15 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>คำแนะนำ</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>เช่น Customer Portal</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>เช่น HTTPS, TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>เช่น example.com</value>
   </data>
 
 </root>

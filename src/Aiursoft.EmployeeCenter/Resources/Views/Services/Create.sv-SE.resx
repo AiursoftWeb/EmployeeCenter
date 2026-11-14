@@ -33,15 +33,6 @@
   <data name="Domain should be the primary entry point for the service." xml:space="preserve">
     <value>Domänen bör vara det primära inmatningsgränssnittet för tjänsten.</value>
   </data>
-  <data name="e.g. Customer Portal" xml:space="preserve">
-    <value>t.ex. Kundportal</value>
-  </data>
-  <data name="e.g. example.com" xml:space="preserve">
-    <value>t.ex. example.com</value>
-  </data>
-  <data name="e.g. HTTPS, TCP" xml:space="preserve">
-    <value>t.ex. HTTPS, TCP</value>
-  </data>
   <data name="New" xml:space="preserve">
     <value>Ny</value>
   </data>
@@ -77,6 +68,15 @@
   </data>
   <data name="Tips" xml:space="preserve">
     <value>Tips</value>
+  </data>
+  <data name="e.g. Customer Portal" xml:space="preserve">
+    <value>t.ex. Kundportal</value>
+  </data>
+  <data name="e.g. HTTPS, TCP" xml:space="preserve">
+    <value>t.ex. HTTPS, TCP</value>
+  </data>
+  <data name="e.g. example.com" xml:space="preserve">
+    <value>t.ex. example.com</value>
   </data>
 
 </root>

@@ -18,11 +18,11 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Close" xml:space="preserve">
-    <value>닫기</value>
-  </data>
-  <data name="CRITICAL: Missing Reports" xml:space="preserve">
+      <data name="CRITICAL: Missing Reports" xml:space="preserve">
     <value>중요: 보고서 누락</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
   </data>
   <data name="Everything is up to date!" xml:space="preserve">
     <value>모든 것이 최신 상태입니다!</value>
@@ -54,11 +54,11 @@
   <data name="On behalf of" xml:space="preserve">
     <value>대신에</value>
   </data>
-  <data name="Post as myself" xml:space="preserve">
-    <value>내가 작성한 것처럼 게시</value>
-  </data>
   <data name="Post Report" xml:space="preserve">
     <value>보고서 게시</value>
+  </data>
+  <data name="Post as myself" xml:space="preserve">
+    <value>내가 작성한 것처럼 게시</value>
   </data>
   <data name="Project Associations" xml:space="preserve">
     <value>프로젝트 연관 정보</value>

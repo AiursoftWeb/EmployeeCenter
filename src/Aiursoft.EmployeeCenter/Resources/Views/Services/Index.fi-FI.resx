@@ -24,17 +24,11 @@
   <data name="Actions" xml:space="preserve">
     <value>Toiminnot</value>
   </data>
-  <data name="active servers" xml:space="preserve">
-    <value>Aktiiviset palvelimet</value>
-  </data>
   <data name="All Services" xml:space="preserve">
     <value>Kaikki palvelut</value>
   </data>
   <data name="Are you sure you want to delete this service?" xml:space="preserve">
     <value>Oletko varma, että haluat poistaa tämän palvelun?</value>
-  </data>
-  <data name="assigned" xml:space="preserve">
-    <value>lisätty</value>
   </data>
   <data name="Audience and routing scope of the service portfolio." xml:space="preserve">
     <value>Palveluportfolion kohderyhmä ja reitityksen laajuus.</value>
@@ -54,9 +48,6 @@
   <data name="Availability" xml:space="preserve">
     <value>Käytettävyys</value>
   </data>
-  <data name="blocking findings" xml:space="preserve">
-    <value>estävät havainnot</value>
-  </data>
   <data name="Click a bar or server name to inspect its services." xml:space="preserve">
     <value>Napsauta palkkia tai palvelimen nimeä tarkistaaksesi sen palvelut.</value>
   </data>
@@ -72,15 +63,6 @@
   <data name="Current state of every registered service." xml:space="preserve">
     <value>Kaikkien rekisteröityjen palveluiden nykyinen tila.</value>
   </data>
-  <data name="Data Quality" xml:space="preserve">
-    <value>Tietojen laatu</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Poista</value>
-  </data>
-  <data name="Developing" xml:space="preserve">
-    <value>Kehityksessä</value>
-  </data>
   <data name="DNS" xml:space="preserve">
     <value>DNS</value>
   </data>
@@ -89,6 +71,15 @@
   </data>
   <data name="DNS provider registration" xml:space="preserve">
     <value>DNS-toimittajan rekisteröinti</value>
+  </data>
+  <data name="Data Quality" xml:space="preserve">
+    <value>Tietojen laatu</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Poista</value>
+  </data>
+  <data name="Developing" xml:space="preserve">
+    <value>Kehityksessä</value>
   </data>
   <data name="Domain" xml:space="preserve">
     <value>Alue</value>
@@ -104,9 +95,6 @@
   </data>
   <data name="Geographic Distribution" xml:space="preserve">
     <value>Maantieteellinen jakautuminen</value>
-  </data>
-  <data name="healthy subjects" xml:space="preserve">
-    <value>terveet kohteet</value>
   </data>
   <data name="How completely the service catalog describes infrastructure and governance." xml:space="preserve">
     <value>Kuinka kattavasti palvelukatalogi kuvaa infrastruktuuria ja hallintaa.</value>
@@ -125,9 +113,6 @@
   </data>
   <data name="Location" xml:space="preserve">
     <value>Sijainti</value>
-  </data>
-  <data name="locations" xml:space="preserve">
-    <value>Sijainnit</value>
   </data>
   <data name="Manage DNS Providers" xml:space="preserve">
     <value>Hallitse DNS-toimittajia</value>
@@ -162,9 +147,6 @@
   <data name="Purpose" xml:space="preserve">
     <value>Tarkoitus</value>
   </data>
-  <data name="registered services" xml:space="preserve">
-    <value>rekisteröityjä palveluita</value>
-  </data>
   <data name="Registered services grouped by DNS provider." xml:space="preserve">
     <value>Rekisteröidyt palvelut ryhmitelty DNS-antajan mukaan.</value>
   </data>
@@ -186,20 +168,17 @@
   <data name="Server" xml:space="preserve">
     <value>Palvelin</value>
   </data>
-  <data name="Server assignment" xml:space="preserve">
-    <value>Palvelimen osoitus</value>
-  </data>
   <data name="Server Details" xml:space="preserve">
     <value>Palvelimen tiedot</value>
   </data>
   <data name="Server IP" xml:space="preserve">
     <value>Palvelimen IP</value>
   </data>
+  <data name="Server assignment" xml:space="preserve">
+    <value>Palvelimen osoitus</value>
+  </data>
   <data name="Service Audit Health" xml:space="preserve">
     <value>Palvelun tarkastuksen tila</value>
-  </data>
-  <data name="Service placement by server location." xml:space="preserve">
-    <value>Palvelujen sijoittuminen palvelimen sijainnin mukaan.</value>
   </data>
   <data name="Service Purpose" xml:space="preserve">
     <value>Palvelun käyttötarkoitus</value>
@@ -207,14 +186,17 @@
   <data name="Service Registry" xml:space="preserve">
     <value>Palvelurekisteri</value>
   </data>
+  <data name="Service placement by server location." xml:space="preserve">
+    <value>Palvelujen sijoittuminen palvelimen sijainnin mukaan.</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Palvelut</value>
   </data>
-  <data name="Services by Server" xml:space="preserve">
-    <value>Palvelut palvelimen mukaan</value>
-  </data>
   <data name="Services Dashboard" xml:space="preserve">
     <value>Palvelujen kojelauta</value>
+  </data>
+  <data name="Services by Server" xml:space="preserve">
+    <value>Palvelut palvelimen mukaan</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Tila</value>
@@ -233,6 +215,24 @@
   </data>
   <data name="View Service Audit" xml:space="preserve">
     <value>Näytä palvelutarkastus</value>
+  </data>
+  <data name="active servers" xml:space="preserve">
+    <value>Aktiiviset palvelimet</value>
+  </data>
+  <data name="assigned" xml:space="preserve">
+    <value>lisätty</value>
+  </data>
+  <data name="blocking findings" xml:space="preserve">
+    <value>estävät havainnot</value>
+  </data>
+  <data name="healthy subjects" xml:space="preserve">
+    <value>terveet kohteet</value>
+  </data>
+  <data name="locations" xml:space="preserve">
+    <value>Sijainnit</value>
+  </data>
+  <data name="registered services" xml:space="preserve">
+    <value>rekisteröityjä palveluita</value>
   </data>
 
 </root>

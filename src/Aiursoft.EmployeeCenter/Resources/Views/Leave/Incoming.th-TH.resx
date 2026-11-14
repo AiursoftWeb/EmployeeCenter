@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>ผู้สมัคร</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>คำขอที่ได้รับการอนุมัติ</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>คำขอที่ถูกปฏิเสธ</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>ศูนย์การอนุมัติ</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>ผู้อนุมัติ</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>รอดำเนินการตรวจสอบทั่วทั้งบริษัท</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>รอดำเนินการตรวจสอบของคุณ</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>ปิด</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>ปัจจุบันไม่อยู่ในสำนักงาน</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>วัน</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>พวกเขาสามารถถอนคำขอของตนเองก่อนที่จะเริ่มต้นได้</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>ถึง</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>ประเภท</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>คำขอที่ได้รับการอนุมัติ</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>คำขอที่ถูกปฏิเสธ</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>รอดำเนินการตรวจสอบทั่วทั้งบริษัท</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>รอดำเนินการตรวจสอบของคุณ</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>ปัจจุบันไม่อยู่ในสำนักงาน</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>ถึง</value>
   </data>
 
 </root>

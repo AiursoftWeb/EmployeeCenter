@@ -45,9 +45,6 @@
   <data name="Available DNS candidates" xml:space="preserve">
     <value>可用的 DNS 候選</value>
   </data>
-  <data name="awaiting audit" xml:space="preserve">
-    <value>等待稽核</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>關閉</value>
   </data>
@@ -57,14 +54,14 @@
   <data name="Critical" xml:space="preserve">
     <value>嚴重</value>
   </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>刪除</value>
   </data>
   <data name="Delete this domain alias?" xml:space="preserve">
     <value>要刪除此網域別名嗎？</value>
-  </data>
-  <data name="DNS CNAME" xml:space="preserve">
-    <value>DNS CNAME</value>
   </data>
   <data name="Domain Alias Registry" xml:space="preserve">
     <value>網域別名註冊表</value>
@@ -84,9 +81,6 @@
   <data name="Expected target" xml:space="preserve">
     <value>預期目標</value>
   </data>
-  <data name="healthy" xml:space="preserve">
-    <value>正常</value>
-  </data>
   <data name="HTTP redirect" xml:space="preserve">
     <value>HTTP 重定向</value>
   </data>
@@ -98,12 +92,6 @@
   </data>
   <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
     <value>管理舊版主機名稱，並驗證其 HTTP 重定向或 DNS CNAME 目標。</value>
-  </data>
-  <data name="managed aliases" xml:space="preserve">
-    <value>管理的別名</value>
-  </data>
-  <data name="need attention" xml:space="preserve">
-    <value>需要關注</value>
   </data>
   <data name="New Alias" xml:space="preserve">
     <value>新增別名</value>
@@ -137,6 +125,18 @@
   </data>
   <data name="Updated at" xml:space="preserve">
     <value>更新時間</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>等待稽核</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>管理的別名</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>需要關注</value>
   </data>
 
 </root>

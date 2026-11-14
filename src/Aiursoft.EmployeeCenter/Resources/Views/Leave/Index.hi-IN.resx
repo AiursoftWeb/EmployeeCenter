@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>वर्ष में {0} दिन वेतन वाले वार्षिक छुट्टी</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>वर्ष में 7 दिन वेतन युक्त बीमारी का छुट्टी</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>अनुमोदक</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>अनुमोदन का इंतजार</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>ले गया</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>बंद करें</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>दिन</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>दिनों के दूर</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>एक शानदार ब्रेक का आनंद लें!</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>के अंदर</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>हमारी छुट्टी नीति के बारे में महत्वपूर्ण जानकारी</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>कोई छुट्टी इतिहास नहीं मिला।</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>कोई आगामी छुट्टी नहीं</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>के</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>लंबित</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>अस्वीकृत</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>अनुरोध</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>उपयोग से पहले प्रबंधक की अनुमति आवश्यक है</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>आपके छुट्टी के आवेदन और उनकी स्थिति</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>अनुमोदन का इंतजार</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>दिन</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>दिनों के दूर</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>के अंदर</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>कोई आगामी छुट्टी नहीं</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>के</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>अनुरोध</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>वर्ष में {0} दिन वेतन वाले वार्षिक छुट्टी</value>
   </data>
 
 </root>

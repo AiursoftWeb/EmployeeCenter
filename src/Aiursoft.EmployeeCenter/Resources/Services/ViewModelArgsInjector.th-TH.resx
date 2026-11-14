@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>ผู้ช่วย AI</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>การเข้าถึงถูกปฏิเสธ</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -50,12 +56,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>รายละเอียดด้านการบริหาร</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>AI</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>ผู้ช่วย AI</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Aiursoft ศูนย์พนักงาน</value>
@@ -135,8 +135,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>คุณสมบัติทางธุรกิจ</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>เลขที่ CI</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>อาชีพ</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>พิมพ์ใบรับรอง</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>หนังสือรับรองการจ้างงาน</value>
@@ -146,9 +152,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>หนังสือรับรองรายได้</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>พิมพ์ใบรับรอง</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>เปลี่ยนรูปโปรไฟล์</value>
@@ -164,9 +167,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>แชท</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>เลขที่ CI</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>คลิกเพื่อเข้าสู่ระบบ</value>
@@ -273,6 +273,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>ความสัมพันธ์กับลูกค้า</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>การตรวจสอบ DNS</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>แดชบอร์ด</value>
   </data>
@@ -293,9 +296,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>ไดเรกทอรี</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>การตรวจสอบ DNS</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>ดาวน์โหลด / ดู</value>
@@ -348,14 +348,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>แก้ไขบทบาท</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>แก้ไขคีย์ SSH</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>แก้ไขเซิร์ฟเวอร์</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>แก้ไขบริการ</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>แก้ไขคีย์ SSH</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>แก้ไขธุรกรรม</value>
@@ -408,14 +408,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>การตั้งค่าทั่วไป</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>ทรัพยากรบุคคล</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>การปรับวันหยุด</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>หน้าแรก</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>ทรัพยากรบุคคล</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>ทรัพย์สินด้านไอที</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>รูปภาพ &amp; ไฟล์</value>
@@ -446,9 +449,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>ออกสลิปเงินเดือน</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>ทรัพย์สินด้านไอที</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>ลา</value>
@@ -513,11 +513,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>จัดการผู้ให้บริการ DNS</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>จัดการสินทรัพย์ที่ไม่มีรูปธรรม</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>จัดการสินทรัพย์ไอที</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>จัดการสินทรัพย์ที่ไม่มีรูปธรรม</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>จัดการบัญชีรายชื่อ</value>
@@ -711,11 +711,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>รายละเอียดข้อกำหนด</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>บันทึกข้อกำหนดเรียบร้อยแล้ว</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>ชื่อเรื่องความต้องการ</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>บันทึกข้อกำหนดเรียบร้อยแล้ว</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>ทรัพยากร</value>
@@ -729,11 +729,14 @@
   <data name="Roles" xml:space="preserve">
     <value>บทบาท</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>บันทึกการเปลี่ยนแปลง</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>สถานที่ตั้ง SCR</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>คีย์ SSH</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>บันทึกการเปลี่ยนแปลง</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>เลขานุการ</value>
@@ -762,23 +765,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>ออกจากระบบ</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>คีย์ SSH</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>ส่งความคิดเห็น</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>ส่งเพื่อขออนุมัติ</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>ส่งคำขอใหม่</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>ส่งคำขอ</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>ส่งเพื่อขออนุมัติ</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>ระบบ</value>

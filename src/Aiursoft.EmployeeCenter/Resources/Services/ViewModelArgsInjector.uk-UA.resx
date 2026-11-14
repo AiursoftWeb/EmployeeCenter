@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="AI" xml:space="preserve">
+    <value>ШІ</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI Assistant</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Доступ заборонено</value>
   </data>
   <data name="Accounts" xml:space="preserve">
@@ -47,12 +53,6 @@
   </data>
   <data name="Administrative Details" xml:space="preserve">
     <value>Адміністративні відомості</value>
-  </data>
-  <data name="AI" xml:space="preserve">
-    <value>ШІ</value>
-  </data>
-  <data name="AI Assistant" xml:space="preserve">
-    <value>AI Assistant</value>
   </data>
   <data name="Aiursoft Employee Center" xml:space="preserve">
     <value>Центр співробітників Aiursoft</value>
@@ -132,8 +132,14 @@
   <data name="Business Qualifications" xml:space="preserve">
     <value>Кваліфікаційні документи компанії</value>
   </data>
+  <data name="CI Number" xml:space="preserve">
+    <value>Номер CI</value>
+  </data>
   <data name="Career" xml:space="preserve">
     <value>Кар&apos;єра</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Друк сертифіката</value>
   </data>
   <data name="Certificate of Employeement" xml:space="preserve">
     <value>Свідоцтво про зайнятість</value>
@@ -143,9 +149,6 @@
   </data>
   <data name="Certificate of Income" xml:space="preserve">
     <value>Свідоцтво про доход</value>
-  </data>
-  <data name="Certificate Print" xml:space="preserve">
-    <value>Друк сертифіката</value>
   </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Змінити аватар</value>
@@ -161,9 +164,6 @@
   </data>
   <data name="Chat" xml:space="preserve">
     <value>Чат</value>
-  </data>
-  <data name="CI Number" xml:space="preserve">
-    <value>Номер CI</value>
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Натисніть, щоб увійти</value>
@@ -270,6 +270,9 @@
   <data name="Customer Relationships" xml:space="preserve">
     <value>Відносини з клієнтами</value>
   </data>
+  <data name="DNS Audit" xml:space="preserve">
+    <value>Аудит DNS</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Панель керування</value>
   </data>
@@ -290,9 +293,6 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Каталог</value>
-  </data>
-  <data name="DNS Audit" xml:space="preserve">
-    <value>Аудит DNS</value>
   </data>
   <data name="Download / View" xml:space="preserve">
     <value>Завантажити / Переглянути</value>
@@ -345,14 +345,14 @@
   <data name="Edit Role" xml:space="preserve">
     <value>Редагувати роль</value>
   </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Редагувати ключ SSH</value>
+  </data>
   <data name="Edit Server" xml:space="preserve">
     <value>Редагувати сервер</value>
   </data>
   <data name="Edit Service" xml:space="preserve">
     <value>Редагувати послугу</value>
-  </data>
-  <data name="Edit SSH Key" xml:space="preserve">
-    <value>Редагувати ключ SSH</value>
   </data>
   <data name="Edit Transaction" xml:space="preserve">
     <value>Редагувати транзакцію</value>
@@ -405,14 +405,17 @@
   <data name="Global Settings" xml:space="preserve">
     <value>Глобальні налаштування</value>
   </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
   <data name="Holiday Adjustments" xml:space="preserve">
     <value>Відпусткові корективи</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Головна</value>
   </data>
-  <data name="HR" xml:space="preserve">
-    <value>HR</value>
+  <data name="IT Assets" xml:space="preserve">
+    <value>IT-активи</value>
   </data>
   <data name="Images &amp; Files" xml:space="preserve">
     <value>Зображення та файли</value>
@@ -443,9 +446,6 @@
   </data>
   <data name="Issue Payroll" xml:space="preserve">
     <value>Видати зарплату</value>
-  </data>
-  <data name="IT Assets" xml:space="preserve">
-    <value>IT-активи</value>
   </data>
   <data name="Leave" xml:space="preserve">
     <value>Відпустка</value>
@@ -510,11 +510,11 @@
   <data name="Manage Dns Providers" xml:space="preserve">
     <value>Керування провайдерами DNS</value>
   </data>
-  <data name="Manage Intangible Assets" xml:space="preserve">
-    <value>Керування нематеріальними активами</value>
-  </data>
   <data name="Manage IT Assets" xml:space="preserve">
     <value>Керування IT-активами</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Керування нематеріальними активами</value>
   </data>
   <data name="Manage Ledger" xml:space="preserve">
     <value>Керування журналом</value>
@@ -708,11 +708,11 @@
   <data name="Requirement Details" xml:space="preserve">
     <value>Деталі вимоги</value>
   </data>
-  <data name="Requirement saved successfully." xml:space="preserve">
-    <value>Вимога успішно збережена.</value>
-  </data>
   <data name="Requirement Title" xml:space="preserve">
     <value>Назва вимоги</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Вимога успішно збережена.</value>
   </data>
   <data name="Resources" xml:space="preserve">
     <value>Ресурси</value>
@@ -726,11 +726,14 @@
   <data name="Roles" xml:space="preserve">
     <value>Ролі</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Зберегти зміни</value>
-  </data>
   <data name="SCR Location" xml:space="preserve">
     <value>Місце розташування SCR</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>Ключі SSH</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Зберегти зміни</value>
   </data>
   <data name="Secretary" xml:space="preserve">
     <value>Секретар</value>
@@ -759,23 +762,20 @@
   <data name="Sign out" xml:space="preserve">
     <value>Вийти</value>
   </data>
-  <data name="SSH Keys" xml:space="preserve">
-    <value>Ключі SSH</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>
   </data>
   <data name="Submit Comment" xml:space="preserve">
     <value>Надіслати коментар</value>
   </data>
-  <data name="Submit for Approval" xml:space="preserve">
-    <value>Надіслати на затвердження</value>
-  </data>
   <data name="Submit New Requirement" xml:space="preserve">
     <value>Надіслати новий вимогу</value>
   </data>
   <data name="Submit Requirement" xml:space="preserve">
     <value>Надіслати вимогу</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Надіслати на затвердження</value>
   </data>
   <data name="System" xml:space="preserve">
     <value>Система</value>

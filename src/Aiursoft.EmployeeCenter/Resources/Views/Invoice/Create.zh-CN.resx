@@ -48,11 +48,11 @@
   <data name="Buyer Name" xml:space="preserve">
     <value>付款方名称</value>
   </data>
-  <data name="Contract No" xml:space="preserve">
-    <value>合同编号</value>
-  </data>
   <data name="CR No / Entity Code" xml:space="preserve">
     <value>公司编号 / 统一社会信用代码</value>
+  </data>
+  <data name="Contract No" xml:space="preserve">
+    <value>合同编号</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>币种</value>
@@ -93,6 +93,9 @@
   <data name="Receipt / Paid Invoice" xml:space="preserve">
     <value>已付清凭据 (Receipt / Paid Invoice)</value>
   </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT 代码</value>
+  </data>
   <data name="Seller Address" xml:space="preserve">
     <value>收款方地址</value>
   </data>
@@ -101,9 +104,6 @@
   </data>
   <data name="Seller Name" xml:space="preserve">
     <value>收款方名称</value>
-  </data>
-  <data name="SWIFT Code" xml:space="preserve">
-    <value>SWIFT 代码</value>
   </data>
   <data name="Tax Amount" xml:space="preserve">
     <value>税额</value>

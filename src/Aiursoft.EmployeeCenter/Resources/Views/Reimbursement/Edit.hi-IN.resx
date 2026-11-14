@@ -30,9 +30,6 @@
   <data name="Edit Reimbursement Request" xml:space="preserve">
     <value>पुनर्भुगतान अनुरोध संपादित करें</value>
   </data>
-  <data name="https://..." xml:space="preserve">
-    <value>https://...</value>
-  </data>
   <data name="Keep as Draft" xml:space="preserve">
     <value>ड्राफ्ट के रूप में रखें</value>
   </data>
@@ -57,11 +54,14 @@
   <data name="Travel (差旅费)" xml:space="preserve">
     <value>यात्रा (यात्रा व्यय)</value>
   </data>
-  <data name="uploading a new one will replace it" xml:space="preserve">
-    <value>नया अपलोड करने पर यह प्रतिस्थापित हो जाएगा</value>
-  </data>
   <data name="What was this expense for?" xml:space="preserve">
     <value>इस खर्च का उद्देश्य क्या था?</value>
+  </data>
+  <data name="https://..." xml:space="preserve">
+    <value>https://...</value>
+  </data>
+  <data name="uploading a new one will replace it" xml:space="preserve">
+    <value>नया अपलोड करने पर यह प्रतिस्थापित हो जाएगा</value>
   </data>
 
 </root>

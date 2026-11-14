@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>1年あたり{0}日分の有給年次休暇</value>
-  </data>
-  <data name="7 days paid sick leave per year" xml:space="preserve">
+      <data name="7 days paid sick leave per year" xml:space="preserve">
     <value>年間7日間の有給病欠勤</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -39,26 +36,14 @@
   <data name="Approver" xml:space="preserve">
     <value>承認者</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>承認待ち</value>
-  </data>
   <data name="Carried Over" xml:space="preserve">
     <value>繰り越し</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>閉じる</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>日</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>日後</value>
-  </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>素晴らしい休暇を！</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>の</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>休暇ポリシーに関する重要な情報</value>
@@ -90,12 +75,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>休暇履歴は見つかりませんでした。</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>次の休暇はありません</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>の</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>保留中</value>
   </data>
@@ -116,9 +95,6 @@
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>却下</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>リクエスト</value>
   </data>
   <data name="Requires manager approval before use" xml:space="preserve">
     <value>使用前に管理者の承認が必要です</value>
@@ -155,6 +131,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>あなたの休暇申請およびその状態</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>承認待ち</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>日後</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>の</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>次の休暇はありません</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>の</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>リクエスト</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>1年あたり{0}日分の有給年次休暇</value>
   </data>
 
 </root>

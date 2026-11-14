@@ -30,12 +30,6 @@
   <data name="Applicant" xml:space="preserve">
     <value>Solicitante</value>
   </data>
-  <data name="applications approved" xml:space="preserve">
-    <value>aplicações aprovadas</value>
-  </data>
-  <data name="applications rejected" xml:space="preserve">
-    <value>aplicações rejeitadas</value>
-  </data>
   <data name="Approval Center" xml:space="preserve">
     <value>Centro de Aprovação</value>
   </data>
@@ -54,17 +48,8 @@
   <data name="Approver" xml:space="preserve">
     <value>Aprovador</value>
   </data>
-  <data name="awaiting review across company" xml:space="preserve">
-    <value>à espera de revisão em toda a empresa</value>
-  </data>
-  <data name="awaiting your review" xml:space="preserve">
-    <value>à espera da sua análise</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Fechar</value>
-  </data>
-  <data name="currently absent" xml:space="preserve">
-    <value>actualmente ausente</value>
   </data>
   <data name="Days" xml:space="preserve">
     <value>Dias</value>
@@ -132,11 +117,26 @@
   <data name="They can withdraw their own application before it starts." xml:space="preserve">
     <value>Eles podem retirar o seu próprio pedido antes de começar.</value>
   </data>
-  <data name="to" xml:space="preserve">
-    <value>a</value>
-  </data>
   <data name="Type" xml:space="preserve">
     <value>Tipo</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>aplicações aprovadas</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>aplicações rejeitadas</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>à espera de revisão em toda a empresa</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>à espera da sua análise</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>actualmente ausente</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>a</value>
   </data>
 
 </root>

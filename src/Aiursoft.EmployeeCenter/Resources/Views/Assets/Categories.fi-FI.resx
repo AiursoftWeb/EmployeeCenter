@@ -48,12 +48,6 @@
   <data name="Delete" xml:space="preserve">
     <value>Poista</value>
   </data>
-  <data name="e.g. LAP" xml:space="preserve">
-    <value>esim. LAP</value>
-  </data>
-  <data name="e.g. Laptop" xml:space="preserve">
-    <value>esim. kannettava</value>
-  </data>
   <data name="Existing Categories" xml:space="preserve">
     <value>Olemassa olevat kategoriat</value>
   </data>
@@ -62,6 +56,12 @@
   </data>
   <data name="References" xml:space="preserve">
     <value>Viittaukset</value>
+  </data>
+  <data name="e.g. LAP" xml:space="preserve">
+    <value>esim. LAP</value>
+  </data>
+  <data name="e.g. Laptop" xml:space="preserve">
+    <value>esim. kannettava</value>
   </data>
 
 </root>

@@ -63,14 +63,14 @@
   <data name="Earnings" xml:space="preserve">
     <value>給与</value>
   </data>
-  <data name="Earnings - Insurance - 5000 - Special" xml:space="preserve">
-    <value>総支給額 - 保険料 - 5000 - 特別控除</value>
-  </data>
   <data name="Earnings + Penalties - Insurance - Tax" xml:space="preserve">
     <value>総収入 + 罰金 - 保険料 - 税金</value>
   </data>
   <data name="Earnings + Sum(Company Insurances)" xml:space="preserve">
     <value>総支給額 + 会社負担保険料合計</value>
+  </data>
+  <data name="Earnings - Insurance - 5000 - Special" xml:space="preserve">
+    <value>総支給額 - 保険料 - 5000 - 特別控除</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>編集</value>

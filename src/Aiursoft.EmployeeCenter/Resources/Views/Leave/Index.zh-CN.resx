@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="{0} days paid annual leave per year" xml:space="preserve">
-    <value>{0}天带薪年假/年</value>
-  </data>
-  <data name="12 days per year, granted on January 1st" xml:space="preserve">
+      <data name="12 days per year, granted on January 1st" xml:space="preserve">
     <value>12天/年，于1月1日发放</value>
   </data>
   <data name="7 days paid sick leave per year" xml:space="preserve">
@@ -54,9 +51,6 @@
   <data name="Are you sure you want to withdraw this leave application?" xml:space="preserve">
     <value>确定要撤回此休假申请吗？</value>
   </data>
-  <data name="awaiting approval" xml:space="preserve">
-    <value>待审批</value>
-  </data>
   <data name="Cannot carry over to the third year" xml:space="preserve">
     <value>不能结转至第三年</value>
   </data>
@@ -66,12 +60,6 @@
   <data name="Close" xml:space="preserve">
     <value>关闭</value>
   </data>
-  <data name="days" xml:space="preserve">
-    <value>天</value>
-  </data>
-  <data name="days away" xml:space="preserve">
-    <value>天后</value>
-  </data>
   <data name="Does not carry over to the next year" xml:space="preserve">
     <value>不结转至下一年</value>
   </data>
@@ -80,9 +68,6 @@
   </data>
   <data name="Have a wonderful break!" xml:space="preserve">
     <value>祝你假期愉快！</value>
-  </data>
-  <data name="in" xml:space="preserve">
-    <value>在</value>
   </data>
   <data name="Key information about our leave policies" xml:space="preserve">
     <value>关于我们请假政策的关键信息</value>
@@ -126,12 +111,6 @@
   <data name="No leave history found." xml:space="preserve">
     <value>暂无请假记录</value>
   </data>
-  <data name="no upcoming leave" xml:space="preserve">
-    <value>暂无即将休假</value>
-  </data>
-  <data name="of" xml:space="preserve">
-    <value>/</value>
-  </data>
   <data name="Pending" xml:space="preserve">
     <value>待处理</value>
   </data>
@@ -164,9 +143,6 @@
   </data>
   <data name="Remaining Sick Leave Days" xml:space="preserve">
     <value>剩余病假天数</value>
-  </data>
-  <data name="requests" xml:space="preserve">
-    <value>申请</value>
   </data>
   <data name="Requires approval before use" xml:space="preserve">
     <value>使用前需经审批</value>
@@ -221,6 +197,30 @@
   </data>
   <data name="Your leave applications and their status" xml:space="preserve">
     <value>您的请假申请及其状态</value>
+  </data>
+  <data name="awaiting approval" xml:space="preserve">
+    <value>待审批</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>天</value>
+  </data>
+  <data name="days away" xml:space="preserve">
+    <value>天后</value>
+  </data>
+  <data name="in" xml:space="preserve">
+    <value>在</value>
+  </data>
+  <data name="no upcoming leave" xml:space="preserve">
+    <value>暂无即将休假</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="requests" xml:space="preserve">
+    <value>申请</value>
+  </data>
+  <data name="{0} days paid annual leave per year" xml:space="preserve">
+    <value>{0}天带薪年假/年</value>
   </data>
 
 </root>

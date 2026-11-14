@@ -45,6 +45,9 @@
   <data name="Bonus for no absence" xml:space="preserve">
     <value>Премія за відсутність відсутності</value>
   </data>
+  <data name="CONFIRM CHANGES" xml:space="preserve">
+    <value>ПІДТВЕРДИТИ ЗМІНИ</value>
+  </data>
   <data name="Calculated based on overtime hours" xml:space="preserve">
     <value>Розраховано на основі годин надурочного працювання</value>
   </data>
@@ -62,9 +65,6 @@
   </data>
   <data name="Compliance Payroll Table" xml:space="preserve">
     <value>Compliance Payroll Table</value>
-  </data>
-  <data name="CONFIRM CHANGES" xml:space="preserve">
-    <value>ПІДТВЕРДИТИ ЗМІНИ</value>
   </data>
   <data name="Contracted basic salary" xml:space="preserve">
     <value>Договірна базова зарплата</value>
@@ -90,14 +90,14 @@
   <data name="Education, housing, etc." xml:space="preserve">
     <value>Освіта, житло, тощо</value>
   </data>
-  <data name="Employee:" xml:space="preserve">
-    <value>Працівник:</value>
-  </data>
   <data name="Employee&apos;s account number" xml:space="preserve">
     <value>Номер рахунку працівника</value>
   </data>
   <data name="Employee&apos;s bank" xml:space="preserve">
     <value>Банк працівника</value>
+  </data>
+  <data name="Employee:" xml:space="preserve">
+    <value>Працівник:</value>
   </data>
   <data name="Enter as negative value" xml:space="preserve">
     <value>Введіть як від’ємне значення</value>
@@ -219,9 +219,6 @@
   <data name="Unemployment (Company)" xml:space="preserve">
     <value>Безробіття (Компанія)</value>
   </data>
-  <data name="usually" xml:space="preserve">
-    <value>зазвичай</value>
-  </data>
   <data name="Value" xml:space="preserve">
     <value>Значення</value>
   </data>
@@ -230,6 +227,9 @@
   </data>
   <data name="Yes, Confirm and Save!" xml:space="preserve">
     <value>Так, підтвердити і зберегти!</value>
+  </data>
+  <data name="usually" xml:space="preserve">
+    <value>зазвичай</value>
   </data>
   <data name="事件记录时间是协调世界时！" xml:space="preserve">
     <value>Час реєстрації події — це світовий координований час!</value>
