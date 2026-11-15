@@ -210,6 +210,10 @@ public sealed class AuditIncidentSyncService(
         if (identity.Type == DnsAuditIssueType.DomainAliasRedirectMismatch &&
             input.DomainAliases?.Any(alias => alias.Id == identity.DomainAliasId && alias.Type == DomainAliasType.HttpRedirect) == true)
             return input.DomainAliasRedirectResults?.GetValueOrDefault(identity.Domain)?.IsMatch == true;
+        // Registration itself proves recovery of UnknownDns, even when a managed DNS target cannot be verified.
+        if (identity.Type == DnsAuditIssueType.UnknownDns &&
+            (input.Services.Any(service => DnsAuditAnalyzer.NormalizeDomain(service.PrimaryDomain) == identity.Domain) ||
+             (input.DomainAliases ?? []).Any(alias => DnsAuditAnalyzer.NormalizeDomain(alias.Domain) == identity.Domain))) return true;
         if (report.Issues.Any(issue => DnsAuditAnalyzer.NormalizeDomain(issue.Domain) == identity.Domain &&
                 issue.Type is DnsAuditIssueType.PublicDnsLookupFailed or DnsAuditIssueType.ServiceOutsideAuditedZone or
                     DnsAuditIssueType.UnverifiableDnsTarget or DnsAuditIssueType.ManagedDnsOutsideRecordApi)) return false;
