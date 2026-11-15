@@ -250,6 +250,71 @@ public class AuditIncidentSyncTests
     }
 
     [TestMethod]
+    [DataRow(false, DnsAuditIssueType.UnverifiableDnsTarget)]
+    [DataRow(true, DnsAuditIssueType.UnverifiableDnsTarget)]
+    [DataRow(false, DnsAuditIssueType.ManagedDnsOutsideRecordApi)]
+    [DataRow(true, DnsAuditIssueType.PublicDnsLookupFailed)]
+    public async Task RegistrationMitigatesUnknownDnsDespiteUnrelatedDnsUncertainty(
+        bool registeredAlias, DnsAuditIssueType uncertainty)
+    {
+        var client = new FakeClient();
+        var sync = Synchronizer(client);
+        var unknown = new DnsAuditIssue
+        {
+            Type = DnsAuditIssueType.UnknownDns, Severity = DnsAuditSeverity.Error,
+            Domain = "payment.example.com", Details = "No registration."
+        };
+        await sync.SynchronizeAsync(1, Report([unknown]));
+        var evidence = Evidence(null) with
+        {
+            Services = registeredAlias ? [] : [new Service { Id = 1, PrimaryDomain = "PAYMENT.EXAMPLE.COM." }],
+            DomainAliases = registeredAlias
+                ? [new DomainAlias { Id = 2, Domain = "PAYMENT.EXAMPLE.COM." }] : []
+        };
+        await sync.SynchronizeAsync(2, Report([Issue(DnsAuditSeverity.Info, uncertainty)], evidence));
+        Assert.HasCount(1, client.Mitigated);
+        Assert.AreEqual("mitigated", client.Incidents.Single().Status);
+    }
+
+    [TestMethod]
+    [DataRow(false)]
+    [DataRow(true)]
+    public async Task UnregisteredDnsIsNotRecoveredByAnUnrelatedRegistration(bool registeredAlias)
+    {
+        var client = new FakeClient();
+        var sync = Synchronizer(client);
+        var unknown = new DnsAuditIssue
+        {
+            Type = DnsAuditIssueType.UnknownDns, Severity = DnsAuditSeverity.Error,
+            Domain = "unregistered.example.com", Details = "No registration."
+        };
+        await sync.SynchronizeAsync(1, Report([unknown]));
+        var evidence = Evidence(null) with
+        {
+            DomainAliases = registeredAlias ? [new DomainAlias { Id = 2, Domain = "other.example.com" }] : []
+        };
+        await sync.SynchronizeAsync(2, Report([
+            Issue(DnsAuditSeverity.Info, DnsAuditIssueType.UnverifiableDnsTarget, unknown.Domain)], evidence));
+        Assert.IsEmpty(client.Mitigated);
+    }
+
+    [TestMethod]
+    public async Task UnknownDnsStillReportedByTheCurrentAuditRemainsActive()
+    {
+        var client = new FakeClient();
+        var sync = Synchronizer(client);
+        var unknown = new DnsAuditIssue
+        {
+            Type = DnsAuditIssueType.UnknownDns, Severity = DnsAuditSeverity.Error,
+            Domain = "payment.example.com", Details = "No registration."
+        };
+        await sync.SynchronizeAsync(1, Report([unknown]));
+        await sync.SynchronizeAsync(2, Report([unknown], Evidence(null)));
+        Assert.IsEmpty(client.Mitigated);
+        Assert.HasCount(1, client.Created);
+    }
+
+    [TestMethod]
     public async Task HistoricalReportsAndForeignOrMalformedIncidentsCannotAuthorizeClosures()
     {
         var client = new FakeClient();
