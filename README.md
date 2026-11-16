@@ -1,4 +1,6 @@
-# EmployeeCenter
+# Aiursoft EmployeeCenter
+
+<a name="employeecenter"></a>
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aiursoftweb/employeeCenter/blob/master/LICENSE)
 [![Pipeline stat](https://badge-proxy.aiursoft.com/aiursoft/employeeCenter/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/employeeCenter/-/pipelines)
@@ -13,6 +15,12 @@ Employee Center is a project for managing employee information, attendance, leav
 ![screenshot](./screenshot.png)
 
 Default user name is `admin@default.com` and default password is `Admin@123456!`.
+
+## Overview
+
+### What is EmployeeCenter?
+
+Employee Center is a project for managing employee information, attendance, leaves, and more. It is built with ASP.NET Core and provides a user-friendly interface for both employees and administrators.
 
 ## Try
 
@@ -67,7 +75,9 @@ The docker image has the following context:
 | Data path   | /data                           |
 | Config path | /data/appsettings.json          |
 
-## Service audit incidents
+## Usage
+
+### Service audit incidents
 
 The existing scheduled and manual service audit can synchronize its findings with AlertCenter
 using SDK 10.2.0. Settings are available under System → Global Settings; environment overrides
@@ -101,7 +111,7 @@ process; query-and-create is not an atomic cross-instance operation. A subsequen
 any matching duplicates. No extra scheduler, database schema or automatic notification retry is
 introduced.
 
-## Database upgrade notes
+### Database upgrade notes
 
 The employee signals module has been removed. Back up your database before upgrading:
 the MySQL and SQLite `RemoveEmployeeSignals` migrations permanently delete the old
@@ -111,6 +121,107 @@ Historical migrations are retained to support upgrades from existing deployments
 Rolling back this migration recreates only five empty tables and their indexes and foreign
 keys; it does not restore deleted data or permission claims.
 
+## Configuration
+
+The application defaults are defined in [`src/Aiursoft.EmployeeCenter/appsettings.json`](src/Aiursoft.EmployeeCenter/appsettings.json). The Docker image initializes `/data/appsettings.json` on its first start and keeps it for later starts; persist `/data`. Override nested values with double-underscore environment variables, such as `Logging__LogLevel__Default`.
+
+```jsonc
+{
+  "ConnectionStrings": {
+    "AllowCache": "True",
+    "DbType": "Sqlite",
+    "DefaultConnection": "DataSource=app.db;Cache=Shared"
+    // sudo docker run -d --name db -e MYSQL_RANDOM_ROOT_PASSWORD=true -e MYSQL_DATABASE=employeecenter -e MYSQL_USER=employeecenter -e MYSQL_PASSWORD=employeecenter_password -p 3306:3306 hub.aiursoft.com/mysql
+    //"DbType": "MySql",
+    //"DefaultConnection": "Server=localhost;Database=employeecenter;Uid=employeecenter;Pwd=employeecenter_password;"
+  },
+  "Storage": {
+    "Path": "/tmp/data",
+    "PublicOrigin": "",
+    "RequireDedicatedInlineOrigin": false,
+    "AllowArbitraryInlineOnDedicatedOrigin": false,
+    "SafeInlineMediaExtensions": [ "mp3", "ogg", "wav", "webm", "svg" ],
+    "SafeInlineSvgSubfolders": ["companyfiles", "project-logo"],
+    "UploadPolicy": {
+      "RequireAuthenticatedUser": false,
+      "ReplaceSpacesWithHyphens": false
+    }
+  },
+  "AppSettings": {
+    "ExportPath": "/tmp/export",
+    "Agent": {
+      "Endpoint": "http://localhost:8000/ask",
+      "MeetingMinutesTimeoutSeconds": 600,
+      "MeetingMinutesMaxRetryCount": 5
+    },
+    "CompanyName": "Aiursoft",
+    "AuthProvider": "Local", // OIDC or Local
+    "DefaultRole": "",
+    "PersistsSignIn": false,
+    "OIDC": {
+      "Authority": "https://auth.aiursoft.com/application/o/employeecenter",
+      "ClientId": "",
+      "ClientSecret": "",
+      "RolePropertyName": "groups",
+      "UsernamePropertyName": "preferred_username",
+      "UserDisplayNamePropertyName": "name",
+      "EmailPropertyName": "email",
+      "UserIdentityPropertyName": "sub"
+    },
+    "Local": {
+      "AllowRegister": true,
+      "AllowWeakPassword": true
+    },
+    "OCR": {
+      "Enabled": false,
+      "Endpoint": "https://ocr.aiursoft.com/api/ocr/pdf",
+      "BearerToken": "",
+      "TimeoutSeconds": 1800,
+      "ContractOcrMaxRetryCount": 30,
+      "ContractOcrMaxEmptyRetryCount": 10,
+    "TransactionOcrMaxRetryCount": 30,
+    "TransactionOcrMaxEmptyRetryCount": 10
+  },
+  "ASR": {
+    "Enabled": false,
+    "Endpoint": "https://asr.aiursoft.com/v1/audio/transcriptions",
+    "BearerToken": "",
+    "Model": "whisperx",
+    "Level": "large-v3",
+    "Language": "",
+    "SegmentDurationSeconds": 1800,
+    "SegmentOverlapSeconds": 2,
+    "PreferOriginalSegmentCodec": true,
+    "TimeoutSeconds": 7200,
+    "MediaProcessingTimeoutSeconds": 1800,
+    "MaxConcurrentFfmpegProcesses": 2,
+    "AsrMaxRetryCount": 30,
+    "AsrMaxEmptyRetryCount": 10
+  }
+},
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    },
+    "Clickhouse": {
+      "Enabled": false,
+      "ConnectionString": "Host=localhost;Protocol=http;Port=8123;User=default;Password=;Database=AspNetCoreLogs",
+      "TableName": "EmployeeCenterLogs"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+### Shared settings
+
+- `ConnectionStrings` selects the database provider and connection. Prepare the external database before choosing MySQL; keep the SQLite file persistent when using SQLite.
+- `Storage` configures local application files. Keep the storage directory persistent and use the documented hostname and upload policies for shared downloads.
+- `AppSettings` controls authentication and account synchronization. Choose local accounts or configure the OIDC authority, client and `/signin-oidc` callback; use environment variables for credentials.
+- `Logging:LogLevel` controls application and framework verbosity. Configure the optional ClickHouse exporter only when its server and credentials are ready.
+- `AllowedHosts` is the ASP.NET Core Host-header allowlist, not a CORS setting.
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.
@@ -118,3 +229,7 @@ There are many ways to contribute to the project: logging bugs, submitting pull 
 Even if you with push rights on the repository, you should create a personal fork and create feature branches there when you need them. This keeps the main repository clean and your workflow cruft out of sight.
 
 We're also interested in your feedback on the future of this project. You can submit a suggestion or feature request through the issue tracker. To make this process more effective, we're asking that these include more information to help define them more clearly.
+
+## License
+
+Licensed under the [MIT License](LICENSE).
