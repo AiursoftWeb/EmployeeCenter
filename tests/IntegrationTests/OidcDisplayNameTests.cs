@@ -1,10 +1,7 @@
-using System.Security.Claims;
 using Aiursoft.EmployeeCenter.Configuration;
-using Aiursoft.EmployeeCenter.Entities;
 using Aiursoft.EmployeeCenter.Services.Authentication;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 
 namespace Aiursoft.EmployeeCenter.Tests.IntegrationTests;
