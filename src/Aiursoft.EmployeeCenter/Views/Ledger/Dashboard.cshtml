@@ -686,7 +686,8 @@
 
                 data.forEach(function (t) {
                     html += '<tr>';
-                    html += '<td data-order="' + escapeHtml(t.TransactionTime) + '">' + escapeHtml(new Date(t.TransactionTime.replace(' ', 'T') + 'Z').toLocaleString()) + '</td>';
+                    const timestamp = t.TransactionTime.replace(' ', 'T') + 'Z';
+                    html += '<td data-order="' + escapeHtml(t.TransactionTime) + '"><span data-utc-time="' + escapeHtml(timestamp).replaceAll('"', '&quot;') + '"></span></td>';
                     html += '<td>' + renderLedgerTransactionDescription(t.Description, t.Notes) + '</td>';
                     html += '<td>' + escapeHtml(t.SourceAccountName || '') + '</td>';
                     html += '<td>' + escapeHtml(t.DestinationAccountName || '') + '</td>';

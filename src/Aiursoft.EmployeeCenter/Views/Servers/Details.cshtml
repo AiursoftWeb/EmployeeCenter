@@ -9,7 +9,7 @@
 <div class="d-flex flex-wrap gap-2 justify-content-between mb-3">
     <div>
         <h1 class="h3">@Model.Server.Hostname — @Localizer["Server notes"]</h1>
-        <span class="text-muted">@Localizer["Last updated"]: @Model.Server.UpdatedAt.ToString("u")</span>
+        <span class="text-muted">@Localizer["Last updated"]: <span data-utc-time="@Model.Server.UpdatedAt.ToHtmlDateTime()"></span></span>
     </div>
     <div>
         <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Back to servers"]</a>
