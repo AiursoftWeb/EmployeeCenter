@@ -1,5 +1,12 @@
+@using System.Globalization
+@using Aiursoft.EmployeeCenter.Services
 @model Aiursoft.EmployeeCenter.Models.CertificateViewModels.PrintViewModel
 @{
+    var currentCulture = CultureInfo.CurrentUICulture.Name;
+    if (!CertificateLocalizationService.SupportedCultures.ContainsKey(currentCulture))
+    {
+        currentCulture = "zh-CN";
+    }
 }
 
 <div class="container-fluid p-0">
@@ -17,24 +24,14 @@
                         <input type="hidden" name="type" value="@Model.Type" />
                         <div class="mb-3">
                             <label class="form-label">@Localizer["Language"]</label>
-                            <div>
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="lang" value="zh-CN" checked>
-                                    <span class="form-check-label">
-                                        中文 (Chinese)
-                                    </span>
-                                </label>
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="lang" value="en-US">
-                                    <span class="form-check-label">
-                                        English
-                                    </span>
-                                </label>
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="lang" value="hr-HR">
-                                    <span class="form-check-label">Hrvatski</span>
-                                </label>
-                            </div>
+                            <select name="lang" class="form-select">
+                                @foreach (var culture in CertificateLocalizationService.SupportedCultures)
+                                {
+                                    <option value="@culture.Key" selected="@(culture.Key == currentCulture ? "selected" : null)">
+                                        @culture.Value
+                                    </option>
+                                }
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
