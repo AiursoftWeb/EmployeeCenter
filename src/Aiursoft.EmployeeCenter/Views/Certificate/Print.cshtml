@@ -4,8 +4,19 @@
 @{
     Layout = null;
     var isEnglish = Model.CertificateLanguage == "en-US";
+    var isCroatian = Model.CertificateLanguage == "hr-HR";
+    var croatian = CultureInfo.GetCultureInfo("hr-HR");
+    var certificateTitle = (Model.CertificateLanguage, Model.Type) switch
+    {
+        ("hr-HR", CertificateType.Employment) => "Potvrda o zaposlenju",
+        ("hr-HR", _) => "Potvrda o primanjima",
+        ("en-US", CertificateType.Employment) => "Certificate of Employment",
+        ("en-US", _) => "Certificate of Income",
+        (_, CertificateType.Employment) => "在职证明",
+        _ => "收入证明"
+    };
     var user = Model.TargetUser!;
-    var displayedCompanyName = (isEnglish && !string.IsNullOrWhiteSpace(Model.CompanyNameEnglish)) 
+    var displayedCompanyName = ((isEnglish || isCroatian) && !string.IsNullOrWhiteSpace(Model.CompanyNameEnglish))
         ? Model.CompanyNameEnglish 
         : Model.CompanyName;
 }
@@ -15,7 +26,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@(Model.Type == CertificateType.Employment ? (isEnglish ? "Certificate of Employment" : "在职证明") : (isEnglish ? "Certificate of Income" : "收入证明"))</title>
+    <title>@certificateTitle</title>
     <style>
         body {
             font-family: "Microsoft YaHei", Arial, sans-serif;
@@ -56,20 +67,24 @@
 </head>
 <body>
     <div class="header">
-        <div class="title">
-            @if (Model.Type == CertificateType.Employment)
-            {
-                @(isEnglish ? "Certificate of Employment" : "在职证明")
-            }
-            else
-            {
-                @(isEnglish ? "Certificate of Income" : "收入证明")
-            }
-        </div>
+        <div class="title">@certificateTitle</div>
     </div>
 
     <div class="content">
-        @if (isEnglish)
+        @if (isCroatian)
+        {
+            <p>
+                Potvrđuje se da je osoba <strong>@(user.LegalName ?? user.DisplayName)</strong> zaposlena u društvu
+                <strong>@displayedCompanyName</strong> od <strong>@user.CreationTime.ToString("d", croatian)</strong>
+                i trenutačno radi na radnom mjestu <strong>@(user.Title ?? "zaposlenik")</strong>.
+                @if (Model.Type == CertificateType.Income)
+                {
+                    <text>Mjesečna plaća iznosi <strong>@user.BaseSalary.ToString("N2", croatian) RMB</strong>.</text>
+                }
+            </p>
+            <p>Potvrda se izdaje na zahtjev zaposlenika.</p>
+        }
+        else if (isEnglish)
         {
             if (Model.Type == CertificateType.Employment)
             {
@@ -117,7 +132,12 @@
     <div class="footer">
         <div class="company-name">@displayedCompanyName</div>
         <div class="date">
-            @(isEnglish ? DateTime.Today.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture) : DateTime.Today.ToString("yyyy年MM月dd日", CultureInfo.InvariantCulture))
+            @(Model.CertificateLanguage switch
+            {
+                "hr-HR" => DateTime.Today.ToString("d", croatian),
+                "en-US" => DateTime.Today.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture),
+                _ => DateTime.Today.ToString("yyyy年MM月dd日", CultureInfo.InvariantCulture)
+            })
         </div>
     </div>
 

@@ -417,6 +417,7 @@ public class QualificationsTests : TestBase
     [DataRow("zh-CN", "en-US")]
     [DataRow("en-US", "zh-HK")]
     [DataRow("zh-HK", "zh-CN")]
+    [DataRow("en-US", "hr-HR")]
     [DataRow("zh-CN", "auto")]
     public async Task EmployeeCanSelectWatermarkLanguageIndependentlyOfInterface(string uiCulture, string language)
     {
@@ -429,7 +430,7 @@ public class QualificationsTests : TestBase
         Assert.Contains("name=\"WatermarkLanguage\"", pageHtml);
         Assert.Contains("data-valmsg-for=\"WatermarkLanguage\"", pageHtml);
         Assert.IsTrue(Regex.IsMatch(pageHtml, "<option[^>]*selected=\"selected\"[^>]*value=\"auto\"|<option[^>]*value=\"auto\"[^>]*selected=\"selected\""));
-        foreach (var choice in new[] { "auto", "zh-CN", "zh-HK", "en-US" })
+        foreach (var choice in new[] { "auto", "zh-CN", "zh-HK", "en-US", "hr-HR" })
             Assert.Contains($"value=\"{choice}\"", pageHtml);
         var response = await PostForm("/Qualifications/Apply", new()
         {

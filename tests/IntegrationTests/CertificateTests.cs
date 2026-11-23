@@ -36,6 +36,28 @@ public class CertificateTests : TestBase
     }
 
     [TestMethod]
+    [DataRow("Employment", "Potvrda o zaposlenju", false)]
+    [DataRow("Income", "Potvrda o primanjima", true)]
+    public async Task CanPrintCroatianCertificate(string type, string title, bool hasSalary)
+    {
+        await LoginAsAdmin();
+        var page = await Http.GetAsync($"/Certificate/{type}");
+        Assert.Contains("value=\"hr-HR\"", await page.Content.ReadAsStringAsync());
+
+        var printed = await PostForm("/Certificate/Print", new()
+        {
+            ["type"] = type,
+            ["lang"] = "hr-HR"
+        }, tokenUrl: $"/Certificate/{type}");
+        Assert.AreEqual(HttpStatusCode.OK, printed.StatusCode);
+
+        var html = WebUtility.HtmlDecode(await printed.Content.ReadAsStringAsync());
+        Assert.Contains("<html lang=\"hr-HR\">", html);
+        Assert.Contains(title, html);
+        Assert.AreEqual(hasSalary, html.Contains("Mjesečna plaća", StringComparison.Ordinal));
+    }
+
+    [TestMethod]
     public async Task GetIncomeCertificatePageNormalUserForbiddenTest()
     {
         await RegisterAndLoginAsync();
