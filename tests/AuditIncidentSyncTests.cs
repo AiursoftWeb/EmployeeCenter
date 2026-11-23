@@ -37,6 +37,7 @@ public class AuditIncidentSyncTests
         }
         Assert.IsTrue(alert.Content!.Length <= 4000);
         Assert.AreEqual("sev3", alert.Level);
+        Assert.AreEqual("https://employee.aiursoft.com/ServiceAudit", alert.InvestigateUrl);
     }
 
     private static DnsAuditIssue Issue(DnsAuditSeverity severity = DnsAuditSeverity.Critical,

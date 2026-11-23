@@ -54,6 +54,7 @@ public class ExportJobIncidentTests : TestBase
         Assert.AreEqual("sev3", first.Level);
         Assert.Contains("/Jobs", _client.Created.Single().Content!);
         Assert.Contains("IOException", _client.Created.Single().Content!);
+        Assert.AreEqual("https://employee.aiursoft.com/Jobs", _client.Created.Single().InvestigateUrl);
         await RecordAsync(false);
         await RecordAsync(false);
         Assert.AreEqual("sev3", first.Level);
