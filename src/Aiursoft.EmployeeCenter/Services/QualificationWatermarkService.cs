@@ -84,7 +84,7 @@ public sealed class QualificationWatermarkService(
         var culture = request.WatermarkLanguage switch
         {
             "auto" => originalCulture,
-            "en-US" or "zh-CN" or "zh-HK" => CultureInfo.GetCultureInfo(request.WatermarkLanguage),
+            "en-US" or "zh-CN" or "zh-HK" or "hr-HR" => CultureInfo.GetCultureInfo(request.WatermarkLanguage),
             _ => throw new ArgumentException("Select a supported watermark language.", nameof(request))
         };
         try

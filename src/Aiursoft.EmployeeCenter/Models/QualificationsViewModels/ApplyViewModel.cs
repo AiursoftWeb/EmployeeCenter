@@ -36,7 +36,7 @@ public class ApplyViewModel : UiStackLayoutViewModel
     }
     [Required(ErrorMessage = "Select a supported watermark language.")]
     [MaxLength(5)]
-    [RegularExpression(@"^(auto|zh-CN|zh-HK|en-US)$", ErrorMessage = "Select a supported watermark language.")]
+    [RegularExpression(@"^(auto|zh-CN|zh-HK|en-US|hr-HR)$", ErrorMessage = "Select a supported watermark language.")]
     [Display(Name = "Watermark Language")]
     public string WatermarkLanguage { get; set; } = "auto";
 
