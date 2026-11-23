@@ -1,32 +1,23 @@
-@using System.Globalization
-@using Aiursoft.EmployeeCenter.Models.CertificateViewModels
+@using Aiursoft.EmployeeCenter.Services
+@inject CertificateLocalizationService CertificateLocalizationService
 @model Aiursoft.EmployeeCenter.Models.CertificateViewModels.PrintViewModel
 @{
     Layout = null;
-    var isEnglish = Model.CertificateLanguage == "en-US";
-    var isCroatian = Model.CertificateLanguage == "hr-HR";
-    var croatian = CultureInfo.GetCultureInfo("hr-HR");
-    var certificateTitle = (Model.CertificateLanguage, Model.Type) switch
-    {
-        ("hr-HR", CertificateType.Employment) => "Potvrda o zaposlenju",
-        ("hr-HR", _) => "Potvrda o primanjima",
-        ("en-US", CertificateType.Employment) => "Certificate of Employment",
-        ("en-US", _) => "Certificate of Income",
-        (_, CertificateType.Employment) => "在职证明",
-        _ => "收入证明"
-    };
-    var user = Model.TargetUser!;
-    var displayedCompanyName = ((isEnglish || isCroatian) && !string.IsNullOrWhiteSpace(Model.CompanyNameEnglish))
-        ? Model.CompanyNameEnglish 
-        : Model.CompanyName;
+    var content = CertificateLocalizationService.BuildCertificate(
+        Model.Type,
+        Model.CertificateLanguage,
+        Model.TargetUser!,
+        Model.CompanyName,
+        Model.CompanyNameEnglish,
+        DateTime.Today);
 }
 
 <!DOCTYPE html>
-<html lang="@Model.CertificateLanguage">
+<html lang="@Model.CertificateLanguage" dir="@(Model.CertificateLanguage == "ar-SA" ? "rtl" : "ltr")">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@certificateTitle</title>
+    <title>@content.Title</title>
     <style>
         body {
             font-family: "Microsoft YaHei", Arial, sans-serif;
@@ -51,6 +42,10 @@
             text-align: right;
             margin-top: 2cm;
         }
+        [dir="rtl"] .footer {
+            float: left;
+            text-align: left;
+        }
         .company-name {
             font-size: 16pt;
             font-weight: bold;
@@ -67,78 +62,17 @@
 </head>
 <body>
     <div class="header">
-        <div class="title">@certificateTitle</div>
+        <div class="title">@content.Title</div>
     </div>
 
     <div class="content">
-        @if (isCroatian)
-        {
-            <p>
-                Potvrđuje se da je osoba <strong>@(user.LegalName ?? user.DisplayName)</strong> zaposlena u društvu
-                <strong>@displayedCompanyName</strong> od <strong>@user.CreationTime.ToString("d", croatian)</strong>
-                i trenutačno radi na radnom mjestu <strong>@(user.Title ?? "zaposlenik")</strong>.
-                @if (Model.Type == CertificateType.Income)
-                {
-                    <text>Mjesečna plaća iznosi <strong>@user.BaseSalary.ToString("N2", croatian) RMB</strong>.</text>
-                }
-            </p>
-            <p>Potvrda se izdaje na zahtjev zaposlenika.</p>
-        }
-        else if (isEnglish)
-        {
-            if (Model.Type == CertificateType.Employment)
-            {
-                <p>
-                    This is to certify that Mr./Ms. <strong>@(user.LegalName ?? user.DisplayName)</strong>,
-                    has been employed by <strong>@displayedCompanyName</strong> since <strong>@user.CreationTime.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture)</strong>.
-                    He/She currently holds the position of <strong>@(user.Title ?? "Employee")</strong>.
-                </p>
-                <p>This certificate is issued at the request of the employee.</p>
-            }
-            else
-            {
-                <p>
-                    This is to certify that Mr./Ms. <strong>@(user.LegalName ?? user.DisplayName)</strong>,
-                    has been employed by <strong>@displayedCompanyName</strong> since <strong>@user.CreationTime.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture)</strong>.
-                    He/She currently holds the position of <strong>@(user.Title ?? "Employee")</strong>.
-                    His/Her monthly salary is <strong>RMB @user.BaseSalary.ToString("N2", CultureInfo.CurrentCulture)</strong>.
-                </p>
-                <p>This certificate is issued at the request of the employee.</p>
-            }
-        }
-        else
-        {
-            if (Model.Type == CertificateType.Employment)
-            {
-                <p>
-                    兹证明 <strong>@(user.LegalName ?? user.DisplayName)</strong> 先生/女士，
-                    自 <strong>@user.CreationTime.ToString("yyyy年MM月dd日", CultureInfo.InvariantCulture)</strong> 起至今在我公司任职，
-                    担任 <strong>@(user.Title ?? "员工")</strong> 一职。
-                </p>
-                <p>特此证明。</p>
-            }
-            else
-            {
-                <p>
-                    兹证明 <strong>@(user.LegalName ?? user.DisplayName)</strong> 先生/女士，
-                    自 <strong>@user.CreationTime.ToString("yyyy年MM月dd日", CultureInfo.InvariantCulture)</strong> 起至今在我公司任职，
-                    担任 <strong>@(user.Title ?? "员工")</strong> 一职。其月薪为人民币 <strong>@user.BaseSalary.ToString("N2", CultureInfo.CurrentCulture)</strong> 元。
-                </p>
-                <p>特此证明。</p>
-            }
-        }
+        <p>@Html.Raw(content.Paragraph1Html)</p>
+        <p>@Html.Raw(content.Paragraph2Html)</p>
     </div>
 
     <div class="footer">
-        <div class="company-name">@displayedCompanyName</div>
-        <div class="date">
-            @(Model.CertificateLanguage switch
-            {
-                "hr-HR" => DateTime.Today.ToString("d", croatian),
-                "en-US" => DateTime.Today.ToString("MMMM dd, yyyy", CultureInfo.CurrentCulture),
-                _ => DateTime.Today.ToString("yyyy年MM月dd日", CultureInfo.InvariantCulture)
-            })
-        </div>
+        <div class="company-name">@content.DisplayedCompanyName</div>
+        <div class="date">@content.FormattedIssueDate</div>
     </div>
 
     <script>

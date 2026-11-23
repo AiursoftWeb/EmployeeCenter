@@ -81,12 +81,19 @@ public sealed class QualificationWatermarkService(
         string applicant, DateTime utc)
     {
         var originalCulture = CultureInfo.CurrentUICulture;
-        var culture = request.WatermarkLanguage switch
+        CultureInfo culture;
+        if (request.WatermarkLanguage == "auto")
         {
-            "auto" => originalCulture,
-            "en-US" or "zh-CN" or "zh-HK" or "hr-HR" => CultureInfo.GetCultureInfo(request.WatermarkLanguage),
-            _ => throw new ArgumentException("Select a supported watermark language.", nameof(request))
-        };
+            culture = originalCulture;
+        }
+        else if (!string.IsNullOrEmpty(request.WatermarkLanguage) && CertificateLocalizationService.SupportedCultures.ContainsKey(request.WatermarkLanguage))
+        {
+            culture = CultureInfo.GetCultureInfo(request.WatermarkLanguage);
+        }
+        else
+        {
+            throw new ArgumentException("Select a supported watermark language.", nameof(request));
+        }
         try
         {
             // Scope the override to synchronous label lookup; never change the surrounding request's language.

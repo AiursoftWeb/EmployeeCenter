@@ -189,7 +189,7 @@ public class QualificationWatermarkServiceTests
     }
 
     [TestMethod]
-    [DataRow("fr-FR")]
+    [DataRow("klingon-unsupported")]
     [DataRow("en")]
     [DataRow("")]
     [DataRow(null)]

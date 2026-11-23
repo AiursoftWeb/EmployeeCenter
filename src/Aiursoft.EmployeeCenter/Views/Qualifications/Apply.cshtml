@@ -1,3 +1,4 @@
+@using Aiursoft.EmployeeCenter.Services
 @model Aiursoft.EmployeeCenter.Models.QualificationsViewModels.ApplyViewModel
 <div class="container-fluid">
     <h1 class="h3">@Localizer["Generate Watermark and Download"]</h1>
@@ -32,10 +33,10 @@
             <label asp-for="WatermarkLanguage" class="form-label">@Localizer["Watermark Language"]</label>
             <select asp-for="WatermarkLanguage" class="form-select">
                 <option value="auto">@Localizer["Follow Interface Language"]</option>
-                <option value="zh-CN">@Localizer["Simplified Chinese"]</option>
-                <option value="zh-HK">@Localizer["Traditional Chinese (Hong Kong)"]</option>
-                <option value="en-US">English</option>
-                <option value="hr-HR">Hrvatski</option>
+                @foreach (var culture in CertificateLocalizationService.SupportedCultures)
+                {
+                    <option value="@culture.Key">@culture.Value</option>
+                }
             </select>
             <span asp-validation-for="WatermarkLanguage" class="text-danger"></span>
             <small>@Localizer["Only the watermark labels change language. The purpose, recipient and account name are not translated. Choose English and enter the purpose and recipient in English for an English copy. Existing copies do not change."]</small>
