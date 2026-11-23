@@ -89,6 +89,7 @@ public sealed class ExportJobIncidentService(
             {
                 ReportId = state.ReportId, Title = "Employee Center scheduled export failed",
                 Level = level, OccurredAtUtc = state.FirstFailureUtc,
+                InvestigateUrl = $"{settings.PublicBaseUrl.TrimEnd('/')}/Jobs",
                 Content = $"The scheduled export did not finish. Consecutive failed executions: {state.Failures}. " +
                     $"Exception type: {state.ExceptionType}. The exported context may be incomplete or stale; this does not prove that original records or attachments were lost.\n\n" +
                     "Check the Export Job result and application logs, correct the export failure, then run the job again. " +

@@ -62,6 +62,7 @@ public sealed class AuditIncidentSyncService(
                         Content = content.Length > 4000 ? content[..4000] : content,
                         Level = level,
                         OccurredAtUtc = new DateTimeOffset(DateTime.SpecifyKind(report.GeneratedAt, DateTimeKind.Utc)),
+                        InvestigateUrl = $"{settings.PublicBaseUrl.TrimEnd('/')}/ServiceAudit",
                         Context = new JObject
                         {
                             ["source"] = Source, ["checkType"] = identity.Type.ToString(),
