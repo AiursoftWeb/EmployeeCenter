@@ -15,7 +15,6 @@ using Aiursoft.UiStack.Views.Shared.Components.Sidebar;
 using Aiursoft.UiStack.Views.Shared.Components.SideLogo;
 using Aiursoft.UiStack.Views.Shared.Components.SideMenu;
 using Aiursoft.UiStack.Views.Shared.Components.UserDropdown;
-using Aiursoft.WebTools.OfficialPlugins;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
@@ -400,10 +399,8 @@ public class ViewModelArgsInjector(
             .Get<IRequestCultureFeature>()?
             .RequestCulture.Culture.Name; // zh-CN
 
-        var cultureOptions = context.RequestServices.GetKeyedService<IReadOnlyDictionary<string, string>>(typeof(LocalizationPlugin))
-            ?? LocalizationPlugin.SupportedCultures;
-
-        var supportedCultures = cultureOptions
+        // ReSharper disable once RedundantNameQualifier
+        var suppportedCultures = Aiursoft.WebTools.OfficialPlugins.LocalizationPlugin.SupportedCultures
             .Select(c => new LanguageSelection
             {
                 Link = $"/Culture/Set?culture={c.Key}&returnUrl={context.Request.Path}",
@@ -411,12 +408,13 @@ public class ViewModelArgsInjector(
             })
             .ToArray();
 
+        // ReSharper disable once RedundantNameQualifier
         toInject.Navbar.LanguagesDropdown = new LanguagesDropdownViewModel
         {
-            Languages = supportedCultures,
+            Languages = suppportedCultures,
             SelectedLanguage = new LanguageSelection
             {
-                Name = cultureOptions[currentCulture ?? "en-US"],
+                Name = Aiursoft.WebTools.OfficialPlugins.LocalizationPlugin.SupportedCultures[currentCulture ?? "en-US"],
                 Link = "#",
             }
         };
