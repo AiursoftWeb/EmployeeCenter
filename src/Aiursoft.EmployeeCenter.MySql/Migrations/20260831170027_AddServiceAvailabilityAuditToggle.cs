@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Aiursoft.EmployeeCenter.MySql.Migrations
 {
     /// <inheritdoc />
+    [ExcludeFromCodeCoverage]
     public partial class AddServiceAvailabilityAuditToggle : Migration
     {
         /// <inheritdoc />
