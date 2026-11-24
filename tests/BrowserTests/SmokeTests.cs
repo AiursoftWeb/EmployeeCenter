@@ -24,15 +24,15 @@ public class SmokeTests : BrowserTestBase
     public async Task LocalLoginGrantsAccessToProtectedPage()
     {
         await NavigateAsync("/Manage/Index");
-        await Expect(Page).ToHaveURLAsync(new System.Text.RegularExpressions.Regex("/Account/Login\\?", System.Text.RegularExpressions.RegexOptions.IgnoreCase));
+        await Expect(Page).ToHaveURLAsync(new Regex("/Account/Login\\?", RegexOptions.IgnoreCase));
 
         var form = Page.Locator("form").Filter(new() { Has = Page.Locator("#EmailOrUserName") });
         await form.Locator("#EmailOrUserName").FillAsync("admin@default.com");
         await form.Locator("#Password").FillAsync("Admin@123456!");
         await form.Locator("button[type=submit]").ClickAsync();
-        await Expect(Page).ToHaveURLAsync(new System.Text.RegularExpressions.Regex("/Manage/Index(?:\\?.*)?$", System.Text.RegularExpressions.RegexOptions.IgnoreCase));
+        await Expect(Page).ToHaveURLAsync(new Regex("/Manage/Index(?:\\?.*)?$", RegexOptions.IgnoreCase));
         await NavigateAsync("/Manage/Index");
-        await Expect(Page).ToHaveURLAsync(new System.Text.RegularExpressions.Regex("/Manage/Index$", System.Text.RegularExpressions.RegexOptions.IgnoreCase));
+        await Expect(Page).ToHaveURLAsync(new Regex("/Manage/Index$", RegexOptions.IgnoreCase));
         await Expect(Page.Locator("h1.h3")).ToBeVisibleAsync();
     }
 
