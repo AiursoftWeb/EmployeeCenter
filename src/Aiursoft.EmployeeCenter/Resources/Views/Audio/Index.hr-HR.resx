@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of meeting audio recordings, transcripts, and AI processing statuses." xml:space="preserve">
+    <value>Popis audio snimki sastanaka, transkripta i statusa AI obrade.</value>
+  </data>
+  <data name="ASR Status" xml:space="preserve">
+    <value>Status ASR-a</value>
+  </data>
+  <data name="Access Source" xml:space="preserve">
+    <value>Izvor pristupa</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Radnje</value>
+  </data>
+  <data name="All uploaded meeting recordings" xml:space="preserve">
+    <value>Sve otpremljene snimke sastanaka</value>
+  </data>
+  <data name="Are you sure you want to delete this meeting recording?" xml:space="preserve">
+    <value>Jeste li sigurni da želite obrisati ovaj zapis sastanka?</value>
+  </data>
+  <data name="Audio Management Permission" xml:space="preserve">
+    <value>Dozvola za upravljanje zvukom</value>
+  </data>
+  <data name="Awaiting recognition" xml:space="preserve">
+    <value>Čeka prepoznavanje</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>Vrijeme kreiranja</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Direktan dijeljenje</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Uređivo</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Prazno</value>
+  </data>
+  <data name="Generating minutes" xml:space="preserve">
+    <value>Generiranje zapisnika</value>
+  </data>
+  <data name="Media processing failed" xml:space="preserve">
+    <value>Obrada medija nije uspjela</value>
+  </data>
+  <data name="Meeting Recordings" xml:space="preserve">
+    <value>Snimke sastanaka</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Transkripti sastanaka</value>
+  </data>
+  <data name="Minutes Status" xml:space="preserve">
+    <value>Status zapisnika</value>
+  </data>
+  <data name="Minutes generated" xml:space="preserve">
+    <value>Zapisi sastanka generirani</value>
+  </data>
+  <data name="Minutes generation failed" xml:space="preserve">
+    <value>Generiranje zapisa nije uspjelo</value>
+  </data>
+  <data name="Minutes outdated" xml:space="preserve">
+    <value>Zapisnici zastarjeli</value>
+  </data>
+  <data name="My Permission" xml:space="preserve">
+    <value>Moje dopuštenje</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Dalje</value>
+  </data>
+  <data name="No meeting recordings yet" xml:space="preserve">
+    <value>Još nema snimki sastanaka</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Vlasnik</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Na čekanju</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Prethodna</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Obrada</value>
+  </data>
+  <data name="Read-only" xml:space="preserve">
+    <value>Samo za čitanje</value>
+  </data>
+  <data name="Recognition in progress" xml:space="preserve">
+    <value>Prepoznavanje u tijeku</value>
+  </data>
+  <data name="Speech-to-text completed" xml:space="preserve">
+    <value>Pretvorba govora u tekst dovršena</value>
+  </data>
+  <data name="Total Meetings" xml:space="preserve">
+    <value>Ukupno sastanaka</value>
+  </data>
+  <data name="Transcribed" xml:space="preserve">
+    <value>Transkribirano</value>
+  </data>
+  <data name="Transcript" xml:space="preserve">
+    <value>Transkript</value>
+  </data>
+  <data name="Unknown Owner" xml:space="preserve">
+    <value>Nepoznat vlasnik</value>
+  </data>
+  <data name="Upload Meeting Recording" xml:space="preserve">
+    <value>Prenesi snimku sastanka</value>
+  </data>
+  <data name="Upload your first meeting recording to transcribe and analyze with AI." xml:space="preserve">
+    <value>Prenesite svoju prvu snimku sastanka za transkripciju i analizu pomoću umjetne inteligencije.</value>
+  </data>
+  <data name="Waiting for transcript" xml:space="preserve">
+    <value>Čeka se prepis</value>
+  </data>
+
+</root>

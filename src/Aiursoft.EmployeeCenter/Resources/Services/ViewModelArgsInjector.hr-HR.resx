@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI pomoćnik</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
+    <value>Pristup odbijen</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Računi</value>
+  </data>
+  <data name="Add Business Qualification" xml:space="preserve">
+    <value>Dodaj poslovnu kvalifikaciju</value>
+  </data>
+  <data name="Add SSH Key" xml:space="preserve">
+    <value>Dodaj SSH ključ</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administracija</value>
+  </data>
+  <data name="All Qualification Download Records" xml:space="preserve">
+    <value>Sve zapise preuzimanja kvalifikacija</value>
+  </data>
+  <data name="Apply Leave" xml:space="preserve">
+    <value>Podnesi zahtjev za odsustvo</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Centar odobrenja</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Povijest odobrenja</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Odobri</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Odobreno</value>
+  </data>
+  <data name="Approved Projects" xml:space="preserve">
+    <value>Odobreni projekti</value>
+  </data>
+  <data name="Assets" xml:space="preserve">
+    <value>Imovine</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Dodeli</value>
+  </data>
+  <data name="Assign Asset" xml:space="preserve">
+    <value>Dodijeli imovinu</value>
+  </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="Audit Services" xml:space="preserve">
+    <value>Usluge revizije</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
+    <value>Postavke revizije</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>Pozadinske zadaće</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Loš zahtjev</value>
+  </data>
+  <data name="Blueprint" xml:space="preserve">
+    <value>Platno</value>
+  </data>
+  <data name="Blueprints" xml:space="preserve">
+    <value>Plakati</value>
+  </data>
+  <data name="Business Qualifications" xml:space="preserve">
+    <value>Poslovne kvalifikacije</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Karijera</value>
+  </data>
+  <data name="Certificate Print" xml:space="preserve">
+    <value>Ispis certifikata</value>
+  </data>
+  <data name="Certificate of Employment" xml:space="preserve">
+    <value>Potvrda o zaposlenju</value>
+  </data>
+  <data name="Certificate of Income" xml:space="preserve">
+    <value>Potvrda o primicima</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>Promjena avatara</value>
+  </data>
+  <data name="Change Bank Information" xml:space="preserve">
+    <value>Promjena bankovnih podataka</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>Promjena lozinke</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>Promjena profila</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>Kliknite za prijavu</value>
+  </data>
+  <data name="Collection Channels" xml:space="preserve">
+    <value>Kanali naplate</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Komentari</value>
+  </data>
+  <data name="Company Entities" xml:space="preserve">
+    <value>Tvrtke</value>
+  </data>
+  <data name="Company Entity Details" xml:space="preserve">
+    <value>Podaci o pravnoj osobi tvrtke</value>
+  </data>
+  <data name="Company Entity Info" xml:space="preserve">
+    <value>Informacije o pravnoj osobi tvrtke</value>
+  </data>
+  <data name="Company Info Consultation" xml:space="preserve">
+    <value>Konsultacije o informacijama tvrtke</value>
+  </data>
+  <data name="Company Intangible Assets" xml:space="preserve">
+    <value>Nematerijalna imovina tvrtke</value>
+  </data>
+  <data name="Company Public Contracts" xml:space="preserve">
+    <value>Javni ugovori tvrtke</value>
+  </data>
+  <data name="Contract Finance Details" xml:space="preserve">
+    <value>Detalji financijskog ugovora</value>
+  </data>
+  <data name="Contract Finance Statistics" xml:space="preserve">
+    <value>Statistika financijskih ugovora</value>
+  </data>
+  <data name="Contract History" xml:space="preserve">
+    <value>Povijest ugovora</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Ugovori</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Kreiraj</value>
+  </data>
+  <data name="Create Account" xml:space="preserve">
+    <value>Kreiraj račun</value>
+  </data>
+  <data name="Create Asset" xml:space="preserve">
+    <value>Kreiraj imovinu</value>
+  </data>
+  <data name="Create Company Entity" xml:space="preserve">
+    <value>Kreiraj pravnu osobu tvrtke</value>
+  </data>
+  <data name="Create New Blueprint Folder" xml:space="preserve">
+    <value>Kreiraj novu mapu s nacrtom</value>
+  </data>
+  <data name="Create New Contract" xml:space="preserve">
+    <value>Kreiraj novi ugovor</value>
+  </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Kreiraj novu mapu</value>
+  </data>
+  <data name="Create Onboarding Task" xml:space="preserve">
+    <value>Kreiraj zadatak za usvajanje</value>
+  </data>
+  <data name="Create Password" xml:space="preserve">
+    <value>Kreiraj lozinku</value>
+  </data>
+  <data name="Create Promotion" xml:space="preserve">
+    <value>Kreiraj promociju</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>Kreiraj ulogu</value>
+  </data>
+  <data name="Create Server" xml:space="preserve">
+    <value>Kreiraj poslužitelj</value>
+  </data>
+  <data name="Create Service" xml:space="preserve">
+    <value>Kreiraj uslugu</value>
+  </data>
+  <data name="Create Transaction" xml:space="preserve">
+    <value>Kreiraj transakciju</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Kreiranje korisnika</value>
+  </data>
+  <data name="Customer Relations" xml:space="preserve">
+    <value>Odnosi s kupcima</value>
+  </data>
+  <data name="Customer Relationships" xml:space="preserve">
+    <value>Odnosi s kupcima</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Nadzorna ploča</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>Brisanje uloge</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>Brisanje korisnika</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalji</value>
+  </data>
+  <data name="Detect Qualification Watermark" xml:space="preserve">
+    <value>Otkrijte vodeni žig kvalifikacije</value>
+  </data>
+  <data name="Development" xml:space="preserve">
+    <value>Razvoj</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Direktorij</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Uredi račun</value>
+  </data>
+  <data name="Edit Asset" xml:space="preserve">
+    <value>Uredi imovinu</value>
+  </data>
+  <data name="Edit Blueprint" xml:space="preserve">
+    <value>Uredi nacrt</value>
+  </data>
+  <data name="Edit Blueprint Folder" xml:space="preserve">
+    <value>Uredi mapu predloška</value>
+  </data>
+  <data name="Edit Company Entity" xml:space="preserve">
+    <value>Uredi pravnu osobu tvrtke</value>
+  </data>
+  <data name="Edit Contract" xml:space="preserve">
+    <value>Uredi ugovor</value>
+  </data>
+  <data name="Edit Customer Relationship" xml:space="preserve">
+    <value>Uredi odnos s klijentom</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Uredi mapu</value>
+  </data>
+  <data name="Edit Meeting Minutes" xml:space="preserve">
+    <value>Uredi zapisnik sastanka</value>
+  </data>
+  <data name="Edit Meeting Recording" xml:space="preserve">
+    <value>Uredi snimku sastanka</value>
+  </data>
+  <data name="Edit Onboarding Task" xml:space="preserve">
+    <value>Uredi zadatak za prijem</value>
+  </data>
+  <data name="Edit Password" xml:space="preserve">
+    <value>Uredi lozinku</value>
+  </data>
+  <data name="Edit Payroll" xml:space="preserve">
+    <value>Uredi plaće</value>
+  </data>
+  <data name="Edit Requirement" xml:space="preserve">
+    <value>Uredi zahtjev</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>Uredi ulogu</value>
+  </data>
+  <data name="Edit SSH Key" xml:space="preserve">
+    <value>Uredi SSH ključ</value>
+  </data>
+  <data name="Edit Server" xml:space="preserve">
+    <value>Uredi poslužitelj</value>
+  </data>
+  <data name="Edit Service" xml:space="preserve">
+    <value>Uredi uslugu</value>
+  </data>
+  <data name="Edit Transaction" xml:space="preserve">
+    <value>Uredi transakciju</value>
+  </data>
+  <data name="Edit Transcript" xml:space="preserve">
+    <value>Uredi prepis</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>Uredi korisnika</value>
+  </data>
+  <data name="Edit Weekly Report" xml:space="preserve">
+    <value>Uredi tjedni izvještaj</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Uređivač</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Greška</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Funkcije</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Financije</value>
+  </data>
+  <data name="Generate Watermark and Download" xml:space="preserve">
+    <value>Generiraj vodeni žig i preuzmi</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>Globalna postavka</value>
+  </data>
+  <data name="Holiday Adjustments" xml:space="preserve">
+    <value>Prilagodbe praznika</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Početna</value>
+  </data>
+  <data name="Import Contracts from Zip" xml:space="preserve">
+    <value>Uvoz ugovora iz Zip datoteke</value>
+  </data>
+  <data name="Incoming Leave" xml:space="preserve">
+    <value>Dolazni dopust</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Početna</value>
+  </data>
+  <data name="Index Server" xml:space="preserve">
+    <value>Index Server</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Infrastructure data quality" xml:space="preserve">
+    <value>Kvaliteta infrastrukturnih podataka</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Interna greška poslužitelja</value>
+  </data>
+  <data name="Issue Invoice" xml:space="preserve">
+    <value>Izdavanje računa</value>
+  </data>
+  <data name="Issue Payroll" xml:space="preserve">
+    <value>Izdavanje plaće</value>
+  </data>
+  <data name="Leave" xml:space="preserve">
+    <value>Odstup</value>
+  </data>
+  <data name="Leave Management" xml:space="preserve">
+    <value>Upravljanje odsutnostima</value>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>Pravno</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Zaključavanje</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Prijava</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>Prijavite se za pristup svim funkcijama.</value>
+  </data>
+  <data name="Maintain Profile" xml:space="preserve">
+    <value>Održavanje profila</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Upravljanje</value>
+  </data>
+  <data name="Manage Audio Shares" xml:space="preserve">
+    <value>Upravljanje dijeljenjem audio zapisa</value>
+  </data>
+  <data name="Manage Blueprints" xml:space="preserve">
+    <value>Upravljanje nacrtima</value>
+  </data>
+  <data name="Manage Business Qualifications" xml:space="preserve">
+    <value>Upravljanje poslovnim kvalifikacijama</value>
+  </data>
+  <data name="Manage Categories" xml:space="preserve">
+    <value>Upravljanje kategorijama</value>
+  </data>
+  <data name="Manage Company Entities" xml:space="preserve">
+    <value>Upravljanje pravnicama tvrtke</value>
+  </data>
+  <data name="Manage Contracts" xml:space="preserve">
+    <value>Upravljanje ugovorima</value>
+  </data>
+  <data name="Manage Customer Relations" xml:space="preserve">
+    <value>Upravljanje odnosima s kupcima</value>
+  </data>
+  <data name="Manage Dns Providers" xml:space="preserve">
+    <value>Upravljanje DNS pružateljima</value>
+  </data>
+  <data name="Manage IT Assets" xml:space="preserve">
+    <value>Upravljanje IT imovinom</value>
+  </data>
+  <data name="Manage Intangible Assets" xml:space="preserve">
+    <value>Upravljanje nematerijalnim dobrima</value>
+  </data>
+  <data name="Manage Ledger" xml:space="preserve">
+    <value>Upravljanje knjigovodstvom</value>
+  </data>
+  <data name="Manage Locations" xml:space="preserve">
+    <value>Upravljanje lokacijama</value>
+  </data>
+  <data name="Manage Market Channels" xml:space="preserve">
+    <value>Upravljanje tržišnim kanalima</value>
+  </data>
+  <data name="Manage Models" xml:space="preserve">
+    <value>Upravljanje modelima</value>
+  </data>
+  <data name="Manage Onboarding Tasks" xml:space="preserve">
+    <value>Upravljanje zadacima integracije</value>
+  </data>
+  <data name="Manage Password Shares" xml:space="preserve">
+    <value>Upravljanje dijeljenjem lozinki</value>
+  </data>
+  <data name="Manage Payrolls" xml:space="preserve">
+    <value>Upravljanje plaćama</value>
+  </data>
+  <data name="Manage Printing" xml:space="preserve">
+    <value>Upravljanje tiskanjem</value>
+  </data>
+  <data name="Manage Providers" xml:space="preserve">
+    <value>Upravljanje pružateljima</value>
+  </data>
+  <data name="Manage Requirements" xml:space="preserve">
+    <value>Upravljanje zahtjevima</value>
+  </data>
+  <data name="Manage Vendors" xml:space="preserve">
+    <value>Upravljanje dobavljačima</value>
+  </data>
+  <data name="Market Channels" xml:space="preserve">
+    <value>Tržišni kanali</value>
+  </data>
+  <data name="Meeting Minutes" xml:space="preserve">
+    <value>Zapisnik s sastanka</value>
+  </data>
+  <data name="Meeting Transcript" xml:space="preserve">
+    <value>Transkript sastanka</value>
+  </data>
+  <data name="Meeting Transcripts" xml:space="preserve">
+    <value>Transkripti sastanaka</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Misiije</value>
+  </data>
+  <data name="Move Contract" xml:space="preserve">
+    <value>Pomakni ugovor</value>
+  </data>
+  <data name="My Assets" xml:space="preserve">
+    <value>Moja imovina</value>
+  </data>
+  <data name="My IT Assets" xml:space="preserve">
+    <value>Moja IT imovina</value>
+  </data>
+  <data name="My Leave Balance" xml:space="preserve">
+    <value>Moj saldo godišnjeg odmora</value>
+  </data>
+  <data name="My Payrolls" xml:space="preserve">
+    <value>Moje plaće</value>
+  </data>
+  <data name="My Reimbursements" xml:space="preserve">
+    <value>Moje naknade</value>
+  </data>
+  <data name="My Report Line" xml:space="preserve">
+    <value>Moja hijerarhijska linija</value>
+  </data>
+  <data name="My Requirements" xml:space="preserve">
+    <value>Moji zahtjevi</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Nije pronađeno</value>
+  </data>
+  <data name="Ocr Results" xml:space="preserve">
+    <value>Ocr rezultati</value>
+  </data>
+  <data name="Onboarding" xml:space="preserve">
+    <value>Uvođenje</value>
+  </data>
+  <data name="Onboarding Process" xml:space="preserve">
+    <value>Proces usvajanja</value>
+  </data>
+  <data name="Password Details" xml:space="preserve">
+    <value>Detalji lozinke</value>
+  </data>
+  <data name="Passwords Management" xml:space="preserve">
+    <value>Upravljanje lozinkama</value>
+  </data>
+  <data name="Payroll Details" xml:space="preserve">
+    <value>Detalji plaće</value>
+  </data>
+  <data name="Payrolls" xml:space="preserve">
+    <value>Plaća</value>
+  </data>
+  <data name="PendingApproval" xml:space="preserve">
+    <value>Čeka odobrenje</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Detalji dopuštenja</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Dozvole</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Osobno</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pregled</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Ispis</value>
+  </data>
+  <data name="Print Certificate" xml:space="preserve">
+    <value>Ispis certifikata</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Postavke profila</value>
+  </data>
+  <data name="Project Requirements" xml:space="preserve">
+    <value>Zahtjevi projekta</value>
+  </data>
+  <data name="Promotion History" xml:space="preserve">
+    <value>Povijest unapređenja</value>
+  </data>
+  <data name="Qualification Download Records" xml:space="preserve">
+    <value>Zapisi preuzimanja kvalifikacija</value>
+  </data>
+  <data name="Qualification Issuance Record" xml:space="preserve">
+    <value>Zapisnik o izdavanju kvalifikacije</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registracija</value>
+  </data>
+  <data name="Reimbursement" xml:space="preserve">
+    <value>Naknada</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Odbij</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Odbijeno</value>
+  </data>
+  <data name="Rename Meeting Recording" xml:space="preserve">
+    <value>Preimenuj snimku sastanka</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Odgovor</value>
+  </data>
+  <data name="Replying to" xml:space="preserve">
+    <value>Odgovaram na</value>
+  </data>
+  <data name="Report Line" xml:space="preserve">
+    <value>Linija izvještavanja</value>
+  </data>
+  <data name="Request Changes" xml:space="preserve">
+    <value>Zatraži promjene</value>
+  </data>
+  <data name="RequestChanges" xml:space="preserve">
+    <value>Zatraži izmjene</value>
+  </data>
+  <data name="Requirement" xml:space="preserve">
+    <value>Zahtjev</value>
+  </data>
+  <data name="Requirement Details" xml:space="preserve">
+    <value>Detalji zahtjeva</value>
+  </data>
+  <data name="Requirement Title" xml:space="preserve">
+    <value>Naslov zahtjeva</value>
+  </data>
+  <data name="Requirement saved successfully." xml:space="preserve">
+    <value>Zahtjev je uspješno spremljen.</value>
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value>Resursi</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>Detalji uloge</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Uloge</value>
+  </data>
+  <data name="SSH Keys" xml:space="preserve">
+    <value>SSH ključevi</value>
+  </data>
+  <data name="Servers" xml:space="preserve">
+    <value>Poslužitelji</value>
+  </data>
+  <data name="Service Audit" xml:space="preserve">
+    <value>Revizija usluga</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Nadzorna ploča usluga</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Postavke</value>
+  </data>
+  <data name="Shared Passwords" xml:space="preserve">
+    <value>Podijeljene lozinke</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Odjava</value>
+  </data>
+  <data name="Submit Comment" xml:space="preserve">
+    <value>Pošalji komentar</value>
+  </data>
+  <data name="Submit New Requirement" xml:space="preserve">
+    <value>Pošalji novi zahtjev</value>
+  </data>
+  <data name="Submit Requirement" xml:space="preserve">
+    <value>Pošalji zahtjev</value>
+  </data>
+  <data name="Submit for Approval" xml:space="preserve">
+    <value>Pošalji na odobrenje</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Sustav</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>Informacije o sustavu</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Kalendar tima</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transakcije</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Nedovršeno</value>
+  </data>
+  <data name="Upload Audio" xml:space="preserve">
+    <value>Prenesi audio</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Detalji korisnika</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Korisnici</value>
+  </data>
+  <data name="View Blueprints" xml:space="preserve">
+    <value>Pregledaj nacrte</value>
+  </data>
+  <data name="View Customer Relations" xml:space="preserve">
+    <value>Prikaz odnosa s klijentima</value>
+  </data>
+  <data name="View Market Channels" xml:space="preserve">
+    <value>Prikazi tržišne kanale</value>
+  </data>
+  <data name="Watermarked Qualification Download" xml:space="preserve">
+    <value>Preuzimanje kvalifikacije s vodeni žigom</value>
+  </data>
+  <data name="Watermarked Qualification Preview" xml:space="preserve">
+    <value>Pregled kvalifikacije s vodeničnim žigom</value>
+  </data>
+  <data name="Weekly Report" xml:space="preserve">
+    <value>Tjedni izvještaj</value>
+  </data>
+  <data name="Write a comment..." xml:space="preserve">
+    <value>Napišite komentar...</value>
+  </data>
+
+</root>
