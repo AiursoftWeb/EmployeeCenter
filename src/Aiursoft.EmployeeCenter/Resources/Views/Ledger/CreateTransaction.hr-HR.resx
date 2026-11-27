@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Amount" xml:space="preserve">
+    <value>Iznos</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zatvori</value>
+  </data>
+  <data name="Default is 1. How much Destination currency equals 1 Source currency unit." xml:space="preserve">
+    <value>Zadano je 1. Koliko jedinica valute odredišta odgovara 1 jedinici valute izvora.</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Destination Account (To)" xml:space="preserve">
+    <value>Odredišni račun (Na)</value>
+  </data>
+  <data name="Exchange Rate" xml:space="preserve">
+    <value>Tečaj</value>
+  </data>
+  <data name="Invoice Attachment" xml:space="preserve">
+    <value>Prilog fakture</value>
+  </data>
+  <data name="Keep the description short. Add transaction background and reconciliation details here." xml:space="preserve">
+    <value>Zadržite opis kratkim. Ovdje dodajte pozadinu transakcije i detalje o usklađivanju.</value>
+  </data>
+  <data name="MT103 Attachment" xml:space="preserve">
+    <value>MT103 privitak</value>
+  </data>
+  <data name="New Transaction" xml:space="preserve">
+    <value>Nova transakcija</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Bilješke</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Neobavezno</value>
+  </data>
+  <data name="Payment Voucher Attachment" xml:space="preserve">
+    <value>Privlak na uplatnicu</value>
+  </data>
+  <data name="Record Transaction" xml:space="preserve">
+    <value>Zabilježi transakciju</value>
+  </data>
+  <data name="Select Account" xml:space="preserve">
+    <value>Odaberite račun</value>
+  </data>
+  <data name="Source Account (From)" xml:space="preserve">
+    <value>Izvor računa (Od)</value>
+  </data>
+  <data name="Transaction Time" xml:space="preserve">
+    <value>Vrijeme transakcije</value>
+  </data>
+  <data name="e.g. Pay Sleek for Professional Fee" xml:space="preserve">
+    <value>npr. Plaćanje Sleeku za profesionalnu naknadu</value>
+  </data>
+  <data name="事件记录时间是协调世界时！" xml:space="preserve">
+    <value>Vrijeme događaja je u koordiniranoj svjetskoj vremenu (UTC)!</value>
+  </data>
+
+</root>

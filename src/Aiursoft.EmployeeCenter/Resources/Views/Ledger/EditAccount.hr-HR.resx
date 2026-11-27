@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Account Name" xml:space="preserve">
+    <value>Naziv računa</value>
+  </data>
+  <data name="Account Type" xml:space="preserve">
+    <value>Vrsta računa</value>
+  </data>
+  <data name="Accounting logic follows a &apos;Pool Model&apos;: money flows from one pool (source) to another pool (destination). Understanding these five elements is key to double-entry bookkeeping." xml:space="preserve">
+    <value>Računovodstvena logika prati &apos;Model bazena&apos;: novac teče iz jednog bazena (izvor) u drugi bazen (odredište). Razumijevanje ovih pet elemenata ključno je za dvostruko knjigovodstvo.</value>
+  </data>
+  <data name="Archived" xml:space="preserve">
+    <value>Arhivirano</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Imovina</value>
+  </data>
+  <data name="Bank deposits, Accounts Receivable (money others owe you), Servers/Laptops." xml:space="preserve">
+    <value>Bankovni depoziti, potraživanja (novac koji vam duguju drugi), poslužitelji/laptopi.</value>
+  </data>
+  <data name="Borrowing from Director" xml:space="preserve">
+    <value>Posudba od direktora</value>
+  </data>
+  <data name="Borrowing money = Increase; Repaying money = Decrease." xml:space="preserve">
+    <value>Kreditiranje = Povećanje; Otplata kredita = Smanjenje.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Cash on hand, or things that can be converted into cash." xml:space="preserve">
+    <value>Gotovina na računu ili stvari koje se mogu pretvoriti u gotovinu.</value>
+  </data>
+  <data name="Costs incurred" xml:space="preserve">
+    <value>Nastali troškovi</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Valuta</value>
+  </data>
+  <data name="Debts that the company must repay in the future." xml:space="preserve">
+    <value>Dugovi koje tvrtka mora vratiti u budućnosti.</value>
+  </data>
+  <data name="Definition:" xml:space="preserve">
+    <value>Definicija:</value>
+  </data>
+  <data name="Direction:" xml:space="preserve">
+    <value>Smjer:</value>
+  </data>
+  <data name="Director loans (money you lent to the company), Unpaid invoices, Credit card debt." xml:space="preserve">
+    <value>Posudbe direktora (novac koji ste posudili tvrtki), Neplaćene fakture, Dugovi na kreditnoj kartici.</value>
+  </data>
+  <data name="Edit Account" xml:space="preserve">
+    <value>Uredi račun</value>
+  </data>
+  <data name="Equity" xml:space="preserve">
+    <value>Vlastita kapital</value>
+  </data>
+  <data name="Examples:" xml:space="preserve">
+    <value>Primjeri:</value>
+  </data>
+  <data name="Expense" xml:space="preserve">
+    <value>Trošak</value>
+  </data>
+  <data name="From (Source)" xml:space="preserve">
+    <value>Iz (Izvor)</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Prihod</value>
+  </data>
+  <data name="Liability" xml:space="preserve">
+    <value>Obveza</value>
+  </data>
+  <data name="Logic" xml:space="preserve">
+    <value>Logika</value>
+  </data>
+  <data name="Money earned" xml:space="preserve">
+    <value>Zaradjeni novac</value>
+  </data>
+  <data name="Money earned by selling products or providing services. Increases profit." xml:space="preserve">
+    <value>Novčana sredstva stečena prodajom proizvoda ili pružanjem usluga. Povećava dobit.</value>
+  </data>
+  <data name="Money flows from bank to eliminate debt" xml:space="preserve">
+    <value>Novac teče iz banke za otplatu duga</value>
+  </data>
+  <data name="Money flows from bank to expenses" xml:space="preserve">
+    <value>Novac teče od banke do rashoda</value>
+  </data>
+  <data name="Money flows from debt to bank account" xml:space="preserve">
+    <value>Novac teče od duga do bankovnog računa</value>
+  </data>
+  <data name="Money flows from equity to bank account" xml:space="preserve">
+    <value>Novac teče od kapitala do bankovnog računa</value>
+  </data>
+  <data name="Money generated as income into bank" xml:space="preserve">
+    <value>Novac generiran kao prihod na bankovni račun</value>
+  </data>
+  <data name="Money in = Increase; Money out = Decrease." xml:space="preserve">
+    <value>Ulaz novca = Povećanje; Izlaz novca = Smanjenje.</value>
+  </data>
+  <data name="Money spent to maintain company operations. Decreases profit." xml:space="preserve">
+    <value>Novac potrošen za održavanje poslovanja tvrtke. Smanjuje dobit.</value>
+  </data>
+  <data name="Paying for Servers" xml:space="preserve">
+    <value>Plaćanje poslužitelja</value>
+  </data>
+  <data name="Quick Cheat Sheet" xml:space="preserve">
+    <value>Brzi pregled</value>
+  </data>
+  <data name="Repaying Director" xml:space="preserve">
+    <value>Otplata direktoru</value>
+  </data>
+  <data name="Sales Revenue, Service Fees, Interest Income." xml:space="preserve">
+    <value>Prihod od prodaje, provizije za usluge, kamatni prihod.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Spremi</value>
+  </data>
+  <data name="Scenario" xml:space="preserve">
+    <value>Scenarij</value>
+  </data>
+  <data name="Selling Software" xml:space="preserve">
+    <value>Prodaja softvera</value>
+  </data>
+  <data name="Server hosting fees, Bank charges, Salaries." xml:space="preserve">
+    <value>Naknade za server hosting, banкарne provizije, plaće.</value>
+  </data>
+  <data name="Share Capital (initial investment), Retained Earnings (accumulated profit)." xml:space="preserve">
+    <value>Vlasnički kapital (početna ulaganja), Ne raspodijeljena dobit (nakupljena dobit).</value>
+  </data>
+  <data name="Shareholder Investment" xml:space="preserve">
+    <value>Ulaganje dioničara</value>
+  </data>
+  <data name="Shareholder investment/Profit = Increase; Shareholder withdrawal/Loss = Decrease." xml:space="preserve">
+    <value>Ulaganje dioničara/Dobitak = Povećanje; Povlačenje dioničara/Gubitak = Smanjenje.</value>
+  </data>
+  <data name="Show in Dashboard" xml:space="preserve">
+    <value>Prikaži na nadzornoj ploči</value>
+  </data>
+  <data name="The net worth of the company. Formula: Asset - Liability = Equity." xml:space="preserve">
+    <value>Neto vrijednost tvrtke. Formula: Imovina - Obveza = Vlastiti kapital.</value>
+  </data>
+  <data name="Things you owe others" xml:space="preserve">
+    <value>Obveze prema drugima</value>
+  </data>
+  <data name="Things you own" xml:space="preserve">
+    <value>Stvari koje posjedujete</value>
+  </data>
+  <data name="To (Destination)" xml:space="preserve">
+    <value>Prema (Odredište)</value>
+  </data>
+  <data name="Understanding Accounting Elements" xml:space="preserve">
+    <value>Razumijevanje računovodstvenih elemenata</value>
+  </data>
+  <data name="Value that truly belongs to you" xml:space="preserve">
+    <value>Vrijednost koja vam stvarno pripada</value>
+  </data>
+
+</root>

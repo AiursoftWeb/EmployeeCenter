@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Bank Account" xml:space="preserve">
+    <value>Bankovni račun</value>
+  </data>
+  <data name="Bank Account Name" xml:space="preserve">
+    <value>Naziv bankovnog računa</value>
+  </data>
+  <data name="Bank Address" xml:space="preserve">
+    <value>Adresa banke</value>
+  </data>
+  <data name="Bank Code" xml:space="preserve">
+    <value>Kod banke</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>Naziv banke</value>
+  </data>
+  <data name="Base Currency" xml:space="preserve">
+    <value>Osnovna valuta</value>
+  </data>
+  <data name="Business Registration (BR / Business License)" xml:space="preserve">
+    <value>Poslovna registracija (BR / Poslovna licenca)</value>
+  </data>
+  <data name="CI Number (HK)" xml:space="preserve">
+    <value>CI broj (HK)</value>
+  </data>
+  <data name="Company Logo" xml:space="preserve">
+    <value>Logo tvrtke</value>
+  </data>
+  <data name="Company Name (Chinese)" xml:space="preserve">
+    <value>Naziv tvrtke (kineski)</value>
+  </data>
+  <data name="Company Name (English)" xml:space="preserve">
+    <value>Naziv tvrtke (engleski)</value>
+  </data>
+  <data name="Company Seal" xml:space="preserve">
+    <value>Tvrtkov pečat</value>
+  </data>
+  <data name="Company Secretary (HK)" xml:space="preserve">
+    <value>Društveni tajnik (HK)</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Vrsta tvrtke</value>
+  </data>
+  <data name="Create corresponding ledger" xml:space="preserve">
+    <value>Kreiraj odgovarajući dnevnik</value>
+  </data>
+  <data name="Entity Code (Social Credit Code / BR Number)" xml:space="preserve">
+    <value>Kod entiteta (Kod društvenog kredita / Broj BR)</value>
+  </data>
+  <data name="Establishment Date" xml:space="preserve">
+    <value>Datum osnutka</value>
+  </data>
+  <data name="Expiry Date (Business License / BR)" xml:space="preserve">
+    <value>Rok trajanja (Poslovna licenca / BR)</value>
+  </data>
+  <data name="Legal Representative / Director" xml:space="preserve">
+    <value>Pravni zastupnik / direktor</value>
+  </data>
+  <data name="Legal Representative Legal Name" xml:space="preserve">
+    <value>Zvanično ime pravnog zastupnika</value>
+  </data>
+  <data name="Office Address" xml:space="preserve">
+    <value>Adresa ureda</value>
+  </data>
+  <data name="Operation Status" xml:space="preserve">
+    <value>Status poslovanja</value>
+  </data>
+  <data name="Organization Certificate (CR / Org Code)" xml:space="preserve">
+    <value>Certifikat organizacije (CR / Organizacijska oznaka)</value>
+  </data>
+  <data name="Please upload a valid certificate file." xml:space="preserve">
+    <value>Molimo učitajte valjantu datoteku certifikata.</value>
+  </data>
+  <data name="Please upload a valid license file." xml:space="preserve">
+    <value>Molimo učitajte valjani datoteku licence.</value>
+  </data>
+  <data name="Please upload a valid logo file." xml:space="preserve">
+    <value>Molimo učitajte valjantu datoteku logotipa.</value>
+  </data>
+  <data name="Please upload a valid seal file." xml:space="preserve">
+    <value>Molimo učitajte valjani pečat.</value>
+  </data>
+  <data name="Registered Address" xml:space="preserve">
+    <value>Registrirana adresa</value>
+  </data>
+  <data name="Registered Capital (Mainland)" xml:space="preserve">
+    <value>Ustatkovani kapital (Mainland)</value>
+  </data>
+  <data name="SCR Location (HK)" xml:space="preserve">
+    <value>SCR lokacija (HK)</value>
+  </data>
+  <data name="SWIFT Code" xml:space="preserve">
+    <value>SWIFT kod</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} ne može premašiti {1} znakova.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} je obavezan.</value>
+  </data>
+  <data name="Zip Code" xml:space="preserve">
+    <value>Poštanski broj</value>
+  </data>
+
+</root>
