@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A read-only Cloudflare API token used by Service Audit. Grant DNS Settings:Read for all accounts and DNS:Read for all zones." xml:space="preserve">
+    <value>Samopisani Cloudflare API token koji koristi Service Audit. Dodelite DNS Settings:Read za sve naloge i DNS:Read za sve zone.</value>
+  </data>
+  <data name="AI Assistant System Prompt" xml:space="preserve">
+    <value>Sustavni uput za AI asistenta</value>
+  </data>
+  <data name="AlertCenter API key" xml:space="preserve">
+    <value>AlertCenter API ključ</value>
+  </data>
+  <data name="AlertCenter endpoint" xml:space="preserve">
+    <value>AlertCenter krajnja točka</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Dozvoli korisniku prilagodbu nadimka</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Dopusti korisnicima da prilagode svoj nadimak na stranici za upravljanje profilom.</value>
+  </data>
+  <data name="An application API key with query, create, and mitigate permissions." xml:space="preserve">
+    <value>API ključ aplikacije s dozvolama za upit, kreiranje i ublažavanje.</value>
+  </data>
+  <data name="Annual Leave Per Year" xml:space="preserve">
+    <value>Godišnji odmor po godini</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>URL početne stranice brenda</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Naziv brenda</value>
+  </data>
+  <data name="Cloudflare API Token" xml:space="preserve">
+    <value>Cloudflare API Token</value>
+  </data>
+  <data name="Configure the audit scope from the service audit settings page." xml:space="preserve">
+    <value>Podesite opseg revizije s stranice postavki usluge revizije.</value>
+  </data>
+  <data name="Default Payroll Currency" xml:space="preserve">
+    <value>Zadana valuta za isplatu</value>
+  </data>
+  <data name="Enable AlertCenter synchronization" xml:space="preserve">
+    <value>Omogući sinkronizaciju s AlertCenterom</value>
+  </data>
+  <data name="Force Project Association" xml:space="preserve">
+    <value>Prisilna povezanost s projektom</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>ICP broj</value>
+  </data>
+  <data name="Meeting Minutes System Prompt" xml:space="preserve">
+    <value>Sustavni uput za zapisnik sastanka</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Logotip projekta</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Naziv projekta</value>
+  </data>
+  <data name="Require employees to associate at least one project when submitting a weekly report." xml:space="preserve">
+    <value>Zahtijevajte od zaposlenika da povežu barem jedan projekt pri podnošenju tjednog izvještaja.</value>
+  </data>
+  <data name="Service audit public base URL" xml:space="preserve">
+    <value>Javna osnovna URL adresa za reviziju usluge</value>
+  </data>
+  <data name="Service audit scope" xml:space="preserve">
+    <value>Opseg revizije usluge</value>
+  </data>
+  <data name="Synchronize service audit findings with AlertCenter." xml:space="preserve">
+    <value>Sinhronizirajte nalaze revizije usluga s AlertCenterom.</value>
+  </data>
+  <data name="The HTTP(S) base URL of AlertCenter." xml:space="preserve">
+    <value>Osnovni HTTP(S) URL usluge AlertCenter.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>ICP broj licence za korisnike iz kontinentalne Kine. Ostavite prazno za sakrivanje.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL tvrtke ili projekta. Npr. https://www.aiursoft.com</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Naziv brenda tvrtke ili projekta. Npr. Aiursoft.</value>
+  </data>
+  <data name="The default currency to use when issuing a new payroll." xml:space="preserve">
+    <value>Zadana valuta za upotrebu pri izdavanju nove plaće.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Logotip projekta prikazan u navigacijskoj traci i podnožju. Podržani formati: jpg, png, svg.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Naziv projekta prikazan u sučelju.</value>
+  </data>
+  <data name="The number of paid annual leave days allocated to each employee every year." xml:space="preserve">
+    <value>Broj dneva plaćene godišnje odmore dodijeljenih svakom zaposleniku svake godine.</value>
+  </data>
+  <data name="The public base URL of this EmployeeCenter instance, used in incident links." xml:space="preserve">
+    <value>Javna osnovna URL adresa ove instance EmployeeCentra, koristi se u vezama do incidenata.</value>
+  </data>
+  <data name="The system prompt for the AI assistant." xml:space="preserve">
+    <value>Sustavni uput za AI asistenta.</value>
+  </data>
+  <data name="The system prompt used to generate meeting minutes from transcripts." xml:space="preserve">
+    <value>Sustavni uput za generiranje zapisnika sastanka iz transkripta.</value>
+  </data>
+
+</root>
