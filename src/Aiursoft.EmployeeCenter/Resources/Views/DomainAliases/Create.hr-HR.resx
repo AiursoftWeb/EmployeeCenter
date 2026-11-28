@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Audit Now" xml:space="preserve">
+    <value>Auditiraj odmah</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Choose an audited, unregistered DNS hostname and connect it to an existing service." xml:space="preserve">
+    <value>Odaberite audirano, neprijavljeno DNS ime domene i povežite ga s postojećom uslugom.</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zatvori</value>
+  </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="HTTP aliases verify a precise redirect URL. CNAME aliases verify that DNS points directly to the selected service hostname." xml:space="preserve">
+    <value>HTTP aliasi provjeravaju točnu URL adresu preusmjeravanja. CNAME aliasi provjeravaju da DNS izravno pokazuje na odabrano ime poslužitelja usluge.</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP preusmjeravanje</value>
+  </data>
+  <data name="No alias candidates are available" xml:space="preserve">
+    <value>Nema dostupnih kandidata za alias</value>
+  </data>
+  <data name="Only current Unknown DNS findings can become aliases." xml:space="preserve">
+    <value>Samo trenutni nepoznati DNS nalazi mogu postati aliasi.</value>
+  </data>
+  <data name="Register alias and audit now" xml:space="preserve">
+    <value>Registriraj alias i odmah provjeri</value>
+  </data>
+  <data name="Register domain alias" xml:space="preserve">
+    <value>Registracija domenske lažne imenice</value>
+  </data>
+  <data name="Run a service audit first. New aliases can only be created from audited DNS hostnames that are not already registered as services or aliases." xml:space="preserve">
+    <value>Prvo pokrenite reviziju usluga. Novi aliasi mogu se stvoriti samo iz reviziranih DNS imena domena koja još nisu registrirana kao usluge ili aliasi.</value>
+  </data>
+  <data name="Select audited DNS hostname" xml:space="preserve">
+    <value>Odaberite audirani DNS domaći naziv</value>
+  </data>
+  <data name="Select target service" xml:space="preserve">
+    <value>Odaberite ciljanu uslugu</value>
+  </data>
+  <data name="The audit requires the first redirect Location header to match this URL exactly." xml:space="preserve">
+    <value>Revizija zahtijeva da prva Location zaglavlja preusmjeravanja točno odgovara ovom URL-u.</value>
+  </data>
+
+</root>

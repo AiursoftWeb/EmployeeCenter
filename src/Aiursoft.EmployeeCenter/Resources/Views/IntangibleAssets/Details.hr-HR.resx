@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Access Information" xml:space="preserve">
+    <value>Pristupne informacije</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Račun</value>
+  </data>
+  <data name="Assignee" xml:space="preserve">
+    <value>Dodijeljenom</value>
+  </data>
+  <data name="Belongs to Entity" xml:space="preserve">
+    <value>Pripada entitetu</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Expiration Date" xml:space="preserve">
+    <value>Datum istječenja</value>
+  </data>
+  <data name="Filing &amp; Registration" xml:space="preserve">
+    <value>Podnošenje i registracija</value>
+  </data>
+  <data name="Filing Number" xml:space="preserve">
+    <value>Broj prijave</value>
+  </data>
+  <data name="Filing Subject" xml:space="preserve">
+    <value>Predmet prijava</value>
+  </data>
+  <data name="Financial &amp; Assignment" xml:space="preserve">
+    <value>Financijski podaci i prijenos</value>
+  </data>
+  <data name="General Information" xml:space="preserve">
+    <value>Opće informacije</value>
+  </data>
+  <data name="Hidden" xml:space="preserve">
+    <value>Skriveno</value>
+  </data>
+  <data name="Intangible Asset Details" xml:space="preserve">
+    <value>Detalji nematerijalnih sredstava</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Račun</value>
+  </data>
+  <data name="Management URL" xml:space="preserve">
+    <value>Upravljački URL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naziv</value>
+  </data>
+  <data name="Not Assigned" xml:space="preserve">
+    <value>Nedodijeljeno</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Javno</value>
+  </data>
+  <data name="Purchase Price" xml:space="preserve">
+    <value>Cijena kupnje</value>
+  </data>
+  <data name="Query Method" xml:space="preserve">
+    <value>Metoda upita</value>
+  </data>
+  <data name="Registration Certificate" xml:space="preserve">
+    <value>Ugovor o registraciji</value>
+  </data>
+  <data name="Registration Date" xml:space="preserve">
+    <value>Datum registracije</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Dobavljač</value>
+  </data>
+  <data name="Trademark Image" xml:space="preserve">
+    <value>Slika žig</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Vrsta</value>
+  </data>
+  <data name="View Certificate" xml:space="preserve">
+    <value>Prikaži certifikat</value>
+  </data>
+  <data name="View Invoice" xml:space="preserve">
+    <value>Pogledaj fakturu</value>
+  </data>
+  <data name="View Trademark Image" xml:space="preserve">
+    <value>Prikaži sliku žig</value>
+  </data>
+
+</root>
