@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Team Calendar" xml:space="preserve">
+    <value>O ekipnom kalendaru</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Odobreno</value>
+  </data>
+  <data name="Blue - Approved future leave" xml:space="preserve">
+    <value>Plava - Odobreni budući odmor</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Očisti</value>
+  </data>
+  <data name="Close Search" xml:space="preserve">
+    <value>Zatvori pretragu</value>
+  </data>
+  <data name="Currently on Leave" xml:space="preserve">
+    <value>Trenutno na odsustvu</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dana</value>
+  </data>
+  <data name="Days label" xml:space="preserve">
+    <value>dana</value>
+  </data>
+  <data name="Green - Leave period has finished" xml:space="preserve">
+    <value>Zeleno - Razdoblje odsutnosti je završeno</value>
+  </data>
+  <data name="Leave Schedule" xml:space="preserve">
+    <value>Raspored odsustava</value>
+  </data>
+  <data name="No leave records found for this user in the specified range." xml:space="preserve">
+    <value>Nema zapisa o odsutnostima za ovog korisnika u navedenom razdoblju.</value>
+  </data>
+  <data name="No team members found." xml:space="preserve">
+    <value>Nema pronađenih članova tima.</value>
+  </data>
+  <data name="No upcoming or past leave records." xml:space="preserve">
+    <value>Nema nadolazećih ni prošlih zapisa o odsutnostima.</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>Nema pronađenih korisnika</value>
+  </data>
+  <data name="Not Yet Started" xml:space="preserve">
+    <value>Još nije započeto</value>
+  </data>
+  <data name="Only approved leave applications are displayed here." xml:space="preserve">
+    <value>Ovdje se prikazuju samo odobrene zahtjevi za odmor.</value>
+  </data>
+  <data name="Overview of leave schedules for your manager, reports, and colleagues." xml:space="preserve">
+    <value>Pregled rasporeda dopusta za vašeg nadređenog, izravne podređene i kolege.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>U tijeku</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Razdoblje</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Razlog</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Odbijeno</value>
+  </data>
+  <data name="Relation" xml:space="preserve">
+    <value>Odnos</value>
+  </data>
+  <data name="Returned" xml:space="preserve">
+    <value>Vratio se</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>Pregledatelj</value>
+  </data>
+  <data name="Search Any Employee" xml:space="preserve">
+    <value>Pretraži bilo kojeg zaposlenika</value>
+  </data>
+  <data name="Search for any employee to view their full leave history for the past and future 365 days." xml:space="preserve">
+    <value>Pretražite bilo kojeg zaposlenika kako biste pregledali njegovu punu povijest odsustvovanja za proteklih i nadolazećih 365 dana.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Status Legend" xml:space="preserve">
+    <value>Legenda statusa</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Team Calendar" xml:space="preserve">
+    <value>Kalendar tima</value>
+  </data>
+  <data name="Team Member" xml:space="preserve">
+    <value>Član tima</value>
+  </data>
+  <data name="Team Members&apos; Leave Status" xml:space="preserve">
+    <value>Status odsutnosti članova tima</value>
+  </data>
+  <data name="This calendar helps you stay informed about your team&apos;s availability to facilitate work handovers and planning." xml:space="preserve">
+    <value>Ovaj kalendar pomaže vam ostati informirani o raspoloživosti vašeg tima kako biste olakšali preuzimanje poslova i planiranje.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Vrsta</value>
+  </data>
+  <data name="Type 3+ characters to search for an employee..." xml:space="preserve">
+    <value>Upišite 3+ znaka za pretragu zaposlenika...</value>
+  </data>
+  <data name="Withdrawn" xml:space="preserve">
+    <value>Povučeno</value>
+  </data>
+  <data name="Yellow - Employee is currently away" xml:space="preserve">
+    <value>Žuto - Zaposlenik je trenutno odsutan</value>
+  </data>
+
+</root>

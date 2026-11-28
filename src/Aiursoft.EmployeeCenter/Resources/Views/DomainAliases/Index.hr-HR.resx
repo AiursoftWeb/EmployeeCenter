@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="Alias Governance" xml:space="preserve">
+    <value>Upravljanje aliasima</value>
+  </data>
+  <data name="Alias hostname" xml:space="preserve">
+    <value>Zamijski naziv domene</value>
+  </data>
+  <data name="Alias type" xml:space="preserve">
+    <value>Vrsta alijasa</value>
+  </data>
+  <data name="Audit Now" xml:space="preserve">
+    <value>Audiraj odmah</value>
+  </data>
+  <data name="Audit pending" xml:space="preserve">
+    <value>Revizija u tijeku</value>
+  </data>
+  <data name="Audit status" xml:space="preserve">
+    <value>Status revizije</value>
+  </data>
+  <data name="Audit status requires the service-audit view permission." xml:space="preserve">
+    <value>Status revizije zahtijeva dopuštenje za pregled usluge revizije.</value>
+  </data>
+  <data name="Available DNS candidates" xml:space="preserve">
+    <value>Dostupni DNS kandidati</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zatvori</value>
+  </data>
+  <data name="Create alias" xml:space="preserve">
+    <value>Kreiraj alias</value>
+  </data>
+  <data name="Critical" xml:space="preserve">
+    <value>Kritično</value>
+  </data>
+  <data name="DNS CNAME" xml:space="preserve">
+    <value>DNS CNAME</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="Delete this domain alias?" xml:space="preserve">
+    <value>Obrisati ovaj domenski alias?</value>
+  </data>
+  <data name="Domain Alias Registry" xml:space="preserve">
+    <value>Registar domenskih aliasa</value>
+  </data>
+  <data name="Each source hostname must match its registered HTTP redirect or DNS CNAME target." xml:space="preserve">
+    <value>Svaki izvorni naziv poslužitelja mora odgovarati njegovom registriranom HTTP preusmjeravanju ili DNS CNAME odredištu.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Expected target" xml:space="preserve">
+    <value>Očekivani cilj</value>
+  </data>
+  <data name="HTTP redirect" xml:space="preserve">
+    <value>HTTP preusmjeravanje</value>
+  </data>
+  <data name="Last successful audit" xml:space="preserve">
+    <value>Zadnja uspješna revizija</value>
+  </data>
+  <data name="Manage legacy hostnames and verify their HTTP redirects or DNS CNAME targets." xml:space="preserve">
+    <value>Upravljajte zastarjelim imenima domena i provjerite njihove HTTP preusmjeravanja ili DNS CNAME odredišta.</value>
+  </data>
+  <data name="New Alias" xml:space="preserve">
+    <value>Novi alias</value>
+  </data>
+  <data name="No domain aliases have been registered." xml:space="preserve">
+    <value>Nijedan domenski alias nije registriran.</value>
+  </data>
+  <data name="No unregistered DNS hostnames are currently available." xml:space="preserve">
+    <value>Trenutno nema dostupnih neprijavljenih DNS domenskih imena.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Za čeka</value>
+  </data>
+  <data name="Registered Aliases" xml:space="preserve">
+    <value>Registrirani aliasi</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Ograničeno</value>
+  </data>
+  <data name="Services Dashboard" xml:space="preserve">
+    <value>Nadzorna ploča usluga</value>
+  </data>
+  <data name="Target service" xml:space="preserve">
+    <value>Ciljana usluga</value>
+  </data>
+  <data name="Total aliases" xml:space="preserve">
+    <value>Ukupno aliasa</value>
+  </data>
+  <data name="Updated at" xml:space="preserve">
+    <value>Ažurirano u</value>
+  </data>
+  <data name="awaiting audit" xml:space="preserve">
+    <value>na čekanju revizije</value>
+  </data>
+  <data name="healthy" xml:space="preserve">
+    <value>zdrave</value>
+  </data>
+  <data name="managed aliases" xml:space="preserve">
+    <value>upravljanih alijasa</value>
+  </data>
+  <data name="need attention" xml:space="preserve">
+    <value>trebaju pažnju</value>
+  </data>
+
+</root>

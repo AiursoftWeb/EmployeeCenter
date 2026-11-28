@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="All Company" xml:space="preserve">
+    <value>Cijela tvrtka</value>
+  </data>
+  <data name="Annual Leave" xml:space="preserve">
+    <value>Godišnji odmor</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Podnositelj zahtjeva</value>
+  </data>
+  <data name="Approval Center" xml:space="preserve">
+    <value>Centar za odobrenja</value>
+  </data>
+  <data name="Approval History" xml:space="preserve">
+    <value>Povijest odobrenja</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Odobri</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Odobreno</value>
+  </data>
+  <data name="Approved This Month" xml:space="preserve">
+    <value>Odobreno ovaj mjesec</value>
+  </data>
+  <data name="Approver" xml:space="preserve">
+    <value>Odobravitelj</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zatvori</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dana</value>
+  </data>
+  <data name="Decision" xml:space="preserve">
+    <value>Odluka</value>
+  </data>
+  <data name="If rejected by mistake:" xml:space="preserve">
+    <value>Ako je odbijeno pogreškom:</value>
+  </data>
+  <data name="If the employee wishes to cancel:" xml:space="preserve">
+    <value>Ako zaposlenik želi odustati:</value>
+  </data>
+  <data name="Important: Approval Decisions Are Final" xml:space="preserve">
+    <value>Važno: Odluke o odobrenju su konačne</value>
+  </data>
+  <data name="My Team" xml:space="preserve">
+    <value>Moj tim</value>
+  </data>
+  <data name="No approval history." xml:space="preserve">
+    <value>Nema povijesti odobrenja.</value>
+  </data>
+  <data name="No pending applications." xml:space="preserve">
+    <value>Nema čekaćih zahtjeva.</value>
+  </data>
+  <data name="Once you approve or reject a leave application, the decision cannot be undone. Please review carefully before taking action." xml:space="preserve">
+    <value>Nakon što odobrite ili odbijete zahtjev za odsustvo, odluka se ne može poništiti. Molimo vas da pažljivo pregledate prije poduzimanja radnje.</value>
+  </data>
+  <data name="Pending Approval" xml:space="preserve">
+    <value>Na čekanju odobrenja</value>
+  </data>
+  <data name="Pending Approvals" xml:space="preserve">
+    <value>Očekivana odobrenja</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Razdoblje</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Razlog</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Odbij</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Odbijeno</value>
+  </data>
+  <data name="Rejected This Month" xml:space="preserve">
+    <value>Odbijeno ovaj mjesec</value>
+  </data>
+  <data name="Reviewed" xml:space="preserve">
+    <value>Pregledano</value>
+  </data>
+  <data name="Sick Leave" xml:space="preserve">
+    <value>Bolovanje</value>
+  </data>
+  <data name="Submitted" xml:space="preserve">
+    <value>Podneseno</value>
+  </data>
+  <data name="The employee must submit a new application." xml:space="preserve">
+    <value>Zaposlenik mora podnijeti novu prijavu.</value>
+  </data>
+  <data name="They can withdraw their own application before it starts." xml:space="preserve">
+    <value>Mogu povući vlastiti zahtjev prije nego što počne.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Vrsta</value>
+  </data>
+  <data name="applications approved" xml:space="preserve">
+    <value>odobrena zahtjeva</value>
+  </data>
+  <data name="applications rejected" xml:space="preserve">
+    <value>odbađene aplikacije</value>
+  </data>
+  <data name="awaiting review across company" xml:space="preserve">
+    <value>čeka pregled u cijeloj tvrtki</value>
+  </data>
+  <data name="awaiting your review" xml:space="preserve">
+    <value>na čekanju vaše provjere</value>
+  </data>
+  <data name="currently absent" xml:space="preserve">
+    <value>trenutno odsutni</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>do</value>
+  </data>
+
+</root>
