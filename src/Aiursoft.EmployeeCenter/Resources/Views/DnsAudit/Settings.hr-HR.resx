@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add domains not listed" xml:space="preserve">
+    <value>Dodaj domene koje nisu navedene</value>
+  </data>
+  <data name="Audit settings" xml:space="preserve">
+    <value>Postavke revizije</value>
+  </data>
+  <data name="Back to service audit" xml:space="preserve">
+    <value>Natrag na audit usluge</value>
+  </data>
+  <data name="Changes apply to the next audit. Registrations are kept; findings outside the scope are automatically mitigated after a successful audit." xml:space="preserve">
+    <value>Promjene se primjenjuju na sljedeći audit. Registracije se zadržavaju; nalazi izvan opsega automatski se ublažavaju nakon uspješnog audita.</value>
+  </data>
+  <data name="Checked domains and all their subdomains are excluded from every audit check, including registered services." xml:space="preserve">
+    <value>Označene domene i svi njihovi poddomeni isključeni su iz svih provjera audita, uključujući registrirane usluge.</value>
+  </data>
+  <data name="Cloudflare zones are unavailable. Saved selections and registered domains are still shown; you can also enter a domain below." xml:space="preserve">
+    <value>Cloudflare zoneovi nisu dostupni. Spremni odabiri i registrirani domene i dalje se prikazuju; možete i unijeti domenu ispod.</value>
+  </data>
+  <data name="Covered by a parent exclusion" xml:space="preserve">
+    <value>Pokriveno isključenjem roditeljske domene</value>
+  </data>
+  <data name="Enter one domain per line. After saving, these domains appear in the checkbox lists." xml:space="preserve">
+    <value>Unesite jedan domen po retku. Nakon spremanja, ovi domeni se prikazuju u popisima s okvirićima za odabir.</value>
+  </data>
+  <data name="Excluded domains" xml:space="preserve">
+    <value>Isključene domene</value>
+  </data>
+  <data name="Find a domain" xml:space="preserve">
+    <value>Pronađi domenu</value>
+  </data>
+  <data name="Included Cloudflare zones" xml:space="preserve">
+    <value>Uključene Cloudflare zone</value>
+  </data>
+  <data name="No matching domains. You can enter another domain below." xml:space="preserve">
+    <value>Nema odgovarajućih domena. Ispod možete unijeti drugu domenu.</value>
+  </data>
+  <data name="Save settings" xml:space="preserve">
+    <value>Spremi postavke</value>
+  </data>
+  <data name="Select where to discover unregistered services. Registered services and aliases are still audited unless excluded below." xml:space="preserve">
+    <value>Odaberite gdje otkriti neprijavljene usluge. Prijavljene usluge i aliasi i dalje se provjeravaju osim ako nisu isključeni dolje.</value>
+  </data>
+  <data name="Settings saved. Changes apply to the next audit; the previous report remains unchanged." xml:space="preserve">
+    <value>Postavke su spremljene. Promjene se primjenjuju na sljedeći audir; prethodni izvještaj ostaje nepromijenjen.</value>
+  </data>
+  <data name="These settings are managed by deployment configuration and cannot be changed here." xml:space="preserve">
+    <value>Ova podešavanja upravlja se konfiguracijom implementacije i ne mogu se promijeniti ovdje.</value>
+  </data>
+
+</root>
